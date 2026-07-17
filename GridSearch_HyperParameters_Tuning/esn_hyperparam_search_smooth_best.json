@@ -1,0 +1,17 @@
+{
+  "best_arch": {
+    "rough_orientation": -1.0,
+    "Nr": 96,
+    "Nz": 12,
+    "matrix_seed": 202695547565,
+    "z_strength": 0.19288535085059877,
+    "even_strength": 2.2291053209265703,
+    "linear_strength": 0.1930215632408165,
+    "gamma_norm": 0.9651266728165394,
+    "local_z_strength": 0.04759055003377607,
+    "zz_scale": 0.039730814766135034,
+    "sign_prob_neg": 0.22189311131648579
+  },
+  "best_score": 5.141539146330545,
+  "note": "Nr=96,Nz=12 is the 3-seed grid argmin but is NOT statistically distinguishable from most other cells including Nr=64,Nz=8 (see protocol Sec 6.2)"
+}

@@ -1,0 +1,760 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,array,xcolor}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+
+
+\title{ESN--A2 Stochastic-Volatility Model:\\
+Architecture and hyperparameters tuning}
+\author{Othmane Zarhali}
+\date{July 14, 2026}
+
+\begin{document}
+\maketitle
+\vspace{-0.3cm}
+\noindent\rule{\textwidth}{0.8pt}
+
+\begin{abstract}
+
+This technical note is organised as follows:\\
+
+\begin{enumerate}
+    \item \textbf{Model specification.} introduces the complete ESN--A2 stochastic-volatility model, including its architecture, the data-generating processes, and the score function used for calibration.
+
+    \item \textbf{Calibration framework.} presents the implementation choices required for the calibration procedure.
+
+    \item \textbf{Scoring methodology.} defines the smooth Gaussian-kernel score that is employed throughout the study.
+
+    \item \textbf{Model hyperparameters tuning and empirical results.} Section~\S4 evaluates the proposed architecture through several complementary analyses:
+    \begin{enumerate}
+        \item a complete grid search over the reservoir dimensions $(N_r,N_z)$, averaged over three independent random seeds (Section~\ref{sec:gridmatrix});
+        \item the calibrated read-out parameters obtained for each volatility scenario (Section~\ref{sec:amplitude});
+        \item the model's ability to reproduce the target Hurst exponent across four rough- and persistent-volatility scenarios (Section~\ref{sec:hurst}).
+    \end{enumerate}
+
+    \item \textbf{Conclusions.} Finally, it summarises the resulting optimal architecture and outlines the remaining directions for further validation.
+\end{enumerate}
+\end{abstract}
+
+\tableofcontents
+\vspace{0.4cm}
+
+\section{The Model}
+
+\subsection{Two parameter classes}
+
+The pipeline separates two conceptually distinct parameter sets.
+
+\begin{itemize}[itemsep=2pt]
+\item \textbf{Hyperparameters} (shared across every DGP scenario,
+found by an outer CMA-ES search): reservoir sizes $N_r,N_z$; z-bank
+amplitude (\texttt{z\_strength}); pre-activation coefficients
+$\beta_{\rm even},\beta_{\rm lin}$; damping $\gamma$
+(\texttt{gamma\_norm}); local $z$-coupling $\delta_{\rm loc}$;
+self-coupling scale $\nu_z$ (\texttt{zz\_scale}); sign probability
+$\Pr(s_j=-1)$; orientation $\rho_r\in\{-1,+1\}$ (fixed to $-1$ by an
+admissibility constraint, \S1.2.3). \textbf{7 hyperparameters in
+total.}
+\item \textbf{Calibrated parameters} (fit per DGP scenario inside an
+inner Nelder--Mead loop): the reservoir's own memory exponent
+$H_{\rm ESN}$ (distinct from the DGP's Hurst parameter, Remark 2), the
+geometric OU-rate bounds $[\lambda_{\rm lo},\lambda_{\rm hi}]$, the
+$z$-bank rate bounds $[a_{\rm lo},a_{\rm hi}]$, a bias offset
+$\Delta b_0$, an output scale, the roughness-factor amplitude
+$\rho_{\rm scale}$ (\texttt{rough\_scale}), a $z$-bank read-out profile
+$(\texttt{zr\_lo},\texttt{zr\_hi})$, and a symmetric quadratic-term
+matrix's two coefficients $(m_1,m_2)$. \textbf{12 calibrated
+parameters in total.}
+\end{itemize}
+
+\subsection{ESN architecture}
+
+The architecture has two coupled internal layers: a linear reservoir
+$r$ (the ``rough factor'' bank) and a nonlinear, slower feedback bank
+$z$ (the ``multiscale/Zumbach'' bank).
+
+\subsubsection{The $r$-layer}
+
+$r=(r_1,\ldots,r_{N_r})\in\mathbb{R}^{N_r}$ is a bank of $N_r$
+discrete-time Ornstein--Uhlenbeck (OU) processes, all driven by the
+same scalar innovation. Their mean-reversion rates are fixed,
+geometrically spaced over the calibrated range
+$[\lambda_{\rm lo},\lambda_{\rm hi}]$:
+\begin{equation}
+  \lambda_i = \lambda_{\rm lo}\Bigl(\frac{\lambda_{\rm hi}}{\lambda_{\rm lo}}\Bigr)^{\frac{i-1}{N_r-1}},
+  \quad i=1,\ldots,N_r,
+  \label{eq:geomspace}
+\end{equation}
+i.e.\ $\lambda_1=\lambda_{\rm lo}$ (slowest mode), $\lambda_{N_r}=\lambda_{\rm
+hi}$ (fastest mode), uniformly spaced in $\log\lambda$ in between.
+Given a single scalar innovation $\varepsilon_t\sim\mathcal N(0,1)$
+drawn once per time step (the same draw feeds every component $i$), the
+layer updates as
+\begin{equation}
+  r_{i,t} = e^{-\lambda_i\Delta t}\,r_{i,t-1} + \sqrt{1-e^{-2\lambda_i\Delta t}}\,\varepsilon_t,
+  \quad i=1,\ldots,N_r,
+  \label{eq:rlayer}
+\end{equation}
+with $\Delta t=1$ (one trading day). Sharing one common Brownian shock
+across all $N_r$ modes turns the bank into a (Markovian,
+multi-exponential) representation of a single rough process: any
+linear combination $q^\top r_t$ is a finite sum-of-exponentials
+approximation to a Volterra/fractional kernel driven by that same
+shock, and the full vector $r_t$ also feeds a quadratic energy term
+(\S1.2.3). Because each component is a stationary AR(1)/OU recursion,
+its stationary variance is $\mathrm{Var}(r_i)=1$ for every $i$, and the
+stationary cross-covariance between two components is
+\begin{equation}
+  \mathrm{Cov}(r_i,r_j) = \frac{b_ib_j}{\lambda_i+\lambda_j},\qquad b_i=\sqrt{2\lambda_i},
+  \label{eq:crosscov}
+\end{equation}
+used to normalise the read-out vector, described next.
+
+\paragraph{Read-out $q$.} The rough factor fed to the output is the
+scalar projection $q^\top r_t$, where $q\in\mathbb{R}^{N_r}$ is built
+from the calibrated exponent $H_{\rm ESN}$ as
+\begin{equation}
+  \tilde q_i = \lambda_i^{1/2-H_{\rm ESN}},\qquad
+  q = \frac{\tilde q/\|\tilde q\|_2}{\sqrt{(\tilde q/\|\tilde q\|_2)^\top C(\tilde q/\|\tilde q\|_2)}},
+  \label{eq:readout_q}
+\end{equation}
+so that $q^\top Cq=1$: the rough factor $q^\top r_t$ has unit
+stationary variance for any choice of $H_{\rm ESN}$ or
+$[\lambda_{\rm lo},\lambda_{\rm hi}]$.
+
+\subsubsection{The $z$-layer}
+
+$z=(z_1,\ldots,z_{N_z})\in\mathbb{R}^{N_z}$ is a second, separate bank
+with its own geometrically spaced rates $a_j\in[a_{\rm lo},a_{\rm hi}]$,
+\begin{equation}
+  a_j = a_{\rm lo}\Bigl(\frac{a_{\rm hi}}{a_{\rm lo}}\Bigr)^{\frac{j-1}{N_z-1}},\quad j=1,\ldots,N_z,
+  \label{eq:zrates}
+\end{equation}
+updated as a deterministic nonlinear filter of the $r$-layer's own
+trajectory:
+\begin{equation}
+  z_{j,t} = e^{-a_j\Delta t}\,z_{j,t-1} + \bigl(1-e^{-a_j\Delta t}\bigr)\,m_t\,\zeta\,\tanh(u_{j,t}),
+  \qquad
+  m_t = \max\Bigl(0,\ 1-\gamma\,\|r_t\|_2/\sqrt{N_r}\Bigr),
+  \label{eq:zupdate}
+\end{equation}
+with $\zeta=\texttt{z\_strength}$, $\gamma=\texttt{gamma\_norm}$, and
+\begin{equation}
+  u_{j,t} = \underbrace{s_jp_{1,j}p_{2,j}}_{\text{cross (Zumbach)}}
+          + \underbrace{\beta_{\rm even}(0.7p_{1,j}^2+0.3p_{2,j}^2-1)}_{\text{even (variance-like)}}
+          - \underbrace{\beta_{\rm lin}(0.7p_{1,j}+0.3p_{2,j})}_{\text{linear (leverage-like)}}
+          + \underbrace{\nu_jz_{j,t-1}}_{\text{self}}
+          + \underbrace{\tfrac12\delta_{\rm loc}(z_{j-1,t-1}+z_{j+1,t-1})}_{\text{local (chain) coupling}},
+  \label{eq:preact}
+\end{equation}
+with boundary indices reflected, a fixed per-mode sign
+$s_j\in\{-1,+1\}$ ($\Pr(s_j{=}+1)=\texttt{sign\_prob\_neg}$), and a
+fixed per-mode self-coupling coefficient
+$\nu_j\sim\mathrm{Unif}(-\nu_z,\nu_z)$ ($\nu_z=\texttt{zz\_scale}$).
+The two reservoir taps $p_{1,j}=r_{f_i(j)}$, $p_{2,j}=r_{s_i(j)}$ move
+in opposite directions across the spectrum as $j$ increases:
+\begin{align}
+  f_i(j) &= \min\Bigl(N_r{-}1,\ \tfrac{N_r}{2}+\bigl\lfloor(\tfrac{N_r}{2}{-}1)\tfrac{j}{N_z-1}\bigr\rfloor\Bigr)
+  \quad(\tfrac{N_r}{2}\to N_r{-}1: \text{increasingly fast tap}), \label{eq:fi}\\
+  s_i(j) &= \bigl\lfloor(\tfrac{N_r}{2}{-}1)\tfrac{N_z-1-j}{N_z-1}\bigr\rfloor
+  \quad(\tfrac{N_r}{2}{-}1\to0: \text{increasingly slow tap}), \label{eq:si}
+\end{align}
+for $j=0,\ldots,N_z{-}1$ (0-indexed here to match the implementation).
+Thus $z_0$ combines two adjacent, mid-spectrum $r$-modes, while
+$z_{N_z-1}$ combines the single fastest mode with the single slowest
+mode: the $z$-bank is explicitly constructed to read cross-timescale
+(fast$\times$slow) products and sums out of the $r$-layer, and to fold
+that information back into the volatility process through its own,
+independently slow relaxation rates $a_j$ and the local chain coupling
+$\delta_{\rm loc}$.
+
+\subsubsection{Coupling to the output}
+\label{sec:coupling}
+
+The instantaneous log-volatility pre-activation reads both layers
+additively, through three terms:
+\begin{equation}
+  \eta_t = b_0 + \rho_r\,\texttt{rough\_scale}\,(q^\top r_t)
+         + \sum_{j=1}^{N_z} w_{j,z}\,z_{j,t}
+         + r_t^\top Q\,r_t,
+  \qquad
+  \sigma_t = \sqrt{\mathrm{SIG\_MIN}^2+\mathrm{softplus}(\eta_t)^2},
+  \label{eq:coupling}
+\end{equation}
+with
+\begin{equation}
+\begin{cases}
+    w_{j,z} = \frac{\texttt{z\_readout}_j}{\sqrt{N_z}}\\
+    \texttt{z\_readout}_j = \mathrm{geomspace}(\texttt{zr\_lo},\texttt{zr\_hi},N_z)[j]\\
+     Q = \frac{1}{N_r}\,M,\qquad M = m_1 I_{N_r} + m_2\,qq^\top.
+\end{cases}
+  \label{eq:profile_and_Q}
+\end{equation}
+Daily log-returns are $dX_t=(\mu-\tfrac12\sigma_t^2)+\sigma_t\varepsilon_t$
+(reusing the same $\varepsilon_t$ that drove $r_t$, Eq.~\eqref{eq:rlayer}),
+so the return and the volatility innovation are perfectly
+instantaneously correlated -- the source of the model's leverage
+effect. Admissibility requires
+$\kappa_0=\rho_r\,\texttt{rough\_scale}\,q^\top\sqrt{2\lambda}<0$
+(negative leverage), enforced by fixing $\rho_r=-1$; since $q$ and
+$\sqrt{2\lambda}$ are both strictly positive vectors, $\kappa_0<0$
+holds automatically whenever $\texttt{rough\_scale}>0$. This
+constraint depends only on the linear rough term, not on the $z$-bank
+profile or the quadratic term.
+
+\paragraph{The three read-out terms, in words.} (i) A linear rough
+factor $\texttt{rough\_scale}\cdot q^\top r_t$: the r-layer's own,
+Volterra-kernel-shaped contribution. (ii) A per-mode $z$-bank sum
+$\sum_j w_{j,z}z_{j,t}$, with weights $\texttt{z\_readout}_j$ following
+a smooth geometric \emph{profile} across the $N_z$ modes (2 calibrated
+parameters $\texttt{zr\_lo},\texttt{zr\_hi}$, rather than one shared
+scalar or $N_z$ fully free weights) -- since mode $j$ already carries a
+fast$\leftrightarrow$slow meaning via the $f_i(j)/s_i(j)$ taps
+(Eq.~\ref{eq:fi}--\ref{eq:si}), this profile lets different $z$-modes
+matter differently to the volatility level. (iii) A quadratic-in-$r$
+term $r_t^\top Qr_t=(1/N_r)(m_1\|r_t\|^2+m_2(q^\top r_t)^2)$, with
+$Q=(1/N_r)M$ a genuine, \textbf{symmetric} matrix (not restricted to a
+multiple of the identity): $m_1$ scales the $r$-layer's isotropic
+instantaneous energy (already computed for the $z$-bank's gate $m_t$,
+Eq.~\ref{eq:zupdate}), while $m_2$ scales a second, independent channel
+that responds specifically to the \emph{squared} rough factor
+$(q^\top r_t)^2$ -- the same direction that already drives the linear
+rough term, now also entering quadratically.
+
+\paragraph{Why this parameterisation (tractability).} A fully free
+per-mode $z$-weight vector together with a fully free symmetric
+$N_r\times N_r$ matrix $Q$ would add $N_z+N_r(N_r+1)/2$ calibrated
+dimensions ($8+2080=2088$ at $N_r=64,N_z=8$; more at larger $N_r$) --
+far beyond what a per-scenario Nelder--Mead multi-start can reliably
+navigate, and likely to overfit the 11-term score against a handful of
+DGP scenarios. $M=m_1I_{N_r}+m_2qq^\top$ is symmetric by construction
+for \emph{any} real $(m_1,m_2)$ (a real linear combination of symmetric
+matrices is symmetric); no positive-definiteness constraint is
+imposed. $M$'s eigenvalues are $m_1$ (multiplicity $N_r-1$, on $q$'s
+orthogonal complement) and $m_1+m_2\|q\|^2$ (multiplicity 1, along
+$q$) -- exactly diagonal in the eigenbasis $\{q,q^\perp\}$, and either
+eigenvalue may be positive, negative, or zero.
+
+\paragraph{Remark 1 (Division of labour between the three read-out
+terms).} The $r$-layer alone, through $q$ and $H_{\rm ESN}$, already
+generates a rough-volatility-like process (a finite-dimensional
+Markovian approximation of a fractional kernel). The $z$-layer adds
+genuine nonlinearity (the $\tanh$ squashing and the quadratic/even
+terms of Eq.~\eqref{eq:preact}) and an explicit, by-construction
+fast$\times$slow cross-timescale interaction. The quadratic term
+$r_t^\top Qr_t$ is a distinct, \emph{reservoir-wide} signal: unlike the
+$z$-bank's own internal even/quadratic term, which only ever sees
+\emph{two} taps at a time, $r_t^\top Qr_t$ reads the full
+$N_r$-dimensional reservoir state, split by $M$'s construction into an
+isotropic component ($m_1$) and a component aligned with the rough
+read-out direction ($m_2$).
+
+\paragraph{Remark 2 (Two different objects both called ``$H$'').}
+The DGP's Hurst parameter $H_{\rm DGP}\in\{0.10,0.40\}$ (used to
+generate the target paths) and the ESN's own memory-kernel exponent
+$H_{\rm ESN}\in[0.02,0.49]$ (a calibrated hyperparameter of the
+read-out weighting) are different objects. The inner calibration loop
+searches over $H_{\rm ESN}$ so that the realised structure-function
+estimate $\hat H_{\rm sim}$ of the simulated ESN path matches the
+DGP's target $\hat H_c$; they are not required to coincide, and in
+general do not (\S\ref{sec:hurst}).
+
+\section{Data Generating Process (DGP) portfolio for the grid search procedure}
+
+Four scenarios, equally weighted, define the target stylised facts:
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Name & Type & Parameters \\
+\midrule
+\texttt{fBM\_rough}   & \texttt{lnsv}    & $H=0.10,\ \lambda=1.0$ \\
+\texttt{MRW\_taylor}  & \texttt{mrw}     & $\lambda^2=0.03,\ T_{\rm int}=252$ \\
+\texttt{rBergomi\_Z}  & \texttt{bergomi} & $H=0.10,\ \eta=1.0,\ \rho=-0.70$ \\
+\texttt{fBM\_persist} & \texttt{lnsv}    & $H=0.40,\ \lambda=1.5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The \texttt{lnsv} (log-normal stochastic-volatility fBM) type sets
+$\log\sigma_t=\log\sigma_0+\lambda B_t^H-\tfrac12\lambda^2t^{2H}$
+(measuring $t$ in years, consistently, in both the fBM covariance and
+the It\^o correction -- this is required for numerical stability at
+$H=0.40$ over long simulated horizons, \S2); the \texttt{bergomi}
+(rough Bergomi) type is the analogous
+$V_t=\xi_0\exp(\eta B_t^H-\tfrac12\eta^2t^{2H})$ with correlated
+leverage $\rho$; the \texttt{mrw} (multifractal random walk) type uses
+a bounded, already-stationary log-covariance kernel
+$\lambda^2\log(T_{\rm int}/|t-s|)$. For each scenario, $N_{\rm DGP\_PATHS}$
+independent Monte-Carlo simulations of length $T_{\rm SIM}$ build a
+reference vector of 11 stylised-fact centres/scales
+(Table~\ref{tab:scoreterms}); the ESN, for a given architecture, is
+calibrated to fit this reference.
+
+\subsection{Score function}
+
+Every stylised-fact term is expressed as a deviation
+$d_k=w_k(1-f_k)\in[0,w_k]$ ($0=$ perfect, $w_k=$ worst), using a smooth
+Gaussian-kernel proximity
+\begin{equation}
+  f(x,c,s) = \exp\Bigl(-\tfrac12\bigl(\tfrac{x-c}{s}\bigr)^2\Bigr),
+  \label{eq:smoothkernel}
+\end{equation}
+rather than a piecewise-linear ``tent'' -- the smooth kernel provides a
+never-zero gradient at any distance from target, whereas a tent kernel
+$\max(0,1-|x-c|/s)$ has an exactly-zero gradient beyond one tolerance
+width, which stalls a local optimiser (Nelder--Mead) once a statistic
+drifts past tolerance (Figure~\ref{fig:kernels}). The total score is
+\begin{equation}
+  S = \sum_{k=1}^{11}w_k(1-f_k) + 5\cdot\mathrm{Stress}\ \in\ [0,15.3),
+  \label{eq:score}
+\end{equation}
+where $\mathrm{Stress}\in\{0,1\}$ flags an inadmissible path (blow-up
+or collapse of annualised volatility). $S=0$ requires a perfect match
+on all 11 stylised facts and no stress event; $S$ is minimised directly
+(no sign flip) by both the inner Nelder--Mead loop and the outer
+CMA-ES search.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{Numerical Protocols _ stylized facts reproduction/GridSearch_hyperparameters/kernel_shapes.png}
+\caption{Tent vs.\ smooth (Gaussian) proximity kernel $f$ (left) and the
+resulting per-term deviation $d=1-f$ (right). The tent is exactly flat
+($d=1$, zero gradient) beyond one tolerance width $s$; the smooth
+kernel never flattens.}
+\label{fig:kernels}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{The 11 deviation terms $d_k=w_k(1-f_k)$ entering $S$ (Eq.~\eqref{eq:score}).}
+\label{tab:scoreterms}
+\begin{tabular}{@{}lp{7.2cm}r@{}}
+\toprule
+Statistic & Description & Weight $w_k$ \\
+\midrule
+$\hat H$ & Local H\"older exponent (structure function of $\log v$) & 2.2 \\
+$\sigma_{\rm ann}$ & Mean annualised volatility & 1.4 \\
+$\sigma^{0.995}_{\rm ann}$ & 99.5\% quantile of annualised vol & 0.6 \\
+$\sigma^{\max}_{\rm ann}$ & Max annualised vol & 0.2 \\
+$\rho_v$ & Mean variance autocorrelation (lags 1--20) & 0.8 \\
+Taylor gap & $\rho_{|x|}-\rho_{x^2}$ & 1.0 \\
+Taylor fraction & $\Pr(\rho_{|x|}>\rho_{x^2})$ & 0.8 \\
+Zumbach & Past-return$\to$future-vol vs.\ past-vol$\to$future-return asymmetry & 1.0 \\
+Leverage & $\mathrm{corr}(x_t,v_{t+L})$ & 1.1 \\
+Kurtosis & Excess kurtosis of returns & 0.7 \\
+$\max|\rho_x|$ & Max$|$return autocorrelation$|$ & 0.5 \\
+\midrule
+\multicolumn{2}{r}{$+\ 5\cdot\mathrm{Stress}$} & 5.0 \\
+\midrule
+\multicolumn{2}{r}{Total (worst case)} & 15.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Search procedure}
+
+For a given architecture (the 7 hyperparameters of \S1.1 plus
+$N_r,N_z$), the inner loop runs a multi-start Nelder--Mead per DGP
+scenario to find
+\[
+H_{\rm ESN},\ \lambda_{\rm lo},\ \lambda_{\rm hi},\ a_{\rm lo},\ a_{\rm hi},\
+\Delta b_0,\ \mathrm{scale},\ \texttt{rough\_scale},\
+\texttt{zr\_lo},\ \texttt{zr\_hi},\ m_1,\ m_2
+\]
+(\textbf{12 parameters}) that minimise $S$ against that scenario's
+reference; the outer loop averages $S$ across the 4 scenarios and
+searches the 7 continuous hyperparameters via CMA-ES (Hansen \&
+Ostermeier), for each $(N_r,N_z)$ cell of a discrete grid
+(\S\ref{sec:gridmatrix}).
+
+The inner loop uses \textbf{eleven} qualitatively different starting
+points, kept whichever converges to the lowest $S$: a rough/fast
+reservoir, a persistent/slow reservoir, an intermediate reservoir, a
+wide-band/multiscale reservoir (spanning both day-scale and
+multi-year OU modes simultaneously, so a single reservoir can support
+both rough and persistent targets), a long-memory-extreme reservoir,
+strong- and weak-amplitude starts (probing the $\texttt{rough\_scale}$/
+$z$-profile range), and four quadratic-term starts (isotropic-positive,
+isotropic-negative, $q$-aligned-positive, $q$-aligned-negative) probing
+the two channels of $M$ independently.
+
+
+
+\section{Grid-Matrix Hyperparameter Search: Algorithm}
+
+The procedure described in \S1.3 (score function) and \S1.4 (search
+procedure) is summarised below as three nested algorithms: the
+top-level grid-matrix sweep with an outer CMA-ES search
+(Algorithm~\ref{alg:gridsearch}), the per-scenario multi-start
+Nelder--Mead inner loop it calls (Algorithm~\ref{alg:innercalibrate}),
+and the smooth-kernel score evaluation both rely on
+(Algorithm~\ref{alg:score}).
+
+\begin{algorithm}[H]
+\caption{ESN Grid-Matrix Hyperparameter Search}
+\label{alg:gridsearch}
+\begin{algorithmic}[1]
+\Require DGP portfolio $\mathcal{D} = \{\texttt{fBM\_rough}, \texttt{MRW\_taylor}, \texttt{rBergomi\_Z}, \texttt{fBM\_persist}\}$
+\Require Grid of reservoir sizes $\mathcal{G} = \{(N_r, N_z)\}$
+\Require Multi-start set $\mathcal{P}_0$ of 11 starting points (Algorithm~\ref{alg:innercalibrate})
+\Require CMA-ES budget (population size, number of generations)
+\Ensure Optimal architecture $(N_r^\ast, N_z^\ast, \boldsymbol{\theta}^\ast)$ with minimal mean score $S^\ast$
+
+\Statex
+\Statex \textit{Stage 1 --- build the DGP reference (once, shared across the whole sweep)}
+\For{each scenario $d \in \mathcal{D}$}
+    \State Simulate $N_{\rm DGP\_PATHS}$ independent paths of length $T_{\rm SIM}$ under scenario $d$
+    \State $\mathrm{ref}_d \gets$ 11 stylised-fact centres/scales (Table~\ref{tab:scoreterms})
+\EndFor
+
+\Statex
+\Statex \textit{Stage 2 --- sweep the $(N_r,N_z)$ grid}
+\State $S^{\rm best}_{\rm grid} \gets +\infty$
+\For{each $(N_r, N_z) \in \mathcal{G}$}
+    \State Initialise CMA-ES over the 7 shared hyperparameters $\boldsymbol{\theta} \in \mathbb{R}^7$
+    \While{CMA-ES budget not exhausted}
+        \For{each candidate $\boldsymbol{\theta}$ in the current CMA-ES generation}
+            \For{each scenario $d \in \mathcal{D}$}
+                \State $S_d \gets \Call{InnerCalibrate}{\boldsymbol{\theta}, N_r, N_z, \mathrm{ref}_d, \mathcal{P}_0}$
+            \EndFor
+            \State $\bar S(\boldsymbol{\theta}) \gets \dfrac{1}{|\mathcal{D}|}\sum_{d \in \mathcal{D}} S_d$ \Comment{mean score across the 4 scenarios}
+        \EndFor
+        \State Update CMA-ES using fitness values $\{\bar S(\boldsymbol{\theta})\}$ of the generation
+    \EndWhile
+    \State $(\boldsymbol{\theta}^\ast_{N_r,N_z},\, S^\ast_{N_r,N_z}) \gets$ best $(\boldsymbol{\theta}, \bar S(\boldsymbol{\theta}))$ found for this cell
+    \If{$S^\ast_{N_r,N_z} < S^{\rm best}_{\rm grid}$}
+        \State $S^{\rm best}_{\rm grid} \gets S^\ast_{N_r,N_z}$
+        \State $(N_r^\ast, N_z^\ast, \boldsymbol{\theta}^\ast) \gets (N_r, N_z, \boldsymbol{\theta}^\ast_{N_r,N_z})$
+    \EndIf
+\EndFor
+\State \Return $(N_r^\ast, N_z^\ast, \boldsymbol{\theta}^\ast, S^{\rm best}_{\rm grid})$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{\textsc{InnerCalibrate} --- multi-start Nelder--Mead per-scenario calibration}
+\label{alg:innercalibrate}
+\begin{algorithmic}[1]
+\Function{InnerCalibrate}{$\boldsymbol{\theta}, N_r, N_z, \mathrm{ref}, \mathcal{P}_0$}
+    \State $S^{\rm best} \gets +\infty$, \ $\mathbf{p}^{\rm best} \gets \varnothing$
+    \For{each starting point $\mathbf{p}_0 \in \mathcal{P}_0$}
+        \Comment{11 qualitatively different starts: rough/fast, persistent/slow,
+        intermediate, wide-band/multiscale, long-memory-extreme, strong-amplitude,
+        weak-amplitude, isotropic-positive, isotropic-negative, $q$-aligned-positive,
+        $q$-aligned-negative}
+        \State $\mathbf{p}_0 = \bigl(H_0,\ \lambda_{{\rm lo},0},\ \lambda_{{\rm hi},0},\ a_{{\rm lo},0},\ a_{{\rm hi},0},\ \Delta b_{0,0},\ s_0,\ \rho_{{\rm scale},0},\ zr_{{\rm lo},0},\ zr_{{\rm hi},0},\ m_{1,0},\ m_{2,0}\bigr)$
+        \State Let $\phi(\mathbf{p}) \gets \Call{Score}{\mathbf{p}, \boldsymbol{\theta}, N_r, N_z, \mathrm{ref}}$ \Comment{objective for this start}
+        \State $\mathbf{p}^\ast \gets \Call{NelderMead}{\mathbf{p}_0,\ \phi}$
+        \Comment{12-dimensional search: $H,\lambda_{\rm lo},\lambda_{\rm hi},a_{\rm lo},a_{\rm hi},\Delta b_0,\mathrm{scale},\rho_{\rm scale},zr_{\rm lo},zr_{\rm hi},m_1,m_2$}
+        \If{$\phi(\mathbf{p}^\ast) < S^{\rm best}$}
+            \State $S^{\rm best} \gets \phi(\mathbf{p}^\ast)$
+            \State $\mathbf{p}^{\rm best} \gets \mathbf{p}^\ast$
+        \EndIf
+    \EndFor
+    \State \Return $S^{\rm best}$ \Comment{return $\mathbf{p}^{\rm best}$ too if calibrated parameters are needed downstream}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{\textsc{Score} --- smooth-kernel data-adaptive score $S$}
+\label{alg:score}
+\begin{algorithmic}[1]
+\Function{Score}{$\mathbf{p}, \boldsymbol{\theta}, N_r, N_z, \mathrm{ref}$}
+    \State Build reservoir matrices from $\boldsymbol{\theta}$ (7 shared hyperparameters), $N_r, N_z$, and $\mathbf{p}$ (calibrated parameters)
+    \If{admissibility constraint $\kappa_0 \geq 0$} \Comment{$\kappa_0 = \rho_r \cdot \rho_{\rm scale}\cdot q^\top\sqrt{2\lambda}$}
+        \State \Return $S_{\max}$ \Comment{inadmissible path, worst-possible score}
+    \EndIf
+    \State Simulate the model path(s) under $\mathbf{p}, \boldsymbol{\theta}$
+    \State Compute the 11 stylised facts $x_1,\dots,x_{11}$ from the simulated path(s) (Table~\ref{tab:scoreterms})
+    \State $\mathrm{Stress} \gets \mathbb{1}[\text{blow-up or collapse of annualised volatility}]$
+    \State $S \gets 0$
+    \For{$k = 1,\dots,11$}
+        \State $f_k \gets \exp\!\left(-\tfrac12\left(\dfrac{x_k - c_k}{s_k}\right)^{2}\right)$ \Comment{$c_k,s_k$ from $\mathrm{ref}$; Eq.~\eqref{eq:smoothkernel}}
+        \State $S \gets S + w_k(1 - f_k)$ \Comment{$w_k$ from Table~\ref{tab:scoreterms}}
+    \EndFor
+    \State $S \gets S + 5\cdot \mathrm{Stress}$
+    \State \Return $S$ \Comment{$S \in [0, 15.3)$, $S=0$ is a perfect match}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+
+\section{Implementation Requirements}
+\label{sec:bug1}
+
+Two implementation details are required for the calibration to be
+well-posed, and are stated here as requirements rather than as a
+narrative of bugs found and fixed.
+
+\paragraph{Time must be measured in years, consistently, in the fBM
+DGP simulator.} The construction $\log\sigma_t=\log\sigma_0+\lambda
+B_t^H-\tfrac12\lambda^2t^{2H}$ must use the same time unit in both the
+fBM covariance and the It\^o correction term. Because $B_t^H\overset
+{d}{=}t^HB_1^H$, the correction ($\propto t^{2H}$) dominates the
+stochastic term ($\propto t^H$) for any fixed $\lambda>0$ as $t$ grows;
+using a raw day-count index at $H=0.40$ over a 1200-day path drives
+$\sigma_t$ to numerical zero (the correction reaches $t^{0.8}\approx291$
+at $t=1200$, vs.\ a target of $O(1)$), and every downstream statistic
+to NaN. Measuring time in years ($t_{\rm years}=t/252$) in both places
+keeps $\sigma_t$ stationary and well-scaled around its target for
+every $H$ in the portfolio.
+
+\paragraph{The inner calibration loop requires multiple, qualitatively
+different starting points.} The mapping from $H_{\rm ESN}$ to the
+realised structure-function exponent is jointly determined by
+$H_{\rm ESN}$, the OU-rate range $[\lambda_{\rm lo},\lambda_{\rm hi}]$,
+and $N_r$ (Remark 2); a reservoir initialised with only fast modes
+present injects high-frequency roughness that a single, locally
+convergent Nelder--Mead run rarely escapes, regardless of which target
+regime is being fit. The eleven-start scheme of \S1.5 -- in particular
+the wide-band/multiscale start, whose modes span nearly six decades of
+OU rate within one reservoir -- avoids this basin-of-attraction lock by
+letting the score function decide, per scenario, how the read-out
+$H_{\rm ESN}$ should weight each part of the spectrum, rather than the
+start pre-committing to one extreme.
+
+\section{Results}
+
+\subsection{The optimal architecture}
+\label{sec:optarch}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\fbox{\begin{minipage}{0.9\textwidth}
+\textbf{Optimal architecture:} $N_r=96$, $N_z=12$, with the 7 shared
+hyperparameters of Table~\ref{tab:optarch}. \texttt{rough\_scale}, the
+$z$-readout profile $(\texttt{zr\_lo},\texttt{zr\_hi})$, and the
+quadratic-matrix coefficients $(m_1,m_2)$ are calibrated per DGP
+scenario (\S\ref{sec:amplitude}), not fixed as part of this
+architecture.
+\end{minipage}}
+\end{center}
+
+\begin{table}[h]
+\centering
+\caption{The 7 shared hyperparameters of the optimal architecture.}
+\label{tab:optarch}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Hyperparameter & Value \\
+\midrule
+$N_r$ & 96 \\
+$N_z$ & 12 \\
+\texttt{z\_strength} & 0.1929 \\
+\texttt{even\_strength} & 2.2291 \\
+\texttt{linear\_strength} & 0.1930 \\
+\texttt{gamma\_norm} & 0.9651 \\
+\texttt{local\_z\_strength} & 0.0476 \\
+\texttt{zz\_scale} & 0.0397 \\
+\texttt{sign\_prob\_neg} & 0.2219 \\
+\texttt{rough\_orientation} & $-1.0$ (fixed) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Important caveat, stated plainly:} $N_r=96,N_z=12$ is the
+argmin of the grid-matrix sweep below, but \S\ref{sec:gridmatrix}
+shows this sweep cannot reliably distinguish between any of the 16
+cells tested at the budget used here -- the cell-to-cell spread in
+mean score is smaller than a single cell's own run-to-run noise. This
+architecture should be treated as the current best point estimate, to
+be confirmed or revised by a larger-budget re-run, not as a
+definitively established optimum.
+
+\subsection{Grid-matrix sweep}
+\label{sec:gridmatrix}
+
+Figure~\ref{fig:heatmap} evaluates the 7 shared hyperparameters of
+Table~\ref{tab:optarch} at every cell of the production grid
+$(N_r,N_z)\in\{32,48,64,96\}\times\{8,12,16,20\}$, holding them fixed
+and only changing $N_r,N_z$ (each cell independently recalibrates all
+12 inner-loop parameters per scenario), \textbf{averaged over 3
+independent seeds per cell} (48 cell-evaluations total).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.62\textwidth]{Numerical Protocols _ stylized facts reproduction/GridSearch_hyperparameters/esn_hyperparam_search_smooth_heatmap.png}
+\caption{Score $S$ over the full $(N_r,N_z)$ grid, averaged over 3
+seeds per cell.}
+\label{fig:heatmap}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{Full $(N_r,N_z)$ score matrix: mean $\pm$ std over 3 seeds.}
+\label{tab:gridmatrix}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+ & $N_z=8$ & $N_z=12$ & $N_z=16$ & $N_z=20$ \\
+\midrule
+$N_r=32$ & $6.05\pm1.63$ & $6.07\pm1.62$ & $6.05\pm1.62$ & $6.09\pm1.65$ \\
+$N_r=48$ & $6.08\pm1.60$ & $6.08\pm1.61$ & $6.08\pm1.60$ & $6.08\pm1.60$ \\
+$N_r=64$ & $6.09\pm1.59$ & $6.39\pm1.36$ & $6.38\pm1.34$ & $6.37\pm1.34$ \\
+$N_r=96$ & $6.38\pm1.36$ & $\mathbf{5.79\pm0.56}$ & $6.45\pm1.47$ & $6.45\pm1.47$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\paragraph{Statistical read of the sweep.} $N_r=96,N_z=12$ has both the
+lowest 3-seed mean ($5.79$) and the smallest standard deviation
+($0.56$) of any cell. However: (i) the spread between the best and
+worst cell means across the entire grid is only $0.66$ (from $5.79$ to
+$6.45$), while (ii) the typical cell's own seed-to-seed standard
+deviation is $1.46$ -- more than double the grid's entire cell-to-cell
+spread. The difference between $N_r=96,N_z=12$ and the next most
+plausible candidate, $N_r=64,N_z=8$, is $0.30$ against a standard error
+of $0.97$ ($0.30/0.97\approx0.31$, far short of the $\gtrsim2$ needed
+for even weak significance at $n=3$ per cell). \textbf{At this budget,
+no $(N_r,N_z)$ cell in this grid is reliably distinguishable from any
+other.} $N_r=96,N_z=12$ is reported as the architecture throughout the
+remainder of this note because it is the argmin, with this caveat
+attached to every result that follows.
+
+\subsection{Per-scenario calibrated read-out parameters}
+\label{sec:amplitude}
+
+Table~\ref{tab:perscenario} reports the calibrated
+\texttt{rough\_scale}, $z$-readout profile
+$(\texttt{zr\_lo},\texttt{zr\_hi})$, and quadratic-matrix coefficients
+$(m_1,m_2)$ at $N_r=96,N_z=12$, one independent set per DGP scenario
+(single demonstration run).
+
+\begin{table}[h]
+\centering
+\caption{Per-scenario calibrated read-out parameters at $N_r=96,N_z=12$.}
+\label{tab:perscenario}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Scenario & \texttt{rough\_scale} & \texttt{zr\_lo} & \texttt{zr\_hi} & $(m_1,\ m_2)$ & Score $S$ \\
+\midrule
+\texttt{fBM\_rough}    & 0.616 & 0.201 & 0.015 & $(-0.784,\ +0.0002)$ & 4.601 \\
+\texttt{MRW\_taylor}   & 0.372 & 0.044 & 0.081 & $(+0.0003,\ +0.0001)$ & 4.816 \\
+\texttt{rBergomi\_Z}   & 0.414 & 0.197 & 0.019 & $(-0.610,\ -0.00005)$ & 5.581 \\
+\texttt{fBM\_persist}  & 0.365 & 0.035 & 0.098 & $(-0.0001,\ -0.00003)$ & 5.569 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The quadratic term is weakly and inconsistently identified
+across scenarios.} \texttt{fBM\_rough} and \texttt{rBergomi\_Z} (both
+$H=0.10$ targets) calibrate a large, same-signed $m_1$ ($-0.784$ and
+$-0.610$); \texttt{MRW\_taylor} and \texttt{fBM\_persist} sit at
+$m_1,m_2\approx0$. Repeated testing at other architectures shows this
+pattern is \textbf{not stable}: at a different reservoir size, a
+different pair of scenarios showed a large value in a different
+coefficient ($m_2$, not $m_1$), and at yet another size, a different
+pair again showed instability with standard deviation exceeding the
+mean across seeds. \textbf{The most defensible reading is that the
+quadratic channel absorbs a weak, largely interchangeable degree of
+freedom that a single demonstration run cannot reliably pin down to
+one coefficient, one scenario pairing, or one sign} -- not a genuine,
+reproducible per-scenario mechanism. Treating $m_1,m_2\approx0$ as the
+default working hypothesis, with occasional large excursions expected
+from calibration noise rather than signal, is the current best
+practice until confirmed otherwise by a multi-seed, increased-budget
+re-run at this specific architecture.
+
+\subsection{Hurst-matching accuracy}
+\label{sec:hurst}
+
+Table~\ref{tab:hurst} reports the local H\"older exponent match
+$\hat H_{\rm sim}$ vs.\ each scenario's target $\hat H_c$, at
+$N_r=96,N_z=12$ (single demonstration run, reduced calibration
+budget).
+
+\begin{table}[h]
+\centering
+\caption{$\hat H$ match at $N_r=96,N_z=12$ (single demonstration run, reduced budget).}
+\label{tab:hurst}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Scenario & $\hat H_{\rm sim}$ & $\hat H_c$ (target) & $\Delta\hat H$ \\
+\midrule
+\texttt{fBM\_rough}   & 0.167 & 0.092 & 0.076 \\
+\texttt{MRW\_taylor}  & 0.529 & 0.364 & 0.165 \\
+\texttt{rBergomi\_Z}  & 0.153 & 0.097 & 0.056 \\
+\texttt{fBM\_persist} & 0.531 & 0.350 & 0.182 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Match quality at this budget is uneven across scenarios
+($\Delta\hat H$ ranging $0.056$--$0.182$). A separate, larger-budget
+calibration run (longer simulated horizon, more Monte-Carlo paths per
+scenario, more Nelder--Mead iterations per start, averaged over
+several independent seeds) has previously been shown, at a different
+architecture, to close this gap substantially for the scenarios most
+affected (down to $\Delta\hat H\leq0.015$ for the worst-affected
+scenarios in that test); the same increased-budget procedure has not
+yet been re-applied at this note's $N_r=96,N_z=12$ architecture, and
+doing so is the most direct outstanding validation step (\S5).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{Numerical Protocols _ stylized facts reproduction/GridSearch_hyperparameters/esn_hyperparam_search_smooth_overview.png}
+\caption{Six-panel overview at $N_r=96,N_z=12$: per-cell score sweep,
+score-vs-$N_r$ distribution, full heatmap, per-DGP score,
+hyperparameter values vs.\ the A2-981003 reference architecture, and
+achieved vs.\ target $\hat H$.}
+\label{fig:overview}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{Numerical Protocols _ stylized facts reproduction/GridSearch_hyperparameters/esn_hyperparam_search_smooth_deviation.png}
+\caption{Score trajectory per $(N_r,N_z)$ cell and the 11-term deviation
+breakdown at $N_r=96,N_z=12$.}
+\label{fig:deviation}
+\end{figure}
+
+\section{Limitations and Recommended Steps}
+
+\begin{enumerate}[itemsep=2pt]
+\item \textbf{Confirm the architecture at production budget.} The
+grid-matrix sweep (\S\ref{sec:gridmatrix}) cannot currently distinguish
+$N_r=96,N_z=12$ from most of the grid, including $N_r=64,N_z=8$. A
+larger-budget, multi-seed re-run (more seeds than 3, and/or a longer
+per-seed calibration budget) is needed before this architecture is
+treated as settled.
+\item \textbf{Re-verify Hurst-matching accuracy at production budget.}
+\S\ref{sec:hurst}'s $\Delta\hat H$ values are from a single,
+reduced-budget run; an increased-budget, multi-seed re-run at
+$N_r=96,N_z=12$ specifically has not yet been performed.
+\item \textbf{Do not over-interpret any single-run $(m_1,m_2)$
+pattern.} \S\ref{sec:amplitude} shows this coefficient pair is weakly
+identified and its apparent ``pattern'' changes with architecture and
+seed; treat $m_1,m_2\approx0$ as the default and require multi-seed
+confirmation before attributing a large calibrated value to any
+scenario-specific mechanism.
+\item \textbf{A still richer quadratic term, if warranted.} The
+current $Q=(1/N_r)(m_1I_{N_r}+m_2qq^\top)$ is a 2-eigenvalue
+simplification of a fully free symmetric matrix, chosen for
+tractability. If a future multi-seed test shows a genuine,
+reproducible need for direction-specific quadratic sensitivity beyond
+the $q$ direction, a natural extension is a small basis of $q$-like
+vectors at several fixed roughness exponents $H_k$ (each
+unit-$C$-normalised as in Eq.~\eqref{eq:readout_q}), each with its own
+calibrated coefficient -- still symmetric by construction, still
+tractable (one new scalar per basis vector).
+\item Track both the aggregate score $S$ and its 11-term breakdown in
+every calibration run: the breakdown is the fastest diagnostic for any
+future architecture or read-out change.
+\end{enumerate}
+
+\end{document}
