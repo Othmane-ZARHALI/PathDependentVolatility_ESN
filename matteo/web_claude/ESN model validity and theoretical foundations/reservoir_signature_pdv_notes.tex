@@ -1,0 +1,295 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{parskip}
+
+\setlist{itemsep=2pt,topsep=4pt}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Sig}{\mathrm{Sig}}
+\newcommand{\Rt}{R_t}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\inner}[2]{\langle #1,\, #2\rangle}
+\newcommand{\shuffle}{\mathbin{\text{\rotatebox[origin=c]{180}{$\sqcap$}}}}
+
+\title{\textbf{Reservoir and Signature Formulations of Path-Dependent\\ Volatility: Definitions, What the Theory Guarantees,\\ and a Minimal Re-architecture}}
+\author{Working note for internal circulation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent These notes clarify the relationship between (i) the \emph{autonomous} stochastic-volatility SDE used in a recent internal note on path-dependent volatility (PDV) via ``randomized signatures / echo state networks'', and (ii) the genuine \emph{input-driven} objects of reservoir computing (RC) and signature-based finance. We fix definitions and notation first, then state precisely which theorems apply to which object, what is lost by the autonomous formulation, and the minimal modifications that bring the model into the regime where the randomized-signature and echo-state-network (ESN) theorems hold. References span mathematical finance, machine learning, and the reservoir-computing / neuroscience literature, with enough context to be self-contained at the graduate level. The discussion is methodological; the recent note is used only as a concrete motivating example.
+\end{abstract}
+
+\tableofcontents
+
+\section{Definitions and notation}
+\label{sec:defs}
+
+Throughout, $W=(W^1,\dots,W^m)$ is an $m$-dimensional Brownian motion, $N$ the reservoir dimension, and $R_t\in\R^N$ the reservoir (hidden) state. We write a generic activation $\sigma:\R\to\R$ applied componentwise. We distinguish carefully between two layers of any such model: the \emph{state dynamics} (the equation producing $R_t$) and the \emph{readout} (the map $R_t\mapsto V_t$ producing the observable, here the instantaneous variance).
+
+\subsection{Autonomous vs.\ non-autonomous (input-driven) systems}
+
+\begin{definition}[Autonomous system]
+\label{def:autonomous}
+A (stochastic) differential equation is \emph{autonomous} if its coefficients depend on the current state only, with no explicit dependence on time and no exogenous driving signal:
+\[
+\dd R_t = b(R_t)\dd t + \Sigma(R_t)\dd W_t .
+\]
+The Brownian motion $W$ here is \emph{intrinsic randomness}, not an external input: the law governing the dynamics is time-invariant and state-only. Such an SDE is an \emph{autonomous random dynamical system}; it \emph{generates} a trajectory rather than \emph{processing} one. A system is \emph{non-autonomous} if its right-hand side carries an explicit $t$ (e.g.\ a time channel) or an exogenous input $u_t$, e.g.\ $\dd R_t = F(R_t,u_t)\dd t$.
+\end{definition}
+
+\begin{remark}
+The presence of noise does \emph{not} make an SDE non-autonomous. The distinction that matters for reservoir computing is whether a signal enters as an \emph{external input/control} one could in principle choose, versus as intrinsic noise. This is the hinge of the whole discussion (Section~\ref{sec:routeA}).
+\end{remark}
+
+\subsection{The path signature and the randomized signature}
+
+\begin{definition}[Signature; Compagnoni et al.\ \cite{compagnoni2023}, Def.\ II.1]
+\label{def:sig}
+For a continuous (or rough) path $X:[0,T]\to\R^d$, the signature on $[0,t]$ is the collection of iterated integrals
+\[
+\Sig(X)_{0,t} = \Big(1,\; \{S^{(1)}_t\},\; \{S^{(2)}_t\},\dots\Big),\qquad
+S^{(\ell)}_t = \!\!\int_{0\le s_1\le\cdots\le s_\ell\le t}\!\! \dd X_{s_1}\otimes\cdots\otimes \dd X_{s_\ell}.
+\]
+Its defining analytic feature is the \emph{linearization (universal approximation) property}: every continuous functional of the path $X_{[0,t]}$ can be approximated arbitrarily well by a \emph{linear} functional of $\Sig(X)_{0,t}$.
+\end{definition}
+
+\begin{definition}[Randomized signature; Compagnoni et al.\ \cite{compagnoni2023}, Def.\ II.5]
+\label{def:rsig}
+Given $k\in\mathbb{N}$, random matrices $A_1,\dots,A_d\in\R^{k\times k}$, random shifts $b_1,\dots,b_d\in\R^{k}$, a random start $z\in\R^k$, and a fixed activation $\sigma$, the \emph{randomized signature} of a control path $X=(X^1,\dots,X^d)$ is the solution of
+\begin{equation}
+\label{eq:rsig}
+\dd Z_t = \sum_{i=1}^{d}\sigma\!\left(A_i Z_t + b_i\right)\dd X^i_t,\qquad Z_0=z .
+\end{equation}
+The $A_i,b_i$ are sampled once and then \emph{frozen}. A time channel $X^0_t=t$ is normally appended so that $Z$ is the signature of the \emph{time-extended} path.
+\end{definition}
+
+\begin{remark}[Two notational conventions worth flagging]
+\label{rem:conventions}
+(i) A single shared $\sigma$ in \eqref{eq:rsig} is a presentational convenience; the theory requires only that each vector field be globally Lipschitz and that the ensemble be expressive (a Cybenko/Hornik-type density condition \cite{cybenko1989,hornik1989}). Heterogeneous activations across channels --- e.g.\ a linear drift channel and saturating diffusion channels --- are fully admissible, and indeed standard in leaky-integrator ESNs (Section~\ref{sec:cont-esn}).
+(ii) Because the control may be as irregular as Brownian motion, the integral in \eqref{eq:rsig} is interpreted in the rough-path / Stratonovich sense \cite{frizvictoir2010}.
+\end{remark}
+
+\subsection{Echo state networks and their defining properties}
+
+\begin{definition}[Echo state network; Grigoryeva--Ortega \cite{grigoryeva2018}, Gonon--Ortega \cite{gonon2021}]
+\label{def:esn}
+A discrete-time ESN of dimension $N$ with reservoir matrix $A\in\R^{N\times N}$, input mask $C\in\R^{N\times d}$, shift $\zeta\in\R^N$, activation $\sigma$, and a \emph{static linear readout} $W$ is the state-space system
+\begin{equation}
+\label{eq:esn}
+\mathbf{x}_t = \sigma\!\left(A\,\mathbf{x}_{t-1} + C\,\mathbf{z}_t + \zeta\right),\qquad
+y_t = W\mathbf{x}_t,
+\end{equation}
+where $\mathbf{z}_t$ is the \emph{external input}. Only $W$ is trained; $A,C,\zeta$ are fixed (random).
+\end{definition}
+
+\begin{definition}[Echo state property (ESP); Jaeger \cite{jaeger2001}]
+\label{def:esp}
+The system \eqref{eq:esn} has the ESP if, for any compact input set and any two initial states $\mathbf{x}_0,\mathbf{x}'_0$, there is a null sequence $(\delta_h)$ such that for \emph{every} admissible input sequence $\|\mathbf{x}_h-\mathbf{x}'_h\|\le\delta_h$. Equivalently (Jaeger), the system is \emph{universally state-contracting}: it forgets its initial state at a rate independent of the input. The ESP is what lets one associate a well-defined input/output \emph{filter} to the reservoir.
+\end{definition}
+
+\begin{definition}[Fading memory property (FMP); Boyd--Chua \cite{boydchua1985}, Grigoryeva--Ortega \cite{grigoryeva2018}]
+\label{def:fmp}
+A causal, time-invariant filter has the FMP if outputs are close whenever inputs are close in the recent past, even if they differ in the remote past. Under uniformly bounded inputs the FMP is the continuity of the filter in the product topology.
+\end{definition}
+
+\begin{remark}
+Definitions~\ref{def:esp}--\ref{def:fmp} \emph{quantify over inputs}. They are statements about an input-driven filter; in the absence of an input they are degenerate (the ESP reduces to mere asymptotic stability of the autonomous flow, a weaker and different statement). This is precisely why the autonomous formulation cannot directly invoke them.
+\end{remark}
+
+\subsection{The two model classes side by side}
+
+The autonomous formulation under review is, in our notation,
+\begin{equation}
+\label{eq:auton}
+\dd R_t = \underbrace{A R_t}_{\text{linear (OU) drift}}\dd t
++ \underbrace{\diag\!\big(\nu\odot\tanh(B R_t + c)\big)}_{\text{diagonal, multiplies fresh }\dd W}\dd W_t,
+\qquad
+V_t = f\!\left(w^\top R_t + \beta\right),
+\end{equation}
+with $f=\mathrm{Softplus}$ a nonlinear, strictly positive readout. Contrast \eqref{eq:rsig}: in the randomized signature the nonlinearity multiplies the \emph{increment of a control path} $\dd X^i$ through a \emph{dense} matrix, the drift carries a nonlinear time channel, and the readout is \emph{linear}.
+
+\section{Which object is this, and which theorems apply}
+\label{sec:which}
+
+\subsection{The autonomous formulation is not, as written, a reservoir}
+
+The state equation in \eqref{eq:auton} is autonomous in the sense of Definition~\ref{def:autonomous}: $W$ is intrinsic noise, not a control, and there is no input channel $C\mathbf{z}_t$. The state $R_t$ therefore does not encode the history of any observed signal; it is a simulated stochastic process. Three structural features separate \eqref{eq:auton} from \eqref{eq:rsig}/\eqref{eq:esn}, independent of the fact that $\tanh$ is nonlinear in both:
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Role of the noise.} In \eqref{eq:rsig} the path $W$ is the \emph{control} one integrates against, so $Z_t$ is a (deterministic, given the frozen $A_i,b_i$) functional of the realized trajectory $W_{[0,t]}$ --- a feature map of the path. In \eqref{eq:auton} $W$ is an exogenous shock and $R_t$ is just the solution of a diffusion.
+\item \textbf{Diagonal coefficient vs.\ dense vector fields.} A diagonal $\Sigma$ drives each coordinate of $R$ by its own noise component; it does not assemble the cross-iterated integrals $\int\!\int \dd W^i \dd W^j$ ($i\ne j$) that \emph{are} the signature terms. The randomized signature requires a dense vector field $\sigma(A_iR+b_i)$ per channel.
+\item \textbf{Nonlinear readout.} $f=\mathrm{Softplus}$ destroys the linearization property and any affine/polynomial structure (Section~\ref{sec:losses}).
+\end{enumerate}
+
+\subsection{The relevant theorems, and why they need an input}
+\label{sec:theorems}
+
+\begin{theorem}[ESN universality; Grigoryeva--Ortega \cite{grigoryeva2018}]
+\label{thm:go}
+ESNs of the form \eqref{eq:esn} with static linear readout are universal uniform approximants in the class of discrete-time, causal, time-invariant \emph{fading-memory filters with uniformly bounded inputs} defined on $\{\dots,-1,0\}$. That is, any such input/output filter can be realized arbitrarily well by a finite-dimensional ESN.
+\end{theorem}
+
+\begin{theorem}[Fading-memory ESNs are universal; Gonon--Ortega \cite{gonon2021}]
+\label{thm:gono}
+When $\sigma$ is Lipschitz, the universal family of Theorem~\ref{thm:go} can be chosen so that every member additionally possesses the ESP and the FMP. For stochastic inputs, ESN universality holds with respect to $L^p$ criteria \cite{gononortega2020}.
+\end{theorem}
+
+\begin{theorem}[Randomized-signature expressivity; Cuchiero et al.\ \cite{cuchiero2021expressive,cuchiero2022discrete}, Compagnoni et al.\ \cite{compagnoni2023}]
+\label{thm:rsig}
+For the dimension $k$ large enough, the randomized signature \eqref{eq:rsig} is, via a Johnson--Lindenstrauss random projection of the truncated signature, such that any target captured by the signature can be recovered by a \emph{linear} map of $Z_t$, with error controlled by $k$.
+\end{theorem}
+
+All three concern \emph{input-driven filters}: a filter is a map from an input stream to an output stream. With $W$ as intrinsic noise and no input, there is no filter to approximate, and the hypotheses of Theorems~\ref{thm:go}--\ref{thm:rsig} are not met. As written, \eqref{eq:auton} inherits \emph{none} of these guarantees.
+
+\begin{remark}[What \emph{can} be said about the autonomous object]
+The autonomous SDE \eqref{eq:auton} does admit theory --- but from a different literature: existence/uniqueness, stationarity and ergodicity of a nonlinear diffusion, and (as a volatility model) martingality of $S$ and arbitrage-freeness. These are \emph{stability/well-posedness} statements, not \emph{approximation} guarantees: they say the model is well-behaved, not that it can represent a target class of payoffs or path functionals.
+\end{remark}
+
+\section{What the autonomous formulation gives up}
+\label{sec:losses}
+
+Organize the losses by layer.
+
+\paragraph{From the missing control (state layer).}
+\begin{itemize}
+\item \emph{Linearization / universal-feature property.} A signature linearizes path functionals (Def.~\ref{def:sig}); \eqref{eq:auton} is not a signature of anything, so there is no approximation theorem for its readout.
+\item \emph{Memory / filtering interpretation.} In RC the reservoir is valuable as a fading-memory summary of \emph{input history} (Jaeger \cite{jaeger2001}; Maass et al.\ liquid state machine \cite{maass2002}). With no input there is no history being summarized, so the memory-capacity theory --- e.g.\ the bound $C\le N$ for an $N$-node linear reservoir (Jaeger \cite{jaeger2002stm}; White--Sompolinsky \cite{white2004}) --- has no referent.
+\item \emph{Genuine path-dependence.} The endogenous PDV mechanism of Guyon--Lekeufack \cite{guyon2023} requires volatility to be a functional of realized returns. In \eqref{eq:auton} the price path never enters $R$; the only price coupling is the leverage correlation $\rho$. Hence the model is a correlated stochastic-volatility model, not a PDV model in the feedback sense.
+\end{itemize}
+
+\paragraph{From the nonlinear (Softplus) readout (readout layer).}
+\begin{itemize}
+\item \emph{Closed-form $\mathrm{VIX}^2$.} In Cuchiero--Gazzani--M\"oller--Svaluto-Ferro (CGMS) \cite{cgms2025}, because volatility is a linear functional of the signature of a \emph{polynomial} primary process, and the truncated signature of a polynomial diffusion is again a polynomial diffusion, the conditional expectation $\mathrm{VIX}^2_T=\tfrac1\tau\E^\Q\!\big[\int_T^{T+\tau}V_s\dd s\mid\F_T\big]$ is available in closed form. Softplus destroys the polynomial/affine structure; one is then forced into a numerical conditional-regression scheme (e.g.\ kernel-convolution / random-network estimators). Such machinery is a \emph{symptom} of the lost structure.
+\item \emph{Tractable moments, martingale tests, Fourier pricing.} Affine/polynomial readouts yield Riccati-ODE characteristic functions and checkable true-martingale conditions; a Softplus-of-OU readout offers none, leaving Monte Carlo as the only route.
+\end{itemize}
+
+\paragraph{Net.} The autonomous formulation pays the \emph{costs} of a black-box random model (no interpretability of the random parameters; reliance on Monte Carlo; no pricing closed forms) without collecting the \emph{benefits} that justify those costs in the RC/signature world (universality, linearization, memory theory). It sits between two well-founded model classes and inherits the guarantees of neither.
+
+\section{Is it a ``continuous ESN''?}
+\label{sec:cont-esn}
+
+Continuous-time reservoirs are a respectable object. The canonical \emph{leaky-integrator ESN} (Jaeger, Luko\v{s}evi\v{c}ius, Popovici, Siewert \cite{jaeger2007}) is
+\begin{equation}
+\label{eq:liesn}
+\dot{\mathbf{x}}(t) = -a\,\mathbf{x}(t) + \sigma\!\big(W_{\mathrm{res}}\,\mathbf{x}(t) + W_{\mathrm{in}}\,\mathbf{u}(t) + b\big),
+\end{equation}
+with continuous \emph{input} $\mathbf{u}(t)$; the neuroscience lineage (Maass's liquid state machines \cite{maass2002}; multi-timescale cortical microcircuits) is likewise continuous-time and input-driven. The leak term $-a\,\mathbf{x}(t)$ in \eqref{eq:liesn} is exactly the mean-reversion $-\diag(\kappa)R_t$ in the autonomous note, so that part is genuinely ESN-like. But \eqref{eq:auton} is missing the input channel $W_{\mathrm{in}}\mathbf{u}(t)$, and its nonlinearity sits in the diffusion coefficient of a noise rather than wrapping the recurrent$+$input mixing. \emph{Verdict:} \eqref{eq:auton} is a continuous-time random recurrent SDE with a leaky-integrator drift, but calling it a continuous ESN without an input channel is not supported by the RC literature. Adding the input channel (Section~\ref{sec:routeA}) makes the label correct.
+
+\section{Route A: minimal modifications to treat $W$ as the input}
+\label{sec:routeA}
+
+The goal is the smallest edit turning $R_t$ from an autonomous diffusion into an input-driven reservoir, so Theorems~\ref{thm:go}--\ref{thm:rsig} apply. The single structural change is to move the existing nonlinearity from ``diagonal coefficient of a fresh shock'' to ``dense integrand multiplying the control increment'':
+\begin{equation}
+\label{eq:routeA}
+\boxed{\;\dd R_t = \sigma\!\left(A_0 R_t + b_0\right)\dd t \;+\; \sum_{j=1}^{m}\sigma\!\left(A_j R_t + b_j\right)\dd W^j_t\;}
+\end{equation}
+with $A_0,\dots,A_m,b_0,\dots,b_m$ frozen random. Concretely, four edits:
+
+\begin{enumerate}[label=\textbf{Edit \arabic*.},leftmargin=*]
+\item \textbf{Dense vector field per control channel.} Replace the diagonal $\diag(\nu\odot\tanh(BR+c))\dd W$ by $m$ dense maps $R\mapsto\sigma(A_jR+b_j)$, each multiplying the scalar increment $\dd W^j$. This is the irreducible change: only then does $R$ accumulate the cross-iterated integrals that constitute a signature of $W$.
+\item \textbf{Freeze $A_j,b_j$ as random; train only the readout.} Sample once, fix thereafter. This is a hypothesis of Theorem~\ref{thm:rsig} and \emph{reduces} the free-parameter count (a calibration win). Trainable: the readout $(w,\beta)$, the correlation $\rho$, and the deterministic $\mathrm{VIX}$-futures rescaler $\eta(t)$.
+\item \textbf{Restore the time channel; keep mean reversion if desired.} The drift slot must carry the $X^0_t=t$ component (so $R$ is the signature of the time-extended path). To retain the multi-timescale $\kappa$-structure and stationarity, use the hybrid leaky drift
+\[
+\dd R_t=\big[-\diag(\kappa)R_t+\sigma(A_0R_t+b_0)\big]\dd t+\sum_{j}\sigma(A_jR_t+b_j)\dd W^j_t,
+\]
+which is a leaky-integrator ESN \eqref{eq:liesn} with the time channel appended; the leak also supplies the contraction the ESP needs. Any roughness shaping ($D_{jj}\propto\kappa_j^{0.5-H}$) becomes a \emph{fixed} scaling $A_j\mapsto DA_j$ of the random vector fields.
+\item \textbf{Linearize the readout; square for positivity (CGMS recipe).} Replace $V_t=f(w^\top R_t+\beta)$ by
+\[
+\sigma^S_t=\inner{w}{R_t}+\beta,\qquad V_t=(\sigma^S_t)^2 .
+\]
+Volatility is linear in the state (preserving linearization); variance is its square, hence $\ge 0$ by construction. Crucially, the square of a linear functional of a signature is again a \emph{linear} functional of a higher-order signature via the shuffle identity $\inner{\ell}{\widehat X}\,\inner{\ell}{\widehat X}=\inner{\ell\shuffle\ell}{\widehat X}$, so squaring does \emph{not} leave the linear-in-signature world. This is how CGMS \cite{cgms2025} obtain positivity \emph{and} closed-form $\mathrm{VIX}^2$ without a nonlinear wrapper; $\mathrm{Softplus}$ would re-break everything Edits~1--3 fix.
+\end{enumerate}
+
+\begin{remark}[Discretization]
+\label{rem:disc}
+With $W$ now a control (a rough path), the theoretically consistent scheme is Stratonovich; in practice either add the It\^o$\to$Stratonovich drift correction $-\tfrac12\sum_j(\partial\sigma_j)\sigma_j$ or use a midpoint/Heun step. The explicit Euler step of \eqref{eq:routeA},
+\[
+R_{t+\Delta t}=R_t+\big[-\diag(\kappa)R_t+\sigma(A_0R_t+b_0)\big]\Delta t+\sum_j\sigma(A_jR_t+b_j)\,\Delta W^j_t,
+\]
+\emph{is} a leaky ESN update with input $\Delta W^j_t$, so the discretized simulator is exactly the object Theorems~\ref{thm:go}--\ref{thm:gono} describe (the stochastic-input regime of \cite{gononortega2020}). The exact-OU integration step used in the autonomous formulation no longer applies once the diffusion is state-dependent and dense.
+\end{remark}
+
+\subsection{What to verify so the theorems fire}
+
+\begin{proposition}[Conditions to check]
+\label{prop:checks}
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{ESP / contraction.} With the leaky drift, a sufficient condition is leak-dominance, the continuous analogue of the ESN effective-spectral-radius criterion $\rho(\widetilde W)<1$ \cite{jaeger2007,yildiz2012}: scale the random $A_j$ so that $\kappa_{\min} > L_\sigma\,\max_j\|A_j\|$ (with $L_\sigma$ the activation's Lipschitz constant; take the per-channel max if activations are heterogeneous). This also secures stationarity. Note $\rho<1$ is sufficient-with-care, not necessary \cite{yildiz2012}.
+\item \textbf{Dimension vs.\ truncation.} The JL guarantee (Theorem~\ref{thm:rsig}) ties the approximation error to $k=N$; small $N$ approximates only low-order signature terms. An ablation in $N$ is warranted.
+\item \textbf{Martingale property of $S$.} A squared-linear readout can grow quadratically in $R$; verify moment conditions so $S$ is a true martingale --- the known failure mode of polynomial signature models \cite{cgms2025}.
+\end{enumerate}
+\end{proposition}
+
+\subsection{Minimal vs.\ maximal}
+
+Edits~1, 2, 4 are non-negotiable to claim Route~A. Edit~3's time channel is required for the full \emph{signature} universality statement; if one keeps only the leaky drift $-\diag(\kappa)R\dd t$ without the $\sigma(A_0R+b_0)$ term, one still has a legitimate input-driven leaky ESN \cite{jaeger2007} (a fading-memory filter of $W$), at the cost of the clean ``signature of the time-extended path'' reading. The genuinely irreducible change is \textbf{Edit~1}: as long as the noise enters through a diagonal coefficient on a fresh shock, no other tweak makes $R$ a reservoir of $W$.
+
+\section{One-paragraph summary}
+
+The autonomous formulation keeps the \emph{silhouette} of an ESN (fixed random dynamics, leaky-integrator decay, trained readout) but is missing the \emph{input channel} and uses a \emph{nonlinear readout}. It therefore forfeits the linearization property, the fading-memory/memory-capacity theory, closed-form $\mathrm{VIX}^2$, and every ESN/randomized-signature approximation theorem --- all of which are statements about input-driven filters. The single conceptual change that recovers the theorems is to feed $W$ (and ideally $\log S$, for genuine PDV) into the dynamics as a \emph{control} via dense frozen-random vector fields, and to make the readout linear (squared for positivity, after CGMS).
+
+\begin{thebibliography}{99}
+
+\bibitem{boydchua1985} S.\ Boyd and L.\ O.\ Chua. Fading memory and the problem of approximating nonlinear operators with Volterra series. \emph{IEEE Transactions on Circuits and Systems}, 32(11):1150--1161, 1985.
+
+\bibitem{cgms2025} C.\ Cuchiero, G.\ Gazzani, J.\ M\"oller, and S.\ Svaluto-Ferro. Joint calibration to SPX and VIX options with signature-based models. \emph{Mathematical Finance}, 35(1):161--213, 2025.
+
+\bibitem{cuchiero2021expressive} C.\ Cuchiero, L.\ Gonon, L.\ Grigoryeva, J.-P.\ Ortega, and J.\ Teichmann. Expressive power of randomized signature. \emph{NeurIPS 2021 Workshop ``The Symbiosis of Deep Learning and Differential Equations''}, 2021.
+
+\bibitem{cuchiero2022discrete} C.\ Cuchiero, L.\ Gonon, L.\ Grigoryeva, J.-P.\ Ortega, and J.\ Teichmann. Discrete-time signatures and randomness in reservoir computing. \emph{IEEE Transactions on Neural Networks and Learning Systems}, 33(11):6321--6330, 2022.
+
+\bibitem{compagnoni2023} E.\ Monzio Compagnoni, A.\ Scampicchio, L.\ Biggio, A.\ Orvieto, T.\ Hofmann, and J.\ Teichmann. On the effectiveness of randomized signatures as reservoir for learning rough dynamics. \emph{IJCNN}, 2023 (arXiv:2201.00384).
+
+\bibitem{cybenko1989} G.\ Cybenko. Approximation by superpositions of a sigmoidal function. \emph{Mathematics of Control, Signals and Systems}, 2:303--314, 1989.
+
+\bibitem{frizvictoir2010} P.\ K.\ Friz and N.\ B.\ Victoir. \emph{Multidimensional Stochastic Processes as Rough Paths}. Cambridge University Press, 2010.
+
+\bibitem{gononortega2020} L.\ Gonon and J.-P.\ Ortega. Reservoir computing universality with stochastic inputs. \emph{IEEE Transactions on Neural Networks and Learning Systems}, 31(1):100--112, 2020.
+
+\bibitem{gonon2021} L.\ Gonon and J.-P.\ Ortega. Fading memory echo state networks are universal. \emph{Neural Networks}, 138:10--13, 2021.
+
+\bibitem{grigoryeva2018} L.\ Grigoryeva and J.-P.\ Ortega. Echo state networks are universal. \emph{Neural Networks}, 108:495--508, 2018.
+
+\bibitem{guyon2023} J.\ Guyon and J.\ Lekeufack. Volatility is (mostly) path-dependent. \emph{Quantitative Finance}, 23(9):1221--1258, 2023.
+
+\bibitem{hornik1989} K.\ Hornik, M.\ Stinchcombe, and H.\ White. Multilayer feedforward networks are universal approximators. \emph{Neural Networks}, 2(5):359--366, 1989.
+
+\bibitem{jaeger2001} H.\ Jaeger. The ``echo state'' approach to analysing and training recurrent neural networks. \emph{GMD Report 148}, German National Research Institute for Computer Science, 2001.
+
+\bibitem{jaeger2002stm} H.\ Jaeger. Short term memory in echo state networks. \emph{GMD Report 152}, 2002.
+
+\bibitem{jaeger2007} H.\ Jaeger, M.\ Luko\v{s}evi\v{c}ius, D.\ Popovici, and U.\ Siewert. Optimization and applications of echo state networks with leaky-integrator neurons. \emph{Neural Networks}, 20(3):335--352, 2007.
+
+\bibitem{maass2002} W.\ Maass, T.\ Natschl\"ager, and H.\ Markram. Real-time computing without stable states: a new framework for neural computation based on perturbations. \emph{Neural Computation}, 14(11):2531--2560, 2002.
+
+\bibitem{white2004} O.\ L.\ White, D.\ D.\ Lee, and H.\ Sompolinsky. Short-term memory in orthogonal neural networks. \emph{Physical Review Letters}, 92(14):148102, 2004.
+
+\bibitem{yildiz2012} I.\ B.\ Yildiz, H.\ Jaeger, and S.\ J.\ Kiebel. Re-visiting the echo state property. \emph{Neural Networks}, 35:1--9, 2012.
+
+\end{thebibliography}
+
+\end{document}
