@@ -1,0 +1,92 @@
+{
+  "LHX": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": -0.03183805733685582,
+    "k_confirm": 10.4299352685116,
+    "k_confirm_std": 2.219800154978725,
+    "nfev": 0
+  },
+  "BK": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": 0.03296392697546618,
+    "k_confirm": 16.128520833229967,
+    "k_confirm_std": 5.356090612392346,
+    "nfev": 0
+  },
+  "HUM": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": 0.05057569348985365,
+    "k_confirm": 18.38473924780414,
+    "k_confirm_std": 6.868903719189661,
+    "nfev": 0
+  },
+  "TSN": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": 0.027168198585751677,
+    "k_confirm": 15.465025520012247,
+    "k_confirm_std": 4.936135616610117,
+    "nfev": 0
+  },
+  "IEX": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": -0.1,
+    "k_confirm": 7.169757847329796,
+    "k_confirm_std": 1.0382083305944811,
+    "nfev": 0
+  },
+  "KMB": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": -0.05613000268774655,
+    "k_confirm": 9.036702510708345,
+    "k_confirm_std": 1.6495796154649756,
+    "nfev": 0
+  },
+  "SP500": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": -0.015596511935282432,
+    "k_confirm": 11.55051183964499,
+    "k_confirm_std": 2.741944172916719,
+    "nfev": 0
+  },
+  "RUSSELL2000": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": -0.07232291725886686,
+    "k_confirm": 8.263249832810992,
+    "k_confirm_std": 1.37411577749239,
+    "nfev": 0
+  },
+  "NASDAQ100": {
+    "H_fit": 0.3,
+    "rough_scale_fit": 0.7,
+    "lam_lo_fit": 1e-05,
+    "lam_hi_fit": 1.0,
+    "m1_fit": -0.1,
+    "k_confirm": 7.169757847329796,
+    "k_confirm_std": 1.0382083305944811,
+    "nfev": 0
+  }
+}
