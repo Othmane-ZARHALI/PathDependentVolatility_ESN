@@ -1,0 +1,19 @@
+# Python cache and local artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.ipynb_checkpoints/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Local generated web exports under matteo/web_claude
+matteo/web_claude/*.html
+matteo/web_claude/*.json
+
+# Common local logs
+*.log

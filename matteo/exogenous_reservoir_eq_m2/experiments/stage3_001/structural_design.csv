@@ -1,0 +1,5 @@
+structural_scenario_id,feedback_asset_correlation,spike_asset_correlation,equity_risk_price,feedback_idiosyncratic_risk_price,spike_idiosyncratic_risk_price
+0,0.996259961884662,0.9790548338377681,0.35,0.0,0.0
+1,0.9766958138810892,0.98378601407178,0.35,0.0,0.0
+2,0.9890775587322591,0.9612089653333922,0.35,0.0,0.0
+3,0.9844764295140137,0.9437096542220714,0.35,0.0,0.0

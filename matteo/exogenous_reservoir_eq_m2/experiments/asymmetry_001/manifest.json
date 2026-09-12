@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "model_package_version": "0.4.0",
+  "study_name": "Fast-factor downside-asymmetry screen",
+  "selection_source": "experiments/stage3_001/top_configurations.csv",
+  "selection_rule": "top Stage-3 M2 configuration-scenario rows",
+  "configuration_count": 16,
+  "spike_shifts": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "seeds": [
+    510007,
+    540011,
+    570013,
+    600017,
+    630019
+  ],
+  "simulation": {
+    "years": 6.0,
+    "burn_years": 1.0,
+    "paths": 24,
+    "observations_per_year": 252,
+    "steps_per_observation": 2
+  },
+  "acceptance_criteria": {
+    "bands": {
+      "max_abs_return_acf": {
+        "lower": 0.0,
+        "upper": 0.1,
+        "weight": 1.0
+      },
+      "mean_log_variance_acf": {
+        "lower": 0.15,
+        "upper": 0.99,
+        "weight": 1.0
+      },
+      "rough_hurst": {
+        "lower": 0.07,
+        "upper": 0.16,
+        "weight": 1.0
+      },
+      "leverage_rank": {
+        "lower": -0.6,
+        "upper": -0.008,
+        "weight": 1.0
+      },
+      "zumbach_rank": {
+        "lower": 0.015,
+        "upper": 0.6,
+        "weight": 1.0
+      },
+      "excess_kurtosis": {
+        "lower": 3.0,
+        "upper": 30.0,
+        "weight": 1.0
+      },
+      "taylor_gap": {
+        "lower": -0.05,
+        "upper": 0.3,
+        "weight": 0.25
+      }
+    }
+  },
+  "asymmetry_metrics_are_empirical_targets": false,
+  "notes": "The old joint gates are unchanged. Tail-event asymmetry is reported as a mechanism diagnostic until matched SPX confidence bands are supplied."
+}

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "esn-eq-model"
+version = "0.4.0"
+description = "Exogenous OU-reservoir volatility with a tempered exponential-quadratic readout"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=1.5",
+  "scipy>=1.10",
+]
+
+[project.scripts]
+esn-eq-explore = "esn_eq.cli:main"
+esn-eq-factorial = "esn_eq.factorial_cli:main"
+esn-eq-stage2 = "esn_eq.stage2_cli:main"
+esn-eq-stage3 = "esn_eq.stage3_cli:main"
+esn-eq-asymmetry = "esn_eq.asymmetry_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

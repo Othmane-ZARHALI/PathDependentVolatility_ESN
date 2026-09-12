@@ -1,0 +1,161 @@
+{
+  "optimizer_seeds": [
+    20260902,
+    20260903,
+    20260904
+  ],
+  "selected_seed": 20260902,
+  "objective": 0.03038740521353733,
+  "objective_range": [
+    0.03038740521353733,
+    0.030387405276293338
+  ],
+  "optimizer_message": "Optimization terminated successfully.",
+  "rough_variogram": [
+    0.5633085432614782,
+    0.8807701151153708,
+    1.199945257473502,
+    1.4520875558142066,
+    1.730067592460783,
+    1.827127834042054,
+    1.9064702392413637,
+    1.9421271754752159
+  ],
+  "cluster_acf": [
+    0.984354520634795,
+    0.9280200541820317,
+    0.7780092949136658,
+    0.5739232130950854,
+    0.4214607209943229,
+    0.25508485840644857
+  ],
+  "feedback_rate_range": [
+    0.05000000000000001,
+    5000.000000000004
+  ],
+  "cluster_rate_range": [
+    0.5,
+    20.710215785426232
+  ],
+  "boundary_hits": [
+    "feedback_low:lower",
+    "feedback_high:upper",
+    "cluster_low:upper"
+  ],
+  "replicates": [
+    {
+      "seed": 20260902,
+      "objective": 0.03038740521353733,
+      "optimizer_message": "Optimization terminated successfully.",
+      "feedback_low": 0.05000000000000001,
+      "feedback_high": 5000.000000000004,
+      "feedback_power": 0.39745892673012545,
+      "cluster_low": 0.5,
+      "cluster_high": 20.710215785426232,
+      "cluster_power": -0.16813617681334975,
+      "boundary_hits": [
+        "feedback_low:lower",
+        "feedback_high:upper",
+        "cluster_low:upper"
+      ]
+    },
+    {
+      "seed": 20260903,
+      "objective": 0.030387405260978047,
+      "optimizer_message": "Optimization terminated successfully.",
+      "feedback_low": 0.05000000000000001,
+      "feedback_high": 5000.000000000004,
+      "feedback_power": 0.3974733124965414,
+      "cluster_low": 0.5,
+      "cluster_high": 20.70863381173123,
+      "cluster_power": -0.16813298999767298,
+      "boundary_hits": [
+        "feedback_low:lower",
+        "feedback_high:upper",
+        "cluster_low:upper"
+      ]
+    },
+    {
+      "seed": 20260904,
+      "objective": 0.030387405276293338,
+      "optimizer_message": "Optimization terminated successfully.",
+      "feedback_low": 0.05000000000000001,
+      "feedback_high": 5000.000000000004,
+      "feedback_power": 0.3974631153361817,
+      "cluster_low": 0.5,
+      "cluster_high": 20.717812645360798,
+      "cluster_power": -0.1681602236038926,
+      "boundary_hits": [
+        "feedback_low:lower",
+        "feedback_high:upper",
+        "cluster_low:upper"
+      ]
+    }
+  ],
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.9,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        20.0,
+        92.83177667225556,
+        430.8869380063765,
+        2000.0
+      ],
+      "asset_correlation": 0.65,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": 0.0,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    }
+  }
+}

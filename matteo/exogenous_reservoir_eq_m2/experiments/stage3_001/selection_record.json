@@ -1,0 +1,19 @@
+{
+  "source_latent_seed": 20260902,
+  "selected_spike_rates": [
+    10.0,
+    36.84031498640386,
+    135.7208808297453,
+    500.0
+  ],
+  "selected_spike_weight_power": -0.5,
+  "training_anchor": {
+    "cluster_loading": 0.24,
+    "feedback_curvature": 0.073,
+    "feedback_shift": 3.0,
+    "spike_curvature": 0.22,
+    "five_seed_pass_fraction": 0.8
+  },
+  "echo_loading_fixed": 0.0,
+  "primary_criteria_changed_after_training": false
+}
