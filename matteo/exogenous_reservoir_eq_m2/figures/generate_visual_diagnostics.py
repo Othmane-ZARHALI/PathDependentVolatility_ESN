@@ -127,7 +127,8 @@ class Stage3M2Loader:
     def _parameters(selected: pd.Series) -> ReadoutParameters:
         """Build the selected readout while enforcing the M2 cell definition."""
         names = {field.name for field in fields(ReadoutParameters)}
-        values = {name: float(selected[name]) for name in names}
+        values = {name: float(selected[name]) for name in names if name in selected.index}
+        values.setdefault("spike_shift", 0.0)
         values["orthogonal_curvature"] = 0.0
         values["echo_loading"] = 0.0
         return ReadoutParameters.from_mapping(values)
