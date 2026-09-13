@@ -115,12 +115,12 @@ Readout\par}
 
 \vspace{8mm}
 {\Large\color{muted}
-Current specification, physical stylised facts, and joint SPX--VIX calibration architecture\par}
+Current specification, physical stylised facts, and joint equity--volatility-index calibration architecture\par}
 
 \vspace{15mm}
 \begin{tcolorbox}[colback=pale,colframe=blue,boxrule=0.8pt,arc=2mm]
 \textbf{Purpose.}
-This document consolidates the current candidate descended from ESN--A2. It states the model
+This document consolidates the current exogenous-reservoir candidate. It states the model
 under the physical and pricing measures, identifies the mechanisms supporting each targeted
 stylised fact, and separates mathematical implications from numerical evidence and open
 calibration questions.
@@ -129,7 +129,7 @@ calibration questions.
 \vfill
 \begin{tabular}{@{}ll@{}}
 \textbf{Status:} & research specification, not a calibration result \\
-\textbf{Version:} & 1.2 \\
+\textbf{Version:} & 1.3 \\
 \textbf{Date:} & September 2026
 \end{tabular}
 \end{titlepage}
@@ -141,18 +141,20 @@ calibration questions.
 The objective is a continuous-path stochastic-volatility model that can reproduce, under
 the physical measure, finite-frequency heavy tails, volatility clustering, roughness,
 leverage, a strong Zumbach effect and, at lower priority, the Taylor effect. Under the pricing
-measure, the same structural model should be capable of fitting SPX and VIX option surfaces.
+measure, the same structural model should be capable of fitting Standard \& Poor's 500
+(S\&P 500, whose option market is denoted SPX) and Cboe Volatility Index (VIX) option surfaces.
 The computational constraint is that changes in readout and risk-premium parameters must not
 require new simulation of the exogenous state paths.
 
-The proposed model uses a structured bank of Ornstein--Uhlenbeck factors as a linear reservoir,
+The proposed model uses a structured bank of Ornstein--Uhlenbeck (OU) factors as a linear reservoir,
 an optional bounded nonlinear echo-state layer, and a normalised exponential-quadratic
 variance readout. A shifted quadratic projection of a return-correlated but
 variance-independent OU bank supplies leverage and time-reversal asymmetry. Slow exogenous
 OU modes supply clustering; a rough-kernel lift supplies finite-scale roughness; a fast,
 partly return-correlated direction supplies VIX-like spikes; and an independent quadratic
 block is reserved for dispersion or tail tuning. A deterministic Girsanov kernel preserves
-Gaussianity of the OU core between \(\Pp\) and \(\Qq\).
+Gaussianity of the OU core between the physical probability measure \(\Pp\) and the
+risk-neutral pricing measure \(\Qq\).
 
 The architecture supports all requested mechanisms without a quintic polynomial. This is a
 capacity statement, not a proof that a single parameter vector fits every physical statistic
@@ -169,7 +171,9 @@ the exponential-quadratic moment and martingale domains must be enforced explici
 \section{Objective and standard of claim}
 
 Let \(S\) denote the total-return-adjusted equity index level and \(V\) its instantaneous
-variance. The programme has two linked objectives:
+variance. Throughout, \(\Pp\) denotes the physical probability measure governing historical
+dynamics, while \(\Qq\) denotes the risk-neutral probability measure used for derivative
+pricing. The programme has two linked objectives:
 
 \begin{enumerate}
   \item Under \(\Pp\), reproduce the relevant empirical properties of equity returns and
@@ -206,8 +210,9 @@ to explicit moment, martingale and calibration tests.
 \subsection{Driver system and measure convention}
 
 Work on a filtered probability space satisfying the usual conditions. Under a measure
-\(\mathbb M\in\{\Pp,\Qq\}\), let \(W^{S,\mathbb M}\) drive the equity return. The structured
-reservoir uses four driver groups:
+\(\mathbb M\in\{\Pp,\Qq\}\), let \(W^{S,\mathbb M}\) be the standard Brownian motion driving
+the equity return. The superscript \(S\) labels the equity, and \(\mathbb M\) identifies the
+probability measure. The structured reservoir uses four driver groups:
 
 \begin{align}
 \dd W_t^{F,\mathbb M}
@@ -218,14 +223,20 @@ reservoir uses four driver groups:
     +\sqrt{1-\rho_J^2}\dd B_t^{J,\mathbb M},
 \end{align}
 
-where the superscripts \(F\) and \(J\) stand for feedback and fast-spike banks. The clustering
-drivers \(B^{C}\) and optional orthogonal drivers \(B^{O}\) are independent of
+where \(B^{F,\mathbb M}\) and \(B^{J,\mathbb M}\) are independent standard Brownian motions,
+also independent of \(W^{S,\mathbb M}\). The labels \(F\) and \(J\) denote the feedback and
+fast-spike banks, while \(\rho_F\) and \(\rho_J\) are their instantaneous correlations with
+the equity Brownian motion. Consequently \(W^{F,\mathbb M}\) and \(W^{J,\mathbb M}\) are
+standard Brownian motions correlated with the equity driver. The clustering drivers
+\(B^{C,\mathbb M}\) and optional orthogonal drivers \(B^{O,\mathbb M}\) are further independent
+standard Brownian motions, mutually independent and independent of
 \(W^S,B^F,B^J\). Partial rather than zero correlation is recommended for the fast bank,
 because large VIX moves are empirically associated with equity sell-offs.
 
 \subsection{Layer 1: structured OU reservoir}
 
-For each bank \(b\in\{F,J,C,O\}\), define under \(\Pp\) the OU coordinates
+For each bank \(b\in\{F,J,C,O\}\), define under \(\Pp\) the Ornstein--Uhlenbeck (OU)
+coordinates
 
 \begin{equation}
 \dd X_{j,t}^{b,\Pp}
@@ -234,6 +245,11 @@ For each bank \(b\in\{F,J,C,O\}\), define under \(\Pp\) the OU coordinates
 \qquad j=1,\ldots,N_b.
 \label{eq:ou-bank}
 \end{equation}
+
+Here \(X_{j,t}^{b,\Pp}\) is coordinate \(j\) of bank \(b\) at time \(t\),
+\(\lambda_j^b>0\) is its mean-reversion rate, \(W_{j}^{b,\Pp}\) is the Brownian motion assigned
+to that coordinate, and \(N_b\) is the number of coordinates in the bank. The diffusion
+coefficient \(\sqrt{2\lambda_j^b}\) normalises every stationary marginal variance to one.
 
 Within the feedback bank, the coordinates share \(W^F\); this creates the correlated
 multi-rate lift used to approximate a rough Volterra kernel. The fast bank can share one or a
@@ -249,6 +265,9 @@ For \(N_b\geq2\), the rate grids are geometric and fixed in the inner calibratio
 \left(\frac{\lambda_{\max}^b}{\lambda_{\min}^b}\right)^{\frac{j-1}{N_b-1}}.
 \end{equation}
 
+Thus \(\lambda_{\min}^b\) and \(\lambda_{\max}^b\) are respectively the slowest and fastest
+mean-reversion rates in bank \(b\).
+
 Define normalised projections
 
 \begin{equation}
@@ -258,33 +277,57 @@ F_t=f^\top X_t^J,\qquad
 \label{eq:projections}
 \end{equation}
 
-at the stationary physical reference point. The direction \(Y\) carries the main
-leverage--Zumbach mechanism; \(F\) controls the front end of volatility spikes.
+at the stationary physical reference point. Here \(X_t^F\) and \(X_t^J\) are the vectors of
+feedback- and fast-bank coordinates, while the fixed vectors \(a\) and \(f\) aggregate each
+bank into one scalar factor. The normalisation gives both projections unit stationary variance,
+so their readout coefficients have comparable interpretations.
+
+The projection \(Y\) is a persistent, multiscale summary of past return-correlated shocks. Its
+shifted quadratic term below produces the main leverage effect---negative returns followed by
+higher volatility---and the Zumbach time-reversal effect. The projection \(F\) emphasises the
+fastest return-correlated modes. Its role is to create the sharp front of a volatility spike and
+its subsequent mean-reverting decay. Shifting the quadratic function of \(F\) makes a negative
+equity move generate a larger spike than a positive move of equal magnitude.
 
 \subsection{Layer 2: optional bounded echo-state layer}
 
-On a time grid \(t_n=n\Delta t\), with \(0<\alpha\leq1\), the nonlinear reservoir is
+An echo-state network (ESN) is an optional second reservoir layer with fixed recurrent weights
+and a calibrated output loading. On a time grid \(t_n=n\Delta t\), where \(n\) is the time-step
+index, \(\Delta t>0\) is the step length and \(0<\alpha\leq1\) is the leak parameter, define
 
 \begin{equation}
 Z_{n+1}
 =(1-\alpha)Z_n
-+\alpha\tanh\!\left(AZ_n+B\psi(X_n)+b\right),
++\alpha\tanh\!\left(A_ZZ_n+B_Z\psi(X_n)+b_Z\right),
 \label{eq:esn-layer}
 \end{equation}
 
-where \(A,B,b\) are drawn or designed once and then held fixed. The feature map \(\psi\) may
-contain selected linear, quadratic and cross-bank features. A sufficient contraction condition
-for the echo-state property is
+where \(Z_n\) is the second-layer state, \(X_n\) is the complete first-layer OU state,
+\(A_Z\) is the recurrent matrix, \(B_Z\) is the input matrix, \(b_Z\) is a bias vector, and
+\(\psi\) is a fixed feature map that may contain selected linear, quadratic and cross-bank
+features. The matrices and bias are drawn or designed once and then held fixed. A sufficient
+contraction condition for the echo-state property is
 
 \begin{equation}
-(1-\alpha)+\alpha\lVert A\rVert_2<1.
+(1-\alpha)+\alpha\lVert A_Z\rVert_2<1.
 \label{eq:echo-condition}
 \end{equation}
 
+The echo-state property is important because it gives the recurrent layer fading memory: for
+the same input history, the effect of two different initial states decays geometrically. The
+state is therefore a stable causal function of the exogenous OU history rather than an
+additional source of persistent initial-condition dependence. This prevents exploding or
+ambiguous recurrent dynamics and makes simulations, calibration results and path reuse
+reproducible after a finite washout period.
+
 Because \(Z\) is driven only by the exogenous OU state, neither \(X\) nor \(Z\) changes when a
-readout coefficient changes. The recommended first calibration sets the nonlinear loading
-\(\delta\) below to zero. It is activated only if a physical-measure ablation demonstrates an
-incremental gain that justifies losing Gaussian conditional-moment formulas.
+readout coefficient changes. The layer is called optional precisely because it affects variance
+only through the term \(\delta^\top Z_t\) in the readout below. When the loading vector
+\(\delta=0\), that term vanishes and Layer~2 can be omitted without changing \(V\) or \(S\).
+When \(\delta\neq0\), bounded nonlinear combinations of the OU history enter log variance and
+the full two-layer ESN is active. The recommended first calibration uses \(\delta=0\) and
+activates the layer only if an out-of-sample ablation demonstrates an incremental gain large
+enough to justify the extra parameters and the loss of Gaussian conditional-moment formulas.
 
 \begin{warningbox}[Terminology]
 With \(\delta=0\), the operative model is a structured Gaussian reservoir rather than a
@@ -307,9 +350,21 @@ The multiplier-free log-variance score is
 \label{eq:eta}
 \end{equation}
 
+The score \(\eta_t\) is dimensionless. The vector \(X_t^C\) contains the slow clustering
+coordinates and \(c_C\) is their linear loading. The non-negative curvatures \(q_Z\), \(q_J\)
+and \(q_O\) control respectively the feedback, fast-spike and optional orthogonal quadratic
+channels. The constants \(\beta\) and \(\beta_J\) shift the vertices of the feedback and fast
+parabolas. The vector \(X_t^O\) contains \(N_O\) orthogonal coordinates, so division by \(N_O\)
+keeps their average squared energy comparable across bank sizes. Finally, \(\delta\) is the
+loading vector of the optional echo-state layer \(Z_t\).
+
 The recommended core imposes \(q_Z>0\), \(q_J\geq0\), \(\beta_J\geq0\), and starts at
-\(q_O=0\), \(\delta=0\). Setting \(\beta_J=0\) exactly recovers the original Stage--3 M2
-readout. Each shifted quadratic is deliberately parameterised without an additional linear
+\(q_O=0\), \(\delta=0\). Setting \(\beta_J=0\) centres the fast parabola at the stationary
+state \(F=0\). Its conversion of positive and negative fast-factor movements of equal magnitude
+into volatility spikes is then symmetric. A positive \(\beta_J\), together with positive
+fast-factor/equity correlation, breaks this symmetry in the empirically relevant direction:
+negative index movements produce larger volatility spikes. Each shifted quadratic is
+deliberately parameterised without an additional linear
 loading on the same projection: adding both \(\ell F\) and \(q_J(F-\beta_J)^2\), for example,
 would make the linear loading and shift redundant up to deterministic normalisation.
 
@@ -339,14 +394,31 @@ M_{\Qq}(t)=\E_0^{\Qq}\!\left[G_{L,\kappa}(\eta_t)\right].}
 \label{eq:variance}
 \end{equation}
 
+Here \(L\) is the upper level approached by the tempered score, \(\kappa\) controls how sharply
+the transition occurs, \(G_{L,\kappa}\) maps the score into a positive variance multiplier,
+and \(M_{\Qq}(t)\) is its time-\(t\) risk-neutral expectation conditional on time-zero
+information. The division by \(M_{\Qq}(t)\) preserves the prescribed forward variance curve.
+
 Provided \(\xi_0(t)>\underline v\), positivity and
 \(\E_0^{\Qq}[V_t]=\xi_0(t)\) follow by construction. The untempered shadow model is obtained by
 setting \(h(x)=x\); it is useful for analytic checks and control variates, but it is not the
 recommended production specification on a return-correlated quadratic bank.
 
+Tempering is introduced because an exponential of a Gaussian quadratic can assign enormous
+variance to rare factor realisations. Without tempering, admissibility depends on spectral
+moment conditions: some parameter values have infinite variance moments, Monte Carlo estimates
+can be dominated by a handful of paths, numerical optimisation becomes unstable, and the stock
+martingale condition is no longer automatic. The upper bound supplied by \(h_{L,\kappa}\)
+ensures finite variance moments of every order and gives a direct finite-horizon Novikov bound,
+while leaving ordinary observations almost unchanged when \(\eta_t\ll L\). What is sacrificed
+is exact Gaussian exponential-quadratic transform formulae and completely unbounded spike
+amplitudes. The untempered shadow model is therefore retained for analytic diagnostics, whereas
+the tempered model is used for robust simulation and calibration.
+
 \subsection{Equity dynamics under \texorpdfstring{\(\Pp\)}{P} and
 \texorpdfstring{\(\Qq\)}{Q}}
 
+Let \(r_t\) be the instantaneous risk-free rate and \(d_t\) the continuous dividend yield.
 Under the physical measure, use a deterministic instantaneous Sharpe ratio \(\theta(t)\):
 
 \begin{equation}
@@ -356,13 +428,30 @@ Under the physical measure, use a deterministic instantaneous Sharpe ratio \(\th
 \label{eq:stock-P}
 \end{equation}
 
-Let the full Brownian vector satisfy the deterministic Girsanov shift
+The name Sharpe ratio is literal at the instantaneous level: the expected equity return in
+excess of \(r_t-d_t\) is \(\theta(t)\sqrt{V_t}\), while its instantaneous volatility is
+\(\sqrt{V_t}\). Their ratio is therefore \(\theta(t)\). This specification lets the physical
+equity premium vary with volatility without feeding the variance level back into the exogenous
+reservoir dynamics.
+
+Collect the independent primitive Brownian motions into a vector \(\mathbf W\), whose entries
+are \(W^S,B^F,B^J,B^C\) and \(B^O\), with as many components in the last two groups as their
+banks require. Let this vector satisfy the deterministic Girsanov shift
 
 \begin{equation}
-\dd B_t^{\Pp}=\dd B_t^{\Qq}-\gamma(t)\dd t,
+\dd\mathbf W_t^{\Pp}=\dd\mathbf W_t^{\Qq}-\boldsymbol\gamma(t)\dd t,
 \qquad \gamma_S(t)=\theta(t).
 \label{eq:girsanov}
 \end{equation}
+
+The vector \(\boldsymbol\gamma(t)\) contains the market prices of risk of the independent
+Brownian sources. Its equity component \(\gamma_S\) must equal \(\theta\) so that the physical
+equity premium disappears under \(\Qq\). The other components need not equal \(\theta\): they
+price shocks that are not fully spanned by the equity return and determine how the conditional
+means of the volatility factors differ between \(\Pp\) and \(\Qq\). Thus \(\theta\) is both the
+instantaneous equity Sharpe ratio and one component of the broader Brownian risk-premium vector;
+the remaining \(\gamma\)'s refer to different primitive shock equations, not to alternative
+definitions of the equity Sharpe ratio.
 
 Then
 
@@ -373,14 +462,15 @@ Then
 \label{eq:stock-Q}
 \end{equation}
 
-The unspanned components of \(\gamma\) are parsimonious variance-risk-premium parameters.
-Because \(\gamma\) is deterministic, every OU bank remains Gaussian under \(\Qq\): only its
+The unspanned components of \(\boldsymbol\gamma\) are parsimonious variance-risk-premium
+parameters. Because \(\boldsymbol\gamma\) is deterministic, every OU bank remains Gaussian
+under \(\Qq\): only its
 deterministic conditional mean changes, while its covariance and rate spectrum are preserved.
 This is the essential reason the same centred Gaussian innovations can be reused under both
 measures.
 
-More explicitly, if \(\gamma_b(t)\) denotes the effective deterministic shift of the Brownian
-driver of coordinate \((b,j)\), then
+More explicitly, if \(\gamma_b(t)\) denotes the effective deterministic risk premium of the
+Brownian driver assigned to coordinate \((b,j)\), then
 
 \begin{equation}
 \dd X_{j,t}^{b,\Qq}
@@ -390,8 +480,11 @@ driver of coordinate \((b,j)\), then
 \label{eq:ou-Q}
 \end{equation}
 
-For the correlated banks, \(\gamma_b\) is the corresponding linear combination of the equity
-and unspanned primitive-driver premia.
+For example, the feedback driver in the first equation is a linear combination of two primitive
+Brownian motions, so its effective premium is
+\(\gamma_F=\rho_F\theta+\sqrt{1-\rho_F^2}\,\gamma_{B^F}\); the fast-bank formula is analogous.
+This is why the coordinate-level \(\gamma_b\)'s can differ even though the equity component is
+fixed by \(\gamma_S=\theta\).
 
 \subsection{Architecture at a glance}
 
@@ -435,7 +528,7 @@ and unspanned primitive-driver premia.
 \midrule
 \endhead
 Architectural hyperparameters
-& Bank dimensions; OU rate grids; reservoir matrices \(A,B\); leak \(\alpha\);
+& Bank dimensions; OU rate grids; reservoir matrices \(A_Z,B_Z\); leak \(\alpha\);
 feature map \(\psi\); cap family
 & Selected in an outer validation loop and changed infrequently. Changing OU rates or fixed
 reservoir weights requires rebuilding state features. \\
@@ -801,11 +894,11 @@ a sharp front followed by a persistent shoulder. This temporal shape comes from 
 of mean reversion with the exponential level map, not from a jump in the state process.
 
 \begin{resultbox}[Fresh-seed mechanism screen]
-A paired screen of 16 stable Stage--3 M2 configuration--scenario pairs, five fresh seeds and
+A paired screen of 16 previously selected configuration--scenario pairs, five fresh seeds and
 six values \(\beta_J\in\{0,0.1,\ldots,0.5\}\) produced 480 evaluations. At \(\beta_J=0.1\),
 the downside-minus-upside median day-zero volatility-response gap increased from 35.0\% to
 38.7\%, and the corresponding days 1--5 gap increased from 29.4\% to 37.3\%. All seven
-pre-existing Stage--3 proxy gates passed in 67 of 80 evaluations; six of 16 configurations
+pre-existing stylised-fact proxy gates passed in 67 of 80 evaluations; six of 16 configurations
 passed on every fresh seed. All failures at this shift came from the positive-Zumbach lower
 bound. This is controlled synthetic mechanism evidence, not an empirical SPX calibration.
 \end{resultbox}

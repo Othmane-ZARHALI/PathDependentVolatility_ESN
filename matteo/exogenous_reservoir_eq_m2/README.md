@@ -61,6 +61,13 @@ Run the focused downside-asymmetry study with:
 esn-eq-asymmetry --output experiments/asymmetry_001
 ```
 
+Regenerate the paired asymmetric visual diagnostics with:
+
+```bash
+python -m pip install -e '.[figures]'
+python figures/generate_asymmetry_diagnostics.py
+```
+
 Do not overwrite `experiments/stage3_001/`; it is the preserved confirmation record. The
 Stage-2 source remains included because Stage 3 imports shared analysis helpers and uses the
 Stage-2 record as its fixed training reference. Reproducing Stage 2 itself requires the excluded
