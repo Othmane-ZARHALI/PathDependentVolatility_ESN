@@ -115,12 +115,12 @@ Readout\par}
 
 \vspace{8mm}
 {\Large\color{muted}
-Current specification, physical stylised facts, and joint SPX--VIX calibration architecture\par}
+Current specification, physical stylised facts, and joint equity--volatility-index calibration architecture\par}
 
 \vspace{15mm}
 \begin{tcolorbox}[colback=pale,colframe=blue,boxrule=0.8pt,arc=2mm]
 \textbf{Purpose.}
-This document consolidates the current candidate descended from ESN--A2. It states the model
+This document consolidates the current exogenous-reservoir candidate. It states the model
 under the physical and pricing measures, identifies the mechanisms supporting each targeted
 stylised fact, and separates mathematical implications from numerical evidence and open
 calibration questions.
@@ -129,7 +129,7 @@ calibration questions.
 \vfill
 \begin{tabular}{@{}ll@{}}
 \textbf{Status:} & research specification, not a calibration result \\
-\textbf{Version:} & 1.2 \\
+\textbf{Version:} & 1.6 \\
 \textbf{Date:} & September 2026
 \end{tabular}
 \end{titlepage}
@@ -141,18 +141,20 @@ calibration questions.
 The objective is a continuous-path stochastic-volatility model that can reproduce, under
 the physical measure, finite-frequency heavy tails, volatility clustering, roughness,
 leverage, a strong Zumbach effect and, at lower priority, the Taylor effect. Under the pricing
-measure, the same structural model should be capable of fitting SPX and VIX option surfaces.
+measure, the same structural model should be capable of fitting Standard \& Poor's 500
+(S\&P 500, whose option market is denoted SPX) and Cboe Volatility Index (VIX) option surfaces.
 The computational constraint is that changes in readout and risk-premium parameters must not
 require new simulation of the exogenous state paths.
 
-The proposed model uses a structured bank of Ornstein--Uhlenbeck factors as a linear reservoir,
+The proposed model uses a structured bank of Ornstein--Uhlenbeck (OU) factors as a linear reservoir,
 an optional bounded nonlinear echo-state layer, and a normalised exponential-quadratic
 variance readout. A shifted quadratic projection of a return-correlated but
 variance-independent OU bank supplies leverage and time-reversal asymmetry. Slow exogenous
 OU modes supply clustering; a rough-kernel lift supplies finite-scale roughness; a fast,
 partly return-correlated direction supplies VIX-like spikes; and an independent quadratic
 block is reserved for dispersion or tail tuning. A deterministic Girsanov kernel preserves
-Gaussianity of the OU core between \(\Pp\) and \(\Qq\).
+Gaussianity of the OU core between the physical probability measure \(\Pp\) and the
+risk-neutral pricing measure \(\Qq\).
 
 The architecture supports all requested mechanisms without a quintic polynomial. This is a
 capacity statement, not a proof that a single parameter vector fits every physical statistic
@@ -169,7 +171,9 @@ the exponential-quadratic moment and martingale domains must be enforced explici
 \section{Objective and standard of claim}
 
 Let \(S\) denote the total-return-adjusted equity index level and \(V\) its instantaneous
-variance. The programme has two linked objectives:
+variance. Throughout, \(\Pp\) denotes the physical probability measure governing historical
+dynamics, while \(\Qq\) denotes the risk-neutral probability measure used for derivative
+pricing. The programme has two linked objectives:
 
 \begin{enumerate}
   \item Under \(\Pp\), reproduce the relevant empirical properties of equity returns and
@@ -206,8 +210,9 @@ to explicit moment, martingale and calibration tests.
 \subsection{Driver system and measure convention}
 
 Work on a filtered probability space satisfying the usual conditions. Under a measure
-\(\mathbb M\in\{\Pp,\Qq\}\), let \(W^{S,\mathbb M}\) drive the equity return. The structured
-reservoir uses four driver groups:
+\(\mathbb M\in\{\Pp,\Qq\}\), let \(W^{S,\mathbb M}\) be the standard Brownian motion driving
+the equity return. The superscript \(S\) labels the equity, and \(\mathbb M\) identifies the
+probability measure. The structured reservoir uses four driver groups:
 
 \begin{align}
 \dd W_t^{F,\mathbb M}
@@ -218,14 +223,20 @@ reservoir uses four driver groups:
     +\sqrt{1-\rho_J^2}\dd B_t^{J,\mathbb M},
 \end{align}
 
-where the superscripts \(F\) and \(J\) stand for feedback and fast-spike banks. The clustering
-drivers \(B^{C}\) and optional orthogonal drivers \(B^{O}\) are independent of
+where \(B^{F,\mathbb M}\) and \(B^{J,\mathbb M}\) are independent standard Brownian motions,
+also independent of \(W^{S,\mathbb M}\). The labels \(F\) and \(J\) denote the feedback and
+fast-spike banks, while \(\rho_F\) and \(\rho_J\) are their instantaneous correlations with
+the equity Brownian motion. Consequently \(W^{F,\mathbb M}\) and \(W^{J,\mathbb M}\) are
+standard Brownian motions correlated with the equity driver. The clustering drivers
+\(B^{C,\mathbb M}\) and optional orthogonal drivers \(B^{O,\mathbb M}\) are further independent
+standard Brownian motions, mutually independent and independent of
 \(W^S,B^F,B^J\). Partial rather than zero correlation is recommended for the fast bank,
 because large VIX moves are empirically associated with equity sell-offs.
 
 \subsection{Layer 1: structured OU reservoir}
 
-For each bank \(b\in\{F,J,C,O\}\), define under \(\Pp\) the OU coordinates
+For each bank \(b\in\{F,J,C,O\}\), define under \(\Pp\) the Ornstein--Uhlenbeck (OU)
+coordinates
 
 \begin{equation}
 \dd X_{j,t}^{b,\Pp}
@@ -234,6 +245,11 @@ For each bank \(b\in\{F,J,C,O\}\), define under \(\Pp\) the OU coordinates
 \qquad j=1,\ldots,N_b.
 \label{eq:ou-bank}
 \end{equation}
+
+Here \(X_{j,t}^{b,\Pp}\) is coordinate \(j\) of bank \(b\) at time \(t\),
+\(\lambda_j^b>0\) is its mean-reversion rate, \(W_{j}^{b,\Pp}\) is the Brownian motion assigned
+to that coordinate, and \(N_b\) is the number of coordinates in the bank. The diffusion
+coefficient \(\sqrt{2\lambda_j^b}\) normalises every stationary marginal variance to one.
 
 Within the feedback bank, the coordinates share \(W^F\); this creates the correlated
 multi-rate lift used to approximate a rough Volterra kernel. The fast bank can share one or a
@@ -249,6 +265,9 @@ For \(N_b\geq2\), the rate grids are geometric and fixed in the inner calibratio
 \left(\frac{\lambda_{\max}^b}{\lambda_{\min}^b}\right)^{\frac{j-1}{N_b-1}}.
 \end{equation}
 
+Thus \(\lambda_{\min}^b\) and \(\lambda_{\max}^b\) are respectively the slowest and fastest
+mean-reversion rates in bank \(b\).
+
 Define normalised projections
 
 \begin{equation}
@@ -258,33 +277,57 @@ F_t=f^\top X_t^J,\qquad
 \label{eq:projections}
 \end{equation}
 
-at the stationary physical reference point. The direction \(Y\) carries the main
-leverage--Zumbach mechanism; \(F\) controls the front end of volatility spikes.
+at the stationary physical reference point. Here \(X_t^F\) and \(X_t^J\) are the vectors of
+feedback- and fast-bank coordinates, while the fixed vectors \(a\) and \(f\) aggregate each
+bank into one scalar factor. The normalisation gives both projections unit stationary variance,
+so their readout coefficients have comparable interpretations.
+
+The projection \(Y\) is a persistent, multiscale summary of past return-correlated shocks. Its
+shifted quadratic term below produces the main leverage effect---negative returns followed by
+higher volatility---and the Zumbach time-reversal effect. The projection \(F\) emphasises the
+fastest return-correlated modes. Its role is to create the sharp front of a volatility spike and
+its subsequent mean-reverting decay. Shifting the quadratic function of \(F\) makes a negative
+equity move generate a larger spike than a positive move of equal magnitude.
 
 \subsection{Layer 2: optional bounded echo-state layer}
 
-On a time grid \(t_n=n\Delta t\), with \(0<\alpha\leq1\), the nonlinear reservoir is
+An echo-state network (ESN) is an optional second reservoir layer with fixed recurrent weights
+and a calibrated output loading. On a time grid \(t_n=n\Delta t\), where \(n\) is the time-step
+index, \(\Delta t>0\) is the step length and \(0<\alpha\leq1\) is the leak parameter, define
 
 \begin{equation}
 Z_{n+1}
 =(1-\alpha)Z_n
-+\alpha\tanh\!\left(AZ_n+B\psi(X_n)+b\right),
++\alpha\tanh\!\left(A_ZZ_n+B_Z\psi(X_n)+b_Z\right),
 \label{eq:esn-layer}
 \end{equation}
 
-where \(A,B,b\) are drawn or designed once and then held fixed. The feature map \(\psi\) may
-contain selected linear, quadratic and cross-bank features. A sufficient contraction condition
-for the echo-state property is
+where \(Z_n\) is the second-layer state, \(X_n\) is the complete first-layer OU state,
+\(A_Z\) is the recurrent matrix, \(B_Z\) is the input matrix, \(b_Z\) is a bias vector, and
+\(\psi\) is a fixed feature map that may contain selected linear, quadratic and cross-bank
+features. The matrices and bias are drawn or designed once and then held fixed. A sufficient
+contraction condition for the echo-state property is
 
 \begin{equation}
-(1-\alpha)+\alpha\lVert A\rVert_2<1.
+(1-\alpha)+\alpha\lVert A_Z\rVert_2<1.
 \label{eq:echo-condition}
 \end{equation}
 
+The echo-state property is important because it gives the recurrent layer fading memory: for
+the same input history, the effect of two different initial states decays geometrically. The
+state is therefore a stable causal function of the exogenous OU history rather than an
+additional source of persistent initial-condition dependence. This prevents exploding or
+ambiguous recurrent dynamics and makes simulations, calibration results and path reuse
+reproducible after a finite washout period.
+
 Because \(Z\) is driven only by the exogenous OU state, neither \(X\) nor \(Z\) changes when a
-readout coefficient changes. The recommended first calibration sets the nonlinear loading
-\(\delta\) below to zero. It is activated only if a physical-measure ablation demonstrates an
-incremental gain that justifies losing Gaussian conditional-moment formulas.
+readout coefficient changes. The layer is called optional precisely because it affects variance
+only through the term \(\delta^\top Z_t\) in the readout below. When the loading vector
+\(\delta=0\), that term vanishes and Layer~2 can be omitted without changing \(V\) or \(S\).
+When \(\delta\neq0\), bounded nonlinear combinations of the OU history enter log variance and
+the full two-layer ESN is active. The recommended first calibration uses \(\delta=0\) and
+activates the layer only if an out-of-sample ablation demonstrates an incremental gain large
+enough to justify the extra parameters and the loss of Gaussian conditional-moment formulas.
 
 \begin{warningbox}[Terminology]
 With \(\delta=0\), the operative model is a structured Gaussian reservoir rather than a
@@ -307,9 +350,21 @@ The multiplier-free log-variance score is
 \label{eq:eta}
 \end{equation}
 
+The score \(\eta_t\) is dimensionless. The vector \(X_t^C\) contains the slow clustering
+coordinates and \(c_C\) is their linear loading. The non-negative curvatures \(q_Z\), \(q_J\)
+and \(q_O\) control respectively the feedback, fast-spike and optional orthogonal quadratic
+channels. The constants \(\beta\) and \(\beta_J\) shift the vertices of the feedback and fast
+parabolas. The vector \(X_t^O\) contains \(N_O\) orthogonal coordinates, so division by \(N_O\)
+keeps their average squared energy comparable across bank sizes. Finally, \(\delta\) is the
+loading vector of the optional echo-state layer \(Z_t\).
+
 The recommended core imposes \(q_Z>0\), \(q_J\geq0\), \(\beta_J\geq0\), and starts at
-\(q_O=0\), \(\delta=0\). Setting \(\beta_J=0\) exactly recovers the original Stage--3 M2
-readout. Each shifted quadratic is deliberately parameterised without an additional linear
+\(q_O=0\), \(\delta=0\). Setting \(\beta_J=0\) centres the fast parabola at the stationary
+state \(F=0\). Its conversion of positive and negative fast-factor movements of equal magnitude
+into volatility spikes is then symmetric. A positive \(\beta_J\), together with positive
+fast-factor/equity correlation, breaks this symmetry in the empirically relevant direction:
+negative index movements produce larger volatility spikes. Each shifted quadratic is
+deliberately parameterised without an additional linear
 loading on the same projection: adding both \(\ell F\) and \(q_J(F-\beta_J)^2\), for example,
 would make the linear loading and shift redundant up to deterministic normalisation.
 
@@ -339,14 +394,31 @@ M_{\Qq}(t)=\E_0^{\Qq}\!\left[G_{L,\kappa}(\eta_t)\right].}
 \label{eq:variance}
 \end{equation}
 
+Here \(L\) is the upper level approached by the tempered score, \(\kappa\) controls how sharply
+the transition occurs, \(G_{L,\kappa}\) maps the score into a positive variance multiplier,
+and \(M_{\Qq}(t)\) is its time-\(t\) risk-neutral expectation conditional on time-zero
+information. The division by \(M_{\Qq}(t)\) preserves the prescribed forward variance curve.
+
 Provided \(\xi_0(t)>\underline v\), positivity and
 \(\E_0^{\Qq}[V_t]=\xi_0(t)\) follow by construction. The untempered shadow model is obtained by
 setting \(h(x)=x\); it is useful for analytic checks and control variates, but it is not the
 recommended production specification on a return-correlated quadratic bank.
 
+Tempering is introduced because an exponential of a Gaussian quadratic can assign enormous
+variance to rare factor realisations. Without tempering, admissibility depends on spectral
+moment conditions: some parameter values have infinite variance moments, Monte Carlo estimates
+can be dominated by a handful of paths, numerical optimisation becomes unstable, and the stock
+martingale condition is no longer automatic. The upper bound supplied by \(h_{L,\kappa}\)
+ensures finite variance moments of every order and gives a direct finite-horizon Novikov bound,
+while leaving ordinary observations almost unchanged when \(\eta_t\ll L\). What is sacrificed
+is exact Gaussian exponential-quadratic transform formulae and completely unbounded spike
+amplitudes. The untempered shadow model is therefore retained for analytic diagnostics, whereas
+the tempered model is used for robust simulation and calibration.
+
 \subsection{Equity dynamics under \texorpdfstring{\(\Pp\)}{P} and
 \texorpdfstring{\(\Qq\)}{Q}}
 
+Let \(r_t\) be the instantaneous risk-free rate and \(d_t\) the continuous dividend yield.
 Under the physical measure, use a deterministic instantaneous Sharpe ratio \(\theta(t)\):
 
 \begin{equation}
@@ -356,13 +428,30 @@ Under the physical measure, use a deterministic instantaneous Sharpe ratio \(\th
 \label{eq:stock-P}
 \end{equation}
 
-Let the full Brownian vector satisfy the deterministic Girsanov shift
+The name Sharpe ratio is literal at the instantaneous level: the expected equity return in
+excess of \(r_t-d_t\) is \(\theta(t)\sqrt{V_t}\), while its instantaneous volatility is
+\(\sqrt{V_t}\). Their ratio is therefore \(\theta(t)\). This specification lets the physical
+equity premium vary with volatility without feeding the variance level back into the exogenous
+reservoir dynamics.
+
+Collect the independent primitive Brownian motions into a vector \(\mathbf W\), whose entries
+are \(W^S,B^F,B^J,B^C\) and \(B^O\), with as many components in the last two groups as their
+banks require. Let this vector satisfy the deterministic Girsanov shift
 
 \begin{equation}
-\dd B_t^{\Pp}=\dd B_t^{\Qq}-\gamma(t)\dd t,
+\dd\mathbf W_t^{\Pp}=\dd\mathbf W_t^{\Qq}-\boldsymbol\gamma(t)\dd t,
 \qquad \gamma_S(t)=\theta(t).
 \label{eq:girsanov}
 \end{equation}
+
+The vector \(\boldsymbol\gamma(t)\) contains the market prices of risk of the independent
+Brownian sources. Its equity component \(\gamma_S\) must equal \(\theta\) so that the physical
+equity premium disappears under \(\Qq\). The other components need not equal \(\theta\): they
+price shocks that are not fully spanned by the equity return and determine how the conditional
+means of the volatility factors differ between \(\Pp\) and \(\Qq\). Thus \(\theta\) is both the
+instantaneous equity Sharpe ratio and one component of the broader Brownian risk-premium vector;
+the remaining \(\gamma\)'s refer to different primitive shock equations, not to alternative
+definitions of the equity Sharpe ratio.
 
 Then
 
@@ -373,14 +462,15 @@ Then
 \label{eq:stock-Q}
 \end{equation}
 
-The unspanned components of \(\gamma\) are parsimonious variance-risk-premium parameters.
-Because \(\gamma\) is deterministic, every OU bank remains Gaussian under \(\Qq\): only its
+The unspanned components of \(\boldsymbol\gamma\) are parsimonious variance-risk-premium
+parameters. Because \(\boldsymbol\gamma\) is deterministic, every OU bank remains Gaussian
+under \(\Qq\): only its
 deterministic conditional mean changes, while its covariance and rate spectrum are preserved.
 This is the essential reason the same centred Gaussian innovations can be reused under both
 measures.
 
-More explicitly, if \(\gamma_b(t)\) denotes the effective deterministic shift of the Brownian
-driver of coordinate \((b,j)\), then
+More explicitly, if \(\gamma_b(t)\) denotes the effective deterministic risk premium of the
+Brownian driver assigned to coordinate \((b,j)\), then
 
 \begin{equation}
 \dd X_{j,t}^{b,\Qq}
@@ -390,8 +480,11 @@ driver of coordinate \((b,j)\), then
 \label{eq:ou-Q}
 \end{equation}
 
-For the correlated banks, \(\gamma_b\) is the corresponding linear combination of the equity
-and unspanned primitive-driver premia.
+For example, the feedback driver in the first equation is a linear combination of two primitive
+Brownian motions, so its effective premium is
+\(\gamma_F=\rho_F\theta+\sqrt{1-\rho_F^2}\,\gamma_{B^F}\); the fast-bank formula is analogous.
+This is why the coordinate-level \(\gamma_b\)'s can differ even though the equity component is
+fixed by \(\gamma_S=\theta\).
 
 \subsection{Architecture at a glance}
 
@@ -435,7 +528,7 @@ and unspanned primitive-driver premia.
 \midrule
 \endhead
 Architectural hyperparameters
-& Bank dimensions; OU rate grids; reservoir matrices \(A,B\); leak \(\alpha\);
+& Bank dimensions; OU rate grids; reservoir matrices \(A_Z,B_Z\); leak \(\alpha\);
 feature map \(\psi\); cap family
 & Selected in an outer validation loop and changed infrequently. Changing OU rates or fixed
 reservoir weights requires rebuilding state features. \\
@@ -522,18 +615,51 @@ stationary OU processes, then
 \end{equation}
 
 A geometrically spaced rate grid approximates slowly decaying covariance over a prescribed
-finite interval. The monotone exponential link transfers persistence from \(\eta\) to \(V\);
-quadratic channels add modes with decay rates such as \(2\lambda_j\) and
-\(\lambda_i+\lambda_j\).
+finite interval. The monotone exponential link transfers persistence from \(\eta\) to \(V\).
+The quadratic readout enriches this set of persistence scales without introducing new state
+processes.  For a centred stationary OU coordinate,
 
-This choice preserves strong frozen-state reuse. An endogenous activity bank
+\begin{equation*}
+\Cov\!\left((X_{j,t}^C)^2,(X_{j,t+\tau}^C)^2\right)
+=2e^{-2\lambda_j^C\tau},
+\end{equation*}
+
+so a diagonal square contributes a mode with decay rate \(2\lambda_j^C\).  For two independent
+coordinates \(i\neq j\), the cross-product channel satisfies
+
+\begin{equation*}
+\Cov\!\left(X_{i,t}^CX_{j,t}^C,
+X_{i,t+\tau}^CX_{j,t+\tau}^C\right)
+=e^{-(\lambda_i^C+\lambda_j^C)\tau}.
+\end{equation*}
+
+Thus \(2\lambda_j^C\) is generated by the diagonal term \((X_j^C)^2\), whereas
+\(\lambda_i^C+\lambda_j^C\) is generated by a cross term \(X_i^CX_j^C\).  These are two kinds
+of quadratic feature, not two additional channels of randomness.  The diagonal features are
+already present in \(q_C\lVert X^C\rVert^2\); cross terms arise automatically in a squared
+projection such as \((c^\top X^C)^2\), or can be introduced selectively through a symmetric
+quadratic matrix.  They should be used only when the linear OU mixture cannot match the shape
+of the volatility autocorrelation function, because too many free cross terms impair
+identifiability.
+
+This choice preserves strong frozen-state reuse.  A conceptually different alternative is an
+endogenous activity bank
 
 \begin{equation}
 \dd\Sigma_{k,t}=\alpha_k(V_t-\Sigma_{k,t})\dd t
 \end{equation}
 
-remains an optional challenger if the exogenous bank cannot fit the empirical volatility ACF.
-It needs no new random numbers, but it must be recomputed whenever the readout changes.
+where each \(\Sigma_{k,t}\) is an exponentially weighted moving average of past variance and
+\(\alpha_k>0\) is its adjustment rate.  This state is not part of the recommended specification
+in \cref{eq:eta}: equation (17) records a challenger model rather than an instruction to add
+\(\Sigma\) to the present readout.  If the exogenous slow bank cannot fit the empirical
+volatility autocorrelation function (ACF), one may test the challenger by augmenting the score
+with parsimonious centred loadings such as
+\(\sum_k b_{\Sigma,k}(\Sigma_{k,t}-\E[\Sigma_{k,t}])\).  In discrete time, update
+\(\Sigma_{k,n+1}\) from the already computed \(V_n\), then use \(\Sigma_{k,n+1}\) in the next
+variance readout.  No additional ESN layer or random driver is needed.  The cost is that these
+activity paths depend on the readout parameters and must be recomputed during calibration, so
+the strongest form of frozen-state reuse is lost.
 
 \textbf{Status: C/P/O.} Persistence is built into the rate mixture; matching its empirical
 magnitude and shape is a calibration question.
@@ -558,18 +684,59 @@ K_H(t)\approx\sum_{j=1}^{N_F}a_je^{-\lambda_j^F t},
 
 which is precisely a Markovian OU lift \cite{abijaber2019}. The feedback projection
 \(Y=a^\top X^F\) therefore reproduces \cref{eq:rough-scaling} over the frequencies covered by
-the rate grid.
+the rate grid.\footnote{Equation (19) approximates the fractional memory kernel by exponential
+modes.  Each mode is realised by one coordinate of the OU bank \(X^F\), and the same weights
+\(a_j\) combine those coordinates into \(Y=a^\top X^F\).  Consequently the increment variance
+of \(Y\) inherits the finite-band \(\tau^{2H}\) scaling stated for log variance in equation
+(18); the smooth readout argument below explains why passing from \(Y\) to \(\log V\) preserves
+that exponent locally.}
 
-If \(g\) is the smooth map from the state to log variance, then
+To make the effect of the nonlinear variance readout precise, hold the other state coordinates
+fixed and regard log variance as a function of the rough feedback projection \(Y\).  In the
+tempered specification this one-dimensional map is
+
+\begin{equation*}
+g_t(y)
+=\log\!\left(\underline v+
+\bigl(\xi_0(t)-\underline v\bigr)
+\frac{G_{L,\kappa}(\eta_t(y))}{M_{\Qq}(t)}\right),
+\qquad
+\eta_t(y)=\eta_t^{(-Y)}+q_Z(y-\beta)^2,
+\end{equation*}
+
+where \(\eta_t^{(-Y)}\) collects every term in the score that does not vary with \(y\).
+Thus \(g_t\) is not an additional model ingredient: it is simply the composition of the
+quadratic score, the smooth tempering function and the logarithm already present in
+\cref{eq:variance}.  If \(g_t\) is twice continuously differentiable, Taylor's theorem gives
 
 \begin{equation}
-g(Y_{t+\tau})-g(Y_t)
-=g'(Y_t)(Y_{t+\tau}-Y_t)+o_{\Pp}(\tau^H).
+\begin{split}
+g_t(Y_{t+\tau})-g_t(Y_t)
+={}&g_t'(Y_t)\Delta_\tau Y_t
++\frac12g_t''(\widetilde Y_{t,\tau})(\Delta_\tau Y_t)^2,\\
+&\Delta_\tau Y_t:=Y_{t+\tau}-Y_t,
+\end{split}
+\label{eq:rough-delta-method}
 \end{equation}
 
-Thus the exponent is locally preserved whenever \(g'(Y_t)\neq0\). The derivative can vanish
-at the parabola vertex and becomes small near cap saturation, so roughness should be estimated
-on the bulk of the volatility distribution.
+for some intermediate point \(\widetilde Y_{t,\tau}\) between \(Y_t\) and \(Y_{t+\tau}\).
+Over the scale range on which the OU lift approximates a rough kernel,
+\(\Delta_\tau Y_t=O_{\Pp}(\tau^H)\).  Provided \(g_t''\) remains locally bounded, the second
+term in \cref{eq:rough-delta-method} is therefore \(O_{\Pp}(\tau^{2H})\), which is
+\(o_{\Pp}(\tau^H)\).  Squaring the leading term and taking expectations consequently gives
+
+\begin{equation*}
+\E\!\left[(\Delta_\tau\log V_t)^2\right]
+\approx \E\!\left[g_t'(Y_t)^2(\Delta_\tau Y_t)^2\right]
+\propto \tau^{2H}.
+\end{equation*}
+
+The exponent being preserved is therefore the local roughness exponent: \(H\) for the size of
+log-variance increments, or equivalently \(2H\) for their second moment in
+\cref{eq:rough-scaling}.  The smooth transformation changes the multiplicative coefficient,
+not this power of \(\tau\), whenever \(g_t'(Y_t)\neq0\).  The derivative can vanish at the
+quadratic vertex and becomes small near cap saturation, so roughness should be estimated on the
+bulk of the volatility distribution.
 
 \begin{warningbox}[Finite lift, finite claim]
 Every finite OU system is a semimartingale and has Brownian \(H=1/2\) behaviour at sufficiently
@@ -596,9 +763,30 @@ The feedback contribution is \(q_Z(Y-\beta)^2\), with derivative
 \frac{\partial\eta}{\partial Y}=2q_Z(Y-\beta).
 \end{equation}
 
-Near the stationary centre \(Y\approx0\), its sign is \(-\operatorname{sign}(q_Z\beta)\). Since
-the outer link is increasing away from cap saturation, the instantaneous return--log-variance
-covariation has leading sign
+Near the stationary centre \(Y\approx0\), its sign is \(-\operatorname{sign}(q_Z\beta)\).
+The approximation below follows directly from the diffusion terms.  Because the coordinates
+entering \(Y=a^\top X^F\) share \(W^F\), its Brownian coefficient is
+\(\nu_Y:=\sum_j a_j\sqrt{2\lambda_j^F}\), so
+\(\dd Y_t=\text{drift}\,\dd t+\nu_Y\dd W_t^F\).  The Brownian part of the equity log return is
+\(\sqrt{V_t}\dd W_t^S\), with \(\dd\langle W^S,W^F\rangle_t=\rho_F\dd t\).
+Applying It\^o's formula to \(\log V_t=g_t(Y_t)\), where \(g_t\) is exactly the same
+state-to-log-variance function defined in Section 4.3, and holding the other channels fixed,
+therefore yields
+
+\begin{equation*}
+\dd\langle\log S,\log V\rangle_t
+=\sqrt{V_t}\,g_t'(Y_t)\nu_Y\rho_F\,\dd t.
+\end{equation*}
+
+Away from floor and cap saturation, the variance link is increasing in the score, hence
+
+\begin{equation*}
+\operatorname{sign}(g_t'(Y_t))
+=\operatorname{sign}\!\left(2q_Z(Y_t-\beta)\right).
+\end{equation*}
+
+If the positive rough-kernel weights make \(\nu_Y>0\) and the stationary state is concentrated
+near \(Y=0\), the leading sign is consequently
 
 \begin{equation}
 \operatorname{sign}\!\left(\dd\langle \log S,\log V\rangle_t\right)
@@ -609,6 +797,10 @@ covariation has leading sign
 Under the present convention, \(q_Z>0\), \(\beta>0\), \(\rho_F>0\) therefore produce negative
 leverage. This apparently unusual positive correlation is a consequence of the shifted
 parabola convention; reversing both \(\beta\) and \(\rho_F\) leaves the local sign unchanged.
+The approximation neglects contributions from any other return-correlated variance channel,
+replaces the random factor \(Y_t-\beta\) by its sign near the stationary centre, and assumes the
+tempering derivative has not become negligible.  The exact simulated leverage statistic can
+therefore differ in magnitude and, if those qualifications fail, potentially in sign.
 
 The shift is essential. With \(\beta=0\), the quadratic channel is locally even around the
 stationary centre and does not generate a stable directional leverage effect. The fast bank
@@ -630,54 +822,109 @@ Z(\tau)
 \label{eq:zumbach}
 \end{equation}
 
+Here \(R_{a,b}:=\log(S_b/S_a)\) is the cumulative log return over \([a,b]\).  Realised
+variance (RV) over that interval is computed from a finer intraday partition
+\(a=u_0<\cdots<u_m=b\) as
+
+\begin{equation*}
+\operatorname{RV}_{a,b}:=\sum_{i=1}^{m}
+\left(\log\frac{S_{u_i}}{S_{u_{i-1}}}\right)^2.
+\end{equation*}
+
+In an ideal continuously observed diffusion, this sum converges as the mesh shrinks to the
+quadratic variation \(\int_a^b V_s\,\dd s\).  It is deliberately different from
+\(R_{a,b}^2\): the latter squares the net movement and allows positive and negative intraday
+returns to cancel before squaring, whereas RV accumulates their individual squared movements.
+Unless stated otherwise, \(\Corr\) in \cref{eq:zumbach} is the ordinary Pearson correlation;
+the resulting \(Z(\tau)\) is therefore the Pearson Zumbach asymmetry.  A rank-correlation
+version is a distinct robustness diagnostic.
+
 A reversible exogenous volatility process independent of returns has \(Z(\tau)=0\) in the
 ideal stationary limit. The current model breaks reversibility without making the OU driver
 amplitude depend on \(V\):
 
 \begin{enumerate}
-  \item the feedback state is a causal filter of a shock correlated with the return innovation;
-  \item the future variance depends quadratically on that state;
-  \item past return shocks therefore affect future variance through \(Y^2\), while the
-  time-reversed pairing does not have the same causal construction.
+  \item The feedback state \(Y_t\) is a causal moving average of past innovations, including a
+  component correlated with equity-return innovations.  A return shock therefore remains in
+  the state after the return interval has ended and can influence later volatility.
+  \item Future variance is a nonlinear, quadratic function of that persistent state.  The
+  square retains information about the magnitude of the earlier shock even when its sign is
+  averaged out; the shift \(\beta\) additionally supplies directional leverage.
+  \item Consequently, a large past squared return predicts future RV through the state carried
+  forward in time.  Reversing the ordering asks whether past RV predicts a future squared
+  return, but there is no reverse-time filter carrying future return shocks into the past.
+  The two correlations in \cref{eq:zumbach} need not coincide, and their difference is the
+  measured causal asymmetry.
 \end{enumerate}
 
-The programme's controlled Gate C experiment provides mechanism evidence:
+A new common-random-number experiment was run directly with the package implementation.  Its
+results are:
 
 \begin{center}
-\begin{tabularx}{0.90\textwidth}{@{}Y C{38mm}@{}}
+\begin{tabularx}{0.96\textwidth}{@{}Y C{27mm} C{31mm}@{}}
 \toprule
-\textbf{Configuration} & \textbf{Pearson asymmetry} \\
+\textbf{Configuration} & \textbf{Mean \(\pm\) SD} & \textbf{95\% CI} \\
 \midrule
-GARCH positive control & \(0.118\pm0.009\) \\
-Standardised correlated driver, quadratic readout & \(0.297\pm0.011\) \\
-Quadratic-ablation reference run & \(0.215\pm0.018\) \\
-Same ablation run with \(q_Z=0\) & \(0.000\pm0.002\) \\
+Recommended model & \(0.180\pm0.014\) & \([0.170,0.190]\) \\
+Feedback quadratic removed (\(q_Z=0\)) & \(0.255\pm0.009\) & \([0.248,0.261]\) \\
+Fast quadratic removed (\(q_J=0\)) & \(0.029\pm0.011\) & \([0.021,0.036]\) \\
+Both correlated quadratics removed & \(-0.003\pm0.006\) & \([-0.007,0.002]\) \\
+All return--state correlations removed & \(-0.001\pm0.015\) & \([-0.012,0.010]\) \\
+GARCH(1,1) positive control & \(0.157\pm0.008\) & \([0.151,0.163]\) \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
-These are replicated mechanism checks, not market calibration results. They show that the
-quadratic readout is load-bearing and that variance-dependent raw-return driving is not
-required. The standardised-driver sweep and the quadratic ablation used different reference
-runs, so their absolute levels should not be compared as if they were one nested sample. This
-differs from endogenous price-feedback models such as quadratic rough Heston, but it targets
-the same time-reversal asymmetry \cite{zumbach2009,gatheral2020}.
+The table reports the Pearson statistic in \cref{eq:zumbach}.  The ten fixed seeds were
+710003, 730003, 750019, 770011, 790021, 810013, 830003, 850009, 870007 and 890023.  The design
+used 32 paths per seed, ten simulated years, a
+two-year burn-in, 252 daily observations per year and two integration steps per day.  For each
+path, \(Z(\tau)\) was computed at \(\tau=5,10,20\) trading days using the model-integrated daily
+average variance as the noise-free limit of RV; the three horizons were averaged within each
+path, then the 32 paths were averaged within each seed.  ``SD'' is the sample standard deviation
+across the ten seed means, and the confidence interval (CI) is the two-sided 95\% Student-
+\(t\) interval across seeds.  Every model ablation reused the same primitive Gaussian draws.
+The complete protocol, executable runner, per-seed values and summary are stored in
+\nolinkurl{experiments/pearson_zumbach_001}.
+
+The experiment confirms that return--state coupling and the correlated quadratic channels
+jointly create the asymmetry: both null specifications are statistically compatible with zero,
+whereas the GARCH control has the expected positive sign.  It also corrects an overly simple
+interpretation of the mechanism.  In the current parameterisation, removing only \(q_Z\)
+increases rather than removes Pearson asymmetry, while removing \(q_J\) reduces it sharply.
+Thus the fast shifted quadratic is the dominant contributor to this particular statistic, and
+the feedback and fast channels interact non-additively.  This is synthetic mechanism evidence,
+not an empirical estimate of the market Zumbach effect.  The construction differs from
+endogenous price-feedback models such as quadratic rough Heston, but targets the same
+time-reversal asymmetry \cite{zumbach2009,gatheral2020}.
 
 \begin{warningbox}[Measurement requirement]
-In the programme's validation, replacing realised variance by daily squared returns removed
-almost all power of the Zumbach statistic, even on a GARCH positive control. The empirical
-target should therefore use intraday realised variance, and every result should be accompanied
-by a reversible null, a positive control and replication uncertainty.
+The two sides of \cref{eq:zumbach} must measure volatility in the same way.  For a daily horizon,
+for example, future and past RV should each be sums of squared intraday returns over the relevant
+day.  Replacing RV by one squared daily return is not equivalent: intraday gains and losses first
+cancel inside the daily return, which makes the volatility proxy much noisier and can conceal
+the time-directional signal.  This loss of statistical power occurred even for a simulated
+generalised autoregressive conditional heteroskedasticity (GARCH) positive control in which an
+asymmetry should be detected.  A credible result must therefore state the intraday sampling
+frequency, apply the identical estimator to past and future windows, and show that the procedure
+returns approximately zero for a reversible null and a positive value for a positive control.
+Results should be replicated over declared independent seeds, with the uncertainty convention
+stated explicitly.
 \end{warningbox}
 
-\textbf{Status: N/O.} The mechanism is strongly supported by ablation. Its market magnitude
-cannot be claimed before a correctly measured intraday-data study.
+\textbf{Status: N/O.} The common-seed ablation supports the simulated mechanism and identifies
+the fast quadratic as its dominant contributor at the tested parameter point.  Its market
+magnitude still requires a correctly measured intraday-data study.
 
 \subsection{Heavy-tailed returns at relevant frequencies}
 
-Conditional on the variance path, short-horizon returns are approximately Gaussian; their
-unconditional distribution is a variance mixture. The exponential-quadratic channel produces
-large finite-frequency dispersion. In the scalar untempered illustration
+In the current diffusion model, a short return over an interval on which variance changes
+little is approximately \(r\approx\sqrt{V\Delta}\,\varepsilon\), with
+\(\varepsilon\sim\mathcal N(0,1)\).  Conditional on \(V\), the return is therefore approximately
+Gaussian; unconditionally, random variance mixes Gaussian distributions of different widths
+and creates heavier tails.  To isolate the contribution of the exponential-quadratic readout,
+consider a deliberately simplified one-factor shadow of the present model and write its
+volatility as
 
 \begin{equation}
 \sigma=e^{qY^2},\qquad Y\sim\mathcal N(0,1),\qquad q>0,
@@ -692,9 +939,44 @@ one has, up to a slowly varying logarithmic factor,
 \label{eq:scalar-tail}
 \end{equation}
 
-This explains why an exponential quadratic can generate much heavier observable tails than a
-direct quadratic variance map. It does not, by itself, establish the tail index of a
-continuous-time return when the volatility state and return share Brownian increments.
+This \(\sigma\) is not the production volatility.  It drops the forward curve, normaliser,
+variance floor, tempering, shifts and all but one Gaussian factor; the marginal calculation
+also treats \(Y\) simply as a standard normal variable.  By contrast, the recommended model
+uses
+
+\begin{equation*}
+\sigma_t=\sqrt{V_t}
+=\left[\underline v+
+\bigl(\xi_0(t)-\underline v\bigr)
+\frac{G_{L,\kappa}(\eta_t)}{M_{\Qq}(t)}\right]^{1/2},
+\end{equation*}
+
+where \(\eta_t\) contains several linear and shifted-quadratic projections, some driven by
+Brownian motions correlated with the equity return.  Setting \(h(x)=x\), suppressing the floor
+and deterministic scale, and retaining only \(qY^2\) gives \(\sigma=e^{qY^2}\).  The scalar
+example is therefore exactly the corresponding marginal channel of the untempered shadow
+model.  It is useful here because it isolates the tail mechanism and its moment boundary in
+closed form; it is not used as the production volatility and does not imply that the tempered
+multifactor model has the same asymptotic tail law.
+
+Since \(V=\sigma^2=e^{2qY^2}\), the displayed probability follows by solving
+\(e^{qY^2}>x\) for \(Y^2\) and applying the Gaussian tail approximation.  It explains why the
+untempered exponential-quadratic channel can generate much heavier observable tails than a
+direct quadratic variance map.
+
+In the recommended model the feedback and fast OU banks share Brownian components with the
+equity return, so the volatility state and return innovation are indeed dependent. Conditional
+on the entire variance path, the stochastic integral
+\(\int\sqrt{V_t}\,\dd W_t^S\) is then not generally Gaussian: conditioning on an integrand
+built partly from the same Brownian motion also reveals information about the integrator.
+Consequently, the scalar marginal tail of \(\sigma\) cannot be converted directly into an exact
+tail index for finite-horizon returns. Dependence can also produce skewness and leverage and can
+change return-moment thresholds, so return tails must be assessed from the joint state--return
+dynamics rather than from a variance-mixture formula alone. For the recommended tempered model
+this does not create a moment-explosion problem: bounded variance on a finite horizon gives
+finite return moments and Gaussian-type ultimate tail bounds. The intended heavy tails are
+therefore effective finite-frequency tails over observable quantiles, not a genuine asymptotic
+power law.
 
 For \(X\sim\mathcal N(m,\Sigma)\) and a quadratic matrix \(Q\), the untempered first variance
 moment requires
@@ -704,13 +986,57 @@ I-4\Sigma^{1/2}Q\Sigma^{1/2}\succ0.
 \label{eq:moment-domain}
 \end{equation}
 
-Higher variance moments impose progressively stronger spectral conditions. The tempered link
+To see why \cref{eq:moment-domain} is necessary, assume that \(Q\) is symmetric and begin with
+the Gaussian integral for the first untempered variance moment. Up to the finite normalising
+constant of the Gaussian density,
+
+\begin{equation*}
+\begin{split}
+\E[e^{2X^\top QX}]
+&\propto\int_{\R^d}
+\exp\!\left[-\tfrac12(x-m)^\top\Sigma^{-1}(x-m)+2x^\top Qx\right]\dd x\\
+&=e^{-\frac12m^\top\Sigma^{-1}m}
+\int_{\R^d}\exp\!\left[-\tfrac12x^\top(\Sigma^{-1}-4Q)x
++x^\top\Sigma^{-1}m\right]\dd x.
+\end{split}
+\end{equation*}
+
+Let \(A:=\Sigma^{-1}-4Q\). If \(A\succ0\), completing the square gives
+
+\begin{equation*}
+-\tfrac12x^\top Ax+x^\top\Sigma^{-1}m
+=-\tfrac12(x-A^{-1}\Sigma^{-1}m)^\top
+A(x-A^{-1}\Sigma^{-1}m)
++\tfrac12m^\top\Sigma^{-1}A^{-1}\Sigma^{-1}m,
+\end{equation*}
+
+and the remaining integral is a finite Gaussian integral proportional to
+\(\det(A)^{-1/2}\). If \(A\) has a non-positive direction, the exponent fails to decay
+quadratically along that direction and generically grows, so the integral is not finite.
+Finally,
+
+\begin{equation*}
+A=\Sigma^{-1/2}
+\left(I-4\Sigma^{1/2}Q\Sigma^{1/2}\right)\Sigma^{-1/2},
+\end{equation*}
+
+so congruence preserves positive definiteness and gives exactly
+\cref{eq:moment-domain}. In spectral terms, every eigenvalue of
+\(\Sigma^{1/2}Q\Sigma^{1/2}\) must be below \(1/4\).  The factor four appears because the score
+is exponentiated twice to obtain variance rather than volatility.  If the condition fails in
+any direction, the Gaussian density decays too slowly to offset the positive quadratic
+exponent, and even \(\E[V]\) diverges.  Higher variance moments impose progressively stronger
+spectral conditions. The tempered link
 removes asymptotic moment explosion and replaces true power tails by a broad but ultimately
 truncated mixture. This is consistent with the stated objective: realistic heavy-tail
 behaviour over observable intraday and daily quantiles is more important than an exact
 asymptotic law.
 
-The optional orthogonal block can increase log-volatility dispersion without changing the
+The optional orthogonal block can increase log-volatility dispersion\footnote{Here dispersion
+means the spread of the distribution of \(\log\sigma_t=\tfrac12\log V_t\) across times or
+simulated paths, commonly summarised by its variance or standard deviation.  Greater dispersion
+means that conditional return scales vary more widely, strengthening the Gaussian-mixture tails;
+it does not mean dispersion across different traded assets.} without changing the
 largest quadratic eigenvalue when its loading is spread over many independent directions and
 each new eigenvalue remains below the existing maximum. It should be activated only if the
 correlated feedback and fast banks cannot match return kurtosis and volatility quantiles
@@ -730,18 +1056,55 @@ The Taylor effect requires
 \end{equation}
 
 over a relevant set of lags. It is not implied by leverage, roughness or clustering alone.
-For the benchmark representation \(r_t=e^{X_t}\varepsilon_t\), where \(X\) is stationary
-Gaussian with variance \(s^2\), lag correlation \(\rho_k\), and
-\(\varepsilon_t\stackrel{\mathrm{iid}}{\sim}\mathcal N(0,1)\), direct calculation gives
+For any stationary series \(U_t\), write
+\(\rho_U(k):=\Corr(U_t,U_{t+k})\).  Thus
+\(\rho_{|r|}(k)=\Corr(|r_t|,|r_{t+k}|)\) and
+\(\rho_{r^2}(k)=\Corr(r_t^2,r_{t+k}^2)\), the two quantities compared in
+\cref{eq:taylor-def}.
+
+The benchmark representation \(r_t=e^{X_t}\varepsilon_t\) is used because it is the simplest
+stochastic-volatility mixture in which both correlations can be calculated in closed form.
+Here \(X\) is a zero-mean stationary Gaussian log-volatility with variance \(s^2\) and
+\(\rho_k:=\Corr(X_t,X_{t+k})\), while
+\(\varepsilon_t\stackrel{\mathrm{iid}}{\sim}\mathcal N(0,1)\) is independent of the complete
+process \(X\).  It is not the exact untempered model developed in Section 2: there
+\(\log\sigma_t\) is quadratic in Gaussian OU factors and is generally non-Gaussian.  It is a
+tractable local benchmark with the same broad structure---a persistent random log-volatility
+multiplies an independent short-run innovation---and is used only to expose the role of
+log-volatility variability.
+
+The formulae follow from Gaussian exponential moments.  Independence gives
+
+\begin{align*}
+\E|r_t|&=\sqrt{2/\pi}\,e^{s^2/2},
+&\E[|r_t||r_{t+k}|]&=(2/\pi)e^{s^2(1+\rho_k)},\\
+\E[r_t^2]&=e^{2s^2},
+&\E[r_t^2r_{t+k}^2]&=e^{4s^2(1+\rho_k)},
+\end{align*}
+
+where \(\E|\varepsilon|=\sqrt{2/\pi}\), \(\E\varepsilon^2=1\),
+\(\E\varepsilon^4=3\), and
+
+\begin{equation*}
+\E[e^{aX_t+bX_{t+k}}]
+=\exp\!\left(\tfrac12s^2(a^2+b^2+2ab\rho_k)\right).
+\end{equation*}
+
+Using \(\Corr(U,V)=\Cov(U,V)/\sqrt{\Var(U)\Var(V)}\), stationarity, and
+\(\E|r_t|^2=\E[r_t^2]=e^{2s^2}\) yields
 
 \begin{align}
 \rho_{|r|}(k)
 &=\frac{(2/\pi)\left(e^{s^2\rho_k}-1\right)}
-        {e^{s^2}-2/\pi}, \\
+        {e^{s^2}-2/\pi}, \label{eq:taylor-absolute}\\
 \rho_{r^2}(k)
 &=\frac{e^{4s^2\rho_k}-1}{3e^{4s^2}-1}.
-\label{eq:taylor-formula}
+\label{eq:taylor-square}
 \end{align}
+
+Equations (29) and (30) are therefore exact within this Gaussian log-volatility benchmark, not
+approximations for the full exponential-quadratic reservoir model.  In the full model the same
+two correlations are evaluated numerically on simulated or observed returns.
 
 At small \(s^2\), the first correlation grows more slowly, so the Taylor inequality fails.
 At \(\rho_k=0.9\), the crossover in this benchmark is approximately
@@ -757,13 +1120,35 @@ the sign and lag range must be checked after every joint calibration.
 
 \subsection{Fast volatility, downside asymmetry and VIX spike relaxation}
 
-Suppose a fast OU projection is shocked to \(F_t=f_0\). Ignoring subsequent noise,
+The variable \(F\) here is exactly the fast projection introduced in \cref{eq:projections},
+namely \(F=f^\top X^J\).  Consider an event at time \(t\) that leaves its post-event value at
+\(F_t=f_0\).  Thus \(f_0\) is the shocked state immediately after the event, not the model's
+initial state at calendar time zero.  If one effective OU rate \(\lambda_J\) dominates and
+subsequent innovations are set to their conditional mean of zero, mean reversion gives
 
 \begin{equation}
 F_{t+s}\approx f_0e^{-\lambda_Js}.
+\label{eq:fast-relaxation}
 \end{equation}
 
-Its untempered contribution to relative variance is
+For the actual multi-rate projection the corresponding conditional mean is
+\(\sum_j f_jX_{j,t}^Je^{-\lambda_j^Js}\); \cref{eq:fast-relaxation} is a one-rate summary of
+that mixture, useful when a dominant rate or an effective fitted rate describes the relaxation.
+
+Define \(V_{t+s}\) by \cref{eq:variance}, evaluated along this shocked
+fast-factor path while keeping the forward curve, normaliser and all other state coordinates
+the same as in a reference path.  Let \(\bar V_{t+s}\) denote that reference variance with the
+fast projection held at its resting value \(F=0\).  To obtain the next approximation, use the
+untempered link \(h(x)=x\) and neglect the variance floor.  The common deterministic factors
+then cancel in the ratio, leaving
+
+\begin{equation*}
+\frac{V_{t+s}}{\bar V_{t+s}}
+\approx\exp\!\left(2\{q_J(F_{t+s}-\beta_J)^2-q_J\beta_J^2\}\right)
+=\exp\!\left(2q_J[F_{t+s}^2-2\beta_JF_{t+s}]\right).
+\end{equation*}
+
+Substituting the conditional mean in \cref{eq:fast-relaxation} gives
 
 \begin{equation}
 \frac{V_{t+s}}{\bar V_{t+s}}
@@ -773,7 +1158,11 @@ Its untempered contribution to relative variance is
 \label{eq:spike-path}
 \end{equation}
 
-where \(\bar V\) uses the resting fast state \(F=0\). For equal-magnitude shocks \(f>0\),
+Equation (32) is therefore exact for the deterministic one-rate decay in the untempered,
+zero-floor comparison and approximate for the recommended model because it suppresses future
+noise, replaces a multi-rate decay by one rate, and ignores tempering and the floor.  The full
+recommended variance is always obtained directly from \cref{eq:variance}.  For equal-magnitude
+shocks \(f>0\),
 
 \begin{equation}
 \log\!\frac{V(F=-f)}{V(F=+f)}=8q_J\beta_Jf.
@@ -801,11 +1190,11 @@ a sharp front followed by a persistent shoulder. This temporal shape comes from 
 of mean reversion with the exponential level map, not from a jump in the state process.
 
 \begin{resultbox}[Fresh-seed mechanism screen]
-A paired screen of 16 stable Stage--3 M2 configuration--scenario pairs, five fresh seeds and
+A paired screen of 16 previously selected configuration--scenario pairs, five fresh seeds and
 six values \(\beta_J\in\{0,0.1,\ldots,0.5\}\) produced 480 evaluations. At \(\beta_J=0.1\),
 the downside-minus-upside median day-zero volatility-response gap increased from 35.0\% to
 38.7\%, and the corresponding days 1--5 gap increased from 29.4\% to 37.3\%. All seven
-pre-existing Stage--3 proxy gates passed in 67 of 80 evaluations; six of 16 configurations
+pre-existing stylised-fact proxy gates passed in 67 of 80 evaluations; six of 16 configurations
 passed on every fresh seed. All failures at this shift came from the positive-Zumbach lower
 bound. This is controlled synthetic mechanism evidence, not an empirical SPX calibration.
 \end{resultbox}
@@ -1237,8 +1626,8 @@ violates the architectural constraint. \\
   \item A finite OU lift produces only finite-scale roughness.
   \item The exact market magnitude of the Zumbach effect requires intraday realised variance;
   daily squared returns are an inadequate proxy for the current statistic.
-  \item The nonlinear second layer is not currently justified by the Gate C Zumbach ablation.
-  It must earn its parameters through out-of-sample improvement.
+  \item The nonlinear second layer is not currently justified by the exploratory Zumbach
+  ablation.  It must earn its parameters through a reproducible out-of-sample improvement.
 \end{enumerate}
 \end{unresolvedbox}
 
@@ -1326,10 +1715,10 @@ time and independent of \(X\). Then
 \E|\varepsilon|&=\sqrt{2/\pi}.
 \end{align}
 
-Using these moments in the covariance and variance of \(|r|\) yields the first formula in
-\cref{eq:taylor-formula}. Applying the same calculation to \(r^2\), with
-\(\E[\varepsilon^4]=3\), gives the second. The result is a diagnostic approximation for the
-current nonlinear model, not an exact formula for it.
+Using these moments in the covariance and variance of \(|r|\) yields
+\cref{eq:taylor-absolute}. Applying the same calculation to \(r^2\), with
+\(\E[\varepsilon^4]=3\), gives \cref{eq:taylor-square}. The result is exact for this benchmark
+and serves as a diagnostic approximation for the current nonlinear model.
 
 \section{Related model classes}
 

@@ -1,0 +1,48 @@
+{
+  "study": "Paired Pearson-Zumbach mechanism ablation",
+  "seeds": [
+    710003,
+    730003,
+    750019,
+    770011,
+    790021,
+    810013,
+    830003,
+    850009,
+    870007,
+    890023
+  ],
+  "windows_in_daily_observations": [
+    5,
+    10,
+    20
+  ],
+  "simulation": {
+    "years": 10.0,
+    "burn_years": 2.0,
+    "paths": 32,
+    "observations_per_year": 252,
+    "steps_per_observation": 2
+  },
+  "path_aggregation": "Pearson Z averaged over windows within path, paths within seed",
+  "reported_uncertainty": "Between-seed sample SD and two-sided 95% Student-t CI",
+  "variance_measure": "Model-integrated average instantaneous variance per day",
+  "common_random_numbers": true,
+  "readout": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.24959932155907155,
+    "spike_shift": 0.1,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "architecture_source": "stage3_001 manifest; scenario 0; optional echo and orthogonal blocks off",
+  "positive_control": {
+    "model": "GARCH(1,1)",
+    "alpha": 0.08,
+    "beta": 0.9
+  }
+}

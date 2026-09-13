@@ -1,0 +1,31 @@
+{
+  "model": "M2 with paired fast-factor shift",
+  "control_spike_shift": 0.0,
+  "asymmetric_spike_shift": 0.1,
+  "stage3_candidate_id": 26,
+  "structural_scenario_id": 0,
+  "fresh_seeds": [
+    510007,
+    540011,
+    570013,
+    600017,
+    630019
+  ],
+  "event_selection": "control-return 2.5% tails; identical dates in both models",
+  "volatility_definition": "100 * sqrt(daily average instantaneous variance)",
+  "is_formal_vix": false,
+  "event_metrics": {
+    "control_day0_gap_pp": 34.566589465475744,
+    "shifted_day0_gap_pp": 37.11621750642909,
+    "control_days1_5_gap_pp": 28.298171945862475,
+    "shifted_days1_5_gap_pp": 31.87447184993068,
+    "negative_event_count": 3748,
+    "positive_event_count": 3761
+  },
+  "outputs": [
+    "05_m2_leverage_event_study.png",
+    "07_m2_asymmetry_mechanism.png",
+    "08_m2_asymmetry_tradeoff.png",
+    "m2_visual_diagnostics_dashboard.html"
+  ]
+}
