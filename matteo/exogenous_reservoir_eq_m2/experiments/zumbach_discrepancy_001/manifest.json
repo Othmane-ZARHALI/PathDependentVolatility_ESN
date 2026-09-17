@@ -1,0 +1,46 @@
+{
+  "study": "Pearson/rank Strong-Zumbach discrepancy decomposition",
+  "source_experiment": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/exogenous_reservoir_eq_m2/experiments/stage4_fine_grid_001",
+  "models": [
+    "primary",
+    "anchor"
+  ],
+  "validation_seeds": [
+    1230001,
+    1270009,
+    1290017,
+    1310021,
+    1370003
+  ],
+  "simulation": {
+    "years": 6.0,
+    "burn_years": 1.0,
+    "paths": 12,
+    "observations_per_year": 252,
+    "steps_per_observation": 64
+  },
+  "windows_days": [
+    5,
+    10,
+    20
+  ],
+  "return_types": [
+    "log",
+    "ito"
+  ],
+  "methods": [
+    "pearson",
+    "spearman",
+    "gaussian_rank",
+    "kendall",
+    "winsor_995",
+    "winsor_990",
+    "winsor_975",
+    "winsor_950",
+    "trim_995",
+    "trim_990",
+    "trim_975",
+    "trim_950"
+  ],
+  "selection_boundary": "No parameter was fitted or selected in this diagnostic study."
+}

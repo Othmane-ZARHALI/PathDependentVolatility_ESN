@@ -22,6 +22,23 @@ Student-t confidence interval.
 | Return-state correlations removed | -0.001116 | 0.015253 | [-0.012027, 0.009796] |
 | GARCH(1,1) positive control | 0.156712 | 0.008153 | [0.150880, 0.162544] |
 
+## Itô relative-return replication
+
+The original statistic uses cumulative log returns. The replication changes only the two
+return legs: each interval uses the literal diffusion integral
+`integral dS/S = log return + 0.5 * integrated variance`, rather than the log return.
+It is not the finite-horizon simple return `S_b / S_a - 1`. The same seeds, paths, windows,
+variance proxy, configurations, and common random numbers are retained.
+
+| Configuration | Mean | Between-seed SD | 95% CI |
+| --- | ---: | ---: | ---: |
+| Recommended model | 0.176274 | 0.014457 | [0.165932, 0.186616] |
+| Feedback quadratic removed | 0.253047 | 0.009484 | [0.246262, 0.259831] |
+| Fast quadratic removed | 0.024676 | 0.011278 | [0.016609, 0.032744] |
+| Both correlated quadratics removed | -0.002494 | 0.006316 | [-0.007013, 0.002024] |
+| Return-state correlations removed | -0.001401 | 0.014690 | [-0.011910, 0.009107] |
+| GARCH(1,1) positive control | 0.040157 | 0.010251 | [0.032825, 0.047490] |
+
 Run from the package root with a Python 3.10+ environment containing the declared project
 dependencies:
 
@@ -29,4 +46,5 @@ dependencies:
 PYTHONPATH=src python experiments/pearson_zumbach_001/run.py
 ```
 
-The runner rewrites `per_seed.csv`, `summary.csv`, and `manifest.json` deterministically.
+The runner rewrites `per_seed.csv`, `summary.csv`, `ito_per_seed.csv`, `ito_summary.csv`, and
+`manifest.json` deterministically.

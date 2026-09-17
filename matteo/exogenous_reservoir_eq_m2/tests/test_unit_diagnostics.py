@@ -6,7 +6,13 @@ import unittest
 
 import numpy as np
 
-from esn_eq.diagnostics import aggregate_result, lagged_effects, rough_hurst, zumbach_statistic
+from esn_eq.diagnostics import (
+    aggregate_result,
+    ito_return_zumbach_statistic,
+    lagged_effects,
+    rough_hurst,
+    zumbach_statistic,
+)
 from esn_eq.model import SimulationMetadata, SimulationResult
 
 
@@ -30,6 +36,15 @@ class DiagnosticTests(unittest.TestCase):
         for index in range(1, returns.size):
             variance[index] = 0.92 * variance[index - 1] + 0.08 * returns[index - 1] ** 2
         self.assertGreater(zumbach_statistic(returns, variance, rank_based=True), 0.01)
+
+    def test_ito_return_zumbach_applies_the_quadratic_variation_correction(self) -> None:
+        """The Itô-return statistic must use log return plus one-half integrated variance."""
+        generator = np.random.default_rng(44)
+        log_returns = 0.01 * generator.standard_normal(800)
+        variance = 0.04 + 0.01 * generator.random(800)
+        expected = zumbach_statistic(log_returns + 0.5 * variance / 252, variance)
+        actual = ito_return_zumbach_statistic(log_returns, variance, observations_per_year=252)
+        self.assertAlmostEqual(actual, expected)
 
     def test_negative_shocks_create_negative_rank_leverage(self) -> None:
         """A leverage positive control must have the documented negative sign."""

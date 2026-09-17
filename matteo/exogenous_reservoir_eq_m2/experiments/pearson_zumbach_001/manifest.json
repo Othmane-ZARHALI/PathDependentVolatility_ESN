@@ -27,6 +27,7 @@
   "path_aggregation": "Pearson Z averaged over windows within path, paths within seed",
   "reported_uncertainty": "Between-seed sample SD and two-sided 95% Student-t CI",
   "variance_measure": "Model-integrated average instantaneous variance per day",
+  "ito_return_variant": "Uses the exact diffusion identity integral dS/S = log return + 0.5 times integrated variance; not the finite-horizon simple return.",
   "common_random_numbers": true,
   "readout": {
     "cluster_loading": 0.2333221411332488,

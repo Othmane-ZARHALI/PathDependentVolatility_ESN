@@ -1,0 +1,61 @@
+seed,configuration,ito_return_zumbach
+710003,Recommended model,0.18287401781814622
+710003,Feedback quadratic removed,0.2586827346678222
+710003,Fast quadratic removed,0.019358914576414917
+710003,Both correlated quadratics removed,0.0007457852705100689
+710003,Return-state correlations removed,-0.014092615386724114
+710003,"GARCH(1,1) positive control",0.048300100860324394
+730003,Recommended model,0.1778327624999383
+730003,Feedback quadratic removed,0.2542232591782587
+730003,Fast quadratic removed,0.032352970157662725
+730003,Both correlated quadratics removed,-0.015448201429843156
+730003,Return-state correlations removed,-0.0014923023968367987
+730003,"GARCH(1,1) positive control",0.0320064053564133
+750019,Recommended model,0.16250434296346783
+750019,Feedback quadratic removed,0.24088691209216867
+750019,Fast quadratic removed,0.004064368193542863
+750019,Both correlated quadratics removed,0.000945255550585582
+750019,Return-state correlations removed,-0.031089799245032093
+750019,"GARCH(1,1) positive control",0.03212642643070962
+770011,Recommended model,0.17029013097975476
+770011,Feedback quadratic removed,0.24420881105588216
+770011,Fast quadratic removed,0.021092889450104912
+770011,Both correlated quadratics removed,0.0020573186488125387
+770011,Return-state correlations removed,-0.0010743884741974356
+770011,"GARCH(1,1) positive control",0.04029915416697419
+790021,Recommended model,0.16671696826368249
+790021,Feedback quadratic removed,0.2482825739921175
+790021,Fast quadratic removed,0.02400318172514935
+790021,Both correlated quadratics removed,0.005876610048967775
+790021,Return-state correlations removed,0.010719628503671244
+790021,"GARCH(1,1) positive control",0.054204801723625295
+810013,Recommended model,0.1889615639601683
+810013,Feedback quadratic removed,0.26612594611875867
+810013,Fast quadratic removed,0.042538457842645656
+810013,Both correlated quadratics removed,-0.005362097343037275
+810013,Return-state correlations removed,0.0012523025221308167
+810013,"GARCH(1,1) positive control",0.05124469966109359
+830003,Recommended model,0.19065954534795232
+830003,Feedback quadratic removed,0.2558267237223954
+830003,Fast quadratic removed,0.03399391141667123
+830003,Both correlated quadratics removed,-0.004445086767005029
+830003,Return-state correlations removed,0.016048319126892786
+830003,"GARCH(1,1) positive control",0.037020724399511235
+850009,Recommended model,0.15989046529609427
+850009,Feedback quadratic removed,0.24278002365521706
+850009,Fast quadratic removed,0.012026310225428303
+850009,Both correlated quadratics removed,-0.0007371239543689815
+850009,Return-state correlations removed,-0.0141436514857013
+850009,"GARCH(1,1) positive control",0.021676150018405668
+870007,Recommended model,0.20184198768667932
+870007,Feedback quadratic removed,0.26850971608357166
+870007,Fast quadratic removed,0.03195667604976838
+870007,Both correlated quadratics removed,0.0010309668307193676
+870007,Return-state correlations removed,0.013244175471621218
+870007,"GARCH(1,1) positive control",0.048142168801561525
+890023,Recommended model,0.16116432448276538
+890023,Feedback quadratic removed,0.2509387377914365
+890023,Fast quadratic removed,0.02537598062206927
+890023,Both correlated quadratics removed,-0.009606828030891326
+890023,Return-state correlations removed,0.006614072488844042
+890023,"GARCH(1,1) positive control",0.03655298813808477

@@ -20,7 +20,7 @@ from esn_eq import (
     SimulationConfig,
 )
 from esn_eq.config import BankConfig
-from esn_eq.diagnostics import zumbach_statistic
+from esn_eq.diagnostics import ito_return_zumbach_statistic, zumbach_statistic
 
 
 OUTPUT = Path(__file__).resolve().parent
@@ -72,6 +72,20 @@ def path_mean_zumbach(returns: np.ndarray, variance: np.ndarray) -> float:
     return float(np.mean(values))
 
 
+def path_mean_ito_return_zumbach(returns: np.ndarray, variance: np.ndarray) -> float:
+    r"""Average the paired statistic using \int dS/S rather than log returns."""
+    values = [
+        ito_return_zumbach_statistic(
+            returns[index],
+            variance[index],
+            observations_per_year=SIMULATION.observations_per_year,
+            windows=WINDOWS,
+        )
+        for index in range(returns.shape[0])
+    ]
+    return float(np.mean(values))
+
+
 def garch_positive_control(seed: int) -> float:
     """Generate matched GARCH returns and conditional variance as a directional control."""
     rng = np.random.default_rng(seed)
@@ -91,6 +105,32 @@ def garch_positive_control(seed: int) -> float:
             variance[index] = omega + alpha * returns[index - 1] ** 2 + beta * variance[index - 1]
             returns[index] = np.sqrt(variance[index]) * eps[index]
         path_values.append(zumbach_statistic(returns[burn:], variance[burn:], windows=WINDOWS))
+    return float(np.mean(path_values))
+
+
+def garch_ito_return_positive_control(seed: int) -> float:
+    """Apply the same Itô correction to the diffusion-scaled GARCH control."""
+    rng = np.random.default_rng(seed)
+    kept = int((SIMULATION.years - SIMULATION.burn_years) * SIMULATION.observations_per_year)
+    burn = int(SIMULATION.burn_years * SIMULATION.observations_per_year)
+    total = kept + burn
+    path_values: list[float] = []
+    alpha, beta = 0.08, 0.90
+    omega = 1.0 - alpha - beta
+    for _ in range(SIMULATION.paths):
+        eps = rng.standard_normal(total)
+        variance = np.empty(total)
+        returns = np.empty(total)
+        variance[0] = 1.0
+        returns[0] = eps[0]
+        for index in range(1, total):
+            variance[index] = omega + alpha * returns[index - 1] ** 2 + beta * variance[index - 1]
+            returns[index] = np.sqrt(variance[index]) * eps[index]
+        path_values.append(
+            ito_return_zumbach_statistic(
+                returns[burn:], variance[burn:], observations_per_year=1, windows=WINDOWS
+            )
+        )
     return float(np.mean(path_values))
 
 
@@ -115,6 +155,7 @@ def main() -> None:
     model = ExogenousReservoirVolatilityModel(architecture)
     null_model = ExogenousReservoirVolatilityModel(null_architecture)
     rows: list[dict[str, object]] = []
+    ito_rows: list[dict[str, object]] = []
 
     for seed in SEEDS:
         randomness = factory.draw(seed)
@@ -141,6 +182,15 @@ def main() -> None:
                     ),
                 }
             )
+            ito_rows.append(
+                {
+                    "seed": seed,
+                    "configuration": name,
+                    "ito_return_zumbach": path_mean_ito_return_zumbach(
+                        result.log_returns, result.realized_variance
+                    ),
+                }
+            )
         rows.append(
             {
                 "seed": seed,
@@ -148,11 +198,22 @@ def main() -> None:
                 "pearson_zumbach": garch_positive_control(seed),
             }
         )
+        ito_rows.append(
+            {
+                "seed": seed,
+                "configuration": "GARCH(1,1) positive control",
+                "ito_return_zumbach": garch_ito_return_positive_control(seed),
+            }
+        )
 
     with (OUTPUT / "per_seed.csv").open("w", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=("seed", "configuration", "pearson_zumbach"))
         writer.writeheader()
         writer.writerows(rows)
+    with (OUTPUT / "ito_per_seed.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=("seed", "configuration", "ito_return_zumbach"))
+        writer.writeheader()
+        writer.writerows(ito_rows)
 
     summaries: list[dict[str, object]] = []
     for name in dict.fromkeys(str(row["configuration"]) for row in rows):
@@ -177,6 +238,29 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(summaries)
 
+    ito_summaries: list[dict[str, object]] = []
+    for name in dict.fromkeys(str(row["configuration"]) for row in ito_rows):
+        values = np.asarray(
+            [float(row["ito_return_zumbach"]) for row in ito_rows if row["configuration"] == name]
+        )
+        mean = float(np.mean(values))
+        sd = float(np.std(values, ddof=1))
+        half_width = float(student_t.ppf(0.975, values.size - 1) * sd / np.sqrt(values.size))
+        ito_summaries.append(
+            {
+                "configuration": name,
+                "seed_count": values.size,
+                "mean": mean,
+                "between_seed_sd": sd,
+                "ci95_lower": mean - half_width,
+                "ci95_upper": mean + half_width,
+            }
+        )
+    with (OUTPUT / "ito_summary.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=tuple(ito_summaries[0]))
+        writer.writeheader()
+        writer.writerows(ito_summaries)
+
     manifest = {
         "study": "Paired Pearson-Zumbach mechanism ablation",
         "seeds": SEEDS,
@@ -185,6 +269,10 @@ def main() -> None:
         "path_aggregation": "Pearson Z averaged over windows within path, paths within seed",
         "reported_uncertainty": "Between-seed sample SD and two-sided 95% Student-t CI",
         "variance_measure": "Model-integrated average instantaneous variance per day",
+        "ito_return_variant": (
+            "Uses the exact diffusion identity integral dS/S = log return + "
+            "0.5 times integrated variance; not the finite-horizon simple return."
+        ),
         "common_random_numbers": True,
         "readout": asdict(parameters),
         "architecture_source": "stage3_001 manifest; scenario 0; optional echo and orthogonal blocks off",

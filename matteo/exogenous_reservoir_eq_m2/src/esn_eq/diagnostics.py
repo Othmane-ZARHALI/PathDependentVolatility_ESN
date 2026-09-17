@@ -97,6 +97,26 @@ def zumbach_statistic(
     return _finite_mean(values)
 
 
+def ito_return_zumbach_statistic(
+    log_returns: FloatArray,
+    variance: FloatArray,
+    observations_per_year: int,
+    rank_based: bool = False,
+    windows: tuple[int, ...] = (5, 10, 20),
+) -> float:
+    r"""Zumbach statistic using the Itô relative return integral \int dS/S.
+
+    For each reporting interval, ``variance`` is the average instantaneous variance.
+    Therefore the Itô identity gives ``dS/S = d log(S) + 0.5 V dt`` and the
+    matched discrete increment is ``log_return + 0.5 * variance / observations_per_year``.
+    This is deliberately distinct from a finite-horizon simple return ``S_b / S_a - 1``.
+    """
+    if observations_per_year <= 0:
+        raise ValueError("observations_per_year must be positive.")
+    ito_returns = log_returns + 0.5 * variance / observations_per_year
+    return zumbach_statistic(ito_returns, variance, rank_based=rank_based, windows=windows)
+
+
 def lagged_effects(
     returns: FloatArray,
     variance: FloatArray,

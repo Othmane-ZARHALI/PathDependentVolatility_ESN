@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "study": "Stage-4 targeted M2 recalibration on a fine time grid",
+  "search_seeds": [
+    1100003,
+    1130011,
+    1170007,
+    1190021
+  ],
+  "validation_seeds": [
+    1230001,
+    1270009,
+    1290017,
+    1310021,
+    1370003
+  ],
+  "design_seed": 20260916,
+  "structural_seed": 20260917,
+  "search_candidate_count_plus_anchor": 65,
+  "structural_scenario_count": 8,
+  "shortlist_size": 8,
+  "search_simulation": {
+    "years": 4.0,
+    "burn_years": 1.0,
+    "paths": 8,
+    "observations_per_year": 252,
+    "steps_per_observation": 64
+  },
+  "validation_simulation": {
+    "years": 6.0,
+    "burn_years": 1.0,
+    "paths": 12,
+    "observations_per_year": 252,
+    "steps_per_observation": 64
+  },
+  "base_architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.9,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.65,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "market": {
+    "forward_variance": 0.04000000000000001,
+    "variance_floor": 0.0001,
+    "risk_free_rate": 0.0,
+    "dividend_yield": 0.0
+  },
+  "risk_premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "acceptance_criteria": {
+    "bands": {
+      "max_abs_return_acf": {
+        "lower": 0.0,
+        "upper": 0.1,
+        "weight": 1.0
+      },
+      "mean_log_variance_acf": {
+        "lower": 0.15,
+        "upper": 0.99,
+        "weight": 1.0
+      },
+      "rough_hurst": {
+        "lower": 0.07,
+        "upper": 0.16,
+        "weight": 1.0
+      },
+      "leverage_rank": {
+        "lower": -0.6,
+        "upper": -0.008,
+        "weight": 1.0
+      },
+      "zumbach_rank": {
+        "lower": 0.015,
+        "upper": 0.6,
+        "weight": 1.0
+      },
+      "excess_kurtosis": {
+        "lower": 3.0,
+        "upper": 30.0,
+        "weight": 1.0
+      },
+      "taylor_gap": {
+        "lower": -0.05,
+        "upper": 0.3,
+        "weight": 0.25
+      }
+    }
+  },
+  "margin_scales": {
+    "max_abs_return_acf": 0.025,
+    "mean_log_variance_acf": 0.05,
+    "rough_hurst": 0.03,
+    "leverage_rank": 0.005,
+    "zumbach_rank": 0.01,
+    "excess_kurtosis": 2.0,
+    "taylor_gap": 0.03
+  },
+  "selection_boundary": "The primary candidate is selected only on search seeds. Validation results cannot be used to substitute another shortlisted candidate.",
+  "ito_zumbach_role": "reported robustness diagnostic, not an optimization gate",
+  "anchor_validation_role": "benchmark only; excluded from Stage-4 selection",
+  "next_step": "128-step nested confirmation only for a successful primary candidate"
+}
