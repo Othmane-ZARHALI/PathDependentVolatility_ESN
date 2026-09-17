@@ -227,7 +227,8 @@ class PlotlyVisualDiagnostics:
         return self._style(
             figure,
             "M2 asset and daily volatility proxy across five independent seeds",
-            "One fixed path index per seed; asset starts at 100. Volatility is 100√RV, not VIX.",
+            "Asset starts at 100. Volatility is 100√(daily average instantaneous variance), "
+            "not squared return or VIX.",
             height=1900,
         )
 
@@ -253,7 +254,8 @@ class PlotlyVisualDiagnostics:
         return self._style(
             figure,
             "Maximum-volatility episodes: rise, asset move, and decay",
-            "Maximum with a complete 126-day pre/252-day post window on each fixed path; no visual selection.",
+            "Volatility is 100√(daily average instantaneous variance), not VIX. Maximum with a "
+            "complete 126-day pre/252-day post window on each fixed path; no visual selection.",
             height=1900,
         )
 

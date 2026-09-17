@@ -18,5 +18,9 @@ python figures/generate_asymmetry_diagnostics.py
 ```
 
 The plotted volatility quantity is `100 * sqrt(daily average instantaneous variance)`.
-It is not model-implied VIX and the figures are synthetic mechanism evidence, not an SPX
-or VIX market calibration.
+For a day of length \(\Delta\), the quantity inside the square root is
+\(\Delta^{-1}\int_t^{t+\Delta}V_s\,ds\): the quadratic variation of the continuous
+martingale part of `log S`, divided by the day length. It is not a squared daily log return
+and it is not model-implied VIX. VIX is a risk-neutral conditional expectation of future
+integrated variance. These figures are synthetic physical-measure mechanism evidence, not an
+SPX or VIX market calibration.

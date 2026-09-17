@@ -1,0 +1,45 @@
+{
+  "primary_candidate_id": 57,
+  "primary_scenario_id": 2,
+  "selection_stage": "search only",
+  "selection_order": [
+    "descending seed_pass_fraction",
+    "descending worst_seed_gate_margin",
+    "ascending mean_distance"
+  ],
+  "validation_must_not_reselect_primary": true,
+  "shortlist_pairs": [
+    [
+      57,
+      2
+    ],
+    [
+      57,
+      5
+    ],
+    [
+      57,
+      4
+    ],
+    [
+      25,
+      2
+    ],
+    [
+      64,
+      5
+    ],
+    [
+      64,
+      2
+    ],
+    [
+      56,
+      2
+    ],
+    [
+      57,
+      0
+    ]
+  ]
+}

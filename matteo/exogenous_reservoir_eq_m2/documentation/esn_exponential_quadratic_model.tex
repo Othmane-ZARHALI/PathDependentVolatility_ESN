@@ -292,15 +292,38 @@ equity move generate a larger spike than a positive move of equal magnitude.
 \subsection{Layer 2: optional bounded echo-state layer}
 
 An echo-state network (ESN) is an optional second reservoir layer with fixed recurrent weights
-and a calibrated output loading. On a time grid \(t_n=n\Delta t\), where \(n\) is the time-step
-index, \(\Delta t>0\) is the step length and \(0<\alpha\leq1\) is the leak parameter, define
+and a calibrated output loading. Given the continuous OU path \(X\) from the first layer, its
+continuous-time formulation is the random ordinary differential equation
+
+\begin{equation}
+\dd Z_t
+=\kappa\left[-Z_t+\tanh\!\left(A_ZZ_t+B_Z\psi(X_t)+b_Z\right)\right]\dd t,
+\label{eq:esn-layer}
+\end{equation}
+
+where \(\kappa>0\) fixes the physical relaxation rate of the second layer. On a grid
+\(t_n=n\Delta t\), explicit Euler discretisation of \cref{eq:esn-layer} gives
 
 \begin{equation}
 Z_{n+1}
 =(1-\alpha)Z_n
 +\alpha\tanh\!\left(A_ZZ_n+B_Z\psi(X_n)+b_Z\right),
-\label{eq:esn-layer}
+\qquad \alpha=\kappa\Delta t.
+\label{eq:esn-layer-euler}
 \end{equation}
+
+\footnote{The equality in \cref{eq:esn-layer-euler} is therefore an Euler scheme for the
+continuous nonlinear equation, rather than its exact flow. A stable exact one-step
+``frozen-target'' variant first sets \(U_n=\tanh(A_ZZ_n+B_Z\psi(X_n)+b_Z)\), holds \(U_n\)
+constant on \([t_n,t_{n+1})\), and solves \(\dot Z_t=\kappa(U_n-Z_t)\). It has exactly the
+same recursion with \(\alpha=1-e^{-\kappa\Delta t}\). Thus a time-step-invariant
+implementation should fix \(\kappa\) and recompute \(\alpha(\Delta t)\); keeping \(\alpha\)
+fixed while changing \(\Delta t\) changes the continuous model. Since \(\tanh\) is
+one-Lipschitz, \(\lVert A_Z\rVert_2<1\) is a sufficient continuous-time fading-memory
+condition: two states driven by the same \(X\) contract at least at rate
+\(\kappa(1-\lVert A_Z\rVert_2)\). The layer has no direct Brownian increment, so it is a
+continuous causal transform of the OU path and cannot create genuine zero-scale roughness; any
+roughness it displays is inherited from the finite-band OU lift.}
 
 where \(Z_n\) is the second-layer state, \(X_n\) is the complete first-layer OU state,
 \(A_Z\) is the recurrent matrix, \(B_Z\) is the input matrix, \(b_Z\) is a bias vector, and
@@ -433,6 +456,25 @@ excess of \(r_t-d_t\) is \(\theta(t)\sqrt{V_t}\), while its instantaneous volati
 \(\sqrt{V_t}\). Their ratio is therefore \(\theta(t)\). This specification lets the physical
 equity premium vary with volatility without feeding the variance level back into the exogenous
 reservoir dynamics.
+
+\paragraph{Daily volatility reported in diagnostic figures.}
+For a reporting interval \([t_n,t_{n+1}]\) of length \(\Delta\), define
+\begin{equation}
+\bar V_n=\frac{1}{\Delta}\int_{t_n}^{t_{n+1}}V_s\dd s
+=\frac{[\log S]^c_{t_n,t_{n+1}}}{\Delta}.
+\label{eq:daily-average-variance}
+\end{equation}
+Here \([\log S]^c\) denotes the quadratic variation of the continuous local-martingale part
+of \(\log S\). Figures that place an asset path beside ``volatility'' plot
+\(100\sqrt{\bar V_n}\), annualised in percent, using the fine-step average of the model's
+instantaneous variance. They do not plot the squared daily log return, which is only a noisy
+single-period estimator of the integrated variance, and they do not plot VIX. The latter is a
+risk-neutral conditional forward-variance functional, approximately
+\(\mathrm{VIX}_t^2=\tau^{-1}\E_t^{\Qq}[\int_t^{t+\tau}V_s\dd s]\) subject to market
+conventions. Thus the displayed series is appropriate for visualising physical-measure
+spot--volatility mechanisms (leverage, spike formation and relaxation), whereas a joint
+SPX--VIX diagnostic must additionally display the conditional \(\Qq\)-forward variance or
+model-implied VIX.
 
 Collect the independent primitive Brownian motions into a vector \(\mathbf W\), whose entries
 are \(W^S,B^F,B^J,B^C\) and \(B^O\), with as many components in the last two groups as their
@@ -886,6 +928,44 @@ across the ten seed means, and the confidence interval (CI) is the two-sided 95\
 \(t\) interval across seeds.  Every model ablation reused the same primitive Gaussian draws.
 The complete protocol, executable runner, per-seed values and summary are stored in
 \nolinkurl{experiments/pearson_zumbach_001}.
+
+\paragraph{It\^o relative-return replication.}
+The preceding table uses cumulative log returns.  To isolate the effect of instead using the
+literal relative-return integral, define
+\begin{equation}
+U_{a,b}:=\int_a^b\frac{\dd S_s}{S_s}
+=R_{a,b}+\frac12\int_a^bV_s\dd s.
+\label{eq:ito-relative-return}
+\end{equation}
+The equality is the second-order It\^o correction for the continuous diffusion in
+\cref{eq:stock-P}.  It is not the finite-horizon simple return \(S_b/S_a-1\), which equals
+\(e^{R_{a,b}}-1\).  Repeating the identical paired experiment with \(U^2\) in place of
+\(R^2\) in both return legs of \cref{eq:zumbach} gives:
+
+\begin{center}
+\begin{tabularx}{0.96\textwidth}{@{}Y C{27mm} C{31mm}@{}}
+\toprule
+\textbf{Configuration} & \textbf{Mean \(\pm\) SD} & \textbf{95\% CI} \\
+\midrule
+Recommended model & \(0.176\pm0.014\) & \([0.166,0.187]\) \\
+Feedback quadratic removed (\(q_Z=0\)) & \(0.253\pm0.009\) & \([0.246,0.260]\) \\
+Fast quadratic removed (\(q_J=0\)) & \(0.025\pm0.011\) & \([0.017,0.033]\) \\
+Both correlated quadratics removed & \(-0.002\pm0.006\) & \([-0.007,0.002]\) \\
+All return--state correlations removed & \(-0.001\pm0.015\) & \([-0.012,0.009]\) \\
+GARCH(1,1) positive control & \(0.040\pm0.010\) & \([0.033,0.047]\) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The same ten seeds, 32 paths per seed, horizons, variance windows and common random numbers
+were retained; only the return leg changed according to \cref{eq:ito-relative-return}.  The
+recommended-model statistic changes by \(-0.004\), well below its between-seed standard
+deviation, and the null configurations remain compatible with zero.  The discrete-time GARCH
+control also remains positive, although its level changes more because its one-step conditional
+variance is on the experiment's unit-time scale.  Thus the observed asymmetry is not an artefact
+of choosing log returns instead of the It\^o relative-return integral.  The raw paired values
+and summary are stored as \nolinkurl{ito_per_seed.csv} and \nolinkurl{ito_summary.csv} beside
+the original log-return outputs.
 
 The experiment confirms that return--state coupling and the correlated quadratic channels
 jointly create the asymmetry: both null specifications are statistically compatible with zero,
@@ -1719,6 +1799,176 @@ Using these moments in the covariance and variance of \(|r|\) yields
 \cref{eq:taylor-absolute}. Applying the same calculation to \(r^2\), with
 \(\E[\varepsilon^4]=3\), gives \cref{eq:taylor-square}. The result is exact for this benchmark
 and serves as a diagnostic approximation for the current nonlinear model.
+
+\section{Why Pearson and rank Zumbach statistics can disagree}
+\label{app:pearson-rank-zumbach}
+
+This appendix records a follow-up diagnostic prompted by the fine-grid Stage-4 search. Its
+purpose is to distinguish a numerical or definitional problem from a genuine difference between
+two dependence measures. No parameter was fitted, selected, or replaced in this exercise. The
+frozen Stage-4 primary and the preceding M2 anchor were both rerun on the same five untouched
+validation seeds at 64 internal steps per trading day. Each seed used 12 paths, six simulated
+years, a one-year burn-in, and the 5-, 10-, and 20-day Zumbach windows of
+\cref{eq:zumbach}.
+
+For a fixed window, write the forward and backward legs of \cref{eq:zumbach} as
+
+\begin{equation}
+ \rho_F=\Corr\left(R_{t-\tau,t}^2,\operatorname{RV}_{t,t+\tau}\right),
+ \qquad
+ \rho_B=\Corr\left(\operatorname{RV}_{t-\tau,t},R_{t,t+\tau}^2\right),
+ \qquad Z=\rho_F-\rho_B.
+ \label{eq:zumbach-legs}
+\end{equation}
+
+Pearson correlation measures linear association after centering and scaling the original
+variables. Consequently, a very large squared return or realised-variance observation can
+contribute much more to the correlation than an ordinary observation. Spearman correlation is
+the Pearson correlation of the two marginal ranks. It preserves the ordering but deliberately
+discards magnitude. The two statistics are therefore not interchangeable robustness versions
+of one common estimand: Pearson detects an asymmetry in event \emph{size}, whereas Spearman
+detects an asymmetry in the broad monotone ordering of observations.
+
+\begin{center}
+\begin{tabularx}{0.94\textwidth}{@{}Y Y C{18mm} C{18mm} C{18mm}@{}}
+\toprule
+\textbf{Model} & \textbf{Dependence measure} & \(\rho_F\) & \(\rho_B\) & \(Z\) \\
+\midrule
+Stage-4 primary & Pearson & 0.271 & 0.137 & 0.134 \\
+Stage-4 primary & Spearman rank & 0.171 & 0.173 & -0.002 \\
+Stage-4 primary & Gaussian-score rank & 0.193 & 0.174 & 0.019 \\
+Stage-4 primary & Kendall rank & 0.115 & 0.116 & -0.001 \\
+\addlinespace
+Preceding anchor & Pearson & 0.303 & 0.140 & 0.163 \\
+Preceding anchor & Spearman rank & 0.219 & 0.198 & 0.021 \\
+Preceding anchor & Gaussian-score rank & 0.238 & 0.196 & 0.042 \\
+Preceding anchor & Kendall rank & 0.149 & 0.133 & 0.015 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\pagebreak
+\paragraph{What the two configurations are.}
+The ``preceding anchor'' is the M2 configuration selected before the fine-grid recalibration. It
+uses the same OU-bank architecture, rate spectrum, market inputs, and optional-component
+settings as the Stage-4 primary. In particular, neither configuration has the optional echo or
+orthogonal block active. The anchor was selected in the earlier Stage-3 programme, whose main
+search used two internal steps per trading day, and is included here unchanged as a benchmark.
+The ``Stage-4 primary'' is a distinct readout/correlation combination selected from a new local
+search performed entirely at 64 steps per day. It is not an update made by fitting the anchor to
+the validation seeds.
+
+\begin{center}
+\begin{tabularx}{0.92\textwidth}{@{}Y C{29mm} C{29mm}@{}}
+\toprule
+\textbf{Quantity} & \textbf{Preceding anchor} & \textbf{Stage-4 primary} \\
+\midrule
+Selection setting & Stage-3, 2 steps/day & Stage-4, 64 steps/day \\
+Feedback/equity correlation & 0.9963 & 0.9085 \\
+Spike/equity correlation & 0.9791 & 0.9645 \\
+Cluster loading & 0.2333 & 0.1842 \\
+Feedback curvature; shift & 0.0694; 2.9359 & 0.0845; 3.0967 \\
+Spike curvature; shift & 0.2496; 0.1000 & 0.2076; 0.2304 \\
+Cap level; sharpness & 6.0737; 7.9565 & 5.5653; 9.8541 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The primary has a stronger shifted feedback curvature and a larger fast-factor shift. On the
+matched validation seeds, this makes rank leverage materially more negative
+(\(-0.0236\) versus \(-0.0107\)) and moves roughness toward the centre of the declared proxy
+band (\(0.117\) versus \(0.144\)). The cost is a lower Pearson Zumbach value
+(\(0.134\) versus \(0.163\)) and a rank Zumbach result closer to zero. Thus ``primary'' means
+the candidate selected by the Stage-4 search rule; it does not mean that it dominates the anchor
+on every diagnostic. The comparison is deliberately a trade-off comparison on common validation
+seeds, not a claim that one model universally supersedes the other.
+
+The entries average the three windows, then paths, then the five seed means. For the Stage-4
+primary, Pearson detects a large and positive forward--backward difference, with 95\% seed
+interval \([0.108,0.159]\). In contrast, the rank legs are almost equal; the Spearman interval
+for their difference is \([-0.044,0.040]\). Gaussian-score ranks place relatively more weight
+on observations near the marginal tails and recover a small positive difference, but its
+interval still includes zero. This ordered pattern---Pearson, Gaussian-score rank, uniform
+rank/Kendall---is what one expects when the signal is concentrated in the tails rather than
+spread through the bulk of the joint distribution.
+
+\paragraph{Tail decomposition.}
+For the primary model, 65.8\% of the positive covariance in the forward leg is associated with
+an observation in the upper 5\% of either variable, compared with 51.5\% in the backward leg.
+At the upper 1\%, the corresponding shares are 42.2\% and 28.1\%. The effect is not generated
+by a single pathological point: capping rather than deleting extreme observations retains a
+positive asymmetry. The table reports the Pearson difference under matched upper-tail
+treatments.
+
+The link with Strong Zumbach is direct. The statistic in \cref{eq:zumbach-legs} correlates
+\emph{squared} returns with realised variance. Both variables are deliberately designed to be
+large in volatility episodes. Under the model mechanism, a large return shock enters the
+correlated OU state, persists after the return window, and is amplified by the nonlinear
+exponential-quadratic variance map. A large past shock can therefore be associated with a much
+larger future realised variance than the time-reversed comparison. Pearson correlation gives
+such large joint observations more numerical weight, so a Pearson Strong Zumbach effect can be
+an economically meaningful tail-event asymmetry even when the rank ordering in ordinary times
+is nearly symmetric.
+
+Tail decomposition and winsorisation do \emph{not} replace the Zumbach statistic or add a new
+stylised fact. They answer a robustness question about the positive Pearson value already
+measured: is it caused by one accidental outlier, by a small set of genuine extreme episodes, or
+by a broad relationship throughout the sample? Winsorising caps values above a chosen percentile
+within each forward and backward leg before recomputing the same Pearson correlations. It keeps
+the extreme observations and their ordering, but prevents any one magnitude from dominating.
+Deleting the tail instead removes the episodes and asks how much of the measured causal effect
+belongs specifically to them. These checks are especially relevant here because the economic
+mechanism is precisely a persistent volatility response to unusually large return shocks.
+
+\begin{center}
+\begin{tabularx}{0.82\textwidth}{@{}Y C{25mm} C{34mm}@{}}
+\toprule
+\textbf{Treatment of both variables} & \textbf{Primary \(Z\)} & \textbf{95\% seed interval} \\
+\midrule
+None & 0.134 & \([0.108,0.159]\) \\
+Winsorise above 99\% & 0.124 & \([0.100,0.148]\) \\
+Winsorise above 97.5\% & 0.097 & \([0.067,0.126]\) \\
+Winsorise above 95\% & 0.066 & \([0.027,0.106]\) \\
+Delete the upper 1\% & 0.069 & \([0.038,0.101]\) \\
+Delete the upper 2.5\% & 0.027 & \([-0.011,0.065]\) \\
+Delete the upper 5\% & -0.008 & \([-0.047,0.030]\) \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Winsorisation preserves the information that an extreme event occurred while limiting its
+amplitude; deletion removes the event entirely. The persistence of the result after 99\% and
+97.5\% winsorisation, together with its disappearance after deleting the upper 5\%, shows
+that the causal asymmetry is an extreme-event effect rather than an artefact of one observation.
+The decile analysis gives the same reading: in the highest conditioning decile, the mean
+standardised response is 0.693 in the forward direction and 0.316 in the backward direction for
+the primary; the lower nine deciles are substantially more alike.
+
+\paragraph{Horizon and return-convention checks.}
+For the primary, the Pearson differences at 5, 10, and 20 days are respectively 0.161, 0.151,
+and 0.089. The corresponding Spearman differences are 0.001, 0.010, and -0.018. Hence the
+near-zero rank result is present at each horizon; it is not produced by averaging positive and
+negative horizons. Replacing log returns by the matched It\^o relative return
+\(\int \dd S/S\) changes the Pearson mean only from 0.134 to 0.128. It changes the Spearman
+mean from -0.002 to -0.007. The second-order It\^o correction is consequently not the source
+of the Pearson--rank discrepancy.
+
+\pagebreak
+\paragraph{Protocol implication.}
+The definition in \cref{eq:zumbach} uses Pearson correlation unless explicitly stated
+otherwise, and the discussion in the main text identifies rank correlation as a distinct
+robustness diagnostic. A later synthetic acceptance routine instead made positive rank
+Zumbach a mandatory gate. These choices target different notions of asymmetry and should not
+be conflated. The Stage-4 primary is not retrospectively declared successful under the old
+rank-gate protocol. For future experiments, the coherent predeclared protocol is to use
+Pearson Zumbach as the primary stylised-fact diagnostic, retain a 99\%-winsorised Pearson check
+to rule out single-observation domination, and report Spearman, Gaussian-rank, tail-deleted,
+and horizon-specific results as robustness and mechanism diagnostics. Under that protocol the
+fine-grid primary has a robust positive Strong Zumbach effect, albeit weaker than the preceding
+anchor, while providing materially stronger leverage and more centrally placed roughness.
+
+The reproducible path-level estimators, tail decompositions, and seed summaries are stored in
+\nolinkurl{experiments/zumbach_discrepancy_001}.
 
 \section{Related model classes}
 

@@ -1,0 +1,160 @@
+{
+  "study": "Nested time-step convergence audit for selected M2",
+  "seeds": [
+    910003,
+    930011,
+    950009,
+    970019,
+    990001
+  ],
+  "levels_steps_per_trading_day": [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "reference_level": 64,
+  "simulation": {
+    "years": 6.0,
+    "burn_years": 1.0,
+    "paths": 12,
+    "observations_per_year": 252,
+    "steps_per_observation": 64
+  },
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.9790548338377681,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "readout": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.24959932155907155,
+    "spike_shift": 0.1,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "market": {
+    "forward_variance": 0.04000000000000001,
+    "variance_floor": 0.0001,
+    "risk_free_rate": 0.0,
+    "dividend_yield": 0.0
+  },
+  "risk_premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "rate_audit": {
+    "feedback": {
+      "minimum_rate_per_year": 0.05000000000000001,
+      "maximum_rate_per_year": 5000.000000000004,
+      "fastest_half_life_trading_days": 0.03493461790022122,
+      "maximum_lambda_dt_by_level": {
+        "2": 9.920634920634928,
+        "4": 4.960317460317464,
+        "8": 2.480158730158732,
+        "16": 1.240079365079366,
+        "32": 0.620039682539683,
+        "64": 0.3100198412698415
+      }
+    },
+    "spike": {
+      "minimum_rate_per_year": 10.0,
+      "maximum_rate_per_year": 500.0,
+      "fastest_half_life_trading_days": 0.34934617900221243,
+      "maximum_lambda_dt_by_level": {
+        "2": 0.992063492063492,
+        "4": 0.496031746031746,
+        "8": 0.248015873015873,
+        "16": 0.1240079365079365,
+        "32": 0.06200396825396825,
+        "64": 0.031001984126984124
+      }
+    },
+    "cluster": {
+      "minimum_rate_per_year": 0.5,
+      "maximum_rate_per_year": 20.710215785426232,
+      "fastest_half_life_trading_days": 8.434151112226631,
+      "maximum_lambda_dt_by_level": {
+        "2": 0.041091697986956804,
+        "4": 0.020545848993478402,
+        "8": 0.010272924496739201,
+        "16": 0.0051364622483696006,
+        "32": 0.0025682311241848003,
+        "64": 0.0012841155620924001
+      }
+    }
+  },
+  "nesting": "Exact OU endpoints are simulated once at 64 steps/day; coarser states are exact subsamples and coarser equity increments are sums of the same fine increments.",
+  "selection_boundary": "No parameter is recalibrated at any resolution."
+}
