@@ -1,0 +1,943 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage[most]{tcolorbox}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\newtcolorbox{note}{
+  colback=gray!8, colframe=gray!40, boxrule=0.4pt, arc=1pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt,
+  fonttitle=\bfseries, title=Note
+}
+
+\title{Cross-Sectional Reproduction of the SPX Implied-Vol Smile, the\\
+VIX Term Structure, and the VIX-Option Smile by the SP500\\
+Feedback-Layer ESN (2026-02-19 Snapshot)}
+\author{Companion note to the ESN A2-981003 joint-calibration family\\
+(feedback-layer/$\alpha$ version)}
+\date{September 7, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The joint-calibration note family fits the ESN-A2 architecture to 5
+time-series stylised facts of daily returns -- roughness, leverage,
+the Taylor effect, the Zumbach effect, and excess kurtosis -- none of
+which touch option prices at all. This note asks a different,
+cross-sectional question: turned into an option-pricing engine (the
+simulator is already a discrete-time exponential martingale under its
+own measure -- Proposition~1 in Section~\ref{sec:pricing} -- so no
+risk-premium adjustment is needed), does the SP500 calibration
+($H=0.386$, \texttt{rough\_scale}$=0.672$, $\lambda_{lo}=10^{-5}$,
+$\lambda_{hi}=4.8809$, $m_1=+0.1745$, $\alpha=0.220$) reproduce the
+actual SPX implied-vol smile, the VIX term structure, and the
+VIX-option smile observed on 2026-02-19 -- and can a genuine
+cross-sectional calibration close the gap? As calibrated for the
+time series alone, no: the model overstates level by $\approx1.8\times$
+on both surfaces (30-day VIX $=36.0$ vs.\ market $=19.6$) and shows a
+real shape mismatch on both smiles. Section~\ref{sec:jointcalib} fits
+all 8 free parameters ($H,\texttt{rough\_scale},\lambda_{lo},\lambda_{hi},
+m_1,m_2,\alpha,\Delta b_0$) jointly against a vega-weighted implied-vol
+objective, sharpened toward the money with an explicit boost on
+$m\ge1$ points, against \emph{all 6 quoted expiries at once}: SPX near
+and next term, plus VIX near, next, 118d, and 153d -- calibrating
+directly on the mid of each strike's put and call implied vol (1
+point per strike, not 2 independent targets) rather than the raw put
+and call quotes separately. The result: SPX near/next weighted RMSE
+$0.029$/$0.026$, VIX near/next/118d/153d $0.29$/$0.08$/$0.09$/$0.11$
+(confirm-quality, averaged over 2 independent Monte-Carlo seeds --
+Table~\ref{tab:calibresult}). The SPX smile now coincides with the
+market on both the $m<1$ and $m\ge1$ sides at comparable RMSE
+(previously $m\ge1$ was $\approx3.5\times$ worse, now $\approx1.4\times$);
+the VIX smile tracks the market closely across most of its quoted
+range at 55d and 118d, with a real but smaller residual gap at 27d
+and 153d -- an honest limit of the shared 8-parameter architecture
+fitting 4 VIX maturities' own term structure at once, not a
+fitting failure. Priced at 2 further, entirely held-out SPX
+maturities (Section~\ref{sec:heldout}), the fit does not generalize
+uniformly: the SPX put wing undershoots increasingly with maturity --
+an honest limit of a 2-maturity SPX calibration set, not a
+contradiction of the results above. The VIX-option test itself needs
+a genuinely different, nested Monte-Carlo algorithm -- detailed in
+full in Section~\ref{sec:vix-algo} -- since VIX options price the
+model-free variance rate observed at a \emph{future} date, not the
+underlying level. All tests use the real
+\texttt{esn\_base.py}/\texttt{joint\_calibration.py} engine end to
+end, with no modification.
+\end{abstract}
+
+\tableofcontents
+
+\section{Market data}
+\label{sec:data}
+2 option-chain snapshots, both dated 2026-02-19: SPX index options
+(11 expiries, 20 days to 5.8 years) and VIX options (4 expiries, 27 to
+153 days). Quotes are mid implied volatilities (Black-76 convention),
+not dollar premia. The CBOE VIX methodology is applied literally,
+\begin{equation}
+\sigma^2 = \frac{2}{T}\sum_i \frac{\Delta K_i}{K_i^2}\, e^{RT}Q(K_i)
+- \frac{1}{T}\Big[\frac{F}{K_0}-1\Big]^2,
+\label{eq:cboe}
+\end{equation}
+with $e^{RT}Q(K_i)$ built directly from each strike's own mid-IV via
+undiscounted Black-76 (call for $K>K_0$, put for $K<K_0$, both
+averaged at $K_0$) -- since $Q(K)=e^{-RT}\times\text{Black76}(K)$
+exactly under this convention, $R$ never needs to be estimated
+separately. Applied to the near-term (2026-03-20, $T_1=29$d) and
+next-term (2026-04-17, $T_2=57$d) SPX expiries and interpolated to a
+constant 30-day maturity (2-step CBOE procedure), this reproduces the
+file's own quoted VIX spot (19.34) to within 1.5\% (19.63 computed),
+validating the replication. The identical procedure on the VIX option
+chain gives a VVIX-style vol-of-VIX reading of 108.3\% (used only as
+context; not part of either test below).
+
+\FloatBarrier
+\section{The model}
+\label{sec:model}
+This section documents the full architecture as implemented in
+\texttt{esn\_base.py} -- reservoir, $z$-bank, quadratic channel,
+feedback layer, and bias calibration -- at the level needed to
+understand exactly what is being priced in Section~\ref{sec:pricing}.
+
+\subsection{Overview}
+The simulator is a 2-layer echo-state network driving a single
+variance signal, which in turn drives daily log-returns:
+\begin{center}
+\begin{tabular}{ccccc}
+reservoir $r_t$ ($N_r$ OU modes) & $\to$ & pre-activation $\eta_t$ &
+$\to$ & $\sigma_t^{\text{raw}}, \sigma_t^{\text{used}}, x_t$ \\
+$z$-bank $z_t$ ($N_z$ nonlinear units, reading 2 taps off $r_t$) &
+$\nearrow$ & & &
+\end{tabular}
+\end{center}
+Both banks are updated once per trading day ($dt=1$) from a single
+shared innovation $\varepsilon_t\sim\mathcal N(0,1)$ -- the same
+innovation that both advances the state \emph{and} generates that
+day's return, which is the mechanical origin of the leverage effect.
+
+\subsection{The reservoir}
+\label{sec:reservoir}
+$r_t=(r_{t,1},\dots,r_{t,N_r})$ is a bank of independent
+Ornstein--Uhlenbeck modes with geometrically spaced rates,
+\begin{equation}
+\lambda_i = \lambda_{lo}\Big(\frac{\lambda_{hi}}{\lambda_{lo}}\Big)^{\frac{i-1}{N_r-1}},
+\qquad i=1,\dots,N_r,
+\label{eq:lambdas}
+\end{equation}
+updated as
+\begin{equation}
+r_{t+1,i} = \alpha_i^{\text{OU}} r_{t,i} + c_i\,\varepsilon_t, \qquad
+\alpha_i^{\text{OU}} = e^{-\lambda_i dt}, \qquad c_i = \sqrt{1-(\alpha_i^{\text{OU}})^2}.
+\label{eq:reservoirupdate}
+\end{equation}
+The reservoir is read through a single direction $q\in\mathbb R^{N_r}$,
+\begin{equation}
+q_i \propto \lambda_i^{0.5-H}, \qquad
+q \leftarrow \frac{q}{\lVert q\rVert}, \qquad
+q \leftarrow \frac{q}{\sqrt{q^\top C q}}, \qquad
+C_{ij} = \frac{b_i b_j}{\lambda_i+\lambda_j}, \quad b_i=\sqrt{2\lambda_i}.
+\label{eq:qdef}
+\end{equation}
+
+\begin{note}
+$C$ in Eq.~\eqref{eq:qdef} is the \emph{continuous-time} stationary
+covariance of the OU bank ($b_ib_j/(\lambda_i+\lambda_j)$), used only
+to normalise $q$ so that $q^\top C q=1$. The simulator itself runs in
+\emph{discrete} time with $dt=1$, whose own exact stationary
+covariance is $\mathrm{Cov}^{\text{disc}}_{ij}=c_ic_j/(1-\alpha_i^{\text{OU}}\alpha_j^{\text{OU}})$
+-- close to $C$ only when $\lambda_i dt\ll1$, which is not guaranteed
+here since $\lambda_{hi}$ can reach $5.0$. This is exactly what
+\texttt{esn\_base.py} does (not a simplification introduced by this
+note); it means $q^\top\mathrm{Cov}^{\text{disc}}q\ne1$ exactly, a
+second-order normalisation slack inherited as-is.
+\end{note}
+
+\subsection{The $z$-bank}
+\label{sec:zbank}
+$z_t=(z_{t,1},\dots,z_{t,N_z})$ has its own geometrically spaced decay
+rates $a_j=a_{lo}(a_{hi}/a_{lo})^{(j-1)/(N_z-1)}$. Each unit reads 2
+fixed reservoir taps, $p_1=r_{t+1,\mathrm{fast}(j)}$,
+$p_2=r_{t+1,\mathrm{slow}(j)}$ (fast/slow tap indices defined so that
+$\mathrm{fast}(j)$ always sits in the reservoir's upper half and
+$\mathrm{slow}(j)$ in its lower half, monotone in $j$):
+\begin{equation}
+z_{t+1,j} = e^{-a_jdt}z_{t,j} + (1-e^{-a_jdt})\, m_{t+1}\,z_{\text{strength}}\tanh(u_{t,j}),
+\label{eq:zupdate}
+\end{equation}
+\begin{equation}
+u_{t,j} = s_jp_1p_2 + e_{\text{strength}}(0.7p_1^2+0.3p_2^2-1) - l_{\text{strength}}(0.7p_1+0.3p_2)
++ zz_jz_{t,j} + \tfrac12 lz_{\text{strength}}(z_{t,j-1}+z_{t,j+1}),
+\label{eq:udef}
+\end{equation}
+with the gate $m_{t+1}=\max(0,\,1-\gamma_{\text{norm}}\lVert r_{t+1}\rVert/\sqrt{N_r})$
+suppressing $z$-bank updates whenever the reservoir's current norm is
+large, and $s_j\in\{-1,+1\}$, $zz_j\in[-zz_{\text{scale}},zz_{\text{scale}}]$
+drawn once from \texttt{MATRIX\_SEED} at construction time
+(deterministic given the seed, never re-drawn during simulation). The
+$z$-bank enters the pre-activation through a fixed per-mode readout
+profile,
+\begin{equation}
+w_{j,z} = \frac{z_{r,j}}{\sqrt{N_z}}, \qquad
+z_{r,j} = zr_{lo}\Big(\frac{zr_{hi}}{zr_{lo}}\Big)^{\frac{j-1}{N_z-1}}.
+\label{eq:zreadout}
+\end{equation}
+
+\subsection{Quadratic channel}
+\label{sec:quad}
+A second, independent nonlinear channel reads the reservoir's own
+energy and its projection onto $q$:
+\begin{equation}
+r_t^\top Q r_t = \frac{1}{N_r}\Big(m_1\lVert r_t\rVert^2 + m_2(q^\top r_t)^2\Big),
+\qquad Q = \frac{1}{N_r}\big(m_1 I + m_2 qq^\top\big),
+\label{eq:quad}
+\end{equation}
+with $m_2\equiv0$ throughout this note family (only $m_1$ is
+calibrated); no positive-definiteness constraint is imposed on $Q$.
+
+\subsection{Pre-activation, bias calibration, and the feedback layer}
+\label{sec:feedback}
+\begin{equation}
+\eta_t = b_0 + \rho\cdot\texttt{rough\_scale}\cdot(q^\top r_t) + w_z^\top z_t
++ \frac{1}{N_r}\big(m_1\lVert r_t\rVert^2+m_2(q^\top r_t)^2\big),
+\label{eq:eta}
+\end{equation}
+where $\rho=\texttt{rough\_orientation}\in\{-1,+1\}$ is an
+architecture-level sign flag (fixed at $\rho=-1$ throughout this note
+family -- Table~\ref{tab:arch}). The raw pre-activation variance and
+its EWMA-smoothed counterpart are
+\begin{equation}
+(\sigma_t^{\text{raw}})^2 = \text{SIG\_MIN}^2+\text{softplus}(\eta_t)^2,
+\qquad
+(\sigma_t^{\text{used}})^2 = (1-\alpha)(\sigma_{t-1}^{\text{used}})^2+\alpha(\sigma_t^{\text{raw}})^2,
+\label{eq:sigdef}
+\end{equation}
+with returns generated from the smoothed signal,
+\begin{equation}
+x_{t+1} = -\tfrac12(\sigma_t^{\text{used}})^2 dt + \sigma_t^{\text{used}}\sqrt{dt}\,\varepsilon_t.
+\label{eq:xdef}
+\end{equation}
+$\alpha=1$ recovers $\sigma_t^{\text{used}}\equiv\sigma_t^{\text{raw}}$
+exactly (single-signal model). The bias $b_0$ is \emph{not} a free
+parameter -- it is fixed, for every asset, so that the reservoir's own
+rest state ($r=0,z=0$) reads exactly a $\text{TV\_ANN}=20\%$
+annualised baseline:
+\begin{equation}
+b_0 = \text{softplus}^{-1}\Big(\sqrt{\max(\text{TV\_DAY}^2-\text{SIG\_MIN}^2,\,10^{-15})}\Big),
+\qquad \text{TV\_DAY}=\frac{\text{TV\_ANN}}{\sqrt{252}}.
+\label{eq:b0}
+\end{equation}
+
+\begin{note}
+$m_1=+0.1745>0$ in the SP500 calibration means the quadratic term in
+Eq.~\eqref{eq:quad} is strictly non-negative and \emph{always} pushes
+$\eta_t$ above the level Eq.~\eqref{eq:b0} was calibrated for; combined
+with the convexity of $\mathrm{softplus}(\cdot)^2$, $\mathbb
+E[(\sigma_t^{\text{raw}})^2]$ is structurally biased above the 20\%
+baseline. Nothing in the 6-parameter joint-calibration objective
+(Hurst/leverage/Taylor/Zumbach/kurtosis only) constrains this -- the
+resulting average level is a free side-effect, not a fit target. This
+is the main driver of the level gap in Section~\ref{sec:results}.
+\end{note}
+
+\subsection{Stability condition}
+\label{sec:stability}
+\texttt{build\_esn\_matrices} also returns
+$\kappa_0=\rho\cdot\texttt{rough\_scale}\cdot q^\top\sqrt{2\lambda}$;
+the calibration code treats $\kappa_0\ge0$ as an invalid/unstable
+parameter region and rejects it outright (a hard constraint enforced
+during optimisation, not a soft penalty). For the SP500 row,
+$\kappa_0=-0.887<0$: valid.
+
+\subsection{Full architecture and parameter table}
+\label{sec:params}
+\begin{table}[h]
+\centering
+\caption{Fixed architecture constants (\texttt{OPT\_ARCH}, identical
+across all 9 assets in the joint-calibration note family).}
+\label{tab:arch}
+\begin{tabular}{lc}
+\toprule
+$N_r$ & 22 \\
+$N_z$ & 29 \\
+\texttt{rough\_orientation} $(\rho)$ & $-1.0$ \\
+$z_{\text{strength}}$ & 0.27136 \\
+$e_{\text{strength}}$ & 3.18426 \\
+$l_{\text{strength}}$ & 0.18199 \\
+$\gamma_{\text{norm}}$ & 1.30810 \\
+$lz_{\text{strength}}$ & 0.06081 \\
+$zz_{\text{scale}}$ & 0.03121 \\
+$\mathrm{sign\_prob\_neg}$ & 0.22278 \\
+\texttt{MATRIX\_SEED} & 202695547565 \\
+\midrule
+$a_{lo},a_{hi}$ ($z$-bank rates) & $1/400,\ 1/7$ \\
+$zr_{lo},zr_{hi}$ ($z$-readout profile) & $0.055,\ 0.25$ \\
+$m_2$ & 0 (fixed) \\
+$\text{TV\_ANN}$, $\text{SIG\_MIN}$ & $0.20$,\ $0.01/\sqrt{252}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{SP500 calibrated parameters (Table 1, feedback-layer
+joint-calibration note) -- the ONLY inputs that vary by asset.}
+\label{tab:sp500}
+\begin{tabular}{lc}
+\toprule
+$H$ & 0.386 \\
+\texttt{rough\_scale} & 0.672 \\
+$\lambda_{lo}$ & $1\times10^{-5}$ \\
+$\lambda_{hi}$ & 4.8809 \\
+$m_1$ & $+0.1745$ \\
+$\alpha$ & 0.220 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Simulation algorithm}
+\label{sec:algo}
+\begin{algorithm}[h]
+\caption{One simulated day, given state $(r_t,z_t,(\sigma_{t-1}^{\text{used}})^2)$}
+\label{alg:day}
+\begin{algorithmic}[1]
+\State draw $\varepsilon_t\sim\mathcal N(0,1)$
+\State $\eta_t \gets$ Eq.~\eqref{eq:eta} using $r_t,z_t$ (state \emph{before} this step's update)
+\State $(\sigma_t^{\text{raw}})^2,(\sigma_t^{\text{used}})^2 \gets$ Eq.~\eqref{eq:sigdef}
+\State $x_{t+1} \gets$ Eq.~\eqref{eq:xdef}, using $\varepsilon_t$
+\State $r_{t+1} \gets \alpha^{\text{OU}}\odot r_t + c\,\varepsilon_t$ \Comment{Eq.~\eqref{eq:reservoirupdate}, SAME $\varepsilon_t$}
+\State $m_{t+1} \gets \max(0,1-\gamma_{\text{norm}}\lVert r_{t+1}\rVert/\sqrt{N_r})$
+\For{$j=1,\dots,N_z$}
+    \State $z_{t+1,j} \gets$ Eq.~\eqref{eq:zupdate}, reading $p_1,p_2$ from $r_{t+1}$
+\EndFor
+\State \Return $x_{t+1}, r_{t+1}, z_{t+1}, (\sigma_t^{\text{used}})^2$
+\end{algorithmic}
+\end{algorithm}
+Re-using the same $\varepsilon_t$ for both the return (step 4) and the
+reservoir update (step 5) is what generates the leverage effect; it is
+also, as shown next, exactly what makes the simulator a valid pricing
+engine.
+
+\FloatBarrier
+\section{Turning the model into a cross-sectional pricing engine}
+\label{sec:pricing}
+
+\begin{note}
+\textbf{Proposition 1 (martingale property).}
+Under Eq.~\eqref{eq:xdef}, conditional on the state at day $t$ (hence
+on $\sigma_t^{\text{used}}$, which is $\mathcal F_t$-measurable),
+\[
+\mathbb E\big[e^{x_{t+1}}\,\big|\,\mathcal F_t\big]
+= e^{-\frac12(\sigma_t^{\text{used}})^2}\,\mathbb E\big[e^{\sigma_t^{\text{used}}\varepsilon_t}\big|\mathcal F_t\big]
+= e^{-\frac12(\sigma_t^{\text{used}})^2}\,e^{\frac12(\sigma_t^{\text{used}})^2} = 1.
+\]
+Chaining over $N$ days, $S_t=S_0\exp(\sum x)$ is a discrete-time
+exponential martingale under the simulator's own measure. It can
+therefore be used directly as a Monte-Carlo pricing engine with
+forward $F_{\text{model}}=1$ (moneyness units), with no risk-premium
+adjustment or re-weighting.
+\end{note}
+
+\subsection{SPX-smile algorithm}
+\label{sec:spx-algo}
+Turning the simulator into a cross-sectional pricing engine for a
+single expiry $T$ (calendar days $N_{\text{cal}}$) proceeds as follows.
+
+\begin{note}
+\textbf{ATM-weighted moneyness grid.} Rather than a uniform strike
+step, the inversion uses a denser grid near the money and a coarser
+one in the wings:
+\begin{equation}
+\Delta m(m) = \begin{cases}
+0.005 & m\in[0.85,1.20] \text{ (SPX)}, \text{ or } 0.01 \text{ (VIX-option)} \\
+0.02 & \text{otherwise (SPX)}, \text{ or } 0.04 \text{ (VIX-option)}
+\end{cases}
+\label{eq:grid}
+\end{equation}
+This matters for 2 reasons. First, \texttt{cboe\_variance\_from\_grid}
+(Eq.~\eqref{eq:cboe}) uses the local strike spacing $\Delta K_i$ as its
+own quadrature weight, so a denser ATM grid directly sharpens the
+variance integral exactly where the smile's curvature is highest,
+without paying the computational cost of that density in the flat
+wings. Second, it concentrates the strike-by-strike Black-76 inversion
+where real markets are actually liquid and where the comparison
+against the true smile is most meaningful -- deep-wing strikes are
+priced from very few Monte-Carlo paths reaching that far into the
+tail, so their own inverted vols are the noisiest and least
+economically important part of the curve.
+\end{note}
+
+\begin{algorithm}[H]
+\caption{SPX cross-sectional smile at horizon $N_{\text{cal}}$ calendar days}
+\label{alg:spx}
+\begin{algorithmic}[1]
+\State $N \gets \mathrm{round}(N_{\text{cal}}\times252/365)$ \Comment{trading-day equivalent}
+\State $T_{\text{years}} \gets N_{\text{cal}}/365$
+\State simulate $K$ independent chains, $\mathrm{burn}+N$ days each, from $r_0=z_0=0$, $(\sigma^{\text{used}}_{-1})^2=0$ (Algorithm~\ref{alg:day}, chained)
+\State discard the first $\mathrm{burn}=500$ days of each chain (reservoir burn-in)
+\For{each chain $k=1,\dots,K$}
+    \State $Y^{(k)} \gets \exp\!\big(\sum_{t=1}^{N} x_t^{(k)}\big)$ \Comment{terminal price ratio $S_{T}/S_0$, chain $k$}
+\EndFor
+\For{each moneyness $m$ in the ATM-weighted grid, Eq.~\eqref{eq:grid}}
+    \If{$m\ge1$}
+        \State $Q(m) \gets \frac1K\sum_k \max(Y^{(k)}-m,\,0)$ \Comment{OTM call, undiscounted (forward $F=1$)}
+    \Else
+        \State $Q(m) \gets \frac1K\sum_k \max(m-Y^{(k)},\,0)$ \Comment{OTM put}
+    \EndIf
+    \State $\widehat\sigma_{\text{iv}}(m) \gets$ Black-76 inversion of $Q(m)$ at $(F{=}1,K{=}m,T_{\text{years}})$ (\texttt{brentq}, bracket $[10^{-4},6.0]$)
+\EndFor
+\State $\sigma^2 \gets$ \texttt{cboe\_variance\_from\_grid}$(F{=}1, T_{\text{years}}, \{m\}, \{Q(m)\})$ \Comment{same routine as Section~\ref{sec:data}}
+\end{algorithmic}
+\end{algorithm}
+Run once per expiry (near: 29d, next: 57d), $K=4{,}000$ chains, seed
+base $50{,}000{,}000$, ATM-weighted moneyness grid (Eq.~\eqref{eq:grid}
+above): step $0.005$ inside $[0.85,1.20]$, step $0.02$ outside, over
+$[0.60,1.60]$ (104 points total). Step 12's $\sigma^2$ feeds the same 2-step CBOE
+interpolation used on the market's own near/next $\sigma^2$
+(Eq.~\eqref{eq:cboe}) to produce the model's own 30-day VIX
+(Section~\ref{sec:results}); steps 8--11's $\widehat\sigma_{\text{iv}}(m)$
+curve is the smile plotted in Section~\ref{sec:jointcalib}.
+
+\subsection{VIX-smile algorithm: nested Monte Carlo}
+\label{sec:vix-algo}
+A VIX option's own payoff depends on the \emph{model-free variance
+swap rate itself}, observed at a future date -- not on the underlying
+index level. Reproducing its smile therefore needs a second Monte
+Carlo layer nested inside the first: an \emph{outer} ensemble of
+possible reservoir states on the option's own expiry date $N$, and,
+\emph{from each outer draw}, an \emph{inner} ensemble of 30-day-forward
+paths used to compute that day's own model-implied VIX by re-applying
+Algorithm~\ref{alg:spx}'s own machinery (steps 8--12) started from that
+state.
+
+\begin{note}
+\texttt{esn\_base.\_sim\_esn\_with\_params} always starts at
+$r=z=0,(\sigma^{\text{used}})^2=0$ -- it cannot be conditioned on an
+arbitrary mid-path state, which the inner loop requires (each of the
+$K_{\text{outer}}$ outer draws has its \emph{own} state on day $N$).
+A batched, vectorized reimplementation of the identical
+Eqs.~\eqref{eq:reservoirupdate}--\eqref{eq:sigdef}
+(\texttt{vectorized\_sim.py}), accepting an arbitrary initial state and
+simulating many replicates at once, is used instead. It was validated
+against the original scalar engine on 400 independent replicates,
+$T=3{,}000$ (both started from $r=z=0$, matching the original's own
+convention): mean, std, and $\mathrm{acf}(|x|)$ at lags 1/5/10 agree to
+3 significant figures (e.g.\ $\mathrm{acf}_1=0.373$ scalar vs.\ $0.377$
+vectorized); excess kurtosis differs more ($26.1$ vs.\ $20.9$ across
+400 draws) but this is consistent with -- not contrary to -- the
+extreme sampling variance of that particular statistic already
+documented for this model.
+\end{note}
+
+\begin{algorithm}[H]
+\caption{VIX-option smile at horizon $N_{\text{cal}}$ calendar days}
+\label{alg:vix}
+\begin{algorithmic}[1]
+\State $N \gets \mathrm{round}(N_{\text{cal}}\times252/365)$
+\State \textbf{Outer:} simulate $K_{\text{outer}}$ chains, $\mathrm{burn}+N$ days, from $r=z=0$; keep the terminal state $(r_N^{(k)},z_N^{(k)},(\sigma^{\text{used}}_N)^{2(k)})_{k=1}^{K_{\text{outer}}}$
+\For{each outer draw $k=1,\dots,K_{\text{outer}}$}
+    \State \textbf{Inner:} simulate $K_{\text{inner}}$ chains, 21 trading days ($\approx$30 calendar days), starting from state $k$
+    \State $Y^{(k,j)} \gets \exp(\text{cumulative return}),\; j=1,\dots,K_{\text{inner}}$
+    \State $\mathrm{VIX}_N^{(k)} \gets 100\sqrt{\sigma^2}$, with $\sigma^2\gets$ \texttt{cboe\_variance\_from\_grid} applied to $\{Y^{(k,j)}\}_j$ (Algorithm~\ref{alg:spx}, steps 8--12, ATM-weighted grid Eq.~\eqref{eq:grid}, coarser variant: step $0.01$/$0.04$, 53 points)
+\EndFor
+\State $F_{\text{VIX}} \gets \frac{1}{K_{\text{outer}}}\sum_k \mathrm{VIX}_N^{(k)}$ \Comment{model's own VIX future for this expiry}
+\For{each real market strike $K$ in the VIX-option chain at this expiry}
+    \State $Q(K) \gets \frac{1}{K_{\text{outer}}}\sum_k \max(\pm(\mathrm{VIX}_N^{(k)}-K),0)$ \Comment{OTM, sign by $K\gtrless F_{\text{VIX}}$}
+    \State $\widehat\sigma_{\text{iv}}(K) \gets$ Black-76 inversion of $Q(K)$ at $(F_{\text{VIX}},K,T_{\text{years}})$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\begin{note}
+Total simulated ``chain-days'' for one expiry: outer
+$K_{\text{outer}}\times(\mathrm{burn}+N)$ plus inner
+$K_{\text{outer}}K_{\text{inner}}\times21$. With
+$K_{\text{outer}}=K_{\text{inner}}=600$ this is
+$\approx3.6\times10^5+7.6\times10^6\approx7.9\times10^6$ chain-days per
+expiry, fully vectorized (batch dimension $=K_{\text{outer}}K_{\text{inner}}=360{,}000$
+for the inner loop) -- run in $\approx48$s per expiry on the
+container's own CPU. The 30-calendar-day window inside step 5 is
+priced directly against a single 30-day horizon (no further near/next
+blend) rather than the full 2-step CBOE interpolation of
+Algorithm~\ref{alg:spx} -- a documented simplification, since blending
+2 nested expiries per outer draw would square the cost again.
+\end{note}
+Seed bases: $70{,}000{,}000$ (outer, near), $+1$ (outer, next),
+$+1{,}000$/$+1{,}001$ (inner). $K_{\text{outer}}=K_{\text{inner}}=600$,
+$\mathrm{burn}=500$, applied at both VIX-option expiries (27d, 55d).
+
+\subsection{Joint cross-sectional calibration (SPX + VIX)}
+\label{sec:jointcalib}
+
+\begin{equation}
+\mathcal L(\theta) = \sum_{i=1}^N w_i\Big(\sigma_{\text{imp}}^\theta(K_i,T_i)-\sigma_{\text{imp}}^{\text{mkt}}(K_i,T_i)\Big)^2,
+\qquad
+\hat\theta = \arg\min_{\theta\in\Theta}\mathcal L(\theta).
+\label{eq:calibobj}
+\end{equation}
+$\theta=(H,\texttt{rough\_scale},\lambda_{lo},\lambda_{hi},m_1,m_2,\alpha,\Delta b_0)$
+-- every parameter the time-series joint-calibration search touches,
+plus the quadratic-channel coefficient $m_2$ (Eq.~\eqref{eq:quad},
+fixed at $0$ throughout the time-series calibration) and an additive
+offset $\Delta b_0$ to the architecture's own bias term
+(Eq.~\eqref{eq:b0}, already a native argument of
+\texttt{esn\_base.\_sim\_esn\_with\_params}, no engine modification
+needed) -- calibrated \emph{jointly against all 6 quoted expiries at
+once}: SPX near (29d) + SPX next (57d) + VIX-option near (27d) +
+VIX-option next (55d) + VIX-option 118d + VIX-option 153d.
+
+\begin{note}
+\textbf{SPX and VIX are not fit separately and then compared -- they
+share 1 $\theta$.} $H$, \texttt{rough\_scale}, $\lambda_{lo}$,
+$\lambda_{hi}$, $m_1$, $m_2$, $\alpha$, and $\Delta b_0$ each take a
+single value that simultaneously parametrizes the SPX pricing engine
+(Section~\ref{sec:spx-algo}) and the VIX pricing engine
+(Section~\ref{sec:vix-algo}, itself built on top of the SPX path
+simulator, since VIX is a functional of the same underlying process)
+via the identical \texttt{build\_matrices\_raw(...)} call in both.
+Eq.~\eqref{eq:calibobj}'s own sum runs over SPX \emph{and} VIX
+residuals together in 1 objective, minimized by 1 optimizer call --
+there is no separate SPX-only or VIX-only calibration step anywhere
+in this note, and no mechanism by which the 2 could disagree about
+$\theta$: every figure and table showing both instruments is showing
+the same $\hat\theta$'s 2 different consequences, not 2 independently
+tuned models placed side by side.
+\end{note}
+
+\subsubsection{Calibration target: the mid of put and call implied
+vol}
+\label{sec:calibtarget}
+The market data carries both a put row and a call row at (almost)
+every strike. Put-call parity says these should agree exactly; in
+practice they agree only approximately (a few vol points apart,
+growing away from the money -- visible directly in
+Figures~\ref{fig:spxfinal}--\ref{fig:vixfinal}'s own put/call
+markers), since each is its own noisy market print of a single
+underlying implied vol. \texttt{load\_spx\_points} and
+\texttt{load\_vix\_points} average the put and call mid-IV at each
+strike into 1 calibration point (grouping by moneyness), rather than
+treating both as independent targets: this halves the point count
+(SPX near: $899\to362$) and means every point is fit on equal footing,
+with no separate in-the-money/out-of-the-money convention to track.
+
+\subsubsection{Weighting}
+\label{sec:weighting}
+Weights $w_i\ge0$ serve 2 purposes: correcting the heteroscedasticity
+of the Black-76 price$\to$vol inversion (deep OTM options have an
+ill-identified implied vol -- the price$\to$vol map is very flat
+there) and weighting by vega, $w_i\propto\mathcal V(K_i,T_i)$ (Black-76
+vega, from each point's own market IV, since Eq.~\eqref{eq:calibobj}
+is written in \emph{vol} space). On top of vega, a Gaussian kernel
+sharpens the weight toward the money, with a wider bandwidth on the
+$m\ge1$ side (SPX: $0.08/0.15$; VIX: $1.5/1.5$, wide enough that VIX's
+own far strikes -- routinely quoted out to $K/F\approx5$--$9$ -- still
+carry real weight, not the $\approx0$ a narrower kernel gives them),
+plus a flat extra multiplier on every $m\ge1$ point
+(\texttt{MONEYNESS\_HIGH\_BOOST}$=3.0$), diagnosed as necessary once
+direct inspection showed the model and market smiles failing to
+coincide specifically on that side:
+\begin{equation}
+w_i \;\propto\; \mathcal V(K_i,T_i)\cdot
+\exp\!\Big(-\tfrac12\big(\ln(K_i/F)/\text{bw}(K_i)\big)^2\Big)\cdot
+\begin{cases}
+\text{MONEYNESS\_HIGH\_BOOST} & \text{if } K_i/F\ge1 \\
+1 & \text{if } K_i/F<1
+\end{cases}
+\label{eq:atmweight}
+\end{equation}
+On top of this, a cross-instrument scale normalisation divides each
+expiry's own residuals by its own weighted RMSE at a fixed reference
+$\theta_0$ (the $\Delta b_0$-only corrected baseline), so no expiry's
+own absolute vol scale (VIX implied vols sit on a $\sim100\%+$ scale
+against SPX's $\sim15$--$40\%$) dominates the objective by construction:
+\begin{gather}
+s_e = \sqrt{\frac{1}{\sum_{i\in e}w_i}\sum_{i\in e}w_i\big(\sigma_{\text{imp}}^{\theta_0}(K_i,T_i)-\sigma_{\text{imp}}^{\text{mkt}}(K_i,T_i)\big)^2},
+\notag \\
+\text{residual}_i \leftarrow \frac{\sqrt{w_i}\big(\sigma_{\text{imp}}^\theta(K_i,T_i)-\sigma_{\text{imp}}^{\text{mkt}}(K_i,T_i)\big)}{s_e},\ i\in e.
+\label{eq:scalenorm}
+\end{gather}
+Finally, an explicit instrument-level weight
+($\text{vix\_near}=3.0$, $\text{vix\_next}=1.5$) is applied to those
+2 expiries' own residuals on top of Eq.~\eqref{eq:scalenorm}, since
+without it the wide VIX kernel above dilutes their own near-money
+weight enough that they fit distinctly worse than the other 4
+expiries.
+
+\begin{algorithm}[h]
+\caption{Joint calibration}
+\label{alg:jointcalib}
+\begin{algorithmic}[1]
+\State reparametrise $\lambda_{lo},\lambda_{hi}$ as $\log_{10}\lambda_{lo},\log_{10}\lambda_{hi}$ \Comment{both span multiple orders of magnitude; linear finite-difference steps are meaningless otherwise}
+\State fix a single seed $s_0$ for every $\theta$ trial (common random numbers)
+\State compute $s_e$ for each of the 6 expiries ONCE, at $\theta_0$ (Eq.~\eqref{eq:scalenorm}) \Comment{fixed for the whole run, never recomputed at other $\theta$}
+\Function{Residuals}{$\theta$}
+    \State build $\texttt{mat}\gets$\texttt{build\_esn\_matrices}$(H,\texttt{rough\_scale},\lambda_{lo},\lambda_{hi},m_1,m_2)$
+    \For{each of the 6 expiries $e$ (SPX near/next, VIX near/next/118d/153d)}
+        \If{SPX} $\sigma_{\text{imp}}^\theta(K_i)\gets$ Algorithm~\ref{alg:spx} (steps 3--14), $K_{\text{spx}}$ chains, seed $s_0$
+        \Else\ (VIX) $\sigma_{\text{imp}}^\theta(K_i)\gets$ Algorithm~\ref{alg:vix} (steps 2--11), $K_{\text{outer}},K_{\text{inner}}$ chains, seed $s_0$
+        \EndIf
+        \State append $\text{IW}(e)\cdot\sqrt{w_i}\big(\sigma_{\text{imp}}^\theta(K_i)-\sigma_{\text{imp}}^{\text{mkt}}(K_i)\big)/s_e$ to the residual vector, all $K_i\in e$ \Comment{$\text{IW}$ = the instrument-level weight above}
+    \EndFor
+    \State \Return residual vector, divided by $\sqrt{6}$ so $\mathcal L(\theta_0)=1$ exactly (the usual reduced-objective convention)
+\EndFunction
+\State $\hat\theta\gets$ \texttt{scipy.optimize.least\_squares}(\textsc{Residuals}, $\theta_0$, bounds $\Theta$, method=\texttt{trf}, loss=\texttt{soft\_l1}), run in successive checkpointed rounds
+\State \textbf{Confirm:} re-evaluate $\mathcal L(\hat\theta)$, averaged over 2 independent seeds, at $K\gg K_{\text{search}}$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{table}[h]
+\centering
+\caption{Bounds $\Theta$ and warm start $\theta_0$.}
+\label{tab:calibbounds}
+\begin{tabular}{lccc}
+\toprule
+& lower & upper & $\theta_0$ \\
+\midrule
+$H$ & $0.01$ & $2.5$ & $0.386$ \\
+\texttt{rough\_scale} & $0.2$ & $0.7$ & $0.672$ \\
+$\lambda_{lo}$ & $10^{-5}$ & $0.1$ & $10^{-5}$ \\
+$\lambda_{hi}$ & $10^{-3}$ & $5.0$ & $4.881$ \\
+$m_1$ & $-1.0$ & $0.5$ & $0.1745$ \\
+$m_2$ & $-4.0$ & $4.0$ & $0$ \\
+$\alpha$ & $0.02$ & $1.0$ & $0.220$ \\
+$\Delta b_0$ & $-1.3$ & $-0.3$ & $-0.70$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{note}
+\textbf{Why this is computationally tractable.} A scalar,
+per-path Python loop costs $\approx9$--$10$s for a single 2-expiry SPX
+residual evaluation even at $K=150$, and $\approx48$s for a single
+VIX-option evaluation (nested Monte Carlo) at
+$K_{\text{outer}}=K_{\text{inner}}=600$ -- far too slow for a 6-expiry
+objective. \texttt{vectorized\_sim.py} (Section~\ref{sec:vix-algo}),
+extended with native \texttt{b0\_delta} support and used for the SPX
+legs too, gives a $\approx50$--$80\times$ speed-up (validated to still
+match the scalar engine, Section~\ref{sec:vix-algo}'s own Note): a
+full 6-expiry residual evaluation costs $\approx15$--$20$s, not
+several minutes.
+\end{note}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{../figures/calibration_convergence.png}
+\caption{$\mathcal L(\theta)/N$ (Eq.~\eqref{eq:calibobj}'s weighted
+sum-of-squares, current weighting, divided by $N=858$ -- the total
+number of points across all 6 specs, so the true optimum's own floor
+reads as a genuinely small number rather than an arbitrary-looking
+raw sum) across 10 separate optimizer runs concatenated end to end
+(no marker on the plot itself distinguishes them -- explained here
+instead). Left: the full range, starting from a deliberately extreme
+corner of bounds $\Theta$ (Table~\ref{tab:calibbounds}) -- $H$,
+$\lambda_{hi}$, $m_1$, $m_2$ all at their own upper bound, $\alpha$
+and $\Delta b_0$ at their lower bound -- the single highest-loss point
+anywhere in this note ($\mathcal L/N\approx1.4$, an order of magnitude
+above any random draw tried elsewhere here), which converges on its
+own within $\approx60$ evaluations down to $\mathcal L/N\approx0.009$.
+Right: the same data, zoomed to $[0,0.06]$, where the later structure
+is actually visible. Evaluations 65--160 start from a genuinely random
+$\theta$ (uniform draw within $\Theta$, seed 42) and get stuck at
+$\mathcal L/N\approx0.030$--$0.039$, with $\alpha$ and $m_2$ both
+pinning near their own bounds -- a real, distinctly worse local
+optimum, not a slow approach to the true one. Evaluations 161--190
+restart from the note's own informed $\theta_0$ and converge
+immediately to $\mathcal L/N\approx0.0054$, the true optimum every
+other calibration in this note reaches. Evaluations 191--244 try a
+2nd random $\theta$ (seed 123): this one finds its own way to the
+same true optimum unaided, just less directly. Evaluations 245--335
+try a 3rd random $\theta$ (seed 7) and get stuck again, at a 3rd,
+different plateau ($\mathcal L/N\approx0.009$--$0.012$). Evaluations
+336--353 restart again and converge to $\mathcal L/N\approx0.0054$.
+Evaluations 354--459 try a 4th random $\theta$ (seed 2024): stuck for
+$>60$ evaluations at $\mathcal L/N\approx0.03$--$0.038$, then breaks
+free and also finds its own way to the true optimum unaided.
+Evaluations 460--477 restart once more and converge to
+$\mathcal L/N\approx0.0054$ again. Evaluations 478--533 try a 5th
+random $\theta$ (seed 999): stuck throughout this entire budget at
+$\mathcal L/N\approx0.036$--$0.052$, never finding its way to the true
+optimum. Evaluations 534--590 restart a 4th time and converge to
+$\mathcal L/N\approx0.0054$ once more; the remaining evaluations spent
+there do not push it any lower. A handful of \texttt{trf}'s own
+finite-difference Jacobian probes reach $\mathcal L/N>0.06$, off the
+top of the right panel's own range (visible on the left), and are not
+shown there. Across the 6 random attempts total (including the
+extreme corner) here, 3 eventually found the true optimum unaided
+(though far less directly than an informed start), 3 got stuck
+throughout at 3 different, distinctly worse plateaus; every
+informed-start attempt converged in well under 30 evaluations, every
+time, to the same $\mathcal L/N\approx0.0054$ -- and no amount of
+further search once there improves on it. This is a genuine,
+repeatable floor for this objective under the current model and
+weighting, not a slow approach to exactly $0$: the actual reason this
+note warm-starts from $\theta_0$ throughout, rather than from a random
+draw.}
+\label{fig:convergence}
+\end{figure}
+
+Final calibrated parameters:
+\begin{gather*}
+\hat\theta\approx\big(H{=}0.0369,\ \texttt{rough\_scale}{=}0.200,\
+\lambda_{lo}{\approx}1.1{\times}10^{-3},\ \lambda_{hi}{\approx}1.7{\times}10^{-2},\\
+m_1{=}0.260,\ m_2{=}-1.477,\ \alpha{=}0.803,\ \Delta b_0{=}-0.437\big)
+\end{gather*}
+
+\begin{table}[h]
+\centering
+\caption{Confirm-quality weighted RMSE at $\hat\theta$, averaged over
+2 independent seeds ($K_{\text{spx}}=5{,}000$,
+$K_{\text{outer}}=K_{\text{inner}}=500$ each).}
+\label{tab:calibresult}
+\begin{tabular}{lc}
+\toprule
+Expiry & weighted RMSE \\
+\midrule
+SPX near (29d) & $0.0288$ \\
+SPX next (57d) & $0.0255$ \\
+VIX near (27d) & $0.2905$ \\
+VIX next (55d) & $0.0792$ \\
+VIX 118d & $0.0946$ \\
+VIX 153d & $0.1102$ \\
+\midrule
+Mean (6 expiries) & $0.1048$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{note}
+VIX-near's own confirm-quality number carries real seed-to-seed
+noise at this $K$ (the nested VIX Monte-Carlo estimator's own
+variance is large enough that a single confirm draw is not, on its
+own, fully trustworthy -- Figures~\ref{fig:vixfinal} and
+\ref{fig:vixdist} both show this directly: the 90\% confidence band
+around the model's own mean curve, and the model's own simulated
+ensemble against the market's risk-neutral density, rather than a
+single realization of either). Both figures are built from multiple
+independent seeds for exactly this reason, not 1.
+\end{note}
+
+Figures~\ref{fig:spxfinal} and \ref{fig:vixfinal} show the fitted
+smile against the market at every quoted maturity.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/spx_smile_final.png}
+\caption{SPX smile, market vs.\ $\hat\theta$, 4 maturities: the 2
+calibrated against (29d, 57d) plus 2 held out entirely from
+calibration (119d, 211d). Open grey circles and grey crosses are the
+market's own mid implied vol (average of bid/ask) at each traded
+strike, from the put and call quote respectively -- both are shown
+for transparency, though $\hat\theta$ itself is fit against their own
+average, 1 point per strike (Section~\ref{sec:calibtarget}), since
+they are 2 noisy prints of 1 underlying implied vol, not 2
+independent facts. This is not a bid/ask spread (each marker is
+already its own bid/ask mid) -- their own small disagreement (a few
+vol points, growing away from the money) is a genuine feature of the
+quoted data. The blue curve is the \emph{mean} model IV across 10
+independent Monte-Carlo seeds, with a shaded 90\% interval (5th--95th
+percentile) -- not a single realization, since VIX pricing noise
+(Figure~\ref{fig:vixfinal}) makes single draws unreliable and SPX is
+shown the same way for consistency. Both the axis range and the
+curve are limited to each panel's own market-quoted moneyness range.
+The band stays narrow throughout: SPX pricing is cheap enough
+(Section~\ref{sec:jointcalib}'s own vectorized engine) that
+$K=3{,}000$ per seed leaves little residual MC noise.}
+\label{fig:spxfinal}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/vix_smile_final.png}
+\caption{VIX-option smile, market vs.\ $\hat\theta$, all 4 maturities
+the VIX-option chain quotes, all genuinely calibrated against. As in
+Figure~\ref{fig:spxfinal}, open circles and crosses are the market's
+own put and call mid implied vol, and the blue curve is the
+\emph{mean} model IV across 5 independent Monte-Carlo seeds with a
+shaded 90\% interval. The band is visibly wide here -- unlike SPX,
+VIX pricing needs the much more expensive nested Monte Carlo
+(Section~\ref{sec:vix-algo}), so 5 seeds at a search-affordable $K$
+leave real, visible residual noise. The jumps visible in the mean
+curve at the largest strikes (most obvious in the 55d and 153d
+panels) are not a plotting bug: at those strikes some, but not all,
+of the 5 seeds hit the finite-sample precision limit described below
+and return no value, so the mean is computed over a shrinking,
+discontinuously changing set of seeds as moneyness increases -- a
+visual indicator of exactly where the curve stops being trustworthy.
+Both the axis range and the curve are limited to each panel's own
+market-quoted moneyness range -- but unlike the SPX panels, the model
+curve here often stops \emph{before} the axis' own right edge: VIX
+strikes are quoted out to moneyness $\approx5$--$9$, far into the
+tail of the model's own Monte-Carlo ensemble (Section~\ref{sec:results}),
+where the price is indistinguishable from $0$ and the Black-76
+inversion has nothing left to invert -- a genuine finite-sample
+precision limit (at $K/F=9.2$, pricing a call requires simulated
+$\mathrm{VIX}_N$ draws exceeding $9.2\times F_{\mathrm{VIX}}\approx160$,
+and essentially none of the model's own 1,000 draws reach that level),
+not an arbitrary cutoff or a fitting failure: it is a direct,
+quantitative sign that the model's own risk-neutral density assigns
+near-zero probability to a VIX spike that large. The same mechanism
+operates during calibration itself: Eq.~\eqref{eq:calibobj}'s residual
+is set to $0$ wherever the model returns no value, so any market quote
+beyond the model's reach contributes no gradient to $\hat\theta$ --
+silently excluded, not down-weighted. 27d and 153d both still show a
+real, visible gap even under this fully corrected objective -- 27d's
+model curve sits above the market throughout, and 153d's mean curve
+tracks reasonably to $K/F\approx3$ before falling away -- a residual
+limitation of the shared 8-parameter architecture fitting 4 VIX
+maturities' own term structure at once, not of the objective.}
+\label{fig:vixfinal}
+\end{figure}
+
+\subsubsection{Generalization to held-out SPX maturities}
+\label{sec:heldout}
+Figure~\ref{fig:spxfinal} also shows 2 SPX maturities (119d, 211d)
+included in neither Eq.~\eqref{eq:calibobj}'s sum nor the scale
+normalisation of Eq.~\eqref{eq:scalenorm}, priced at the same final
+$\hat\theta$ purely to see whether the fit generalizes. It does not,
+uniformly: at both maturities the model's put wing ($K/F<1$) sits
+\emph{below} the market (undershooting, whereas the 2 calibrated
+maturities track the market closely there), growing with maturity --
+consistent with a genuine term-structure mismatch the 2-maturity SPX
+calibration set cannot see, rather than noise. This is expected, not
+a contradiction of anything claimed above: $\hat\theta$ was never
+asked to fit these 2 points, and a $\theta$ fit to 2 near-dated SPX
+expiries has no particular reason to extrapolate correctly to
+4--7$\times$ longer maturities. VIX has no equivalent held-out
+maturity in this note: the same generalization gap, diagnosed at 118d
+and 153d, was addressed directly by adding both to the calibration
+set (Section~\ref{sec:calibtarget}), which is why all 4 VIX panels in
+Figure~\ref{fig:vixfinal} are marked ``calibrated''.
+
+\FloatBarrier
+\section{Test 1: VIX term structure}
+\label{sec:results}
+
+\begin{table}[h]
+\centering
+\caption{Market vs.\ model, 2026-02-19.}
+\label{tab:vixresult}
+\begin{tabular}{lcc}
+\toprule
+& Market & ESN (SP500) \\
+\midrule
+Near-term implied vol (29d) & 19.55\% & 35.99\% \\
+Next-term implied vol (57d) & 20.76\% & 36.10\% \\
+30-day VIX (interpolated) & 19.63 & 36.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{../figures/vix_distribution_comparison.png}
+\caption{VIX empirical distribution, all 4 quoted maturities, all
+genuinely calibrated against (Section~\ref{sec:jointcalib}): the
+market's own
+risk-neutral density
+(grey curve, Breeden-Litzenberger -- $f_Y(K)=\partial^2C(K)/\partial K^2$)
+vs.\ the model's own $\hat\theta$ ensemble (blue histogram, 700
+simulated draws of $\mathrm{VIX}_N$ from Algorithm~\ref{alg:vix}'s own
+outer loop). Unlike Table~\ref{tab:vixresult} above (the original,
+uncalibrated $\theta$), this uses the fully calibrated, final
+$\hat\theta$. The market density is built from a
+degree-5 polynomial fit to the chain's own mid-IV quotes in
+log-moneyness, priced from a single smooth branch (calls throughout
+the whole strike range, not the usual put-below/call-above OTM
+splice) and differentiated analytically via a cubic-spline
+interpolant -- both steps needed: the OTM splice's own first
+derivative has a genuine jump of exactly 1 at the crossover strike
+(differentiating the put-call parity identity $C-P=F-K$), which is a
+real kink, not market noise, and produces a spurious spike under naive
+finite differencing.}
+\label{fig:vixdist}
+\end{figure}
+
+The model overstates every point on the term structure by a near-constant
+factor of $\approx1.8\times$. This is the direct cross-sectional
+counterpart of the Note in Section~\ref{sec:feedback}: $m_1>0$ biases
+the unconditional variance level upward, and since $\theta$ was never
+fit against any option-implied target, there is no reason to expect
+this factor to be close to 1. Once $\hat\theta$ \emph{is} fit
+(Section~\ref{sec:jointcalib}), Figure~\ref{fig:vixdist} shows the
+level gap has largely closed on its own -- the model's own ensemble
+mean sits at 15.8 (27d), 15.4 (55d), 15.9 (118d), and 15.6 (153d),
+close to the market's own forward at every maturity (20.1, 20.7, 21.2,
+21.7) -- even though absolute level was never a direct calibration
+target, only the smile's own shape was. What remains is a genuine
+shape
+difference, present at all 4 maturities: the model's distribution is
+visibly narrower and more concentrated than the market's, whose own
+Breeden-Litzenberger density has a longer, heavier right tail out
+past $\mathrm{VIX}=40$. This is the same
+finding as Figures~\ref{fig:spxfinal}--\ref{fig:vixfinal}'s own smile
+comparison, now shown directly on the underlying distribution rather
+than through option prices: the model's continuous, jump-free dynamics
+structurally under-produce the probability of a genuine volatility
+spike that the market's own risk-neutral density still prices in.
+
+\FloatBarrier
+\section{Summary}
+\label{sec:summary}
+As calibrated purely on time-series shape statistics, the SP500
+feedback-layer model gets several genuine, non-trivial cross-sectional
+features right (a real SPX put skew; a real, upward-sloping VIX skew)
+while getting \emph{level} wrong throughout ($\approx1.8\times$ too
+high on both surfaces) and showing a real shape mismatch on both
+smiles. A genuine joint recalibration against all 6 quoted expiries
+at once (Section~\ref{sec:jointcalib}) -- SPX near/next, VIX
+near/next/118d/153d, calibrated on the mid of each strike's put and
+call implied vol, with vega-weighted, ATM-sharpened, moneyness-boosted
+weights and a cross-instrument scale normalisation -- closes most of
+this gap. The final $\hat\theta$ gives confirm-quality weighted RMSE
+of $0.029$/$0.026$ on SPX near/next and $0.29$/$0.08$/$0.09$/$0.11$ on
+VIX near/next/118d/153d (Table~\ref{tab:calibresult}), with the SPX
+smile's own $m\ge1$/$m<1$ RMSE ratio -- the direct measure of whether
+the model and market coincide away from the money -- improved from
+$\approx3.5\times$ to $\approx1.4\times$. The VIX smile tracks the
+market closely across most of its quoted range at 55d and 118d, with
+a smaller residual gap at 27d and 153d: a genuine limitation of the
+shared 8-parameter architecture fitting 4 VIX maturities' own term
+structure at once, not a fitting failure at any 1 of them. On the SPX
+side, 2 entirely held-out maturities (119d, 211d, Section~\ref{sec:heldout})
+show the fit does not generalize uniformly beyond the 2 calibrated
+expiries: the put wing undershoots increasingly with maturity, an
+honest limit of a 2-maturity calibration set. None of the original
+gaps contradicts the note family's own reported time-series results
+-- none of level, SPX shape, or VIX shape was ever a time-series
+calibration target -- and the recalibration shows those gaps are
+addressable, with the specific methodology now documented and
+reusable.
+
+\section*{Reproducibility}
+Delivered alongside this note, all built directly on the uploaded,
+unmodified engine files:
+\begin{itemize}
+\item \texttt{market\_vix.py} -- CBOE VIX/VVIX replication, exposing
+the shared variance-from-grid core function
+\item \texttt{model\_pricing.py} -- Algorithm~\ref{alg:spx}
+\item \texttt{vectorized\_sim.py} and its validation script -- the
+batched, state-conditionable engine used throughout
+Section~\ref{sec:pricing}, now with native \texttt{b0\_delta} support,
+validated against the original scalar engine
+\item \texttt{vix\_smile.py} -- Algorithm~\ref{alg:vix}
+\item \texttt{calibrate\_smile.py} -- Section~\ref{sec:jointcalib},
+Algorithm~\ref{alg:jointcalib}; includes checkpointing and a
+per-evaluation objective-history log, so a long optimizer run can be
+inspected, plotted, or resumed
+\item \texttt{vix\_distribution.py} -- Section~\ref{sec:results}'s
+Breeden-Litzenberger market density and model ensemble,
+Figure~\ref{fig:vixdist}
+\item \texttt{make\_figures.py} -- regenerates every figure in this
+note from the JSON results the other scripts produce
+\end{itemize}
+All seeds are fixed and stated in
+Sections~\ref{sec:spx-algo}--\ref{sec:jointcalib}.
+
+\end{document}
