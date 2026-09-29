@@ -19,6 +19,9 @@ matteo/web_claude/*.json
 /matteo/*/
 !/matteo/exogenous_reservoir_eq_m2/
 !/matteo/exogenous_reservoir_eq_m2/**
+!/matteo/preprocessing/
+!/matteo/preprocessing/**
+/matteo/preprocessing/**/__pycache__/
 
 # Re-ignore local build intermediates after keeping the M2 package visible.
 /matteo/exogenous_reservoir_eq_m2/**/__pycache__/
@@ -29,3 +32,7 @@ matteo/web_claude/*.json
 
 # Common local logs
 *.log
+
+# Locally supplied market datasets
+/data/raw/
+/data/processed/

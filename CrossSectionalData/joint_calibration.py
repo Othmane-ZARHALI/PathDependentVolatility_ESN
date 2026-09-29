@@ -54,6 +54,7 @@ bench9_real_abs_acf_40.json, bench9_real_sq_acf_40.json,
 bench9_real_zumbach_profile.json, bench9_real_kurtosis.json.
 """
 import sys, json, time
+from pathlib import Path
 sys.path.insert(0, ".")
 import numpy as np
 from scipy.optimize import least_squares
@@ -198,7 +199,7 @@ def all_stats_one_path(x, v, v_raw=None):
 # ---------- joint residual and calibration ----------
 
 def build_target_vector(real_hurst, real_lev, real_abs, real_sq, real_zum, real_kurt, asset_name):
-    lev_idx = [l - 1 for l in LEV_LAGS]         # real_lev has lag 0..40
+    lev_idx = LEV_LAGS                           # real_lev has lag 0..40
     taylor_idx = [l - 1 for l in TAYLOR_LAGS]   # real_abs/sq have lag 1..40 (index 0 = lag1)
     zum_lags_all = real_zum["lags"]
     zum_idx = [zum_lags_all.index(L) for L in ZUMBACH_LAGS]
@@ -428,12 +429,18 @@ def build_confidence_band(H, rs, ll, lh, m1, n_reps=N_REPLICATES_CI, T_rep=T_REP
 
 
 if __name__ == "__main__":
-    real_hurst = json.load(open("bench9_real_hurst.json"))
-    real_lev = json.load(open("bench9_real_leverage_wide.json"))
-    real_abs = json.load(open("bench9_real_abs_acf_40.json"))
-    real_sq = json.load(open("bench9_real_sq_acf_40.json"))
-    real_zum = json.load(open("bench9_real_zumbach_profile.json"))
-    real_kurt = json.load(open("bench9_real_kurtosis.json"))
+    target_dir = Path(__file__).resolve().parents[1] / "data" / "processed"
+
+    def read_target(filename):
+        path = target_dir / filename
+        return json.loads((path if path.is_file() else Path(filename)).read_text())
+
+    real_hurst = read_target("bench9_real_hurst.json")
+    real_lev = read_target("bench9_real_leverage_wide.json")
+    real_abs = read_target("bench9_real_abs_acf_40.json")
+    real_sq = read_target("bench9_real_sq_acf_40.json")
+    real_zum = read_target("bench9_real_zumbach_profile.json")
+    real_kurt = read_target("bench9_real_kurtosis.json")
 
     # Per-asset starting H, derived by inverting a direct H-to-Hhat
     # sweep (rough_scale=0.4, lam_lo=0.03, lam_hi=3.5) against each
