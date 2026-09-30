@@ -1,0 +1,3583 @@
+{
+  "status": "coarse_readout_screen_return_only_variance_proxy_free",
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "sha256": {
+    "stock_ohlc": "03882e7316b01f49b1ab413d0490fea08ab4942a58b9f77dcd2612a4696714bb",
+    "index_ohlc": "6e37e4244567ae8c2430b57bb03d1e71d94a1159e3e6298b8865a5f22dea3c45",
+    "candidate_table": "9135dd929cdbc689e71bda95e70926e8adaf81280d2c3ada7755e9e17c8f228c",
+    "m2_manifest": "b75fdcd43eeaca5759687a57e4ef3cf1bc8549df81abd15bfd9c9eb456f7a031",
+    "screen_code": "7af081decc39e0b7ea6ac2d4eb3f7147ab0622c90e5c7ba5393a11d3b35a1a67"
+  },
+  "split": {
+    "early_through": "2014-12-31",
+    "late_after": "2014-12-31",
+    "counts_and_dates": {
+      "LHX": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2766,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2025-12-31"
+      },
+      "BK": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2766,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2025-12-31"
+      },
+      "HUM": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2766,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2025-12-31"
+      },
+      "TSN": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2766,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2025-12-31"
+      },
+      "IEX": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2766,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2025-12-31"
+      },
+      "KMB": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2766,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2025-12-31"
+      },
+      "SP500": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2233,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2023-11-14"
+      },
+      "RUSSELL2000": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2233,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2023-11-14"
+      },
+      "NASDAQ100": {
+        "early_ohlc_rows": 5288,
+        "late_ohlc_rows": 2233,
+        "early_first": "1994-01-03",
+        "early_last": "2014-12-31",
+        "late_first": "2015-01-02",
+        "late_last": "2023-11-14"
+      }
+    }
+  },
+  "screen_simulation": {
+    "days": 2000,
+    "burn_days": 252,
+    "paths": 8,
+    "seed_first": 850001
+  },
+  "evaluation_simulation": {
+    "days": 4000,
+    "burn_days": 504,
+    "paths": 20,
+    "seed_first": 720001
+  },
+  "candidate_rule": "all 32 M2 Stage-3 readouts, structural scenario 0; choose minimum early-period return-only SSE separately for each asset",
+  "anchor_candidate_id": 18,
+  "candidate_parameters": {
+    "18": {
+      "structural_scenario_id": "0",
+      "candidate_id": "18",
+      "variant": "M2",
+      "seed_pass_fraction": "1.0",
+      "mean_distance": "0.0",
+      "rough_hurst": "0.08444985922493778",
+      "leverage_rank": "-0.015125034284866692",
+      "zumbach_rank": "0.048050203978561114",
+      "excess_kurtosis": "10.283326167003263",
+      "max_abs_return_acf": "0.07756247971873154",
+      "mean_log_variance_acf": "0.20746465845280815",
+      "p_cap_exceedance_fraction": "4.409171075837742e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "True",
+      "cluster_loading": "0.2333221411332488",
+      "feedback_curvature": "0.0694007444800809",
+      "feedback_shift": "2.9358963377773764",
+      "spike_curvature": "0.24959932155907155",
+      "orthogonal_curvature": "0.04776055824152218",
+      "echo_loading": "0.0",
+      "cap_level": "6.073741978500038",
+      "cap_sharpness": "7.956517500802875",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "14": {
+      "structural_scenario_id": "0",
+      "candidate_id": "14",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "6.194351738880234e-09",
+      "rough_hurst": "0.09228333811111238",
+      "leverage_rank": "-0.014165628634900363",
+      "zumbach_rank": "0.057445102328093633",
+      "excess_kurtosis": "9.751223476933074",
+      "max_abs_return_acf": "0.0772745767685005",
+      "mean_log_variance_acf": "0.2105335465959289",
+      "p_cap_exceedance_fraction": "0.00010471781305114638",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.20833341283723714",
+      "feedback_curvature": "0.062489898935891686",
+      "feedback_shift": "2.92039684318006",
+      "spike_curvature": "0.25279291801154613",
+      "orthogonal_curvature": "0.09017833367092232",
+      "echo_loading": "0.0",
+      "cap_level": "5.331442344933748",
+      "cap_sharpness": "7.0982246696949005",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "26": {
+      "structural_scenario_id": "0",
+      "candidate_id": "26",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "6.8106802324845e-09",
+      "rough_hurst": "0.09077936347172604",
+      "leverage_rank": "-0.014400808886400898",
+      "zumbach_rank": "0.057302570778591876",
+      "excess_kurtosis": "8.921298278000073",
+      "max_abs_return_acf": "0.0760388054212444",
+      "mean_log_variance_acf": "0.23162684102719283",
+      "p_cap_exceedance_fraction": "1.3778659611992945e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.24332936750724912",
+      "feedback_curvature": "0.0601364664407447",
+      "feedback_shift": "3.038868862576783",
+      "spike_curvature": "0.23370719604194165",
+      "orthogonal_curvature": "0.10576962002334488",
+      "echo_loading": "0.0",
+      "cap_level": "6.421457636170089",
+      "cap_sharpness": "8.555320414714515",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "28": {
+      "structural_scenario_id": "0",
+      "candidate_id": "28",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "1.723344047187494e-07",
+      "rough_hurst": "0.08713911775152629",
+      "leverage_rank": "-0.014189879219405913",
+      "zumbach_rank": "0.0516717770599841",
+      "excess_kurtosis": "8.96943150200353",
+      "max_abs_return_acf": "0.07562511250287944",
+      "mean_log_variance_acf": "0.2550202335497479",
+      "p_cap_exceedance_fraction": "7.716049382716049e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2879540531896055",
+      "feedback_curvature": "0.06390389675740152",
+      "feedback_shift": "2.9761056745424868",
+      "spike_curvature": "0.21736293151974678",
+      "orthogonal_curvature": "0.06325366420519049",
+      "echo_loading": "0.0",
+      "cap_level": "5.157286320813",
+      "cap_sharpness": "8.887301716022193",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "4": {
+      "structural_scenario_id": "0",
+      "candidate_id": "4",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "9.025759052984796e-07",
+      "rough_hurst": "0.09063882963521391",
+      "leverage_rank": "-0.013274103304011636",
+      "zumbach_rank": "0.049818297080296184",
+      "excess_kurtosis": "9.994426395307029",
+      "max_abs_return_acf": "0.07789316035967805",
+      "mean_log_variance_acf": "0.23955800614940773",
+      "p_cap_exceedance_fraction": "3.8580246913580246e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2773324431851506",
+      "feedback_curvature": "0.06102733196690678",
+      "feedback_shift": "3.2200010089203714",
+      "spike_curvature": "0.24746617570519447",
+      "orthogonal_curvature": "0.1806828490037143",
+      "echo_loading": "0.0",
+      "cap_level": "6.024978729896247",
+      "cap_sharpness": "7.260679797269404",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "12": {
+      "structural_scenario_id": "0",
+      "candidate_id": "12",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "1.0843565344039227e-06",
+      "rough_hurst": "0.086670184275192",
+      "leverage_rank": "-0.01330517854722422",
+      "zumbach_rank": "0.0475987411263021",
+      "excess_kurtosis": "9.734456540389328",
+      "max_abs_return_acf": "0.07689540647483091",
+      "mean_log_variance_acf": "0.2501845228290371",
+      "p_cap_exceedance_fraction": "1.6534391534391532e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.29935491690412164",
+      "feedback_curvature": "0.07051171878352762",
+      "feedback_shift": "2.7982757639139892",
+      "spike_curvature": "0.23080004900693893",
+      "orthogonal_curvature": "0.032109614985167255",
+      "echo_loading": "0.0",
+      "cap_level": "6.378210476133972",
+      "cap_sharpness": "6.27442592382431",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "2": {
+      "structural_scenario_id": "0",
+      "candidate_id": "2",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.000538206559689043",
+      "rough_hurst": "0.07774380296191429",
+      "leverage_rank": "-0.018795936554668897",
+      "zumbach_rank": "0.05720764365407428",
+      "excess_kurtosis": "7.3527766436243525",
+      "max_abs_return_acf": "0.0718894712232846",
+      "mean_log_variance_acf": "0.22579163646347786",
+      "p_cap_exceedance_fraction": "1.9290123456790123e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2289998285472393",
+      "feedback_curvature": "0.06430660098791122",
+      "feedback_shift": "2.832480383478105",
+      "spike_curvature": "0.18366098158061503",
+      "orthogonal_curvature": "0.020691600694384325",
+      "echo_loading": "0.0",
+      "cap_level": "5.41385539341718",
+      "cap_sharpness": "6.8435773411765695",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "30": {
+      "structural_scenario_id": "0",
+      "candidate_id": "30",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0006519465681905926",
+      "rough_hurst": "0.07796864035191778",
+      "leverage_rank": "-0.018580066863659064",
+      "zumbach_rank": "0.057811082626038346",
+      "excess_kurtosis": "7.884973389450994",
+      "max_abs_return_acf": "0.07286168298489847",
+      "mean_log_variance_acf": "0.20401690103868733",
+      "p_cap_exceedance_fraction": "1.1022927689594355e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.20396394031122328",
+      "feedback_curvature": "0.06831493912264705",
+      "feedback_shift": "2.7050672242417932",
+      "spike_curvature": "0.19935442693531513",
+      "orthogonal_curvature": "0.13821592361242302",
+      "echo_loading": "0.0",
+      "cap_level": "6.180342321749777",
+      "cap_sharpness": "8.211909952573478",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "0": {
+      "structural_scenario_id": "0",
+      "candidate_id": "0",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0006524732844063886",
+      "rough_hurst": "0.07734488398036052",
+      "leverage_rank": "-0.017232160578028163",
+      "zumbach_rank": "0.04814541881101571",
+      "excess_kurtosis": "8.653088287150613",
+      "max_abs_return_acf": "0.07411702631549538",
+      "mean_log_variance_acf": "0.23023653762952914",
+      "p_cap_exceedance_fraction": "1.9290123456790123e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2629654662683606",
+      "feedback_curvature": "0.06925510965753347",
+      "feedback_shift": "2.886044593714178",
+      "spike_curvature": "0.20057556301355361",
+      "orthogonal_curvature": "0.11829547242644144",
+      "echo_loading": "0.0",
+      "cap_level": "5.873221298214048",
+      "cap_sharpness": "6.1538892248645425",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "21": {
+      "structural_scenario_id": "0",
+      "candidate_id": "21",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0007047853154680433",
+      "rough_hurst": "0.07833503986770568",
+      "leverage_rank": "-0.015403443319700455",
+      "zumbach_rank": "0.038997326797361356",
+      "excess_kurtosis": "11.43088189309128",
+      "max_abs_return_acf": "0.07852096180824",
+      "mean_log_variance_acf": "0.1988272951880047",
+      "p_cap_exceedance_fraction": "5.511463844797178e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.24985972577705978",
+      "feedback_curvature": "0.08074341848492622",
+      "feedback_shift": "2.7879210490733386",
+      "spike_curvature": "0.2564136388897896",
+      "orthogonal_curvature": "0.05298770697682681",
+      "echo_loading": "0.0",
+      "cap_level": "6.2897146246396005",
+      "cap_sharpness": "7.174714235588908",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "23": {
+      "structural_scenario_id": "0",
+      "candidate_id": "23",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0007527784428986474",
+      "rough_hurst": "0.07763725329816187",
+      "leverage_rank": "-0.016058561861094073",
+      "zumbach_rank": "0.040936818157446334",
+      "excess_kurtosis": "10.882772918804372",
+      "max_abs_return_acf": "0.07751464475589347",
+      "mean_log_variance_acf": "0.2079788378091873",
+      "p_cap_exceedance_fraction": "0.0002976190476190476",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.25806931434199215",
+      "feedback_curvature": "0.07628014065790922",
+      "feedback_shift": "2.8931047920137645",
+      "spike_curvature": "0.23965651862323284",
+      "orthogonal_curvature": "0.16454687114128402",
+      "echo_loading": "0.0",
+      "cap_level": "5.092159022577107",
+      "cap_sharpness": "6.549499271437526",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "9": {
+      "structural_scenario_id": "0",
+      "candidate_id": "9",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0007598928421423489",
+      "rough_hurst": "0.07801059993338334",
+      "leverage_rank": "-0.016588985372501613",
+      "zumbach_rank": "0.04448187815552071",
+      "excess_kurtosis": "10.492913557662046",
+      "max_abs_return_acf": "0.07703356834533477",
+      "mean_log_variance_acf": "0.19474621933771588",
+      "p_cap_exceedance_fraction": "0.0001240079365079365",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.22489707954227925",
+      "feedback_curvature": "0.07692724628373981",
+      "feedback_shift": "2.7730619207024576",
+      "spike_curvature": "0.2408962793648243",
+      "orthogonal_curvature": "0.09924992682199865",
+      "echo_loading": "0.0",
+      "cap_level": "5.490998988039792",
+      "cap_sharpness": "7.869041427969933",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "24": {
+      "structural_scenario_id": "0",
+      "candidate_id": "24",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0008269320784549218",
+      "rough_hurst": "0.07748340067461165",
+      "leverage_rank": "-0.016375752920537993",
+      "zumbach_rank": "0.0383355336868165",
+      "excess_kurtosis": "11.404057683974456",
+      "max_abs_return_acf": "0.07857325194969811",
+      "mean_log_variance_acf": "0.20082237960422647",
+      "p_cap_exceedance_fraction": "0.00035824514991181656",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.25229498287662866",
+      "feedback_curvature": "0.07130121480673551",
+      "feedback_shift": "3.2424582408741114",
+      "spike_curvature": "0.25054258555173875",
+      "orthogonal_curvature": "0.027300393382453058",
+      "echo_loading": "0.0",
+      "cap_level": "5.1947883064858615",
+      "cap_sharpness": "7.697029176168144",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "3": {
+      "structural_scenario_id": "0",
+      "candidate_id": "3",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0008979742880367063",
+      "rough_hurst": "0.07720759077210805",
+      "leverage_rank": "-0.014793511186164307",
+      "zumbach_rank": "0.033572499636388656",
+      "excess_kurtosis": "12.151609714672146",
+      "max_abs_return_acf": "0.07959086290278555",
+      "mean_log_variance_acf": "0.2113444796782611",
+      "p_cap_exceedance_fraction": "9.645061728395061e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2933860388584435",
+      "feedback_curvature": "0.07862174647394568",
+      "feedback_shift": "3.067900196649134",
+      "spike_curvature": "0.2593231426924467",
+      "orthogonal_curvature": "0.19329371660206118",
+      "echo_loading": "0.0",
+      "cap_level": "6.15839353017509",
+      "cap_sharpness": "7.984552980400622",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "27": {
+      "structural_scenario_id": "0",
+      "candidate_id": "27",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0009583363607853539",
+      "rough_hurst": "0.07618460031541703",
+      "leverage_rank": "-0.01651005148141191",
+      "zumbach_rank": "0.043355000727499635",
+      "excess_kurtosis": "9.473902083897311",
+      "max_abs_return_acf": "0.07522994585755742",
+      "mean_log_variance_acf": "0.2293664858711006",
+      "p_cap_exceedance_fraction": "4.96031746031746e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.27959060072898867",
+      "feedback_curvature": "0.07443597162142396",
+      "feedback_shift": "2.8240300370380282",
+      "spike_curvature": "0.20929500870406628",
+      "orthogonal_curvature": "0.04330821162106339",
+      "echo_loading": "0.0",
+      "cap_level": "5.6652919836342335",
+      "cap_sharpness": "6.6171028492972255",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "20": {
+      "structural_scenario_id": "0",
+      "candidate_id": "20",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0009859767283635751",
+      "rough_hurst": "0.07514457621099581",
+      "leverage_rank": "-0.017799270857662898",
+      "zumbach_rank": "0.04523768634860434",
+      "excess_kurtosis": "8.178420023831311",
+      "max_abs_return_acf": "0.07298911632096898",
+      "mean_log_variance_acf": "0.2488038672639214",
+      "p_cap_exceedance_fraction": "1.9290123456790123e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2853641238063574",
+      "feedback_curvature": "0.066921036564745",
+      "feedback_shift": "3.004666529595852",
+      "spike_curvature": "0.18090405613183974",
+      "orthogonal_curvature": "0.07382451393861636",
+      "echo_loading": "0.0",
+      "cap_level": "5.5569867682643235",
+      "cap_sharpness": "7.624283714219928",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "10": {
+      "structural_scenario_id": "0",
+      "candidate_id": "10",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.00111816823466626",
+      "rough_hurst": "0.07603836146047832",
+      "leverage_rank": "-0.017846586533816933",
+      "zumbach_rank": "0.04461756521611611",
+      "excess_kurtosis": "9.72364494294018",
+      "max_abs_return_acf": "0.07574198427530768",
+      "mean_log_variance_acf": "0.2081910001478761",
+      "p_cap_exceedance_fraction": "0.00019565696649029982",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2443801517598331",
+      "feedback_curvature": "0.06754384808242321",
+      "feedback_shift": "3.1797893855720756",
+      "spike_curvature": "0.21964385755360127",
+      "orthogonal_curvature": "0.22120154879690973",
+      "echo_loading": "0.0",
+      "cap_level": "5.020357612986118",
+      "cap_sharpness": "6.691643536090851",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "8": {
+      "structural_scenario_id": "0",
+      "candidate_id": "8",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0014608562763301423",
+      "rough_hurst": "0.07441297730901716",
+      "leverage_rank": "-0.018435904350966145",
+      "zumbach_rank": "0.045476594337871434",
+      "excess_kurtosis": "8.648768966495046",
+      "max_abs_return_acf": "0.07393985771397868",
+      "mean_log_variance_acf": "0.2240189004735297",
+      "p_cap_exceedance_fraction": "1.1022927689594355e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.26037696758285167",
+      "feedback_curvature": "0.06623911500442774",
+      "feedback_shift": "3.1390380073338746",
+      "spike_curvature": "0.19648031547665595",
+      "orthogonal_curvature": "0.03941378565485458",
+      "echo_loading": "0.0",
+      "cap_level": "6.223864151164889",
+      "cap_sharpness": "7.334144979715347",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "6": {
+      "structural_scenario_id": "0",
+      "candidate_id": "6",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0021041570840263655",
+      "rough_hurst": "0.07372943949956301",
+      "leverage_rank": "-0.018528286573875938",
+      "zumbach_rank": "0.04250055630350888",
+      "excess_kurtosis": "10.13077275200321",
+      "max_abs_return_acf": "0.0762061235631696",
+      "mean_log_variance_acf": "0.18760950680497288",
+      "p_cap_exceedance_fraction": "6.613756613756613e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.21834226027131082",
+      "feedback_curvature": "0.07175303331110627",
+      "feedback_shift": "3.098974011652172",
+      "spike_curvature": "0.22922467060387136",
+      "orthogonal_curvature": "0.05596634677516202",
+      "echo_loading": "0.0",
+      "cap_level": "5.734069987665862",
+      "cap_sharpness": "6.390289471484721",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "31": {
+      "structural_scenario_id": "0",
+      "candidate_id": "31",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.002762299802948525",
+      "rough_hurst": "0.07195385629733717",
+      "leverage_rank": "-0.017068846736941926",
+      "zumbach_rank": "0.03289542243136578",
+      "excess_kurtosis": "11.827672815658664",
+      "max_abs_return_acf": "0.07829524675546307",
+      "mean_log_variance_acf": "0.1970042734124337",
+      "p_cap_exceedance_fraction": "0.0002810846560846561",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.26837446838617324",
+      "feedback_curvature": "0.07948992118705064",
+      "feedback_shift": "3.089864686690271",
+      "spike_curvature": "0.2436104691773653",
+      "orthogonal_curvature": "0.028937818175195685",
+      "echo_loading": "0.0",
+      "cap_level": "5.435849939007312",
+      "cap_sharpness": "6.96216984372586",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "22": {
+      "structural_scenario_id": "0",
+      "candidate_id": "22",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.002768756963470673",
+      "rough_hurst": "0.07169677740186037",
+      "leverage_rank": "-0.020270119394475112",
+      "zumbach_rank": "0.046059410951082194",
+      "excess_kurtosis": "8.83008633186762",
+      "max_abs_return_acf": "0.07404806535115113",
+      "mean_log_variance_acf": "0.19505377605139657",
+      "p_cap_exceedance_fraction": "2.755731922398589e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.21934264209121468",
+      "feedback_curvature": "0.06507959863170981",
+      "feedback_shift": "3.2768081992864606",
+      "spike_curvature": "0.20266117803752423",
+      "orthogonal_curvature": "0.033084380497587614",
+      "echo_loading": "0.0",
+      "cap_level": "5.824183402583003",
+      "cap_sharpness": "8.253249479457736",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "11": {
+      "structural_scenario_id": "0",
+      "candidate_id": "11",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0037880729342814647",
+      "rough_hurst": "0.06952764449080158",
+      "leverage_rank": "-0.01753771123118473",
+      "zumbach_rank": "0.033083264364689835",
+      "excess_kurtosis": "11.03683358444153",
+      "max_abs_return_acf": "0.07676936362538031",
+      "mean_log_variance_acf": "0.20592628417363246",
+      "p_cap_exceedance_fraction": "8.818342151675484e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.28308231513947246",
+      "feedback_curvature": "0.08182962188962847",
+      "feedback_shift": "2.945610111951828",
+      "spike_curvature": "0.22273273594677448",
+      "orthogonal_curvature": "0.024611350639674",
+      "echo_loading": "0.0",
+      "cap_level": "5.752427791710943",
+      "cap_sharpness": "8.503426149487495",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "7": {
+      "structural_scenario_id": "0",
+      "candidate_id": "7",
+      "variant": "M2",
+      "seed_pass_fraction": "0.8",
+      "mean_distance": "0.0039017080490269056",
+      "rough_hurst": "0.06944245521002838",
+      "leverage_rank": "-0.018350712969738437",
+      "zumbach_rank": "0.03785233717487003",
+      "excess_kurtosis": "10.184615948436186",
+      "max_abs_return_acf": "0.07550132492742935",
+      "mean_log_variance_acf": "0.19890968412753618",
+      "p_cap_exceedance_fraction": "1.9290123456790123e-05",
+      "passes_majority": "True",
+      "passes_80pct": "True",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.25462781311944127",
+      "feedback_curvature": "0.08294289264827967",
+      "feedback_shift": "2.7334395976737142",
+      "spike_curvature": "0.21371863551437856",
+      "orthogonal_curvature": "0.0818483628556123",
+      "echo_loading": "0.0",
+      "cap_level": "6.490372991655022",
+      "cap_sharpness": "8.436539084650576",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "16": {
+      "structural_scenario_id": "0",
+      "candidate_id": "16",
+      "variant": "M2",
+      "seed_pass_fraction": "0.6",
+      "mean_distance": "2.906027472900638e-06",
+      "rough_hurst": "0.09604186766070896",
+      "leverage_rank": "-0.012530600627813932",
+      "zumbach_rank": "0.0601469791042654",
+      "excess_kurtosis": "8.559759580448967",
+      "max_abs_return_acf": "0.07562859000604334",
+      "mean_log_variance_acf": "0.26152995649393446",
+      "p_cap_exceedance_fraction": "3.0313051146384477e-05",
+      "passes_majority": "True",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.27431888692080975",
+      "feedback_curvature": "0.06181873608380556",
+      "feedback_shift": "2.745128928869963",
+      "spike_curvature": "0.22651283517479898",
+      "orthogonal_curvature": "0.2121842301297775",
+      "echo_loading": "0.0",
+      "cap_level": "5.591213259845972",
+      "cap_sharpness": "8.767512990161777",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "17": {
+      "structural_scenario_id": "0",
+      "candidate_id": "17",
+      "variant": "M2",
+      "seed_pass_fraction": "0.4",
+      "mean_distance": "0.004832220764001552",
+      "rough_hurst": "0.06814650936453846",
+      "leverage_rank": "-0.020735377730836908",
+      "zumbach_rank": "0.04057380391274355",
+      "excess_kurtosis": "9.643050115842502",
+      "max_abs_return_acf": "0.07481266653346955",
+      "mean_log_variance_acf": "0.17924137189616982",
+      "p_cap_exceedance_fraction": "1.9290123456790123e-05",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2107140221633017",
+      "feedback_curvature": "0.07251564121339471",
+      "feedback_shift": "3.1294893007725477",
+      "spike_curvature": "0.21084689751267433",
+      "orthogonal_curvature": "0.022073353820592844",
+      "echo_loading": "0.0",
+      "cap_level": "6.359143438749015",
+      "cap_sharpness": "6.029857037588954",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "5": {
+      "structural_scenario_id": "0",
+      "candidate_id": "5",
+      "variant": "M2",
+      "seed_pass_fraction": "0.2",
+      "mean_distance": "0.006248153081120656",
+      "rough_hurst": "0.06580859832375872",
+      "leverage_rank": "-0.021026730261981735",
+      "zumbach_rank": "0.03916928845038631",
+      "excess_kurtosis": "9.18353333366625",
+      "max_abs_return_acf": "0.07348682496078482",
+      "mean_log_variance_acf": "0.19462027745375218",
+      "p_cap_exceedance_fraction": "6.613756613756613e-05",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2378246164880693",
+      "feedback_curvature": "0.0748634483339265",
+      "feedback_shift": "2.9850870983675124",
+      "spike_curvature": "0.19047712936997413",
+      "orthogonal_curvature": "0.03528296146634178",
+      "echo_loading": "0.0",
+      "cap_level": "5.269471470266581",
+      "cap_sharpness": "7.561110497452319",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "29": {
+      "structural_scenario_id": "0",
+      "candidate_id": "29",
+      "variant": "M2",
+      "seed_pass_fraction": "0.2",
+      "mean_distance": "0.0074055784911669295",
+      "rough_hurst": "0.06519242029238301",
+      "leverage_rank": "-0.020631509544804118",
+      "zumbach_rank": "0.03293768430296692",
+      "excess_kurtosis": "10.816455571280851",
+      "max_abs_return_acf": "0.07597999959685355",
+      "mean_log_variance_acf": "0.17443778419589084",
+      "p_cap_exceedance_fraction": "7.164902998236332e-05",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.22657124940305948",
+      "feedback_curvature": "0.07770606227219105",
+      "feedback_shift": "3.1914641311392185",
+      "spike_curvature": "0.22060196593403816",
+      "orthogonal_curvature": "0.08459327775939506",
+      "echo_loading": "0.0",
+      "cap_level": "5.900983674451709",
+      "cap_sharpness": "6.290362942032516",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "1": {
+      "structural_scenario_id": "0",
+      "candidate_id": "1",
+      "variant": "M2",
+      "seed_pass_fraction": "0.2",
+      "mean_distance": "0.0080805749956235",
+      "rough_hurst": "0.06471573293927754",
+      "leverage_rank": "-0.0208830203808993",
+      "zumbach_rank": "0.029891562634558732",
+      "excess_kurtosis": "11.914900098244223",
+      "max_abs_return_acf": "0.07738910113008153",
+      "mean_log_variance_acf": "0.15965293429401756",
+      "p_cap_exceedance_fraction": "0.0005318562610229277",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.20160698210820557",
+      "feedback_curvature": "0.07996574914082885",
+      "feedback_shift": "3.2510731095448135",
+      "spike_curvature": "0.2374085596203804",
+      "orthogonal_curvature": "0.045232413939183466",
+      "echo_loading": "0.0",
+      "cap_level": "5.129386593122035",
+      "cap_sharpness": "8.666233093477786",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "15": {
+      "structural_scenario_id": "0",
+      "candidate_id": "15",
+      "variant": "M2",
+      "seed_pass_fraction": "0.0",
+      "mean_distance": "0.00904775351523791",
+      "rough_hurst": "0.0633964459100114",
+      "leverage_rank": "-0.02102707609041747",
+      "zumbach_rank": "0.031824952552190505",
+      "excess_kurtosis": "9.816942563888817",
+      "max_abs_return_acf": "0.07422295312043939",
+      "mean_log_variance_acf": "0.20087972734495557",
+      "p_cap_exceedance_fraction": "2.204585537918871e-05",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.26893506180495025",
+      "feedback_curvature": "0.07365114953368902",
+      "feedback_shift": "3.2870344676077363",
+      "spike_curvature": "0.18954758934676647",
+      "orthogonal_curvature": "0.06948194053920671",
+      "echo_loading": "0.0",
+      "cap_level": "6.0987141309306026",
+      "cap_sharpness": "8.098484382033348",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "13": {
+      "structural_scenario_id": "0",
+      "candidate_id": "13",
+      "variant": "M2",
+      "seed_pass_fraction": "0.0",
+      "mean_distance": "0.015239415713183584",
+      "rough_hurst": "0.060384089032556695",
+      "leverage_rank": "-0.021755738868391036",
+      "zumbach_rank": "0.02874306790703824",
+      "excess_kurtosis": "10.92250221572474",
+      "max_abs_return_acf": "0.07512940317679094",
+      "mean_log_variance_acf": "0.17119261961351967",
+      "p_cap_exceedance_fraction": "0.00011022927689594356",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2357255432754755",
+      "feedback_curvature": "0.0843245640071109",
+      "feedback_shift": "3.0317934952676295",
+      "spike_curvature": "0.20654045909643173",
+      "orthogonal_curvature": "0.14585900465534243",
+      "echo_loading": "0.0",
+      "cap_level": "5.610234498512",
+      "cap_sharpness": "8.927487328648567",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "25": {
+      "structural_scenario_id": "0",
+      "candidate_id": "25",
+      "variant": "M2",
+      "seed_pass_fraction": "0.0",
+      "mean_distance": "0.01566728638391383",
+      "rough_hurst": "0.06014826658759877",
+      "leverage_rank": "-0.022985929443629722",
+      "zumbach_rank": "0.03484462299705275",
+      "excess_kurtosis": "9.526984621634428",
+      "max_abs_return_acf": "0.0731410349046099",
+      "mean_log_variance_acf": "0.170118658414282",
+      "p_cap_exceedance_fraction": "2.755731922398589e-05",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.2128114739432931",
+      "feedback_curvature": "0.0819786664703861",
+      "feedback_shift": "2.857141142897308",
+      "spike_curvature": "0.18745961993932725",
+      "orthogonal_curvature": "0.23350648217868042",
+      "echo_loading": "0.0",
+      "cap_level": "5.950249812100083",
+      "cap_sharpness": "7.481925803236663",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    },
+    "19": {
+      "structural_scenario_id": "0",
+      "candidate_id": "19",
+      "variant": "M2",
+      "seed_pass_fraction": "0.0",
+      "mean_distance": "0.016558640655059693",
+      "rough_hurst": "0.05962560420733539",
+      "leverage_rank": "-0.020732178749246644",
+      "zumbach_rank": "0.02400800932236435",
+      "excess_kurtosis": "11.134919386753852",
+      "max_abs_return_acf": "0.07501973585756123",
+      "mean_log_variance_acf": "0.19716007126466592",
+      "p_cap_exceedance_fraction": "0.00020392416225749557",
+      "passes_majority": "False",
+      "passes_80pct": "False",
+      "passes_all_seeds": "False",
+      "cluster_loading": "0.29389928011223676",
+      "feedback_curvature": "0.0837265725620091",
+      "feedback_shift": "3.151984858140349",
+      "spike_curvature": "0.19276041217148304",
+      "orthogonal_curvature": "0.13119263357491437",
+      "echo_loading": "0.0",
+      "cap_level": "5.306607499253005",
+      "cap_sharpness": "6.847492961212993",
+      "feedback_asset_correlation": "0.996259961884662",
+      "spike_asset_correlation": "0.9790548338377681",
+      "equity_risk_price": "0.35",
+      "feedback_idiosyncratic_risk_price": "0.0",
+      "spike_idiosyncratic_risk_price": "0.0"
+    }
+  },
+  "targets": {
+    "LHX": {
+      "early": {
+        "abs_acf": [
+          0.1689087776664766,
+          0.16370057675037997,
+          0.1465612718758067,
+          0.13642437404526755,
+          0.11566018671375651,
+          0.10695544180680344
+        ],
+        "sq_acf": [
+          0.07664737648302555,
+          0.07246240954914122,
+          0.06484909430759832,
+          0.06539868349053464,
+          0.05577894022333895,
+          0.04757793610960925
+        ],
+        "kurtosis": 7.492593402173674
+      },
+      "late": {
+        "abs_acf": [
+          0.2119319474396624,
+          0.19810468823676827,
+          0.16948276993182818,
+          0.14047455669205802,
+          0.11527998322910198,
+          0.0975785550976364
+        ],
+        "sq_acf": [
+          0.23356964431520616,
+          0.2063627358619606,
+          0.16549064551502393,
+          0.11512731168877664,
+          0.07986137060844048,
+          0.047460864801187955
+        ],
+        "kurtosis": 10.568159362508604
+      }
+    },
+    "BK": {
+      "early": {
+        "abs_acf": [
+          0.3254724399553869,
+          0.3243972066086282,
+          0.29909191741382374,
+          0.27744383145084106,
+          0.23962965971015773,
+          0.2229870901539094
+        ],
+        "sq_acf": [
+          0.2685845908075021,
+          0.26138432983301146,
+          0.2183633936114681,
+          0.20594366713162815,
+          0.16568763790782587,
+          0.14381061303430864
+        ],
+        "kurtosis": 15.795515093951426
+      },
+      "late": {
+        "abs_acf": [
+          0.2527710451436153,
+          0.23346380916131973,
+          0.1854627595846172,
+          0.14705409965135746,
+          0.11833708854091607,
+          0.11039104952045276
+        ],
+        "sq_acf": [
+          0.3080260906717423,
+          0.25350388129874313,
+          0.13161626607807345,
+          0.09164112416641812,
+          0.05316784991098672,
+          0.0468653399722285
+        ],
+        "kurtosis": 10.568112229712304
+      }
+    },
+    "HUM": {
+      "early": {
+        "abs_acf": [
+          0.18074072516147605,
+          0.1683221515856543,
+          0.1390128660013588,
+          0.1255857260998039,
+          0.11669886680914736,
+          0.12438423903139295
+        ],
+        "sq_acf": [
+          0.11320770328722696,
+          0.10613960278672602,
+          0.08724914452942106,
+          0.05664172550327564,
+          0.03985017758987099,
+          0.040834040432973596
+        ],
+        "kurtosis": 12.819301020192833
+      },
+      "late": {
+        "abs_acf": [
+          0.16512774654569068,
+          0.1570971034310582,
+          0.13810965490458638,
+          0.12476443759933915,
+          0.10396716719939218,
+          0.09054297272773021
+        ],
+        "sq_acf": [
+          0.1065045499876521,
+          0.10127998411276025,
+          0.09043837735265582,
+          0.0928513032482851,
+          0.07033118438068613,
+          0.05808830537006752
+        ],
+        "kurtosis": 14.936564086353503
+      }
+    },
+    "TSN": {
+      "early": {
+        "abs_acf": [
+          0.2030647626056577,
+          0.1810834384543604,
+          0.14788497873349693,
+          0.13495542847278844,
+          0.13249545392829218,
+          0.1321970027831635
+        ],
+        "sq_acf": [
+          0.16026671958730324,
+          0.13215406933129228,
+          0.10591539644380758,
+          0.0924386155799456,
+          0.10270550908151259,
+          0.0986625017253902
+        ],
+        "kurtosis": 9.811739608273177
+      },
+      "late": {
+        "abs_acf": [
+          0.1971948889013771,
+          0.18666363606970604,
+          0.15448194345464394,
+          0.11395844662666717,
+          0.09044241312365371,
+          0.09546015410012329
+        ],
+        "sq_acf": [
+          0.17594666019126687,
+          0.1749829669121338,
+          0.15202819582740007,
+          0.07943632040905045,
+          0.029251800520080726,
+          0.026652102329971165
+        ],
+        "kurtosis": 18.893213786692133
+      }
+    },
+    "IEX": {
+      "early": {
+        "abs_acf": [
+          0.2024976738688758,
+          0.19688950504458425,
+          0.1727430381638165,
+          0.15971171750252522,
+          0.1429435020208478,
+          0.13763466621122483
+        ],
+        "sq_acf": [
+          0.14888652654462436,
+          0.15437055723137633,
+          0.13118548943763722,
+          0.1237559332006402,
+          0.10772353186624539,
+          0.11294461437056888
+        ],
+        "kurtosis": 5.425153399345359
+      },
+      "late": {
+        "abs_acf": [
+          0.2207571847813733,
+          0.2054823743186338,
+          0.16354557280721965,
+          0.13965191966084112,
+          0.10333427661424854,
+          0.08593347742545268
+        ],
+        "sq_acf": [
+          0.310849984367791,
+          0.28000400060206104,
+          0.20369845466360212,
+          0.1338237208002272,
+          0.07146101673879056,
+          0.05013946713846966
+        ],
+        "kurtosis": 7.84851093631992
+      }
+    },
+    "KMB": {
+      "early": {
+        "abs_acf": [
+          0.19591313606048738,
+          0.18936693187647094,
+          0.1672298999348204,
+          0.1634608780204069,
+          0.1531588903906017,
+          0.14772110429327157
+        ],
+        "sq_acf": [
+          0.1272564079160981,
+          0.12344406824027086,
+          0.09780271528443839,
+          0.09082676893651796,
+          0.07376334833035528,
+          0.06627590923417706
+        ],
+        "kurtosis": 7.301467437540881
+      },
+      "late": {
+        "abs_acf": [
+          0.19748031866548954,
+          0.18004415692184028,
+          0.12608867745560862,
+          0.08277521975725916,
+          0.04489894149139285,
+          0.032705668548201616
+        ],
+        "sq_acf": [
+          0.14768589985068725,
+          0.13519676199958547,
+          0.09725385627941817,
+          0.05778795867043395,
+          0.025300290019241157,
+          0.012975613830002779
+        ],
+        "kurtosis": 14.029422687864017
+      }
+    },
+    "SP500": {
+      "early": {
+        "abs_acf": [
+          0.2540591015863758,
+          0.2794217692528825,
+          0.2956891268111121,
+          0.28507264371092195,
+          0.2539088057231265,
+          0.2398261008323883
+        ],
+        "sq_acf": [
+          0.19984214321985344,
+          0.23977874817505093,
+          0.2550870202821795,
+          0.26092080806142104,
+          0.2239093002455681,
+          0.2079899976285034
+        ],
+        "kurtosis": 8.39306892350326
+      },
+      "late": {
+        "abs_acf": [
+          0.39221135548676317,
+          0.3776218342576198,
+          0.3491992788370079,
+          0.29535433808692807,
+          0.24838664283593984,
+          0.21898818474707704
+        ],
+        "sq_acf": [
+          0.408480551290457,
+          0.37796493809833365,
+          0.29649929658014335,
+          0.24770233971543532,
+          0.17729003378412136,
+          0.14613764563826245
+        ],
+        "kurtosis": 15.422213072978936
+      }
+    },
+    "RUSSELL2000": {
+      "early": {
+        "abs_acf": [
+          0.32355612667735273,
+          0.3279653645937735,
+          0.3343638310734254,
+          0.3205242384796083,
+          0.29942766745269783,
+          0.28853520237738783
+        ],
+        "sq_acf": [
+          0.30075664125430457,
+          0.3078956133070996,
+          0.3066313363142705,
+          0.2968178590243245,
+          0.2722032845040306,
+          0.2611122053720603
+        ],
+        "kurtosis": 5.722698099710839
+      },
+      "late": {
+        "abs_acf": [
+          0.34434965312831256,
+          0.32633953491747775,
+          0.3012502476586203,
+          0.25319500305741144,
+          0.2212832588017505,
+          0.2133111977206918
+        ],
+        "sq_acf": [
+          0.3864405003114023,
+          0.3616931995426162,
+          0.2937505477168277,
+          0.2191024373965306,
+          0.15064627303087494,
+          0.1501958472281502
+        ],
+        "kurtosis": 11.93561311322781
+      }
+    },
+    "NASDAQ100": {
+      "early": {
+        "abs_acf": [
+          0.27868295346754124,
+          0.29316858633149895,
+          0.30476145449812136,
+          0.29649645412366565,
+          0.2719229984188331,
+          0.25868522890400725
+        ],
+        "sq_acf": [
+          0.22034153243594223,
+          0.22667313047858909,
+          0.22692804155561688,
+          0.22037371859397648,
+          0.18852670669056906,
+          0.16220082299562721
+        ],
+        "kurtosis": 5.416553925882502
+      },
+      "late": {
+        "abs_acf": [
+          0.30466705075614964,
+          0.29796703375539585,
+          0.28207235632695643,
+          0.23936571486553251,
+          0.20115622373019418,
+          0.17157877402037902
+        ],
+        "sq_acf": [
+          0.36173958057026945,
+          0.32379326504964356,
+          0.24629112026608802,
+          0.21277202257386227,
+          0.16682611192360064,
+          0.13854691697116056
+        ],
+        "kurtosis": 7.269701538568723
+      }
+    }
+  },
+  "screen_scores": {
+    "0": {
+      "LHX": 1.9520624980654109,
+      "BK": 22.109896559358567,
+      "HUM": 8.076671940173373,
+      "TSN": 4.548137613489915,
+      "IEX": 1.9971178713049618,
+      "KMB": 2.581848461287103,
+      "SP500": 11.473813851432944,
+      "RUSSELL2000": 15.742900807196403,
+      "NASDAQ100": 9.62686521057001
+    },
+    "1": {
+      "LHX": 1.7272094215751985,
+      "BK": 21.750765808547108,
+      "HUM": 7.225498047496686,
+      "TSN": 4.215666665356832,
+      "IEX": 2.302346605987468,
+      "KMB": 2.5781931394083113,
+      "SP500": 12.042716266652661,
+      "RUSSELL2000": 16.969442230004198,
+      "NASDAQ100": 10.572370797287071
+    },
+    "2": {
+      "LHX": 2.440357673370693,
+      "BK": 23.80819017407357,
+      "HUM": 9.013704115519362,
+      "TSN": 5.311986856466438,
+      "IEX": 2.4541281465272173,
+      "KMB": 3.1631022332425354,
+      "SP500": 12.52074995133693,
+      "RUSSELL2000": 16.763734659963056,
+      "NASDAQ100": 10.463996175465848
+    },
+    "3": {
+      "LHX": 1.190541275723715,
+      "BK": 19.173488879398484,
+      "HUM": 6.297417603378586,
+      "TSN": 3.254388163298545,
+      "IEX": 1.4728767458162666,
+      "KMB": 1.7364756243108526,
+      "SP500": 10.022126040151155,
+      "RUSSELL2000": 14.56880579543532,
+      "NASDAQ100": 8.68424792891414
+    },
+    "4": {
+      "LHX": 1.5266370103651932,
+      "BK": 20.028591352068716,
+      "HUM": 7.166623376178605,
+      "TSN": 3.7394367912961206,
+      "IEX": 1.4634692094230526,
+      "KMB": 1.9732605623334802,
+      "SP500": 10.106701505623413,
+      "RUSSELL2000": 14.2355749424566,
+      "NASDAQ100": 8.467878129357706
+    },
+    "5": {
+      "LHX": 2.072265535500116,
+      "BK": 22.908589255477587,
+      "HUM": 8.16861829041116,
+      "TSN": 4.797637188920016,
+      "IEX": 2.3721472447346366,
+      "KMB": 2.868699124245519,
+      "SP500": 12.318869720269989,
+      "RUSSELL2000": 16.904941659628133,
+      "NASDAQ100": 10.523778652066465
+    },
+    "6": {
+      "LHX": 1.8657972764422754,
+      "BK": 21.99359596608604,
+      "HUM": 7.708057089417726,
+      "TSN": 4.411892998493032,
+      "IEX": 2.1504065031125084,
+      "KMB": 2.601599713593318,
+      "SP500": 11.787791501660715,
+      "RUSSELL2000": 16.355486267688786,
+      "NASDAQ100": 10.109545525831988
+    },
+    "7": {
+      "LHX": 1.7441332952238104,
+      "BK": 21.641428386826583,
+      "HUM": 7.508191901309239,
+      "TSN": 4.250194894351305,
+      "IEX": 2.043545201617077,
+      "KMB": 2.460514885918893,
+      "SP500": 11.538458612036107,
+      "RUSSELL2000": 16.117067035157206,
+      "NASDAQ100": 9.895878314758862
+    },
+    "8": {
+      "LHX": 1.9762214302604384,
+      "BK": 22.296073094966435,
+      "HUM": 8.10874705477,
+      "TSN": 4.606853877566053,
+      "IEX": 2.0710901811305544,
+      "KMB": 2.64047079251064,
+      "SP500": 11.647076382216913,
+      "RUSSELL2000": 15.978003809160832,
+      "NASDAQ100": 9.804643543162129
+    },
+    "9": {
+      "LHX": 1.7469338585993626,
+      "BK": 21.40692320445794,
+      "HUM": 7.4741315325406665,
+      "TSN": 4.185651991381636,
+      "IEX": 1.9780597523040306,
+      "KMB": 2.4210948313772187,
+      "SP500": 11.37403142481478,
+      "RUSSELL2000": 15.873123599689436,
+      "NASDAQ100": 9.738501746971068
+    },
+    "10": {
+      "LHX": 1.837513311733648,
+      "BK": 21.778782308057338,
+      "HUM": 7.749388602834926,
+      "TSN": 4.360824294497294,
+      "IEX": 2.001552252704547,
+      "KMB": 2.5030660076309,
+      "SP500": 11.461234804087905,
+      "RUSSELL2000": 15.878100316990727,
+      "NASDAQ100": 9.732475931675621
+    },
+    "11": {
+      "LHX": 1.4720443581140072,
+      "BK": 20.602793065072007,
+      "HUM": 6.951165325793585,
+      "TSN": 3.8058956477547135,
+      "IEX": 1.7948007097986098,
+      "KMB": 2.1300184953094217,
+      "SP500": 10.906786295262723,
+      "RUSSELL2000": 15.507076007839899,
+      "NASDAQ100": 9.399983267514173
+    },
+    "12": {
+      "LHX": 1.512105592821827,
+      "BK": 20.0568005996941,
+      "HUM": 7.188035455571966,
+      "TSN": 3.7475662440228175,
+      "IEX": 1.4437277691262667,
+      "KMB": 1.9552029173528953,
+      "SP500": 10.072465803004667,
+      "RUSSELL2000": 14.190696412097479,
+      "NASDAQ100": 8.414511954899902
+    },
+    "13": {
+      "LHX": 1.7949118615609863,
+      "BK": 22.105588736199476,
+      "HUM": 7.453285128975392,
+      "TSN": 4.371044690199353,
+      "IEX": 2.3342454932097123,
+      "KMB": 2.6487260166571867,
+      "SP500": 12.154936684564042,
+      "RUSSELL2000": 17.032455730792066,
+      "NASDAQ100": 10.60074419463696
+    },
+    "14": {
+      "LHX": 1.8707867804229963,
+      "BK": 21.426368957484026,
+      "HUM": 7.769857391831849,
+      "TSN": 4.294016975974429,
+      "IEX": 1.8830971289788438,
+      "KMB": 2.4477957884452377,
+      "SP500": 11.157230915415052,
+      "RUSSELL2000": 15.390876318391701,
+      "NASDAQ100": 9.40508706685973
+    },
+    "15": {
+      "LHX": 1.8062202705859494,
+      "BK": 22.043057405811858,
+      "HUM": 7.654136939742868,
+      "TSN": 4.399989572766607,
+      "IEX": 2.1562084710639335,
+      "KMB": 2.5680532408774033,
+      "SP500": 11.807012241153906,
+      "RUSSELL2000": 16.44612081643012,
+      "NASDAQ100": 10.132424703483522
+    },
+    "16": {
+      "LHX": 1.810884917274881,
+      "BK": 20.926980407355053,
+      "HUM": 7.836904867516439,
+      "TSN": 4.182373376534162,
+      "IEX": 1.5833966921180769,
+      "KMB": 2.2394348135938564,
+      "SP500": 10.437677669947574,
+      "RUSSELL2000": 14.370177842788348,
+      "NASDAQ100": 8.59474638804248
+    },
+    "17": {
+      "LHX": 2.0517345969235303,
+      "BK": 22.808058497309077,
+      "HUM": 8.05373663356462,
+      "TSN": 4.740921450938737,
+      "IEX": 2.4005935269229655,
+      "KMB": 2.8670360613168793,
+      "SP500": 12.365942608593537,
+      "RUSSELL2000": 17.015747153108396,
+      "NASDAQ100": 10.624112837815597
+    },
+    "18": {
+      "LHX": 1.6823273256319453,
+      "BK": 20.94913482596965,
+      "HUM": 7.386115496747134,
+      "TSN": 4.0405513770959764,
+      "IEX": 1.8014546728807423,
+      "KMB": 2.276105823781421,
+      "SP500": 10.951306405280363,
+      "RUSSELL2000": 15.310917822015224,
+      "NASDAQ100": 9.30924276364
+    },
+    "19": {
+      "LHX": 1.5285425760264237,
+      "BK": 21.136012680450584,
+      "HUM": 7.017985115273096,
+      "TSN": 3.9686314724381013,
+      "IEX": 2.0168138601598247,
+      "KMB": 2.2920240162067516,
+      "SP500": 11.416576486654042,
+      "RUSSELL2000": 16.218688112233345,
+      "NASDAQ100": 9.927442665450148
+    },
+    "20": {
+      "LHX": 1.975488607266974,
+      "BK": 22.216270558560986,
+      "HUM": 8.195625101106875,
+      "TSN": 4.610860045245543,
+      "IEX": 1.9744202029830364,
+      "KMB": 2.5873166716283125,
+      "SP500": 11.429112775310164,
+      "RUSSELL2000": 15.637638911158204,
+      "NASDAQ100": 9.529157747104273
+    },
+    "21": {
+      "LHX": 1.4528787642573737,
+      "BK": 20.251387284430358,
+      "HUM": 6.840174406004366,
+      "TSN": 3.6923273633638107,
+      "IEX": 1.724531261209429,
+      "KMB": 2.0691504516002546,
+      "SP500": 10.708295743672243,
+      "RUSSELL2000": 15.25031527899547,
+      "NASDAQ100": 9.237243813252519
+    },
+    "22": {
+      "LHX": 2.158947739180695,
+      "BK": 23.0631660919152,
+      "HUM": 8.353031377762466,
+      "TSN": 4.8986715355442305,
+      "IEX": 2.3765275471253364,
+      "KMB": 2.9303204860782737,
+      "SP500": 12.336132040241854,
+      "RUSSELL2000": 16.825991509054788,
+      "NASDAQ100": 10.48607829723184
+    },
+    "23": {
+      "LHX": 1.5564018072070476,
+      "BK": 20.65775692908297,
+      "HUM": 7.1282514968002255,
+      "TSN": 3.8784661825899294,
+      "IEX": 1.759717830367671,
+      "KMB": 2.1672646749803253,
+      "SP500": 10.837652246146181,
+      "RUSSELL2000": 15.297078906698498,
+      "NASDAQ100": 9.271419186150215
+    },
+    "24": {
+      "LHX": 1.4809475707824657,
+      "BK": 20.391720870505132,
+      "HUM": 6.92643507223158,
+      "TSN": 3.7508478871987925,
+      "IEX": 1.738158237025816,
+      "KMB": 2.099790761018245,
+      "SP500": 10.756732149078932,
+      "RUSSELL2000": 15.282729693371875,
+      "NASDAQ100": 9.259187954923684
+    },
+    "25": {
+      "LHX": 2.1868301328972852,
+      "BK": 23.459368522937936,
+      "HUM": 8.261967874210217,
+      "TSN": 4.991347315939748,
+      "IEX": 2.6485293369741494,
+      "KMB": 3.090991376632269,
+      "SP500": 12.906646168237028,
+      "RUSSELL2000": 17.695434801424117,
+      "NASDAQ100": 11.14646765698565
+    },
+    "26": {
+      "LHX": 1.8720525645905615,
+      "BK": 21.42619321662275,
+      "HUM": 7.883368349529293,
+      "TSN": 4.320509629104725,
+      "IEX": 1.796905258940768,
+      "KMB": 2.406486399702583,
+      "SP500": 10.971363699773791,
+      "RUSSELL2000": 15.09530083276453,
+      "NASDAQ100": 9.15855117636962
+    },
+    "27": {
+      "LHX": 1.72146118305105,
+      "BK": 21.293274308995088,
+      "HUM": 7.595607502129196,
+      "TSN": 4.180967696624517,
+      "IEX": 1.8136603325162968,
+      "KMB": 2.319603204676256,
+      "SP500": 11.02100976415944,
+      "RUSSELL2000": 15.341790414091108,
+      "NASDAQ100": 9.295697807124741
+    },
+    "28": {
+      "LHX": 1.7229708620082054,
+      "BK": 20.88050289390395,
+      "HUM": 7.668071200835576,
+      "TSN": 4.105250834628118,
+      "IEX": 1.602541333607413,
+      "KMB": 2.196670777968645,
+      "SP500": 10.500796582753964,
+      "RUSSELL2000": 14.561005204621406,
+      "NASDAQ100": 8.71225065195699
+    },
+    "29": {
+      "LHX": 1.7814509239894691,
+      "BK": 21.938419093713016,
+      "HUM": 7.4560260257321085,
+      "TSN": 4.3237963324137745,
+      "IEX": 2.2466717306973227,
+      "KMB": 2.5933827610420934,
+      "SP500": 11.969124009752884,
+      "RUSSELL2000": 16.756701363795372,
+      "NASDAQ100": 10.397213295851582
+    },
+    "30": {
+      "LHX": 2.4184861200765124,
+      "BK": 23.766959720635228,
+      "HUM": 8.885191663939729,
+      "TSN": 5.26500026966948,
+      "IEX": 2.513756829126457,
+      "KMB": 3.1783895977778656,
+      "SP500": 12.650355672674374,
+      "RUSSELL2000": 16.995035556373068,
+      "NASDAQ100": 10.65356563984652
+    },
+    "31": {
+      "LHX": 1.3920199212879774,
+      "BK": 20.22181631823438,
+      "HUM": 6.712844641527181,
+      "TSN": 3.6411199549798834,
+      "IEX": 1.7520465873123665,
+      "KMB": 2.04422037930458,
+      "SP500": 10.761635067178219,
+      "RUSSELL2000": 15.410211160311139,
+      "NASDAQ100": 9.33709172122539
+    }
+  },
+  "screen_statistics": {
+    "0": {
+      "abs_acf": [
+        0.15326815466688415,
+        0.13125780722219874,
+        0.08766541369988883,
+        0.06281529040169963,
+        0.049949301888931416,
+        0.0458913771547335
+      ],
+      "sq_acf": [
+        0.11659884333051866,
+        0.09833809731880135,
+        0.058201279654192355,
+        0.045652625946352034,
+        0.03884618287131797,
+        0.03919881484582357
+      ],
+      "kurtosis": 3.5128484495530166
+    },
+    "1": {
+      "abs_acf": [
+        0.1453343631768489,
+        0.12115763369756091,
+        0.07524800055723906,
+        0.050003881662709894,
+        0.038221134192317194,
+        0.03411990158265565
+      ],
+      "sq_acf": [
+        0.10556982685148249,
+        0.0870752973501881,
+        0.04747360079391848,
+        0.03606896279932423,
+        0.030633727166714565,
+        0.031201886684278982
+      ],
+      "kurtosis": 4.232670172025249
+    },
+    "2": {
+      "abs_acf": [
+        0.1413553269264891,
+        0.12039526752282867,
+        0.07857998828884,
+        0.05518502821164871,
+        0.043499583136704115,
+        0.040184827153089006
+      ],
+      "sq_acf": [
+        0.11303497064030431,
+        0.09513534210217087,
+        0.05525124635827119,
+        0.043030538496356296,
+        0.03612618667034395,
+        0.036370759220885125
+      ],
+      "kurtosis": 3.0458309068686535
+    },
+    "3": {
+      "abs_acf": [
+        0.171556567231349,
+        0.14693277550833417,
+        0.09827334070222982,
+        0.07065519875647336,
+        0.055365672729514766,
+        0.0502699714130628
+      ],
+      "sq_acf": [
+        0.12062275456775567,
+        0.10160118660987871,
+        0.06011646520293163,
+        0.047046280077254046,
+        0.04066895202582876,
+        0.04189150588706847
+      ],
+      "kurtosis": 4.591273982397925
+    },
+    "4": {
+      "abs_acf": [
+        0.1739864484247019,
+        0.14999747196558658,
+        0.10110107737077662,
+        0.07312115646302324,
+        0.056683133570103926,
+        0.051518594486885394
+      ],
+      "sq_acf": [
+        0.12984892461042014,
+        0.11049274266099658,
+        0.0669752941202749,
+        0.052286617508201835,
+        0.04420083813341807,
+        0.04476262639764786
+      ],
+      "kurtosis": 3.9827869823633177
+    },
+    "5": {
+      "abs_acf": [
+        0.141193934184578,
+        0.11923689842028878,
+        0.07718555563734447,
+        0.053469081152564414,
+        0.042549269759735615,
+        0.038919595076844574
+      ],
+      "sq_acf": [
+        0.10635416657081251,
+        0.08841247514156536,
+        0.04995672831249568,
+        0.03879678055824536,
+        0.033067363277167444,
+        0.03344056443953966
+      ],
+      "kurtosis": 3.5841727135797132
+    },
+    "6": {
+      "abs_acf": [
+        0.150744705856091,
+        0.12712231665299,
+        0.08096522517750579,
+        0.05537111701677376,
+        0.04249189502317891,
+        0.03837556075582334
+      ],
+      "sq_acf": [
+        0.11322834177309112,
+        0.09443419768431441,
+        0.0534025635009856,
+        0.041008668821173766,
+        0.03462798525925899,
+        0.03514253821398764
+      ],
+      "kurtosis": 3.8322438629222364
+    },
+    "7": {
+      "abs_acf": [
+        0.15151163731226724,
+        0.12844579899454375,
+        0.08384532155670961,
+        0.05876490097894869,
+        0.04644839654935541,
+        0.04232191596700244
+      ],
+      "sq_acf": [
+        0.11127294658925874,
+        0.0927539270777009,
+        0.05311508134840828,
+        0.041219076073365356,
+        0.03537120414282863,
+        0.035905048078863584
+      ],
+      "kurtosis": 3.9220257989818834
+    },
+    "8": {
+      "abs_acf": [
+        0.1503203467584654,
+        0.12851580210723434,
+        0.08571080275449848,
+        0.06118885951010773,
+        0.04881683923650417,
+        0.04485048090440981
+      ],
+      "sq_acf": [
+        0.11391979692848553,
+        0.09588541542777669,
+        0.05642213672137181,
+        0.04431717967985301,
+        0.0377658843487804,
+        0.038150179056049435
+      ],
+      "kurtosis": 3.514715500851112
+    },
+    "9": {
+      "abs_acf": [
+        0.15735266933509362,
+        0.13307448051888426,
+        0.0849960665810187,
+        0.05850441367725619,
+        0.04453654486691101,
+        0.04014785647492652
+      ],
+      "sq_acf": [
+        0.11817453116865806,
+        0.09884077853215614,
+        0.056326844359309444,
+        0.043051851219152705,
+        0.03621334940802942,
+        0.036803297693052045
+      ],
+      "kurtosis": 3.9369009680152884
+    },
+    "10": {
+      "abs_acf": [
+        0.15405279730738589,
+        0.13103747025155704,
+        0.08572552538102163,
+        0.06020462092219285,
+        0.047022945366341974,
+        0.042815588542825814
+      ],
+      "sq_acf": [
+        0.1160509435565085,
+        0.09745831884101955,
+        0.0564933185109187,
+        0.04396701852488394,
+        0.03727534216580271,
+        0.03784040585135227
+      ],
+      "kurtosis": 3.745263037590722
+    },
+    "11": {
+      "abs_acf": [
+        0.15816395516713128,
+        0.13486580692054076,
+        0.08983423031561522,
+        0.06413859193818382,
+        0.05114577025054267,
+        0.04666956883408076
+      ],
+      "sq_acf": [
+        0.11271246827884257,
+        0.09429256674376561,
+        0.05490911270317407,
+        0.04301764797892372,
+        0.037208428270233955,
+        0.03799125728262635
+      ],
+      "kurtosis": 4.221420875203609
+    },
+    "12": {
+      "abs_acf": [
+        0.17253607314347472,
+        0.14919670310865765,
+        0.1020210063850696,
+        0.07488879945169319,
+        0.059275804152616116,
+        0.054218955831822464
+      ],
+      "sq_acf": [
+        0.1274902987362415,
+        0.10847870834975333,
+        0.06630328616143288,
+        0.052257113166145674,
+        0.04463990093893851,
+        0.04510610314762904
+      ],
+      "kurtosis": 3.9517459378381536
+    },
+    "13": {
+      "abs_acf": [
+        0.14181093742089274,
+        0.118826478928868,
+        0.0757307771685739,
+        0.051559920432664226,
+        0.04084581077899289,
+        0.03699499108659034
+      ],
+      "sq_acf": [
+        0.10232319553059041,
+        0.08425473038560749,
+        0.04638702675511371,
+        0.03574556439512728,
+        0.030751320595065433,
+        0.03126751458075015
+      ],
+      "kurtosis": 4.0713074351486505
+    },
+    "14": {
+      "abs_acf": [
+        0.16432687310181487,
+        0.139604081451808,
+        0.08903794390183462,
+        0.061194890004256826,
+        0.04523364453922257,
+        0.040563717290848636
+      ],
+      "sq_acf": [
+        0.12845720207561623,
+        0.10829383006948082,
+        0.06261689529956628,
+        0.04724651386111515,
+        0.03863933493485676,
+        0.03891499839918362
+      ],
+      "kurtosis": 3.713420561513161
+    },
+    "15": {
+      "abs_acf": [
+        0.14541689069154515,
+        0.12346490474867343,
+        0.0818712517212287,
+        0.05791022210430709,
+        0.04688912487703093,
+        0.04299678886650132
+      ],
+      "sq_acf": [
+        0.10561177638499178,
+        0.08786037552210282,
+        0.050375226223723944,
+        0.039469907519623065,
+        0.0340169848941408,
+        0.03446498830072078
+      ],
+      "kurtosis": 3.852283816224985
+    },
+    "16": {
+      "abs_acf": [
+        0.17031210040847253,
+        0.14732873356256906,
+        0.09985878393227028,
+        0.07282806330895344,
+        0.05677590374484493,
+        0.051930038584266286
+      ],
+      "sq_acf": [
+        0.1319025197193328,
+        0.11261849665577066,
+        0.06893555608658682,
+        0.053830851463321956,
+        0.04514921049785441,
+        0.04526723745810713
+      ],
+      "kurtosis": 3.559881288652189
+    },
+    "17": {
+      "abs_acf": [
+        0.14229000384140758,
+        0.11941661191305948,
+        0.07543260916890836,
+        0.05103039467686442,
+        0.0395646449796179,
+        0.035810764465812404
+      ],
+      "sq_acf": [
+        0.10753299020410904,
+        0.08917228376122754,
+        0.04960930534495392,
+        0.03813757890506114,
+        0.0322909032445442,
+        0.03264778631075707
+      ],
+      "kurtosis": 3.6827468618465438
+    },
+    "18": {
+      "abs_acf": [
+        0.16395508407193748,
+        0.13946143032240654,
+        0.09022671203189936,
+        0.06284098747951562,
+        0.04764684603436887,
+        0.042937855705436435
+      ],
+      "sq_acf": [
+        0.12358026632014299,
+        0.10399602913170083,
+        0.06044979830618039,
+        0.04628283044760054,
+        0.038815547563117704,
+        0.03936706413260676
+      ],
+      "kurtosis": 3.9407748164519654
+    },
+    "19": {
+      "abs_acf": [
+        0.14835398411498307,
+        0.1259886500601317,
+        0.084210466860964,
+        0.060024110754790666,
+        0.04911273627753401,
+        0.0449818330519801
+      ],
+      "sq_acf": [
+        0.10358803556235599,
+        0.08586834806014305,
+        0.0490606265958303,
+        0.03848053878324484,
+        0.03348907147165177,
+        0.034107775181100426
+      ],
+      "kurtosis": 4.244598643792674
+    },
+    "20": {
+      "abs_acf": [
+        0.1519011520262135,
+        0.13095783098832275,
+        0.08962634088938412,
+        0.0655415737865914,
+        0.0532447389143,
+        0.04932011393928029
+      ],
+      "sq_acf": [
+        0.11474086062755942,
+        0.0971347990343764,
+        0.058515213321051036,
+        0.04637155092129258,
+        0.039632028304484014,
+        0.03996124130884665
+      ],
+      "kurtosis": 3.4150073504913188
+    },
+    "21": {
+      "abs_acf": [
+        0.16505965806649633,
+        0.1402098506093708,
+        0.09096463802010218,
+        0.06359277988974854,
+        0.04874056529891987,
+        0.043943494678509894
+      ],
+      "sq_acf": [
+        0.12007930657576728,
+        0.1006495171849292,
+        0.05818606207175305,
+        0.04468686306723496,
+        0.03806882268614242,
+        0.038937088027557576
+      ],
+      "kurtosis": 4.293978351391589
+    },
+    "22": {
+      "abs_acf": [
+        0.14291115870192245,
+        0.12068516724320111,
+        0.07742799648846285,
+        0.05321530383900863,
+        0.04152912958413322,
+        0.0378359153807675
+      ],
+      "sq_acf": [
+        0.11003260284292837,
+        0.09183702348783614,
+        0.05210479569017461,
+        0.04036549196836149,
+        0.03408814140748613,
+        0.03441682434717686
+      ],
+      "kurtosis": 3.466072313804598
+    },
+    "23": {
+      "abs_acf": [
+        0.16236684573652602,
+        0.13832525950166807,
+        0.09072146440925122,
+        0.06408474112332085,
+        0.04979839214847495,
+        0.04519809138426512
+      ],
+      "sq_acf": [
+        0.11947333401142361,
+        0.10040854787662684,
+        0.05846619694948808,
+        0.04535003525875698,
+        0.03865219049831751,
+        0.03945300935257323
+      ],
+      "kurtosis": 4.097380098826564
+    },
+    "24": {
+      "abs_acf": [
+        0.1633998230318643,
+        0.13903628847869945,
+        0.09079765912028043,
+        0.06378309089982466,
+        0.04920409358676612,
+        0.04452654270110655
+      ],
+      "sq_acf": [
+        0.11907463465679574,
+        0.1000880290965526,
+        0.058080775710885886,
+        0.044978143658329583,
+        0.038299325623450696,
+        0.03927350031286078
+      ],
+      "kurtosis": 4.234909233636481
+    },
+    "25": {
+      "abs_acf": [
+        0.13382777422115566,
+        0.11166732999238586,
+        0.07000996055025097,
+        0.04687851446982361,
+        0.037035250163006614,
+        0.033643981926797815
+      ],
+      "sq_acf": [
+        0.10059774752248221,
+        0.08267746805253547,
+        0.04493647145822152,
+        0.03444594870474044,
+        0.02932558393218182,
+        0.029579387631838962
+      ],
+      "kurtosis": 3.6306209403518137
+    },
+    "26": {
+      "abs_acf": [
+        0.16394378783509647,
+        0.14047737700613347,
+        0.09261786000689275,
+        0.0656807509850193,
+        0.05030439793753373,
+        0.045702484469807896
+      ],
+      "sq_acf": [
+        0.12709412685826466,
+        0.10772776195282877,
+        0.06405597386925083,
+        0.04948780837763354,
+        0.04131694873363083,
+        0.04160788975278845
+      ],
+      "kurtosis": 3.596039756256742
+    },
+    "27": {
+      "abs_acf": [
+        0.15834493234855473,
+        0.13580927855687017,
+        0.09138256481064375,
+        0.06594516603531554,
+        0.052623563878989005,
+        0.04826099152850857
+      ],
+      "sq_acf": [
+        0.11737838861076541,
+        0.0989711697603338,
+        0.058852949465626254,
+        0.046265377338098476,
+        0.03964195397093345,
+        0.04010684042975505
+      ],
+      "kurtosis": 3.7783338720006023
+    },
+    "28": {
+      "abs_acf": [
+        0.16680163558670655,
+        0.14425736153668534,
+        0.09858767093695656,
+        0.07225242858087483,
+        0.05729577011874007,
+        0.052605960805699715
+      ],
+      "sq_acf": [
+        0.12597695477972046,
+        0.10734500257514051,
+        0.06562787828763002,
+        0.05179347713821518,
+        0.043977509298672744,
+        0.044330564208304266
+      ],
+      "kurtosis": 3.6683916858741688
+    },
+    "29": {
+      "abs_acf": [
+        0.14569004039125008,
+        0.12231147570283364,
+        0.07783149939629372,
+        0.05298167385244576,
+        0.04134340091121116,
+        0.037334292580438785
+      ],
+      "sq_acf": [
+        0.10617374993401804,
+        0.08784904241615685,
+        0.048848138545596116,
+        0.03762514464432845,
+        0.03219437390160311,
+        0.032754846400970886
+      ],
+      "kurtosis": 4.039414222808038
+    },
+    "30": {
+      "abs_acf": [
+        0.14157853612157217,
+        0.1195359339337607,
+        0.07569897592624243,
+        0.05167669908226543,
+        0.039713118004667244,
+        0.036280966846946455
+      ],
+      "sq_acf": [
+        0.11338947811069765,
+        0.09485101363415625,
+        0.053717385416999455,
+        0.04122576817518637,
+        0.03432189736722663,
+        0.03449475722929854
+      ],
+      "kurtosis": 3.1609320130734453
+    },
+    "31": {
+      "abs_acf": [
+        0.16128972652226634,
+        0.13712791384162532,
+        0.09010516044913919,
+        0.0636181657902408,
+        0.049850511674883025,
+        0.045209351101760845
+      ],
+      "sq_acf": [
+        0.11483496713853146,
+        0.09610340217607855,
+        0.05551905251657131,
+        0.04322469019903076,
+        0.037290699300779696,
+        0.03833872121019392
+      ],
+      "kurtosis": 4.384693264004896
+    }
+  },
+  "evaluation_statistics": {
+    "3": {
+      "abs_acf": [
+        0.20425512779716493,
+        0.1763860557544039,
+        0.11578017338606617,
+        0.09008091936477548,
+        0.06846642516903645,
+        0.06304721254496379
+      ],
+      "sq_acf": [
+        0.14493524614112585,
+        0.12245909878185471,
+        0.06812467537218661,
+        0.05187488873936401,
+        0.034676700753026854,
+        0.03344908363589254
+      ],
+      "kurtosis": 11.167475403274116
+    },
+    "12": {
+      "abs_acf": [
+        0.20534411901405053,
+        0.17871625251129708,
+        0.1210382192317864,
+        0.09654222114116721,
+        0.07581045949766284,
+        0.07043537304625189
+      ],
+      "sq_acf": [
+        0.15350174915199816,
+        0.13035370204027003,
+        0.07498816787696298,
+        0.057797086152817576,
+        0.0398428002352164,
+        0.03792583679482645
+      ],
+      "kurtosis": 9.042016725709454
+    },
+    "18": {
+      "abs_acf": [
+        0.19900054111839943,
+        0.17013084034224107,
+        0.10825184208650655,
+        0.08158016852098544,
+        0.059829805063753114,
+        0.05413777538228574
+      ],
+      "sq_acf": [
+        0.15361567738137788,
+        0.1289299075085676,
+        0.07074001858562842,
+        0.051821274818482935,
+        0.0332081311407322,
+        0.03133115403295376
+      ],
+      "kurtosis": 9.573291907599458
+    }
+  },
+  "evaluation_path_statistics": {
+    "3": {
+      "abs_acf": [
+        [
+          0.23250918282394933,
+          0.1914326820855432,
+          0.11597391880433583,
+          0.0914736491190339,
+          0.08024527343268344,
+          0.07476862050233388
+        ],
+        [
+          0.16689023358945484,
+          0.1475520639811575,
+          0.08974912867507147,
+          0.07471328945109841,
+          0.061877597746726264,
+          0.06182293734352999
+        ],
+        [
+          0.16057226043055356,
+          0.14521880629950712,
+          0.09605023426287096,
+          0.06206944514932123,
+          0.027397264018421772,
+          0.018144472228216742
+        ],
+        [
+          0.2435034504243962,
+          0.2121193000429885,
+          0.14492564004795735,
+          0.0987368939704799,
+          0.06340289424281818,
+          0.05226421706191476
+        ],
+        [
+          0.19718503821967076,
+          0.17315505941633966,
+          0.1378709035798946,
+          0.10296876441179059,
+          0.08727763508556563,
+          0.07757693638217068
+        ],
+        [
+          0.20363501239156867,
+          0.17734629092733756,
+          0.12003505429309168,
+          0.09098880649600782,
+          0.06240120531473914,
+          0.048290367521455185
+        ],
+        [
+          0.22289321647406984,
+          0.18662915250425235,
+          0.11318861618662589,
+          0.09701964183770899,
+          0.09243035370426966,
+          0.10079046603892448
+        ],
+        [
+          0.28668930206424514,
+          0.27049352274019467,
+          0.20939208033649617,
+          0.18463880780230998,
+          0.1463718514096416,
+          0.13734923642443045
+        ],
+        [
+          0.2124350218574312,
+          0.18076147125478884,
+          0.11097963265304041,
+          0.08147584857007777,
+          0.056801720537045096,
+          0.046825744869716183
+        ],
+        [
+          0.20201330066222087,
+          0.15566087180221364,
+          0.08063218045946617,
+          0.043126133554307944,
+          0.024613845213985578,
+          0.016221617597097674
+        ],
+        [
+          0.17108215019854733,
+          0.15081085967035102,
+          0.09307913065941185,
+          0.07179742811776452,
+          0.0444956989768839,
+          0.04015086936346364
+        ],
+        [
+          0.16279532608665004,
+          0.1391710005649639,
+          0.07724481736047524,
+          0.06065823696963135,
+          0.04330605971612053,
+          0.04591130137881917
+        ],
+        [
+          0.2113835352487686,
+          0.18961002936126012,
+          0.12322364672293844,
+          0.10103759126497869,
+          0.07203882137265323,
+          0.06588978475895696
+        ],
+        [
+          0.1881637808831707,
+          0.164528982151226,
+          0.1263603824916538,
+          0.11418611231067115,
+          0.09527769596538048,
+          0.0724878060345916
+        ],
+        [
+          0.17098984735851439,
+          0.14057051646263394,
+          0.08053246788951428,
+          0.08064192157997478,
+          0.06209810941750987,
+          0.07150894003152698
+        ],
+        [
+          0.22845045181630388,
+          0.1846952239587983,
+          0.11122051208893513,
+          0.07885333073751406,
+          0.06836475751568159,
+          0.07376266313086297
+        ],
+        [
+          0.15138206278813227,
+          0.12940400566762159,
+          0.07528014462044885,
+          0.05542479627736772,
+          0.048904614135505696,
+          0.04717103170122342
+        ],
+        [
+          0.17784358721036717,
+          0.1551935021312901,
+          0.10537703480255024,
+          0.08062125500886945,
+          0.05377560550180686,
+          0.041510983259988685
+        ],
+        [
+          0.21462412914146617,
+          0.185155300677011,
+          0.13990076139483013,
+          0.11400689271264582,
+          0.09659200300162868,
+          0.08873110046909327
+        ],
+        [
+          0.2800616662738177,
+          0.248212473388599,
+          0.164587180391715,
+          0.11717954195395558,
+          0.0816554970716617,
+          0.07976515480095936
+        ]
+      ],
+      "sq_acf": [
+        [
+          0.1790844204224767,
+          0.13595763200437094,
+          0.05205023000042902,
+          0.038688871278121366,
+          0.039520628115064634,
+          0.04460420882361943
+        ],
+        [
+          0.12868546020374888,
+          0.10264866194853806,
+          0.04448511180676568,
+          0.04512901543603611,
+          0.04216631639818089,
+          0.03879521829255414
+        ],
+        [
+          0.10854190873502931,
+          0.10004385765858732,
+          0.05741882551097533,
+          0.032611614772122925,
+          0.0011176982570048517,
+          -0.004194706593502019
+        ],
+        [
+          0.19366105308416176,
+          0.1728347269508654,
+          0.12462139678443941,
+          0.07305916737663828,
+          0.03410676137194723,
+          0.02181331615234007
+        ],
+        [
+          0.12508853468535625,
+          0.1162042846782549,
+          0.09607212983384478,
+          0.06706383319277737,
+          0.04435069264179308,
+          0.038051327097297916
+        ],
+        [
+          0.14979735738471697,
+          0.12609090873102116,
+          0.07137413282715906,
+          0.05193712979139083,
+          0.03307648521521631,
+          0.02535177091094854
+        ],
+        [
+          0.2049601831871839,
+          0.1773019897501945,
+          0.09786162645802614,
+          0.07374493569073517,
+          0.05941855349024059,
+          0.07947025650952169
+        ],
+        [
+          0.16824403904091464,
+          0.17385763970894533,
+          0.14183859171765556,
+          0.13978123394461994,
+          0.0980507781693404,
+          0.08592293284867432
+        ],
+        [
+          0.17477399057845489,
+          0.13325271480811227,
+          0.04858541902223382,
+          0.028443806519447806,
+          0.009816414556624761,
+          0.007595328074401145
+        ],
+        [
+          0.16305488470497528,
+          0.12342644968309668,
+          0.0472827618131921,
+          0.023577022477456088,
+          0.005776927427578855,
+          -0.002598677879614247
+        ],
+        [
+          0.12961301402118497,
+          0.11553342707676152,
+          0.06324411557748572,
+          0.050399195828943276,
+          0.03258609634189049,
+          0.033962214637271684
+        ],
+        [
+          0.1241507931362526,
+          0.09948457271009255,
+          0.03892767431184256,
+          0.059251312796519774,
+          0.049140722133845745,
+          0.06844042138704089
+        ],
+        [
+          0.14260551127341986,
+          0.1442481793099735,
+          0.08883544145528825,
+          0.07359067505826423,
+          0.037654826983042664,
+          0.029818873549262742
+        ],
+        [
+          0.1127110454133601,
+          0.08670149764450241,
+          0.05714599389394106,
+          0.051667575363940565,
+          0.045242221747125694,
+          0.028166463620529464
+        ],
+        [
+          0.12948307637428655,
+          0.09976393103055099,
+          0.04461019212068384,
+          0.045328848168530465,
+          0.04144519383167746,
+          0.05557746749218712
+        ],
+        [
+          0.181156318609063,
+          0.137482872179411,
+          0.06606584220353781,
+          0.033922734633121454,
+          0.024892125337322584,
+          0.034993731734977204
+        ],
+        [
+          0.08813240734191097,
+          0.07212205245375779,
+          0.027695082742368912,
+          0.015104316298654807,
+          0.020200968015566544,
+          0.026171835701176042
+        ],
+        [
+          0.09971858043143897,
+          0.08690433073623342,
+          0.05394104195765881,
+          0.03981934417554145,
+          0.019934813962116577,
+          0.011162371429727024
+        ],
+        [
+          0.12526103558560697,
+          0.09840555279566278,
+          0.06713774228934577,
+          0.05290202988515805,
+          0.04566174727103318,
+          0.03672038816538126
+        ],
+        [
+          0.1699813086089737,
+          0.14691669377816172,
+          0.07330015511685864,
+          0.04147511209926037,
+          0.009374043793924538,
+          0.009156930764056378
+        ]
+      ],
+      "kurtosis": [
+        12.503513647328868,
+        9.965278631358684,
+        12.944990482868771,
+        7.978471581289101,
+        10.205954612649961,
+        8.029723421769436,
+        12.61587020664927,
+        13.484091775080095,
+        11.50135151801692,
+        8.646182122586925,
+        7.540671908728399,
+        7.505573347140784,
+        20.17715175423336,
+        9.93858758510348,
+        7.639694386714172,
+        8.386244732375102,
+        6.2838727608578875,
+        9.766950175675804,
+        8.555379535594351,
+        29.67995387946094
+      ]
+    },
+    "12": {
+      "abs_acf": [
+        [
+          0.23537178284675522,
+          0.19579480279827877,
+          0.12500066936229287,
+          0.10199244002052459,
+          0.09085679425103198,
+          0.08399978650651994
+        ],
+        [
+          0.16821768130580253,
+          0.15080437693295437,
+          0.09801563903340128,
+          0.08501982798425571,
+          0.07508426383590502,
+          0.07571766448154889
+        ],
+        [
+          0.15664106918622525,
+          0.14217264106700606,
+          0.09469080902890838,
+          0.06223790818219772,
+          0.030542311760910556,
+          0.02362863241935339
+        ],
+        [
+          0.23802546154544837,
+          0.20840030649550564,
+          0.1461524922811364,
+          0.10133570496226085,
+          0.06832800410433178,
+          0.05753467014489813
+        ],
+        [
+          0.2003486646123689,
+          0.1769418658455482,
+          0.1430812247064663,
+          0.10936458954358459,
+          0.09589942365562076,
+          0.08738747197022717
+        ],
+        [
+          0.2011586964964161,
+          0.17730482791590754,
+          0.12262488455739784,
+          0.09502509552242605,
+          0.06657842828815612,
+          0.05384316220967117
+        ],
+        [
+          0.2279726492231811,
+          0.19230323841696392,
+          0.12019147516708943,
+          0.10440057307536048,
+          0.10107999329628832,
+          0.10949266116762157
+        ],
+        [
+          0.29166103400402293,
+          0.27690380480628,
+          0.21695844212324045,
+          0.19444163782775556,
+          0.15608486829814852,
+          0.14783993416911745
+        ],
+        [
+          0.2136821121987579,
+          0.18400942227880476,
+          0.1183530209104261,
+          0.09096875728302604,
+          0.06680782166107962,
+          0.05734630189126531
+        ],
+        [
+          0.2022298719576622,
+          0.15753879805443285,
+          0.08490057076389358,
+          0.05044014968905364,
+          0.03278463576557081,
+          0.024687317679494794
+        ],
+        [
+          0.1693082831116074,
+          0.149543559305301,
+          0.09469529927866221,
+          0.07260584647824586,
+          0.04594086396056171,
+          0.04084508282182783
+        ],
+        [
+          0.162445051838784,
+          0.1383669841838969,
+          0.07911683993331516,
+          0.06162821651418928,
+          0.04496242102853545,
+          0.046555907690709206
+        ],
+        [
+          0.21344720425375632,
+          0.19289825907180144,
+          0.12763438765302143,
+          0.10686369728015521,
+          0.07724871932336073,
+          0.07131341985006373
+        ],
+        [
+          0.19413274062064728,
+          0.17244978341397466,
+          0.13816232285377025,
+          0.12725407773588973,
+          0.10710686413791203,
+          0.08232756232146324
+        ],
+        [
+          0.16822297650367873,
+          0.13831241030700822,
+          0.08126184943197261,
+          0.08261559511624549,
+          0.06498417738542403,
+          0.07351744156397479
+        ],
+        [
+          0.22905290504401746,
+          0.18656897435283046,
+          0.11551518515940286,
+          0.0845558181568256,
+          0.07452719018758001,
+          0.08050297095181545
+        ],
+        [
+          0.1549861423707025,
+          0.13450753387880884,
+          0.08522846661479296,
+          0.06610629174846651,
+          0.05919787891398432,
+          0.056182758766043325
+        ],
+        [
+          0.17703676529700604,
+          0.15474603939368994,
+          0.10700864769628553,
+          0.08297907908863321,
+          0.057512101536050804,
+          0.04456484737025178
+        ],
+        [
+          0.22486727952851343,
+          0.19773659052414194,
+          0.1545969303318774,
+          0.1285748185751622,
+          0.11111422266992499,
+          0.10390651936162892
+        ],
+        [
+          0.2780740083356571,
+          0.24702083118280602,
+          0.16757522774837427,
+          0.1224342980390863,
+          0.08956820589287928,
+          0.08751334758754187
+        ]
+      ],
+      "sq_acf": [
+        [
+          0.1934334650894622,
+          0.14673173058029176,
+          0.06087731301337363,
+          0.04475130852257275,
+          0.045952868647153366,
+          0.04896030079325987
+        ],
+        [
+          0.13751621304498646,
+          0.11138296473758132,
+          0.054785601625168524,
+          0.05545422572057327,
+          0.051004006435641146,
+          0.04478122717559314
+        ],
+        [
+          0.11744883217597393,
+          0.1082651353084428,
+          0.06273557361282331,
+          0.035943510714605706,
+          0.0031470410756158896,
+          -0.0012020251805793325
+        ],
+        [
+          0.19932038063217258,
+          0.17870348807653566,
+          0.1345495509987363,
+          0.07948875830901295,
+          0.040698772592503554,
+          0.02677698505614257
+        ],
+        [
+          0.13213670560417184,
+          0.12495610323446003,
+          0.10387276328048889,
+          0.07501538413900614,
+          0.051139724399352875,
+          0.04502055009689564
+        ],
+        [
+          0.1488620659041956,
+          0.1278964530823604,
+          0.07537337746322674,
+          0.055237215125487404,
+          0.0350673790458812,
+          0.02800067079240328
+        ],
+        [
+          0.21825550054348275,
+          0.18765338838673853,
+          0.10297019562768724,
+          0.07926602091113401,
+          0.06686922369229775,
+          0.08812469826913633
+        ],
+        [
+          0.17678698437924945,
+          0.18150845245429684,
+          0.14742375537948862,
+          0.14624094521153846,
+          0.10439203077101296,
+          0.09174484206947175
+        ],
+        [
+          0.18522926488915067,
+          0.14411218290010927,
+          0.05775563360816419,
+          0.03558947740642473,
+          0.014356171057759798,
+          0.011748763425545542
+        ],
+        [
+          0.16967361772420542,
+          0.1291316361696244,
+          0.051344799056310154,
+          0.02887763007412671,
+          0.011202765425796499,
+          0.0024676740618918766
+        ],
+        [
+          0.13949639743188536,
+          0.12156106274915222,
+          0.06610821185065326,
+          0.05134201962809118,
+          0.033683695116265254,
+          0.033837651656265635
+        ],
+        [
+          0.13055220730962688,
+          0.10537472091304846,
+          0.04412572443251663,
+          0.06276558421990418,
+          0.05102917177087147,
+          0.06872550783744576
+        ],
+        [
+          0.15554532051444409,
+          0.15753596650054277,
+          0.09764804367236486,
+          0.08077363294259983,
+          0.03921849849025476,
+          0.029829962790511914
+        ],
+        [
+          0.1231834473009433,
+          0.09608289204263132,
+          0.06771201076575811,
+          0.061206776045959956,
+          0.054432961177753696,
+          0.03566497284309919
+        ],
+        [
+          0.13429367798701772,
+          0.10314407329688809,
+          0.04612038088428592,
+          0.04793641977394289,
+          0.0460716676843424,
+          0.06105819469145581
+        ],
+        [
+          0.18829952833811453,
+          0.14349147314768748,
+          0.07060823348178023,
+          0.03821336834446717,
+          0.029671328340129522,
+          0.040890779391813036
+        ],
+        [
+          0.09795072576578284,
+          0.08249737226952542,
+          0.0392433207884258,
+          0.025155360248613753,
+          0.02709050962626124,
+          0.030219884854159523
+        ],
+        [
+          0.10622670434959372,
+          0.09263676423685814,
+          0.058825120393528656,
+          0.04358488753178205,
+          0.023662135614961693,
+          0.014234457421731994
+        ],
+        [
+          0.14289149514379118,
+          0.11406838820040688,
+          0.08075180335347303,
+          0.06466014185513207,
+          0.056668886114667416,
+          0.0464161036610352
+        ],
+        [
+          0.1729324489117117,
+          0.15033979251821877,
+          0.076931944251006,
+          0.044439056331376396,
+          0.0114971676258056,
+          0.011215534189250198
+        ]
+      ],
+      "kurtosis": [
+        10.49910529488092,
+        8.14536038641953,
+        9.70702455697433,
+        6.799689203992649,
+        8.303162290191352,
+        6.838728977945996,
+        10.466728031860399,
+        11.711425406572388,
+        9.137426829598471,
+        7.372828336864288,
+        5.819341936769513,
+        5.602661256675432,
+        16.214286856489515,
+        8.37921302736919,
+        6.048646201647996,
+        7.052270449458559,
+        4.849634706277708,
+        7.839259342882661,
+        6.715893898436649,
+        23.33764752288152
+      ]
+    },
+    "18": {
+      "abs_acf": [
+        [
+          0.22477558874743703,
+          0.18478255514724753,
+          0.10833289237135345,
+          0.08412244894662713,
+          0.07060526269312196,
+          0.06388992504984378
+        ],
+        [
+          0.15135927483795955,
+          0.13187802400431037,
+          0.0740069281752838,
+          0.06039033313946308,
+          0.049802264997086086,
+          0.05078054263490146
+        ],
+        [
+          0.15990970851267206,
+          0.14479698580368341,
+          0.09439232361214518,
+          0.058022304974453535,
+          0.02306227394848837,
+          0.015262515673448766
+        ],
+        [
+          0.23781453653846718,
+          0.20629267856556557,
+          0.13835294298497555,
+          0.09066840885236725,
+          0.05412609168077437,
+          0.04176499951436387
+        ],
+        [
+          0.18960820792021876,
+          0.163881202663938,
+          0.1259147783943474,
+          0.09049784220893574,
+          0.07633693991572156,
+          0.06796064017930552
+        ],
+        [
+          0.2024910076930872,
+          0.1756175639191587,
+          0.11681827571724272,
+          0.08700230418481676,
+          0.0578671081092596,
+          0.04427416712057474
+        ],
+        [
+          0.21820693658454038,
+          0.18045201871684902,
+          0.1058386049951801,
+          0.0892164525784175,
+          0.08606942402092062,
+          0.09448645068591817
+        ],
+        [
+          0.2778782788438922,
+          0.26042039794818583,
+          0.19619942263765752,
+          0.17313065267819241,
+          0.13342794390226165,
+          0.12456722774166912
+        ],
+        [
+          0.2046238759676445,
+          0.1710441338947731,
+          0.10152182931572064,
+          0.07221529289775298,
+          0.050119476431113974,
+          0.0411809395850523
+        ],
+        [
+          0.20049263088127572,
+          0.15347285200528477,
+          0.07777219565548768,
+          0.0410592011419908,
+          0.024186425730076937,
+          0.0161588814919479
+        ],
+        [
+          0.1698715896969061,
+          0.1491101917133861,
+          0.08958762949539195,
+          0.06602971554860622,
+          0.03748157528874676,
+          0.03271854647748515
+        ],
+        [
+          0.1664282572446413,
+          0.1397735322275309,
+          0.07542968031627528,
+          0.05438525052170462,
+          0.03583010987916062,
+          0.03643571586214379
+        ],
+        [
+          0.20734622777812003,
+          0.18559468451547043,
+          0.11965062182784048,
+          0.09674620715779557,
+          0.06668429115694963,
+          0.05969200669955928
+        ],
+        [
+          0.17918176345232853,
+          0.1548551586312578,
+          0.11603074196340409,
+          0.10332673149892445,
+          0.08316399624872108,
+          0.058409028701032935
+        ],
+        [
+          0.16740424015105324,
+          0.1348727946390965,
+          0.07308066472329466,
+          0.07109148506499206,
+          0.05217751554214389,
+          0.06027655389344741
+        ],
+        [
+          0.2224786812601055,
+          0.17766090515837998,
+          0.1026297193608655,
+          0.07008479084575715,
+          0.05934001745921882,
+          0.06472956959549084
+        ],
+        [
+          0.1428990307812283,
+          0.12133075571762435,
+          0.06772253785330858,
+          0.04695016142445561,
+          0.03813560367185316,
+          0.03592262490850917
+        ],
+        [
+          0.17255365610751733,
+          0.1489567519800972,
+          0.0989960785853737,
+          0.07363679746020692,
+          0.047909632175358374,
+          0.03512728438316938
+        ],
+        [
+          0.20775611017520798,
+          0.17679731800949705,
+          0.12985614053422048,
+          0.10238923366231167,
+          0.0862157366309688,
+          0.07862633358897442
+        ],
+        [
+          0.2769312191936857,
+          0.24102630158348456,
+          0.15290283321076223,
+          0.10063775563193733,
+          0.0640544117931161,
+          0.06049155385887668
+        ]
+      ],
+      "sq_acf": [
+        [
+          0.18182544399212605,
+          0.14027657477742697,
+          0.053865557041158287,
+          0.040096238236464,
+          0.03754695906240486,
+          0.04069778246234211
+        ],
+        [
+          0.13084402348940125,
+          0.10346309569948335,
+          0.04302733291842397,
+          0.043051974677867026,
+          0.03867732520635039,
+          0.03339695837256388
+        ],
+        [
+          0.13063221875450176,
+          0.12186574325746298,
+          0.07530683845717547,
+          0.03921628698055323,
+          0.0005845539390571045,
+          -0.004440639474005892
+        ],
+        [
+          0.2012649673186494,
+          0.1799684590741019,
+          0.12825874478597585,
+          0.07295352130001535,
+          0.03015867865209214,
+          0.01669452624477931
+        ],
+        [
+          0.12780878143380475,
+          0.11634760416519592,
+          0.09332229633365598,
+          0.06412348326171852,
+          0.04309970258660256,
+          0.03797172752024672
+        ],
+        [
+          0.16166678287759564,
+          0.13697895438585825,
+          0.0776222795991831,
+          0.056392762713013994,
+          0.03505892817142709,
+          0.027814407892790473
+        ],
+        [
+          0.21391537488519446,
+          0.1838803171694633,
+          0.10158025775096502,
+          0.07653236371907342,
+          0.06324397614909305,
+          0.0844273415867129
+        ],
+        [
+          0.1759747891435481,
+          0.17937635948251626,
+          0.1441324743404857,
+          0.14505874307002115,
+          0.10069563985345986,
+          0.08722197453425443
+        ],
+        [
+          0.1775841740508344,
+          0.13408779286258712,
+          0.048497819861662655,
+          0.02765629956618369,
+          0.009980381786755315,
+          0.00866515389992122
+        ],
+        [
+          0.17185723308740547,
+          0.13004055688072627,
+          0.05009701718719393,
+          0.024977163757940724,
+          0.007224926106293952,
+          -0.0015727653892538694
+        ],
+        [
+          0.1424338557837704,
+          0.12469185915902858,
+          0.06566018408254747,
+          0.04965033875959376,
+          0.029854393099933693,
+          0.030262569324311726
+        ],
+        [
+          0.14028772125216887,
+          0.11136522868301396,
+          0.04219850818408855,
+          0.05556278552687433,
+          0.04375392073323838,
+          0.06058348392257885
+        ],
+        [
+          0.15304998955840898,
+          0.15393211031881787,
+          0.09715771165679099,
+          0.07820518646653506,
+          0.03925285403670631,
+          0.029093787020970124
+        ],
+        [
+          0.1111458345232117,
+          0.08480073777729287,
+          0.054719973693598795,
+          0.04841223909217821,
+          0.04087254176601337,
+          0.023090863090435332
+        ],
+        [
+          0.14187467629966027,
+          0.10727854011621825,
+          0.0451135197925116,
+          0.0419211950567405,
+          0.03811662220573771,
+          0.051882755572881474
+        ],
+        [
+          0.18673246863493304,
+          0.1411034552916388,
+          0.06608619394797033,
+          0.03224318267849767,
+          0.023138256763895488,
+          0.03339563665919368
+        ],
+        [
+          0.0923184167808566,
+          0.0751631267208,
+          0.027476662026513794,
+          0.012270045259115243,
+          0.013397185644519837,
+          0.01831812744597622
+        ],
+        [
+          0.10336807384055832,
+          0.08912321510145209,
+          0.05431554904722238,
+          0.03813490913555873,
+          0.01778051566452615,
+          0.00825674636450303
+        ],
+        [
+          0.13639883433908503,
+          0.10457710462598219,
+          0.06885210785070565,
+          0.05155862540828454,
+          0.04559035782455317,
+          0.035653205971818744
+        ],
+        [
+          0.19132988758184322,
+          0.16027731462228498,
+          0.07750934315473865,
+          0.03840815170342967,
+          0.006134903561983664,
+          0.005209437636054477
+        ]
+      ],
+      "kurtosis": [
+        10.522277077589395,
+        8.246021432200626,
+        10.798657840643438,
+        6.948659086644017,
+        8.685834020262476,
+        6.985675759023927,
+        10.775475587889222,
+        11.706785863888802,
+        10.158591400022514,
+        7.445731260399288,
+        6.389023682653674,
+        5.868633887307592,
+        16.793654337356376,
+        9.036888678938901,
+        6.285480612234281,
+        7.469225907082432,
+        5.153427439054987,
+        8.141853890405992,
+        7.085258534023797,
+        26.968681854367386
+      ]
+    }
+  },
+  "comparison": {
+    "LHX": {
+      "selected_candidate_id": 3,
+      "early_screen_score_selected": 1.190541275723715,
+      "early_screen_score_anchor": 1.6823273256319453,
+      "late_score_selected_fresh_seeds": 0.9334250393358866,
+      "late_score_anchor_fresh_seeds": 1.0367470576108175,
+      "late_score_selected_vs_early_target": 1.5824281126786062,
+      "late_score_anchor_vs_early_target": 0.9061976674015522
+    },
+    "BK": {
+      "selected_candidate_id": 3,
+      "early_screen_score_selected": 19.173488879398484,
+      "early_screen_score_anchor": 20.94913482596965,
+      "late_score_selected_fresh_seeds": 1.5929537076904563,
+      "late_score_anchor_fresh_seeds": 1.7010700598134445,
+      "late_score_selected_vs_early_target": 8.682276579285647,
+      "late_score_anchor_vs_early_target": 10.534408086864698
+    },
+    "HUM": {
+      "selected_candidate_id": 3,
+      "early_screen_score_selected": 6.297417603378586,
+      "early_screen_score_anchor": 7.386115496747134,
+      "late_score_selected_fresh_seeds": 1.515194924912878,
+      "late_score_anchor_fresh_seeds": 2.8505632015077396,
+      "late_score_selected_vs_early_target": 0.5132816408070553,
+      "late_score_anchor_vs_early_target": 1.289154042438184
+    },
+    "TSN": {
+      "selected_candidate_id": 3,
+      "early_screen_score_selected": 3.254388163298545,
+      "early_screen_score_anchor": 4.0405513770959764,
+      "late_score_selected_fresh_seeds": 5.5227644159906815,
+      "late_score_anchor_fresh_seeds": 7.912412719866086,
+      "late_score_selected_vs_early_target": 0.7531536298971699,
+      "late_score_anchor_vs_early_target": 0.7116572185303648
+    },
+    "IEX": {
+      "selected_candidate_id": 12,
+      "early_screen_score_selected": 1.4437277691262667,
+      "early_screen_score_anchor": 1.8014546728807423,
+      "late_score_selected_fresh_seeds": 1.7554802255282949,
+      "late_score_anchor_fresh_seeds": 2.1085871153907108,
+      "late_score_selected_vs_early_target": 1.9694791383000474,
+      "late_score_anchor_vs_early_target": 2.6473752337144996
+    },
+    "KMB": {
+      "selected_candidate_id": 3,
+      "early_screen_score_selected": 1.7364756243108526,
+      "early_screen_score_anchor": 2.276105823781421,
+      "late_score_selected_fresh_seeds": 0.7905612515246077,
+      "late_score_anchor_fresh_seeds": 1.7780240383257426,
+      "late_score_selected_vs_early_target": 2.0456330723868428,
+      "late_score_anchor_vs_early_target": 1.3614082011204702
+    },
+    "SP500": {
+      "selected_candidate_id": 3,
+      "early_screen_score_selected": 10.022126040151155,
+      "early_screen_score_anchor": 10.951306405280363,
+      "late_score_selected_fresh_seeds": 13.430109376386461,
+      "late_score_anchor_fresh_seeds": 15.160245383348665,
+      "late_score_selected_vs_early_target": 8.253312587875053,
+      "late_score_anchor_vs_early_target": 8.07583122573295
+    },
+    "RUSSELL2000": {
+      "selected_candidate_id": 12,
+      "early_screen_score_selected": 14.190696412097479,
+      "early_screen_score_anchor": 15.310917822015224,
+      "late_score_selected_fresh_seeds": 8.980600435621506,
+      "late_score_anchor_fresh_seeds": 9.570633335393952,
+      "late_score_selected_vs_early_target": 13.024609086528116,
+      "late_score_anchor_vs_early_target": 14.484046920786515
+    },
+    "NASDAQ100": {
+      "selected_candidate_id": 12,
+      "early_screen_score_selected": 8.414511954899902,
+      "early_screen_score_anchor": 9.30924276364,
+      "late_score_selected_fresh_seeds": 6.339834594017483,
+      "late_score_anchor_fresh_seeds": 7.238694954693262,
+      "late_score_selected_vs_early_target": 7.935676977847489,
+      "late_score_anchor_vs_early_target": 9.208332166899105
+    }
+  }
+}

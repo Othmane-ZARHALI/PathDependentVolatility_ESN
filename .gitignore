@@ -21,7 +21,11 @@ matteo/web_claude/*.json
 !/matteo/exogenous_reservoir_eq_m2/**
 !/matteo/preprocessing/
 !/matteo/preprocessing/**
+!/matteo/model_comparison/
+!/matteo/model_comparison/**
 /matteo/preprocessing/**/__pycache__/
+/matteo/model_comparison/**/__pycache__/
+**/.DS_Store
 
 # Re-ignore local build intermediates after keeping the M2 package visible.
 /matteo/exogenous_reservoir_eq_m2/**/__pycache__/

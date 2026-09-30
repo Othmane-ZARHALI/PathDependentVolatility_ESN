@@ -1,0 +1,203 @@
+{
+  "source": "same historical GK variance and fresh simulated paths",
+  "assets": {
+    "LHX": {
+      "historical_H_lags_1_40": 0.0476207140379003,
+      "historical_H_lags_2_40": 0.045993009413473146,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.04401415112995714,
+          "H_lags_2_40": 0.0359679590363117,
+          "absolute_error_common_1_40": 0.0036065629079431658,
+          "absolute_error_common_2_40": 0.010025050377161449,
+          "full_sse_common_1_40": 3.10896858277314,
+          "full_sse_common_2_40": 5.9666005014153995
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.02771866282042036,
+          "absolute_error_common_2_40": 0.020456646794091843,
+          "full_sse_common_1_40": 27.355651851812567,
+          "full_sse_common_2_40": 15.92928795848504
+        }
+      }
+    },
+    "BK": {
+      "historical_H_lags_1_40": 0.06512113414378412,
+      "historical_H_lags_2_40": 0.06550589431041094,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.05852191490233015,
+          "H_lags_2_40": 0.04933083215479794,
+          "absolute_error_common_1_40": 0.006599219241453971,
+          "absolute_error_common_2_40": 0.016175062155613,
+          "full_sse_common_1_40": 2.8276222271905733,
+          "full_sse_common_2_40": 9.950377599053352
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.010218242714536543,
+          "absolute_error_common_2_40": 0.0009437618971540468,
+          "full_sse_common_1_40": 17.43415786703133,
+          "full_sse_common_2_40": 14.05305691300341
+        }
+      }
+    },
+    "HUM": {
+      "historical_H_lags_1_40": 0.04753883731565829,
+      "historical_H_lags_2_40": 0.042348823901997776,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.04782956801392157,
+          "H_lags_2_40": 0.03947085670941504,
+          "absolute_error_common_1_40": 0.0002907306982632765,
+          "absolute_error_common_2_40": 0.0028779671925827366,
+          "full_sse_common_1_40": 4.335513940000715,
+          "full_sse_common_2_40": 4.603272458668262
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.027800539542662372,
+          "absolute_error_common_2_40": 0.024100832305567213,
+          "full_sse_common_1_40": 28.31837887592606,
+          "full_sse_common_2_40": 22.0468629469866
+        }
+      }
+    },
+    "TSN": {
+      "historical_H_lags_1_40": 0.042398775348124945,
+      "historical_H_lags_2_40": 0.037554812327370346,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.0335981114539471,
+          "H_lags_2_40": 0.026317966019630008,
+          "absolute_error_common_1_40": 0.008800663894177843,
+          "absolute_error_common_2_40": 0.011236846307740338,
+          "full_sse_common_1_40": 5.072950326779427,
+          "full_sse_common_2_40": 6.667286477488636
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.03294060151019572,
+          "absolute_error_common_2_40": 0.028894843880194643,
+          "full_sse_common_1_40": 38.95039482002553,
+          "full_sse_common_2_40": 30.77961159700992
+        }
+      }
+    },
+    "IEX": {
+      "historical_H_lags_1_40": 0.03731906168771039,
+      "historical_H_lags_2_40": 0.035435080974054484,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.03883068683641836,
+          "H_lags_2_40": 0.03173977458856246,
+          "absolute_error_common_1_40": 0.001511625148707972,
+          "absolute_error_common_2_40": 0.0036953063854920226,
+          "full_sse_common_1_40": 3.1674432811408946,
+          "full_sse_common_2_40": 3.538805264854298
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.038020315170610275,
+          "absolute_error_common_2_40": 0.031014575233510505,
+          "full_sse_common_1_40": 52.71624083356996,
+          "full_sse_common_2_40": 36.92017319379244
+        }
+      }
+    },
+    "KMB": {
+      "historical_H_lags_1_40": 0.050615295129418654,
+      "historical_H_lags_2_40": 0.04858852721848376,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.053086551337126406,
+          "H_lags_2_40": 0.04481362176802747,
+          "absolute_error_common_1_40": 0.002471256207707752,
+          "absolute_error_common_2_40": 0.0037749054504562854,
+          "full_sse_common_1_40": 2.945711741555679,
+          "full_sse_common_2_40": 3.211661934768606
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.02472408172890201,
+          "absolute_error_common_2_40": 0.01786112898908123,
+          "full_sse_common_1_40": 22.43626924671372,
+          "full_sse_common_2_40": 12.890825070652403
+        }
+      }
+    },
+    "SP500": {
+      "historical_H_lags_1_40": 0.0823863096139956,
+      "historical_H_lags_2_40": 0.08576000991300094,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.08962721262855142,
+          "H_lags_2_40": 0.08122378942611613,
+          "absolute_error_common_1_40": 0.007240903014555822,
+          "absolute_error_common_2_40": 0.004536220486884804,
+          "full_sse_common_1_40": 4.184301863723463,
+          "full_sse_common_2_40": 3.1439461464744736
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.007046932755674931,
+          "absolute_error_common_2_40": 0.019310353705435948,
+          "full_sse_common_1_40": 12.306134846095725,
+          "full_sse_common_2_40": 22.863089740472105
+        }
+      }
+    },
+    "RUSSELL2000": {
+      "historical_H_lags_1_40": 0.06613996313033735,
+      "historical_H_lags_2_40": 0.06642117086593269,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.0692504586710959,
+          "H_lags_2_40": 0.05943740716963971,
+          "absolute_error_common_1_40": 0.003110495540758554,
+          "absolute_error_common_2_40": 0.006983763696292979,
+          "full_sse_common_1_40": 9.42440615519613,
+          "full_sse_common_2_40": 10.701369269251973
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.009199413727983316,
+          "absolute_error_common_2_40": 2.8485341632300543e-05,
+          "full_sse_common_1_40": 17.170732552753336,
+          "full_sse_common_2_40": 14.406704342144831
+        }
+      }
+    },
+    "NASDAQ100": {
+      "historical_H_lags_1_40": 0.07289633628777309,
+      "historical_H_lags_2_40": 0.0730761225137695,
+      "models": {
+        "othmane_archived_fit": {
+          "H_lags_1_40": 0.07297138817512958,
+          "H_lags_2_40": 0.06453181920561764,
+          "absolute_error_common_1_40": 7.505188735648649e-05,
+          "absolute_error_common_2_40": 0.008544303308151868,
+          "full_sse_common_1_40": 1.187111271668078,
+          "full_sse_common_2_40": 3.5713302298735243
+        },
+        "m2_stage3_anchor": {
+          "H_lags_1_40": 0.07533937685832066,
+          "H_lags_2_40": 0.06644965620756499,
+          "absolute_error_common_1_40": 0.002443040570547575,
+          "absolute_error_common_2_40": 0.006626466306204518,
+          "full_sse_common_1_40": 10.034092066283772,
+          "full_sse_common_2_40": 11.273293968959418
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "raw_files": {
+    "stock": {
+      "path": "data/raw/list_dics_SP500_ohlcvol_19940101_filtered.pkl",
+      "sha256": "03882e7316b01f49b1ab413d0490fea08ab4942a58b9f77dcd2612a4696714bb"
+    },
+    "index": {
+      "path": "data/raw/indices_data_all_quotations1990-2023.xlsx",
+      "sha256": "6e37e4244567ae8c2430b57bb03d1e71d94a1159e3e6298b8865a5f22dea3c45"
+    }
+  },
+  "sample_rows": {
+    "LHX": 8054,
+    "BK": 8054,
+    "HUM": 8054,
+    "TSN": 8054,
+    "IEX": 8054,
+    "KMB": 8054,
+    "SP500": 7521,
+    "RUSSELL2000": 7521,
+    "NASDAQ100": 7521
+  },
+  "checks": {
+    "bench9_real_hurst": {
+      "exact_match": true,
+      "saved_sha256": "0ae821261e76a417b5539d678be7aae307c412451ed806a39d4739998bd34776"
+    },
+    "bench9_real_leverage_wide": {
+      "exact_match": true,
+      "saved_sha256": "b1d15c08708108f0cdefa2dfb6e68d8e35249743ec9e1d457f7ced86748f1ddb"
+    },
+    "bench9_real_abs_acf_40": {
+      "exact_match": true,
+      "saved_sha256": "edae7faa2c794ecb52353ffef988cbf1dbf85b55f9203b44272c11f05ab279b2"
+    },
+    "bench9_real_sq_acf_40": {
+      "exact_match": true,
+      "saved_sha256": "0b160adb12159567498be681539bcb85d3c7b360c2b31e94e592dc97e106c122"
+    },
+    "bench9_real_zumbach_profile": {
+      "exact_match": true,
+      "saved_sha256": "933873b2c8799524bb0483a8b60dbbf11a841ae87360d3f263e6d0e3c94512a3"
+    },
+    "bench9_real_kurtosis": {
+      "exact_match": true,
+      "saved_sha256": "664475ea7cb1e48b28a67d767c4d8eb3451add0967df86932208842f0b616dd8"
+    }
+  },
+  "all_exact": true
+}
