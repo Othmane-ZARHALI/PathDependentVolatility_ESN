@@ -1,0 +1,41 @@
+{
+  "asset": "SP500",
+  "periods": [
+    "1994-1998",
+    "1999-2003",
+    "2004-2008",
+    "2009-2013",
+    "2014-2018",
+    "2019-2023"
+  ],
+  "seed": 20260930,
+  "first_year": 1994,
+  "last_year": 2023,
+  "period_years": 5,
+  "include_partial": false,
+  "min_observations": 500,
+  "bootstrap_replicates": 1000,
+  "block_lengths": [
+    126,
+    63,
+    252
+  ],
+  "rolling": true,
+  "rolling_window_years": [
+    5,
+    10
+  ],
+  "rolling_step_years": 1,
+  "rolling_replicates": 500,
+  "rolling_block_length": 126,
+  "primary_proxy": "same-day Garman-Klass variance, floor 1e-12",
+  "sensitivity_proxy": "Garman-Klass plus squared overnight open/previous-close log gap",
+  "second_sensitivity_proxy": "Parkinson high-low variance, floor 1e-12",
+  "bootstrap": "fixed moving blocks of aligned daily tuples; exclude cross-block lag comparisons",
+  "interval": "95% percentile bootstrap; point and bootstrap mean both reported",
+  "heterogeneity": "inverse-variance Q with centered within-period bootstrap null",
+  "source_file": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/data/raw/indices_data_all_quotations1990-2023.xlsx",
+  "source_sha256": "6e37e4244567ae8c2430b57bb03d1e71d94a1159e3e6298b8865a5f22dea3c45",
+  "source_first": "1994-01-03",
+  "source_last": "2023-11-14"
+}
