@@ -1,0 +1,43 @@
+{
+  "replicates": 400,
+  "seed": 480522,
+  "method": "resample simulated paths independently; later historical target fixed",
+  "probabilities": {
+    "LHX": {
+      "bootstrap_probability_selected_below_anchor": 0.5975,
+      "bootstrap_probability_selected_below_archived_esn": 0.81
+    },
+    "BK": {
+      "bootstrap_probability_selected_below_anchor": 0.5825,
+      "bootstrap_probability_selected_below_archived_esn": 0.8475
+    },
+    "HUM": {
+      "bootstrap_probability_selected_below_anchor": 0.8675,
+      "bootstrap_probability_selected_below_archived_esn": 0.99
+    },
+    "TSN": {
+      "bootstrap_probability_selected_below_anchor": 0.845,
+      "bootstrap_probability_selected_below_archived_esn": 0.785
+    },
+    "IEX": {
+      "bootstrap_probability_selected_below_anchor": 0.8425,
+      "bootstrap_probability_selected_below_archived_esn": 0.81
+    },
+    "KMB": {
+      "bootstrap_probability_selected_below_anchor": 0.8575,
+      "bootstrap_probability_selected_below_archived_esn": 0.9925
+    },
+    "SP500": {
+      "bootstrap_probability_selected_below_anchor": 0.83,
+      "bootstrap_probability_selected_below_archived_esn": 0.0
+    },
+    "RUSSELL2000": {
+      "bootstrap_probability_selected_below_anchor": 0.7025,
+      "bootstrap_probability_selected_below_archived_esn": 0.195
+    },
+    "NASDAQ100": {
+      "bootstrap_probability_selected_below_anchor": 0.92,
+      "bootstrap_probability_selected_below_archived_esn": 0.0
+    }
+  }
+}

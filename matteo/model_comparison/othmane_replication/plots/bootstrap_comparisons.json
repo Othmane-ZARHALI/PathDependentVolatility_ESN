@@ -1,0 +1,43 @@
+{
+  "replicates": 400,
+  "seed": 380521,
+  "method": "resample model paths independently, keep historical target fixed",
+  "comparisons": {
+    "LHX": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.955
+    },
+    "BK": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.0
+    },
+    "HUM": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.9025
+    },
+    "TSN": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.7425
+    },
+    "IEX": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.0825
+    },
+    "KMB": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.9425
+    },
+    "SP500": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.0
+    },
+    "RUSSELL2000": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.0
+    },
+    "NASDAQ100": {
+      "simulation_bootstrap_probability_m2_lower_full_sse": 0.0,
+      "simulation_bootstrap_probability_m2_lower_return_only_sse": 0.0
+    }
+  }
+}

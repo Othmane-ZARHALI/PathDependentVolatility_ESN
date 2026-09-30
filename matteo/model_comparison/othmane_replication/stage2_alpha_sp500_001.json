@@ -1,0 +1,17 @@
+{
+  "status": "controlled_stage2_alpha_sensitivity_not_full_refit",
+  "asset": "SP500",
+  "paths": 12,
+  "days": 2500,
+  "seed_first": 16606000,
+  "target_excess_kurtosis": 10.313948903130475,
+  "archived_fitted_alpha": 0.2204169575487457,
+  "archived_final_m1": 0.17451828647728151,
+  "m1_with_fitted_alpha": 0.19592422968933226,
+  "kurtosis_with_fitted_alpha": 10.314345582754228,
+  "m1_with_omitted_alpha_default_1": 0.058712764371605206,
+  "kurtosis_at_default_alpha_1": 10.319132545303054,
+  "kurtosis_of_default_m1_at_fitted_alpha": 5.126014502427748,
+  "m1_difference_default_minus_fitted": -0.13721146531772704,
+  "kurtosis_error_default_m1_at_fitted_alpha": -5.187934400702727
+}
