@@ -1,0 +1,17 @@
+expiry,expiry_date,expiry_days,T_years,forward_vix_points,source_provenance,quote_interval_available,method,candidate,model_forward,sampling_se
+46099,2026-03-18,27,0.073972602739726,20.1,likely_traded_future_user_reported,False,random_mixture,starting,21.12531480926399,0.12237409372211674
+46127,2026-04-15,55,0.1506849315068493,20.73,likely_traded_future_user_reported,False,random_mixture,starting,20.49547438091615,0.18727058917419845
+46190,2026-06-17,118,0.3232876712328767,21.19,likely_traded_future_user_reported,False,random_mixture,starting,22.31968326159466,0.12223691296379924
+46225,2026-07-22,153,0.4191780821917808,21.72,likely_traded_future_user_reported,False,random_mixture,starting,22.64401868209393,0.2627505680850785
+46099,2026-03-18,27,0.073972602739726,20.1,likely_traded_future_user_reported,False,random_mixture,selected,21.058705295808657,0.12198785756467971
+46127,2026-04-15,55,0.1506849315068493,20.73,likely_traded_future_user_reported,False,random_mixture,selected,20.4308662471707,0.1866788238489735
+46190,2026-06-17,118,0.3232876712328767,21.19,likely_traded_future_user_reported,False,random_mixture,selected,21.107565277065977,0.11558135228513747
+46225,2026-07-22,153,0.4191780821917808,21.72,likely_traded_future_user_reported,False,random_mixture,selected,21.41430072843464,0.24845089316574456
+46099,2026-03-18,27,0.073972602739726,20.1,likely_traded_future_user_reported,False,stratified,starting,21.077332902189234,0.1276601272996277
+46127,2026-04-15,55,0.1506849315068493,20.73,likely_traded_future_user_reported,False,stratified,starting,20.684144774854275,0.09158597385736511
+46190,2026-06-17,118,0.3232876712328767,21.19,likely_traded_future_user_reported,False,stratified,starting,22.39288903559916,0.21459810937151882
+46225,2026-07-22,153,0.4191780821917808,21.72,likely_traded_future_user_reported,False,stratified,starting,22.27298209096229,0.13704391207732636
+46099,2026-03-18,27,0.073972602739726,20.1,likely_traded_future_user_reported,False,stratified,selected,21.01087559324048,0.12725665338763834
+46127,2026-04-15,55,0.1506849315068493,20.73,likely_traded_future_user_reported,False,stratified,selected,20.618941481576584,0.09129715807327604
+46190,2026-06-17,118,0.3232876712328767,21.19,likely_traded_future_user_reported,False,stratified,selected,21.176820960411735,0.20292549525789225
+46225,2026-07-22,153,0.4191780821917808,21.72,likely_traded_future_user_reported,False,stratified,selected,21.063466019914113,0.12957784112091442

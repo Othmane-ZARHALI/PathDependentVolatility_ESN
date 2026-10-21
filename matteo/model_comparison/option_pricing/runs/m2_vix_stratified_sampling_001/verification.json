@@ -1,0 +1,12 @@
+{
+  "status": "artifact correspondence checks passed",
+  "source_hashes": 35,
+  "actual_scramble_seeds": 256,
+  "checking_seeds_disjoint_from_prior": true,
+  "raw_observations": 8192,
+  "summary_rows_recomputed": 732,
+  "weights_regenerated": true,
+  "component_allocations_and_prefixes_checked": true,
+  "verifier_sha256": "c90315e108e1be75825af8335eb8fd01ccd475bf1e23726fbdb14c8df6a260d6",
+  "limitation": "Checks correspondence, not numerical convergence or statistical superiority."
+}

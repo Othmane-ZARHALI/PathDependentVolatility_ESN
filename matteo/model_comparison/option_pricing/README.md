@@ -104,3 +104,9 @@ New full-scope sampling diagnostics use `vix_importance_sampling`.
 pilot-learned defensive proposals, frozen before larger fresh all-four-maturity
 checks (`vix_pilot_sampling`). `vix_sampling_rank_audit` then evaluates the two
 original frozen curves on the same weighted observations, without refitting.
+
+[VIX_STRATIFIED_SAMPLING_RESULTS.md](VIX_STRATIFIED_SAMPLING_RESULTS.md) compares
+fresh random and fixed component allocations under the identical frozen
+proposal (`vix_stratified_sampling`). The exact allocation correction and
+component-wise prefix handling are recorded and checked by
+`verify_vix_stratified_sampling`; all four maturities remain included.

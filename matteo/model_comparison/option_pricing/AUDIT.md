@@ -274,3 +274,54 @@ curve segment and a curve-independent date-zero normalizer. The implementation
 rejects curve-knot crossings and checks against the archived conditional-
 exposure cache at each expiry. No nonlinear-loss ranking is certified by an
 eight-scramble descriptive jackknife. See `VIX_PILOT_SAMPLING_RESULTS.md`.
+
+## Fixed component allocation and density-weight distinction — 21 October 2026
+
+The all-four-maturity follow-up freezes the preceding learned Gaussian proposal
+and compares fresh random component selection with fixed per-component counts.
+The integers (32,6,6,5,5,5,5) at N=64 are only approximately proportional to the
+probabilities (1/2,1/12,...,1/12). A plain average using only f/g under these
+fixed counts would generally estimate the wrong expectation. The implemented
+estimator is sum_k pi_k mean_k[(f/g)H], equivalently a plain average with factor
+(N*pi_k/n_k)*(f/g). Density weights and deterministic allocation factors are
+saved separately. This is exact allocation correction, not self-normalization.
+
+Coarse prefixes must be taken within each component, not from global row order.
+Complete sets of independent component scrambles define a replication. Tests
+cover the allocation correction under deliberately unequal component counts and
+the prefix indexing distinction. Non-power-of-two component counts use partial
+Sobol nets; no full-net balance claim is made. No control from the previous
+negative-price experiment is applied. All original scope and numerical-error
+limitations remain; see `VIX_STRATIFIED_SAMPLING_RESULTS.md`.
+
+The QMC layouts also differ: one global (d+1)-dimensional net with a component
+selection coordinate versus seven independent d-dimensional component nets.
+Any observed improvement belongs to the complete stratified sampling design;
+it cannot be attributed solely to reduced random component counts. Equal
+conditional-pricing counts do not imply identical random-number generation cost.
+
+## New numerical identity discrepancy, not a cleared normalizer — 21 October 2026
+
+The fixed-allocation study retains all four VIX maturities and forwards but
+does not establish a uniform precision gain. The 27-day E[VIX^2] target under
+the exact normalized model is 542.49611; fresh random and stratified estimates
+are 556.16551 ± 3.23481 and 554.03172 ± 3.10259 (reported scramble SE). The
+exact-mass-centered residual w*(VIX^2-target) remains +15.66458 ± 2.75395 and
++12.60904 ± 3.46012. This discrepancy is preserved in
+`runs/m2_vix_stratified_moment_audit_001`. It is not corrected by imposing the
+moment identity or renormalizing prices. Its interpretation remains open: outer
+tails/SE estimation, conditional GH composition, global M_Q quadrature and time
+integration must be separated. The exploratory audit was prompted by the
+observed second moments; no predeclared significance test is claimed.
+
+Earlier noisy moment agreement is a historical observation, not normalization
+clearance. Likewise the preceding pilot's small selected-state GH changes do
+not cover every new tail state: the 55-day GH32/48 tail-state difference is now
+0.022312 VIX points. Known-Gaussian likelihood-mass checks concern sampling
+weights and do not establish accuracy of the model's separate M_Q normalizer.
+
+Fresh fixed-curve loss changes also differ in sign between random mixture
+(-0.21042) and stratification (+0.93316), with descriptive jackknife SEs about
+1.45 and 1.12. Preserve the previous positive changes around +2.7/+2.9 as
+historical results; no final ranking follows from any of these small studies.
+See `VIX_STRATIFIED_SAMPLING_RESULTS.md` for full records and next diagnostics.

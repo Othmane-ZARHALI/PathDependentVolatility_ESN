@@ -199,6 +199,20 @@ The original selected curve again has higher fresh loss than the starting curve:
 uncertainty. No refit, final ranking, or held-out claim follows. All 101 tests
 pass; source/weight/summary correspondence checks pass separately.
 
+The frozen-proposal allocation follow-up is in
+[VIX_STRATIFIED_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_STRATIFIED_SAMPLING_RESULTS.md).
+All four maturities remain included. Fixed allocation lowers forward SE at
+55/153 days but worsens it at 118 days; option precision is mixed. Both methods
+have no zero-hit option estimates, but no full accuracy gate passes. The fresh
+fixed-curve loss changes are -0.210 (random mixture) and +0.933 (stratified),
+with descriptive uncertainty around 1.1–1.4: the original ranking remains
+unresolved. A 55-day conditional tail-state GH change is 0.0223 VIX points,
+larger than the preceding pilot-run checks. A new 27-day second-moment identity
+discrepancy persists after removing random mass fluctuation and warrants a
+separate outer/conditional/normalizer/time audit before refitting. It is not
+proof of a normalization bug. Current validation: 106 tests and independent
+artifact correspondence checks pass; statistical/numerical gates remain open.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per
