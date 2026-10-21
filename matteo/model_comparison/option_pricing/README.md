@@ -85,3 +85,8 @@ Cached exposures, the exploratory VIX curve fit and fresh-scramble checking are
 recorded in [CURVE_PROFILE_RESULTS.md](CURVE_PROFILE_RESULTS.md). Commands are
 `vix_curve_fit` and `curve_spx_check`. The fixed-sample fit improvement reverses
 on checking scrambles; it must not be promoted as a reliable market fit.
+
+[NUMERICAL_STABILITY_RESULTS.md](NUMERICAL_STABILITY_RESULTS.md) investigates
+that reversal and the SPX sampling bottleneck. It includes the paired audit,
+matched-state quadrature check, independent pilot coverage audit and a
+three-grid SPX hedging-control experiment. No full-surface convergence is claimed.

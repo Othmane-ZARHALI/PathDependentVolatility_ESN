@@ -170,6 +170,11 @@ Further readout/state fitting and the joint SPX/VIX objective remain open.
 81 package tests and eight legacy/driver checks pass. No held-out quote or
 final-test maturity performance has been evaluated.
 
+The subsequent investigation is [NUMERICAL_STABILITY_RESULTS.md](NUMERICAL_STABILITY_RESULTS.md):
+paired loss attribution, matched-state quadrature refinement and adapted SPX
+hedging controls. It supports outer-sample sensitivity as the main explanation
+at the dominant VIX block and quantifies improvements and remaining gaps in SPX.
+
 ## Reproduction
 
 From repository root, use the project Python environment:

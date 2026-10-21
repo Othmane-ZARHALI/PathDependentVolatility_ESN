@@ -194,3 +194,19 @@ scrambles reuse training contracts and do not constitute held-out market data.
 The reversal and remaining tail/quadrature errors are preserved in
 `CURVE_PROFILE_RESULTS.md` and `runs/m2_vix_curve_fit_001`; no candidate was
 reselected using checking loss.
+
+The subsequent paired audit reproduces those prices and isolates the main
+153-day block. Its comparison reverses by about 10.8 loss units between outer
+samples, while conditional/normalizer quadrature refinement shifts it by only
+about 0.0031. This supports outer-sample sensitivity at that block; it does not
+justify declaring quadrature accurate everywhere or ranking the two curves.
+See `NUMERICAL_STABILITY_RESULTS.md` for loss-scale, tail-concentration and
+leave-one-scramble-out diagnostics.
+
+The SPX control experiment also retains a zero-raw-payoff case whose empirical
+plain SE is zero. Its augmented estimate has nonzero uncertainty; neither is
+an accurate tail-price certificate. Entirely zero pilot targets can produce
+zero regression coefficients, so tail coverage must be monitored during
+pilot training as well as evaluation. The new three-level stock study couples
+all 64/128/256 grids within a single finest sample, avoiding the earlier
+cross-pair limitation while leaving continuous-time accuracy unresolved.

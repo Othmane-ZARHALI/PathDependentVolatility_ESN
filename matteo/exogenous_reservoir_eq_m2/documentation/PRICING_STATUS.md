@@ -62,6 +62,10 @@ not a change to the model or its historical research claims.
   At fixed model/state, integrated variance is affine in segment levels;
   candidate VIX prices retain the square root and nonzero variance floor.
   Direct-repricing, affine, constant-variance and stale-cache checks pass.
+- `src/esn_eq/hedging_controls.py` adds two predictable Black-inspired trading
+  gains as zero-mean SPX controls. Independent pilot coefficients combine them
+  with the existing static controls. Matched-path tests and a three-grid,
+  two-trial diagnostic show variance reductions, with tails still unresolved.
 
 ## Evidence and limits
 
@@ -133,13 +137,25 @@ now implemented; see [CURVE_PROFILE_RESULTS.md](../../model_comparison/option_pr
 All eight starts solve the fixed-sample problem, but the apparent improvement
 reverses on fresh checking scrambles. No reliable fit improvement or joint
 feasibility is established. Numerical comparison stability remains a priority.
-There are now 81 passing package tests and eight passing legacy/driver checks.
+That checkpoint recorded 81 passing package tests and eight legacy/driver checks.
 The resulting curve was also checked against 29/57-day SPX training prices
 with coupled 128/256 grids and independent-pilot controls. Its descriptive
 SPX loss is 384.11 versus 963.93 for the earlier stripped curve; much of the
 change comes from the nuisance family's higher near variance. Numerical gates
 remain unresolved, and the VIX sampling reversal prevents a reliable joint
 improvement claim.
+
+The subsequent diagnosis is in
+[NUMERICAL_STABILITY_RESULTS.md](../../model_comparison/option_pricing/NUMERICAL_STABILITY_RESULTS.md).
+At the reversal's 153-day VIX block, increasing conditional GH 32/48 and
+normalization 48/64 changes the fixed-candidate comparison by at most about
+0.0031 loss units, whereas changing the outer sample moves it about 10.8.
+Rare-event outer sampling is the main supported explanation at that block.
+Predictable SPX hedging controls reduce estimated variance by a median factor
+5.20 over twelve representative contracts in two trials, but none meets the
+sampling tolerance. The new 64/128/256 comparisons share one finest path set
+per trial; time bias and normalizer accuracy remain unresolved.
+There are now 84 passing package tests and nine passing legacy/driver checks.
 
 ## Remaining work
 
@@ -150,6 +166,8 @@ improvement claim.
    Reduce SPX Monte Carlo variance and assess stock-integration bias against
    quote scales using independent final seeds. Complete normalizer quadrature
    refinement in cap/tail regimes. Keep model/state fixed across resolutions.
+   Extend the tested hedging controls with tail-aware pilot/evaluation sampling
+   and measure multilevel correction variance/cost before scaling path counts.
 2. Refine the implemented conditional VIX engines, especially outer/tail
    sampling. Conditional quadrature and nested integration agree in controlled
    tests, but market quote-relative sampling/bias gates are still unresolved.
