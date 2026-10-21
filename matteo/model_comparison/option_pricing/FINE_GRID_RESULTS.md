@@ -104,6 +104,51 @@ python -m matteo.model_comparison.option_pricing.fine_grid --mode vix \
   --output /tmp/m2_vix_64_128_new
 ```
 
-Next numerical work is a coupled 128/256 SPX check with frozen parameters and
-independent confirmation seeds, plus sufficient variance reduction to assess
-quote-relative errors. No final fit or model ranking is claimed here.
+## Follow-up SPX 128/256 check
+
+`runs/m2_spx_128_256_001` repeats the same frozen-model experiment at 128/256,
+with 4096 evaluation paths, 2048 independent pilot paths, batches of 512 and
+normalizer order 48. There are 5038 coarse and 10076 fine intervals; maximum
+lambda*dt is 0.154998 and 0.077499 respectively.
+
+| Expiry | Largest absolute controlled fine-minus-coarse price change | Paired SE at that strike | Strike | Largest controlled fine-price SE |
+| --- | ---: | ---: | ---: | ---: |
+| 29d | 0.57611 | 0.30773 | 6825 | 2.41350 |
+| 57d | 0.90499 | 0.51226 | 6370 | 2.52582 |
+
+The largest plain paired changes are 0.88515/1.21974 points. Maximum controlled
+changes in frozen price-scale units are 1.61/2.55. As above, these are
+quote-selected maxima with pointwise sampling SEs, not simultaneous bounds.
+The 256-step stock-forward means are 0.999866 (SE 0.000749) and 0.998919
+(SE 0.001039). No negative controlled prices occurred in this run.
+
+Within this experiment the 128/256 paths are coupled. They are not a common
+three-level path sample with the separate 64/128 experiment: changing the
+finest grid changes normal allocation even at the same base seed. Across-pair
+changes in maxima therefore do not establish a convergence order.
+
+The run completed, but neither time-grid bias nor absolute price sampling
+error meets the full quote-relative accuracy requirements. Simply failing to
+separate a grid difference from zero is not evidence of adequate accuracy.
+
+## Next implementation priorities
+
+1. Improve sampling efficiency and assess total error at frozen central/tail
+   test configurations. Benchmark randomized low-discrepancy outer Gaussian
+   sampling for VIX, with independent scrambles, and stronger conditional or
+   control methods for SPX. Any faster time quadrature for conditional VIX
+   must be checked against the fine-grid fixed-state reference above.
+2. Complete the shared ESN/M2 objective contract: actual strikes, undiscounted
+   bid/ask price intervals, equal family/expiry weighting, separate VIX forward
+   residuals, complete failures and numerical-status reporting. Model-specific
+   conditioning/time/VIX-basis differences remain explicit.
+3. Profile the declared nuisance variance-curve family and restricted dated
+   state, preserving the preprocessing conflict and source uncertainty. A
+   finite-strike stripped curve is not a known exact full forward-variance input.
+4. Run an exploratory SPX fit, VIX diagnostics and then the shared-parameter
+   joint fit. Use declared coarse-to-fine search budgets; finalist acceptance
+   and model ranking require the numerical gates, physical checks and held-out
+   evaluation already specified in the calibration plan.
+
+No final fit or model ranking is claimed here. Reproduce the follow-up using
+`fine_grid --mode spx --coarse-steps 128` and a fresh output directory.

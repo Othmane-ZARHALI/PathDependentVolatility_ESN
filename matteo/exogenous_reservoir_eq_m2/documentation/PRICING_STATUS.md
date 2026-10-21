@@ -89,6 +89,11 @@ SPX has not met quote-relative convergence tolerances. VIX quadrature window
 integration is stable across these grids at the three tested states, while
 nested inner sampling remains noisy. Standalone runner defaults are now 64
 steps/day, and a batched driver supports the larger SPX path caches.
+The 128/256 SPX follow-up has also completed with the same fixed configuration
+and path budget. Its largest controlled paired changes are 0.576/0.905 SPX
+points (paired SEs 0.308/0.512); quote-relative numerical gates remain open.
+The next priority is sampling efficiency and the common calibration objective,
+with the nuisance-curve/state profiles retained from the existing plan.
 
 ## Remaining work
 
