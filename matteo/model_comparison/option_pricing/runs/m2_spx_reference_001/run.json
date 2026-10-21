@@ -1,0 +1,263 @@
+{
+  "status": "unfitted M2 diagnostic; numerical gates and input compatibility unresolved",
+  "command": [
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/m2_spx.py",
+    "--output",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_reference_001"
+  ],
+  "reference_date": "2026-02-19",
+  "calibration_performed": false,
+  "quote_split": "train_only",
+  "budget": {
+    "paths": 4096,
+    "seed": 20261021,
+    "max_step_years": 0.001984126984126984,
+    "grid_steps": 80,
+    "quadrature_order": 32,
+    "comparison_order": 20
+  },
+  "initial_state_convention": "fixed full state, minimum prior norm for supplied C/Y/F projections; not filtered",
+  "initial_projections_C_Y_F": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "initial_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "initial_state_mahalanobis_squared": 0.0,
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.979054833837768,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [
+        0.5,
+        0.8093838778200331,
+        1.3102045233499884,
+        2.120916835692723,
+        3.4332717860135396,
+        5.557669663547499,
+        8.996576447849662,
+        14.563367864929878,
+        23.574710313273204,
+        38.161980903681986,
+        61.77538417823236,
+        100.0
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "readout": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.2495993215590715,
+    "spike_shift": 0.0,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "curve_id": "training_mid_piecewise_v1",
+  "variance_floor": 0.0001,
+  "input_compatibility": {
+    "cross_market_conflict_expiries": [
+      46190,
+      46225
+    ],
+    "cross_market_conflict_expiry_days": [
+      118,
+      153
+    ],
+    "cross_market_conflicts_at_quoted_forward": 6,
+    "curve_status": "fitted_curves_conflict_nuisance_profile_required",
+    "moment_bound_note": "finite-strike monotonicity lower bound; omitted tails nonnegative",
+    "overall_compatibility_status": "unresolved_input_conflict_requires_nuisance_curve_profile",
+    "spot_comparison": {
+      "approximate_vix_30d": 19.64977798536384,
+      "status": "approximate_date_level_interpolation_only",
+      "stored_vix_spot": 19.34
+    },
+    "variance_strip_note": "actual observed strikes; all valid two-sided quotes; no inferred zero-bid cutoff"
+  },
+  "target_artifact_sha256": {
+    "quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a",
+    "vix_forwards.csv": "03d0b9323680b20d3dcc22c6b75abb50314be51d1fb9ea80e589be50a462af4a",
+    "forward_variance.csv": "15c31744cf781afa719e139fee34cc45028e7f78e8d1744351183bae4a949a5b",
+    "audit.json": "ebd6f545c679f178a28cb53657d99f17bfb0ea996af76bd15805b5bf222c8e11",
+    "manifest.json": "30e7a991625e40e90dd4522d33f4de3615c01f528e2027f754f82b95baff1ea6"
+  },
+  "frozen_source_sha256": {
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/manifest.json": "b75fdcd43eeaca5759687a57e4ef3cf1bc8549df81abd15bfd9c9eb456f7a031",
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/top_configurations.csv": "9135dd929cdbc689e71bda95e70926e8adaf81280d2c3ada7755e9e17c8f228c"
+  },
+  "implementation_sha256": {
+    "matteo/model_comparison/option_pricing/m2_spx.py": "ab96582b6899a37c261f2c9ff7a9ee7ce093ac315f6c7369e6a0db39dc842a02",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py": "95749bd7a7c6d0702b5d69c08562e654082f15209f587be26bbcdbf524573e79",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py": "6b5190ccb0b37a1777f49d855fada72c12fb8841eb33eb0af3c6ed4ee97fa72e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py": "f6b90b81033e270ac156314934ca1f282a8836b7d427b323591c2465ece0543c",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py": "03221fccc504da82e4643c2270b85a5852561ed1905968adc0e97e1309e941d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py": "7a9df36e1843d47613b4e00485ee1e9b6e85834be755be9fe602164c7d346e5a",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py": "c828d30236930de548af7de141ff1e8782986959878a1a9a851e80383d971fb5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py": "953e29ea14f9cb2d11802760c6ffaaecc95ddd70a89d4c07d66dabba1f30bbd0",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py": "aa5b46689ed706ae2be044663ac49fc9ed59b9d505d722fe70361b17caeb53d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py": "11c0ebc10f5b832b66c38d68262b80fab3df2f39f5777fef3e961a4570e579e8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py": "3e7b4a4c341cacde47977b16c1caf01e1575ff569e6292a1e7b1635fe4404e6f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py": "1d1bd109022c02a3bd4050b947f97dde8deaf00f9ef00626277be510a58f4c29",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py": "0f6efb4cefdae4fd6f4a0b3e91ef0ae4bb1430ac63e1e41f6e82f2033ef5dc4e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py": "a78ba91361514239cb945a70a5ab3d33a0cbe5650cd198b7ef9f2aec1d0e59f9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py": "35a897e3cc5c7c681b5478e8957d7b9249dd2c278c00ef4503f47ee0d65f9519",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py": "876436ff903aaf160f36f728962c77db7f706ca916ec2b93bc09f9ddd6bc987f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py": "3c532c9d57542f87279743f96102cc4346a06bd7d064bf5417ae55d881e1dd5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py": "5a86e27407122ff0d1ad216377856756fa31164b6e95e4bd1b311d8d93c46660",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py": "8db6dc562e411a9ecb0adf8a0bbe1f1ed88575c9dc2057e24b15faa01437ea78",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py": "41a662990c7db2f2e1ebf7608b0ef0945c810a53dc7b61cccc53f37f3dc0f721"
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6"
+  },
+  "normalizer_max_relative_order_change": 0.0037113446558432184,
+  "cap_fraction": 2.13623046875e-05,
+  "expiries": [
+    {
+      "expiry_days": 29,
+      "T_years": 0.0794520547945205,
+      "targets": 328,
+      "inside_bid_ask_fraction": 0.027439024390243903,
+      "mean_squared_scaled_interval_error": 491.99373022857424,
+      "midpoint_price_rmse_U": 10.783853450724743,
+      "maximum_price_mc_se_U": 3.8888015939585756,
+      "maximum_quadrature_price_change_U": 0.004117002666433223,
+      "maximum_quadrature_change_in_price_scales": 0.017037770272846912,
+      "fraction_quotes_passing_mc_gate": 0.0,
+      "ratio_forward_mean": 1.0013752787953774,
+      "ratio_forward_se": 0.0007557702485488437
+    },
+    {
+      "expiry_days": 57,
+      "T_years": 0.1561643835616438,
+      "targets": 320,
+      "inside_bid_ask_fraction": 0.0125,
+      "mean_squared_scaled_interval_error": 961.6580585051015,
+      "midpoint_price_rmse_U": 16.85736983843852,
+      "maximum_price_mc_se_U": 5.790724424388389,
+      "maximum_quadrature_price_change_U": 0.06965096386520031,
+      "maximum_quadrature_change_in_price_scales": 0.14437413421383455,
+      "fraction_quotes_passing_mc_gate": 0.0,
+      "ratio_forward_mean": 1.0016621036584057,
+      "ratio_forward_se": 0.0011287196761436812
+    }
+  ],
+  "limitations": [
+    "No optimization or relative-model performance claim.",
+    "Pricing diagnostics use a curve flagged by preprocessing as cross-market inconsistent.",
+    "Monte Carlo SE is conditional on quadrature and discretization choices.",
+    "Two quadrature orders alone do not certify normalization accuracy.",
+    "Time-step convergence and more independent seeds remain required.",
+    "Forward scaling uses quoted deterministic carry; missing settlement details remain."
+  ]
+}

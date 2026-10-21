@@ -1,0 +1,232 @@
+{
+  "status": "diagnostic only; no optimizer run or fit reproduction claimed",
+  "parameter_source": "report-rounded",
+  "parameter_caveat": "rounded report values, not exact archived optimum",
+  "theta": [
+    0.0369,
+    0.2,
+    -2.958607314841775,
+    -1.7695510786217261,
+    0.26,
+    -1.477,
+    0.803,
+    -0.437
+  ],
+  "parameters": {
+    "H": 0.0369,
+    "rough_scale": 0.2,
+    "lam_lo": 0.0010999999999999996,
+    "lam_hi": 0.016999999999999998,
+    "m1": 0.26,
+    "m2": -1.477,
+    "alpha": 0.803,
+    "b0_delta": -0.437
+  },
+  "source": {
+    "sha256": {
+      "CrossSectionalData/calibrate_smile.py": "c189f7d2ca40dc96244c46019cdea21794faefa9abf267b7c9547a704ea41b17",
+      "CrossSectionalData/esn_base.py": "de034105c3a50b3c87792f7b81a8a1518b2ae371b986157b523a24aea452e4f7",
+      "CrossSectionalData/joint_calibration.py": "66d0d2994ab263cef68b1ac3f681996c0d56a0116e433004bb5b3b724103afb4",
+      "CrossSectionalData/make_figures.py": "a5e395a361250d51d812f616c31451303b1e779b45044626a317c50747208648",
+      "CrossSectionalData/market_vix.py": "b6262cbdf876becc52c23f47d21253e28b62339d73084457920f0257d8519a82",
+      "CrossSectionalData/model_pricing.py": "677266e22f14391ac0eb42d3867a23fa2336fa9fd4d3096a493d8c0876a17977",
+      "CrossSectionalData/validate_vectorized_sim.py": "4cac33f95ab3220b2e48127b965d87b94ba0bdf6e02ee036357af18fc151cd26",
+      "CrossSectionalData/vectorized_sim.py": "974c14e33ee3e248d4d1872a6491391425e50244e3c3a821343e457ca3447203",
+      "CrossSectionalData/vix_distribution.py": "01f2241eda2b296fcc8b418b9c87d7a96ebac501d8eb324333dd3f23ca8b53d6",
+      "CrossSectionalData/vix_smile.py": "5e2f99ad9409f05893f36336a6495c77452d41e338fbc2ea877a99fc7db64ac3"
+    },
+    "archive_byte_match": {
+      "calibrate_smile.py": true,
+      "esn_base.py": true,
+      "joint_calibration.py": false,
+      "make_figures.py": true,
+      "market_vix.py": true,
+      "model_pricing.py": true,
+      "validate_vectorized_sim.py": true,
+      "vectorized_sim.py": true,
+      "vix_distribution.py": true,
+      "vix_smile.py": true
+    }
+  },
+  "input_sha256": {
+    "spx": "e893ef3eabb18dacb9bf13b69e3a1345a02f6cfd392b666a190bd3e518b50db3",
+    "vix": "b121e512edc527f8531256043eb46926179f69dbf397d8d6695204b8627aeeff"
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6"
+  },
+  "budget": {
+    "spx_paths": 512,
+    "outer": 32,
+    "inner": 64,
+    "burn": 500,
+    "seed": 90000000
+  },
+  "scalar_batch_check": {
+    "return_max_abs_error": 2.0816681711721685e-17,
+    "variance_max_abs_error": 6.505213034913027e-19,
+    "passed_at_1e-12": true
+  },
+  "expiries": {
+    "spx_near": {
+      "n_targets": 362,
+      "n_finite_model_iv": 362,
+      "n_failed_model_iv": 0,
+      "failed_target_weight": 0.0,
+      "finite_only_weighted_rmse": 0.031284682969227866,
+      "finite_only_rmse": 0.0333418001428571,
+      "complete_iv_comparison": true,
+      "calendar_days": 29,
+      "trading_steps": 20,
+      "diffusion_years": 0.07936507936507936,
+      "black_years": 0.07945205479452055,
+      "legacy_moneyness_range": [
+        0.7,
+        1.4
+      ],
+      "raw_rows": 899,
+      "rows_with_bid_and_ask": 697,
+      "rows_outside_legacy_range": 48,
+      "model_forward": 1.0,
+      "market_forward": 6892.989685911228,
+      "forward_comparison_units": "normalized SPX ratio; not absolute index points",
+      "draw_mean": 1.0041553100927305,
+      "draw_mean_standard_error": 0.0023157168810590137
+    },
+    "spx_next": {
+      "n_targets": 337,
+      "n_finite_model_iv": 336,
+      "n_failed_model_iv": 1,
+      "failed_target_weight": 2.0984999313132597e-05,
+      "finite_only_weighted_rmse": 0.027380475648868148,
+      "finite_only_rmse": 0.0321005943663136,
+      "complete_iv_comparison": false,
+      "calendar_days": 57,
+      "trading_steps": 39,
+      "diffusion_years": 0.15476190476190477,
+      "black_years": 0.15616438356164383,
+      "legacy_moneyness_range": [
+        0.7,
+        1.4
+      ],
+      "raw_rows": 836,
+      "rows_with_bid_and_ask": 713,
+      "rows_outside_legacy_range": 64,
+      "model_forward": 1.0,
+      "market_forward": 6911.073046924998,
+      "forward_comparison_units": "normalized SPX ratio; not absolute index points",
+      "draw_mean": 1.004447607142236,
+      "draw_mean_standard_error": 0.0032032164522203194
+    },
+    "vix_near": {
+      "n_targets": 41,
+      "n_finite_model_iv": 34,
+      "n_failed_model_iv": 7,
+      "failed_target_weight": 0.10010132442350406,
+      "finite_only_weighted_rmse": 0.4146767023830709,
+      "finite_only_rmse": 0.4011076767091027,
+      "complete_iv_comparison": false,
+      "calendar_days": 27,
+      "trading_steps": 19,
+      "diffusion_years": 0.07539682539682539,
+      "black_years": 0.07397260273972603,
+      "legacy_moneyness_range": [
+        0.4,
+        3.0
+      ],
+      "raw_rows": 140,
+      "rows_with_bid_and_ask": 92,
+      "rows_outside_legacy_range": 11,
+      "model_forward": 13.603495624503868,
+      "market_forward": 20.1,
+      "forward_comparison_units": "VIX index points",
+      "draw_mean": 13.603495624503868,
+      "draw_mean_standard_error": 0.5782968067867419
+    },
+    "vix_next": {
+      "n_targets": 43,
+      "n_finite_model_iv": 40,
+      "n_failed_model_iv": 3,
+      "failed_target_weight": 0.045281069437668534,
+      "finite_only_weighted_rmse": 0.29909596556865264,
+      "finite_only_rmse": 0.29387913766233237,
+      "complete_iv_comparison": false,
+      "calendar_days": 55,
+      "trading_steps": 38,
+      "diffusion_years": 0.15079365079365079,
+      "black_years": 0.1506849315068493,
+      "legacy_moneyness_range": [
+        0.4,
+        3.0
+      ],
+      "raw_rows": 140,
+      "rows_with_bid_and_ask": 108,
+      "rows_outside_legacy_range": 23,
+      "model_forward": 14.077638640060945,
+      "market_forward": 20.73,
+      "forward_comparison_units": "VIX index points",
+      "draw_mean": 14.077638640060945,
+      "draw_mean_standard_error": 0.8132371646711078
+    },
+    "vix_mid1": {
+      "n_targets": 37,
+      "n_finite_model_iv": 15,
+      "n_failed_model_iv": 22,
+      "failed_target_weight": 0.4945516314309303,
+      "finite_only_weighted_rmse": 0.5222256351686992,
+      "finite_only_rmse": 0.5047408442441202,
+      "complete_iv_comparison": false,
+      "calendar_days": 118,
+      "trading_steps": 81,
+      "diffusion_years": 0.32142857142857145,
+      "black_years": 0.3232876712328767,
+      "legacy_moneyness_range": [
+        0.4,
+        3.0
+      ],
+      "raw_rows": 120,
+      "rows_with_bid_and_ask": 97,
+      "rows_outside_legacy_range": 27,
+      "model_forward": 13.239675661491598,
+      "market_forward": 21.19,
+      "forward_comparison_units": "VIX index points",
+      "draw_mean": 13.239675661491598,
+      "draw_mean_standard_error": 0.4114594302766965
+    },
+    "vix_mid2": {
+      "n_targets": 38,
+      "n_finite_model_iv": 31,
+      "n_failed_model_iv": 7,
+      "failed_target_weight": 0.06609250177109194,
+      "finite_only_weighted_rmse": 0.31678393999760407,
+      "finite_only_rmse": 0.3025126258915852,
+      "complete_iv_comparison": false,
+      "calendar_days": 153,
+      "trading_steps": 106,
+      "diffusion_years": 0.42063492063492064,
+      "black_years": 0.4191780821917808,
+      "legacy_moneyness_range": [
+        0.4,
+        3.0
+      ],
+      "raw_rows": 120,
+      "rows_with_bid_and_ask": 96,
+      "rows_outside_legacy_range": 25,
+      "model_forward": 14.523942243441907,
+      "market_forward": 21.72,
+      "forward_comparison_units": "VIX index points",
+      "draw_mean": 14.523942243441907,
+      "draw_mean_standard_error": 0.8104940784234592
+    }
+  },
+  "limitations": [
+    "Legacy burn-in state ensemble, not a dated filtered state.",
+    "VIX draws include finite inner-MC and truncated-strike-grid error.",
+    "VIX forward SE measures outer variation at fixed inner count, not total error.",
+    "No legacy scaled/robust optimizer objective reconstructed by this diagnostic.",
+    "Finite-only RMSE is incomplete when any IV inversion fails."
+  ]
+}

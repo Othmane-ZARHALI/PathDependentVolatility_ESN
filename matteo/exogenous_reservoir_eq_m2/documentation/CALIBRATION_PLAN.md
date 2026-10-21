@@ -2,6 +2,12 @@
 
 Status: implementation plan, revised 30 September 2026 after consistency review and the SPX stability study. Follow [the option preprocessing plan](OPTION_PREPROCESSING_PLAN.md) first. This is a handoff specification, not a claim of an achieved fit. The primary pilot is tempered Gaussian-reservoir M2, with no echo or orthogonal loading. The model PDFs in this directory define the equations; their suggested calibration sequence is treated as research guidance rather than an instruction that overrides the observed data.
 
+Implementation update, 21 October 2026: the common target loader and dated M2
+SPX pricing prototype are now present. See [PRICING_STATUS.md](PRICING_STATUS.md)
+for implemented scope, tests, unresolved numerical gates and the remaining work.
+The dated SPX/normalizer work items below are therefore partly implemented;
+their full accuracy acceptance gates and conditional VIX/joint fitting remain open.
+
 ## Objective, information boundary, and claims
 
 Find model configurations that fit the 2026-02-19 SPX/VIX option snapshot and its four VIX forwards while remaining compatible with SPX physical-measure statistics. Compare fitted prices with actual bid/ask intervals and show the physical-fit trade-off. This plan focuses on **one-date feasibility**. A single date cannot establish across-date parameter stability, forecast quality, or a uniquely estimated variance-risk premium. Additional-date data acquisition is a later research stage, outside this implementation plan.

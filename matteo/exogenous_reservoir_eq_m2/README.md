@@ -77,5 +77,10 @@ Pilot-1 full ledger and is therefore intentionally outside this package's scope.
 
 The package implements exact joint OU/equity transitions, common-random-number path reuse,
 the deterministic P-to-Q state shift, and the cross-sectional Q forward-variance normalizer.
-It does not yet implement conditional VIX valuation, option-surface pricing, or joint SPX/VIX
-calibration.
+It now also includes a **dated baseline-M2 SPX pricing prototype** in `src/esn_eq/pricing.py`
+and a common bid/ask target interface in `src/esn_eq/market_targets.py`. The prototype uses
+an explicit initial state, exact expiry/curve events, adapted stock integration, and a
+date-zero Gaussian-quadrature normalizer independent of stock simulation draws. See the
+[pricing implementation status](documentation/PRICING_STATUS.md) for tests and numerical limits.
+Conditional VIX valuation and joint SPX/VIX calibration remain unimplemented. The first
+unfitted market diagnostics do not meet the planned price-accuracy gates and are not a fit claim.
