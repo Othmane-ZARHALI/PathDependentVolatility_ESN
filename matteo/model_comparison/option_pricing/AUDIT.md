@@ -177,3 +177,20 @@ the former directly into this API would condition on the wrong state. The plan
 now explicitly uses `(C,Y,F)`; the restricted-state constructor and tests name
 that order. Existing runs used zero projections, so this documentation mismatch
 did not change their inputs or results.
+
+## First curve fit: fixed-sample improvement reverses on fresh scrambles
+
+The exploratory VIX-only nuisance-curve run uses 256 outer points per maturity
+for fitting and another independent 256 for checking, below the calibration
+plan's 4096-point screening budget. This is explicitly a preliminary machinery
+and sensitivity study, not final screening or price qualification. The original
+plan's budgets and accuracy gates have not been relaxed.
+
+Its selected curve reduces fitting loss from 72.6724 to 62.3668, but on fresh
+scrambles scores 72.2576 against the initializer's 66.8887. All eight optimizer
+starts converge to essentially the same fixed-sample solution. Optimizer
+convergence must not be reported as reliable market-fit improvement. Checking
+scrambles reuse training contracts and do not constitute held-out market data.
+The reversal and remaining tail/quadrature errors are preserved in
+`CURVE_PROFILE_RESULTS.md` and `runs/m2_vix_curve_fit_001`; no candidate was
+reselected using checking loss.

@@ -137,3 +137,8 @@ python -m matteo.model_comparison.option_pricing.curve_initializer \
 
 Use `/private/tmp/pdv-options-venv/bin/python` for the environment used here.
 No model-comparison ranking or final accuracy claim is supported yet.
+
+The subsequent completed checkpoint is [CURVE_PROFILE_RESULTS.md](CURVE_PROFILE_RESULTS.md):
+cached curve exposures and an exploratory VIX-only fit. Its fitting improvement
+reverses under fresh numerical repricing; the failure to establish improvement
+is retained explicitly.

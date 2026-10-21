@@ -80,3 +80,8 @@ Neither diagnostic performs market calibration or establishes price accuracy.
 The next sampling/profile checkpoint is [SAMPLING_PROGRESS.md](SAMPLING_PROGRESS.md).
 It records the matched-cost iid/Sobol experiment and a constrained nuisance-curve
 starting point, with commands for `vix_outer_sampling` and `curve_initializer`.
+
+Cached exposures, the exploratory VIX curve fit and fresh-scramble checking are
+recorded in [CURVE_PROFILE_RESULTS.md](CURVE_PROFILE_RESULTS.md). Commands are
+`vix_curve_fit` and `curve_spx_check`. The fixed-sample fit improvement reverses
+on checking scrambles; it must not be promoted as a reliable market fit.

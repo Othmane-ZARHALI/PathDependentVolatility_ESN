@@ -58,6 +58,10 @@ not a change to the model or its historical research claims.
 - `src/esn_eq/market_calibration.py` constructs the declared three-coefficient
   nuisance curve, penalized `(C,Y,F)` initial state and five primitive risk-price
   scenarios. These are calibration inputs, not fitted results.
+- `src/esn_eq/vix_curve_profile.py` caches conditional curve-segment exposures.
+  At fixed model/state, integrated variance is affine in segment levels;
+  candidate VIX prices retain the square root and nonzero variance floor.
+  Direct-repricing, affine, constant-variance and stale-cache checks pass.
 
 ## Evidence and limits
 
@@ -89,7 +93,7 @@ legacy ESN sources remain preserved.
 
 The next conditional-VIX and SPX-control diagnostic record is
 [M2_VIX_RESULTS.md](../../model_comparison/option_pricing/M2_VIX_RESULTS.md).
-There are now 60 passing package tests and six passing legacy checks. The new
+That checkpoint recorded 60 passing package tests and six legacy checks. Its new
 VIX tests include a constant-volatility oracle, state-dependent conditional
 values, date-zero normalization, nested/quadrature correspondence, the outer
 second moment and stale-normalizer rejection. These tests do not supply
@@ -106,23 +110,36 @@ steps/day, and a batched driver supports the larger SPX path caches.
 The 128/256 SPX follow-up has also completed with the same fixed configuration
 and path budget. Its largest controlled paired changes are 0.576/0.905 SPX
 points (paired SEs 0.308/0.512); quote-relative numerical gates remain open.
-The next priority is sampling efficiency and the common calibration objective,
+The following work targeted sampling efficiency and the common calibration objective,
 with the nuisance-curve/state profiles retained from the existing plan.
 
 The common objective and faster time-integration checkpoint is recorded in
 [CALIBRATION_PROGRESS.md](../../model_comparison/option_pricing/CALIBRATION_PROGRESS.md).
-There are now 68 passing package tests and eight passing legacy/driver checks.
+That checkpoint recorded 68 passing package tests and eight legacy/driver checks.
 A restricted joint anchor score combines archived 256/day SPX prices at 29/57
 days with fresh VIX samples at all four maturities. It remains unfitted,
 numerically unresolved and subject to the original input-curve conflict.
 
 The subsequent sampling and constrained curve-initializer checkpoint is in
 [SAMPLING_PROGRESS.md](../../model_comparison/option_pricing/SAMPLING_PROGRESS.md).
-There are now 77 passing package tests and eight passing legacy/driver checks.
+That checkpoint recorded 77 passing package tests and eight legacy/driver checks.
 The initializer satisfies necessary moment inequalities at quoted VIX means
 but substantially changes short-end stripped total variance. It is a starting
-point, not a joint option fit. Precomputed curve exposures and common-loss
-market optimization are the next implementation tasks.
+point, not a joint option fit. The next checkpoint below implements curve
+exposures and the preliminary VIX-only market optimization.
+
+The exposure cache and first exploratory two-coefficient VIX curve fit are
+now implemented; see [CURVE_PROFILE_RESULTS.md](../../model_comparison/option_pricing/CURVE_PROFILE_RESULTS.md).
+All eight starts solve the fixed-sample problem, but the apparent improvement
+reverses on fresh checking scrambles. No reliable fit improvement or joint
+feasibility is established. Numerical comparison stability remains a priority.
+There are now 81 passing package tests and eight passing legacy/driver checks.
+The resulting curve was also checked against 29/57-day SPX training prices
+with coupled 128/256 grids and independent-pilot controls. Its descriptive
+SPX loss is 384.11 versus 963.93 for the earlier stripped curve; much of the
+change comes from the nuisance family's higher near variance. Numerical gates
+remain unresolved, and the VIX sampling reversal prevents a reliable joint
+improvement claim.
 
 ## Remaining work
 
