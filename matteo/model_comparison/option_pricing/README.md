@@ -90,3 +90,8 @@ on checking scrambles; it must not be promoted as a reliable market fit.
 that reversal and the SPX sampling bottleneck. It includes the paired audit,
 matched-state quadrature check, independent pilot coverage audit and a
 three-grid SPX hedging-control experiment. No full-surface convergence is claimed.
+
+[VIX_SCOPE_DECISION.md](VIX_SCOPE_DECISION.md) records the user's proposed
+temporary maturity deferral and the fixed-candidate exclusion check. Removing
+153 days alone does not eliminate the observed reversal; the primary scope
+remains all four expiries.

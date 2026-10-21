@@ -157,6 +157,13 @@ sampling tolerance. The new 64/128/256 comparisons share one finest path set
 per trial; time bias and normalizer accuracy remain unresolved.
 There are now 84 passing package tests and nine passing legacy/driver checks.
 
+The proposed last-VIX-maturity deferral is examined in
+[VIX_SCOPE_DECISION.md](../../model_comparison/option_pricing/VIX_SCOPE_DECISION.md).
+Dropping the 153-day options and forward from the fixed-candidate comparison
+does not eliminate its fitting/checking reversal; the 118-day block also
+matters. The primary four-expiry protocol remains unchanged. Assumptions and
+reintroduction requirements for a future reduced-scope pilot are recorded.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per
