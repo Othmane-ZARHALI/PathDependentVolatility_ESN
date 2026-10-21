@@ -187,6 +187,18 @@ forward uncertainty worsens. Single-observation tail concentration persists;
 no accuracy gate is cleared and no refit is performed. Current checks pass:
 87 package tests and 11 legacy/driver tests (98 total).
 
+The pilot-designed full-scope follow-up is in
+[VIX_PILOT_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_PILOT_SAMPLING_RESULTS.md).
+Fresh 8x128-point checks lower median option SE at all four maturities and remove
+15 ordinary-Sobol zero-hit option estimates. Raw forward SE increases at every
+expiry; simple independent-pilot mass centering gives mixed results and ten
+negative option means, retained as failures without clipping. Only 27/175 raw
+mixture estimates meet the observed sampling-SE threshold; no full gate passes.
+The original selected curve again has higher fresh loss than the starting curve:
++2.655 under ordinary Sobol and +2.884 under the learned mixture, with unresolved
+uncertainty. No refit, final ranking, or held-out claim follows. All 101 tests
+pass; source/weight/summary correspondence checks pass separately.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per

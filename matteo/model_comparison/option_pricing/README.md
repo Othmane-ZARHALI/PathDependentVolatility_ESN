@@ -99,3 +99,8 @@ The earlier near-only refit in [VIX_NEAR_RESULTS.md](VIX_NEAR_RESULTS.md) is
 historical; its gain was smaller than numerical uncertainty. Reproducing it
 requires `vix_near_fit --scope .../near_scope_historical.json` explicitly.
 New full-scope sampling diagnostics use `vix_importance_sampling`.
+
+[VIX_PILOT_SAMPLING_RESULTS.md](VIX_PILOT_SAMPLING_RESULTS.md) follows up with
+pilot-learned defensive proposals, frozen before larger fresh all-four-maturity
+checks (`vix_pilot_sampling`). `vix_sampling_rank_audit` then evaluates the two
+original frozen curves on the same weighted observations, without refitting.

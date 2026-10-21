@@ -250,3 +250,27 @@ using exact likelihood weights to preserve the original model expectation.
 No market-forward substitution, self-normalized weighting or parameter
 refitting is used. Its outer standard errors exclude conditional GH, time
 integration and normalizer biases. See `VIX_IMPORTANCE_SAMPLING_RESULTS.md`.
+
+## Pilot reuse and weighted fixed-candidate comparison — 21 October 2026
+
+The previous defensive-mixture observations are now explicitly pilot data for
+`vix_pilot_sampling`; they cannot also serve as fresh validation of the learned
+proposal. Prior ordinary-Sobol outcomes remain historical evidence. Fresh
+ordinary-Sobol and pilot-mixture seed streams are generated after all four
+proposals are frozen and hashed. One fitted pilot cannot establish robustness
+across repeated independent pilot fits. The far-call pilot contribution ESS
+is only about 5–12, so proposal overfitting remains a recorded concern.
+
+Pilot target normalization learns proposal means/covariances; evaluation still
+uses the exact original Gaussian / proposal density ratio, without dividing
+by its sample mean. First-eight-coordinate selection and the norm-3 cap are
+heuristics declared before evaluation. All four maturities and forwards remain
+in scope. The new run holds conditional, time and normalizer orders fixed;
+selected-state GH refinements cannot certify complete-price convergence.
+
+The paired ranking follow-up changes only the two previously frozen variance
+curves. Its algebraic VIX transformation requires an entire window within one
+curve segment and a curve-independent date-zero normalizer. The implementation
+rejects curve-knot crossings and checks against the archived conditional-
+exposure cache at each expiry. No nonlinear-loss ranking is certified by an
+eight-scramble descriptive jackknife. See `VIX_PILOT_SAMPLING_RESULTS.md`.
