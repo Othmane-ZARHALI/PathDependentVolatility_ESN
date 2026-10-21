@@ -205,7 +205,7 @@ def main():
     parser.add_argument("--seed", type=int, default=20261021)
     parser.add_argument("--pilot-paths", type=int, default=0)
     parser.add_argument("--pilot-seed", type=int)
-    parser.add_argument("--steps-per-day", type=int, default=2)
+    parser.add_argument("--steps-per-day", type=int, default=64)
     parser.add_argument("--refinement-factor", type=int, default=1)
     parser.add_argument("--quadrature-order", type=int, default=20)
     parser.add_argument("--check-order", type=int, default=32)

@@ -33,6 +33,18 @@ zero sampled payoffs cannot establish tail-price accuracy.
 New M2 runs capture executable sources before calculation, reject mid-run
 source changes, and save the snapshot under each run's `source/` directory.
 
+The 64/128-step-per-day checks are recorded in
+[FINE_GRID_RESULTS.md](FINE_GRID_RESULTS.md). Use the bounded-memory driver:
+
+```sh
+python -m matteo.model_comparison.option_pricing.fine_grid --mode spx \
+  --output /tmp/m2_spx_64_128_new
+```
+
+Standalone SPX and VIX runners now default to 64 steps/day. To reproduce old
+coarse runs, specify their original step counts explicitly or use their saved
+source snapshots. Finer grids do not remove Monte Carlo sampling error.
+
 From the repository root, with NumPy, SciPy and pandas installed:
 
 ```sh

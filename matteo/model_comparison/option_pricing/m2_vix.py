@@ -135,7 +135,7 @@ def main():
     parser.add_argument("--order", type=int, default=12)
     parser.add_argument("--check-order", type=int, default=20)
     parser.add_argument("--normalizer-order", type=int, default=48)
-    parser.add_argument("--window-steps-per-day", type=int, default=2)
+    parser.add_argument("--window-steps-per-day", type=int, default=64)
     parser.add_argument("--seed", type=int, default=20261021)
     parser.add_argument("--expiry-days", nargs="+", type=int, default=[27,55,118,153])
     parser.add_argument("--curve-id", default="training_mid_piecewise_v1")

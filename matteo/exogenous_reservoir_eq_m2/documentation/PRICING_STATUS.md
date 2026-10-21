@@ -83,11 +83,22 @@ quote-relative convergence guarantees. Initial nominal SE screens with zero
 sampled payoffs are corrected by additive `tail_diagnostics.json` records;
 those original counters must not be read as successful tail-error gates.
 
+The requested coupled 64/128 SPX and fixed-state VIX checks have now run; see
+[FINE_GRID_RESULTS.md](../../model_comparison/option_pricing/FINE_GRID_RESULTS.md).
+SPX has not met quote-relative convergence tolerances. VIX quadrature window
+integration is stable across these grids at the three tested states, while
+nested inner sampling remains noisy. Standalone runner defaults are now 64
+steps/day, and a batched driver supports the larger SPX path caches.
+
 ## Remaining work
 
-1. Reduce SPX Monte Carlo variance and assess stock-integration bias against
-   quote scales, using coupled grids and independent final seeds. Complete
-   normalizer quadrature refinement in cap/tail regimes.
+1. Carry forward the pre-existing time-step convergence decision: 64 steps per
+   trading day is the working baseline for the frozen fast-rate architecture;
+   compare coupled 64/128 grids and extend to 256 as needed for option-price
+   tolerances. The initial 2/8-step pricing runs are coarse diagnostics only.
+   Reduce SPX Monte Carlo variance and assess stock-integration bias against
+   quote scales using independent final seeds. Complete normalizer quadrature
+   refinement in cap/tail regimes. Keep model/state fixed across resolutions.
 2. Refine the implemented conditional VIX engines, especially outer/tail
    sampling. Conditional quadrature and nested integration agree in controlled
    tests, but market quote-relative sampling/bias gates are still unresolved.

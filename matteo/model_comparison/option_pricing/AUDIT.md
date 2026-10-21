@@ -124,3 +124,24 @@ mid-run changes, and save the complete captured files under `source/` in each
 run. The `m2_vix_frozen_*` and `m2_spx_frozen_controls_001` runs replay the main
 diagnostics with this stronger provenance. Initial runs remain preliminary
 records; no old hash or numerical result is silently updated.
+
+## Existing time-step decision not carried into initial pricing grids
+
+On 21 October the user pointed back to the model's high mean-reversion rates.
+The pre-existing `experiments/timestep_convergence_001/RESULTS.md` in the M2
+package explicitly rejects 2/4/8 steps per day for final evidence, sets 64 as
+the working baseline and requests a targeted 64-versus-128 confirmation. The
+model source's later fine-grid appendix also records 64-step experiments.
+The new SPX diagnostics nevertheless began at 2/8 steps per day. They were
+labeled numerically unresolved, but the initial implementation work did not
+carry forward that existing resolution decision. Those runs are coarse engine
+and variance-reduction diagnostics only; they cannot establish accurate
+continuous-time option prices.
+
+At the frozen maximum rate 5000/year, lambda_max*dt is approximately
+9.92/2.48/0.310/0.155/0.0775 at 2/8/64/128/256 steps per trading day. Exact OU
+endpoints do not make the nonlinear stock integral exact between endpoints.
+The next option-pricing convergence study must keep the model/state fixed and
+compare coupled 64/128 grids, extending to 256 if price-relative tolerances
+remain unresolved. The old physical-statistic convergence study motivates this
+starting resolution; it does not itself establish option-price convergence.
