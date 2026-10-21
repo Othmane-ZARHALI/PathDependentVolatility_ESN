@@ -93,5 +93,12 @@ three-grid SPX hedging-control experiment. No full-surface convergence is claime
 
 [VIX_SCOPE_DECISION.md](VIX_SCOPE_DECISION.md) records the user's proposed
 temporary maturity deferral and the fixed-candidate exclusion check. Removing
-153 days alone does not eliminate the observed reversal; the primary scope
-remains all four expiries.
+153 days alone does not eliminate the observed reversal. The user subsequently
+authorized deferring both 118/153-day options and forwards. **The active VIX
+pilot is now 27/55 days**, with SPX scope unchanged. `active_scope.json` is the
+machine-readable decision. Use `vix_near_fit` for the active pilot; the older
+four-maturity drivers remain available for historical reproduction.
+
+[VIX_NEAR_RESULTS.md](VIX_NEAR_RESULTS.md) records the first active near-only
+refit and separate sampling/time/normalizer checks. Its apparent improvement
+is smaller than numerical uncertainty; no accuracy gate is declared passed.

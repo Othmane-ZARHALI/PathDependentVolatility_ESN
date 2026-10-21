@@ -210,3 +210,25 @@ zero regression coefficients, so tail coverage must be monitored during
 pilot training as well as evaluation. The new three-level stock study couples
 all 64/128/256 grids within a single finest sample, avoiding the earlier
 cross-pair limitation while leaving continuous-time accuracy unresolved.
+
+## Explicit two-maturity VIX scope and identifiable curve dimension
+
+The user subsequently authorized deferring both 118/153-day VIX options and
+their forwards. `active_scope.json` now governs the exploratory 27/55-day
+objective; SPX scope is unchanged. Earlier four-maturity scope decisions are
+historical and superseded for active fitting, while their data/results remain
+preserved. The deferred training maturities are not relabeled as pristine
+held-out observations.
+
+Both retained VIX windows lie before the first nuisance knot at 0.25 years.
+The active fit therefore identifies only one variance coefficient. Inactive
+segments are equal-level computational placeholders, not fitted longer-term
+values; their smoothness penalty is zero. This prevents implying that a
+two-parameter curve has been estimated from the reduced data. Current model
+parameters and scope cannot be ranked as full-maturity fits.
+
+The new near-only fit's fresh-sample gain is about 0.0352 loss units, versus
+descriptive paired jackknife uncertainty about 0.2760. The large prior reversal
+is absent in these point comparisons, but reliable improvement and convergence
+are still unestablished. See `VIX_NEAR_RESULTS.md` for full numerical budgets,
+scope limitations and separate sampling/integration checks.

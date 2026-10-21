@@ -161,8 +161,19 @@ The proposed last-VIX-maturity deferral is examined in
 [VIX_SCOPE_DECISION.md](../../model_comparison/option_pricing/VIX_SCOPE_DECISION.md).
 Dropping the 153-day options and forward from the fixed-candidate comparison
 does not eliminate its fitting/checking reversal; the 118-day block also
-matters. The primary four-expiry protocol remains unchanged. Assumptions and
-reintroduction requirements for a future reduced-scope pilot are recorded.
+matters. That checkpoint retained four expiries; the user's subsequent explicit
+instruction now defers both 118/153-day options and forwards. The active
+exploratory VIX scope is 27/55 days, while SPX scope stays unchanged.
+`active_scope.json` records the decision and mandatory reintroduction gate.
+
+The active near-only refit is in
+[VIX_NEAR_RESULTS.md](../../model_comparison/option_pricing/VIX_NEAR_RESULTS.md).
+Only one variance level is identifiable from the retained windows in the
+declared curve family. Fresh 8x128-state checks show consistent point rankings
+but only a 0.0352 loss-unit gain, smaller than its descriptive uncertainty.
+Sampling and quadrature gates remain open. There are 84 package tests and
+11 legacy/driver checks passing. No deferred-maturity or held-out performance
+claim is made.
 
 ## Remaining work
 
