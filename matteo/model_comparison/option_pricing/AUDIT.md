@@ -232,3 +232,21 @@ descriptive paired jackknife uncertainty about 0.2760. The large prior reversal
 is absent in these point comparisons, but reliable improvement and convergence
 are still unestablished. See `VIX_NEAR_RESULTS.md` for full numerical budgets,
 scope limitations and separate sampling/integration checks.
+
+## Scope restoration and importance-sampling boundary — 21 October 2026
+
+The latest user instruction restores both previously deferred VIX maturities
+(118/153 days) and their forwards for new analyses. The current scope is
+27/55/118/153 days: 175 training options and four forwards. This supersedes
+the earlier same-day near-only decision; the prior exclusion and its results
+remain historical records. `active_scope.json` is authoritative and the old
+policy is saved as `near_scope_historical.json`. The one-level near-only
+driver rejects the restored scope and requires an explicit historical policy
+for reproduction, preventing a silent omission of longer maturities.
+
+Restoration does not clear input conflicts, approximation errors or feasibility
+gates. The new Gaussian-mixture diagnostic changes only the sampling law,
+using exact likelihood weights to preserve the original model expectation.
+No market-forward substitution, self-normalized weighting or parameter
+refitting is used. Its outer standard errors exclude conditional GH, time
+integration and normalizer biases. See `VIX_IMPORTANCE_SAMPLING_RESULTS.md`.

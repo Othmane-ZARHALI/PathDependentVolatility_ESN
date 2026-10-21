@@ -9,15 +9,13 @@ tests, unresolved numerical gates and remaining work. The pricing work items
 below are partly implemented; their full accuracy gates and joint fitting
 remain open.
 
-**Active exploratory scope override, 21 October 2026:** the user explicitly
-deferred the 118- and 153-day VIX options and their associated forwards. The
-current VIX pilot fits only 27/55 days (87 training options and two forwards).
-SPX maturity scope is unchanged. Later references to four VIX expiries/forwards
-describe the preserved full-maturity benchmark to be revisited, not the active
-pilot objective. See `../../model_comparison/option_pricing/active_scope.json`
-and [VIX_SCOPE_DECISION.md](../../model_comparison/option_pricing/VIX_SCOPE_DECISION.md)
-for the explicit limitation and reintroduction gate. No reduced-scope fit
-establishes full-maturity joint feasibility.
+**Active exploratory scope, latest user instruction on 21 October 2026:**
+restore all four VIX maturities (27/55/118/153 days), all 175 training options
+and all four forwards for new analyses. This supersedes the earlier same-day
+near-only decision. SPX scope is unchanged. Historical near-only results and
+all numerical/input conflicts remain preserved. Restoration does not certify
+convergence or feasibility. See `../../model_comparison/option_pricing/active_scope.json`
+and [VIX_SCOPE_DECISION.md](../../model_comparison/option_pricing/VIX_SCOPE_DECISION.md).
 
 ## Objective, information boundary, and claims
 

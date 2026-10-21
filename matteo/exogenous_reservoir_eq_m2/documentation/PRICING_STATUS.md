@@ -162,11 +162,11 @@ The proposed last-VIX-maturity deferral is examined in
 Dropping the 153-day options and forward from the fixed-candidate comparison
 does not eliminate its fitting/checking reversal; the 118-day block also
 matters. That checkpoint retained four expiries; the user's subsequent explicit
-instruction now defers both 118/153-day options and forwards. The active
-exploratory VIX scope is 27/55 days, while SPX scope stays unchanged.
-`active_scope.json` records the decision and mandatory reintroduction gate.
+instruction initially deferred both 118/153-day options and forwards. That historical
+exploratory VIX scope was 27/55 days, while SPX scope stays unchanged.
+`active_scope.json` now records the subsequent restoration of all four maturities and forwards.
 
-The active near-only refit is in
+The historical near-only refit is in
 [VIX_NEAR_RESULTS.md](../../model_comparison/option_pricing/VIX_NEAR_RESULTS.md).
 Only one variance level is identifiable from the retained windows in the
 declared curve family. Fresh 8x128-state checks show consistent point rankings
@@ -174,6 +174,18 @@ but only a 0.0352 loss-unit gain, smaller than its descriptive uncertainty.
 Sampling and quadrature gates remain open. There are 84 package tests and
 11 legacy/driver checks passing. No deferred-maturity or held-out performance
 claim is made.
+
+The user's latest same-day instruction restores **all four VIX maturities and
+forwards** for new analyses (175 options); no expiry is currently deferred.
+Historical near-only evidence is preserved. Numerical gates remain open.
+
+The first full-scope defensive-mixture importance-sampling pilot is in
+[VIX_IMPORTANCE_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_IMPORTANCE_SAMPLING_RESULTS.md).
+At 8x64 states per expiry it removes 17 zero-hit option estimates, but precision
+changes are mixed: many 55/118-day estimates improve, while 27-day and 153-day
+forward uncertainty worsens. Single-observation tail concentration persists;
+no accuracy gate is cleared and no refit is performed. Current checks pass:
+87 package tests and 11 legacy/driver tests (98 total).
 
 ## Remaining work
 

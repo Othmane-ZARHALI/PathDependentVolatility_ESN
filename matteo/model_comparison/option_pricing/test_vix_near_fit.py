@@ -9,11 +9,20 @@ from esn_eq.market_targets import MarketTargets
 from esn_eq.vix_curve_profile import VIXCurveExposures
 
 
-class ActiveNearScopeTests(unittest.TestCase):
-    def test_active_scope_defers_options_and_forwards_without_modifying_snapshot(self):
+class ScopeTests(unittest.TestCase):
+    def test_full_scope_restored_and_historical_near_scope_explicit(self):
         targets = MarketTargets.load(ROOT/"data/processed/options/2026-02-19")
         scope = json.loads((ROOT/"matteo/model_comparison/option_pricing/active_scope.json").read_text())
-        quotes,forwards = active_targets(targets,scope)
+        self.assertEqual(scope["vix_fit_expiry_days"],[27,55,118,153])
+        self.assertEqual(scope["vix_deferred_expiry_days"],[])
+        self.assertEqual(len(targets.select("VIX",expiry_days=scope["vix_fit_expiry_days"])),175)
+        restored_forwards = targets.vix_forwards[targets.vix_forwards.expiry_days.isin(scope["vix_fit_expiry_days"])]
+        self.assertEqual(len(restored_forwards),4)
+        self.assertEqual(set(restored_forwards.expiry_days),{27,55,118,153})
+        with self.assertRaises(ValueError):
+            active_targets(targets,scope)
+        historical = json.loads((ROOT/"matteo/model_comparison/option_pricing/near_scope_historical.json").read_text())
+        quotes,forwards = active_targets(targets,historical)
         self.assertEqual(len(quotes),87)
         self.assertEqual(set(quotes.expiry_days),{27,55})
         self.assertEqual(set(forwards.expiry_days),{27,55})

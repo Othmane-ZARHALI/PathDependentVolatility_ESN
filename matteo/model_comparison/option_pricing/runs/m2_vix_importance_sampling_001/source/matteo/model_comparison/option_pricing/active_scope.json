@@ -1,0 +1,22 @@
+{
+  "scope_id": "2026-10-21-user-restored-full-vix-analysis",
+  "status": "active_exploratory_scope",
+  "decision": "User explicitly restored both longer VIX maturities for new analyses before deciding how to continue; supersedes the earlier same-day near-only instruction.",
+  "vix_fit_expiry_days": [
+    27,
+    55,
+    118,
+    153
+  ],
+  "vix_deferred_expiry_days": [],
+  "forward_treatment": "Include all four associated VIX forwards.",
+  "spx_scope_changed": false,
+  "market_split": "train",
+  "historical_baseline": "Near-only results and prior full-scope runs remain historical evidence, without rewriting numerical records.",
+  "limitations": [
+    "Restoration is an analysis scope decision, not numerical convergence or joint feasibility clearance.",
+    "Existing moment conflicts and unresolved sampling, integration and normalization errors remain recorded.",
+    "Previously examined training quotes and checking draws do not become pristine held-out evidence."
+  ],
+  "supersedes": "2026-10-21-user-authorized-near-vix-pilot"
+}

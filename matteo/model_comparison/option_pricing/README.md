@@ -91,14 +91,11 @@ that reversal and the SPX sampling bottleneck. It includes the paired audit,
 matched-state quadrature check, independent pilot coverage audit and a
 three-grid SPX hedging-control experiment. No full-surface convergence is claimed.
 
-[VIX_SCOPE_DECISION.md](VIX_SCOPE_DECISION.md) records the user's proposed
-temporary maturity deferral and the fixed-candidate exclusion check. Removing
-153 days alone does not eliminate the observed reversal. The user subsequently
-authorized deferring both 118/153-day options and forwards. **The active VIX
-pilot is now 27/55 days**, with SPX scope unchanged. `active_scope.json` is the
-machine-readable decision. Use `vix_near_fit` for the active pilot; the older
-four-maturity drivers remain available for historical reproduction.
-
-[VIX_NEAR_RESULTS.md](VIX_NEAR_RESULTS.md) records the first active near-only
-refit and separate sampling/time/normalizer checks. Its apparent improvement
-is smaller than numerical uncertainty; no accuracy gate is declared passed.
+[VIX_SCOPE_DECISION.md](VIX_SCOPE_DECISION.md) records the scope history.
+**The active analysis scope is again all four VIX maturities: 27/55/118/153
+days, 175 training options and four forwards**, following the user's latest
+instruction. SPX scope is unchanged. `active_scope.json` is authoritative.
+The earlier near-only refit in [VIX_NEAR_RESULTS.md](VIX_NEAR_RESULTS.md) is
+historical; its gain was smaller than numerical uncertainty. Reproducing it
+requires `vix_near_fit --scope .../near_scope_historical.json` explicitly.
+New full-scope sampling diagnostics use `vix_importance_sampling`.

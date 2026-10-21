@@ -1,17 +1,22 @@
 {
-  "scope_id": "2026-10-21-user-authorized-near-vix-pilot",
+  "scope_id": "2026-10-21-user-restored-full-vix-analysis",
   "status": "active_exploratory_scope",
-  "decision": "User explicitly requested temporary removal of the last two VIX maturities after reviewing numerical instability.",
-  "vix_fit_expiry_days": [27, 55],
-  "vix_deferred_expiry_days": [118, 153],
-  "forward_treatment": "Fit only the forwards associated with included VIX expiries; defer the other two forwards as well.",
+  "decision": "User explicitly restored both longer VIX maturities for new analyses before deciding how to continue; supersedes the earlier same-day near-only instruction.",
+  "vix_fit_expiry_days": [
+    27,
+    55,
+    118,
+    153
+  ],
+  "vix_deferred_expiry_days": [],
+  "forward_treatment": "Include all four associated VIX forwards.",
   "spx_scope_changed": false,
   "market_split": "train",
-  "historical_baseline": "Four-maturity runs remain preserved; they are not the current exploratory fitting scope.",
+  "historical_baseline": "Near-only results and prior full-scope runs remain historical evidence, without rewriting numerical records.",
   "limitations": [
-    "No claim about the deferred VIX maturities or full-maturity joint feasibility follows from this pilot.",
-    "The scope decision was informed by existing training and numerical diagnostics; deferred maturities are not pristine held-out tests.",
-    "Raw quotes, processed targets, existing conflict flags and historical runs remain preserved."
+    "Restoration is an analysis scope decision, not numerical convergence or joint feasibility clearance.",
+    "Existing moment conflicts and unresolved sampling, integration and normalization errors remain recorded.",
+    "Previously examined training quotes and checking draws do not become pristine held-out evidence."
   ],
-  "reintroduction_gate": "After near-maturity sampling, tails and quadrature are controlled, reinstate 118/153-day options and forwards, check moment compatibility and evaluate with fresh numerical draws before any full-scope ranking."
+  "supersedes": "2026-10-21-user-authorized-near-vix-pilot"
 }

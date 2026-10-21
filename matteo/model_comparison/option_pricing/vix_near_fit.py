@@ -1,4 +1,4 @@
-"""Active 27/55-day VIX pilot with one identifiable near variance level."""
+"""Historical 27/55-day VIX pilot with one identifiable near variance level."""
 import argparse
 from dataclasses import asdict,replace
 import hashlib
@@ -44,7 +44,7 @@ def prefix_cache(cache,replications,points,prefix):
 
 def run(args):
     start = time.perf_counter()
-    scope_path = Path(__file__).with_name("active_scope.json")
+    scope_path = args.scope
     scope = json.loads(scope_path.read_text())
     sources = capture_sources([Path(__file__),scope_path,Path(__file__).with_name("vix_curve_fit.py"),
         Path(__file__).with_name("m2_spx.py"),*sorted((M2/"src/esn_eq").glob("*.py"))])
@@ -146,9 +146,9 @@ def run(args):
             max_conditional_32_48_change=float(np.max(np.abs(conditional-base[indices]))),
             max_normalizer_48_64_change=float(np.max(np.abs(normalizer-conditional))),
             max_time_8_16_change=float(np.max(np.abs(time_refined-normalizer)))))
-    record = dict(status="active reduced-scope exploratory VIX-only fit; numerical gates unresolved",
+    record = dict(status="explicit historical reduced-scope reproduction; numerical gates unresolved",
         scope=scope,scope_sha256=hashlib.sha256(scope_path.read_bytes()).hexdigest(),
-        arguments=vars(args)|dict(output=str(args.output)),architecture=asdict(architecture),parameters=asdict(parameters),
+        arguments=vars(args)|dict(output=str(args.output),scope=str(args.scope)),architecture=asdict(architecture),parameters=asdict(parameters),
         premium=asdict(premium),initial_state=initial.tolist(),active_variance_level=selected,
         free_parameter="single near variance level, affecting both active VIX windows",
         inactive_segments="Equal-level placeholders only; no post-0.25-year variance is identified, fitted or forecast here.",
@@ -179,6 +179,7 @@ def run(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--scope",type=Path,default=Path(__file__).with_name("active_scope.json"))
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--power",type=int,default=7)
     parser.add_argument("--replications",type=int,default=8)

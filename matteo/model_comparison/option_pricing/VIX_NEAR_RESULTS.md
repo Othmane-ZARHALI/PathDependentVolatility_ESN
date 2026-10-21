@@ -1,3 +1,7 @@
+> Historical scope: the user subsequently restored all four VIX maturities
+> and forwards for new analyses. See [VIX_SCOPE_DECISION.md](VIX_SCOPE_DECISION.md).
+> Numerical records below retain their original two-maturity interpretation.
+
 # Active two-maturity VIX pilot — 21 October 2026
 
 ## Explicit user-authorized scope assumption

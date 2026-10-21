@@ -1,10 +1,24 @@
 # VIX maturity scope — 21 October 2026
 
-**Active decision, explicitly authorized by the user on 21 October 2026:**
+**Current decision, subsequent user instruction:** restore **27, 55, 118 and
+153 days**, all 175 training options and all four associated forwards, for new
+analyses. No maturities are deferred. SPX scope is unchanged. This supersedes
+the earlier same-day temporary exclusion below. Restoration provides the full
+picture before the user chooses the next fitting scope; it does not clear any
+numerical accuracy, moment compatibility or feasibility gate.
+
+`active_scope.json` is authoritative. `near_scope_historical.json` preserves
+the former policy. The near-only driver now requires that historical policy
+to be selected explicitly; it cannot silently discard the restored maturities.
+
+## Superseded two-maturity decision
+
+
+**Historical decision, explicitly authorized by the user on 21 October 2026:**
 temporarily remove the 118- and 153-day VIX expiries from exploratory fitting.
 The remaining VIX maturities are **27 and 55 days**. Fit their two associated
 forwards and defer the two longer forwards as well. SPX scope is unchanged.
-The machine-readable decision is `active_scope.json` in this directory.
+The machine-readable historical decision is `near_scope_historical.json`.
 
 This is a deliberate reduced-scope research assumption, not a conclusion that
 the deferred quotes are wrong or that the model cannot fit them. Original data,
@@ -39,9 +53,10 @@ measures. This fixed-candidate check does not predict a new reduced-scope fit.
 At that earlier checkpoint, the four-maturity protocol was retained because
 removing only 153 days did not resolve the reversal. The user's subsequent
 explicit two-maturity instruction supersedes that scope decision. The
-four-maturity protocol is now a preserved baseline for later reintroduction.
+four-maturity protocol was then a preserved baseline; the latest instruction
+above has now reinstated it for analysis.
 
-## Required records and reintroduction gate for the active deferral
+## Historical records and reintroduction gate for the earlier deferral
 
 A reduced-scope run must explicitly record:
 
@@ -63,7 +78,7 @@ apply to both VIX and SPX. Adapted hedging controls and proposed multilevel
 stock-grid allocation primarily address SPX. Current quadrature-based VIX
 pricing does not require a stock-path multilevel method.
 
-The first active refit is recorded in [VIX_NEAR_RESULTS.md](VIX_NEAR_RESULTS.md).
+The first historical near-only refit is recorded in [VIX_NEAR_RESULTS.md](VIX_NEAR_RESULTS.md).
 It uses a single identifiable near variance coefficient and fresh numerical
 draws. The large prior ranking reversal is absent in the point comparisons,
 but the new gain is smaller than its uncertainty and pricing tolerances remain
