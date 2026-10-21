@@ -213,6 +213,22 @@ separate outer/conditional/normalizer/time audit before refitting. It is not
 proof of a normalization bug. Current validation: 106 tests and independent
 artifact correspondence checks pass; statistical/numerical gates remain open.
 
+The follow-up identity attribution is in
+[VIX_MOMENT_DIAGNOSIS.md](../../model_comparison/option_pricing/VIX_MOMENT_DIAGNOSIS.md).
+The independent, variance-inflated direct Gaussian calculation agrees with all
+four moment targets (27d: 542.49136 ± 0.09509 versus 542.49611). Gaussian-law
+composition agrees to floating-point precision. On all 1024 original 27d
+states, conditional32→48 plus normalizer48→64 changes the moment by only
+-0.01643 ± 0.01193, leaving the +13.65 residual. Limited higher-order/time
+checks are small; the independent population-composition estimator remains
+noisy and inconclusive. Outer-sample/tail sensitivity is the leading explanation,
+not a demonstrated normalization bug. At one representative future date per
+maturity, roughly 0.056%–0.072% of Gaussian states contribute about 49%–53%
+of mean variance multiplier, showing why sampling is difficult. All four
+maturities/forwards remain in scope; no prices are rescaled or refitted. Current
+validation: 113 tests plus source/statistics replay checks pass. Full price,
+quadrature and calibration gates remain open.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per

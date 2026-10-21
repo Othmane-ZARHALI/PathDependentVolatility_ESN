@@ -325,3 +325,29 @@ Fresh fixed-curve loss changes also differ in sign between random mixture
 1.45 and 1.12. Preserve the previous positive changes around +2.7/+2.9 as
 historical results; no final ranking follows from any of these small studies.
 See `VIX_STRATIFIED_SAMPLING_RESULTS.md` for full records and next diagnostics.
+
+## Moment-warning attribution and rare multiplier concentration — 21 October 2026
+
+The original warning remains a valid observed discrepancy, but new diagnostics
+favor outer-sample/tail sensitivity over a large normalization error at this
+frozen model. The independent direct Gaussian expectation gives 542.49136 ±
+0.09509 at 27 days against target 542.49611 and agrees at all other maturities.
+All original 1024 random-mixture states retain a residual +13.65296 after
+conditional32→48 and normalizer48→64; the paired rule change is only -0.01643
+± 0.01193. Limited time/higher-order checks and full Gaussian-law composition
+checks support this attribution without globally certifying quadrature errors.
+
+The separate population-composition calculation remains noisy. Its outputs,
+including the large paired GH48 comparison, are retained as inconclusive, not
+used to claim conditional quadrature convergence. The initial composed-run
+startup failure was a relative-path source-snapshot issue, corrected before
+numerical work in run 002; failed directory 001 is preserved with its status.
+
+At representative middle dates, future G states with probability about
+0.056%–0.072% supply about 49%–53% of E[G]. This concerns the Gaussian variance
+multiplier, not directly the expiry VIX payoff distribution. The smooth cap
+bounds G at about 188619 but does not prevent severe sampling concentration.
+No normalization, parameters, prices or market targets are changed or rescaled.
+All four maturities and forwards remain in scope; detailed evidence, limitations,
+113 passing tests and replay checks are in `VIX_MOMENT_DIAGNOSIS.md`. The
+lean-numerics-bridge workflow is used without claiming Lean certification.

@@ -110,3 +110,9 @@ fresh random and fixed component allocations under the identical frozen
 proposal (`vix_stratified_sampling`). The exact allocation correction and
 component-wise prefix handling are recorded and checked by
 `verify_vix_stratified_sampling`; all four maturities remain included.
+
+[VIX_MOMENT_DIAGNOSIS.md](VIX_MOMENT_DIAGNOSIS.md) attributes the new consistency
+warning using direct Gaussian expectations, exact old-state refinements and
+multiplier-tail diagnostics. It favors outer sampling sensitivity at the frozen
+model; it does not patch normalization or certify prices. All four maturities
+remain included. `verify_vix_moment_diagnostics` replays artifact checks.
