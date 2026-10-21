@@ -51,6 +51,13 @@ not a change to the model or its historical research claims.
   panels split at curve knots. Order 8/16 checks against the fine midpoint
   reference and sampled states support fewer time nodes at the frozen anchor.
   Stock-path resolution and outer sampling requirements are unchanged.
+- `src/esn_eq/outer_sampling.py` supplies full-state Gaussian iid/Sobol
+  sampling with projection-ordered PCA and uncertainty across independent
+  complete replications. A matched-cost 55-day pilot supports a substantial
+  sampling improvement, but tail and quadrature accuracy remain unresolved.
+- `src/esn_eq/market_calibration.py` constructs the declared three-coefficient
+  nuisance curve, penalized `(C,Y,F)` initial state and five primitive risk-price
+  scenarios. These are calibration inputs, not fitted results.
 
 ## Evidence and limits
 
@@ -108,6 +115,14 @@ There are now 68 passing package tests and eight passing legacy/driver checks.
 A restricted joint anchor score combines archived 256/day SPX prices at 29/57
 days with fresh VIX samples at all four maturities. It remains unfitted,
 numerically unresolved and subject to the original input-curve conflict.
+
+The subsequent sampling and constrained curve-initializer checkpoint is in
+[SAMPLING_PROGRESS.md](../../model_comparison/option_pricing/SAMPLING_PROGRESS.md).
+There are now 77 passing package tests and eight passing legacy/driver checks.
+The initializer satisfies necessary moment inequalities at quoted VIX means
+but substantially changes short-end stripped total variance. It is a starting
+point, not a joint option fit. Precomputed curve exposures and common-loss
+market optimization are the next implementation tasks.
 
 ## Remaining work
 

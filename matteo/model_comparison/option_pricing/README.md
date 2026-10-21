@@ -76,3 +76,7 @@ first restricted joint anchor score are recorded in
 [CALIBRATION_PROGRESS.md](CALIBRATION_PROGRESS.md). Reproduce with fresh output
 directories using `vix_time_rule` and `joint_diagnostic` as described there.
 Neither diagnostic performs market calibration or establishes price accuracy.
+
+The next sampling/profile checkpoint is [SAMPLING_PROGRESS.md](SAMPLING_PROGRESS.md).
+It records the matched-cost iid/Sobol experiment and a constrained nuisance-curve
+starting point, with commands for `vix_outer_sampling` and `curve_initializer`.

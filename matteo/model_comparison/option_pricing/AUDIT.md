@@ -167,3 +167,13 @@ priced SPX maturities, plus all four VIX maturities. It is therefore a
 restricted-maturity diagnostic rather than the complete planned training loss.
 Its inherited input conflict and sampling errors remain open. No optimization,
 P-feasibility or ESN/M2 ranking follows from a small scalar score.
+
+## Dated-state coordinate order
+
+The calibration plan's state paragraph listed `(Y,F,C)`, whereas the dated
+pricing API and its projection matrix use `(C,Y,F)`. Either ordering is
+mathematically valid with consistently permuted covariance and H, but passing
+the former directly into this API would condition on the wrong state. The plan
+now explicitly uses `(C,Y,F)`; the restricted-state constructor and tests name
+that order. Existing runs used zero projections, so this documentation mismatch
+did not change their inputs or results.

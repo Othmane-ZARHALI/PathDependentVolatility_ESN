@@ -129,3 +129,7 @@ Commands refuse existing output directories. The archived input runs are
 required for these reproducibility checks; their hashes are recorded in the
 new outputs. A new conversation can resume from this file plus
 `documentation/PRICING_STATUS.md` without reconstructing chat history.
+
+The next completed checkpoint is [SAMPLING_PROGRESS.md](SAMPLING_PROGRESS.md):
+independent-scramble outer sampling, declared curve/state/scenario families and
+a necessary-moment-constrained curve initializer. The market fitter remains open.
