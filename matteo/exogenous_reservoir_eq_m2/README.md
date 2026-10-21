@@ -82,5 +82,8 @@ and a common bid/ask target interface in `src/esn_eq/market_targets.py`. The pro
 an explicit initial state, exact expiry/curve events, adapted stock integration, and a
 date-zero Gaussian-quadrature normalizer independent of stock simulation draws. See the
 [pricing implementation status](documentation/PRICING_STATUS.md) for tests and numerical limits.
-Conditional VIX valuation and joint SPX/VIX calibration remain unimplemented. The first
-unfitted market diagnostics do not meet the planned price-accuracy gates and are not a fit claim.
+Conditional continuous-window VIX valuation is now available in `src/esn_eq/vix_pricing.py`,
+using conditional Gaussian quadrature or nested full-state OU simulation with the same
+date-zero normalizer. `src/esn_eq/variance_reduction.py` adds independently trained SPX controls.
+Joint SPX/VIX calibration remains unimplemented. The unfitted market diagnostics do not meet
+the planned price-accuracy gates and are not a fit claim.

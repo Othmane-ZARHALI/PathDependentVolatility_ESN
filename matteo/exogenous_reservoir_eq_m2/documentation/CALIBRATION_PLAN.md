@@ -2,11 +2,12 @@
 
 Status: implementation plan, revised 30 September 2026 after consistency review and the SPX stability study. Follow [the option preprocessing plan](OPTION_PREPROCESSING_PLAN.md) first. This is a handoff specification, not a claim of an achieved fit. The primary pilot is tempered Gaussian-reservoir M2, with no echo or orthogonal loading. The model PDFs in this directory define the equations; their suggested calibration sequence is treated as research guidance rather than an instruction that overrides the observed data.
 
-Implementation update, 21 October 2026: the common target loader and dated M2
-SPX pricing prototype are now present. See [PRICING_STATUS.md](PRICING_STATUS.md)
-for implemented scope, tests, unresolved numerical gates and the remaining work.
-The dated SPX/normalizer work items below are therefore partly implemented;
-their full accuracy acceptance gates and conditional VIX/joint fitting remain open.
+Implementation update, 21 October 2026: the common target loader, dated M2
+SPX prototype, conditional VIX engines and independent-pilot SPX controls are
+now present. See [PRICING_STATUS.md](PRICING_STATUS.md) for implemented scope,
+tests, unresolved numerical gates and remaining work. The pricing work items
+below are partly implemented; their full accuracy gates and joint fitting
+remain open.
 
 ## Objective, information boundary, and claims
 
@@ -20,7 +21,7 @@ The [SPX physical-stability study](../experiments/physical_stability_001/RESULTS
 
 1. Versioned, audited market-target files from `OPTION_PREPROCESSING_PLAN.md`: quote intervals in undiscounted price units; one VIX forward per expiry; a documented $\xi_0(t)$ construction or profiled nuisance-curve family; and complete exclusions/provenance.
 2. SPX historical OHLC and target-generation code in `matteo/preprocessing/`. Rebuild SPX targets with declared sample dates, observation definitions, block-bootstrap covariance/intervals and rolling windows. Keep the existing JSONs for comparison. Do not use the cross-asset dispersion constants in `CrossSectionalData/joint_calibration.py` as SPX sampling errors.
-3. M2 source in `matteo/exogenous_reservoir_eq_m2/src/esn_eq/`: `config.py`, `states.py`, `features.py`, `readout.py`, and `model.py`. The current package has physical-measure simulation and cross-sectional Q normalisation; it does **not** yet contain conditional VIX valuation or a joint option pricer. The older `CrossSectionalData/` code is a benchmark and debugging reference, not a pricing implementation for M2.
+3. M2 source in `matteo/exogenous_reservoir_eq_m2/src/esn_eq/`: the physical simulation core plus `pricing.py`, `market_targets.py`, `vix_pricing.py`, and `variance_reduction.py`. Dated SPX and conditional VIX prototypes are implemented, but numerical acceptance gates and joint calibration remain incomplete. The older `CrossSectionalData/` code is a benchmark and debugging reference, not a pricing implementation for M2.
 4. Freeze a baseline architecture from `provenance/latent_calibration.json` plus the Stage-3 spike override in `experiments/stage3_001/selection_record.json` (10–500 inverse years, spike projection power -0.5). Record the merged architecture explicitly; using `ArchitectureConfig()` alone silently changes the Stage-3 spike bank. Stage-3 bounds and acceptance rates were synthetic capacity results, not calibrated SPX priors. Repeat with a small set of neighbouring rate-grid choices as architecture sensitivity, especially because the latent fit hit endpoint bounds.
 5. Fixed input conventions: currency and VIX index points; one reference date; actual quoted calendar maturity for payoff discount/Black conversion; inverse-year OU rates; a documented calendar-to-trading-time mapping for diffusion integration; stock forwards and VIX forwards specific to each expiry. The quote CSVs do not supply minute-level timestamps or a full discount curve. Work in forward-value option prices and label any resulting settlement approximation.
 

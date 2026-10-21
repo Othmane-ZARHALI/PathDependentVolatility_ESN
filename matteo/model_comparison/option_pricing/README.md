@@ -5,9 +5,10 @@ M2 option pricing. See [AUDIT.md](AUDIT.md) for code/report inconsistencies.
 See [RESULTS.md](RESULTS.md) for the three initial diagnostic runs and their limits.
 No original ESN sources or historical experiment records are changed.
 
-The dated M2 SPX prototype and common price targets are now implemented. See
-[M2_SPX_RESULTS.md](M2_SPX_RESULTS.md) for the unfitted diagnostics; conditional
-VIX pricing and joint fitting remain open.
+The dated M2 SPX prototype, common price targets, conditional VIX engines and
+SPX independent-pilot controls are now implemented. See
+[M2_SPX_RESULTS.md](M2_SPX_RESULTS.md) and [M2_VIX_RESULTS.md](M2_VIX_RESULTS.md)
+for unfitted diagnostics. Numerical accuracy gates and joint fitting remain open.
 
 ```sh
 python -m matteo.model_comparison.option_pricing.m2_spx \
@@ -17,6 +18,20 @@ python -m matteo.model_comparison.option_pricing.m2_spx \
 This reads training quotes at 29/57 days only. It does not calibrate or access
 held-out prices for scoring. The copied preprocessing flags and numerical
 diagnostics must accompany any interpretation of its output.
+
+```sh
+python -m matteo.model_comparison.option_pricing.m2_vix \
+  --output /tmp/m2_vix_new
+python -m matteo.model_comparison.option_pricing.m2_spx \
+  --pilot-paths 2048 --refinement-factor 4 \
+  --quadrature-order 32 --check-order 48 --output /tmp/m2_spx_controls_new
+```
+
+VIX uses actual training strikes and separate market forward targets. For old
+VIX runs, read `tail_diagnostics.json` with the original nominal SE counters;
+zero sampled payoffs cannot establish tail-price accuracy.
+New M2 runs capture executable sources before calculation, reject mid-run
+source changes, and save the snapshot under each run's `source/` directory.
 
 From the repository root, with NumPy, SciPy and pandas installed:
 

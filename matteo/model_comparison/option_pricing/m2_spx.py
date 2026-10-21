@@ -12,6 +12,7 @@ import sys
 import numpy as np
 import pandas as pd
 import scipy
+from .provenance import capture_sources, source_hashes, check_sources, save_sources
 
 ROOT = Path(__file__).resolve().parents[3]
 M2 = ROOT / "matteo/exogenous_reservoir_eq_m2"
@@ -19,6 +20,8 @@ sys.path.insert(0, str(M2 / "src"))
 from esn_eq.config import ArchitectureConfig, ReadoutParameters, RiskPremium
 from esn_eq.market_targets import MarketTargets, interval_residuals
 from esn_eq.pricing import DatedM2Pricer, coarsen_paths, dated_grid, payoff_statistics
+from esn_eq.variance_reduction import (deterministic_stock_controls, fit_payoff_controls,
+                                      controlled_payoff_statistics)
 
 
 def frozen_stage3():
@@ -46,6 +49,7 @@ def frozen_stage3():
 
 
 def run(args):
+    captured = capture_sources([Path(__file__), *sorted((M2/"src/esn_eq").glob("*.py"))])
     targets = MarketTargets.load(args.snapshot)
     quotes = targets.select("SPX", "train", args.expiry_days)
     if quotes.empty or set(quotes.expiry_days) != set(args.expiry_days):
@@ -62,6 +66,14 @@ def run(args):
     cache = pricer.prepare(grid, initial, args.paths, args.seed, checkpoints=maturities)
     lower = pricer.spx(cache, parameters, curve, maturities, order=args.quadrature_order)
     result = pricer.spx(cache, parameters, curve, maturities, order=args.check_order)
+    pilot_seed = args.seed+100000 if args.pilot_seed is None else args.pilot_seed
+    if args.pilot_paths:
+        if pilot_seed == args.seed:
+            raise ValueError("Control pilot seed must differ from evaluation seed")
+        pilot = pricer.prepare(grid, initial, args.pilot_paths, pilot_seed)
+        pilot_result = pricer.spx(pilot, parameters, curve, maturities, order=args.check_order)
+        reference_pilot = deterministic_stock_controls(pilot, curve, maturities)
+        reference_evaluation = deterministic_stock_controls(cache, curve, maturities)
     timestep = (pricer.spx(coarsen_paths(cache, coarse_grid), parameters, curve,
                           maturities, order=args.check_order) if args.refinement_factor > 1 else None)
     frames, summaries = [], []
@@ -79,6 +91,26 @@ def run(args):
         frame["inside_bid_ask"] = frame.interval_residual == 0
         frame["error_to_price_mid_U"] = prices - frame.price_mid_U
         frame["outside_interval_U"] = np.abs(frame.interval_residual) * frame.price_scale_U
+        control_summary = {}
+        if args.pilot_paths:
+            total_variance = curve.integral(0., float(maturity))
+            coefficients = fit_payoff_controls(pilot_result.terminal_ratios[float(maturity)],
+                reference_pilot[float(maturity)], strikes, kind, total_variance)
+            controlled, controlled_se = controlled_payoff_statistics(draws,
+                reference_evaluation[float(maturity)], strikes, kind, total_variance,
+                coefficients, forward_scale=forward)
+            frame["control_price_estimate_U"], frame["control_mc_se_U"] = controlled, controlled_se
+            frame["control_beta_stock"], frame["control_beta_reference_option"] = coefficients.T
+            frame["control_estimate_negative"] = controlled < 0
+            # Never clip a negative unbiased statistical estimate to a model price.
+            control_summary = dict(
+                control_negative_estimates=int(np.sum(controlled < 0)),
+                control_maximum_mc_se_U=float(controlled_se.max()),
+                control_median_variance_reduction_factor=float(np.median(se**2/np.maximum(controlled_se**2, 1e-30))),
+                control_fraction_quotes_passing_mc_gate=float(np.mean(
+                    (2*controlled_se <= frame.price_scale_U/4) & (controlled >= 0))),
+                control_inside_bid_ask_fraction=float(np.mean(
+                    (controlled >= frame.price_bid_U) & (controlled <= frame.price_ask_U))))
         timestep_summary = {}
         if timestep is not None:
             coarse_draws = timestep.terminal_ratios[float(maturity)]
@@ -95,6 +127,21 @@ def run(args):
                 maximum_abs_paired_timestep_change_U=float(np.max(np.abs(paired_mean))),
                 maximum_paired_timestep_change_se_U=float(np.max(paired_se)),
                 maximum_timestep_change_in_price_scales=float(np.max(np.abs(paired_mean) / frame.price_scale_U)))
+            if args.pilot_paths:
+                # The deterministic-volatility reference is identical on coupled grids;
+                # its payoff cancels. Use the same independently fitted stock coefficient.
+                adjusted_means, adjusted_errors = [], []
+                for strike, option_type, beta in zip(strikes, kind, coefficients):
+                    sign = 1 if option_type == "call" else -1
+                    difference = forward*(np.maximum(sign*(draws-strike),0)
+                        -np.maximum(sign*(coarse_draws-strike),0)-beta[0]*(draws-coarse_draws))
+                    adjusted_means.append(difference.mean())
+                    adjusted_errors.append(difference.std(ddof=1)/np.sqrt(len(difference)))
+                frame["control_paired_timestep_change_U"] = adjusted_means
+                frame["control_paired_timestep_change_se_U"] = adjusted_errors
+                control_summary.update(
+                    control_maximum_abs_timestep_change_U=float(np.max(np.abs(adjusted_means))),
+                    control_maximum_timestep_change_se_U=float(np.max(adjusted_errors)))
         frames.append(frame)
         summaries.append(dict(
             expiry_days=int(group.expiry_days.iloc[0]), T_years=float(maturity),
@@ -106,7 +153,7 @@ def run(args):
             maximum_quadrature_change_in_price_scales=float(np.max(np.abs(prices - coarse) / frame.price_scale_U)),
             fraction_quotes_passing_mc_gate=float(np.mean(2 * se <= frame.price_scale_U / 4)),
             ratio_forward_mean=float(draws.mean()),
-            ratio_forward_se=float(draws.std(ddof=1) / np.sqrt(len(draws))), **timestep_summary))
+            ratio_forward_se=float(draws.std(ddof=1) / np.sqrt(len(draws))), **timestep_summary, **control_summary))
     result_record = dict(
         status="unfitted M2 diagnostic; numerical gates and input compatibility unresolved",
         command=sys.argv, reference_date=targets.manifest["reference_date"],
@@ -117,6 +164,8 @@ def run(args):
                     refinement_factor=args.refinement_factor,
                     grid_steps=len(grid)-1, quadrature_order=args.check_order,
                     comparison_order=args.quadrature_order),
+        control_pilot=dict(paths=args.pilot_paths, seed=pilot_seed if args.pilot_paths else None,
+                           coefficients="independent pilot; frozen per strike"),
         initial_state_convention="fixed full state, minimum prior norm for supplied C/Y/F projections; not filtered",
         initial_projections_C_Y_F=args.initial_projections, initial_state=initial.tolist(),
         initial_state_mahalanobis_squared=prior_penalty,
@@ -124,8 +173,8 @@ def run(args):
         curve_id=args.curve_id, variance_floor=1e-4,
         input_compatibility=targets.audit["variance_audit"],
         target_artifact_sha256=targets.artifact_sha256, frozen_source_sha256=frozen_hashes,
-        implementation_sha256={str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-                               for path in [Path(__file__), *sorted((M2 / "src/esn_eq").glob("*.py"))]},
+        implementation_sha256=source_hashes(captured, ROOT),
+        source_snapshot="source/; captured before calculation, checked unchanged at completion",
         versions=dict(python=platform.python_version(), numpy=np.__version__, scipy=scipy.__version__, pandas=pd.__version__),
         normalizer_max_relative_order_change=float(np.max(np.abs(result.normalizer / lower.normalizer - 1))),
         cap_fraction=result.cap_fraction, expiries=summaries,
@@ -135,7 +184,9 @@ def run(args):
                      "Two quadrature orders alone do not certify normalization accuracy.",
                      "Time-step convergence and more independent seeds remain required.",
                      "Forward scaling uses quoted deterministic carry; missing settlement details remain."])
+    check_sources(captured)
     args.output.mkdir(parents=True, exist_ok=False)
+    save_sources(args.output, captured, ROOT)
     (args.output / "run.json").write_text(json.dumps(result_record, indent=2, allow_nan=False) + "\n")
     pd.concat(frames).to_csv(args.output / "prices.csv", index=False)
     pd.DataFrame(dict(time_years=grid[:-1], xi=curve(grid[:-1]),
@@ -152,6 +203,8 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--paths", type=int, default=4096)
     parser.add_argument("--seed", type=int, default=20261021)
+    parser.add_argument("--pilot-paths", type=int, default=0)
+    parser.add_argument("--pilot-seed", type=int)
     parser.add_argument("--steps-per-day", type=int, default=2)
     parser.add_argument("--refinement-factor", type=int, default=1)
     parser.add_argument("--quadrature-order", type=int, default=20)
@@ -162,6 +215,8 @@ def main():
     args = parser.parse_args()
     if args.paths < 2 or args.steps_per_day < 1 or args.refinement_factor < 1 or args.quadrature_order < 2 or args.check_order <= args.quadrature_order:
         parser.error("Require paths>=2, steps-per-day>=1, and check-order>quadrature-order>=2")
+    if args.pilot_paths not in (0,) and args.pilot_paths < 2:
+        parser.error("pilot-paths must be zero (disabled) or >=2")
     if args.output.exists():
         parser.error("Output exists; choose a new run directory")
     run(args)

@@ -33,6 +33,17 @@ not a change to the model or its historical research claims.
   paired stock-integration refinement rather than independent noisy runs.
 - Price MC standard errors, simulated variance means, normalizer changes,
   cap use and paired timestep changes are retained explicitly.
+- `src/esn_eq/vix_pricing.py` now prices the conditional continuous 30/365-year
+  VIX functional by Gaussian quadrature or nested full-state OU simulation.
+  A read-only window stores the date-zero normalizer and rejects stale model
+  parameters. Midpoint integration splits at curve jumps. Independent inner
+  streams per outer state preserve prefixes across inner-count refinements.
+  Absolute VIX strikes are priced; quoted forwards remain separate targets.
+- `src/esn_eq/variance_reduction.py` now supplies SPX controls using the stock
+  martingale and a deterministic-volatility reference option with known Black
+  expectation. Regression coefficients are trained on an independent pilot,
+  then frozen for pricing and paired time-step diagnostics. Negative adjusted
+  estimates are retained, never clipped.
 
 ## Evidence and limits
 
@@ -62,14 +73,24 @@ See [the market diagnostic record](../../model_comparison/option_pricing/M2_SPX_
 for run configurations and outcomes. Original physical experiments and the
 legacy ESN sources remain preserved.
 
+The next conditional-VIX and SPX-control diagnostic record is
+[M2_VIX_RESULTS.md](../../model_comparison/option_pricing/M2_VIX_RESULTS.md).
+There are now 60 passing package tests and six passing legacy checks. The new
+VIX tests include a constant-volatility oracle, state-dependent conditional
+values, date-zero normalization, nested/quadrature correspondence, the outer
+second moment and stale-normalizer rejection. These tests do not supply
+quote-relative convergence guarantees. Initial nominal SE screens with zero
+sampled payoffs are corrected by additive `tail_diagnostics.json` records;
+those original counters must not be read as successful tail-error gates.
+
 ## Remaining work
 
 1. Reduce SPX Monte Carlo variance and assess stock-integration bias against
    quote scales, using coupled grids and independent final seeds. Complete
    normalizer quadrature refinement in cap/tail regimes.
-2. Implement conditional VIX valuation with the **same date-zero** normalizer,
-   then benchmark conditional quadrature against nested simulation. Price at
-   actual VIX strikes; include VIX forwards as separate targets.
+2. Refine the implemented conditional VIX engines, especially outer/tail
+   sampling. Conditional quadrature and nested integration agree in controlled
+   tests, but market quote-relative sampling/bias gates are still unresolved.
 3. Profile the documented nuisance-curve family to address input conflicts,
    keeping the original stripped curves as diagnostics. Do not label this as
    repairing raw quotes or infer a unique curve from this one snapshot.

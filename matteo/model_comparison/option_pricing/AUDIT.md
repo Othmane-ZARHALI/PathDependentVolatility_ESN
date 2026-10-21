@@ -100,3 +100,27 @@ Next: assess independent-seed and sampling/grid refinement; recover the exact
 final parameters and scales if available; then freeze the common ESN/M2 target
 contract before optimization. Missing provenance does not block a new,
 explicitly versioned benchmark fit.
+
+## Reporting correction in our own VIX diagnostics
+
+The first M2 VIX runner counted `2*sample_SE <= price_scale/4` as an MC gate
+without checking whether any positive payoff had been observed. A deep OTM
+option with zero payoffs in the outer sample has zero empirical SE; that does
+not bound its rare-event expectation. This is a diagnostic reporting problem
+in **our runner**, not a newly identified defect in Othmane's source.
+
+The revised runner reports payoff-hit counts, separates the nominal SE screen,
+and excludes fewer-than-two-hit cases from even the minimal screen. Two hits
+still do not certify tail accuracy. Earlier `run.json` files are preserved;
+`audit_tail_samples.py` adds `tail_diagnostics.json` with input/source hashes.
+In the 256-outer-state run, all 21 nominal screen passes are zero-hit cases
+(1/6/7/7 across the four expiries). No quote passes the corrected minimal
+screen. Model prices, residuals and original records are not rewritten.
+
+The first development runs recorded source hashes at completion. That is not
+an immutable record of loaded runtime sources if files change during a long
+calculation. The new runners capture sources before calculation, reject
+mid-run changes, and save the complete captured files under `source/` in each
+run. The `m2_vix_frozen_*` and `m2_spx_frozen_controls_001` runs replay the main
+diagnostics with this stronger provenance. Initial runs remain preliminary
+records; no old hash or numerical result is silently updated.
