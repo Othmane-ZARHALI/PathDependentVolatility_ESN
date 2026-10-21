@@ -2,7 +2,7 @@
 
 Both engines average future variance before taking its square root. The
 date-zero normalizer is fixed across all conditional states/continuations.
-Composite midpoint integration respects every deterministic curve jump.
+Midpoint and composite Gauss-Legendre time rules respect every curve jump.
 """
 from __future__ import annotations
 
@@ -62,6 +62,36 @@ class ConditionalVIXPricer:
             lefts.extend(grid[:-1]); rights.extend(grid[1:])
         lefts, rights = np.asarray(lefts), np.asarray(rights)
         times, weights = (lefts+rights)/2, rights-lefts
+        return self._window(expiry, delta, times, weights)
+
+    def gaussian_window(self, expiry: float, time_order: int = 8,
+                        delta: float = 30/365) -> VIXWindow:
+        """Time integration on geometrically growing lag panels.
+
+        The first panel has length at most 1/lambda_max, then panel boundaries
+        double in lag. This resolves the fast conditional OU boundary layer
+        without imposing that resolution throughout the entire VIX window.
+        Curve knots are always panel boundaries. Order refinement is required;
+        this deterministic rule carries no automatic error certificate.
+        """
+        if (not np.isfinite([expiry, delta]).all() or expiry < 0 or delta <= 0
+                or not isinstance(time_order, int) or time_order < 2):
+            raise ValueError("Require nonnegative expiry, positive window and integer order >= 2")
+        self.curve([expiry, expiry+delta])
+        lags = [0., delta]
+        lag = 1/float(np.max(self.dated.layout.rates))
+        while lag < delta:
+            lags.append(lag)
+            lag *= 2
+        events = np.unique([expiry+v for v in lags] +
+                           [k for k in self.curve.ends if expiry < k < expiry+delta])
+        nodes, weights = np.polynomial.legendre.leggauss(time_order)
+        half = np.diff(events)/2
+        times = ((events[:-1]+half)[:, None] + half[:, None]*nodes).ravel()
+        weights = (half[:, None]*weights).ravel()
+        return self._window(expiry, delta, times, weights)
+
+    def _window(self, expiry, delta, times, weights):
         xi = self.curve(times)
         if np.any(xi <= self.variance_floor):
             raise ValueError("Forward variance must exceed the floor throughout VIX window")

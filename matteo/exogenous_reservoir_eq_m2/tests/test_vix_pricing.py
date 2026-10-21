@@ -88,6 +88,24 @@ class VIXPricingTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             vix.evaluate(np.zeros((2, 6)), rule)
 
+    def test_gaussian_time_rule_preserves_curve_jumps_and_constant_variance(self):
+        _, vix = fixture(ReadoutParameters(cluster_loading=0., feedback_curvature=0., spike_curvature=0.))
+        rule = vix.gaussian_window(.2, time_order=6)
+        self.assertAlmostEqual(rule.weights.sum(), rule.delta)
+        self.assertTrue(np.all(rule.weights > 0))
+        self.assertAlmostEqual(rule.weights[rule.times < .21].sum(), .01)
+        result = vix.evaluate(np.zeros((1, 6)), rule, order=8)
+        self.assertAlmostEqual(result.vix[0]**2, vix.moment_target(rule), places=10)
+        with self.assertRaises(ValueError):
+            vix.gaussian_window(.2, time_order=1)
+
+    def test_gaussian_time_rule_matches_fine_midpoint_on_nonconstant_states(self):
+        dated, vix = fixture()
+        states = np.array([dated.initial_state(u)[0] for u in ([0., 0., 0.], [1., -2., -2.])])
+        reference = vix.evaluate(states, vix.window(.2, max_step=1/10000), order=16)
+        gaussian = vix.evaluate(states, vix.gaussian_window(.2, time_order=8), order=16)
+        np.testing.assert_allclose(gaussian.vix, reference.vix, rtol=0, atol=1e-6)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -145,3 +145,25 @@ The next option-pricing convergence study must keep the model/state fixed and
 compare coupled 64/128 grids, extending to 256 if price-relative tolerances
 remain unresolved. The old physical-statistic convergence study motivates this
 starting resolution; it does not itself establish option-price convergence.
+
+The calibration plan's numerical-budget paragraph also still prescribed a
+2/8/32 starting ladder after that decision. It has now been updated to the
+64-step working stock baseline and coupled 128/256 refinements. This is a
+correction to the implementation plan, not a retrospective change to the
+recorded budgets or conclusions of earlier runs.
+
+## Faster VIX time integration and common loss boundaries
+
+The new Gaussian **time** rule is distinct from the three-dimensional
+Gauss-Hermite conditional-expectation rule. It resolves lag panels starting at
+1/lambda_max, growing geometrically, with every curve jump included. Its
+smaller node count must not be described as an equivalent coarse SPX stock
+timestep. SPX integration is unchanged. Fixed-state and sampled-state order
+checks are recorded separately in `CALIBRATION_PROGRESS.md`.
+
+`JointPriceObjective` now implements the planned family/expiry weighting and
+separate VIX forward family. Its first anchor score uses only the two already
+priced SPX maturities, plus all four VIX maturities. It is therefore a
+restricted-maturity diagnostic rather than the complete planned training loss.
+Its inherited input conflict and sampling errors remain open. No optimization,
+P-feasibility or ESN/M2 ranking follows from a small scalar score.

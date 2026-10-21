@@ -44,6 +44,13 @@ not a change to the model or its historical research claims.
   expectation. Regression coefficients are trained on an independent pilot,
   then frozen for pricing and paired time-step diagnostics. Negative adjusted
   estimates are retained, never clipped.
+- `src/esn_eq/calibration_loss.py` implements the frozen common family/expiry
+  interval objective and separate VIX forward residuals, with explicit failure
+  handling and held-out boundaries. Synthetic parameter recovery is tested.
+- Conditional VIX supports Gaussian time rules on geometrically growing lag
+  panels split at curve knots. Order 8/16 checks against the fine midpoint
+  reference and sampled states support fewer time nodes at the frozen anchor.
+  Stock-path resolution and outer sampling requirements are unchanged.
 
 ## Evidence and limits
 
@@ -94,6 +101,13 @@ and path budget. Its largest controlled paired changes are 0.576/0.905 SPX
 points (paired SEs 0.308/0.512); quote-relative numerical gates remain open.
 The next priority is sampling efficiency and the common calibration objective,
 with the nuisance-curve/state profiles retained from the existing plan.
+
+The common objective and faster time-integration checkpoint is recorded in
+[CALIBRATION_PROGRESS.md](../../model_comparison/option_pricing/CALIBRATION_PROGRESS.md).
+There are now 68 passing package tests and eight passing legacy/driver checks.
+A restricted joint anchor score combines archived 256/day SPX prices at 29/57
+days with fresh VIX samples at all four maturities. It remains unfitted,
+numerically unresolved and subject to the original input-curve conflict.
 
 ## Remaining work
 

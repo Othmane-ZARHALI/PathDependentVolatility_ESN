@@ -70,3 +70,9 @@ The implementation sequence remains the one in the
 [M2 calibration plan](../../exogenous_reservoir_eq_m2/documentation/CALIBRATION_PLAN.md):
 reproduced ESN benchmark; common audited targets; dated M2 SPX pricer;
 conditional M2 VIX pricer; joint fitting; physical-fit and held-out evaluation.
+
+The shared price loss, synthetic optimizer check, Gaussian VIX time rule and
+first restricted joint anchor score are recorded in
+[CALIBRATION_PROGRESS.md](CALIBRATION_PROGRESS.md). Reproduce with fresh output
+directories using `vix_time_rule` and `joint_diagnostic` as described there.
+Neither diagnostic performs market calibration or establishes price accuracy.
