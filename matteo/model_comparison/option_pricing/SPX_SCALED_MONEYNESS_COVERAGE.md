@@ -82,3 +82,23 @@ market-IV anchors, all cutoff counts and input/source hashes. Tests verify
 maturity scaling and unit invariance, and check that an adversarial held-out
 row leaves anchors and training membership unchanged. Outputs
 replay byte-for-byte. This is numerical/source evidence, not a formal theorem.
+
+## Requested wider cutoffs: 2.5, 3 and 3.5
+
+Using identical training quotes and ATM-IV anchors, the coverage is:
+
+| Maturity (training count) | c=2.5 | c=3 | c=3.5 |
+| --- | ---: | ---: | ---: |
+| 29 days (328) | 202 (61.6%) | 222 (67.7%) | 236 (72.0%) |
+| 57 days (320) | 218 (68.1%) | 238 (74.4%) | 247 (77.2%) |
+| 211 days (164) | 102 (62.2%) | 113 (68.9%) | 123 (75.0%) |
+| 302 days (168) | 120 (71.4%) | 134 (79.8%) | 144 (85.7%) |
+| **All (980)** | **642 (65.5%)** | **707 (72.1%)** | **750 (76.5%)** |
+| Short 29/57 days (648) | 420 (64.8%) | 460 (71.0%) | 483 (74.5%) |
+
+Run `runs/spx_scaled_moneyness_002` extends the grid through c=3.5. Anchor and
+membership files are byte-identical to run001 (the priority flag still refers
+to c=2); all previous cutoff rows reproduce exactly. Coverage is monotone in c.
+Bid/ask-IV scaling gives 641–643, 705–708 and 750 quotes at these cutoffs.
+No priority cutoff was changed by this comparison. Higher coverage includes
+more wing quotes and does not establish their numerical pricing accuracy.

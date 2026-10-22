@@ -8,7 +8,7 @@ import pandas as pd
 from matteo.preprocessing.options import black76_implied_vol
 
 
-CUTOFFS=(.5,1.,1.5,1.8,2.,2.5,3.)
+CUTOFFS=(.5,1.,1.5,1.8,2.,2.5,3.,3.5)
 
 
 def scaled_training_quotes(quotes):
