@@ -1,0 +1,925 @@
+{
+  "status": "complete same-proposal allocation diagnostic; accuracy gates unresolved",
+  "arguments": {
+    "output": "matteo/model_comparison/option_pricing/runs/m2_vix_targeted_allocation_001",
+    "powers": [
+      6,
+      7
+    ],
+    "replications": 12,
+    "seed": 2026102203
+  },
+  "scope": {
+    "scope_id": "2026-10-21-user-restored-full-vix-analysis",
+    "status": "active_exploratory_scope",
+    "decision": "User explicitly restored both longer VIX maturities for new analyses before deciding how to continue; supersedes the earlier same-day near-only instruction.",
+    "vix_fit_expiry_days": [
+      27,
+      55,
+      118,
+      153
+    ],
+    "vix_deferred_expiry_days": [],
+    "forward_treatment": "Include all four associated VIX forwards.",
+    "spx_scope_changed": false,
+    "market_split": "train",
+    "historical_baseline": "Near-only results and prior full-scope runs remain historical evidence, without rewriting numerical records.",
+    "limitations": [
+      "Restoration is an analysis scope decision, not numerical convergence or joint feasibility clearance.",
+      "Existing moment conflicts and unresolved sampling, integration and normalization errors remain recorded.",
+      "Previously examined training quotes and checking draws do not become pristine held-out evidence."
+    ],
+    "supersedes": "2026-10-21-user-authorized-near-vix-pilot"
+  },
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.979054833837768,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [
+        0.5,
+        0.8093838778200331,
+        1.3102045233499884,
+        2.120916835692723,
+        3.4332717860135396,
+        5.557669663547499,
+        8.996576447849662,
+        14.563367864929878,
+        23.574710313273204,
+        38.161980903681986,
+        61.77538417823236,
+        100.0
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "parameters": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.2495993215590715,
+    "spike_shift": 0.0,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "initial_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "curve_levels": [
+    0.054249611228344374,
+    0.060031898992150605,
+    0.0642080964154938
+  ],
+  "target_sha256": {
+    "quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a",
+    "vix_forwards.csv": "03d0b9323680b20d3dcc22c6b75abb50314be51d1fb9ea80e589be50a462af4a",
+    "forward_variance.csv": "15c31744cf781afa719e139fee34cc45028e7f78e8d1744351183bae4a949a5b",
+    "audit.json": "ebd6f545c679f178a28cb53657d99f17bfb0ea996af76bd15805b5bf222c8e11",
+    "manifest.json": "30e7a991625e40e90dd4522d33f4de3615c01f528e2027f754f82b95baff1ea6"
+  },
+  "frozen_model_sha256": {
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/manifest.json": "b75fdcd43eeaca5759687a57e4ef3cf1bc8549df81abd15bfd9c9eb456f7a031",
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/top_configurations.csv": "9135dd929cdbc689e71bda95e70926e8adaf81280d2c3ada7755e9e17c8f228c"
+  },
+  "implementation_sha256": {
+    "matteo/model_comparison/option_pricing/vix_targeted_allocation.py": "eaee1e08b12766f875d04e269737eef9d973c6c98175fad1add94baaec9e06de",
+    "matteo/model_comparison/option_pricing/m2_spx.py": "a9de830afba0a208ef648c4aadc9ebf0d543ec488062cf8a0eed00d7de711127",
+    "matteo/model_comparison/option_pricing/active_scope.json": "ac33794a21d4c27d9d892bfda6ae9a17ad9da4e84de4947e5fa8779dcb19470a",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_targeted_check_001/run.json": "5e307081691202e172f83f468980b23d0fba95541bd30205df0e16af13ac8334",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_targeted_check_001/proposals.json": "f6c81251d99c6d95531f4d4411ca5bd3b6409ede984575950d5b5039ff40ea5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py": "95749bd7a7c6d0702b5d69c08562e654082f15209f587be26bbcdbf524573e79",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py": "6b5190ccb0b37a1777f49d855fada72c12fb8841eb33eb0af3c6ed4ee97fa72e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py": "f6b90b81033e270ac156314934ca1f282a8836b7d427b323591c2465ece0543c",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration_loss.py": "1ece088d9d9ea3f34fb1340a5c445b70bf8157e1674670a3315584893b4f76d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py": "03221fccc504da82e4643c2270b85a5852561ed1905968adc0e97e1309e941d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py": "7a9df36e1843d47613b4e00485ee1e9b6e85834be755be9fe602164c7d346e5a",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py": "c828d30236930de548af7de141ff1e8782986959878a1a9a851e80383d971fb5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py": "953e29ea14f9cb2d11802760c6ffaaecc95ddd70a89d4c07d66dabba1f30bbd0",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py": "aa5b46689ed706ae2be044663ac49fc9ed59b9d505d722fe70361b17caeb53d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py": "11c0ebc10f5b832b66c38d68262b80fab3df2f39f5777fef3e961a4570e579e8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py": "3e7b4a4c341cacde47977b16c1caf01e1575ff569e6292a1e7b1635fe4404e6f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/hedging_controls.py": "f5dca9142f8b7aaa7237ac7cf5978d3c53244840c2d773b8f28648181b1aaf35",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py": "b1e96b7cea1c1c69cf3c5b710fcaf089e24e08afa9463e2c908803769e3d5f54",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_calibration.py": "1249d124dbfe5d43bdef9cac7760021d1a096086142fd53ff77cc27b2174e433",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py": "1d1bd109022c02a3bd4050b947f97dde8deaf00f9ef00626277be510a58f4c29",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py": "0f6efb4cefdae4fd6f4a0b3e91ef0ae4bb1430ac63e1e41f6e82f2033ef5dc4e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/outer_sampling.py": "6ee3199180650eb06270b542fb0236a8b4d8c41349ddb0cf07c3e369d8e03b53",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pilot_proposal.py": "3594b4e3c5511b1c9cb7c13f501a7ca7a74a63c55da6b2a30440ac01fc7e40a2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py": "7c8bb2a28c4a0510cee021dd73d8bc21195747547be4c3157fe7cc46fce887d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py": "35a897e3cc5c7c681b5478e8957d7b9249dd2c278c00ef4503f47ee0d65f9519",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py": "876436ff903aaf160f36f728962c77db7f706ca916ec2b93bc09f9ddd6bc987f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py": "3c532c9d57542f87279743f96102cc4346a06bd7d064bf5417ae55d881e1dd5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/score_sampling.py": "44c80e5f068ef263e7a6b3ce1e7a224a36849e52d6499c95df9eec0d4b2b8b14",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py": "5a86e27407122ff0d1ad216377856756fa31164b6e95e4bd1b311d8d93c46660",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py": "8db6dc562e411a9ecb0adf8a0bbe1f1ed88575c9dc2057e24b15faa01437ea78",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py": "41a662990c7db2f2e1ebf7608b0ef0945c810a53dc7b61cccc53f37f3dc0f721",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stratified_sampling.py": "a0153a47ae4396a8f7262a90b686c9060f617da88c323247b19c77d94a64ac41",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/variance_reduction.py": "e4d65defcbeea79ffa890c3a1e6827c96e920660360de3a712be117ad4330ca7",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_curve_profile.py": "3d03b7c7ec18494083d5019b6b04be54e08508ecd99a39a4cb636108344fd693",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_pricing.py": "bf9b3a744e6cb4c6468870dec8d60943656d7ae3868f3dc4f5ec003baa712a72",
+    "matteo/model_comparison/option_pricing/provenance.py": "2f105738f7f5db071eb9b8a1e5cc6826ce4e346eb499d000fa40771790e4cce8"
+  },
+  "proposal_sha256": "f6c81251d99c6d95531f4d4411ca5bd3b6409ede984575950d5b5039ff40ea5e",
+  "seed_records": [
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 0,
+      "seed": 1398416445
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 1,
+      "seed": 1613525927
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 2,
+      "seed": 1910145745
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 3,
+      "seed": 992468602
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 4,
+      "seed": 567427668
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 5,
+      "seed": 926343246
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 6,
+      "seed": 3225964545
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 7,
+      "seed": 2831443838
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 8,
+      "seed": 4136631722
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 9,
+      "seed": 10806838
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 10,
+      "seed": 3444335152
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "replicate": 11,
+      "seed": 4181055453
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 0,
+      "seed": 3808451838
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 1,
+      "seed": 4250605502
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 2,
+      "seed": 2337283243
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 3,
+      "seed": 631871389
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 4,
+      "seed": 3195497085
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 5,
+      "seed": 4084716241
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 6,
+      "seed": 1285403105
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 7,
+      "seed": 2469706651
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 8,
+      "seed": 3756176053
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 9,
+      "seed": 3983411438
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 10,
+      "seed": 157204013
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "replicate": 11,
+      "seed": 2092784071
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 0,
+      "seed": 379156185
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 1,
+      "seed": 548518289
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 2,
+      "seed": 833795683
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 3,
+      "seed": 3350694907
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 4,
+      "seed": 2157885751
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 5,
+      "seed": 179467349
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 6,
+      "seed": 1493491036
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 7,
+      "seed": 520916444
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 8,
+      "seed": 3915059171
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 9,
+      "seed": 1113666181
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 10,
+      "seed": 2456884517
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "replicate": 11,
+      "seed": 3128140703
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 0,
+      "seed": 1215851014
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 1,
+      "seed": 1768203837
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 2,
+      "seed": 4020899098
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 3,
+      "seed": 3467155654
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 4,
+      "seed": 2634249433
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 5,
+      "seed": 1056771658
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 6,
+      "seed": 2903300253
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 7,
+      "seed": 2933177079
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 8,
+      "seed": 2648488815
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 9,
+      "seed": 2729941500
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 10,
+      "seed": 2769986004
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "replicate": 11,
+      "seed": 2699784770
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 0,
+      "seed": 3599828475
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 1,
+      "seed": 1990785991
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 2,
+      "seed": 3989095666
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 3,
+      "seed": 1269518950
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 4,
+      "seed": 281557746
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 5,
+      "seed": 1960828160
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 6,
+      "seed": 963431247
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 7,
+      "seed": 2911952220
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 8,
+      "seed": 341590425
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 9,
+      "seed": 3405816397
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 10,
+      "seed": 2274610392
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "replicate": 11,
+      "seed": 697269131
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 0,
+      "seed": 545582668
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 1,
+      "seed": 2984872883
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 2,
+      "seed": 3587574029
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 3,
+      "seed": 1771717790
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 4,
+      "seed": 337312593
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 5,
+      "seed": 1833706039
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 6,
+      "seed": 2885117218
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 7,
+      "seed": 3542061524
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 8,
+      "seed": 2357973514
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 9,
+      "seed": 313024568
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 10,
+      "seed": 2713011129
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "replicate": 11,
+      "seed": 3626040330
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 0,
+      "seed": 2287889749
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 1,
+      "seed": 4118156915
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 2,
+      "seed": 788869491
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 3,
+      "seed": 3999160981
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 4,
+      "seed": 2015325395
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 5,
+      "seed": 279642971
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 6,
+      "seed": 2771727601
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 7,
+      "seed": 3415049678
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 8,
+      "seed": 4004883356
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 9,
+      "seed": 1683730276
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 10,
+      "seed": 1617702870
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "replicate": 11,
+      "seed": 3780496153
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 0,
+      "seed": 2769305617
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 1,
+      "seed": 3840924713
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 2,
+      "seed": 1354100962
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 3,
+      "seed": 123113021
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 4,
+      "seed": 2705877682
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 5,
+      "seed": 1794248244
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 6,
+      "seed": 2578739412
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 7,
+      "seed": 3867914438
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 8,
+      "seed": 174265294
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 9,
+      "seed": 1267217737
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 10,
+      "seed": 4222429697
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "replicate": 11,
+      "seed": 3040912656
+    }
+  ],
+  "base_power": 6,
+  "base_counts": [
+    32,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "conditional_order": 32,
+  "normalizer_order": 48,
+  "time_order": 8,
+  "estimator": "random: mean[(f/g)H]; fixed: sum_k pi_k mean_k[(f/g)H]",
+  "effective_weight": "(N*pi_k/n_k)*(f/g), no sample normalization",
+  "likelihood_weight_bound": 2.0,
+  "effective_weight_bound": 2.6666666666666665,
+  "uncertainty_unit": "independent complete replication, including all independent component scrambles",
+  "component_seed_rule": "SeedSequence([replication_seed,component_index]).generate_state(1)[0]",
+  "prefix_rule": "First n_k(coarse) points within every component; global first N points is incorrect for stratified draws.",
+  "conditional_refinement": [
+    {
+      "days": 27,
+      "base_vix": [
+        10.92623699029415,
+        20.294563832586537,
+        402.95261128801155
+      ],
+      "conditional48_vix": [
+        10.925898306115299,
+        20.29510854559099,
+        402.94976070713477
+      ],
+      "max_change": 0.0028505808767818053
+    },
+    {
+      "days": 55,
+      "base_vix": [
+        9.911704477267822,
+        20.345631930497046,
+        629.4823274831509
+      ],
+      "conditional48_vix": [
+        9.911906124867333,
+        20.344163130143286,
+        629.483001069031
+      ],
+      "max_change": 0.001468800353759292
+    },
+    {
+      "days": 118,
+      "base_vix": [
+        9.283720978756454,
+        23.247138141790117,
+        530.2401213107493
+      ],
+      "conditional48_vix": [
+        9.283978716100387,
+        23.24161192830556,
+        530.240185714108
+      ],
+      "max_change": 0.005526213484557729
+    },
+    {
+      "days": 153,
+      "base_vix": [
+        6.392627033070163,
+        21.69795575624412,
+        355.3506219813662
+      ],
+      "conditional48_vix": [
+        6.392484158860549,
+        21.696948287740515,
+        355.33899130733414
+      ],
+      "max_change": 0.011630674032062416
+    }
+  ],
+  "input_compatibility": {
+    "cross_market_conflict_expiries": [
+      46190,
+      46225
+    ],
+    "cross_market_conflict_expiry_days": [
+      118,
+      153
+    ],
+    "cross_market_conflicts_at_quoted_forward": 6,
+    "curve_status": "fitted_curves_conflict_nuisance_profile_required",
+    "moment_bound_note": "finite-strike monotonicity lower bound; omitted tails nonnegative",
+    "overall_compatibility_status": "unresolved_input_conflict_requires_nuisance_curve_profile",
+    "spot_comparison": {
+      "approximate_vix_30d": 19.64977798536384,
+      "status": "approximate_date_level_interpolation_only",
+      "stored_vix_spot": 19.34
+    },
+    "variance_strip_note": "actual observed strikes; all valid two-sided quotes; no inferred zero-bid cutoff"
+  },
+  "limitations": [
+    "Only one pilot proposal; no refit or pilot-to-pilot assessment.",
+    "Twelve-replication SEs are exploratory, not price certificates.",
+    "All current component counts are powers of two, with only 2/4 tail-component points at coarse/fine counts.",
+    "Separate method streams are independent; cross-method SEs are not paired.",
+    "Conditional/time/normalizer biases remain; selected-state GH checks do not bound complete-price errors.",
+    "Zero hits or observed SEs and contribution ESS do not establish tail convergence."
+  ],
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "wall_seconds": 1421.1645145001821
+}

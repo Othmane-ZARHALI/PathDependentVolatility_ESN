@@ -398,3 +398,28 @@ bias. No moment rescaling or maturity exclusion is applied. See
 [VIX_TARGETED_PILOT_RESULTS.md](VIX_TARGETED_PILOT_RESULTS.md) and the saved
 `m2_vix_targeted_check_001` artifacts. All 119 tests and correspondence replays
 pass, without certifying statistical accuracy.
+
+## Exact-state 118-day warning attribution — 22 October 2026
+
+On all 512 original targeted 118-day states and their unchanged likelihood
+weights, conditional GH32/M48 to GH48/M64 changes E[VIX squared] by
+-0.00603 ± 0.02206, leaving residual -11.81094 versus the 600.31899 model target.
+The corresponding forward change is -0.000205 ± 0.000233; the largest 118-day
+option price change divided by its quote scale is 0.00464. The observed warning
+is therefore not explained by these two refinements on this sample. Small
+higher-order/time subset checks remain limited, not global price-bias bounds.
+No normalizer patch, price rescaling, maturity removal or new fit is justified.
+See [VIX_ALLOCATION_REFINEMENT_RESULTS.md](VIX_ALLOCATION_REFINEMENT_RESULTS.md).
+
+The fresh R12 x 128 same-density allocation comparison is complete. Fixed
+17-component allocation lowers median option SE at 27/118/153 days but worsens
+55 days (ratios 0.797/1.124/0.931/0.883); observed SE screens total 35/175 fixed
+versus 36/175 random. No forward passes its sampling SE tolerance. Fresh moments
+are within about 1.7 reported SE of all model targets under both methods,
+further supporting sample sensitivity of the old warning, not a convergence
+clearance. Half-replication SEs remain variable. The fixed design's effective
+weights include allocation factors and can exceed 2 (bound 8/3), while likelihood
+weights remain bounded by 2; the larger effective weights are not a density
+ratio bug. All 121 tests and both correspondence replays pass. Fixed allocation
+is retained as experimental, not adopted as a uniform remedy. All four VIX
+maturities/forwards and prior warning records remain included.

@@ -1,0 +1,239 @@
+{
+  "status": "descriptive frozen proposal comparison; no accuracy acceptance",
+  "inputs": {
+    "run.json": "3b28cad7f13abb753a77a6281cdf5de9987c0e5daf54115734498942b47eaab4",
+    "summary.csv": "e013e4c94ef6aeae94bbece42ca7bef7c2c668e9a5c6169293d80d3a42bc2507",
+    "prefix_changes.csv": "ea33e6ac20a0af32a9053513e80c40c26673e3b3226068392c11b50272f0caf8",
+    "outer_values.csv": "3d9c9f7feb9ff0953b2bed07db2369a83238f1b2a133422a69f10ea66c055ff8",
+    "replications.csv": "b8bab76d87820192612809a324bd1199dbb598cb05919b9296917499825e9603"
+  },
+  "method_summaries": [
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "quotes": 40,
+      "positive_estimates": 40,
+      "se_screen_passes": 4,
+      "median_se_over_scale": 0.6587004103523593,
+      "max_se_over_scale": 0.8548018189755414,
+      "median_max_pooled_share": 0.0059476544986602,
+      "max_max_pooled_share": 0.0196697717404464,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.20945283309790302,
+      "max_abs_prefix_change_over_scale": 1.0819353037366937
+    },
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "quotes": 40,
+      "positive_estimates": 40,
+      "se_screen_passes": 6,
+      "median_se_over_scale": 0.5628786241373718,
+      "max_se_over_scale": 1.3366649322016757,
+      "median_max_pooled_share": 0.00639414193639485,
+      "max_max_pooled_share": 0.0226636685316903,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.7946336279324847,
+      "max_abs_prefix_change_over_scale": 1.5311177667925222
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "quotes": 47,
+      "positive_estimates": 47,
+      "se_screen_passes": 9,
+      "median_se_over_scale": 0.543626862173915,
+      "max_se_over_scale": 1.2200123669242091,
+      "median_max_pooled_share": 0.0059410415339693,
+      "max_max_pooled_share": 0.0345745973733254,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.41080475986203024,
+      "max_abs_prefix_change_over_scale": 2.1479241034128527
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "quotes": 47,
+      "positive_estimates": 47,
+      "se_screen_passes": 9,
+      "median_se_over_scale": 0.6287200717833519,
+      "max_se_over_scale": 1.4285284567800098,
+      "median_max_pooled_share": 0.0073173223312515,
+      "max_max_pooled_share": 0.0378422515935806,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.3002560874012772,
+      "max_abs_prefix_change_over_scale": 2.2113858768537997
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "quotes": 44,
+      "positive_estimates": 44,
+      "se_screen_passes": 12,
+      "median_se_over_scale": 0.3998936742797855,
+      "max_se_over_scale": 1.0140820843108378,
+      "median_max_pooled_share": 0.00732787132542445,
+      "max_max_pooled_share": 0.0424294491092732,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.2051380427525416,
+      "max_abs_prefix_change_over_scale": 1.2614897805898015
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "quotes": 44,
+      "positive_estimates": 44,
+      "se_screen_passes": 11,
+      "median_se_over_scale": 0.32188266963748585,
+      "max_se_over_scale": 0.9478243361434858,
+      "median_max_pooled_share": 0.0107052539594454,
+      "max_max_pooled_share": 0.0547676653271526,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.32916215838228785,
+      "max_abs_prefix_change_over_scale": 2.7905991705466286
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "quotes": 44,
+      "positive_estimates": 44,
+      "se_screen_passes": 11,
+      "median_se_over_scale": 0.4014777526518273,
+      "max_se_over_scale": 1.1441626730690688,
+      "median_max_pooled_share": 0.0070991660315858005,
+      "max_max_pooled_share": 0.0479702521289297,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.25904470637274635,
+      "max_abs_prefix_change_over_scale": 1.4516524166444322
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "quotes": 44,
+      "positive_estimates": 44,
+      "se_screen_passes": 9,
+      "median_se_over_scale": 0.42731536878088355,
+      "max_se_over_scale": 1.0111761195390507,
+      "median_max_pooled_share": 0.00878117799833535,
+      "max_max_pooled_share": 0.0535582301353328,
+      "zero_hit_quotes": 0,
+      "quotes_with_a_zero_hit_scramble": 0,
+      "median_abs_prefix_change_over_scale": 0.13752028873913036,
+      "max_abs_prefix_change_over_scale": 0.44991049661903554
+    }
+  ],
+  "option_comparisons": [
+    {
+      "days": 27,
+      "quotes": 40,
+      "median_option_se_ratio": 0.7970757773699635,
+      "quotes_with_lower_fixed_se": 30,
+      "max_abs_price_difference_over_scale": 1.9381504237376777,
+      "differences_exceed_two_combined_se": 1
+    },
+    {
+      "days": 55,
+      "quotes": 47,
+      "median_option_se_ratio": 1.1236703249229663,
+      "quotes_with_lower_fixed_se": 15,
+      "max_abs_price_difference_over_scale": 0.6469529411220815,
+      "differences_exceed_two_combined_se": 0
+    },
+    {
+      "days": 118,
+      "quotes": 44,
+      "median_option_se_ratio": 0.9305081267966546,
+      "quotes_with_lower_fixed_se": 28,
+      "max_abs_price_difference_over_scale": 1.5230467128275296,
+      "differences_exceed_two_combined_se": 0
+    },
+    {
+      "days": 153,
+      "quotes": 44,
+      "median_option_se_ratio": 0.8826474425702419,
+      "quotes_with_lower_fixed_se": 31,
+      "max_abs_price_difference_over_scale": 1.4553953306591583,
+      "differences_exceed_two_combined_se": 3
+    }
+  ],
+  "weighted_mass_diagnostics": [
+    {
+      "days": 27,
+      "method": "fixed_targeted",
+      "estimate": 0.9963014196750869,
+      "replication_se": 0.0031503112401204706,
+      "minimum_weight": 1.4512673058813516e-05,
+      "maximum_weight": 2.0678350681393463
+    },
+    {
+      "days": 27,
+      "method": "random_targeted",
+      "estimate": 1.0060363102481582,
+      "replication_se": 0.003254474206980335,
+      "minimum_weight": 2.870961761963908e-05,
+      "maximum_weight": 1.5684111976384052
+    },
+    {
+      "days": 55,
+      "method": "fixed_targeted",
+      "estimate": 0.9970703995451071,
+      "replication_se": 0.003449468800993401,
+      "minimum_weight": 4.5181071843840445e-06,
+      "maximum_weight": 2.0263104205674587
+    },
+    {
+      "days": 55,
+      "method": "random_targeted",
+      "estimate": 0.9949923397385764,
+      "replication_se": 0.0055826058921000735,
+      "minimum_weight": 2.476297649296854e-06,
+      "maximum_weight": 1.562158300983233
+    },
+    {
+      "days": 118,
+      "method": "fixed_targeted",
+      "estimate": 1.007433181530182,
+      "replication_se": 0.004271286444901102,
+      "minimum_weight": 4.4020758647085145e-06,
+      "maximum_weight": 2.078566512089181
+    },
+    {
+      "days": 118,
+      "method": "random_targeted",
+      "estimate": 1.0018142627979767,
+      "replication_se": 0.005006175382196196,
+      "minimum_weight": 1.5068778786313989e-05,
+      "maximum_weight": 1.6053924365308891
+    },
+    {
+      "days": 153,
+      "method": "fixed_targeted",
+      "estimate": 1.002762342986501,
+      "replication_se": 0.005285562444731208,
+      "minimum_weight": 2.868541342292092e-06,
+      "maximum_weight": 2.1085742274442523
+    },
+    {
+      "days": 153,
+      "method": "random_targeted",
+      "estimate": 0.9986536782579397,
+      "replication_se": 0.005089695451017389,
+      "minimum_weight": 5.485187921480603e-05,
+      "maximum_weight": 1.625173964977053
+    }
+  ],
+  "audit_sha256": "3d51713f7269c58cffac2bee58995ae5ca671cc4c636712ffa13a86b5508bf91",
+  "limitations": [
+    "Observed SE screens are necessary diagnostics, not price-error guarantees. Half-replication splits reuse checking data and are descriptive, not new validation.",
+    "Two combined SE comparisons are descriptive and not simultaneous or calibrated tail tests.",
+    "Finite scramble SE can miss rare contributions; prefix stability cannot rule them out.",
+    "Identical frozen targeted density; allocation and net construction change, without new pilot fitting."
+  ]
+}

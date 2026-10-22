@@ -257,6 +257,19 @@ included; no model refit or price rescaling. Validation: 119 tests plus pilot
 and full-state/weight/statistics replay checks pass. Next isolate component
 allocation effects and refine the offending moment on identical states.
 
+The saved-state attribution and fresh allocation checkpoint is in
+[VIX_ALLOCATION_REFINEMENT_RESULTS.md](../../model_comparison/option_pricing/VIX_ALLOCATION_REFINEMENT_RESULTS.md).
+All 512 offending 118-day states retain their original weights. Raising
+conditional GH32/M48 to GH48/M64 changes their moment by only -0.00603 ± 0.02206,
+leaving -11.81094; tested refinements do not explain that sample's warning.
+Fresh R12 x 128 random/fixed sampling of the identical 17-component density
+gives all moment residuals within about 1.7 reported SE, but only 36/175 versus
+35/175 option SE screens and no forward SE gate pass. Fixed allocation is mixed,
+not adopted universally; count/price-bias gates remain open. All four maturities
+and forwards remain active. Validation: 121 tests, exact-state node/statistics
+replay, and 12288-state/weight/allocation replay pass. Next test known-mean
+Gaussian controls with independent pilot coefficients, preserving all bias gates.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per

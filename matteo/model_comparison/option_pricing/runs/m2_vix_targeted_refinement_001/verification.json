@@ -1,0 +1,11 @@
+{
+  "status": "saved-state node integration and statistics replay passed",
+  "source_snapshot_hashes": 38,
+  "full_states_matched": true,
+  "original_weights_matched": true,
+  "node_integrals_reconstructed": true,
+  "summary_rows_recomputed": 138,
+  "subset_checks_recomputed": 2,
+  "verifier_sha256": "3477da3ff72a96e36e9a8518acd74b4dae90db5cb4f97bef6eef2865446b393c",
+  "limitation": "Does not recompute Gaussian node expectations or certify quadrature or unseen-tail error."
+}

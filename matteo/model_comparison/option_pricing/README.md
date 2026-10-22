@@ -132,3 +132,11 @@ The new proposal helps some option families but worsens every forward SE and
 has a new 118-day moment warning. It remains experimental. Reproduction uses
 `vix_targeted_pilots`, `vix_targeted_check` and their corresponding verifier
 modules; all four maturities and forwards are retained.
+
+[VIX_ALLOCATION_REFINEMENT_RESULTS.md](VIX_ALLOCATION_REFINEMENT_RESULTS.md)
+replays the exact 118-day warning states at higher conditional and normalizer
+orders, then compares random and fixed allocations under the identical frozen
+17-component density on fresh R12 x 128 draws. The density weights and allocation
+corrections are recorded separately; all four maturities remain active.
+Reproduce with `vix_targeted_refinement`, `vix_targeted_allocation` and their
+corresponding verifiers; the same-density comparator is random targeted sampling.
