@@ -297,6 +297,14 @@ rescaling or clipping occurs. Validation: 126 tests plus replay of 12288 states,
 controls, all pilot fits and 2196 summary rows pass. Next screen payoff-shaped
 Gaussian tail controls on independent design pilots, preserving the full scope.
 
+The user has asked to record the VIX tail-control extension and move forward
+for now, retaining all maturities. The pending extension and next SPX diagnostic
+work are recorded in [NEXT_STEPS.md](../../model_comparison/option_pricing/NEXT_STEPS.md).
+All four VIX maturities, 175 training options and four forwards remain active;
+`active_scope.json` is unchanged. The tail-control pilot is pending, not launched,
+and the working interpretation is to resume SPX numerical diagnostics. No VIX
+convergence, scope reduction or new market fit is implied.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per

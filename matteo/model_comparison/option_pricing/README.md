@@ -155,3 +155,8 @@ and checks pooled/balanced pilot fits on fresh nested 128/256-point nets at
 all four maturities. Reproduce with `vix_gaussian_stability`,
 `verify_vix_gaussian_stability` and `audit_vix_gaussian_stability`. Historical
 observations used for the larger pilot are explicitly design data.
+
+[NEXT_STEPS.md](NEXT_STEPS.md) records the user's direction to leave the VIX
+tail-control extension pending, retain all four maturities/forwards, and move
+forward. It records SPX numerical diagnostics as the working next focus, with
+all existing scope and accuracy limitations preserved.
