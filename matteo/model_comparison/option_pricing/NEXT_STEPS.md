@@ -10,6 +10,14 @@ explicit focus. The first bounded path-sampling experiment is recorded in
 [SPX_PATH_IMPORTANCE_RESULTS.md](SPX_PATH_IMPORTANCE_RESULTS.md); the VIX queue
 and full maturity scope below remain in force.
 
+SPX follow-up: [SPX_VOLATILITY_SAMPLING_RESULTS.md](SPX_VOLATILITY_SAMPLING_RESULTS.md)
+records independently selected volatility-path sampling that improves fresh
+variance in 20/24 cases, while no quote-relative sampling screen passes.
+Additional Gaussian-score controls help only modestly. Next prioritize paired
+time corrections: standalone level costs, independent correction-pilot fits,
+and a bounded matched-cost MLMC comparison. The 128->256 warnings, pilot
+instability and tail precision remain open; no model refit is cleared.
+
 ## Scope retained
 
 [active_scope.json](active_scope.json) remains authoritative and unchanged:

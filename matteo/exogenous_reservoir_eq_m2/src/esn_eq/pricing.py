@@ -218,13 +218,17 @@ class DatedM2Pricer:
             raise FloatingPointError("Invalid Gaussian normalizer")
         return values
 
-    def prepare(self, times, initial, paths: int, seed: int, checkpoints=(), *, equity_drift=None) -> PreparedQPaths:
+    def prepare(self, times, initial, paths: int, seed: int, checkpoints=(), *, equity_drift=None, gaussian_tilt=None) -> PreparedQPaths:
         """Cache exact OU/stock shocks, optionally under a constant pathwise shift.
 
         ``equity_drift`` is one deterministic Brownian drift per path. It changes
         the sampling law, including correlated OU innovations; callers MUST
         supply likelihood weights for target-Q expectations. The Q drift itself
         is unchanged. None preserves the original target sampler.
+        Alternatively ``gaussian_tilt.transform(step, normals)`` may shift the
+        independent joint-transition normals and accumulate path scores. It
+        must return a finite array of the same shape. Its caller owns the
+        corresponding full-path likelihood. Do not combine the two interfaces.
         """
         times = np.array(times, dtype=float, copy=True)
         if (times.ndim != 1 or len(times) < 2 or times[0] != 0
@@ -234,6 +238,8 @@ class DatedM2Pricer:
         if not checkpoints.issubset(set(times)):
             raise ValueError("Every checkpoint must be an exact grid event")
         initial = self._state(initial)
+        if gaussian_tilt is not None and equity_drift is not None:
+            raise ValueError("Use only one Gaussian shift interface")
         if equity_drift is not None:
             equity_drift = np.asarray(equity_drift, float)
             if equity_drift.shape != (paths,) or not np.isfinite(equity_drift).all():
@@ -253,6 +259,11 @@ class DatedM2Pricer:
                 transitions[dt] = symmetric_square_root(conditional), cross
             root, cross = transitions[dt]
             normals = rng.standard_normal((paths, len(initial) + 1))
+            if gaussian_tilt is not None:
+                transformed = np.asarray(gaussian_tilt.transform(step, normals), float)
+                if transformed.shape != normals.shape or not np.isfinite(transformed).all():
+                    raise ValueError("Invalid transformed transition normals")
+                normals = transformed
             equity[step] = np.sqrt(dt) * normals[:, 0]
             if equity_drift is not None:
                 equity[step] += equity_drift * dt

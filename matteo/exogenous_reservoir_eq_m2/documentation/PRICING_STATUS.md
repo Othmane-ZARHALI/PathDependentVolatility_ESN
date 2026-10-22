@@ -73,6 +73,16 @@ not a change to the model or its historical research claims.
   [SPX_PATH_IMPORTANCE_RESULTS.md](../../model_comparison/option_pricing/SPX_PATH_IMPORTANCE_RESULTS.md)
   for the bounded market diagnostic and separate grid/normalizer checks;
   these do not qualify the SPX surface or change VIX maturity scope.
+- `src/esn_eq/volatility_path_importance.py` builds orthonormal full-path scores
+  for equity and conditional OU projection excursions. Exact joint likelihoods
+  and independent Gaussian/Black oracles cover asymmetric volatility shifts.
+  The [volatility-sampling diagnostic](../../model_comparison/option_pricing/SPX_VOLATILITY_SAMPLING_RESULTS.md)
+  separates proposal selection from fresh checking and retains pilot-half
+  instability, negative estimates and all candidate results.
+  Its selected 7-day proposal improves fresh observed variance in 20/24 cases
+  but clears no quote-relative sampling screen; coupled time errors remain.
+  Additional weighted Gaussian-score/ridge controls are frozen before checking
+  results and give only a modest further gain. No market-fit clearance follows.
 
 ## Evidence and limits
 

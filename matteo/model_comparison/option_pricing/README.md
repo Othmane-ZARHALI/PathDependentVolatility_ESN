@@ -167,3 +167,14 @@ hedging-control pilots, with coupled 64/128/256 grids and separate GH48/64
 normalizer changes. Reproduce with `spx_path_importance`; replay checking draws
 and source integrity with `verify_spx_path_importance`. The diagnostic preserves
 all maturity/split scopes and does not authorize market refitting.
+
+[SPX_VOLATILITY_SAMPLING_RESULTS.md](SPX_VOLATILITY_SAMPLING_RESULTS.md) extends
+the full-path proposal to orthonormal Gaussian directions targeting OU
+volatility excursions. Independent training/selection/checking streams retain
+all candidates and full/half-pilot control fits. Commands:
+`spx_volatility_sampling`, `verify_spx_volatility_sampling`,
+`audit_spx_volatility_sampling`. The failed first launch is retained separately.
+`spx_path_score_controls` separately freezes/evaluates weighted Gaussian
+path-moment controls before completed checking data; replay its coefficients
+and all estimates with `verify_spx_path_score_controls`. The additional gain
+is modest and all accuracy limitations remain.

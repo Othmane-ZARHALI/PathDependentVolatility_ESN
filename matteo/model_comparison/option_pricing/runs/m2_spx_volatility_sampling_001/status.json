@@ -1,0 +1,15 @@
+{
+  "status": "failed_before_market_draws",
+  "error": "ValueError: too many values to unpack (expected 6)",
+  "cause": "Seven empty lists supplied for six collection accumulators.",
+  "correction": "Initialize six lists; add end-to-end small collect test; restart into run 002.",
+  "numerical_results": "No pilot, selection or checking paths drawn; setup quadrature only.",
+  "arguments": {
+    "pilot": 512,
+    "selection": 512,
+    "paths": 1024,
+    "batch_size": 256,
+    "trials": 2,
+    "seed": 20261026
+  }
+}

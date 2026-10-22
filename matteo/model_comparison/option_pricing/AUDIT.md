@@ -490,3 +490,36 @@ under the proposal would be incorrect. There is no self-normalization, model
 refit, maturity pruning or completed MLMC estimator. All 384 estimates, 288
 paired changes and 20 monitors replay from checking draws; source hashes and
 seed separation pass. See [SPX_PATH_IMPORTANCE_RESULTS.md](SPX_PATH_IMPORTANCE_RESULTS.md).
+
+## SPX volatility-path proposals and independent checking — 22 October 2026
+
+The new full-path Gaussian basis targets equity plus conditional OU projection
+excursions. Its exact f/q likelihood retains all path dimensions and an original
+Gaussian component of probability 1/2. Independent training and selection choose
+the 7-day proposal before checking. It improves observed controlled variance in
+20/24 fresh contract/trial cases (10/12 in each trial; median gain 1.4192), and
+8/8 near-ATM cases improve. **None of the 24 sampling screens passes.** All
+candidate/half-fit results remain; all four VIX maturities and forwards remain
+active and no market refit occurs.
+
+**Preserved failures/discrepancies:** launch 001 fails before any market paths
+because seven list initializers were assigned to six variables. Its source and
+failure status are kept; corrected launch 002 adds an end-to-end collection
+test. Equity-comparator trial 1 weight mass is 1.04935 ± 0.01945 (+2.54 SE),
+with correlated stock/reference warnings; no mass normalization is imposed.
+Vol21 half-B gives -4.77501 ± 7.84805 for the 29-day 3400 put, a 13.60-fold SE
+increase relative to its pooled fit. No negative estimator is clipped.
+
+**Time-integration warning persists despite sampling improvement:** selected
+vol7 128->256 changes exceed scale/8 in 20/24 cases, five above two paired SEs.
+The 57-day 5550 put change is -1.62367 ± 0.67967 against scale 0.20024. Neither
+256-step convergence nor an MLMC allocation is established. Correction variance
+and warmed costs are saved, with finest-cache/standalone-cost limitations.
+
+An additional 13-control Gaussian-score/ridge dictionary is frozen on design
+data while checking paths are generated, before any completed checking archive
+or numerical results exist. On identical fresh paths, its pooled vol7 median
+variance gain is only 1.0178; no sampling screen passes. It does not reselect the
+proposal or a favorable half. All 864 original estimates, 576 paired corrections,
+30 monitors and 648 additional score-control estimates replay; all 134 tests
+pass. See [SPX_VOLATILITY_SAMPLING_RESULTS.md](SPX_VOLATILITY_SAMPLING_RESULTS.md).

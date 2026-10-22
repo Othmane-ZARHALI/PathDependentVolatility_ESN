@@ -1,0 +1,100 @@
+{
+  "selected": "vol7",
+  "comparisons": [
+    {
+      "method": "equity",
+      "fit": "halfA",
+      "median_variance_gain_vs_original_pooled": 0.8524602910638703,
+      "improved": 8,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 4.271887261425409,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "equity",
+      "fit": "halfB",
+      "median_variance_gain_vs_original_pooled": 0.9897233815797443,
+      "improved": 10,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 3.30054752916765,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "equity",
+      "fit": "pooled",
+      "median_variance_gain_vs_original_pooled": 1.0006445401606674,
+      "improved": 13,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 3.5195390533793764,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "vol21",
+      "fit": "halfA",
+      "median_variance_gain_vs_original_pooled": 0.9418639503399571,
+      "improved": 9,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 3.4275812611067376,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "vol21",
+      "fit": "halfB",
+      "median_variance_gain_vs_original_pooled": 0.9509126131188378,
+      "improved": 9,
+      "contract_trials": 24,
+      "negative_prices": 1,
+      "median_se_over_scale": 4.004346631172665,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "vol21",
+      "fit": "pooled",
+      "median_variance_gain_vs_original_pooled": 1.006335044014079,
+      "improved": 17,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 3.3264740826087698,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "vol7",
+      "fit": "halfA",
+      "median_variance_gain_vs_original_pooled": 0.9874683304551679,
+      "improved": 10,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 2.441962139606808,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "vol7",
+      "fit": "halfB",
+      "median_variance_gain_vs_original_pooled": 0.9877217735940665,
+      "improved": 9,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 2.756883968411084,
+      "positive_hit_screens": 0
+    },
+    {
+      "method": "vol7",
+      "fit": "pooled",
+      "median_variance_gain_vs_original_pooled": 1.017769643699984,
+      "improved": 18,
+      "contract_trials": 24,
+      "negative_prices": 0,
+      "median_se_over_scale": 2.4212478636432078,
+      "positive_hit_screens": 0
+    }
+  ],
+  "limitations": [
+    "Half fits and pooled fits share checking paths.",
+    "Variance ratios are descriptive, not certified population gains.",
+    "Ridge plus dictionary differs from original OLS fit; effect is combined."
+  ]
+}
