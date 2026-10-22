@@ -351,3 +351,28 @@ No normalization, parameters, prices or market targets are changed or rescaled.
 All four maturities and forwards remain in scope; detailed evidence, limitations,
 113 passing tests and replay checks are in `VIX_MOMENT_DIAGNOSIS.md`. The
 lean-numerics-bridge workflow is used without claiming Lean certification.
+
+## Score sensitivity is not payoff variance capture — 22 October 2026
+
+The new all-four-maturity frozen VIX experiment chooses four terminal Gaussian
+score directions capturing 99.74%–99.77% of its deterministic sensitivity-matrix
+trace. On fresh matched-budget checking draws, covariance inflation in those
+directions worsens median option SE at every maturity (ratios 2.242/1.858/
+1.358/1.806 versus the earlier learned mixture), and worsens every forward SE.
+It must not be described as retaining 99.7% of pricing variance or as a
+successful sampling improvement. The design and negative result are retained in
+[VIX_SCORE_SAMPLING_RESULTS.md](VIX_SCORE_SAMPLING_RESULTS.md); it is not adopted.
+
+The fresh learned-mixture second moments are 543.724/540.539/600.978/593.863,
+against targets 542.496/542.496/600.319/600.319, with SEs 5.75/6.90/6.89/6.18.
+The old 27-day +13.65 discrepancy does not persist in this new sample; this
+supports the prior sampling-sensitivity attribution, not an identity-enforcing
+normalizer correction. Only 28/175 learned and 11/175 inflated option estimates
+pass the observed SE screen; none of these counts certifies accuracy. No
+maturity, forward, model parameter or price normalization has been changed.
+
+The new artifact verifier initially compared Python risk-premium tuples to
+JSON lists and stopped at metadata correspondence. Canonical JSON comparison
+corrected that verifier-only mismatch; the completed pricing artifacts were
+unchanged. Replay now passes for all 8192 full states/weights and 732 summary
+rows. Negative results and incomplete numerical gates remain explicit.

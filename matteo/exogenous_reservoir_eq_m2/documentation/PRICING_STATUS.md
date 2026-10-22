@@ -1,4 +1,4 @@
-# Dated pricing implementation status — 21 October 2026
+# Dated pricing implementation status — 22 October 2026
 
 This is an implementation update to [CALIBRATION_PLAN.md](CALIBRATION_PLAN.md),
 not a change to the model or its historical research claims.
@@ -228,6 +228,21 @@ of mean variance multiplier, showing why sampling is difficult. All four
 maturities/forwards remain in scope; no prices are rescaled or refitted. Current
 validation: 113 tests plus source/statistics replay checks pass. Full price,
 quadrature and calibration gates remain open.
+
+The deterministic score-subspace sampling follow-up is in
+[VIX_SCORE_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_SCORE_SAMPLING_RESULTS.md).
+The new `score_sampling.py` retains the full terminal state and uses exact
+bounded defensive-mixture weights. On fresh R16 x 64 equal-budget checking
+samples at all four maturities, the proposed rank-four covariance inflation
+worsens median option SE by factors 2.24/1.86/1.36/1.81 and worsens every forward
+SE versus the frozen learned mixture. It is not adopted. Fresh learned-mixture
+moments lie within 1.1 reported SE of all targets, supporting sampling sensitivity
+of the preceding warning, without establishing option convergence. Observed
+option SE screens pass only 28/175 (learned) and 11/175 (inflated); count and
+quadrature gates remain open. All four maturities and forwards are retained;
+no refit or rescaling is performed. Validation: 116 tests and replay of 8192
+full states/weights plus 732 summary rows pass. Next use independent design
+pilots and fresh count refinements; no joint-fit ranking is accepted.
 
 ## Remaining work
 

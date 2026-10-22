@@ -116,3 +116,11 @@ warning using direct Gaussian expectations, exact old-state refinements and
 multiplier-tail diagnostics. It favors outer sampling sensitivity at the frozen
 model; it does not patch normalization or certify prices. All four maturities
 remain included. `verify_vix_moment_diagnostics` replays artifact checks.
+
+[VIX_SCORE_SAMPLING_RESULTS.md](VIX_SCORE_SAMPLING_RESULTS.md) tests a deterministic
+model-score subspace proposal against the frozen pilot-learned mean mixture on
+fresh matched-budget R16 x 64 draws, with all four maturities retained. The
+proposal broadens four directions while retaining the full 36-dimensional state
+and exact weights. `verify_vix_score_sampling` replays full states, weights and
+statistics; `audit_vix_score_sampling` produces descriptive method comparisons.
+This experiment does not refit the model or impose the moment identity.
