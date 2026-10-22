@@ -229,3 +229,13 @@ and retained as signed diagnostics; no clipping or checking-selected fallback.
 Raw positive-weight payoffs are nonnegative by construction but can be noisy.
 All maturity/quote scopes are retained. Reproduction inputs and hashes are saved
 in `runs/m2_spx_moneyness_audit_001`.
+
+## Maturity-scaled SPX central band
+
+[SPX_SCALED_MONEYNESS_COVERAGE.md](SPX_SCALED_MONEYNESS_COVERAGE.md) implements
+training-only market-IV-scaled log-moneyness. The z<=2 priority band includes
+566/980 SPX training quotes (57.8%), over half at each of 29/57/211/302 days.
+The 648 count used for short-maturity studies refers only to 29/57 days, not
+the full training surface; this corrects earlier denominator shorthand.
+Coverage does not establish pricing accuracy. Four old central contracts remain
+representatives, all wing diagnostics and all VIX maturities remain active.

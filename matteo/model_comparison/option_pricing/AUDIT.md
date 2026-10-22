@@ -672,3 +672,13 @@ and the current section of `NEXT_STEPS.md`. Wings stay in diagnostic records and
 all four VIX maturities remain active. This is a work-priority decision, not a
 quote-scope exclusion, sampling/bias clearance or model refit. No simulation or
 estimator changes were made in this update.
+
+## Maturity-scaled SPX central band
+
+[SPX_SCALED_MONEYNESS_COVERAGE.md](SPX_SCALED_MONEYNESS_COVERAGE.md) implements
+training-only market-IV-scaled log-moneyness. The z<=2 priority band includes
+566/980 SPX training quotes (57.8%), over half at each of 29/57/211/302 days.
+The 648 count used for short-maturity studies refers only to 29/57 days, not
+the full training surface; this corrects earlier denominator shorthand.
+Coverage does not establish pricing accuracy. Four old central contracts remain
+representatives, all wing diagnostics and all VIX maturities remain active.

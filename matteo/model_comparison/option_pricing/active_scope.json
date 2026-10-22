@@ -21,7 +21,7 @@
   "supersedes": "2026-10-21-user-authorized-near-vix-pilot",
   "spx_research_priority": {
     "decision_date": "2026-10-22",
-    "user_direction": "Yes, I would also focus more on near-ATM options for now.",
+    "user_direction": "Use maturity-adaptive moneyness and check coverage; less than 50% would be unsatisfactory.",
     "purpose": "Prioritize numerical stability and accuracy near ATM; retain wing diagnostics and full market scope.",
     "contracts": [
       {
@@ -45,8 +45,17 @@
         "option_type": "call"
       }
     ],
-    "provenance": "Four previously declared training representatives, about 2% OTM relative to forward; descriptive near-ATM band is within 5%.",
+    "provenance": "Market-only maturity-scaled central band; selected for quote coverage without inspecting model performance or held-out prices. Four listed contracts are existing representatives, not the complete priority set.",
     "wing_treatment": "Retain as secondary diagnostics; negative controlled estimates remain flagged as unusable prices, without clipping.",
-    "accuracy_gates": "Independent sampling accuracy, coupled stock timestep refinement, and normalizer refinement remain separate requirements; no market refit cleared."
+    "accuracy_gates": "Independent sampling accuracy, coupled stock timestep refinement, and normalizer refinement remain separate requirements; no market refit cleared.",
+    "criterion": {
+      "formula": "abs(log(K/F(T))) / (sigma_ATM_proxy(T)*sqrt(T)) <= 2",
+      "atm_proxy": "Black76 IV of nearest absolute log-moneyness SPX training midquote per expiry; tie by strike then option_type",
+      "coverage_denominator": "980 SPX training quotes at 29/57/211/302 days",
+      "priority_quote_count": 566,
+      "coverage_fraction": 0.5775510204081633,
+      "membership_artifact": "runs/spx_scaled_moneyness_001/training_membership.csv",
+      "supersedes": "Fixed 5% reporting band for current priority membership; four listed contracts remain diagnostic representatives."
+    }
   }
 }

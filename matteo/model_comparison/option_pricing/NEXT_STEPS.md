@@ -1,5 +1,20 @@
 # Recorded next steps — 22 October 2026
 
+## Current membership rule: maturity-scaled central band
+
+User requested maturity adaptation and meaningful coverage. Prioritize
+`abs(log(K/F(T))) <= 2 * sigma_ATM_proxy(T) * sqrt(T)`, with market training-only
+nearest-ATM-IV anchors. This supersedes the fixed 5% band for priority membership.
+It includes **566/980 training quotes (57.8%)**, over half at every training
+expiry (29/57/211/302 days). The four earlier near-ATM contracts remain diagnostic
+representatives, not the entire priority set. All quote and VIX scopes remain.
+See [coverage and denominator correction](SPX_SCALED_MONEYNESS_COVERAGE.md).
+
+Next broaden representative strike checks within the central band, keeping
+sampling, stock timestep and normalizer gates separate. Longer SPX maturities
+need their own convergence/cost checks; no new pricing accuracy is established
+by the coverage count. Older priority text below is historical where superseded.
+
 ## Current priority: near-ATM SPX (user confirmed)
 
 User: **"Yes, I would also focus more on near-ATM options for now."**
