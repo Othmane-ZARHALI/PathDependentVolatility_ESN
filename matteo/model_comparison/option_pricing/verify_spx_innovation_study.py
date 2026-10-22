@@ -18,7 +18,7 @@ def verify(output):
         np.testing.assert_allclose(proposal(1).weights(data['z']),data['w'],rtol=1e-12,atol=1e-14)
         assert np.all((data['w']>0)&(data['w']<=2))
         for name,(y,base,vol) in datasets(data).items():
-            assert base.shape==(*y.shape,5) and vol.shape==(*y.shape,9)
+            assert base.shape==(*y.shape,5) and vol.shape==(*y.shape,3 if record['arguments'].get('linear_only') else 9)
             np.testing.assert_array_equal(base[:,:,-1],np.broadcast_to(data['w'][:,None]-1.,y.shape))
     with np.load(output/'pilot_draws.npz') as pilot:
         data={key:pilot[key] for key in pilot.files};check(data)
@@ -57,8 +57,19 @@ def verify(output):
         for row in control_rows.itertuples():
             x=controls_by_target[(row.trial,row.target)][:,row.contract,control_labels.index(row.control)]
             np.testing.assert_allclose([x.mean(),x.std(ddof=1)/np.sqrt(len(x))],[row.mean,row.se],rtol=1e-11,atol=1e-12)
-    assert len(e)==record['arguments']['trials']*5*12*len(METHODS)
-    assert len(paired)==record['arguments']['trials']*5*12
+    if (output/'audit.json').exists():
+        audit=json.loads((output/'audit.json').read_text())
+        with np.load(output/'checking_draws.npz') as checking:
+            for row in audit.get('paired_tail_concentration',[]):
+                x=checking[f"t{row['trial']}_{row['target']}_adjusted"][:,row['contract']]
+                difference=x[:,3]-x[:,2];squares=difference*difference;index=int(np.argmax(squares))
+                assert row['largest_path']==index
+                share=float(squares[index]/squares.sum()) if squares.sum() else 0.
+                np.testing.assert_allclose([difference[index],difference[index]/len(difference),share],
+                    [row['largest_difference'],row['contribution_to_mean'],row['largest_share_uncentered_squares']],rtol=1e-12,atol=1e-12)
+    targets=1 if record['arguments'].get('direct_only') else 5
+    assert len(e)==record['arguments']['trials']*targets*12*len(METHODS)
+    assert len(paired)==record['arguments']['trials']*targets*12
     print(f'Validated exact-weight bookkeeping, correction mass columns, frozen fits, {len(e)} estimates, {len(paired)} paired differences and {len(diagnostics)} bare monitors plus {control_count} contract-control means; bias/tails remain open.')
 
 

@@ -34,22 +34,31 @@ def audit(output):
     result['paired_mean_warnings']=paired.loc[valid].assign(z=z).loc[z.abs()>2].to_dict(orient='records')
     z=(d['mean']-d.expectation)/d.se;result['expectation_warnings']=d[z.abs()>2].assign(z=z[z.abs()>2]).to_dict(orient='records')
     # Contract-weighted gains can have poorly sampled tails even when bare innovation sums pass.
+    result['paired_tail_concentration']=[]
     controls=[];labels=['stock','reference_payoff','deterministic_delta','spot_delta','mass',
         'ou_linear_C','ou_linear_Y','ou_linear_F','ou_square_C','ou_square_Y','ou_square_F','ou_mixed_C','ou_mixed_Y','ou_mixed_F']
     with np.load(output/'checking_draws.npz') as checking:
         for trial in range(r['arguments']['trials']):
             prefix=f't{trial}_';data={key[len(prefix):]:checking[key] for key in checking.files if key.startswith(prefix) and not key.endswith('_adjusted')}
             for target,(y,base,vol) in datasets(data).items():
+                adjusted=checking[prefix+target+'_adjusted']
+                for contract in range(y.shape[1]):
+                    difference=adjusted[:,contract,3]-adjusted[:,contract,2]
+                    squares=difference*difference;index=int(np.argmax(squares));total=float(squares.sum())
+                    result['paired_tail_concentration'].append(dict(trial=trial,target=target,contract=contract,
+                        largest_path=index,largest_difference=float(difference[index]),
+                        contribution_to_mean=float(difference[index]/len(difference)),
+                        largest_share_uncentered_squares=float(squares[index]/total) if total else 0.))
                 values=np.concatenate([base,vol],axis=2);means=values.mean(axis=0);ses=values.std(axis=0,ddof=1)/np.sqrt(len(values))
                 for contract in range(values.shape[1]):
-                    for k,label in enumerate(labels):
+                    for k,label in enumerate(labels[:values.shape[2]]):
                         z=float(means[contract,k]/ses[contract,k]) if ses[contract,k]>0 else None
                         controls.append(dict(trial=trial,target=target,contract=contract,control=label,mean=float(means[contract,k]),se=float(ses[contract,k]),z=z))
     pd.DataFrame(controls).to_csv(output/'control_means.csv',index=False)
     result['contract_control_mean_warnings']=[row for row in controls if row['z'] is not None and abs(row['z'])>2]
     result['contract_control_mean_warning_count']=len(result['contract_control_mean_warnings'])
-    result['limitations']=['Primary compares ridge14 to ridge5 at the same regularization; legacy OLS5 retained separately.',
-        'Costs apply to the shared 128/256/512-grid pipeline, not standalone price-only simulation.',
+    result['limitations']=[f"Primary compares ridge{8 if r['arguments'].get('linear_only') else 14} to ridge5 at the same regularization; legacy OLS5 retained separately.",
+        ('Standalone direct512 costs include recording and bare-mean monitors.' if r['arguments'].get('direct_only') else 'Costs apply to shared 128/256/512-grid pipeline, not standalone price-only simulation.'),
         'Sample ratios and multiple correlated flags are descriptive; no checking-based selection or clipping.',
         'Variance reduction alone does not remove stock-integration or normalization bias.']
     (output/'audit.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n');print(json.dumps(result,indent=2))

@@ -108,3 +108,13 @@ The latest source review confirms that the SPX runner already supplies a
 12-contract diagnostic, independent pilot coefficients, adapted hedging controls
 and coupled 64/128/256 grids. Its recorded results do not qualify the full
 surface. No new SPX simulation has been launched by this queue update.
+## Linear-only follow-up completed; next diagnostic
+
+The [direct512 linear-only experiment](SPX_LINEAR_INNOVATION_RESULTS.md) retains
+a modest central variance-cost gain (1.14x in both fresh trials), but far-put
+outlier leverage and 30.52x half-pilot SE inflation prevent general adoption.
+All primary sampling screens still fail. Keep the baseline as reference.
+Next examine saved-data coefficient/scaling and tail-contribution diagnostics;
+any shrinkage/stability rule is exploratory until frozen using pilot data and
+validated on new checking samples. Do not select a rule on existing checking
+performance. Stock-timestep and normalization accuracy remain separate open gates.

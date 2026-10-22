@@ -369,3 +369,11 @@ convergence, scope reduction or new market fit is implied.
    and joint fitter, then physical compatibility and held-out evaluation as
    specified in the calibration plan. No held-out market performance has been
    examined in the implementation diagnostics.
+
+
+The 22 October linear-only SPX follow-up reports about 1.14x central measured
+variance-cost efficiency in two fresh direct512 trials. It remains experimental:
+0/24 quote-relative sampling screens pass, a negative far-put estimate is driven
+by a single high-leverage path, and pilot sensitivity remains severe (30.52x SE).
+See `matteo/model_comparison/option_pricing/SPX_LINEAR_INNOVATION_RESULTS.md`.
+No model refit or continuous-time clearance follows; all VIX maturities remain.

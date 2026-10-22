@@ -61,6 +61,15 @@ class InnovationRecorder:
         return ProjectedInnovations(e['times'],e['values'],e['covariance'],e['cross'])
 
 
+def readout_gradient(projections,parameters):
+    """Gradient of log G, without constructing quadratic predictors."""
+    c,y,f=np.asarray(projections).T
+    score=parameters.cluster_loading*c+parameters.feedback_curvature*(y-parameters.feedback_shift)**2+parameters.spike_curvature*(f-parameters.spike_shift)**2
+    slope=expit(parameters.cap_sharpness*(parameters.cap_level-score))
+    first=np.stack([np.full_like(c,parameters.cluster_loading),2*parameters.feedback_curvature*(y-parameters.feedback_shift),2*parameters.spike_curvature*(f-parameters.spike_shift)],axis=1)
+    return 2*slope[:,None]*first
+
+
 def readout_derivatives(projections,parameters):
     """Smooth-readout gradient log G and half diagonal Hessian G/G, before exponential guards."""
     c,y,f=np.asarray(projections).T
@@ -77,17 +86,18 @@ def readout_derivatives(projections,parameters):
 class InnovationHedges:
     terminal_ratios: dict
     stock_hedges: np.ndarray
-    volatility_hedges: np.ndarray  # paths x contracts x 9 (linear/square/mixed)
+    volatility_hedges: np.ndarray  # paths x contracts x 3 or 9 (linear/square/mixed)
 
 
-def spx_innovation_controls(pricer,cache,innovations,parameters,curve,maturities,strikes,kinds,order=48,variance_floor=1e-4):
+def spx_innovation_controls(pricer,cache,innovations,parameters,curve,maturities,strikes,kinds,order=48,variance_floor=1e-4,*,linear_only=False):
     """Existing adapted stock hedges plus nine predictable OU-innovation gains.
 
     Each volatility gain multiplies a start-of-step Black log-variance vega by
     a readout derivative and one centered noise: eps_i, eps_i²-R_ii, or
     eps_i*dW-Cov(eps_i,dW). Their target conditional means are zero, including
     when OU/equity shocks are correlated. Under proposal sampling, multiply the
-    complete gains by the full-path likelihood. No stock update is changed.
+    complete gains by the full-path likelihood. No stock update is changed. With linear_only, compute only three linear
+    gains: no Hessians, squares, mixed noises or nine-column accumulation.
     """
     maturities,strikes=np.asarray(maturities,float),np.asarray(strikes,float);kinds=np.asarray(kinds)
     if (maturities.ndim!=1 or not len(maturities) or strikes.shape!=maturities.shape or kinds.shape!=maturities.shape or
@@ -104,7 +114,7 @@ def spx_innovation_controls(pricer,cache,innovations,parameters,curve,maturities
     dt=np.diff(cache.times);accumulated=np.r_[0.,np.cumsum(xi*dt)];total=accumulated[np.searchsorted(cache.times,maturities)]
     paths=cache.equity_increments.shape[1]
     if innovations.values.shape!=(len(dt),paths,3):raise ValueError('Invalid innovation shape')
-    log_stock=np.zeros(paths);hedges=np.zeros((paths,len(strikes),2));vol=np.zeros((paths,len(strikes),9));terminal={}
+    log_stock=np.zeros(paths);hedges=np.zeros((paths,len(strikes),2));vol=np.zeros((paths,len(strikes),3 if linear_only else 9));terminal={}
     for step,t in enumerate(cache.times[:-1]):
         active=np.flatnonzero(maturities>t);current=np.exp(log_stock);dw=cache.equity_increments[step]
         log_next=log_stock-.5*variance[step]*dt[step]+np.sqrt(variance[step])*dw
@@ -115,10 +125,14 @@ def spx_innovation_controls(pricer,cache,innovations,parameters,curve,maturities
         spot=remaining*(variance[step,:,None]/xi[step]);spot_d1=(log_stock[:,None]-np.log(strikes[active])+.5*spot)/np.sqrt(spot)
         hedges[:,active,1]+=(ndtr(spot_d1)-(kinds[active]=='put'))*(following-current)[:,None]
         vega=.5*current[:,None]*np.sqrt(remaining)*np.exp(-.5*d1*d1)/np.sqrt(2*np.pi)
-        gradient,hessian=readout_derivatives(cache.projections[step],parameters)
-        eps=innovations.values[step];squares=eps**2-np.diag(innovations.covariance[step])
-        mixed=eps*dw[:,None]-innovations.equity_covariance[step]
-        noise=np.c_[gradient*eps,hessian*squares,gradient*mixed]
+        eps=innovations.values[step]
+        if linear_only:
+            noise=readout_gradient(cache.projections[step],parameters)*eps
+        else:
+            gradient,hessian=readout_derivatives(cache.projections[step],parameters)
+            squares=eps**2-np.diag(innovations.covariance[step])
+            mixed=eps*dw[:,None]-innovations.equity_covariance[step]
+            noise=np.c_[gradient*eps,hessian*squares,gradient*mixed]
         vol[:,active,:]+=vega[:,:,None]*noise[:,None,:]
         log_stock=log_next
         if cache.times[step+1] in maturities:terminal[float(cache.times[step+1])]=following.copy()

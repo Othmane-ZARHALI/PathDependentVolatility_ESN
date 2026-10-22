@@ -27,9 +27,10 @@ METHODS=('raw','legacy','base','augmented','base_A','base_B','aug_A','aug_B')
 
 def datasets(data):
     result={}
-    for level in (1,2,3):
+    for level in (level for level in (1,2,3) if f'g{level}_y' in data):
         result['price'+str(64*2**level)]=(data[f'g{level}_y'],data[f'g{level}_base'],data[f'g{level}_vol'])
     for low,high in ((1,2),(2,3)):
+        if f'g{low}_y' not in data or f'g{high}_y' not in data:continue
         # Mass control is w-1, not a difference of identical mass columns.
         b=data[f'g{high}_base']-data[f'g{low}_base'];b=b.copy();b[:,:,-1]=data['w'][:,None]-1.
         result[f'corr{64*2**low}_{64*2**high}']=(data[f'g{high}_y']-data[f'g{low}_y'],b,data[f'g{high}_vol']-data[f'g{low}_vol'])
@@ -55,21 +56,22 @@ def adjusted(y,base,vol,fits,forwards):
 
 
 def collect(p,parameters,curve,initial,quotes,grids,basis,args,role,trial):
+    levels=(3,) if args.direct_only else (1,2,3)
     count=args.pilot if role==0 else args.paths;pieces={};seeds=[];costs=[];maturities=quotes.T_years.to_numpy()
     for batch,start in enumerate(range(0,count,args.batch_size)):
         n=min(args.batch_size,count-start);seed=int(np.random.SeedSequence([args.seed,role,trial,batch]).generate_state(1)[0]);seeds.append(seed)
         def sample(augmented):
             begin=time.perf_counter()
-            recorder=InnovationRecorder(p,grids[3],{level:grids[level] for level in (1,2,3)},n) if augmented else None
+            recorder=InnovationRecorder(p,grids[3],{level:grids[level] for level in levels},n) if augmented else None
             sampled=prepare_volatility_paths(p,grids[3],initial,n,seed,basis,proposal(1),state_observer=recorder)
             cache,w=sampled.cache,sampled.weights
             r=deterministic_stock_controls(cache,curve,np.unique(maturities));reference=np.stack([r[t] for t in maturities],axis=1)
             result={};grid_costs={}
-            for level in (1,2,3):
+            for level in levels:
                 tick=time.perf_counter();c=cache if level==3 else coarsen_paths(cache,grids[level])
                 if augmented:
                     innovations=recorder.result(level)
-                    h=spx_innovation_controls(p,c,innovations,parameters,curve,maturities,quotes.K_over_F.to_numpy(),quotes.option_type.to_numpy(),order=48)
+                    h=spx_innovation_controls(p,c,innovations,parameters,curve,maturities,quotes.K_over_F.to_numpy(),quotes.option_type.to_numpy(),order=48,linear_only=args.linear_only)
                     hedges=h.stock_hedges
                 else:
                     h=spx_hedging_controls(p,c,parameters,curve,maturities,quotes.K_over_F.to_numpy(),quotes.option_type.to_numpy(),order=48);hedges=h.hedges
@@ -80,7 +82,7 @@ def collect(p,parameters,curve,initial,quotes,grids,basis,args,role,trial):
                 if augmented:
                     result[f'g{level}_vol']=w[:,None,None]*h.volatility_hedges
                     eps=innovations.values;dw=c.equity_increments
-                    raw=np.concatenate([eps.sum(axis=0),(eps*eps-np.diagonal(innovations.covariance,axis1=1,axis2=2)[:,None,:]).sum(axis=0),
+                    raw=eps.sum(axis=0) if args.linear_only else np.concatenate([eps.sum(axis=0),(eps*eps-np.diagonal(innovations.covariance,axis1=1,axis2=2)[:,None,:]).sum(axis=0),
                         (eps*dw[:,:,None]-innovations.equity_covariance[:,None,:]).sum(axis=0)],axis=1)
                     result[f'g{level}_innovation_moments']=w[:,None]*raw
                 if level==3:result['monitors']=np.c_[w,w*stock[:,0],w*stock[:,-1],w*reference[:,0],w*reference[:,-1]]
@@ -91,13 +93,13 @@ def collect(p,parameters,curve,initial,quotes,grids,basis,args,role,trial):
             ordinary,old_time,old_grids=sample(False);data,new_time,new_grids=sample(True)
         else:
             data,new_time,new_grids=sample(True);ordinary,old_time,old_grids=sample(False)
-        for level in (1,2,3):
+        for level in levels:
             np.testing.assert_allclose(data[f'g{level}_y'],ordinary[f'g{level}_y'],rtol=1e-10,atol=1e-12)
             np.testing.assert_allclose(data[f'g{level}_base'],ordinary[f'g{level}_base'],rtol=1e-10,atol=1e-12)
         for key,value in data.items():pieces.setdefault(key,[]).append(value)
         costs.append(dict(role=role,trial=trial,batch=batch,paths=n,ordinary_seconds=old_time,augmented_seconds=new_time,
             execution_order='ordinary_first' if batch%2==0 else 'augmented_first',
-            **{f'ordinary_grid{level}_seconds':old_grids[level] for level in (1,2,3)},**{f'augmented_grid{level}_seconds':new_grids[level] for level in (1,2,3)}))
+            **{f'ordinary_grid{level}_seconds':old_grids[level] for level in levels},**{f'augmented_grid{level}_seconds':new_grids[level] for level in levels}))
         print(f'role={role} trial={trial} paths={start+n}/{count}',flush=True)
     return {key:np.concatenate(value) for key,value in pieces.items()},seeds,costs
 
@@ -117,15 +119,16 @@ def run(args):
     events=np.r_[quotes.T_years.unique(),7/365,21/365,[t for t in curve.ends if t<quotes.T_years.max()]];grids=[dated_grid(events,1/(252*64))]
     for _ in range(3):grids.append(refinement(grids[-1]))
     basis=volatility_path_basis(p,grids[3],7/365)
+    levels=(3,) if args.direct_only else (1,2,3)
     normalizers={}
-    for level in (1,2,3):
+    for level in levels:
         normalizers[f'times{level}']=grids[level][:-1];normalizers[f'values{level}']=p.normalizer(grids[level][:-1],initial,parameters,48)
     np.savez_compressed(args.output/'normalizers.npz',**normalizers);setup=time.perf_counter()-begin
     training,ss,costs=collect(p,parameters,curve,initial,quotes,grids,basis,args,0,0)
     coefficients={name:train(*triple) for name,triple in datasets(training).items()}
     frozen=dict(coefficients={name:{method:value.tolist() for method,value in fits.items()} for name,fits in coefficients.items()},checking_not_used=True,
-        primary_comparison='augmented ridge14 vs baseline ridge5; ridge=1 for both',legacy_comparison='original OLS5 retained separately',
-        control_dictionary='linear eps, eps²-Rii, eps*dW-Cov(eps,dW), each times predictable log-variance Black vega/readout derivative')
+        primary_comparison=f'augmented ridge{8 if args.linear_only else 14} vs baseline ridge5; ridge=1 for both',legacy_comparison='original OLS5 retained separately',
+        control_dictionary=('linear eps only' if args.linear_only else 'linear eps, eps²-Rii, eps*dW-Cov(eps,dW)')+' times predictable log-variance Black vega/readout derivative')
     (args.output/'frozen.json').write_text(json.dumps(frozen,indent=2,allow_nan=False)+'\n');np.savez_compressed(args.output/'pilot_draws.npz',**training)
     seeds=[dict(role=0,trial=0,seeds=ss)];archive={};rows=[];paired=[];diagnostics=[];forwards=quotes.forward.to_numpy()
     (args.output/'status.json').write_text('{"status":"checking; coefficients frozen"}\n')
@@ -143,8 +146,8 @@ def run(args):
                     difference=float(difference.mean()),se=float(difference.std(ddof=1)/np.sqrt(len(difference))),scale=row.price_scale_U))
         for j,label in enumerate(('mass','stock29','stock57','reference29','reference57')):
             values=data['monitors'][:,j];diagnostics.append(dict(trial=trial,target='forward',statistic=label,mean=float(values.mean()),se=float(values.std(ddof=1)/np.sqrt(len(values))),expectation=1.))
-        for level in (1,2,3):
-            for j in range(9):
+        for level in levels:
+            for j in range(3 if args.linear_only else 9):
                 values=data[f'g{level}_innovation_moments'][:,j]
                 diagnostics.append(dict(trial=trial,target=f'innovations{64*2**level}',statistic=str(j),mean=float(values.mean()),se=float(values.std(ddof=1)/np.sqrt(len(values))),expectation=0.))
     check_sources(captured)
@@ -156,7 +159,7 @@ def run(args):
         limitations=['12 training representatives; all original scopes retained; no parameter/state/curve fitting.',
             'Control means are under target Q; multiply whole path gains by original likelihood, never recenter proposal drift.',
             'Primary ridge comparison holds penalty fixed; legacy OLS separates regularization effects.',
-            'Actual cost covers one joint 128/256/512-grid diagnostic, including recording and innovation diagnostics; not standalone price-only cost.',
+            ('Actual cost covers standalone direct512, including innovation recording and bare-mean diagnostics.' if args.direct_only else 'Actual cost covers joint 128/256/512 diagnostic, not standalone pricing.'),
             'Direct-price/correction samples share finest paths; no new MLMC allocation or complete estimator is constructed.',
             'GH48 and 512-step discretization remain approximate; variance reduction does not remove bias.',
             'Zero observed payoffs and signed/negative adjusted estimates retained; no clipping.'])
@@ -169,6 +172,7 @@ def run(args):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--linear-only',action='store_true');parser.add_argument('--direct-only',action='store_true')
     parser.add_argument('--pilot',type=int,default=512);parser.add_argument('--paths',type=int,default=512)
     parser.add_argument('--batch-size',type=int,default=128);parser.add_argument('--trials',type=int,default=2);parser.add_argument('--seed',type=int,default=20261029)
     args=parser.parse_args()

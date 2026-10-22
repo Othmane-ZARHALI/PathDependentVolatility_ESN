@@ -635,3 +635,17 @@ See [SPX_INNOVATION_CONTROL_RESULTS.md](SPX_INNOVATION_CONTROL_RESULTS.md).
 The full-nine dictionary stays experimental; the next candidate is a cheaper
 linear-only kernel with fresh tail/control-mean and standalone-cost checks.
 All VIX maturities and original scopes remain active, with no market refit.
+
+
+## Linear-only direct512 check (22 October 2026)
+
+[SPX_LINEAR_INNOVATION_RESULTS.md](SPX_LINEAR_INNOVATION_RESULTS.md) records the
+implemented three-control branch and a fresh 512-path pilot plus two 1024-path
+checks. Central variance gains 1.7953/1.7105 outweigh measured standalone pipeline
+cost multipliers 1.5718/1.5030 by only 1.1422/1.1381. It remains experimental:
+0/24 primary quote-scale screens pass, a far put has a negative adjusted estimate
+and one path contributes 93.99% of squared paired differences, half-pilot SE
+inflation reaches 30.52, and 19/192 contract-control mean flags remain. The old
+full-nine far-call warning is not cleared by this different pilot/dictionary.
+All 147 tests pass; saved coefficients, weights, statistics and source hashes
+replay. Baseline remains reference; all four VIX maturities stay active.

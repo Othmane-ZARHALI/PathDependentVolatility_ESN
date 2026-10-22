@@ -56,6 +56,13 @@ class InnovationControlTests(unittest.TestCase):
         params=replace(constant_readout(),cluster_loading=.15,feedback_curvature=.02,spike_curvature=.03)
         curve=ForwardVarianceCurve((.1,),(.04,));maturities=[.1,.1];strikes=[.95,1.05];kinds=['put','call']
         new=spx_innovation_controls(p,cache,obs.result('fine'),params,curve,maturities,strikes,kinds,order=12)
+        from unittest.mock import patch
+        with patch('esn_eq.innovation_controls.readout_derivatives',side_effect=AssertionError('quadratic path evaluated')):
+            linear=spx_innovation_controls(p,cache,obs.result('fine'),params,curve,maturities,strikes,kinds,order=12,linear_only=True)
+        np.testing.assert_array_equal(linear.volatility_hedges,new.volatility_hedges[:,:,:3])
+        np.testing.assert_array_equal(linear.stock_hedges,new.stock_hedges)
+        np.testing.assert_array_equal(linear.terminal_ratios[.1],new.terminal_ratios[.1])
+        self.assert_mc(linear.volatility_hedges,np.zeros((2,3)))
         old=spx_hedging_controls(p,cache,params,curve,maturities,strikes,kinds,order=12)
         np.testing.assert_array_equal(new.terminal_ratios[.1],old.terminal_ratios[.1])
         np.testing.assert_array_equal(new.stock_hedges,old.hedges)
