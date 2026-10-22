@@ -376,3 +376,25 @@ JSON lists and stopped at metadata correspondence. Canonical JSON comparison
 corrected that verifier-only mismatch; the completed pricing artifacts were
 unchanged. Replay now passes for all 8192 full states/weights and 732 summary
 rows. Negative results and incomplete numerical gates remain explicit.
+
+## Targeted pilot proxy versus fresh precision — 22 October 2026
+
+Four disjoint pilots favor a payoff-learned score-subspace mean-shift proposal
+on a historical independent screening set. The screen estimates an IID
+importance-estimator second moment, not variance or randomized-Sobol SE.
+All historical observations used to choose it are explicitly promoted to
+design data. Fresh R8 x 64 pricing reduces median option SE at 55/153 days
+(ratios 0.592/0.500) but worsens it at 27/118 days (1.165/1.066), and worsens
+all four forward SEs. Only 24/175 targeted and 19/175 baseline quotes pass the
+observed SE screen. This is a recorded limit of the design proxy, not a full
+sampling success or calibration result.
+
+**New 118-day moment warning:** targeted E[VIX^2]=588.51408 ± 4.30771 versus
+600.31899, residual -11.80491 (about -2.74 reported SE). The baseline 55-day
+residual is also +15.72785 ± 7.94602. Previous fresh moment agreement did not
+establish convergence. Preserve this warning alongside limited selected-state
+GH checks; it does not prove a normalization bug or negligible quadrature
+bias. No moment rescaling or maturity exclusion is applied. See
+[VIX_TARGETED_PILOT_RESULTS.md](VIX_TARGETED_PILOT_RESULTS.md) and the saved
+`m2_vix_targeted_check_001` artifacts. All 119 tests and correspondence replays
+pass, without certifying statistical accuracy.

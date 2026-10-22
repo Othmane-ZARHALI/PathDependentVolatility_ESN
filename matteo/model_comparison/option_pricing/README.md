@@ -124,3 +124,11 @@ proposal broadens four directions while retaining the full 36-dimensional state
 and exact weights. `verify_vix_score_sampling` replays full states, weights and
 statistics; `audit_vix_score_sampling` produces descriptive method comparisons.
 This experiment does not refit the model or impose the moment identity.
+
+[VIX_TARGETED_PILOT_RESULTS.md](VIX_TARGETED_PILOT_RESULTS.md) compares four
+independent payoff-learning pilots, explicitly repurposing old checks as design
+data, then checks one frozen mean-shift proposal on fresh equal-budget draws.
+The new proposal helps some option families but worsens every forward SE and
+has a new 118-day moment warning. It remains experimental. Reproduction uses
+`vix_targeted_pilots`, `vix_targeted_check` and their corresponding verifier
+modules; all four maturities and forwards are retained.

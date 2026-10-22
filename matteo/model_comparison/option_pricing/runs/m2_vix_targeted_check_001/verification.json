@@ -1,0 +1,15 @@
+{
+  "status": "artifact correspondence checks passed",
+  "source_snapshot_hashes": 40,
+  "checking_seeds": 64,
+  "checking_seeds_disjoint_from_previous_outer_studies": true,
+  "raw_observations": 4096,
+  "summary_rows_recomputed": 732,
+  "proposal_weights_regenerated": true,
+  "full_states_regenerated": true,
+  "max_state_absolute_error": 0.0,
+  "max_weight_absolute_error": 2.220446049250313e-16,
+  "paired_prefix_changes_recomputed": true,
+  "verifier_sha256": "7862420c46e92122a5fa460b65c8f520269f9865500ca99bb996df1a3e032847",
+  "limitation": "Saved-artifact correspondence only; does not reprice the conditional functional or certify accuracy, convergence, or proposal superiority."
+}

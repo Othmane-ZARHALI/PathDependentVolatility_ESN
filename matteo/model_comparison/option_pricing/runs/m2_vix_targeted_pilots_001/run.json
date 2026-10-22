@@ -1,0 +1,263 @@
+{
+  "status": "historical design-only pilot screen; no fresh proposal validation",
+  "scope": {
+    "scope_id": "2026-10-21-user-restored-full-vix-analysis",
+    "status": "active_exploratory_scope",
+    "decision": "User explicitly restored both longer VIX maturities for new analyses before deciding how to continue; supersedes the earlier same-day near-only instruction.",
+    "vix_fit_expiry_days": [
+      27,
+      55,
+      118,
+      153
+    ],
+    "vix_deferred_expiry_days": [],
+    "forward_treatment": "Include all four associated VIX forwards.",
+    "spx_scope_changed": false,
+    "market_split": "train",
+    "historical_baseline": "Near-only results and prior full-scope runs remain historical evidence, without rewriting numerical records.",
+    "limitations": [
+      "Restoration is an analysis scope decision, not numerical convergence or joint feasibility clearance.",
+      "Existing moment conflicts and unresolved sampling, integration and normalization errors remain recorded.",
+      "Previously examined training quotes and checking draws do not become pristine held-out evidence."
+    ],
+    "supersedes": "2026-10-21-user-authorized-near-vix-pilot"
+  },
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.979054833837768,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [
+        0.5,
+        0.8093838778200331,
+        1.3102045233499884,
+        2.120916835692723,
+        3.4332717860135396,
+        5.557669663547499,
+        8.996576447849662,
+        14.563367864929878,
+        23.574710313273204,
+        38.161980903681986,
+        61.77538417823236,
+        100.0
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "parameters": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.2495993215590715,
+    "spike_shift": 0.0,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "initial_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "curve_levels": [
+    0.054249611228344374,
+    0.060031898992150605,
+    0.0642080964154938
+  ],
+  "target_sha256": {
+    "quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a",
+    "vix_forwards.csv": "03d0b9323680b20d3dcc22c6b75abb50314be51d1fb9ea80e589be50a462af4a",
+    "forward_variance.csv": "15c31744cf781afa719e139fee34cc45028e7f78e8d1744351183bae4a949a5b",
+    "audit.json": "ebd6f545c679f178a28cb53657d99f17bfb0ea996af76bd15805b5bf222c8e11",
+    "manifest.json": "30e7a991625e40e90dd4522d33f4de3615c01f528e2027f754f82b95baff1ea6"
+  },
+  "conditional_order": 32,
+  "normalizer_order": 48,
+  "time_order": 8,
+  "design_source": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_vix_score_sampling_001",
+  "screening_source": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_vix_stratified_sampling_001",
+  "training_seed_count": 128,
+  "screening_seed_count": 32,
+  "disjoint_seed_sets": true,
+  "pilot_points_per_maturity": 512,
+  "independent_design_pilots": 4,
+  "pooled_pilot_points_per_maturity": 2048,
+  "screening_points_per_maturity": 1024,
+  "configurations": [
+    {
+      "kind": "pca8_options",
+      "cap": 3.0
+    },
+    {
+      "kind": "pca8_options",
+      "cap": 4.0
+    },
+    {
+      "kind": "pca8_balanced",
+      "cap": 3.0
+    },
+    {
+      "kind": "pca8_balanced",
+      "cap": 4.0
+    },
+    {
+      "kind": "score4_balanced",
+      "cap": 3.0
+    },
+    {
+      "kind": "score4_balanced",
+      "cap": 4.0
+    }
+  ],
+  "implementation_sha256": {
+    "matteo/model_comparison/option_pricing/vix_targeted_pilots.py": "14344e4af5a072279e29db8a4e441a148726e6e491738a9e4c00f88347f23800",
+    "matteo/model_comparison/option_pricing/m2_spx.py": "a9de830afba0a208ef648c4aadc9ebf0d543ec488062cf8a0eed00d7de711127",
+    "matteo/model_comparison/option_pricing/vix_pilot_sampling.py": "24fea72dd710aea34d64dc46ea0ec957c5edc366e6fc872a984ae17ec3fe8d2e",
+    "matteo/model_comparison/option_pricing/active_scope.json": "ac33794a21d4c27d9d892bfda6ae9a17ad9da4e84de4947e5fa8779dcb19470a",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_score_sampling_001/run.json": "bf2c1a8476f4a4f9af1df8b58dcf3c25598e0f43f27b9324d31ab9bb3b71bb30",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_score_sampling_001/proposals.json": "47a25dacb5ca630db3f586c080df3d917eb1faa7f3ddffbac15df6b7027e75c9",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_score_sampling_001/pilot_proposals.json": "c394c3e3a36a2dca7e0493a981e8a2fd96edcae0c648acdedb7b856beb86371a",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_score_sampling_001/outer_values.csv": "d613249cdcfd94a9104c15c0206b20f3e4726d2efd1af550d0f29fbc063f81bc",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_stratified_sampling_001/run.json": "7b740eee10372ef1cf0fb2dbc92bd44fa3174dd2126ba89d46b9c0afc63764a8",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_stratified_sampling_001/proposals.json": "c394c3e3a36a2dca7e0493a981e8a2fd96edcae0c648acdedb7b856beb86371a",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_stratified_sampling_001/outer_values.csv": "c71ceb174208b61b6aacde60b27a87bc59733ca64279b71170b9b49e23555980",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py": "95749bd7a7c6d0702b5d69c08562e654082f15209f587be26bbcdbf524573e79",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py": "6b5190ccb0b37a1777f49d855fada72c12fb8841eb33eb0af3c6ed4ee97fa72e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py": "f6b90b81033e270ac156314934ca1f282a8836b7d427b323591c2465ece0543c",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration_loss.py": "1ece088d9d9ea3f34fb1340a5c445b70bf8157e1674670a3315584893b4f76d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py": "03221fccc504da82e4643c2270b85a5852561ed1905968adc0e97e1309e941d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py": "7a9df36e1843d47613b4e00485ee1e9b6e85834be755be9fe602164c7d346e5a",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py": "c828d30236930de548af7de141ff1e8782986959878a1a9a851e80383d971fb5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py": "953e29ea14f9cb2d11802760c6ffaaecc95ddd70a89d4c07d66dabba1f30bbd0",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py": "aa5b46689ed706ae2be044663ac49fc9ed59b9d505d722fe70361b17caeb53d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py": "11c0ebc10f5b832b66c38d68262b80fab3df2f39f5777fef3e961a4570e579e8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py": "3e7b4a4c341cacde47977b16c1caf01e1575ff569e6292a1e7b1635fe4404e6f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/hedging_controls.py": "f5dca9142f8b7aaa7237ac7cf5978d3c53244840c2d773b8f28648181b1aaf35",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py": "b1e96b7cea1c1c69cf3c5b710fcaf089e24e08afa9463e2c908803769e3d5f54",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_calibration.py": "1249d124dbfe5d43bdef9cac7760021d1a096086142fd53ff77cc27b2174e433",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py": "1d1bd109022c02a3bd4050b947f97dde8deaf00f9ef00626277be510a58f4c29",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py": "0f6efb4cefdae4fd6f4a0b3e91ef0ae4bb1430ac63e1e41f6e82f2033ef5dc4e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/outer_sampling.py": "6ee3199180650eb06270b542fb0236a8b4d8c41349ddb0cf07c3e369d8e03b53",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pilot_proposal.py": "3594b4e3c5511b1c9cb7c13f501a7ca7a74a63c55da6b2a30440ac01fc7e40a2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py": "7c8bb2a28c4a0510cee021dd73d8bc21195747547be4c3157fe7cc46fce887d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py": "35a897e3cc5c7c681b5478e8957d7b9249dd2c278c00ef4503f47ee0d65f9519",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py": "876436ff903aaf160f36f728962c77db7f706ca916ec2b93bc09f9ddd6bc987f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py": "3c532c9d57542f87279743f96102cc4346a06bd7d064bf5417ae55d881e1dd5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/score_sampling.py": "44c80e5f068ef263e7a6b3ce1e7a224a36849e52d6499c95df9eec0d4b2b8b14",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py": "5a86e27407122ff0d1ad216377856756fa31164b6e95e4bd1b311d8d93c46660",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py": "8db6dc562e411a9ecb0adf8a0bbe1f1ed88575c9dc2057e24b15faa01437ea78",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py": "41a662990c7db2f2e1ebf7608b0ef0945c810a53dc7b61cccc53f37f3dc0f721",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stratified_sampling.py": "a0153a47ae4396a8f7262a90b686c9060f617da88c323247b19c77d94a64ac41",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/variance_reduction.py": "e4d65defcbeea79ffa890c3a1e6827c96e920660360de3a712be117ad4330ca7",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_curve_profile.py": "3d03b7c7ec18494083d5019b6b04be54e08508ecd99a39a4cb636108344fd693",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_pricing.py": "bf9b3a744e6cb4c6468870dec8d60943656d7ae3868f3dc4f5ec003baa712a72",
+    "matteo/model_comparison/option_pricing/provenance.py": "2f105738f7f5db071eb9b8a1e5cc6826ce4e346eb499d000fa40771790e4cce8"
+  },
+  "proposal_sha256": "20632499d8e21921f3dd5fe81dd44eeab3a421bf187d3d321cc83ed1298aee50",
+  "pilot_policy": "Previous checking observations explicitly promoted to proposal-design data. Screening is independent of new centroid fits, but has been seen historically and is used for design selection; it is not fresh validation.",
+  "limitations": [
+    "IID estimator second moment proxy is not variance and does not predict scrambled-Sobol replication SE.",
+    "Four pilot fits are disjoint, but their shared screening set makes performance assessments dependent.",
+    "Finite screening draws can miss tails and induce selection optimism; a pooled fit is not an independently validated fifth pilot.",
+    "No new conditional pricing, normalizer/time refinement, market fit, SPX change, or Lean certificate."
+  ]
+}

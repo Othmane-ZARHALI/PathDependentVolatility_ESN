@@ -1,0 +1,782 @@
+{
+  "status": "fixed-model fresh outer-proposal comparison, no refit or moment rescaling",
+  "arguments": {
+    "output": "matteo/model_comparison/option_pricing/runs/m2_vix_targeted_check_001",
+    "powers": [
+      5,
+      6
+    ],
+    "replications": 8,
+    "seed": 2026102202
+  },
+  "scope": {
+    "scope_id": "2026-10-21-user-restored-full-vix-analysis",
+    "status": "active_exploratory_scope",
+    "decision": "User explicitly restored both longer VIX maturities for new analyses before deciding how to continue; supersedes the earlier same-day near-only instruction.",
+    "vix_fit_expiry_days": [
+      27,
+      55,
+      118,
+      153
+    ],
+    "vix_deferred_expiry_days": [],
+    "forward_treatment": "Include all four associated VIX forwards.",
+    "spx_scope_changed": false,
+    "market_split": "train",
+    "historical_baseline": "Near-only results and prior full-scope runs remain historical evidence, without rewriting numerical records.",
+    "limitations": [
+      "Restoration is an analysis scope decision, not numerical convergence or joint feasibility clearance.",
+      "Existing moment conflicts and unresolved sampling, integration and normalization errors remain recorded.",
+      "Previously examined training quotes and checking draws do not become pristine held-out evidence."
+    ],
+    "supersedes": "2026-10-21-user-authorized-near-vix-pilot"
+  },
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.979054833837768,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [
+        0.5,
+        0.8093838778200331,
+        1.3102045233499884,
+        2.120916835692723,
+        3.4332717860135396,
+        5.557669663547499,
+        8.996576447849662,
+        14.563367864929878,
+        23.574710313273204,
+        38.161980903681986,
+        61.77538417823236,
+        100.0
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "parameters": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.2495993215590715,
+    "spike_shift": 0.0,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "initial_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "curve_levels": [
+    0.054249611228344374,
+    0.060031898992150605,
+    0.0642080964154938
+  ],
+  "target_sha256": {
+    "quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a",
+    "vix_forwards.csv": "03d0b9323680b20d3dcc22c6b75abb50314be51d1fb9ea80e589be50a462af4a",
+    "forward_variance.csv": "15c31744cf781afa719e139fee34cc45028e7f78e8d1744351183bae4a949a5b",
+    "audit.json": "ebd6f545c679f178a28cb53657d99f17bfb0ea996af76bd15805b5bf222c8e11",
+    "manifest.json": "30e7a991625e40e90dd4522d33f4de3615c01f528e2027f754f82b95baff1ea6"
+  },
+  "frozen_model_sha256": {
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/manifest.json": "b75fdcd43eeaca5759687a57e4ef3cf1bc8549df81abd15bfd9c9eb456f7a031",
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/top_configurations.csv": "9135dd929cdbc689e71bda95e70926e8adaf81280d2c3ada7755e9e17c8f228c"
+  },
+  "implementation_sha256": {
+    "matteo/model_comparison/option_pricing/runs/m2_vix_targeted_pilots_001/run.json": "f1084586c87e91492d16477feb8aad035724acb39a95a6b8acd7fc899d14d37b",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_targeted_pilots_001/proposals.json": "20632499d8e21921f3dd5fe81dd44eeab3a421bf187d3d321cc83ed1298aee50",
+    "matteo/model_comparison/option_pricing/vix_targeted_check.py": "e5a39b5d4f9da06f51af5b950371f8484c94fcb89b8fd8ffc59398f15a85254f",
+    "matteo/model_comparison/option_pricing/m2_spx.py": "a9de830afba0a208ef648c4aadc9ebf0d543ec488062cf8a0eed00d7de711127",
+    "matteo/model_comparison/option_pricing/active_scope.json": "ac33794a21d4c27d9d892bfda6ae9a17ad9da4e84de4947e5fa8779dcb19470a",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_stratified_sampling_001/run.json": "7b740eee10372ef1cf0fb2dbc92bd44fa3174dd2126ba89d46b9c0afc63764a8",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_stratified_sampling_001/proposals.json": "c394c3e3a36a2dca7e0493a981e8a2fd96edcae0c648acdedb7b856beb86371a",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_collapsed_inflated_001/run.json": "f7632912ca044a48a7be65803d72f6e825581fab3e08a4d694ed119a8391b06b",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_collapsed_inflated_001/summary.csv": "ae76346f82e05379107b89030d4600b64cbdf6be118cbf38a1186e65c42236b5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py": "95749bd7a7c6d0702b5d69c08562e654082f15209f587be26bbcdbf524573e79",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py": "6b5190ccb0b37a1777f49d855fada72c12fb8841eb33eb0af3c6ed4ee97fa72e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py": "f6b90b81033e270ac156314934ca1f282a8836b7d427b323591c2465ece0543c",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration_loss.py": "1ece088d9d9ea3f34fb1340a5c445b70bf8157e1674670a3315584893b4f76d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py": "03221fccc504da82e4643c2270b85a5852561ed1905968adc0e97e1309e941d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py": "7a9df36e1843d47613b4e00485ee1e9b6e85834be755be9fe602164c7d346e5a",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py": "c828d30236930de548af7de141ff1e8782986959878a1a9a851e80383d971fb5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py": "953e29ea14f9cb2d11802760c6ffaaecc95ddd70a89d4c07d66dabba1f30bbd0",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py": "aa5b46689ed706ae2be044663ac49fc9ed59b9d505d722fe70361b17caeb53d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py": "11c0ebc10f5b832b66c38d68262b80fab3df2f39f5777fef3e961a4570e579e8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py": "3e7b4a4c341cacde47977b16c1caf01e1575ff569e6292a1e7b1635fe4404e6f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/hedging_controls.py": "f5dca9142f8b7aaa7237ac7cf5978d3c53244840c2d773b8f28648181b1aaf35",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py": "b1e96b7cea1c1c69cf3c5b710fcaf089e24e08afa9463e2c908803769e3d5f54",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_calibration.py": "1249d124dbfe5d43bdef9cac7760021d1a096086142fd53ff77cc27b2174e433",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py": "1d1bd109022c02a3bd4050b947f97dde8deaf00f9ef00626277be510a58f4c29",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py": "0f6efb4cefdae4fd6f4a0b3e91ef0ae4bb1430ac63e1e41f6e82f2033ef5dc4e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/outer_sampling.py": "6ee3199180650eb06270b542fb0236a8b4d8c41349ddb0cf07c3e369d8e03b53",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pilot_proposal.py": "3594b4e3c5511b1c9cb7c13f501a7ca7a74a63c55da6b2a30440ac01fc7e40a2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py": "7c8bb2a28c4a0510cee021dd73d8bc21195747547be4c3157fe7cc46fce887d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py": "35a897e3cc5c7c681b5478e8957d7b9249dd2c278c00ef4503f47ee0d65f9519",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py": "876436ff903aaf160f36f728962c77db7f706ca916ec2b93bc09f9ddd6bc987f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py": "3c532c9d57542f87279743f96102cc4346a06bd7d064bf5417ae55d881e1dd5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/score_sampling.py": "44c80e5f068ef263e7a6b3ce1e7a224a36849e52d6499c95df9eec0d4b2b8b14",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py": "5a86e27407122ff0d1ad216377856756fa31164b6e95e4bd1b311d8d93c46660",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py": "8db6dc562e411a9ecb0adf8a0bbe1f1ed88575c9dc2057e24b15faa01437ea78",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py": "41a662990c7db2f2e1ebf7608b0ef0945c810a53dc7b61cccc53f37f3dc0f721",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stratified_sampling.py": "a0153a47ae4396a8f7262a90b686c9060f617da88c323247b19c77d94a64ac41",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/variance_reduction.py": "e4d65defcbeea79ffa890c3a1e6827c96e920660360de3a712be117ad4330ca7",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_curve_profile.py": "3d03b7c7ec18494083d5019b6b04be54e08508ecd99a39a4cb636108344fd693",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_pricing.py": "bf9b3a744e6cb4c6468870dec8d60943656d7ae3868f3dc4f5ec003baa712a72",
+    "matteo/model_comparison/option_pricing/provenance.py": "2f105738f7f5db071eb9b8a1e5cc6826ce4e346eb499d000fa40771790e4cce8"
+  },
+  "proposal_sha256": "f6c81251d99c6d95531f4d4411ca5bd3b6409ede984575950d5b5039ff40ea5e",
+  "seed_records": [
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 0,
+      "seed": 836374651
+    },
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 1,
+      "seed": 3877939336
+    },
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 2,
+      "seed": 3208127046
+    },
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 3,
+      "seed": 2563616465
+    },
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 4,
+      "seed": 1633488404
+    },
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 5,
+      "seed": 2769068657
+    },
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 6,
+      "seed": 1792537555
+    },
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "replicate": 7,
+      "seed": 1728331457
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 0,
+      "seed": 1457968030
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 1,
+      "seed": 2399814817
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 2,
+      "seed": 4056192875
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 3,
+      "seed": 2532271594
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 4,
+      "seed": 2893324990
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 5,
+      "seed": 4273244802
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 6,
+      "seed": 1453423770
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "replicate": 7,
+      "seed": 3357812439
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 0,
+      "seed": 1602722356
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 1,
+      "seed": 2418339321
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 2,
+      "seed": 3065632312
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 3,
+      "seed": 2282274707
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 4,
+      "seed": 1297097489
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 5,
+      "seed": 3535551522
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 6,
+      "seed": 1407955367
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "replicate": 7,
+      "seed": 1878492556
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 0,
+      "seed": 3079521157
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 1,
+      "seed": 512900308
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 2,
+      "seed": 3988261385
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 3,
+      "seed": 952930488
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 4,
+      "seed": 218701584
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 5,
+      "seed": 4047469651
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 6,
+      "seed": 1743204309
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "replicate": 7,
+      "seed": 797678296
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 0,
+      "seed": 3376481845
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 1,
+      "seed": 1423450672
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 2,
+      "seed": 2544293901
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 3,
+      "seed": 2254187417
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 4,
+      "seed": 3444256025
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 5,
+      "seed": 3749436627
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 6,
+      "seed": 518899862
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "replicate": 7,
+      "seed": 435536687
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 0,
+      "seed": 3159063660
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 1,
+      "seed": 4055889038
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 2,
+      "seed": 3225294565
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 3,
+      "seed": 2736832250
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 4,
+      "seed": 4239581089
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 5,
+      "seed": 1350024770
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 6,
+      "seed": 261746027
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "replicate": 7,
+      "seed": 1205811793
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 0,
+      "seed": 580093511
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 1,
+      "seed": 1463335967
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 2,
+      "seed": 416112917
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 3,
+      "seed": 3361974596
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 4,
+      "seed": 265820428
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 5,
+      "seed": 710553260
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 6,
+      "seed": 2403909223
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "replicate": 7,
+      "seed": 3609173664
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 0,
+      "seed": 3325735379
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 1,
+      "seed": 1025155315
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 2,
+      "seed": 1502451249
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 3,
+      "seed": 1655178818
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 4,
+      "seed": 2701976085
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 5,
+      "seed": 3472753710
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 6,
+      "seed": 768973417
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "replicate": 7,
+      "seed": 1938197954
+    }
+  ],
+  "conditional_order": 32,
+  "normalizer_order": 48,
+  "time_order": 8,
+  "conditional_refinement": [
+    {
+      "days": 27,
+      "method": "learned_mean",
+      "base_vix": [
+        10.657553386527836,
+        19.527639837391124,
+        357.87341233247696
+      ],
+      "conditional48_vix": [
+        10.657171609728298,
+        19.528932329898876,
+        357.8732220778413
+      ],
+      "max_change": 0.0012924925077513194
+    },
+    {
+      "days": 27,
+      "method": "targeted_mean",
+      "base_vix": [
+        12.529252076258016,
+        20.940887288429927,
+        557.4856435922615
+      ],
+      "conditional48_vix": [
+        12.52933069064421,
+        20.941699963510533,
+        557.4858999412613
+      ],
+      "max_change": 0.0008126750806063399
+    },
+    {
+      "days": 55,
+      "method": "learned_mean",
+      "base_vix": [
+        10.063006291348973,
+        20.38280336772177,
+        321.8830056263255
+      ],
+      "conditional48_vix": [
+        10.062621154741498,
+        20.38477646133664,
+        321.8829487501423
+      ],
+      "max_change": 0.0019730936148683043
+    },
+    {
+      "days": 55,
+      "method": "targeted_mean",
+      "base_vix": [
+        10.457577873537982,
+        20.72779482574738,
+        355.6309103811131
+      ],
+      "conditional48_vix": [
+        10.457274634441612,
+        20.727237496157457,
+        355.63282227819843
+      ],
+      "max_change": 0.0019118970853355677
+    },
+    {
+      "days": 118,
+      "method": "learned_mean",
+      "base_vix": [
+        8.702135067538451,
+        22.30658184306748,
+        463.01889074574643
+      ],
+      "conditional48_vix": [
+        8.702484051655155,
+        22.303992733626743,
+        463.0187639767005
+      ],
+      "max_change": 0.002589109440737758
+    },
+    {
+      "days": 118,
+      "method": "targeted_mean",
+      "base_vix": [
+        10.510913608851446,
+        21.734657942717018,
+        288.92495705223797
+      ],
+      "conditional48_vix": [
+        10.511016314901244,
+        21.731673795376498,
+        288.92357997505036
+      ],
+      "max_change": 0.0029841473405198826
+    },
+    {
+      "days": 153,
+      "method": "learned_mean",
+      "base_vix": [
+        8.880109678772294,
+        22.951877085743902,
+        333.3391231405996
+      ],
+      "conditional48_vix": [
+        8.880107640756592,
+        22.948296502062327,
+        333.33894122983463
+      ],
+      "max_change": 0.0035805836815754333
+    },
+    {
+      "days": 153,
+      "method": "targeted_mean",
+      "base_vix": [
+        10.682620377359008,
+        22.242352671253514,
+        301.3121347997249
+      ],
+      "conditional48_vix": [
+        10.682079203395437,
+        22.239503470087815,
+        301.30900234209264
+      ],
+      "max_change": 0.003132457632261776
+    }
+  ],
+  "moment_reference": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_vix_collapsed_inflated_001",
+  "design_source": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_vix_targeted_pilots_001",
+  "selected_candidate": "score4_balanced_cap4",
+  "selected_pilot": 4,
+  "design_proposal_sha256": "20632499d8e21921f3dd5fe81dd44eeab3a421bf187d3d321cc83ed1298aee50",
+  "input_compatibility": {
+    "cross_market_conflict_expiries": [
+      46190,
+      46225
+    ],
+    "cross_market_conflict_expiry_days": [
+      118,
+      153
+    ],
+    "cross_market_conflicts_at_quoted_forward": 6,
+    "curve_status": "fitted_curves_conflict_nuisance_profile_required",
+    "moment_bound_note": "finite-strike monotonicity lower bound; omitted tails nonnegative",
+    "overall_compatibility_status": "unresolved_input_conflict_requires_nuisance_curve_profile",
+    "spot_comparison": {
+      "approximate_vix_30d": 19.64977798536384,
+      "status": "approximate_date_level_interpolation_only",
+      "stored_vix_spot": 19.34
+    },
+    "variance_strip_note": "actual observed strikes; all valid two-sided quotes; no inferred zero-bid cutoff"
+  },
+  "weight_upper_bound": 2.0,
+  "uncertainties": "independent complete scrambles; nested count differences paired within each method, cross-method streams independent",
+  "limitations": [
+    "Exploratory R8x64 comparison, not a high-budget convergence or superiority certificate.",
+    "Independent checking streams; count prefixes paired within each method only.",
+    "Pilot IID second moments do not predict randomized Sobol uncertainty.",
+    "One pooled pilot proposal checked; pilot-to-pilot variation was screened historically, not repriced on new draws.",
+    "Moment agreement does not certify option/forward prices; no identity is imposed on estimates.",
+    "Outer SE excludes conditional/time/normalizer bias; selected-state GH checks are limited diagnostics.",
+    "Only one frozen model; no held-out market test, refit, or model ranking."
+  ],
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "wall_seconds": 440.6708923750557
+}

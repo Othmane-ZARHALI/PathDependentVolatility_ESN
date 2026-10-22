@@ -244,6 +244,19 @@ no refit or rescaling is performed. Validation: 116 tests and replay of 8192
 full states/weights plus 732 summary rows pass. Next use independent design
 pilots and fresh count refinements; no joint-fit ranking is accepted.
 
+The payoff-targeted independent-pilot follow-up is in
+[VIX_TARGETED_PILOT_RESULTS.md](../../model_comparison/option_pricing/VIX_TARGETED_PILOT_RESULTS.md).
+Four disjoint pilot fits favor mean shifts in score-sensitive directions on
+historical design screening. Fresh R8 x 64 checks improve median option SE at
+55/153 days but worsen 27/118 days and all four forward SEs. Only 24/175
+targeted versus 19/175 baseline observed SE screens pass. A new targeted
+118-day moment residual of -11.80491 ± 4.30771 is explicitly retained; the
+preceding fresh moment agreement did not clear convergence. This design is
+experimental, not adopted for calibration. All four maturities/forwards remain
+included; no model refit or price rescaling. Validation: 119 tests plus pilot
+and full-state/weight/statistics replay checks pass. Next isolate component
+allocation effects and refine the offending moment on identical states.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per
