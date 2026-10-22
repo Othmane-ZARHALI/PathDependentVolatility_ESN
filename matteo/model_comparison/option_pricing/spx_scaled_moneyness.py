@@ -11,7 +11,8 @@ from matteo.preprocessing.options import black76_implied_vol
 CUTOFFS=(.5,1.,1.5,1.8,2.,2.5,3.,3.5)
 
 
-def scaled_training_quotes(quotes):
+def scaled_training_quotes(quotes,priority_cutoff=3.):
+    if not np.isfinite(priority_cutoff) or priority_cutoff<=0:raise ValueError("Positive finite priority cutoff required")
     # Filter before choosing anchors or reading price fields for calculations.
     training=quotes[(quotes.instrument=='SPX')&(quotes.split=='train')].copy()
     if training.empty:raise ValueError('No SPX training quotes')
@@ -33,14 +34,15 @@ def scaled_training_quotes(quotes):
             **{f'iv_{side}':v for side,v in vols.items()})
         anchors.append(row)
         for side,v in vols.items():group[f'z_{side}']=abs(group.log_moneyness)/(v*np.sqrt(group.T_years))
-        group['priority_c2']=group.z_mid<=2.
+        group['priority_c2']=group.z_mid<=2.  # Historical comparison flag, not current membership.
+        group['priority_selected']=group.z_mid<=priority_cutoff
         pieces.append(group)
     return pd.concat(pieces).sort_values(['expiry','strike','option_type']),pd.DataFrame(anchors)
 
 
-def run(input_path,output):
+def run(input_path,output,priority_cutoff=3.):
     output.mkdir(parents=True,exist_ok=False)
-    quotes,anchors=scaled_training_quotes(pd.read_csv(input_path));rows=[]
+    quotes,anchors=scaled_training_quotes(pd.read_csv(input_path),priority_cutoff);rows=[]
     views=[('all_training',quotes),('short_training_29_57',quotes[quotes.expiry_days.isin([29,57])])]
     views += [(f'expiry_{int(days)}',g) for days,g in quotes.groupby('expiry_days')]
     for name,group in views:
@@ -52,17 +54,20 @@ def run(input_path,output):
     for i,row in anchors.iterrows():
         width=2*row.iv_mid*np.sqrt(row.T_years)
         anchors.loc[i,'c2_K_over_F_low']=np.exp(-width);anchors.loc[i,'c2_K_over_F_high']=np.exp(width)
+        selected_width=priority_cutoff*row.iv_mid*np.sqrt(row.T_years)
+        anchors.loc[i,'priority_K_over_F_low']=np.exp(-selected_width);anchors.loc[i,'priority_K_over_F_high']=np.exp(selected_width)
     quotes.to_csv(output/'training_membership.csv',index=False);anchors.to_csv(output/'atm_proxies.csv',index=False)
     coverage.to_csv(output/'coverage.csv',index=False)
     sources=[Path(__file__),Path('matteo/preprocessing/options.py'),input_path]
     record=dict(formula='z = abs(log(K/F(T))) / (sigma_ATM_proxy(T)*sqrt(T)); inclusive z <= c',
         anchor_policy='Nearest absolute log-moneyness SPX training quote per expiry; tie by strike then option_type. Invert undiscounted mid using existing Black76. Bid/ask proxy sensitivity retained. No call/put pooling.',
-        selected_priority_cutoff=2.,reason='Round central-band cutoff meeting at least 50% training quote coverage at every training expiry; no model output used.',
+        selected_priority_cutoff=priority_cutoff,reason='User selected cutoff 3 provisionally after market-only coverage comparison; explicit CLI overrides are recorded.',
+        priority_membership_column='priority_selected',included_priority=int(quotes.priority_selected.sum()),
         training_quotes=len(quotes),included_c2=int(quotes.priority_c2.sum()),
         sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
         limitations=['Counts are training-only, quote-count coverage, not volume/open-interest weighting or held-out performance.',
             'ATM is approximated by a nearby training quote, not an exactly ATM quote; input IV/forward conventions remain preprocessing limitations.',
-            'Two volatility units defines a central working band, broader than strict near ATM; no guaranteed Gaussian probability or payoff frequency.',
+            'Selected volatility-unit cutoff defines a central working band, broader than strict near ATM; no guaranteed Gaussian probability or payoff frequency.',
             'Long maturity bands are wider and include contracts not yet simulated; coverage is not numerical accuracy.',
             'All quotes/maturities retained in full scope; priority subset does not remove tail diagnostics or change fitting losses.'])
     (output/'run.json').write_text(json.dumps(record,indent=2,allow_nan=False)+'\n')
@@ -72,4 +77,5 @@ def run(input_path,output):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--input',type=Path,default=Path('data/processed/options/2026-02-19/quotes_calibration.csv'))
-    parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();run(args.input,args.output)
+    parser.add_argument('--output',type=Path,required=True);parser.add_argument('--priority-cutoff',type=float,default=3.)
+    args=parser.parse_args();run(args.input,args.output,args.priority_cutoff)

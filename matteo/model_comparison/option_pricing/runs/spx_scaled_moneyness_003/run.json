@@ -1,0 +1,22 @@
+{
+  "formula": "z = abs(log(K/F(T))) / (sigma_ATM_proxy(T)*sqrt(T)); inclusive z <= c",
+  "anchor_policy": "Nearest absolute log-moneyness SPX training quote per expiry; tie by strike then option_type. Invert undiscounted mid using existing Black76. Bid/ask proxy sensitivity retained. No call/put pooling.",
+  "selected_priority_cutoff": 3.0,
+  "reason": "User selected cutoff 3 provisionally after market-only coverage comparison; explicit CLI overrides are recorded.",
+  "priority_membership_column": "priority_selected",
+  "included_priority": 707,
+  "training_quotes": 980,
+  "included_c2": 566,
+  "sha256": {
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/spx_scaled_moneyness.py": "6b065552ec36bb31c49e864973ca5f5ae130c28f6d41363edd11e6cd4db1cc5d",
+    "matteo/preprocessing/options.py": "92d3a173eca36a6e6d4a79977f30d1e018e7e315c4c7a8790572d75702f848e4",
+    "data/processed/options/2026-02-19/quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a"
+  },
+  "limitations": [
+    "Counts are training-only, quote-count coverage, not volume/open-interest weighting or held-out performance.",
+    "ATM is approximated by a nearby training quote, not an exactly ATM quote; input IV/forward conventions remain preprocessing limitations.",
+    "Selected volatility-unit cutoff defines a central working band, broader than strict near ATM; no guaranteed Gaussian probability or payoff frequency.",
+    "Long maturity bands are wider and include contracts not yet simulated; coverage is not numerical accuracy.",
+    "All quotes/maturities retained in full scope; priority subset does not remove tail diagnostics or change fitting losses."
+  ]
+}

@@ -21,7 +21,7 @@
   "supersedes": "2026-10-21-user-authorized-near-vix-pilot",
   "spx_research_priority": {
     "decision_date": "2026-10-22",
-    "user_direction": "Use maturity-adaptive moneyness and check coverage; less than 50% would be unsatisfactory.",
+    "user_direction": "Let's keep the cutoff 3, for the moment.",
     "purpose": "Prioritize numerical stability and accuracy near ATM; retain wing diagnostics and full market scope.",
     "contracts": [
       {
@@ -49,13 +49,16 @@
     "wing_treatment": "Retain as secondary diagnostics; negative controlled estimates remain flagged as unusable prices, without clipping.",
     "accuracy_gates": "Independent sampling accuracy, coupled stock timestep refinement, and normalizer refinement remain separate requirements; no market refit cleared.",
     "criterion": {
-      "formula": "abs(log(K/F(T))) / (sigma_ATM_proxy(T)*sqrt(T)) <= 2",
+      "formula": "abs(log(K/F(T))) / (sigma_ATM_proxy(T)*sqrt(T)) <= 3",
       "atm_proxy": "Black76 IV of nearest absolute log-moneyness SPX training midquote per expiry; tie by strike then option_type",
       "coverage_denominator": "980 SPX training quotes at 29/57/211/302 days",
-      "priority_quote_count": 566,
-      "coverage_fraction": 0.5775510204081633,
-      "membership_artifact": "runs/spx_scaled_moneyness_001/training_membership.csv",
-      "supersedes": "Fixed 5% reporting band for current priority membership; four listed contracts remain diagnostic representatives."
+      "priority_quote_count": 707,
+      "coverage_fraction": 0.7214285714285714,
+      "membership_artifact": "runs/spx_scaled_moneyness_003/training_membership.csv",
+      "supersedes": "Previous cutoff 2 priority band; old runs preserved. Four listed contracts remain diagnostic representatives.",
+      "cutoff": 3.0,
+      "status": "user_selected_provisional",
+      "membership_column": "priority_selected"
     }
   }
 }

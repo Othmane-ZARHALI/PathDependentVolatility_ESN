@@ -3,9 +3,10 @@
 ## Current membership rule: maturity-scaled central band
 
 User requested maturity adaptation and meaningful coverage. Prioritize
-`abs(log(K/F(T))) <= 2 * sigma_ATM_proxy(T) * sqrt(T)`, with market training-only
+`abs(log(K/F(T))) <= 3 * sigma_ATM_proxy(T) * sqrt(T)`, with market training-only
 nearest-ATM-IV anchors. This supersedes the fixed 5% band for priority membership.
-It includes **566/980 training quotes (57.8%)**, over half at every training
+User selected cutoff **3 provisionally**, superseding cutoff 2.
+It includes **707/980 training quotes (72.1%)**, over half at every training
 expiry (29/57/211/302 days). The four earlier near-ATM contracts remain diagnostic
 representatives, not the entire priority set. All quote and VIX scopes remain.
 See [coverage and denominator correction](SPX_SCALED_MONEYNESS_COVERAGE.md).

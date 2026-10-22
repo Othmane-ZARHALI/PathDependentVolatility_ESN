@@ -682,3 +682,11 @@ The 648 count used for short-maturity studies refers only to 29/57 days, not
 the full training surface; this corrects earlier denominator shorthand.
 Coverage does not establish pricing accuracy. Four old central contracts remain
 representatives, all wing diagnostics and all VIX maturities remain active.
+
+## User-selected provisional SPX cutoff 3
+
+User selected z<=3 for the maturity-scaled central working band, superseding
+cutoff 2. This includes **707/980 training quotes (72.1%)**. Current membership
+is `runs/spx_scaled_moneyness_003/training_membership.csv`, `priority_selected`;
+old cutoff-2 flags remain explicitly historical. All quote/maturity scopes and
+wing warnings remain recorded; no new pricing accuracy claim follows.

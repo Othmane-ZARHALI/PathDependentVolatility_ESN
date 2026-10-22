@@ -1,5 +1,24 @@
 # Maturity-adjusted central SPX band and coverage — 22 October 2026
 
+## Current user decision: cutoff 3, provisionally
+
+User: **"Let's keep the cutoff 3, for the moment."**
+The working priority rule is now `z <= 3`, including **707/980 (72.1%)** SPX
+training quotes: 222/328 at 29 days, 238/320 at 57 days, 113/164 at 211 days and
+134/168 at 302 days. This supersedes the earlier cutoff-2 priority decision.
+
+Current membership: `runs/spx_scaled_moneyness_003/training_membership.csv`,
+column **priority_selected**. `run.json` records selected cutoff and count;
+`atm_proxies.csv` provides maturity-specific `priority_K_over_F_low/high` bounds.
+The explicitly named `priority_c2` column and c2 bounds are historical comparison
+fields, not the current selection. Default tool cutoff is 3; CLI overrides are
+recorded. Prior runs remain unchanged. Full quote scope, secondary wing
+diagnostics and all four VIX maturities remain. No pricing simulation/refit or
+accuracy clearance accompanies this membership update.
+
+The sections below retain the original cutoff-2 design and subsequent coverage
+comparison as history. The current decision above takes precedence.
+
 User requests a maturity-adaptive criterion and meaningful coverage, suggesting
 that including less than 50% would be unsatisfactory. This replaces the fixed
 5% reporting band as the priority-membership rule. All quotes and maturities
