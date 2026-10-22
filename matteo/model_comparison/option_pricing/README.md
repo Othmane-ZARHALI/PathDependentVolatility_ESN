@@ -184,3 +184,10 @@ is modest and all accuracy limitations remain.
 standalone level costs and frozen variance/cost allocation. Fresh direct
 512-step comparisons target the same discretized price. Reproduction and
 artifact checks use `spx_mlmc`, `verify_spx_mlmc` and `audit_spx_mlmc`.
+
+[SPX_BRIDGE_COUPLING_RESULTS.md](SPX_BRIDGE_COUPLING_RESULTS.md) tests
+endpoint-preserving Gaussian reflection with transported importance weights.
+Ordinary/reflected corrections use independent pilot fits and shared fresh
+pairs; actual standalone ordinary costs are measured. The reflection is valid
+but its tested variance savings do not cover runtime. Reproduce/replay with
+`spx_bridge_coupling`, `verify_spx_bridge_coupling` and `audit_spx_bridge_coupling`.

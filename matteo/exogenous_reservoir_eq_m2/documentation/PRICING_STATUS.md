@@ -92,6 +92,12 @@ not a change to the model or its historical research claims.
   The first fresh study is worse than direct vol7 on the central variance-cost
   objective in both trials, retains sparse-tail/expectation warnings and does
   not clear 256->512 timestep changes. The implementation remains exploratory.
+- `src/esn_eq/bridge_coupling.py` implements an endpoint-preserving orthogonal
+  Gaussian reflection and streaming original/reflected exact-OU paths.
+  Target-law, transported-likelihood, Black and adapted stock-forward checks
+  pass. The [bridge study](../../model_comparison/option_pricing/SPX_BRIDGE_COUPLING_RESULTS.md)
+  finds modest correction variance reductions that do not pay for measured
+  runtime. It remains a comparator; no price/timestep clearance follows.
 
 ## Evidence and limits
 

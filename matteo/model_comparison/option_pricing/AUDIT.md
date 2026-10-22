@@ -558,3 +558,38 @@ and 50 monitors replay. The verified prototype remains a comparator; direct
 vol7 is not replaced. All VIX maturities and original scopes remain active.
 See [SPX_MLMC_RESULTS.md](SPX_MLMC_RESULTS.md) for sources, costs and the pending
 better-coupling design question.
+
+## Endpoint reflection: valid target, negative cost result — 22 October 2026
+
+An SVD-based orthogonal Gaussian reflection preserves coarse OU endpoints
+(max observed mismatch 6.31e-14) and equity increments (5.38e-17). The original
+f/q weight is used for both fine payoffs, corresponding to the transported
+reflected proposal; evaluating the old density at reflected scores would be
+incorrect. Each pair is one observation. Full-path Gaussian/Black and adapted
+stock-forward oracles pass, and the ordinary sampler is rerun for actual cost
+and numerical path correspondence.
+
+**Negative adoption result:** pooled central variance gains 1.01–1.16 do not
+cover runtime multipliers around 1.50–1.52. Variance-cost efficiencies are
+0.7667/0.6970 at 128->256 and 0.6689/0.7324 at 256->512 across two fresh trials.
+All comparisons and half-pilot fits remain. A same-frozen-coefficient replay
+finds the averaged residual retains 86–96% of original controlled variance;
+its nonzero covariance with the removed difference component is preserved.
+No checking-based refit, reweighting or coupling selection occurs.
+
+**Retained warnings:** three paired pooled mean differences exceed two SEs:
+29-day 6755 put (-0.43498 ± 0.19928), 57-day 5550 put (+0.42483 ± 0.21037) at
+128->256, and 29-day 7950 call (-0.00853 ± 0.00413) at 256->512, all trial 1.
+They are finite diagnostics, not proof of different population targets. All
+mass/stock/reference checks are within two SEs here; hit counts can still be
+only two. Half-pilot SE inflation reaches 2.55 bridge and 3.59 ordinary.
+
+Reflected 256->512 changes exceed scale/8 in 20/24 cases, despite none exceeding
+two observed SEs in this check. Earlier 512-step warnings remain active;
+absence of a new significance flag is not a convergence bound. This is a
+correction study, not a new complete pricing result. All 141 tests pass;
+384 estimates, 192 paired differences and 28 expectation monitors replay.
+Direct vol7 and ordinary corrections remain the references. See
+[SPX_BRIDGE_COUPLING_RESULTS.md](SPX_BRIDGE_COUPLING_RESULTS.md), including the
+pending projected-OU innovation control hypothesis and its full-state
+conditional-mean requirement. No model refit or maturity exclusion occurs.

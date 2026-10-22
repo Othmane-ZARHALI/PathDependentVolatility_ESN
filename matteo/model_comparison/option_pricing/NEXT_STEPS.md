@@ -28,6 +28,21 @@ reflection is a candidate only, with target-law/likelihood/adaptedness checks
 still to be established. Do not interpret the completed prototype as a
 completed improved coupling or continuous-model accuracy clearance.
 
+The [endpoint reflection study](SPX_BRIDGE_COUPLING_RESULTS.md) has now completed
+the algebraic/Gaussian/Black and independent checking step. Endpoint and target
+law checks pass, but all four central variance-cost comparisons lose (gains
+0.67–0.77). Direct vol7 and ordinary corrections remain the references.
+The same-coefficient averaged residual retains 86–96% of controlled variance.
+
+**Next SPX hypothesis, pending:** cheap projected-OU innovation martingale
+controls, including centered quadratic innovations with known conditional
+covariance, as complements to the existing stock hedges. Preserve full-state
+conditional means; the three readout projections alone are not Markov. Prove
+the zero-mean/likelihood correspondence, validate Gaussian/Black and forward
+oracles, train on separate pilots, then check direct-price and correction
+variance/cost separately. This is not an implemented control or a bias fix;
+512-step, tail/pilot and normalization gates stay open. VIX scope is unchanged.
+
 ## Scope retained
 
 [active_scope.json](active_scope.json) remains authoritative and unchanged:
