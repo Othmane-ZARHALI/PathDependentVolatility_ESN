@@ -663,3 +663,12 @@ and retained as signed diagnostics; no clipping or checking-selected fallback.
 Raw positive-weight payoffs are nonnegative by construction but can be noisy.
 All maturity/quote scopes are retained. Reproduction inputs and hashes are saved
 in `runs/m2_spx_moneyness_audit_001`.
+
+## User-confirmed near-ATM priority (22 October 2026)
+
+Prioritize the four existing near-ATM SPX training representatives for numerical
+stability/accuracy. Record exact contracts and boundaries in `active_scope.json`
+and the current section of `NEXT_STEPS.md`. Wings stay in diagnostic records and
+all four VIX maturities remain active. This is a work-priority decision, not a
+quote-scope exclusion, sampling/bias clearance or model refit. No simulation or
+estimator changes were made in this update.

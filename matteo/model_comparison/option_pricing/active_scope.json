@@ -18,5 +18,35 @@
     "Existing moment conflicts and unresolved sampling, integration and normalization errors remain recorded.",
     "Previously examined training quotes and checking draws do not become pristine held-out evidence."
   ],
-  "supersedes": "2026-10-21-user-authorized-near-vix-pilot"
+  "supersedes": "2026-10-21-user-authorized-near-vix-pilot",
+  "spx_research_priority": {
+    "decision_date": "2026-10-22",
+    "user_direction": "Yes, I would also focus more on near-ATM options for now.",
+    "purpose": "Prioritize numerical stability and accuracy near ATM; retain wing diagnostics and full market scope.",
+    "contracts": [
+      {
+        "expiry_days": 29,
+        "strike": 6755,
+        "option_type": "put"
+      },
+      {
+        "expiry_days": 29,
+        "strike": 7030,
+        "option_type": "call"
+      },
+      {
+        "expiry_days": 57,
+        "strike": 6775,
+        "option_type": "put"
+      },
+      {
+        "expiry_days": 57,
+        "strike": 7050,
+        "option_type": "call"
+      }
+    ],
+    "provenance": "Four previously declared training representatives, about 2% OTM relative to forward; descriptive near-ATM band is within 5%.",
+    "wing_treatment": "Retain as secondary diagnostics; negative controlled estimates remain flagged as unusable prices, without clipping.",
+    "accuracy_gates": "Independent sampling accuracy, coupled stock timestep refinement, and normalizer refinement remain separate requirements; no market refit cleared."
+  }
 }

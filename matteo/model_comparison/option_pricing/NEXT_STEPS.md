@@ -1,5 +1,32 @@
 # Recorded next steps — 22 October 2026
 
+## Current priority: near-ATM SPX (user confirmed)
+
+User: **"Yes, I would also focus more on near-ATM options for now."**
+This supersedes wing-control stabilization as the immediate research priority.
+It does not remove quotes, maturities or historical warnings from the scope.
+`active_scope.json` records the four previously declared training contracts:
+29-day 6755 put / 7030 call, and 57-day 6775 put / 7050 call (about 2% OTM).
+All four VIX maturities remain active; wings remain secondary diagnostics.
+
+Next bounded work:
+
+1. Assess near-ATM residual variance, control-mean uncertainty and pilot stability
+   using saved data, then freeze the baseline/linear-control comparison and a
+   sample budget before fresh checking. Do not select gains on checking results.
+2. Check fresh near-ATM sampling accuracy and actual runtime at 512 steps/day.
+   Positive estimates and roughly 1% SE/price are encouraging but do not meet
+   the existing quote-relative target (SE <= scale/8).
+3. Once sampling permits interpretation, assess coupled 256/512 stock-price
+   changes on these contracts and refine further if needed. Independently
+   check normalizer quadrature; control variance reduction does not clear bias.
+
+Retain signed negative controlled wing estimates as unusable-price diagnostics,
+not clipped prices. No model/curve/state refit or new broad simulation was run
+for this priority update. See [the moneyness audit](SPX_MONEYNESS_POSITIVITY_AUDIT.md)
+for evidence and limits. The older queue below is retained as research history;
+this section determines the current priority.
+
 User direction: record the VIX tail-control next step, move forward for now,
 and keep all maturities. The working interpretation is to return to SPX
 numerical diagnostics while leaving the VIX extension pending.
