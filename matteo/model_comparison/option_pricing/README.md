@@ -178,3 +178,9 @@ all candidates and full/half-pilot control fits. Commands:
 path-moment controls before completed checking data; replay its coefficients
 and all estimates with `verify_spx_path_score_controls`. The additional gain
 is modest and all accuracy limitations remain.
+
+[SPX_MLMC_RESULTS.md](SPX_MLMC_RESULTS.md) records the independent-level
+64/128/256/512-step multilevel prototype, correction-specific pilot controls,
+standalone level costs and frozen variance/cost allocation. Fresh direct
+512-step comparisons target the same discretized price. Reproduction and
+artifact checks use `spx_mlmc`, `verify_spx_mlmc` and `audit_spx_mlmc`.

@@ -18,6 +18,16 @@ time corrections: standalone level costs, independent correction-pilot fits,
 and a bounded matched-cost MLMC comparison. The 128->256 warnings, pilot
 instability and tail precision remain open; no model refit is cleared.
 
+The [first MLMC prototype](SPX_MLMC_RESULTS.md) now checks independent
+64/128/256/512 levels with frozen allocation and correction-specific controls.
+It loses on the central variance-cost objective in both fresh trials and
+**does not replace direct vol7 simulation**. Sparse top-level tails and
+256->512 warnings remain. Before another allocation study, investigate better
+coarse/fine Gaussian coupling on tractable oracles; conditional bridge
+reflection is a candidate only, with target-law/likelihood/adaptedness checks
+still to be established. Do not interpret the completed prototype as a
+completed improved coupling or continuous-model accuracy clearance.
+
 ## Scope retained
 
 [active_scope.json](active_scope.json) remains authoritative and unchanged:

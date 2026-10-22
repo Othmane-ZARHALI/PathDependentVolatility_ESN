@@ -523,3 +523,38 @@ variance gain is only 1.0178; no sampling screen passes. It does not reselect th
 proposal or a favorable half. All 864 original estimates, 576 paired corrections,
 30 monitors and 648 additional score-control estimates replay; all 134 tests
 pass. See [SPX_VOLATILITY_SAMPLING_RESULTS.md](SPX_VOLATILITY_SAMPLING_RESULTS.md).
+
+## SPX MLMC: negative efficiency result and 512-step warnings — 22 October 2026
+
+A four-level 64/128/256/512 prototype uses standalone fine-grid state draws,
+exact level-specific vol7 likelihoods and independent correction-specific pilot
+controls. Independent allocation paths freeze [2752,640,384,192] counts before
+checking. The estimator targets the discretized 512-step payoff by an expectation
+telescope; its SE adds independent-level variance/N terms. No continuous-model
+convergence or globally optimal integer allocation is claimed.
+
+**Negative result retained:** on the fixed four-central-contract objective,
+actual variance-cost efficiency relative to direct 512-step simulation is
+0.6069/0.5491 in two fresh trials. Only 5/12 and 4/12 contract variances improve;
+none of 24 sampling screens passes. Pilot-predicted cost matched the budget,
+but realized MLMC cost is 2.5%/20.2% higher than direct. The separate cross-strike
+median SEs must not be presented as an MLMC efficiency gain. Correction controls
+help relative to raw corrections, but remaining variances decay too slowly
+relative to measured costs for this hierarchy.
+
+**Retained warnings:** trial-0 final MLMC/direct differences for the 29-day 3400
+put and 7030 call are +2.56/-2.50 combined SEs. Top-level importance mass is
+1.09478 ± 0.03365 and 1.07058 ± 0.03476 across trials, with correlated reference
+warnings; no weights are renormalized. Six trial-0 level/contract rows have no
+fine/coarse payoff hits, so their small raw/controlled uncertainty is not a tail
+accuracy clearance. Half-pilot SE inflation reaches 4.00 direct and 2.53 MLMC.
+
+**512 is still unresolved:** 256->512 changes exceed scale/8 in 8/12 and 9/12
+cases. The 57-day 6775 put changes -2.57035 ± 0.87963 (trial 0, scale 0.65303);
+the 5550 put changes +1.69703 ± 0.69914 (trial 1, scale 0.20024). These and the
+sparse tail corrections preclude convergence clearance or model refitting.
+All 138 tests pass; allocation, likelihoods, fits, 192 estimates, 384 level rows
+and 50 monitors replay. The verified prototype remains a comparator; direct
+vol7 is not replaced. All VIX maturities and original scopes remain active.
+See [SPX_MLMC_RESULTS.md](SPX_MLMC_RESULTS.md) for sources, costs and the pending
+better-coupling design question.

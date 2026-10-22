@@ -83,6 +83,15 @@ not a change to the model or its historical research claims.
   but clears no quote-relative sampling screen; coupled time errors remain.
   Additional weighted Gaussian-score/ridge controls are frozen before checking
   results and give only a modest further gain. No market-fit clearance follows.
+- `src/esn_eq/mlmc.py` supplies independent-level mean/SE aggregation and a
+  minimum-constrained, block-rounded variance/cost allocation. The
+  [SPX MLMC prototype](../../model_comparison/option_pricing/SPX_MLMC_RESULTS.md)
+  targets the 512-step discretized stock price using independent base and
+  coupled-correction samples. Oracle tests cover exact constant-volatility
+  corrections and Black expectations; cost/accuracy claims require fresh checks.
+  The first fresh study is worse than direct vol7 on the central variance-cost
+  objective in both trials, retains sparse-tail/expectation warnings and does
+  not clear 256->512 timestep changes. The implementation remains exploratory.
 
 ## Evidence and limits
 
