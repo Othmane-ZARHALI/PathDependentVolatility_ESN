@@ -67,14 +67,16 @@ class GaussianPathTilt:
         return shifted
 
 
-def prepare_volatility_paths(pricer, times, initial, paths, seed, basis, mixture, checkpoints=()):
+def prepare_volatility_paths(pricer, times, initial, paths, seed, basis, mixture, checkpoints=(), *, state_observer=None):
     """Exact f/q weights from ALL orthonormal path scores; no mass rescaling."""
     if np.asarray(basis).shape[:2] != (len(times)-1, len(pricer.layout.rates)+1):
         raise ValueError("Path basis does not match grid/state dimensions")
     component_seed, path_seed = np.random.SeedSequence(seed).spawn(2)
     tilt = GaussianPathTilt(basis, mixture, paths, component_seed)
-    cache = pricer.prepare(times, initial, paths, int(path_seed.generate_state(1)[0]), checkpoints,
-                           gaussian_tilt=tilt)
+    options = dict(gaussian_tilt=tilt)
+    if state_observer is not None:
+        options['state_observer'] = state_observer
+    cache = pricer.prepare(times, initial, paths, int(path_seed.generate_state(1)[0]), checkpoints, **options)
     if tilt.next_step != len(times)-1:
         raise ValueError("Incomplete path tilt")
     return ImportancePaths(cache, mixture.weights(tilt.scores), tilt.scores, tilt.components)

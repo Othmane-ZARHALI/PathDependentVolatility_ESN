@@ -191,3 +191,13 @@ Ordinary/reflected corrections use independent pilot fits and shared fresh
 pairs; actual standalone ordinary costs are measured. The reflection is valid
 but its tested variance savings do not cover runtime. Reproduce/replay with
 `spx_bridge_coupling`, `verify_spx_bridge_coupling` and `audit_spx_bridge_coupling`.
+
+[SPX_INNOVATION_CONTROL_RESULTS.md](SPX_INNOVATION_CONTROL_RESULTS.md) tests
+full-state-centered OU innovation controls for direct prices and coupled
+128/256/512 corrections. It retains baseline/augmented ridge, legacy OLS and
+half-pilot variants on fresh shared paths. Reproduce/replay with
+`spx_innovation_study`, `verify_spx_innovation_study` and
+`audit_spx_innovation_study`; the stock scheme and all maturity scopes are fixed.
+`innovation_design_audit` separately reproduces fine-root covariance composition
+and post-hoc OLD-pilot dictionary ablations. Those ablations are design evidence
+for future fresh checking, not a rewrite of the completed experiment.

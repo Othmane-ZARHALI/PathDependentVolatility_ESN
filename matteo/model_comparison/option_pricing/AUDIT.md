@@ -593,3 +593,45 @@ Direct vol7 and ordinary corrections remain the references. See
 [SPX_BRIDGE_COUPLING_RESULTS.md](SPX_BRIDGE_COUPLING_RESULTS.md), including the
 pending projected-OU innovation control hypothesis and its full-state
 conditional-mean requirement. No model refit or maturity exclusion occurs.
+
+## Exact OU innovation controls: direct variance signal, tail warnings — 22 October 2026
+
+Full-state observers record eps=P*(X_next-D*X-b_Q) on nested grids without
+changing the stock simulator. Nine predictable linear, square and equity-cross
+martingale gains use full target covariances (not conditional-on-equity
+covariances) and full-path likelihood weights. Read-only observer, Gaussian,
+weighted control/Black and exact existing-stock/hedge correspondence tests pass.
+Baseline and augmented ridge use the same penalty; legacy OLS is separate.
+
+On two fresh 512-path trials, central direct-512 variance gains are
+**1.8652/1.8421**, but joint-grid runtime multipliers **1.7882/1.7707** leave only
+**1.0431/1.0404** measured cost efficiencies. Correction efficiencies remain
+**0.62–0.68**. All price estimators/grids pass **0/24** positive-hit sampling
+screens. These do not clear calibration or establish a robust speedup.
+
+**Repeated wing warnings remain:** at 512 steps, augmented-minus-base 29-day
+7900-call shifts are +0.14339 ± 0.03930 and +0.16172 ± 0.03926 (3.65/4.12 paired
+SEs); 7950-call shifts are +0.11384 ± 0.03299 and +0.11893 ± 0.03386
+(3.45/3.51). Do not dismiss same-sign replication by treating related strikes
+and grids as independent tests. All 64 bare innovation/forward checks pass a
+two-SE screen, but **126/1680 correlated contract-gain mean flags** remain,
+including reference-payoff, stock-delta and OU-linear gains. Fine-root covariance
+composition differs from target by only 2.78e-17 (relative diagonal 3.84e-16);
+no compensator mismatch is identified, but the warning cause is not settled.
+
+Negative adjusted estimators are preserved, including baseline 29-day 3400 put
+-3.69264 ± 6.62777 at 128 steps and augmented 57-day 3450 put
+-2.12469 ± 2.59609 at 256 steps (trial 0). Half-pilot SE inflation reaches
+9.42 for a correction and 6.41 for a direct price. Augmented 256->512 changes
+exceed scale/8 in 16/24 cases; the 57-day 6775 put changes
+-1.17242 ± 0.45488, and a wing warning has just one nonzero correction.
+No clipping, recentering or variance/bias conflation occurs.
+
+All **146 tests** pass; 960 estimates, 120 paired differences, 64 bare monitors
+and 1680 contract-control means replay. A post-hoc two-fold analysis of OLD
+training paths finds three linear controls retain most nominal direct-price
+benefit, but it is not fresh confirmation or a measured runtime saving.
+See [SPX_INNOVATION_CONTROL_RESULTS.md](SPX_INNOVATION_CONTROL_RESULTS.md).
+The full-nine dictionary stays experimental; the next candidate is a cheaper
+linear-only kernel with fresh tail/control-mean and standalone-cost checks.
+All VIX maturities and original scopes remain active, with no market refit.

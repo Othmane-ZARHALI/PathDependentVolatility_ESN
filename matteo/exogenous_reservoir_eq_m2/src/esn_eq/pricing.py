@@ -218,7 +218,7 @@ class DatedM2Pricer:
             raise FloatingPointError("Invalid Gaussian normalizer")
         return values
 
-    def prepare(self, times, initial, paths: int, seed: int, checkpoints=(), *, equity_drift=None, gaussian_tilt=None) -> PreparedQPaths:
+    def prepare(self, times, initial, paths: int, seed: int, checkpoints=(), *, equity_drift=None, gaussian_tilt=None, state_observer=None) -> PreparedQPaths:
         """Cache exact OU/stock shocks, optionally under a constant pathwise shift.
 
         ``equity_drift`` is one deterministic Brownian drift per path. It changes
@@ -229,6 +229,8 @@ class DatedM2Pricer:
         independent joint-transition normals and accumulate path scores. It
         must return a finite array of the same shape. Its caller owns the
         corresponding full-path likelihood. Do not combine the two interfaces.
+        An optional ``state_observer.observe(step, before, after)`` receives
+        read-only full-state views for exact conditional-innovation recording.
         """
         times = np.array(times, dtype=float, copy=True)
         if (times.ndim != 1 or len(times) < 2 or times[0] != 0
@@ -270,7 +272,13 @@ class DatedM2Pricer:
             innovation = normals[:, 1:] @ root.T + equity[step, :, None] * cross / dt
             decay = np.exp(-self.layout.rates * dt)
             shift = self.q_drift * (-np.expm1(-self.layout.rates * dt)) / self.layout.rates
+            previous = state
             state = state * decay + shift + innovation
+            if state_observer is not None:
+                before, after = previous.view(), state.view()
+                before.setflags(write=False)
+                after.setflags(write=False)
+                state_observer.observe(step, before, after)
             if times[step + 1] in checkpoints:
                 saved[float(times[step + 1])] = state.copy()
         return PreparedQPaths(times, features, equity, initial, saved, seed,

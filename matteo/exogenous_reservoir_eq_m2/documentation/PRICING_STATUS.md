@@ -98,6 +98,17 @@ not a change to the model or its historical research claims.
   pass. The [bridge study](../../model_comparison/option_pricing/SPX_BRIDGE_COUPLING_RESULTS.md)
   finds modest correction variance reductions that do not pay for measured
   runtime. It remains a comparator; no price/timestep clearance follows.
+- `src/esn_eq/innovation_controls.py` records exact target-Q projected
+  innovations from full-state conditional means on nested grids. Nine new
+  predictable linear/square/equity-cross gains complement the stock hedges.
+  Gaussian covariance, weighted martingale, Black and backward-correspondence
+  tests pass. The [innovation study](../../model_comparison/option_pricing/SPX_INNOVATION_CONTROL_RESULTS.md)
+  separates dictionary/regularization effects and charges measured recording
+  and control runtime; variance reduction does not establish a bias clearance.
+  Fresh central direct variance improves around 1.8–1.9, with nearly matching
+  runtime overhead, while correction efficiencies worsen. Repeated far-wing
+  paired mean/control-gain warnings and pilot sensitivity remain recorded;
+  the full dictionary is experimental and clears no quote-relative gate.
 
 ## Evidence and limits
 

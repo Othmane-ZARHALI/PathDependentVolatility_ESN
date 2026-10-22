@@ -1,0 +1,406 @@
+{
+  "status": "post-hoc analysis of OLD training paths; no independent confirmation or change to reported checking estimates",
+  "purpose": "Identify smaller dictionaries for a future freshly checked cost comparison; no subset runtime was measured here.",
+  "rows": [
+    {
+      "target": "price128",
+      "fold": 0,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 3859.411406265344,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "price128",
+      "fold": 0,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 2514.639226876755,
+      "variance_gain_vs_base": 1.5347773807930412
+    },
+    {
+      "target": "price128",
+      "fold": 0,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 2393.348533030979,
+      "variance_gain_vs_base": 1.6125571988371108
+    },
+    {
+      "target": "price128",
+      "fold": 0,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 2383.810542488047,
+      "variance_gain_vs_base": 1.6190092868022863
+    },
+    {
+      "target": "price128",
+      "fold": 0,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 2373.8591171916755,
+      "variance_gain_vs_base": 1.6257963155080186
+    },
+    {
+      "target": "price128",
+      "fold": 1,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 4153.745389892836,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "price128",
+      "fold": 1,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 2842.528724251771,
+      "variance_gain_vs_base": 1.4612852825211862
+    },
+    {
+      "target": "price128",
+      "fold": 1,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 2755.8863787136247,
+      "variance_gain_vs_base": 1.5072266483757197
+    },
+    {
+      "target": "price128",
+      "fold": 1,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 2701.858532568808,
+      "variance_gain_vs_base": 1.5373659796849681
+    },
+    {
+      "target": "price128",
+      "fold": 1,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 2735.0006677031847,
+      "variance_gain_vs_base": 1.5187365176700645
+    },
+    {
+      "target": "price256",
+      "fold": 0,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 3789.796667123027,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "price256",
+      "fold": 0,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 2278.803388534181,
+      "variance_gain_vs_base": 1.6630643460473253
+    },
+    {
+      "target": "price256",
+      "fold": 0,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 2176.808285738597,
+      "variance_gain_vs_base": 1.7409877994088665
+    },
+    {
+      "target": "price256",
+      "fold": 0,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 2211.270029701851,
+      "variance_gain_vs_base": 1.7138552127141213
+    },
+    {
+      "target": "price256",
+      "fold": 0,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 2205.1083068538774,
+      "variance_gain_vs_base": 1.7186442295571833
+    },
+    {
+      "target": "price256",
+      "fold": 1,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 4039.921714340295,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "price256",
+      "fold": 1,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 2553.516532369313,
+      "variance_gain_vs_base": 1.582101256494236
+    },
+    {
+      "target": "price256",
+      "fold": 1,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 2475.999725070771,
+      "variance_gain_vs_base": 1.6316325375297942
+    },
+    {
+      "target": "price256",
+      "fold": 1,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 2488.3977778273174,
+      "variance_gain_vs_base": 1.6235031835897442
+    },
+    {
+      "target": "price256",
+      "fold": 1,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 2479.8954019960565,
+      "variance_gain_vs_base": 1.6290693998983103
+    },
+    {
+      "target": "price512",
+      "fold": 0,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 3462.7034179775537,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "price512",
+      "fold": 0,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 2118.4219880284945,
+      "variance_gain_vs_base": 1.6345673513331083
+    },
+    {
+      "target": "price512",
+      "fold": 0,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 2083.676045186702,
+      "variance_gain_vs_base": 1.6618242677293378
+    },
+    {
+      "target": "price512",
+      "fold": 0,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 2074.2543030092193,
+      "variance_gain_vs_base": 1.6693726574191243
+    },
+    {
+      "target": "price512",
+      "fold": 0,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 2075.7077546893265,
+      "variance_gain_vs_base": 1.6682037296217649
+    },
+    {
+      "target": "price512",
+      "fold": 1,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 3831.1005014872817,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "price512",
+      "fold": 1,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 2519.0004988338087,
+      "variance_gain_vs_base": 1.5208812000080667
+    },
+    {
+      "target": "price512",
+      "fold": 1,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 2484.19469849985,
+      "variance_gain_vs_base": 1.5421901124741948
+    },
+    {
+      "target": "price512",
+      "fold": 1,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 2474.4598356238284,
+      "variance_gain_vs_base": 1.5482572989597283
+    },
+    {
+      "target": "price512",
+      "fold": 1,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 2462.4546736065395,
+      "variance_gain_vs_base": 1.555805490574252
+    },
+    {
+      "target": "corr128_256",
+      "fold": 0,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 399.0974684744615,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "corr128_256",
+      "fold": 0,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 412.22962890078253,
+      "variance_gain_vs_base": 0.9681435794381443
+    },
+    {
+      "target": "corr128_256",
+      "fold": 0,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 383.221756098501,
+      "variance_gain_vs_base": 1.0414269600389805
+    },
+    {
+      "target": "corr128_256",
+      "fold": 0,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 379.10729602270237,
+      "variance_gain_vs_base": 1.0527295904391194
+    },
+    {
+      "target": "corr128_256",
+      "fold": 0,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 366.07765024151377,
+      "variance_gain_vs_base": 1.0901989460737727
+    },
+    {
+      "target": "corr128_256",
+      "fold": 1,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 477.9589272886037,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "corr128_256",
+      "fold": 1,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 417.860105891501,
+      "variance_gain_vs_base": 1.143825219373078
+    },
+    {
+      "target": "corr128_256",
+      "fold": 1,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 397.43020696445143,
+      "variance_gain_vs_base": 1.20262355229419
+    },
+    {
+      "target": "corr128_256",
+      "fold": 1,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 386.19694246767205,
+      "variance_gain_vs_base": 1.2376041204122503
+    },
+    {
+      "target": "corr128_256",
+      "fold": 1,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 390.6488965215622,
+      "variance_gain_vs_base": 1.2235000061294743
+    },
+    {
+      "target": "corr256_512",
+      "fold": 0,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 187.11985885552878,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "corr256_512",
+      "fold": 0,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 226.33964797599137,
+      "variance_gain_vs_base": 0.8267215246149769
+    },
+    {
+      "target": "corr256_512",
+      "fold": 0,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 196.97895728074542,
+      "variance_gain_vs_base": 0.9499484688043865
+    },
+    {
+      "target": "corr256_512",
+      "fold": 0,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 191.99225115393654,
+      "variance_gain_vs_base": 0.9746219325565325
+    },
+    {
+      "target": "corr256_512",
+      "fold": 0,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 194.26909798949382,
+      "variance_gain_vs_base": 0.9631992982519965
+    },
+    {
+      "target": "corr256_512",
+      "fold": 1,
+      "dictionary": "base",
+      "new_columns": 0,
+      "central_scaled_variance": 220.73729760891356,
+      "variance_gain_vs_base": 1.0
+    },
+    {
+      "target": "corr256_512",
+      "fold": 1,
+      "dictionary": "linear",
+      "new_columns": 3,
+      "central_scaled_variance": 225.05206212319166,
+      "variance_gain_vs_base": 0.9808277050493488
+    },
+    {
+      "target": "corr256_512",
+      "fold": 1,
+      "dictionary": "linear_square",
+      "new_columns": 6,
+      "central_scaled_variance": 196.90427152158188,
+      "variance_gain_vs_base": 1.1210386443278324
+    },
+    {
+      "target": "corr256_512",
+      "fold": 1,
+      "dictionary": "linear_mixed",
+      "new_columns": 6,
+      "central_scaled_variance": 196.43420522338087,
+      "variance_gain_vs_base": 1.1237212854955465
+    },
+    {
+      "target": "corr256_512",
+      "fold": 1,
+      "dictionary": "all9",
+      "new_columns": 9,
+      "central_scaled_variance": 197.1012002519085,
+      "variance_gain_vs_base": 1.1199185866285775
+    }
+  ]
+}

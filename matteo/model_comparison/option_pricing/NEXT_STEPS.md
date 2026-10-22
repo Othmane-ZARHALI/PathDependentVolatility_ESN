@@ -43,6 +43,21 @@ oracles, train on separate pilots, then check direct-price and correction
 variance/cost separately. This is not an implemented control or a bias fix;
 512-step, tail/pilot and normalization gates stay open. VIX scope is unchanged.
 
+The [full OU-innovation study](SPX_INNOVATION_CONTROL_RESULTS.md) now implements
+and independently checks that hypothesis. Central direct-price variance gains
+around 1.8–1.9 are nearly consumed by a 1.8 runtime multiplier; corrections
+lose on cost. Repeated far-call paired mean shifts, contract-control mean
+warnings and pilot sensitivity remain unresolved, despite Gaussian/covariance
+and bare-innovation checks passing. The full-nine dictionary remains experimental.
+
+**Next candidate:** an actually cheaper three-linear-control kernel. Old-pilot
+two-fold ablations retain most direct-price benefit, but are post-hoc design
+evidence only. Avoid unused square/mixed calculations; profile standalone
+pricing; freeze before fresh checking and retain every representative strike.
+Audit contract-specific control tails/paired mean shifts as well as bare
+innovation sums. Keep correction performance and timestep bias separate;
+baseline controls remain the reference and no market refit is cleared.
+
 ## Scope retained
 
 [active_scope.json](active_scope.json) remains authoritative and unchanged:
