@@ -377,3 +377,13 @@ variance-cost efficiency in two fresh direct512 trials. It remains experimental:
 by a single high-leverage path, and pilot sensitivity remains severe (30.52x SE).
 See `matteo/model_comparison/option_pricing/SPX_LINEAR_INNOVATION_RESULTS.md`.
 No model refit or continuous-time clearance follows; all VIX maturities remain.
+
+The cutoff-3 SPX representative panel now checks 24 contracts across 29/57/211/
+302 days at 512 steps/day using separate 128-path pilots and two 256-path checking trials.
+All 384 estimates (including pilot-half variants) are nonnegative, but all
+primary quote-relative sampling screens fail and linear-control full-panel
+variance-cost gains are below 1 in all eight checks. Sparse long outer-call
+pilots/checks and up to 99.6% residual concentration remain. This does not clear
+stock/normalizer bias or market refitting. See
+`matteo/model_comparison/option_pricing/SPX_CENTRAL_PANEL_RESULTS.md`.
+All four VIX maturities remain active.

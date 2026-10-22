@@ -690,3 +690,21 @@ cutoff 2. This includes **707/980 training quotes (72.1%)**. Current membership
 is `runs/spx_scaled_moneyness_003/training_membership.csv`, `priority_selected`;
 old cutoff-2 flags remain explicitly historical. All quote/maturity scopes and
 wing warnings remain recorded; no new pricing accuracy claim follows.
+
+## Cutoff-3 representative sampling panel completed
+
+[SPX_CENTRAL_PANEL_RESULTS.md](SPX_CENTRAL_PANEL_RESULTS.md) freezes 24 contracts
+(put/call at z near .5/1.5/2.5 at all 29/57/211/302-day maturities), then runs
+128-path independent pilots and two fresh 256-path checks per expiry at 512 steps/day.
+All 384 estimates are nonnegative; 46/48 primary variance comparisons improve,
+but all eight full-panel variance-cost comparisons lose (0.823–0.989 gain).
+All primary methods still pass 0/48 quote-relative sampling screens. Long outer
+calls have only one pilot payoff and 1–4 checking payoffs; residual concentration
+can exceed 99%. Half-pilot SE inflation reaches 4.20, with 3.09 also in the inner
+302-day band. This limits the earlier near-ATM stability observation to its
+original contracts/seeds/larger pilot; it is not a contradiction or universal
+stability clearance. Seven contract-control mean flags, three bare-monitor flags
+and two paired mean shifts are retained. The 211-day stock mean flags below one.
+The baseline remains reference and the linear dictionary stays experimental.
+No calibration, new scope pruning or positivity clipping occurs. All four VIX
+maturities remain active; all 707 cutoff-3 quotes remain the priority population.

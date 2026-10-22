@@ -1,0 +1,32 @@
+{
+  "expiry_days": 57,
+  "seed_records": [
+    {
+      "role": 0,
+      "trial": 0,
+      "seeds": [
+        919812410
+      ]
+    },
+    {
+      "role": 1,
+      "trial": 0,
+      "seeds": [
+        3573438745,
+        3292606023
+      ]
+    },
+    {
+      "role": 1,
+      "trial": 1,
+      "seeds": [
+        3530642432,
+        3803473020
+      ]
+    }
+  ],
+  "grid_intervals": 20168,
+  "wall_seconds": 55.40490720793605,
+  "normalizer_seconds_excluded": true,
+  "proposal_horizon": 0.1561643835616438
+}

@@ -1,5 +1,23 @@
 # Recorded next steps — 22 October 2026
 
+## Latest completed experiment and immediate sampling work
+
+The user-approved [24-contract cutoff-3 panel](SPX_CENTRAL_PANEL_RESULTS.md) now
+has independent pilot/checking results at all four SPX training maturities.
+No negative estimates were observed, but 0/48 sampling screens pass and the
+linear controls lose full-panel variance-cost efficiency in all eight checks.
+Long outer-call pilots contain only one positive payoff. Keep the baseline as
+reference and cutoff 3/all 707 training quotes as the priority population.
+
+Next inspect saved pilot residual/payoff contributions by side, distance band
+and proposal component. Freeze a better-covered pilot and/or horizon-specific
+sampling comparison before new checking; no automatic multi-million-path run
+is authorized by unstable plug-in budget forecasts. If old checking results
+inform a new design, mark them historical/design evidence and use fresh checks.
+Keep coupled 256/512 and independent normalizer refinement pending; neither was
+performed by this direct 512-step sampling run. All wings/VIX maturities stay recorded.
+The earlier queue below is historical where superseded by this checkpoint.
+
 ## Current membership rule: maturity-scaled central band
 
 User requested maturity adaptation and meaningful coverage. Prioritize

@@ -1,0 +1,65 @@
+{
+  "auditor_sha256": "3560224b8c52a9dee31443d1bc98ecc4dcc0c06a974cd5c5ce301c2072824821",
+  "verification": "Source snapshots, panel selection, unique seeds, exact weights/mass, independent pilot coefficients and all adjusted estimates/statistics replay.",
+  "estimates": 384,
+  "paired_differences": 48,
+  "contract_control_means": 384,
+  "bare_monitors": 48,
+  "primary_negative": [],
+  "paired_mean_warnings": [
+    {
+      "trial": 0,
+      "contract": 4,
+      "difference": 1.3474807938453166,
+      "se": 0.5086838988963354,
+      "expiry_days": 57,
+      "z": 2.6489550716444428
+    },
+    {
+      "trial": 0,
+      "contract": 5,
+      "difference": 0.3826547120261356,
+      "se": 0.15957326223218707,
+      "expiry_days": 57,
+      "z": 2.397987649518338
+    }
+  ],
+  "control_mean_warning_count": 7,
+  "bare_monitor_warnings": [
+    {
+      "expiry_days": 29,
+      "trial": 0,
+      "statistic": "bare_linear_0",
+      "mean": -0.11098699828385793,
+      "se": 0.05096496174511882,
+      "expectation": 0.0,
+      "z": -2.177711794211005
+    },
+    {
+      "expiry_days": 57,
+      "trial": 1,
+      "statistic": "bare_linear_1",
+      "mean": 3.410811049615072,
+      "se": 1.614258351482215,
+      "expectation": 0.0,
+      "z": 2.1129276156342995
+    },
+    {
+      "expiry_days": 211,
+      "trial": 1,
+      "statistic": "stock",
+      "mean": 0.9274921112744297,
+      "se": 0.03343214665448181,
+      "expectation": 1.0,
+      "z": -2.1688074497558523
+    }
+  ],
+  "pilot_max_se_ratio": 4.20348527063432,
+  "setup_seconds": 629.9733570830431,
+  "wall_seconds": 1218.5478065409698,
+  "limitations": [
+    "All ratios/flags are descriptive, dependent across strikes/methods; small samples do not establish tail coverage.",
+    "Required sample counts are plug-in fixed-variance forecasts, not prescribed allocations or accuracy guarantees.",
+    "No stock/normalizer refinement, model fitting or clipping; negative estimates remain unusable as prices."
+  ]
+}
