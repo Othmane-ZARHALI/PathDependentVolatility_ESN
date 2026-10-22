@@ -218,8 +218,14 @@ class DatedM2Pricer:
             raise FloatingPointError("Invalid Gaussian normalizer")
         return values
 
-    def prepare(self, times, initial, paths: int, seed: int, checkpoints=()) -> PreparedQPaths:
-        """Cache adapted projections with exact OU/stock-shock coupling on an event grid."""
+    def prepare(self, times, initial, paths: int, seed: int, checkpoints=(), *, equity_drift=None) -> PreparedQPaths:
+        """Cache exact OU/stock shocks, optionally under a constant pathwise shift.
+
+        ``equity_drift`` is one deterministic Brownian drift per path. It changes
+        the sampling law, including correlated OU innovations; callers MUST
+        supply likelihood weights for target-Q expectations. The Q drift itself
+        is unchanged. None preserves the original target sampler.
+        """
         times = np.array(times, dtype=float, copy=True)
         if (times.ndim != 1 or len(times) < 2 or times[0] != 0
                 or not np.isfinite(times).all() or np.any(np.diff(times) <= 0) or paths < 2):
@@ -228,6 +234,10 @@ class DatedM2Pricer:
         if not checkpoints.issubset(set(times)):
             raise ValueError("Every checkpoint must be an exact grid event")
         initial = self._state(initial)
+        if equity_drift is not None:
+            equity_drift = np.asarray(equity_drift, float)
+            if equity_drift.shape != (paths,) or not np.isfinite(equity_drift).all():
+                raise ValueError("Require one finite equity drift per path")
         state = np.broadcast_to(initial, (paths, len(initial))).copy()
         features = np.empty((len(times) - 1, paths, 3))
         equity = np.empty((len(times) - 1, paths))
@@ -244,6 +254,8 @@ class DatedM2Pricer:
             root, cross = transitions[dt]
             normals = rng.standard_normal((paths, len(initial) + 1))
             equity[step] = np.sqrt(dt) * normals[:, 0]
+            if equity_drift is not None:
+                equity[step] += equity_drift * dt
             innovation = normals[:, 1:] @ root.T + equity[step, :, None] * cross / dt
             decay = np.exp(-self.layout.rates * dt)
             shift = self.q_drift * (-np.expm1(-self.layout.rates * dt)) / self.layout.rates

@@ -1,0 +1,861 @@
+{
+  "status": "completed bounded diagnostic; no convergence or calibration clearance",
+  "arguments": {
+    "output": "matteo/model_comparison/option_pricing/runs/m2_spx_path_importance_001",
+    "paths": 1024,
+    "pilot": 512,
+    "batch_size": 256,
+    "trials": 2,
+    "seed": 20261025,
+    "magnitude": 2.0
+  },
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.979054833837768,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [
+        0.5,
+        0.8093838778200331,
+        1.3102045233499884,
+        2.120916835692723,
+        3.4332717860135396,
+        5.557669663547499,
+        8.996576447849662,
+        14.563367864929878,
+        23.574710313273204,
+        38.161980903681986,
+        61.77538417823236,
+        100.0
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "parameters": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.2495993215590715,
+    "spike_shift": 0.0,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "initial_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "curve_levels": [
+    0.054249611228344374,
+    0.060031898992150605,
+    0.0642080964154938
+  ],
+  "target_sha256": {
+    "quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a",
+    "vix_forwards.csv": "03d0b9323680b20d3dcc22c6b75abb50314be51d1fb9ea80e589be50a462af4a",
+    "forward_variance.csv": "15c31744cf781afa719e139fee34cc45028e7f78e8d1744351183bae4a949a5b",
+    "audit.json": "ebd6f545c679f178a28cb53657d99f17bfb0ea996af76bd15805b5bf222c8e11",
+    "manifest.json": "30e7a991625e40e90dd4522d33f4de3615c01f528e2027f754f82b95baff1ea6"
+  },
+  "frozen_model_sha256": {
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/manifest.json": "b75fdcd43eeaca5759687a57e4ef3cf1bc8549df81abd15bfd9c9eb456f7a031",
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/top_configurations.csv": "9135dd929cdbc689e71bda95e70926e8adaf81280d2c3ada7755e9e17c8f228c"
+  },
+  "implementation_sha256": {
+    "matteo/model_comparison/option_pricing/spx_path_importance.py": "d45f358d0afe8747ed667ae5390932ce7899457a6feb7f8e011fd0b19f707fd2",
+    "matteo/model_comparison/option_pricing/runs/m2_vix_curve_fit_001/run.json": "db43a0e697ca8e0ad8a4b203d2446a8a94990fa6843b413b692046f8d977e837",
+    "matteo/model_comparison/option_pricing/m2_spx.py": "a9de830afba0a208ef648c4aadc9ebf0d543ec488062cf8a0eed00d7de711127",
+    "matteo/model_comparison/option_pricing/fine_grid.py": "cff88a518a2a7f63646ab692d76980bf5c89a43f36110b8772791134c27de5dd",
+    "matteo/model_comparison/option_pricing/spx_hedging_study.py": "5666f22ac187767dec8a01916b02cfb66cd5a17e1d096dda3022f53065afb3d8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py": "95749bd7a7c6d0702b5d69c08562e654082f15209f587be26bbcdbf524573e79",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py": "6b5190ccb0b37a1777f49d855fada72c12fb8841eb33eb0af3c6ed4ee97fa72e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py": "f6b90b81033e270ac156314934ca1f282a8836b7d427b323591c2465ece0543c",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration_loss.py": "1ece088d9d9ea3f34fb1340a5c445b70bf8157e1674670a3315584893b4f76d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py": "03221fccc504da82e4643c2270b85a5852561ed1905968adc0e97e1309e941d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py": "7a9df36e1843d47613b4e00485ee1e9b6e85834be755be9fe602164c7d346e5a",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py": "c828d30236930de548af7de141ff1e8782986959878a1a9a851e80383d971fb5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py": "953e29ea14f9cb2d11802760c6ffaaecc95ddd70a89d4c07d66dabba1f30bbd0",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py": "aa5b46689ed706ae2be044663ac49fc9ed59b9d505d722fe70361b17caeb53d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py": "11c0ebc10f5b832b66c38d68262b80fab3df2f39f5777fef3e961a4570e579e8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py": "3e7b4a4c341cacde47977b16c1caf01e1575ff569e6292a1e7b1635fe4404e6f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/gaussian_controls.py": "ebbfcadd9fd044127e9df5e70198fa0baacfd92a45acd7fae3492898044ad680",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/hedging_controls.py": "f5dca9142f8b7aaa7237ac7cf5978d3c53244840c2d773b8f28648181b1aaf35",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py": "b1e96b7cea1c1c69cf3c5b710fcaf089e24e08afa9463e2c908803769e3d5f54",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_calibration.py": "1249d124dbfe5d43bdef9cac7760021d1a096086142fd53ff77cc27b2174e433",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py": "1d1bd109022c02a3bd4050b947f97dde8deaf00f9ef00626277be510a58f4c29",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py": "0f6efb4cefdae4fd6f4a0b3e91ef0ae4bb1430ac63e1e41f6e82f2033ef5dc4e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/outer_sampling.py": "6ee3199180650eb06270b542fb0236a8b4d8c41349ddb0cf07c3e369d8e03b53",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/path_importance.py": "72d334b090dcacce9cf75aacd86110dd454810a0a7185aec0fb2512736661d58",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pilot_proposal.py": "3594b4e3c5511b1c9cb7c13f501a7ca7a74a63c55da6b2a30440ac01fc7e40a2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py": "46775df62f282619b279cd558bce58700d86d0773d63c078173feaf19965953f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py": "35a897e3cc5c7c681b5478e8957d7b9249dd2c278c00ef4503f47ee0d65f9519",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py": "876436ff903aaf160f36f728962c77db7f706ca916ec2b93bc09f9ddd6bc987f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py": "3c532c9d57542f87279743f96102cc4346a06bd7d064bf5417ae55d881e1dd5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/score_sampling.py": "44c80e5f068ef263e7a6b3ce1e7a224a36849e52d6499c95df9eec0d4b2b8b14",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py": "5a86e27407122ff0d1ad216377856756fa31164b6e95e4bd1b311d8d93c46660",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py": "8db6dc562e411a9ecb0adf8a0bbe1f1ed88575c9dc2057e24b15faa01437ea78",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py": "41a662990c7db2f2e1ebf7608b0ef0945c810a53dc7b61cccc53f37f3dc0f721",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stratified_sampling.py": "a0153a47ae4396a8f7262a90b686c9060f617da88c323247b19c77d94a64ac41",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/variance_reduction.py": "e4d65defcbeea79ffa890c3a1e6827c96e920660360de3a712be117ad4330ca7",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_curve_profile.py": "3d03b7c7ec18494083d5019b6b04be54e08508ecd99a39a4cb636108344fd693",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_pricing.py": "bf9b3a744e6cb4c6468870dec8d60943656d7ae3868f3dc4f5ec003baa712a72",
+    "matteo/model_comparison/option_pricing/provenance.py": "2f105738f7f5db071eb9b8a1e5cc6826ce4e346eb499d000fa40771790e4cce8"
+  },
+  "seed_records": [
+    {
+      "trial": 0,
+      "method": "target",
+      "pilot": [
+        1377619590,
+        1560249999
+      ],
+      "evaluation": [
+        2661684478,
+        3465691339,
+        3007372867,
+        2761729127
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "pilot": [
+        1253589032,
+        2794931940
+      ],
+      "evaluation": [
+        3943598950,
+        3910728406,
+        1465573631,
+        1259898701
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "pilot": [
+        3159575459,
+        811239321
+      ],
+      "evaluation": [
+        3666246072,
+        4052716755,
+        3282755023,
+        2494756519
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "pilot": [
+        1398510015,
+        1877804290
+      ],
+      "evaluation": [
+        919440420,
+        172677392,
+        3236298938,
+        2399877895
+      ]
+    }
+  ],
+  "coefficients": [
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 0,
+      "beta": [
+        -0.01537110529153106,
+        -4.440892098500626e-16,
+        1.1334296434086844,
+        1.6007339891718877,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 1,
+      "beta": [
+        -0.06796943189569721,
+        0.0,
+        0.6729515384700816,
+        0.4704750246836503,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 2,
+      "beta": [
+        0.03908304657086823,
+        0.11805544307985297,
+        1.0011683921637193,
+        0.0654414692530293,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 3,
+      "beta": [
+        -0.1273874688621488,
+        0.08224315872609259,
+        0.7178523282189405,
+        0.270007463479658,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 4,
+      "beta": [
+        -0.005843917446657982,
+        -0.0014234032403977813,
+        1.0440948925438882,
+        0.01543446925302954,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 5,
+      "beta": [
+        -0.004296797852508048,
+        -0.0007914351242778524,
+        1.054013642825871,
+        0.011336915087492058,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 6,
+      "beta": [
+        -0.024773950705504175,
+        0.0,
+        0.6483723387100755,
+        0.9837603044295901,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 7,
+      "beta": [
+        -0.06458112382206711,
+        -0.016347826864367514,
+        0.7083889769159739,
+        0.47954962274159657,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 8,
+      "beta": [
+        0.022618222178773146,
+        0.08310511463550879,
+        0.9920217571010554,
+        0.08071396005700238,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 9,
+      "beta": [
+        -0.1460330995735078,
+        0.0746878327471823,
+        0.763440264322824,
+        0.24297628199366167,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 10,
+      "beta": [
+        -0.0007710253080170206,
+        0.04486262923873251,
+        0.016758889762282327,
+        0.00296175242980792,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "target",
+      "contract": 11,
+      "beta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 0,
+      "beta": [
+        -0.00034165995544616957,
+        -9.698188432882837e-17,
+        0.007223003303676231,
+        0.0310009744976103,
+        -3.669292929995084e-05
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 1,
+      "beta": [
+        -0.04386181551601134,
+        2.658724105565354,
+        0.8235168454324493,
+        0.3638089983613931,
+        0.00013195076077021024
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 2,
+      "beta": [
+        0.0436103780296472,
+        0.07443021371375677,
+        0.9434258576427099,
+        0.17042227449179587,
+        0.010273339781126751
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 3,
+      "beta": [
+        -0.13647309596603557,
+        0.11604712799199488,
+        0.5724171322361773,
+        0.30953733083243684,
+        0.006900302561714412
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 4,
+      "beta": [
+        -0.004720711791223552,
+        0.0074465954855009175,
+        0.821875380221688,
+        0.013863090283668156,
+        3.9616400238904615e-06
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 5,
+      "beta": [
+        -0.003769932756968271,
+        0.010957656163013618,
+        0.8591490884405675,
+        0.010991851093792254,
+        -8.183512797452533e-07
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 6,
+      "beta": [
+        -0.008440203978029746,
+        -3.869874398558691e-18,
+        0.22639423196041644,
+        0.41179359383181957,
+        -0.0005678245494620653
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 7,
+      "beta": [
+        -0.06151403877520744,
+        0.3428744222227893,
+        0.5871845535419995,
+        0.3504149523032493,
+        -0.0005240790522130028
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 8,
+      "beta": [
+        0.07763283465074448,
+        0.09989333801098191,
+        1.024834446189477,
+        0.15308264726853818,
+        0.015214131925427045
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 9,
+      "beta": [
+        -0.14954429591726442,
+        0.06585712082801491,
+        0.720469853028881,
+        0.25244890103225626,
+        0.010081871616590984
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 10,
+      "beta": [
+        -0.011839231668140045,
+        0.05178593724594536,
+        0.9090644114977208,
+        0.022622673332433178,
+        0.0004069364815542973
+      ]
+    },
+    {
+      "trial": 0,
+      "method": "importance",
+      "contract": 11,
+      "beta": [
+        -0.0007189906333665988,
+        0.21943883955705143,
+        0.9290829362871595,
+        0.003857081543365792,
+        -2.5098322354875438e-05
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 0,
+      "beta": [
+        -0.016372953369156326,
+        -2.220446049250313e-16,
+        0.7050237067288984,
+        0.9206882474679996,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 1,
+      "beta": [
+        -0.05626334377059572,
+        9.321271574711062,
+        0.8273756794106519,
+        0.2973540040844683,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 2,
+      "beta": [
+        0.05483855277866257,
+        0.1155528773782339,
+        1.019126963400465,
+        0.08067170195696997,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 3,
+      "beta": [
+        -0.12666285002658573,
+        0.09680096135486514,
+        0.736309491008755,
+        0.22123817381018213,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 4,
+      "beta": [
+        -0.013129921798641586,
+        0.0978267008859286,
+        2.191383767760197,
+        0.027263594224460532,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 5,
+      "beta": [
+        -0.01218663260971164,
+        0.21852338133439728,
+        2.6196203297997394,
+        0.026949306856567667,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 6,
+      "beta": [
+        -0.020512458458230767,
+        -2.220446049250313e-16,
+        1.1119640957072674,
+        0.27707364106535215,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 7,
+      "beta": [
+        -0.06548111901080018,
+        1.7694316328907111,
+        0.7299335559308445,
+        0.21049927421920064,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 8,
+      "beta": [
+        0.07244943352540628,
+        0.10248946572001254,
+        1.080334173568327,
+        0.09563521611715828,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 9,
+      "beta": [
+        -0.1473757926195049,
+        0.08224825796452229,
+        0.7772063605299467,
+        0.22726759249262238,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 10,
+      "beta": [
+        -0.0038648563172584346,
+        0.1341135990372279,
+        0.28832846352910085,
+        0.010575590582600462,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "target",
+      "contract": 11,
+      "beta": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 0,
+      "beta": [
+        -0.0005250896946495031,
+        1.0842021724855044e-19,
+        0.0883048036283793,
+        0.18640484013473999,
+        -7.794090899642756e-05
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 1,
+      "beta": [
+        -0.023687641594747975,
+        12.544330698229588,
+        0.4619673265363493,
+        0.22682846171297458,
+        -0.00032634188307163736
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 2,
+      "beta": [
+        0.05325006047350716,
+        0.1001888868566951,
+        0.9634158079107987,
+        0.1668595122544774,
+        0.01104239164661311
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 3,
+      "beta": [
+        -0.15308824084210676,
+        0.09512648277231882,
+        0.6581781524182895,
+        0.3119016397765702,
+        0.007785761339743723
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 4,
+      "beta": [
+        -0.0003659250857360644,
+        0.03781848026321729,
+        0.014310015117104351,
+        0.003290551139859306,
+        -1.3343171727520995e-06
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 5,
+      "beta": [
+        -3.677400947467101e-05,
+        0.003039936182202086,
+        0.02356357418219213,
+        0.000560722777306582,
+        -2.2095162090368757e-05
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 6,
+      "beta": [
+        -0.00502638572232523,
+        4.0182258788022135e-19,
+        0.9379154358534234,
+        0.18438900668813696,
+        -0.0005590961623237891
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 7,
+      "beta": [
+        -0.03665319136862963,
+        1.4724296615549572,
+        0.5481391211465715,
+        0.14802447152911147,
+        -0.000703595713595345
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 8,
+      "beta": [
+        0.08514680173368272,
+        0.0833867677535864,
+        1.0440412835395807,
+        0.1659907630824897,
+        0.015033416174087114
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 9,
+      "beta": [
+        -0.17691914901367847,
+        0.04073925269364297,
+        0.8223667137868659,
+        0.274868179606056,
+        0.011311434620976099
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 10,
+      "beta": [
+        -0.0002657372213299558,
+        0.032695016456796684,
+        0.046399298828044264,
+        0.0010048869851885611,
+        9.35656557669738e-06
+      ]
+    },
+    {
+      "trial": 1,
+      "method": "importance",
+      "contract": 11,
+      "beta": [
+        -3.5147981597424447e-06,
+        0.06999503498790002,
+        0.006901048660633559,
+        7.366897665020091e-05,
+        7.5085762559686105e-06
+      ]
+    }
+  ],
+  "grid_intervals": [
+    2520,
+    5040,
+    10080
+  ],
+  "max_lambda_dt": [
+    0.3098754087150354,
+    0.15493770435755239,
+    0.07746885217881089
+  ],
+  "uncertainty_unit": "iid checking paths conditional on independent pilot coefficients; paired refinements within method",
+  "proposal": "0.5 target + 0.25 Brownian drift +m/sqrt(H) + 0.25 drift -m/sqrt(H); correlated OU shifts; full-H exact nonnormalized weights",
+  "limitations": [
+    "12 training contracts only; all maturity/split scopes unchanged.",
+    "Independent target/importance draws: variance comparisons are descriptive, not paired price tests.",
+    "One pilot per method/trial; no checking-set coefficient selection.",
+    "GH48/64 and 128/256 changes are diagnostics, not population bias bounds.",
+    "Zero hits or zero empirical SE do not establish tail price accuracy.",
+    "No MLMC allocation/cost optimization; correction variances only."
+  ],
+  "wall_seconds": 347.769254792016
+}

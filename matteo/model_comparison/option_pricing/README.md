@@ -160,3 +160,10 @@ observations used for the larger pilot are explicitly design data.
 tail-control extension pending, retain all four maturities/forwards, and move
 forward. It records SPX numerical diagnostics as the working next focus, with
 all existing scope and accuracy limitations preserved.
+
+[SPX_PATH_IMPORTANCE_RESULTS.md](SPX_PATH_IMPORTANCE_RESULTS.md) records the
+SPX full-path Gaussian shift pilot, exact likelihood weights and independent
+hedging-control pilots, with coupled 64/128/256 grids and separate GH48/64
+normalizer changes. Reproduce with `spx_path_importance`; replay checking draws
+and source integrity with `verify_spx_path_importance`. The diagnostic preserves
+all maturity/split scopes and does not authorize market refitting.

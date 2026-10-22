@@ -464,3 +464,29 @@ no price rescaling, clipping, tolerance change or maturity exclusion. Larger
 pilot size and lower forward SE do not settle option tails or population
 conditional-quadrature bias. All 126 tests and pilot/state/control/statistics
 correspondence checks pass, without certifying pricing accuracy.
+
+## SPX full-path importance pilot — 22 October 2026
+
+The user explicitly confirmed focusing on SPX sampling, stock integration and
+normalization. A defensive Brownian path mixture shifts the correlated OU
+innovations consistently, uses exact nonnormalized full-path weights and fits
+weighted static/adapted/mass controls on independent pilots. Gaussian joint
+moments and Black rare-payoff oracles pass; all 129 package/driver tests pass.
+A fresh two-trial 512-pilot/1024-checking-path diagnostic preserves all scopes.
+
+**Unsuccessful cases retained:** controlled variance improves in only 13/24
+contract/trial cases (median target/importance ratio 1.2944), and neither
+method passes any of the 24 positive-hit quote-relative sampling screens.
+Target sampling has two raw zero-hit cases and two negative controlled price
+estimates; no clipping or zero-hit accuracy claim occurs. Importance sampling
+has payoff hits everywhere but remains inaccurate relative to quote scales.
+
+128-to-256-step changes remain large relative to tolerance and mostly noisy;
+no continuous-time convergence or bias sign is inferred. Same-path GH48-to-64
+changes are below 0.0013 quote scales at this sample, a sensitivity result
+rather than a population bound. Full weights include correlated OU shifts and
+must multiply target-zero controls too. A raw mean-one stock/control identity
+under the proposal would be incorrect. There is no self-normalization, model
+refit, maturity pruning or completed MLMC estimator. All 384 estimates, 288
+paired changes and 20 monitors replay from checking draws; source hashes and
+seed separation pass. See [SPX_PATH_IMPORTANCE_RESULTS.md](SPX_PATH_IMPORTANCE_RESULTS.md).

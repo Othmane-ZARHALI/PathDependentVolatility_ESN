@@ -4,6 +4,12 @@ User direction: record the VIX tail-control next step, move forward for now,
 and keep all maturities. The working interpretation is to return to SPX
 numerical diagnostics while leaving the VIX extension pending.
 
+The user subsequently confirmed: **"Yes, let's focus now on that for a while."**
+SPX sampling, timestep and normalization diagnostics are therefore the current
+explicit focus. The first bounded path-sampling experiment is recorded in
+[SPX_PATH_IMPORTANCE_RESULTS.md](SPX_PATH_IMPORTANCE_RESULTS.md); the VIX queue
+and full maturity scope below remain in force.
+
 ## Scope retained
 
 [active_scope.json](active_scope.json) remains authoritative and unchanged:

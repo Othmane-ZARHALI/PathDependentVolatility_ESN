@@ -66,6 +66,13 @@ not a change to the model or its historical research claims.
   gains as zero-mean SPX controls. Independent pilot coefficients combine them
   with the existing static controls. Matched-path tests and a three-grid,
   two-trial diagnostic show variance reductions, with tails still unresolved.
+- `src/esn_eq/path_importance.py` adds an iid defensive mixture of full equity
+  Brownian path shifts, including the correlated OU innovations and exact
+  bounded target/proposal likelihood weights. Weighted controls use independent
+  pilots. Gaussian joint-moment and Black tail oracles pass. See
+  [SPX_PATH_IMPORTANCE_RESULTS.md](../../model_comparison/option_pricing/SPX_PATH_IMPORTANCE_RESULTS.md)
+  for the bounded market diagnostic and separate grid/normalizer checks;
+  these do not qualify the SPX surface or change VIX maturity scope.
 
 ## Evidence and limits
 
