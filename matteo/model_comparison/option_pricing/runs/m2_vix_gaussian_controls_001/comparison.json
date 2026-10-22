@@ -1,0 +1,17 @@
+{
+  "status": "descriptive fresh paired control comparison; no convergence acceptance",
+  "inputs": {
+    "run.json": "3132546874d6ba1dfd63528e356660e489edb8cf3ddead82f04c99b43a5c4fbb",
+    "summary.csv": "55abd30075b22b91c0e6752d9587829d55c108858ccd11bd860b9e5dd117f95d",
+    "prefix_changes.csv": "bc575a20a64ea5fa80f597aaa868c1149c25cb935f62b0fea9c65b4dac0d4987",
+    "replications.csv": "fe6541265587399de2b275e629997510458fb861e36acece6fb2aec02d72393f",
+    "coefficients.json": "9c9ac51eb267c2021ddbd787a4a87fe3ada8a94f6338aaf9a87189800e81f57e"
+  },
+  "primary_method": "gaussian",
+  "audit_sha256": "93fae398c56a6ee868c410b65f39ab8130036fcd799b6f1ad134406ee47b133c",
+  "limitations": [
+    "SE screens exclude negative controlled estimates and retain original raw hit counts; they do not certify tail or quadrature error.",
+    "Mass-only and half-pilot alternatives are diagnostics, not candidates selected after checking.",
+    "Control-variant differences and count changes are paired; pilot uncertainty and deterministic bias remain outside conditional checking SEs."
+  ]
+}

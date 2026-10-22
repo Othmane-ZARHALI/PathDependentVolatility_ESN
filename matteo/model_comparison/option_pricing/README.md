@@ -140,3 +140,11 @@ orders, then compares random and fixed allocations under the identical frozen
 corrections are recorded separately; all four maturities remain active.
 Reproduce with `vix_targeted_refinement`, `vix_targeted_allocation` and their
 corresponding verifiers; the same-density comparator is random targeted sampling.
+
+[VIX_GAUSSIAN_CONTROL_RESULTS.md](VIX_GAUSSIAN_CONTROL_RESULTS.md) trains nine
+Gaussian controls on independent complete pilot replications, then compares
+raw/mass/pooled/half-pilot estimates on identical fresh R16 x 128 paths at all
+four maturities. Primary forward SE decreases everywhere; 27/55-day forward
+SE screens pass, but longer maturities, pilot stability and most option quotes
+remain unresolved. Commands: `vix_gaussian_controls`,
+`verify_vix_gaussian_controls`, `audit_vix_gaussian_controls`.

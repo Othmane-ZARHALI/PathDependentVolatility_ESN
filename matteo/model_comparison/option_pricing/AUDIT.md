@@ -423,3 +423,23 @@ weights remain bounded by 2; the larger effective weights are not a density
 ratio bug. All 121 tests and both correspondence replays pass. Fixed allocation
 is retained as experimental, not adopted as a uniform remedy. All four VIX
 maturities/forwards and prior warning records remain included.
+
+## Gaussian controls: sampling gain versus unresolved accuracy — 22 October 2026
+
+Frozen Gaussian controls trained at the complete-replication level reduce fresh
+forward SE at all four maturities; primary 27/55-day SEs 0.05735/0.04649 pass
+the observed 0.0625 threshold. This must not be reported as full price accuracy:
+118/153-day forward SEs remain 0.08702/0.11230, only 39/175 primary option SE
+screens pass (37/175 raw), and count/quadrature/pilot gates remain open.
+No model refit, maturity exclusion, forced VIX moment or price rescaling occurs.
+
+The two independent pilot-half fits are not uniformly useful: half-A worsens
+118-day forward SE and raises its median option SE by about 39%. Its 27-day
+forward also fails the screen. **Half-B 153-day moment warning:** 605.93740 ±
+2.69630 versus target 600.31899, residual +5.61841 (about 2.08 reported SE).
+The pooled primary moment is 599.78679 ± 3.75925. All fits and this diagnostic
+warning are retained in
+[VIX_GAUSSIAN_CONTROL_RESULTS.md](VIX_GAUSSIAN_CONTROL_RESULTS.md), without
+choosing a favorable half after checking or inferring a normalizer bug. Every
+reported option estimate is positive; no adjusted value was clipped. All
+124 tests and pilot/state/control/statistics correspondence checks pass.

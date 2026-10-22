@@ -270,6 +270,20 @@ and forwards remain active. Validation: 121 tests, exact-state node/statistics
 replay, and 12288-state/weight/allocation replay pass. Next test known-mean
 Gaussian controls with independent pilot coefficients, preserving all bias gates.
 
+The Gaussian-control checkpoint is in
+[VIX_GAUSSIAN_CONTROL_RESULTS.md](../../model_comparison/option_pricing/VIX_GAUSSIAN_CONTROL_RESULTS.md).
+`gaussian_controls.py` supplies exact-mean Gaussian linear/quadratic controls
+and replication-level ridge fitting. Independent pilot coefficients are frozen
+before fresh R16 x 128 checks; raw and controlled estimates share paths. Primary
+forward SE decreases at all four maturities and 27/55-day SE screens pass, but
+118/153 days still fail; only 39/175 option SE screens pass (37/175 raw).
+Pilot halves show sensitivity, including a retained half-B 153-day moment
+warning +5.61841 ± 2.69630. No identity is imposed or negative estimate clipped.
+All four maturities/forwards remain included; no calibration or bias clearance.
+Validation: 124 tests and replay of pilot fits, 8192 states/control rows and
+1830 summary rows pass. Next assess independent-pilot and count stability,
+prioritizing long forwards and tails while keeping the full scope.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per
