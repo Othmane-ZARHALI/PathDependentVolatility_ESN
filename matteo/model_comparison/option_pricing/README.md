@@ -148,3 +148,10 @@ four maturities. Primary forward SE decreases everywhere; 27/55-day forward
 SE screens pass, but longer maturities, pilot stability and most option quotes
 remain unresolved. Commands: `vix_gaussian_controls`,
 `verify_vix_gaussian_controls`, `audit_vix_gaussian_controls`.
+
+[VIX_GAUSSIAN_STABILITY_RESULTS.md](VIX_GAUSSIAN_STABILITY_RESULTS.md) increases
+compatible independent pilot replications from 12 to 28, retains the old fit,
+and checks pooled/balanced pilot fits on fresh nested 128/256-point nets at
+all four maturities. Reproduce with `vix_gaussian_stability`,
+`verify_vix_gaussian_stability` and `audit_vix_gaussian_stability`. Historical
+observations used for the larger pilot are explicitly design data.

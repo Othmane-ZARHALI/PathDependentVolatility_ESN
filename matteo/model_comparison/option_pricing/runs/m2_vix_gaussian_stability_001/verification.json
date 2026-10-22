@@ -1,0 +1,13 @@
+{
+  "status": "pilot fits, checking states/controls and paired statistics replay passed",
+  "source_snapshot_hashes": 45,
+  "checking_seeds": 48,
+  "checking_seeds_disjoint_from_prior": true,
+  "raw_observations": 12288,
+  "summary_rows_recomputed": 2196,
+  "pilot_coefficients_recomputed": true,
+  "full_states_and_zero_mean_controls_regenerated": true,
+  "negative_estimates_retained": true,
+  "verifier_sha256": "f2b1bdee56e028a234fb184db6b3fdef42d01c03737aa5a32804603919095963",
+  "limitation": "Artifact/implementation correspondence, not conditional quadrature or statistical price accuracy certification."
+}

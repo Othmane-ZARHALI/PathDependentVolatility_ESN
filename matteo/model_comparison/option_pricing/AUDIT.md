@@ -443,3 +443,24 @@ warning are retained in
 choosing a favorable half after checking or inferring a normalizer bug. Every
 reported option estimate is positive; no adjusted value was clipped. All
 124 tests and pilot/state/control/statistics correspondence checks pass.
+
+## Larger Gaussian pilots: forward screens versus surface accuracy — 22 October 2026
+
+Twenty-eight compatible historical 128-point pilot replications, explicitly
+promoted to design data, train a pooled fit and two disjoint balanced 14-pilot
+fits. On fresh R12 x 256 paths, pooled forward SEs
+0.04230/0.03750/0.03961/0.06157 pass the observed 0.0625 sampling screen at all
+four maturities. The 153-day pass is only about 1.5% below the threshold and
+fails for one balanced fit and the unchanged legacy12 fit. It must not be
+reported as robust full-price convergence or successful market calibration.
+
+Option screens remain 45/175 pooled versus 47/175 raw; the prior 27-day median
+option variance gain does not survive this larger-net check. **Retained 118-day
+moment warnings:** pooled residual -4.55861 ± 2.24254 (about -2.03 reported SE),
+balanced A -4.21342 ± 1.98663 (about -2.12). All variants, dependent diagnostic
+flags and paired count changes are preserved in
+[VIX_GAUSSIAN_STABILITY_RESULTS.md](VIX_GAUSSIAN_STABILITY_RESULTS.md), with
+no price rescaling, clipping, tolerance change or maturity exclusion. Larger
+pilot size and lower forward SE do not settle option tails or population
+conditional-quadrature bias. All 126 tests and pilot/state/control/statistics
+correspondence checks pass, without certifying pricing accuracy.

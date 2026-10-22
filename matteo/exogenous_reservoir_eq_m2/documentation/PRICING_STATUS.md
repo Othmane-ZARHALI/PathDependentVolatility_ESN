@@ -284,6 +284,19 @@ Validation: 124 tests and replay of pilot fits, 8192 states/control rows and
 1830 summary rows pass. Next assess independent-pilot and count stability,
 prioritizing long forwards and tails while keeping the full scope.
 
+The larger-pilot and 128/256 outer-count checkpoint is in
+[VIX_GAUSSIAN_STABILITY_RESULTS.md](../../model_comparison/option_pricing/VIX_GAUSSIAN_STABILITY_RESULTS.md).
+The same nine controls/ridge use 28 compatible pilot replications, with two
+disjoint balanced 14-pilot fits and the original 12-pilot matrix retained.
+Fresh R12 x 256 pooled forward SEs pass the observed screen at all four
+maturities, but the 153-day pass is borderline and not supported by every
+pilot fit. Only 45/175 pooled option screens pass (47/175 raw); count and
+bias gates remain unresolved. New pooled/balanced-A 118-day moment warnings
+are retained (-4.55861 ± 2.24254 and -4.21342 ± 1.98663). No refit, exclusion,
+rescaling or clipping occurs. Validation: 126 tests plus replay of 12288 states,
+controls, all pilot fits and 2196 summary rows pass. Next screen payoff-shaped
+Gaussian tail controls on independent design pilots, preserving the full scope.
+
 ## Remaining work
 
 1. Carry forward the pre-existing time-step convergence decision: 64 steps per

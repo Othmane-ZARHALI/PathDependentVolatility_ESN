@@ -1,0 +1,17 @@
+{
+  "status": "descriptive fresh paired control comparison; no convergence acceptance",
+  "inputs": {
+    "run.json": "be2be386aa387fb3d273477aef55ed1cb2fa0941bdbb7c3479e9335dc002dc55",
+    "summary.csv": "cabece9371c2d72a6a4470b05c0bf5441e7accbaee99c2382ed5ccb17122dfab",
+    "prefix_changes.csv": "14b83b94a886bc7e93d4f3d8d515369d3bb52d4ae011e85f96aef53b0afd9880",
+    "replications.csv": "18f5edd1d8525510abb76508245c69346ea00948528c641e880af6e02018a78a",
+    "coefficients.json": "fbd63e3ceb61d298e0d864e75d6ab8c303a388626f65cba32dd988fb02e0b179"
+  },
+  "primary_method": "gaussian",
+  "audit_sha256": "fcd7a2ac8eb59e00ce14995d48b293358962d5d81bdd31b0ecee643702c3e469",
+  "limitations": [
+    "SE screens exclude negative controlled estimates and retain original raw hit counts; they do not certify tail or quadrature error.",
+    "Mass-only, balanced pilot and legacy alternatives were frozen before checking, with pooled R28 primary; no favorable alternative selected afterward.",
+    "Control-variant differences and count changes are paired; repeated-pilot efficiency and deterministic bias are separate from conditional checking SEs. Moment-warning flags across correlated fits are descriptive, not calibrated multiple tests."
+  ]
+}
