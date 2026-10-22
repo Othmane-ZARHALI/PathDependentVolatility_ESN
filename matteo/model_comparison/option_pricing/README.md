@@ -215,3 +215,17 @@ inflation reaches 30.52, and 19/192 contract-control mean flags remain. The old
 full-nine far-call warning is not cleared by this different pilot/dictionary.
 All 147 tests pass; saved coefficients, weights, statistics and source hashes
 replay. Baseline remains reference; all four VIX maturities stay active.
+
+## Moneyness and positivity follow-up (22 October 2026)
+
+[SPX_MONEYNESS_POSITIVITY_AUDIT.md](SPX_MONEYNESS_POSITIVITY_AUDIT.md) checks saved
+linear-control results. All 12 representatives are technically OTM; the four
+about 2% from the forward are positive, with only 0.993–1.026x half-pilot SE
+ratios. All eight negative estimates across pooled/half-pilot methods are puts
+at K/F about 0.493–0.499. Near-ATM SE/price is 0.95–1.43%, but quote-scale screens
+still fail. These facts support a central research focus, not convergence or
+ITM/full-surface claims. Negative controlled estimates are unusable as quotes
+and retained as signed diagnostics; no clipping or checking-selected fallback.
+Raw positive-weight payoffs are nonnegative by construction but can be noisy.
+All maturity/quote scopes are retained. Reproduction inputs and hashes are saved
+in `runs/m2_spx_moneyness_audit_001`.

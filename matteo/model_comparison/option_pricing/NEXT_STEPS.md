@@ -118,3 +118,17 @@ Next examine saved-data coefficient/scaling and tail-contribution diagnostics;
 any shrinkage/stability rule is exploratory until frozen using pilot data and
 validated on new checking samples. Do not select a rule on existing checking
 performance. Stock-timestep and normalization accuracy remain separate open gates.
+
+## Moneyness and positivity follow-up (22 October 2026)
+
+[SPX_MONEYNESS_POSITIVITY_AUDIT.md](SPX_MONEYNESS_POSITIVITY_AUDIT.md) checks saved
+linear-control results. All 12 representatives are technically OTM; the four
+about 2% from the forward are positive, with only 0.993–1.026x half-pilot SE
+ratios. All eight negative estimates across pooled/half-pilot methods are puts
+at K/F about 0.493–0.499. Near-ATM SE/price is 0.95–1.43%, but quote-scale screens
+still fail. These facts support a central research focus, not convergence or
+ITM/full-surface claims. Negative controlled estimates are unusable as quotes
+and retained as signed diagnostics; no clipping or checking-selected fallback.
+Raw positive-weight payoffs are nonnegative by construction but can be noisy.
+All maturity/quote scopes are retained. Reproduction inputs and hashes are saved
+in `runs/m2_spx_moneyness_audit_001`.
