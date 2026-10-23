@@ -1,0 +1,27 @@
+{
+  "inputs_sha256": {
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_29/pilot_draws.npz": "8b49c2961bd065fb403810116660534c05295789f632241a724f5b60499f189c",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_29/frozen.json": "4ddc82efe022810f0b27295f0c13f61dca8b3eca8bc346e0a01e24ef61d376a5",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_29/contracts.csv": "11802a547d166c18e00c0981051dc41537dbe74a5a461992bd81f8b22c84787b",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_57/pilot_draws.npz": "2b68575817d5343637d0f1bb1de35806fc8f9e01a981a4d2bf14ae294166b319",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_57/frozen.json": "2dfb903b4650d51da5d00aa3305b80e3a6083b608c1da0ee919c68d70e35356f",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_57/contracts.csv": "1f84cd865321bc317cdee56e5124b2f3ca5fa1ecc28ea473765cd54eed4db567",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_211/pilot_draws.npz": "396c8a3c3d28999d80f72cd6d380306fb18d231a836375286aff78c39a3e240d",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_211/frozen.json": "ab52002ea0cfecccad1e87ab27de0ae328d3c6b20b7ed3442887317cadc747ee",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_211/contracts.csv": "ddffc7c047824ba82b455c55325838b0da9782537c35204e5b7fea9d676cc410",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_302/pilot_draws.npz": "5042510efa8abbb369a42a83388d66ed85f44b93f1758032a747b8e4bfc64558",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_302/frozen.json": "b314907f8d253670368dfe8d1efd3234cab637ba0c601dd1ff2160d66cb6c19c",
+    "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/expiry_302/contracts.csv": "46c720f414ce49651b116fbbf5bedefb863381e47b88bce62b58a6aff4b004a3"
+  },
+  "script_sha256": "79aedf7ad6c030e13f71088690f995ff5502876da0902d0a1bdba715b6edca0e",
+  "selected_positive_equity_shift": 3.0,
+  "original_shift": 2.0,
+  "reason": "Moderate targeted outer-call coverage hypothesis; all outer-call pilot hits used upward equity component. Not an aggregate-objective optimum or validated improvement.",
+  "math": "Residual Z_old = w_old*h + beta_mass. For fixed beta, E_qnew[(w_new*h)^2] = E_qold[(Z_old-beta_mass)^2 * w_new/w_old]. Two-fold pilot-only proxies; not fresh variance measurements.",
+  "limitations": [
+    "No historical checking archive read; only previous pilots are design inputs.",
+    "One-hit folds cannot identify unseen tails; several candidate aggregate proxies worsen. No robust pilot-wide win is claimed.",
+    "Fresh comparison must retain original proposal, equal learning budgets, fixed old-pilot coefficients and paired fresh checking.",
+    "Target Q model, cutoff3, all quote/maturity scopes and full-path likelihood remain unchanged."
+  ]
+}

@@ -387,3 +387,13 @@ pilots/checks and up to 99.6% residual concentration remain. This does not clear
 stock/normalizer bias or market refitting. See
 `matteo/model_comparison/option_pricing/SPX_CENTRAL_PANEL_RESULTS.md`.
 All four VIX maturities remain active.
+
+On 23 October, the fixed +3 upward-equity sampling comparison increases outer-call
+coverage at all four SPX training maturities but does not show a robust general
+variance-cost win. All 480 estimates are nonnegative; all primary precision
+screens still fail. Original vol7/ridge5 remains reference, cutoff 3 remains
+selected and all VIX maturities stay active. See
+`matteo/model_comparison/option_pricing/SPX_CALL_TILT_RESULTS.md` for fixed-beta,
+pilot-learning, likelihood/martingale checks and all warnings. A conditional-SPX
+Gaussian integration route is recorded as a pending structural investigation;
+it has not yet been implemented or validated.

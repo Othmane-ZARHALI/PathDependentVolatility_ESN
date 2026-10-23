@@ -1,0 +1,271 @@
+{
+  "auditor_sha256": "4254d3afa5ad37f36254f6e3636e6235ced50f410f34475edea07fe80fb89009",
+  "verification": "Source hashes, fresh unique seeds, exact weights/mass, paired scores, frozen fits and all saved estimates replay.",
+  "estimates": 480,
+  "stats": [
+    {
+      "proposal": "call3",
+      "method": "old128",
+      "negative": 0,
+      "zero_raw_hits": 0,
+      "sampling_passes": 0,
+      "median_se_over_scale": 8.173559240799154
+    },
+    {
+      "proposal": "call3",
+      "method": "ridge",
+      "negative": 0,
+      "zero_raw_hits": 0,
+      "sampling_passes": 0,
+      "median_se_over_scale": 7.482243930097263
+    },
+    {
+      "proposal": "original",
+      "method": "old128",
+      "negative": 0,
+      "zero_raw_hits": 0,
+      "sampling_passes": 0,
+      "median_se_over_scale": 8.17093439158991
+    },
+    {
+      "proposal": "original",
+      "method": "ridge",
+      "negative": 0,
+      "zero_raw_hits": 0,
+      "sampling_passes": 0,
+      "median_se_over_scale": 7.664539053906049
+    }
+  ],
+  "primary_negative": [],
+  "primary_paired_mean_warnings": [
+    {
+      "expiry_days": 57,
+      "trial": 0,
+      "contract": 3,
+      "band": 0,
+      "option_type": "call",
+      "strike": 7135.0,
+      "method": "ridge",
+      "difference": 2.5853682294492843,
+      "se": 1.0403838698051902,
+      "z": 2.48501375740609
+    }
+  ],
+  "fixed_beta_paired_mean_warnings": [
+    {
+      "expiry_days": 29,
+      "trial": 1,
+      "contract": 2,
+      "band": 0,
+      "option_type": "put",
+      "strike": 6740.0,
+      "method": "old128",
+      "difference": -0.4474951740753138,
+      "se": 0.19367566784727464,
+      "z": -2.3105389492096227
+    },
+    {
+      "expiry_days": 211,
+      "trial": 1,
+      "contract": 1,
+      "band": 1,
+      "option_type": "put",
+      "strike": 5750.0,
+      "method": "old128",
+      "difference": 1.2322446774447569,
+      "se": 0.5272816443805298,
+      "z": 2.3369762451951916
+    }
+  ],
+  "bare_monitor_warnings": [
+    {
+      "expiry_days": 29,
+      "trial": 0,
+      "proposal": "original",
+      "statistic": "score_3",
+      "mean": -0.1301471137475691,
+      "se": 0.057210890267778536,
+      "expectation": 0.0,
+      "z": -2.2748660812374846
+    },
+    {
+      "expiry_days": 29,
+      "trial": 0,
+      "proposal": "original",
+      "statistic": "score_square_3",
+      "mean": -0.19236122531323147,
+      "se": 0.06935154472285233,
+      "expectation": 0.0,
+      "z": -2.773712194615986
+    },
+    {
+      "expiry_days": 29,
+      "trial": 0,
+      "proposal": "call3",
+      "statistic": "score_3",
+      "mean": -0.13980561105892994,
+      "se": 0.058898998779917285,
+      "expectation": 0.0,
+      "z": -2.373650044227904
+    },
+    {
+      "expiry_days": 29,
+      "trial": 0,
+      "proposal": "call3",
+      "statistic": "score_square_3",
+      "mean": -0.18871219855272087,
+      "se": 0.07101016417584181,
+      "expectation": 0.0,
+      "z": -2.6575378432503634
+    },
+    {
+      "expiry_days": 29,
+      "trial": 1,
+      "proposal": "original",
+      "statistic": "stock",
+      "mean": 0.9362450424346784,
+      "se": 0.03171331852714045,
+      "expectation": 1.0,
+      "z": -2.010352764273461
+    },
+    {
+      "expiry_days": 29,
+      "trial": 1,
+      "proposal": "original",
+      "statistic": "reference",
+      "mean": 0.9365547001261241,
+      "se": 0.031356904194582,
+      "expectation": 1.0,
+      "z": -2.0233279242163937
+    },
+    {
+      "expiry_days": 29,
+      "trial": 1,
+      "proposal": "call3",
+      "statistic": "mass",
+      "mean": 0.9213689943537996,
+      "se": 0.03594452002702234,
+      "expectation": 1.0,
+      "z": -2.187565881727931
+    },
+    {
+      "expiry_days": 29,
+      "trial": 1,
+      "proposal": "call3",
+      "statistic": "stock",
+      "mean": 0.9180055348401999,
+      "se": 0.03617629399502946,
+      "expectation": 1.0,
+      "z": -2.2665247349843516
+    },
+    {
+      "expiry_days": 29,
+      "trial": 1,
+      "proposal": "call3",
+      "statistic": "reference",
+      "mean": 0.9167460227768264,
+      "se": 0.03604631812926925,
+      "expectation": 1.0,
+      "z": -2.3096388631040856
+    },
+    {
+      "expiry_days": 211,
+      "trial": 0,
+      "proposal": "original",
+      "statistic": "reference",
+      "mean": 1.0681040595024558,
+      "se": 0.030586181597502697,
+      "expectation": 1.0,
+      "z": 2.226628364359687
+    },
+    {
+      "expiry_days": 211,
+      "trial": 0,
+      "proposal": "call3",
+      "statistic": "reference",
+      "mean": 1.0798408318204213,
+      "se": 0.036081624174279056,
+      "expectation": 1.0,
+      "z": 2.2127837548215537
+    },
+    {
+      "expiry_days": 211,
+      "trial": 1,
+      "proposal": "original",
+      "statistic": "mass",
+      "mean": 1.0722384618267653,
+      "se": 0.029918915348066885,
+      "expectation": 1.0,
+      "z": 2.414474622036482
+    },
+    {
+      "expiry_days": 211,
+      "trial": 1,
+      "proposal": "original",
+      "statistic": "reference",
+      "mean": 1.0731034485596622,
+      "se": 0.03046214216399205,
+      "expectation": 1.0,
+      "z": 2.399813124307278
+    },
+    {
+      "expiry_days": 211,
+      "trial": 1,
+      "proposal": "call3",
+      "statistic": "mass",
+      "mean": 1.069810818171871,
+      "se": 0.03481134029592479,
+      "expectation": 1.0,
+      "z": 2.005404491134848
+    },
+    {
+      "expiry_days": 302,
+      "trial": 0,
+      "proposal": "original",
+      "statistic": "score_square_3",
+      "mean": 0.18581747253746828,
+      "se": 0.0822999188149214,
+      "expectation": 0.0,
+      "z": 2.2578086979082004
+    },
+    {
+      "expiry_days": 302,
+      "trial": 0,
+      "proposal": "call3",
+      "statistic": "score_square_3",
+      "mean": 0.20081395872737023,
+      "se": 0.08511917033852674,
+      "expectation": 0.0,
+      "z": 2.3592095403269875
+    },
+    {
+      "expiry_days": 302,
+      "trial": 1,
+      "proposal": "original",
+      "statistic": "score_square_3",
+      "mean": -0.1676807482763191,
+      "se": 0.07276818909489416,
+      "expectation": 0.0,
+      "z": -2.304313881683288
+    },
+    {
+      "expiry_days": 302,
+      "trial": 1,
+      "proposal": "call3",
+      "statistic": "score_square_3",
+      "mean": -0.16162214513633466,
+      "se": 0.07440477480600181,
+      "expectation": 0.0,
+      "z": -2.172201253988575
+    }
+  ],
+  "control_mean_warning_count": 30,
+  "wall_seconds": 618.8179705000948,
+  "setup_seconds": 1.0003115830477327,
+  "limitations": [
+    "Observed ratios and correlated two-SE flags are descriptive, not independent hypothesis tests or convergence certificates.",
+    "Primary compares new own pilots; identical old128 coefficients provide the sampling-law isolation.",
+    "All band efficiencies share six-contract pipeline timings; no standalone band timing is measured.",
+    "No checking-based selection, clipping, mass rescaling, model fit, timestep or normalizer refinement."
+  ]
+}

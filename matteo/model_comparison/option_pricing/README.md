@@ -265,3 +265,21 @@ and two paired mean shifts are retained. The 211-day stock mean flags below one.
 The baseline remains reference and the linear dictionary stays experimental.
 No calibration, new scope pruning or positivity clipping occurs. All four VIX
 maturities remain active; all 707 cutoff-3 quotes remain the priority population.
+
+## Upward-equity sampling and pilot-size follow-up (23 October 2026)
+
+[SPX_CALL_TILT_RESULTS.md](SPX_CALL_TILT_RESULTS.md) records a pilot-only component
+analysis, then fresh original/+3 equity-tilt comparisons on the same 24 contracts.
+Each proposal gets 256-path pilots and two 256-path checks at 512 steps/day. All 480 estimates
+are nonnegative and all eight outer-call checking hit counts increase. However,
+only 10/48 primary variances improve; aggregate efficiency wins only 4/8 trials.
+Identical old128 coefficients isolate proposal effects and also show no robust
+broad-panel win. Larger-pilot learning is mixed (one new fit has 49.85x old-fit
+variance). All primary sampling screens fail. Preserve 30 correlated contract-mean
+flags, 18/176 bare flags and paired/learning warnings; no weight self-normalization.
+The original sampler/ridge5 stays reference; call3 remains experimental.
+All 707 cutoff-3 quotes and all four VIX maturities remain in scope. Correctly
+validated cached GH48 setup takes 1 second, avoiding recomputation without convergence
+clearance. Next candidate is a source-faithful conditional-SPX Gaussian-noise
+integration study, starting with mathematical/rank/covariance checks. It is
+recorded as pending, not an implemented positivity or pricing fix.

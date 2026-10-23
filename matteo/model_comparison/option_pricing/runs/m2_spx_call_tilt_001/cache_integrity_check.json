@@ -1,0 +1,7 @@
+{
+  "cached_normalizer_sha256": "ed73be02923176c1bd290cfc86e30f9fc9fbfd3682c00daabd4486df0f5967c0",
+  "previous_recorded_sha256": "ed73be02923176c1bd290cfc86e30f9fc9fbfd3682c00daabd4486df0f5967c0",
+  "match": true,
+  "provenance_file": "matteo/model_comparison/option_pricing/runs/m2_spx_central_panel_001/normalizer_prefix_check.json",
+  "provenance_sha256": "06ff6e1096648f91a3f71401fe5bf9d8c1263c03ee8d1f959e2b1a17fa7d3dc6"
+}

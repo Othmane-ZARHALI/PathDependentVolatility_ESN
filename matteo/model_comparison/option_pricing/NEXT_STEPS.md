@@ -1,4 +1,24 @@
-# Recorded next steps — 22 October 2026
+# Recorded next steps — 23 October 2026
+
+## Latest sampling result and next structural candidate
+
+The [fixed +3 equity-tilt study](SPX_CALL_TILT_RESULTS.md) completes pilot-only
+component diagnosis and a fresh, paired comparison with doubled pilot budgets.
+Outer-call coverage improves at every maturity, but no robust full-panel
+variance-cost gain follows; the original sampler/ridge5 remains reference.
+Both proposal and pilot-size comparisons retain failures and mean warnings.
+Cutoff 3/all 707 priority quotes and all four VIX maturities remain active.
+
+Next investigate conditional SPX Monte Carlo before adding further mixture
+magnitudes or control features: derive the joint-Gaussian equity/OU transition
+conditioning in the **full** state, identify which equity noise can be integrated
+analytically under the existing discrete stock scheme, and audit numerical rank
+and covariance correspondence. Validate Gaussian/constant-volatility and
+same-model checks before market experiments. Derive marginal likelihoods if
+importance sampling is retained; full-path weights cannot be reused blindly
+after integrating noise out. This is a pending candidate, not completed pricing
+or a positivity guarantee. Keep stock-timestep/normalizer refinement gates
+separate. Older sampling queues below are historical where superseded.
 
 ## Latest completed experiment and immediate sampling work
 
