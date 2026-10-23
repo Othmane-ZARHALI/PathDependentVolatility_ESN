@@ -1,5 +1,10 @@
 # Recorded next steps — 23 October 2026
 
+For a consolidated attempt index and current ordered return-to-fitting queue,
+read [RESEARCH_LEDGER.md](RESEARCH_LEDGER.md). The conversation handoff is
+[CONTINUE_FITTING_PROMPT.md](CONTINUE_FITTING_PROMPT.md). Older hypotheses below
+remain historical when a later checkpoint completed them.
+
 ## Conditional SPX prototype completed; controlled extension pending
 
 The [partial conditional investigation](SPX_CONDITIONAL_PRICING_RESULTS.md)

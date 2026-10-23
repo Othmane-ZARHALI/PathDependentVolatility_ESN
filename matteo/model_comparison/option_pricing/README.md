@@ -1,5 +1,10 @@
 # ESN/M2 option-pricing benchmark
 
+**Start here for the accumulated research:** [RESEARCH_LEDGER.md](RESEARCH_LEDGER.md)
+groups the fitting attempts, VIX/SPX numerical experiments, decisions and current
+queue. [CONTINUE_FITTING_PROMPT.md](CONTINUE_FITTING_PROMPT.md) contains the
+copy-and-paste prompt for continuing in a new conversation.
+
 First milestone: review and diagnose the preserved ESN engine before building
 M2 option pricing. See [AUDIT.md](AUDIT.md) for code/report inconsistencies.
 See [RESULTS.md](RESULTS.md) for the three initial diagnostic runs and their limits.
