@@ -97,8 +97,12 @@ def run(args):
     for key,value in dict(architecture=architecture,parameters=parameters,premium=premium).items():
         expected=json.loads(json.dumps(asdict(value)))
         if prior[key]!=expected or fit[key]!=expected:raise ValueError('Cached model mismatch')
-    for path in sorted((M2/'src/esn_eq').glob('*.py')):
-        if hashlib.sha256(path.read_bytes()).hexdigest()!=prior['implementation_sha256'][str(path.relative_to(ROOT))]:raise ValueError('Cache package source mismatch')
+    # Validate the package sources present when the cache was computed. A newly
+    # added unrelated module does not alter the original normalizer dependencies.
+    prefix=str((M2/'src/esn_eq').relative_to(ROOT))+'/'
+    for relative,digest in prior['implementation_sha256'].items():
+        if relative.startswith(prefix) and hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()!=digest:
+            raise ValueError('Cache package source mismatch')
     curve=NuisanceCurveFamily.from_targets(targets).build(fit['selected_levels'])
     if list(curve.levels)!=prior['curve_levels']:raise ValueError('Curve mismatch')
     panel=pd.read_csv(PARENT/'contracts.csv');panel.to_csv(args.output/'contracts.csv',index=False)

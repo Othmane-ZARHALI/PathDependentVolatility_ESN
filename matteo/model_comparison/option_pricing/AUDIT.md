@@ -726,3 +726,23 @@ validated cached GH48 setup takes 1 second, avoiding recomputation without conve
 clearance. Next candidate is a source-faithful conditional-SPX Gaussian-noise
 integration study, starting with mathematical/rank/covariance checks. It is
 recorded as pending, not an implemented positivity or pricing fix.
+
+## Partial conditional SPX investigation (23 October 2026)
+
+[SPX_CONDITIONAL_PRICING_RESULTS.md](SPX_CONDITIONAL_PRICING_RESULTS.md) derives
+and prototypes Gaussian integration of the primitive equity noise independent
+of all OU drivers. The frozen correlations leave only 0.636685% independent
+equity variance. Conditional raw payoff averages are nonnegative by construction;
+a two-trial target-Q screen on 24 representatives shows modest raw variance gains
+(median 1.025), not a replacement for the controlled importance-sampling reference.
+Six zero-hit raw cases still expose unreliable tiny conditional prices. Four
+paired mean warnings and covariance reconstruction errors are retained. All 117
+package plus 42 driver tests pass; 96 prices and 48 paired differences replay.
+The initially failed independent-Black oracle exposed sqrt(epsilon) endpoint
+leakage and was fixed structurally, not by loosening the tolerance. No original
+OU modes were dropped. Cached normalizer dependency checking in the call-tilt
+runner now permits unrelated added modules while validating all original sources.
+All 707 priority quotes and all four VIX maturities remain active. Next derive
+conditional existing controls and a proposal on retained shocks before any
+weighted extension; this extension is pending and may reintroduce negative
+controlled estimates. Time-step and GH refinement gates remain open.

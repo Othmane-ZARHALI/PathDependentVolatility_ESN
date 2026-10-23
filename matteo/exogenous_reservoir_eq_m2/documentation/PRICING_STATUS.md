@@ -397,3 +397,14 @@ selected and all VIX maturities stay active. See
 pilot-learning, likelihood/martingale checks and all warnings. A conditional-SPX
 Gaussian integration route is recorded as a pending structural investigation;
 it has not yet been implemented or validated.
+
+A partial conditional-SPX prototype now integrates the equity Brownian direction
+independent of all primitive OU drivers. Frozen nu²=0.00636685 limits its raw
+benefit: target-Q paired checks show median variance gain 1.025, with no precision
+clearance or replacement of original vol7/ridge5. Conditional raw payoffs are
+nonnegative, but six zero-hit cases demonstrate persistent rare-volatility-path
+sampling uncertainty. Gaussian/source/covariance and Black oracles pass; an
+endpoint-rounding oracle failure was corrected and recorded. All 159 tests pass.
+See `matteo/model_comparison/option_pricing/SPX_CONDITIONAL_PRICING_RESULTS.md`.
+A conditional-control/retained-shock proposal extension remains pending. All
+SPX priority quotes and VIX maturities stay included; bias gates stay separate.

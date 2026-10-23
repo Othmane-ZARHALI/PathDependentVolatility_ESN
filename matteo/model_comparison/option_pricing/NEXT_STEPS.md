@@ -1,5 +1,25 @@
 # Recorded next steps — 23 October 2026
 
+## Conditional SPX prototype completed; controlled extension pending
+
+The [partial conditional investigation](SPX_CONDITIONAL_PRICING_RESULTS.md)
+now establishes the Gaussian construction and a positive raw-payoff prototype.
+Only 0.636685% of frozen-model equity variance is independent of the OU drivers;
+the raw target-Q market screen shows a modest median variance gain 1.025 and
+no convergence clearance. It does not replace original vol7/ridge5.
+
+Next derive and test conditional expectations of the **existing** stock,
+reference-payoff and adapted delta controls. A small raw-payoff gain does not
+rule out a larger controlled-residual gain. The conditional gain generally is
+not zero when retained shocks include correlated equity; use the Gaussian
+expectation identities recorded in the report. Derive a new importance proposal
+on retained shocks before pricing with weights; old full-path weights cannot
+be reused after integration. Freeze pilots/checking before any market comparison.
+This extension is pending, not implemented or validated. Keep cutoff 3/all 707
+priority quotes, secondary wings and all four VIX maturities, with independent
+stock-timestep and normalizer refinement gates still pending.
+Older entries below retain the prior hypothesis and experiment history.
+
 ## Latest sampling result and next structural candidate
 
 The [fixed +3 equity-tilt study](SPX_CALL_TILT_RESULTS.md) completes pilot-only
