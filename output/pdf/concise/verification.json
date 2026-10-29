@@ -1,8 +1,0 @@
-{
-  "spx_archived_native_iv_max_abs_error_pp": 2.559694678438973e-10,
-  "vix_archived_native_iv_max_abs_error_pp": 2.368523155382718e-10,
-  "05-protected-curve_vix_price_identity": true,
-  "06-negative-correlation_vix_price_identity": true,
-  "all_panel_market_quotes_and_membership_match": true,
-  "no_simulation_rerun": true
-}

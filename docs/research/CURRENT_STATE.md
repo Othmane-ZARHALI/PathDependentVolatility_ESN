@@ -26,7 +26,7 @@ v_t=f+(\xi(t)-f)H_t,\qquad
 H_t=(1-w)R_t+w[(1-r)A_t^s+rA_t^f],
 \]
 
-where each independent Gaussian-OU exponential stress response A has mean one. The VIX-only fitted reference has stress weight about 0.922838, half-lives 365 and 71.3905 days, and volatility floor 12%, so f=0.0144. Its artifact is [experimental_model_two_speed.json](../../matteo/model_comparison/option_pricing/model/experimental_model_two_speed.json). This is an experimental reference, not a newly adopted production model. Later SPX tests generally freeze this variance law and use stock/stress rotation theta=0.8; read the individual report for its precise baseline and reused auxiliary reference.
+where each independent Gaussian-OU exponential stress response A has mean one. The VIX-only fitted reference has stress weight about 0.922838, half-lives 365 and 71.3905 days, and volatility floor 12%, so f=0.0144. Its artifact is `experimental_model_two_speed.json` in the local `option_pricing/model/` archive. This is an experimental reference, not a newly adopted production model. Later SPX tests generally freeze this variance law and use stock/stress rotation theta=0.8; read the individual report for its precise baseline and reused auxiliary reference.
 
 The earlier physical-measure Stage-3 baseline, original pricing anchor, VIX-only two-speed reference, joint-refit candidate and later SPX experiment baselines have different roles. Do not select one by recency or compare their losses across different estimators and scopes.
 

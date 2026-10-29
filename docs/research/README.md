@@ -17,7 +17,7 @@ Read only what the next task needs:
 - `Cleanup receipt`: temporary and compiled files removed after the verified push; simulation arrays retained.
 - [Package reorganization and PR review](REORGANIZATION.md): the proposed folder layout, compatibility checks and evidence-retention choices.
 
-The existing [ten-page visual retrospective](../../output/pdf/concise/spx_vix_visual_summary.pdf) remains useful for the earlier mechanism comparisons. Its source, plot inputs and provenance remain in [the original report folder](../../output/pdf/concise). The new history and gallery add the 29 October filtering and protected-variance experiments.
+The existing [ten-page visual retrospective](../../output/pdf/concise/spx_vix_visual_summary.pdf) remains useful for the earlier mechanism comparisons. Its TeX source remains in the original report folder; the external figure files, plot inputs and provenance are retained locally, so rebuilding the TeX requires the local figure archive. The new history and gallery add the 29 October filtering and protected-variance experiments.
 
 ## Keeping future context small
 

@@ -1,7 +1,5 @@
 """Numerical checks for the retained experimental reference components."""
 import unittest
-from pathlib import Path
-import json
 import numpy as np
 from matteo.model_comparison.option_pricing.current.two_speed import exponential, two_speed_response
 from matteo.model_comparison.option_pricing.current.rotation import stock
@@ -20,12 +18,12 @@ class ReferenceTests(unittest.TestCase):
             finite=(two_speed_response(d,t,xp)[0]-two_speed_response(d,t,xm)[0])/(2*h)
             np.testing.assert_allclose(deriv,finite,rtol=1e-5,atol=1e-8)
 
-    def test_rotation_and_candidate_status(self):
+    def test_rotation(self):
         stats=np.array([[.04,.1,.03,-.02],[.09,-.2,.04,.05]])
         np.testing.assert_allclose(stock(stats,0,.5,.5),np.exp(-.5*stats[:,0]+stats[:,1]))
-        root=Path(__file__).resolve().parents[2]/'model'
-        selected=json.loads((root/'stock_rotation_selection.json').read_text())
-        self.assertEqual(selected['selected']['theta'],.8)
-        self.assertTrue(selected['not_adopted'])
+        theta = .8
+        cs, cf = np.sqrt(.34), np.sqrt(.66)
+        expected = np.exp(-.5*stats[:,0] + np.sqrt(1-theta**2)*stats[:,1] - theta*(cs*stats[:,2]+cf*stats[:,3]))
+        np.testing.assert_allclose(stock(stats,theta,cs,cf),expected)
 
 if __name__ == '__main__': unittest.main()
