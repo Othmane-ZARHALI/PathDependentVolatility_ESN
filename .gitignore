@@ -59,6 +59,9 @@ matteo/web_claude/*.json
 
 # Committed ancestors and RECOVERY_MANIFEST identify these same historical bytes.
 /docs/research/archive/*/missing_tracked_evidence_HEAD.zip
+/docs/research/archive/*/evidence_snapshot.zip
+/docs/research/archive/*/git_status_before.bin
+/docs/research/checks/
 
 # Keep small scientific execution/audit logs alongside their run records.
 !/matteo/model_comparison/option_pricing/runs/**/*.log

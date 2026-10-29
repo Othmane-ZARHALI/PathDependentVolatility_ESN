@@ -2,7 +2,7 @@
 
 Checked on 29 October 2026. These are documentation and file-integrity checks, not new pricing simulations or scientific validation.
 
-- 148 original Markdown reports, plans and records are preserved byte for byte in the documentation snapshot ZIP. The two former continuation files also have separate exact archived copies.
+- 148 original Markdown reports, plans and records are checked against their original hashes directly. The two former continuation files have separate exact archived copies. The local duplicate documentation ZIP is not required for verification or included in the branch.
 - The historical bodies of the pricing README, research ledger and M2 README are unchanged after their new navigation banners.
 - Thirteen selected figures are exact copies of their originals. Hash checks also cover 215 original visual and report assets, including existing plot inputs and metadata.
 - Current active_scope.json is unchanged. No model code or simulation output was edited by consolidation.

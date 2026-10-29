@@ -4,7 +4,7 @@
 
 ## What belongs in Git
 
-Research source and tests, small run metadata, fitted candidate JSON files, CSV diagnostics, selected audit logs, figures and final report artifacts are versioned. The 148-document pre-consolidation evidence snapshot remains versioned. Existing tracked deletions are recorded; their committed historical bytes remain accessible through the ancestor and recovery manifest.
+Research source and tests, small run metadata, fitted candidate JSON files, CSV diagnostics, selected audit logs, figures and final report artifacts are versioned. The evidence manifest records original hashes for 148 research documents. The duplicate snapshot ZIP, raw test transcripts and internal Git-status dump remain local and are excluded from the branch. Existing tracked deletions are recorded; their committed historical bytes remain accessible through the ancestor and recovery manifest.
 
 New generated NPY/NPZ simulation arrays remain local and ignored, following the user's explicit retention choice. Small fixtures already tracked by earlier commits retain their existing Git status. [LOCAL_ARRAY_INVENTORY.json](LOCAL_ARRAY_INVENTORY.json) records local array paths, sizes, modification times and symlink targets. The approximately 54 GB total counts symlink references; regular array files account for about 47 GB. This inventory is not a remote backup of arrays.
 
@@ -15,7 +15,7 @@ Raw email material, the prepared derivative package for the supplied October PDF
 - Consolidation preservation: 148 original documents, 13 copied figures, 215 visual/source assets, 299 local links, and 1934 historical Git files verified. The check passes both with the local recovery ZIP and directly from ancestor Git objects.
 - Physical model suite: 124 tests passed.
 - PDF preprocessing tool: 11 tests passed.
-- Pricing suite: 117 tests ran; 113 passed and four errored on previously absent fixtures. Two require the absent `m2_parity_adaptive_cache_001` stock/contract cache, and two require historical `spx_scaled_moneyness_003/training_membership.csv`. This is not a fully passing pricing suite. Logs are in [checks/2026-10-29](checks/2026-10-29).
+- Pricing suite: 117 tests ran; 113 passed and four errored on previously absent fixtures. Two require the absent `m2_parity_adaptive_cache_001` stock/contract cache, and two require historical `spx_scaled_moneyness_003/training_membership.csv`. This is not a fully passing pricing suite. Raw test transcripts are retained locally and excluded from the branch; these summaries preserve the recorded outcomes.
 - Tests used a temporary Python 3.12 environment with NumPy 2.5.4, SciPy 1.18.1, pandas 3.1.0 and matplotlib 3.11.2; the separate installed PDF tool used PyMuPDF 1.26.7. An initial incompatible Python 3.9 invocation was replaced by the supported environment before these results.
 - New consolidation documents, tool files and ignore rules pass the scoped whitespace check. Historical source documents, extracted literature and immutable run snapshots retain their original bytes, including inherited whitespace.
 - Staging was checked to exclude local simulation arrays, compiled libraries, temporary renders, raw email material and the duplicate recovery ZIP. This exclusion check applies to new content; already-deleted tracked arrays remain historical deletions.
