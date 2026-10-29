@@ -1,0 +1,2 @@
+# Preserve original source bytes in immutable diagnostic snapshots.
+matteo/model_comparison/option_pricing/runs/*/source/** whitespace=-blank-at-eof

@@ -1,6 +1,23 @@
 # One-date P/Q calibration plan for the exogenous-reservoir model
 
+Detailed historical sources named without links are retained in the local archive.
+
 Status: implementation plan, revised 30 September 2026 after consistency review and the SPX stability study. Follow [the option preprocessing plan](OPTION_PREPROCESSING_PLAN.md) first. This is a handoff specification, not a claim of an achieved fit. The primary pilot is tempered Gaussian-reservoir M2, with no echo or orthogonal loading. The model PDFs in this directory define the equations; their suggested calibration sequence is treated as research guidance rather than an instruction that overrides the observed data.
+
+Implementation update, 21 October 2026: the common target loader, dated M2
+SPX prototype, conditional VIX engines and independent-pilot SPX controls are
+now present. See [PRICING_STATUS.md](PRICING_STATUS.md) for implemented scope,
+tests, unresolved numerical gates and remaining work. The pricing work items
+below are partly implemented; their full accuracy gates and joint fitting
+remain open.
+
+**Active exploratory scope, latest user instruction on 21 October 2026:**
+restore all four VIX maturities (27/55/118/153 days), all 175 training options
+and all four forwards for new analyses. This supersedes the earlier same-day
+near-only decision. SPX scope is unchanged. Historical near-only results and
+all numerical/input conflicts remain preserved. Restoration does not certify
+convergence or feasibility. See `../../model_comparison/option_pricing/active_scope.json`
+and `VIX_SCOPE_DECISION.md`.
 
 ## Objective, information boundary, and claims
 
@@ -14,7 +31,7 @@ The [SPX physical-stability study](../experiments/physical_stability_001/RESULTS
 
 1. Versioned, audited market-target files from `OPTION_PREPROCESSING_PLAN.md`: quote intervals in undiscounted price units; one VIX forward per expiry; a documented $\xi_0(t)$ construction or profiled nuisance-curve family; and complete exclusions/provenance.
 2. SPX historical OHLC and target-generation code in `matteo/preprocessing/`. Rebuild SPX targets with declared sample dates, observation definitions, block-bootstrap covariance/intervals and rolling windows. Keep the existing JSONs for comparison. Do not use the cross-asset dispersion constants in `CrossSectionalData/joint_calibration.py` as SPX sampling errors.
-3. M2 source in `matteo/exogenous_reservoir_eq_m2/src/esn_eq/`: `config.py`, `states.py`, `features.py`, `readout.py`, and `model.py`. The current package has physical-measure simulation and cross-sectional Q normalisation; it does **not** yet contain conditional VIX valuation or a joint option pricer. The older `CrossSectionalData/` code is a benchmark and debugging reference, not a pricing implementation for M2.
+3. M2 source in `matteo/exogenous_reservoir_eq_m2/src/esn_eq/`: the physical simulation core plus `pricing.py`, `market_targets.py`, `vix_pricing.py`, and `variance_reduction.py`. Dated SPX and conditional VIX prototypes are implemented, but numerical acceptance gates and joint calibration remain incomplete. The older `CrossSectionalData/` code is a benchmark and debugging reference, not a pricing implementation for M2.
 4. Freeze a baseline architecture from `provenance/latent_calibration.json` plus the Stage-3 spike override in `experiments/stage3_001/selection_record.json` (10–500 inverse years, spike projection power -0.5). Record the merged architecture explicitly; using `ArchitectureConfig()` alone silently changes the Stage-3 spike bank. Stage-3 bounds and acceptance rates were synthetic capacity results, not calibrated SPX priors. Repeat with a small set of neighbouring rate-grid choices as architecture sensitivity, especially because the latent fit hit endpoint bounds.
 5. Fixed input conventions: currency and VIX index points; one reference date; actual quoted calendar maturity for payoff discount/Black conversion; inverse-year OU rates; a documented calendar-to-trading-time mapping for diffusion integration; stock forwards and VIX forwards specific to each expiry. The quote CSVs do not supply minute-level timestamps or a full discount curve. Work in forward-value option prices and label any resulting settlement approximation.
 
@@ -27,6 +44,25 @@ For the first one-date run, fit the 29-, 57-, 211- and 302-day SPX expiries and 
 Illustrative *search bounds*, not empirical priors: $c_C\in[0.05,0.80]$, $q_Z\in[0.02,0.25]$, $\beta\in[0.05,3.5]$, $q_J\in[0.002,0.30]$, $\beta_J\in[0,0.5]$, $\rho_F\in[0.50,0.99]$, and $\rho_J\in[0.10,0.90]$. Use log coordinates for positive curvatures. Fix $\underline v=10^{-4}$ annualised variance, $\theta=0.35$, $\kappa=6$, and start with (L=5.5); profile $L\in\{3.5,5.5,6.5\}$. The floor and equity premium are placeholders inherited from the research configuration; recheck their effect in sensitivity runs. Use unspanned-price scenarios $(\gamma_{B_F},\gamma_{B_J})\in\{(0,0),(0.25,0),(-0.25,0),(0,0.25),(0,-0.25)\}$; the other unspanned prices remain zero. If a result sits on a bound, expand that bound once and report the profile before calling it identified. The Stage-3 local box is an additional warm-start region, not the only admissible domain.
 
 ## Parameter hierarchy for this pilot
+
+**24 October 2026 user constraint:** future M2 fitting requires
+$\beta_J=\texttt{spike_shift}>0$, with an active spike curvature $q_J>0$.
+This supersedes the zero endpoint of the illustrative $\beta_J\in[0,0.5]$
+search bounds above. The first raw-estimator eleven-parameter attempt selected
+$\beta_J=0.01$ at its declared positive lower bound, without establishing a
+reliable joint fit; see
+`FULL_READOUT_FIT_RESULTS.md`.
+The later restored-precision exploration selected $\beta_J=0.29972997$ and
+substantially improves the estimated joint objective on separate numerical
+checking streams, with remaining signed/shape failures and boundary limitations;
+see `CONTROLLED_READOUT_EXPLORATION_RESULTS.md`.
+For subsequent runs, explicitly declare a positive fixed value or a search interval with
+a strictly positive lower bound before a new fit, and reject nonpositive
+candidate shifts. The existing Stage-3 loader and historical zero-shift runs use
+$\beta_J=0$ and remain historical baselines, not compliant new candidates.
+Changing this shift requires recomputing the readout-dependent Q normalizer,
+stock paths and conditional VIX exposures. Do not rewrite archived runs or
+silently describe the new constraint as an already calibrated parameter.
 
 | Class | Primary treatment | Sensitivity / later panel study |
 | --- | --- | --- |
@@ -110,7 +146,7 @@ $(F^{VIX}_{model}(T))^2\le E_0^Q[\mathrm{VIX}_T^2]$ within separately reported n
 
 ## Work package C: dated state and measure-change scenarios
 
-Primary data limitation: there are no observed 2024–2026 SPX returns in this repository, so (X_0) cannot be filtered to the option date. Treat the state as a **penalised latent variable**, not as known or as an independent free value for every OU coordinate. A first restriction is to fit (u_0=(Y_0,F_0,C_0)), map it into the full OU state by the minimum-Mahalanobis-norm conditional Gaussian mean, and penalise (u_0) under the stationary P projection covariance. If H is the 3-by-N projection matrix and Σ is the stationary P covariance, use `x0 = Σ H^T (H Σ H^T)^(-1) u0` and the prior penalty `u0^T (H Σ H^T)^(-1) u0`. Check HΣH^T conditioning. Then test price sensitivity to residual full-state directions or integrate a declared conditional-state distribution with covariance `Σ - Σ H^T (H Σ H^T)^(-1) H Σ`. If results change materially, the restricted-state pilot is inconclusive. Once recent returns/RV are obtained, replace this proxy with a chronological filter and compare results.
+Primary data limitation: there are no observed 2024–2026 SPX returns in this repository, so (X_0) cannot be filtered to the option date. Treat the state as a **penalised latent variable**, not as known or as an independent free value for every OU coordinate. A first restriction is to fit (u_0=(C_0,Y_0,F_0)), using the pricing API's explicit C/Y/F row order for H, map it into the full OU state by the minimum-Mahalanobis-norm conditional Gaussian mean, and penalise (u_0) under the stationary P projection covariance. If H is the 3-by-N projection matrix and Σ is the stationary P covariance, use `x0 = Σ H^T (H Σ H^T)^(-1) u0` and the prior penalty `u0^T (H Σ H^T)^(-1) u0`. Check HΣH^T conditioning. Then test price sensitivity to residual full-state directions or integrate a declared conditional-state distribution with covariance `Σ - Σ H^T (H Σ H^T)^(-1) H Σ`. If results change materially, the restricted-state pilot is inconclusive. Once recent returns/RV are obtained, replace this proxy with a chronological filter and compare results.
 
 Use a small risk-premium scenario set. Scenario 0 has unspanned Brownian prices equal to zero while keeping the equity price equal to the declared $\theta$; the four other scenarios vary the sign of one feedback or one spike unspanned price within documented research bounds. Apply `states.primitive_risk_prices()` and `q_state_paths()` consistently, including $\gamma_F=\rho_F\theta+\sqrt{1-\rho_F^2}\gamma_{B_F}$ and its spike analogue. Do not identify an independent premium for every slow coordinate from one snapshot. For every risk-price scenario, recompute Q means, normalisation, all option prices and the P loss. Report profile curves rather than selecting a point solely by the smallest option loss.
 
@@ -140,7 +176,7 @@ Recommended sequence:
 
 Pilot search budget: begin with 256 scrambled Sobol structural/readout candidates per architecture and five declared unspanned-price scenarios. Retain the best P-feasible and near-feasible regions, then use at least eight diverse starting points for the Q optimisation per retained region. This is a coverage minimum, not a claim that 256 points resolve the landscape. Screen Monte Carlo with at least 4,096 outer paths. For every scored option, target independently estimated `2*SE_MC_i <= s_i/4`, and separately require assessed time-grid, normaliser and quadrature/nested-inner bias contributions to total at most `s_i/4`. For VIX forward residuals apply the same fractions to the frozen forward-loss scale. Report actual half-spread-relative accuracy too, explicitly identifying quotes for which the fixed price floor dominates. These gates cover all scored quotes; there is no undefined liquidity exemption.
 
-Coarse screening may carry unresolved numerical status, but final ranking and feasibility claims require the gates above. Increase sampling or refine the engine when they fail; if the declared resource budget is exhausted, retain the candidate as numerically unresolved rather than reducing its weight or discarding difficult quotes. Start at 2, 8 and 32 integration steps per trading day and refine further as required, accounting for the feedback bank up to 5,000 inverse years as well as the Stage-3 spike bank. Compare 12-, 20- and 32-node per-axis Gaussian quadrature (or a converged sparse rule), refining maturity integration independently. For nested Monte Carlo, start an inner-count ladder such as 128, 512 and 2,048 continuations per outer state and extend it as needed. Use coupled inner prefixes to estimate changes with inner count on fixed outer states, independent replications to assess uncertainty in those changes, and outer-count refinement separately. One statistically inconclusive difference is not proof that inner bias is negligible; require repeated refinement or an independently converged quadrature comparison. Record any extrapolation or bias correction and validate it before use.
+Coarse screening may carry unresolved numerical status, but final ranking and feasibility claims require the gates above. Increase sampling or refine the engine when they fail; if the declared resource budget is exhausted, retain the candidate as numerically unresolved rather than reducing its weight or discarding difficult quotes. Use 64 stock integration steps per trading day as the working baseline and coupled 128/256 refinements as required, accounting for the feedback bank up to 5,000 inverse years as well as the Stage-3 spike bank. The former 2/8/32 starting ladder was superseded by the existing timestep audit; those coarse budgets remain development diagnostics only. For conditional VIX time integration, a separately refined Gaussian time rule may replace the uniform midpoint grid after comparison with fine-grid references; this does not change the SPX stock timestep. Compare 12-, 20- and 32-node per-axis Gaussian quadrature (or a converged sparse rule), refining maturity integration independently. For nested Monte Carlo, start an inner-count ladder such as 128, 512 and 2,048 continuations per outer state and extend it as needed. Use coupled inner prefixes to estimate changes with inner count on fixed outer states, independent replications to assess uncertainty in those changes, and outer-count refinement separately. One statistically inconclusive difference is not proof that inner bias is negligible; require repeated refinement or an independently converged quadrature comparison. Record any extrapolation or bias correction and validate it before use.
 
 Benchmark both VIX engines on a small fixed set of central and tail states before launching the full search, recording wall time and memory at matched error. Stream outer/inner batches and cache reusable Gaussian quantities; avoid materialising all nested paths. Reprice finalists with at least three independent final seeds and larger outer/inner or quadrature budgets as appropriate. Save all path counts, failed convergence gates, assessed bias and timing. A standard error at fixed inner count is not a complete numerical-error report.
 

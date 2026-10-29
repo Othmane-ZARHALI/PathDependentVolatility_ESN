@@ -1,3 +1,6 @@
+<!-- Research consolidation 2026-10-29 -->
+**Current research entry point:** [continuation brief](../../docs/research/CURRENT_STATE.md), [experiment history](../../docs/research/EXPERIMENT_HISTORY.md), and [preserved figures](../../docs/research/VISUAL_EVIDENCE.md). The content below retains historical stages and decisions; current scope comes from the brief and `active_scope.json`. Dated proposals may have been completed by later experiments.
+
 # Exogenous-reservoir exponential-quadratic volatility: M2 Stage 3
 
 This is the standalone, executable M2 research package. It started as a curated copy of the
@@ -77,5 +80,13 @@ Pilot-1 full ledger and is therefore intentionally outside this package's scope.
 
 The package implements exact joint OU/equity transitions, common-random-number path reuse,
 the deterministic P-to-Q state shift, and the cross-sectional Q forward-variance normalizer.
-It does not yet implement conditional VIX valuation, option-surface pricing, or joint SPX/VIX
-calibration.
+It now also includes a **dated baseline-M2 SPX pricing prototype** in `src/esn_eq/pricing.py`
+and a common bid/ask target interface in `src/esn_eq/market_targets.py`. The prototype uses
+an explicit initial state, exact expiry/curve events, adapted stock integration, and a
+date-zero Gaussian-quadrature normalizer independent of stock simulation draws. See the
+[pricing implementation status](documentation/PRICING_STATUS.md) for tests and numerical limits.
+Conditional continuous-window VIX valuation is now available in `src/esn_eq/vix_pricing.py`,
+using conditional Gaussian quadrature or nested full-state OU simulation with the same
+date-zero normalizer. `src/esn_eq/variance_reduction.py` adds independently trained SPX controls.
+Joint SPX/VIX calibration remains unimplemented. The unfitted market diagnostics do not meet
+the planned price-accuracy gates and are not a fit claim.
