@@ -25,3 +25,5 @@ The former continuation prompt and next-steps file are preserved verbatim in [th
 ## Preservation boundary
 
 This consolidation changes research navigation and continuation instructions. It adopts no model, changes no pricing scope, and launches no calibration. Original result reports, source code, run artifacts and figures remain in place. Selected figures are copied without alteration and have [source hashes](FIGURE_PROVENANCE.json). The evidence manifest verifies the original reports directly, using the archived copies of the two replaced continuation files. Duplicate ZIP snapshots, raw test transcripts and the internal Git-status dump remain local and are excluded from the branch.
+
+The `option_pricing/formalization/` and `option_pricing/literature/` folders are also kept locally and excluded from the branch at the user's request. Historical reports may refer to files in those folders; those references require the local copies. The research history preserves the conclusions and their evidence limits.

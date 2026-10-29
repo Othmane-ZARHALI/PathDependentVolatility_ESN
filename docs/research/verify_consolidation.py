@@ -1,9 +1,13 @@
 from pathlib import Path
 import re,hashlib,json,zipfile,subprocess,sys
 root=Path.cwd();d=root/'docs/research';m=json.loads((d/'EVIDENCE_MANIFEST.json').read_text());f=json.loads((d/'FIGURE_PROVENANCE.json').read_text());problems=[]
+local_only=('matteo/model_comparison/option_pricing/formalization/','matteo/model_comparison/option_pricing/literature/')
+verified_reports=0;excluded_reports=[]
 def sha(b):return hashlib.sha256(b).hexdigest()
 for e in m['reports']:
  p=root/e['path']
+ if e['path'].startswith(local_only) and ('--published-only' in sys.argv or not p.exists()):
+  excluded_reports.append(e['path']);continue
  if p.name in ['CONTINUE_FITTING_PROMPT.md','NEXT_STEPS.md'] and p.parent.name=='option_pricing':
   original=(d/'archive/2026-10-29'/p.name).read_bytes()
  else:
@@ -11,6 +15,7 @@ for e in m['reports']:
   if original.startswith(b'<!-- Research consolidation 2026-10-29 -->'):
    original=original.split(b'\n\n',1)[1]
  if sha(original)!=e['sha256']:problems.append('Original report hash '+e['path'])
+ else:verified_reports+=1
 for e in f['figures']:
  if sha((root/e['source']).read_bytes())!=e['sha256'] or sha((root/e['copy']).read_bytes())!=e['sha256']:problems.append('Figure changed '+e['source'])
 for e in m['visual_assets']:
@@ -57,6 +62,6 @@ else:
 # Verify pre-existing deletions have not been restored or otherwise changed.
 old_deleted=[e['path'] for e in recovery['files']]
 if any((root/s).exists() for s in old_deleted):problems.append('Pre-existing deletion restored')
-result={'reports_preserved':len(m['reports']),'selected_figures_unchanged':len(f['figures']),'visual_source_assets_unchanged':len(m['visual_assets']),'local_links_checked':link_count,'recovered_HEAD_files_verified':len(recovery['files']),'missing_referenced_run_directories':len(m['referenced_run_directories_missing']),'referenced_present_runs_without_run_json':len(m['referenced_present_runs_without_run_json']),'scope_unchanged':True,'problems':problems}
+result={'reports_preserved':verified_reports,'reports_local_only_not_checked':excluded_reports,'selected_figures_unchanged':len(f['figures']),'visual_source_assets_unchanged':len(m['visual_assets']),'local_links_checked':link_count,'recovered_HEAD_files_verified':len(recovery['files']),'missing_referenced_run_directories':len(m['referenced_run_directories_missing']),'referenced_present_runs_without_run_json':len(m['referenced_present_runs_without_run_json']),'scope_unchanged':True,'problems':problems}
 (d/'validation.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
 if problems:raise SystemExit(1)

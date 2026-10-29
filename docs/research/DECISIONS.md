@@ -12,7 +12,7 @@ Snapshot: 29 October 2026. This is a synthesis of recorded decisions and outcome
 | Current feasibility work is in sample | Fresh random draws do not create market holdout evidence | [All-maturity result](../../matteo/model_comparison/option_pricing/ALL_MATURITY_FIT_RESULTS.md) |
 | Preserve the experimental record | Keep unsuccessful tests, learnings, pictures and raw-source links | User direction in the consolidation conversation |
 | Quintic and jumps remain deferred | Their mention in literature or brainstorming is not a completed M2 remedy | [Ledger](../../matteo/model_comparison/option_pricing/RESEARCH_LEDGER.md) |
-| Keep mathematical, numerical and implementation evidence distinct | Scoped Lean checks and finite probes retain their original assumptions | [Correspondence](../../matteo/model_comparison/option_pricing/formalization/CORRESPONDENCE.md) |
+| Keep mathematical, numerical and implementation evidence distinct | Scoped Lean checks and finite probes retain their original assumptions | Formal correspondence is retained in the local `option_pricing/formalization/` folder |
 
 ## Tested approaches and reasons to avoid repeating them unchanged
 

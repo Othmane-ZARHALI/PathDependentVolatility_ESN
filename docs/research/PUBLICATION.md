@@ -1,6 +1,6 @@
 # Research checkpoint and local artifact policy
 
-29 October 2026. The checkpoint preserves accumulated code, experiment reports, compact results, input/provenance records, source snapshots, figures, formal sources and the consolidated research record on the existing research branch. The 35 earlier local commits remain in its ancestry. No model adoption or market-fit certification follows from publication.
+29 October 2026. The checkpoint preserves accumulated code, experiment reports, compact results, input/provenance records, source snapshots, figures and the consolidated research record on the existing research branch. The 35 earlier local commits remain in its ancestry. No model adoption or market-fit certification follows from publication.
 
 ## What belongs in Git
 
@@ -9,6 +9,8 @@ Research source and tests, small run metadata, fitted candidate JSON files, CSV 
 New generated NPY/NPZ simulation arrays remain local and ignored, following the user's explicit retention choice. Small fixtures already tracked by earlier commits retain their existing Git status. [LOCAL_ARRAY_INVENTORY.json](LOCAL_ARRAY_INVENTORY.json) records local array paths, sizes, modification times and symlink targets. The approximately 54 GB total counts symlink references; regular array files account for about 47 GB. This inventory is not a remote backup of arrays.
 
 Raw email material, the prepared derivative package for the supplied October PDFs, temporary PDF review renders, compiled Python/C++/Lean caches and the redundant local recovery ZIP are excluded from Git. The original supplied PDFs and scientific result figures are retained. The recovery ZIP's contents can be verified from the recorded ancestor commit without uploading a duplicate 99 MB archive.
+
+At the user's request, `option_pricing/formalization/` and `option_pricing/literature/` are excluded from the branch and retained locally. A duplicate formalization folder inside a run's source snapshot is also excluded. Some historical reports refer to these local-only paths; formalization and literature details cannot be audited from a fresh checkout alone, and that run's snapshot is incomplete in a fresh checkout.
 
 ## Checks before cleanup
 

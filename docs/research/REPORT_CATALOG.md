@@ -161,7 +161,7 @@ Sources were inventoried in the working tree, including pre-existing uncommitted
 
 | Source | Subject | Kind |
 |---|---|---|
-| [CORRESPONDENCE.md](../../matteo/model_comparison/option_pricing/formalization/CORRESPONDENCE.md) | Lean checks for the joint curve fit | Report or record |
+| `option_pricing/formalization/CORRESPONDENCE.md` | Lean checks for the joint curve fit | Local-only record; excluded from branch |
 
 ## Figure documentation
 

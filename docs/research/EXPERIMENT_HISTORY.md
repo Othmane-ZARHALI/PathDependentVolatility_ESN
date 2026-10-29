@@ -112,7 +112,7 @@ Sources: [cap-tail](../../matteo/model_comparison/option_pricing/CAP_TAIL_RESULT
 
 **Learning and consequence.** Free enough shared variance budget before interpreting a shape failure. The marginal mechanism, scoped Lean statements and implemented pricing experiment have separate evidential roles.
 
-Sources: [wing findings](../../matteo/model_comparison/option_pricing/WING_MECHANISM_FINDINGS.md), [mixed response](../../matteo/model_comparison/option_pricing/MIXED_RESPONSE_RESULTS.md), [formal correspondence](../../matteo/model_comparison/option_pricing/formalization/CORRESPONDENCE.md).
+Sources: [wing findings](../../matteo/model_comparison/option_pricing/WING_MECHANISM_FINDINGS.md), [mixed response](../../matteo/model_comparison/option_pricing/MIXED_RESPONSE_RESULTS.md). The detailed formal correspondence is retained locally under `matteo/model_comparison/option_pricing/formalization/CORRESPONDENCE.md`.
 
 ## 12 Forward constraints and fitted floor
 

@@ -53,6 +53,8 @@ matteo/web_claude/*.json
 .ruff_cache/
 /tmp/
 /matteo/model_comparison/othmane_docs_20261026.prepared/
+**/model_comparison/option_pricing/formalization/
+**/model_comparison/option_pricing/literature/
 
 # Raw correspondence is local reference material, not a research export.
 /matteo/model_comparison/option_pricing/runs/m2_vix_design_research_001/email*
@@ -65,5 +67,4 @@ matteo/web_claude/*.json
 
 # Keep small scientific execution/audit logs alongside their run records.
 !/matteo/model_comparison/option_pricing/runs/**/*.log
-!/matteo/model_comparison/option_pricing/formalization/**/*.log
 /matteo/model_comparison/option_pricing/runs/**/execution_live.log
