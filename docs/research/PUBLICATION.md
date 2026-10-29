@@ -25,3 +25,7 @@ Raw email material, the prepared derivative package for the supplied October PDF
 After the remote checkpoint is verified, remove temporary PDF review renders, Python bytecode and test caches, and compiled `.dylib`, `.olean` and `.ilean` files. Keep every simulation array and its symlink. The compiled kernels and Lean outputs must be rebuilt before dependent tests or exact replays; the above test outcomes describe the pre-cleanup environment.
 
 Keep final PDFs, report source, figures, price tables, fitted parameters, run source snapshots, audit records, original literature and the local recovery ZIP. Git object storage and unrelated local materials are outside this cleanup. A separate cleanup receipt records the files actually removed after publication.
+
+## Cleanup completion
+
+The research checkpoint `2aa44db` was pushed and verified on the approved public research branch before cleanup. The [cleanup receipt](CLEANUP_RECEIPT.json) records 595 removed temporary or compiled files, totalling 20,945,437 bytes. No tracked file or simulation array was deleted. All 2379 inventoried array files and symlink references retained their paths, sizes, modification times and symlink targets. Research evidence preservation was checked again after cleanup.

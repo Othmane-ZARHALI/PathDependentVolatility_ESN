@@ -12,6 +12,7 @@ Read only what the next task needs:
 - [Evidence manifest](EVIDENCE_MANIFEST.json): source hashes, available run folders and missing referenced run folders.
 - [Consolidation checks](VALIDATION.md): preservation and navigation checks, plus existing evidence gaps.
 - [Checkpoint and artifact policy](PUBLICATION.md): publication checks, local array retention and the approved cleanup boundary.
+- [Cleanup receipt](CLEANUP_RECEIPT.json): temporary and compiled files removed after the verified push; simulation arrays retained.
 
 The existing [ten-page visual retrospective](../../output/pdf/concise/spx_vix_visual_summary.pdf) remains useful for the earlier mechanism comparisons. Its source, plot inputs and provenance remain in [the original report folder](../../output/pdf/concise). The new history and gallery add the 29 October filtering and protected-variance experiments.
 
