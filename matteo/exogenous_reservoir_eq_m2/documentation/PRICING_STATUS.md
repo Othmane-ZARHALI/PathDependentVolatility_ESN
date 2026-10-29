@@ -1,10 +1,12 @@
 # Dated pricing implementation status — 23 October 2026
 
+Detailed historical sources named without links are retained in the local archive.
+
 This is an implementation update to [CALIBRATION_PLAN.md](CALIBRATION_PLAN.md),
 not a change to the model or its historical research claims.
 
 Current user-authorized expansion is COMPLETE:
-[ALL_MATURITY_FIT_RESULTS.md](../../model_comparison/option_pricing/ALL_MATURITY_FIT_RESULTS.md).
+`ALL_MATURITY_FIT_RESULTS.md`.
 All seven retained SPX maturities (29/57/119/211/302/666/1030 days) enter actual
 recalibration, cutoff 3; exclude only 1/1401/1765/2129. The entire retained
 market population is now in sample: 1294 SPX options, 217 VIX options and all
@@ -22,7 +24,7 @@ All 182 Python tests and the thirteen scoped
 Lean identities (audit 006) pass; numerical accuracy remains unqualified.
 
 Latest completed checkpoint:
-[JOINT_STATE_REFINEMENT_RESULTS.md](../../model_comparison/option_pricing/JOINT_STATE_REFINEMENT_RESULTS.md)
+`JOINT_STATE_REFINEMENT_RESULTS.md`
 records seven restricted-state profiles and a nested five-piece curve test.
 State plus three-piece refitting selects C0=1/Y0=F0=0 and improves pooled loss
 355.46→316.93 on three new paired checks, with only 41/882 interval hits.
@@ -40,7 +42,7 @@ diagnostic's exposure of 35 reserved VIX strike keys; no held-out model scoring
 or parameter selection used them. Future evaluation on those keys is quote-exposed.
 
 Preceding curve-only fitting addition:
-[JOINT_CURVE_FIT_RESULTS.md](../../model_comparison/option_pricing/JOINT_CURVE_FIT_RESULTS.md)
+`JOINT_CURVE_FIT_RESULTS.md`
 records actual three-level curve optimization on all 707 cutoff-3 SPX options,
 all 175 VIX options and four forwards. All three fresh numerical comparisons
 improve; pooled loss 597.90→347.10, but VIX fit worsens in aggregate and only
@@ -49,7 +51,7 @@ Fast fixed-shock stock repricing and analytical derivatives are checked against
 the existing scheme. An explicit signed exploratory loss retains negatives;
 production validation stays strict. There are 170 passing Python tests and
 ten checked Lean identities with clean compiler/axiom audits. See the
-[formal scope](../../model_comparison/option_pricing/formalization/CORRESPONDENCE.md).
+`formal scope`.
 Next test restricted state while updating dated normalization; current curve-only
 exposures must not be reused unchanged. Numerical accuracy remains unresolved.
 
@@ -61,8 +63,8 @@ Seven new Gaussian/Black/forward/control tests pass (124 package tests total;
 variance-cost efficiency in both trials, 0.7483/0.8541. Retain original
 vol7/ridge5. Tiny conditional positive values are not raw exercise hits, and
 the two nominal SE passes remain tail-unresolved. No pricing or fit clearance.
-See [conditional-control results](../../model_comparison/option_pricing/SPX_CONDITIONAL_CONTROL_RESULTS.md)
-and [fitting reentry decision](../../model_comparison/option_pricing/FITTING_REENTRY_DECISION.md)
+See `conditional-control results`
+and `fitting reentry decision`
 for the derivation, retained failures and separate accuracy gates. The previously
 specified local profile was superseded by the actual joint fit above. Older
 numerical test counts below are historical.
@@ -134,13 +136,13 @@ numerical test counts below are historical.
   Brownian path shifts, including the correlated OU innovations and exact
   bounded target/proposal likelihood weights. Weighted controls use independent
   pilots. Gaussian joint-moment and Black tail oracles pass. See
-  [SPX_PATH_IMPORTANCE_RESULTS.md](../../model_comparison/option_pricing/SPX_PATH_IMPORTANCE_RESULTS.md)
+  `SPX_PATH_IMPORTANCE_RESULTS.md`
   for the bounded market diagnostic and separate grid/normalizer checks;
   these do not qualify the SPX surface or change VIX maturity scope.
 - `src/esn_eq/volatility_path_importance.py` builds orthonormal full-path scores
   for equity and conditional OU projection excursions. Exact joint likelihoods
   and independent Gaussian/Black oracles cover asymmetric volatility shifts.
-  The [volatility-sampling diagnostic](../../model_comparison/option_pricing/SPX_VOLATILITY_SAMPLING_RESULTS.md)
+  The `volatility-sampling diagnostic`
   separates proposal selection from fresh checking and retains pilot-half
   instability, negative estimates and all candidate results.
   Its selected 7-day proposal improves fresh observed variance in 20/24 cases
@@ -149,7 +151,7 @@ numerical test counts below are historical.
   results and give only a modest further gain. No market-fit clearance follows.
 - `src/esn_eq/mlmc.py` supplies independent-level mean/SE aggregation and a
   minimum-constrained, block-rounded variance/cost allocation. The
-  [SPX MLMC prototype](../../model_comparison/option_pricing/SPX_MLMC_RESULTS.md)
+  `SPX MLMC prototype`
   targets the 512-step discretized stock price using independent base and
   coupled-correction samples. Oracle tests cover exact constant-volatility
   corrections and Black expectations; cost/accuracy claims require fresh checks.
@@ -159,14 +161,14 @@ numerical test counts below are historical.
 - `src/esn_eq/bridge_coupling.py` implements an endpoint-preserving orthogonal
   Gaussian reflection and streaming original/reflected exact-OU paths.
   Target-law, transported-likelihood, Black and adapted stock-forward checks
-  pass. The [bridge study](../../model_comparison/option_pricing/SPX_BRIDGE_COUPLING_RESULTS.md)
+  pass. The `bridge study`
   finds modest correction variance reductions that do not pay for measured
   runtime. It remains a comparator; no price/timestep clearance follows.
 - `src/esn_eq/innovation_controls.py` records exact target-Q projected
   innovations from full-state conditional means on nested grids. Nine new
   predictable linear/square/equity-cross gains complement the stock hedges.
   Gaussian covariance, weighted martingale, Black and backward-correspondence
-  tests pass. The [innovation study](../../model_comparison/option_pricing/SPX_INNOVATION_CONTROL_RESULTS.md)
+  tests pass. The `innovation study`
   separates dictionary/regularization effects and charges measured recording
   and control runtime; variance reduction does not establish a bias clearance.
   Fresh central direct variance improves around 1.8–1.9, with nearly matching
@@ -184,7 +186,7 @@ constant-volatility grid test preserves stock paths up to floating-point
 error. These are numerical/implementation checks, not formal proofs.
 
 The market runner lives at
-[`../../model_comparison/option_pricing/m2_spx.py`](../../model_comparison/option_pricing/m2_spx.py).
+[`../../model_comparison/option_pricing/code/m2_spx.py`](../../model_comparison/option_pricing/code/m2_spx.py).
 It uses the frozen Stage-3 candidate 18/scenario 0, disables the unused echo
 calculation, sets orthogonal/echo readout loadings to zero, and records the
 complete resulting configuration. It reads training quotes only at 29/57 days.
@@ -198,12 +200,12 @@ at 4096 paths fail the planned quote-relative accuracy gate. Neither weak
 initial interval coverage nor apparent smile differences establish a model
 failure before fitting and numerical resolution.
 
-See [the market diagnostic record](../../model_comparison/option_pricing/M2_SPX_RESULTS.md)
+See `the market diagnostic record`
 for run configurations and outcomes. Original physical experiments and the
 legacy ESN sources remain preserved.
 
 The next conditional-VIX and SPX-control diagnostic record is
-[M2_VIX_RESULTS.md](../../model_comparison/option_pricing/M2_VIX_RESULTS.md).
+`M2_VIX_RESULTS.md`.
 That checkpoint recorded 60 passing package tests and six legacy checks. Its new
 VIX tests include a constant-volatility oracle, state-dependent conditional
 values, date-zero normalization, nested/quadrature correspondence, the outer
@@ -213,7 +215,7 @@ sampled payoffs are corrected by additive `tail_diagnostics.json` records;
 those original counters must not be read as successful tail-error gates.
 
 The requested coupled 64/128 SPX and fixed-state VIX checks have now run; see
-[FINE_GRID_RESULTS.md](../../model_comparison/option_pricing/FINE_GRID_RESULTS.md).
+`FINE_GRID_RESULTS.md`.
 SPX has not met quote-relative convergence tolerances. VIX quadrature window
 integration is stable across these grids at the three tested states, while
 nested inner sampling remains noisy. Standalone runner defaults are now 64
@@ -225,14 +227,14 @@ The following work targeted sampling efficiency and the common calibration objec
 with the nuisance-curve/state profiles retained from the existing plan.
 
 The common objective and faster time-integration checkpoint is recorded in
-[CALIBRATION_PROGRESS.md](../../model_comparison/option_pricing/CALIBRATION_PROGRESS.md).
+`CALIBRATION_PROGRESS.md`.
 That checkpoint recorded 68 passing package tests and eight legacy/driver checks.
 A restricted joint anchor score combines archived 256/day SPX prices at 29/57
 days with fresh VIX samples at all four maturities. It remains unfitted,
 numerically unresolved and subject to the original input-curve conflict.
 
 The subsequent sampling and constrained curve-initializer checkpoint is in
-[SAMPLING_PROGRESS.md](../../model_comparison/option_pricing/SAMPLING_PROGRESS.md).
+`SAMPLING_PROGRESS.md`.
 That checkpoint recorded 77 passing package tests and eight legacy/driver checks.
 The initializer satisfies necessary moment inequalities at quoted VIX means
 but substantially changes short-end stripped total variance. It is a starting
@@ -240,7 +242,7 @@ point, not a joint option fit. The next checkpoint below implements curve
 exposures and the preliminary VIX-only market optimization.
 
 The exposure cache and first exploratory two-coefficient VIX curve fit are
-now implemented; see [CURVE_PROFILE_RESULTS.md](../../model_comparison/option_pricing/CURVE_PROFILE_RESULTS.md).
+now implemented; see `CURVE_PROFILE_RESULTS.md`.
 All eight starts solve the fixed-sample problem, but the apparent improvement
 reverses on fresh checking scrambles. No reliable fit improvement or joint
 feasibility is established. Numerical comparison stability remains a priority.
@@ -253,7 +255,7 @@ remain unresolved, and the VIX sampling reversal prevents a reliable joint
 improvement claim.
 
 The subsequent diagnosis is in
-[NUMERICAL_STABILITY_RESULTS.md](../../model_comparison/option_pricing/NUMERICAL_STABILITY_RESULTS.md).
+`NUMERICAL_STABILITY_RESULTS.md`.
 At the reversal's 153-day VIX block, increasing conditional GH 32/48 and
 normalization 48/64 changes the fixed-candidate comparison by at most about
 0.0031 loss units, whereas changing the outer sample moves it about 10.8.
@@ -265,7 +267,7 @@ per trial; time bias and normalizer accuracy remain unresolved.
 There are now 84 passing package tests and nine passing legacy/driver checks.
 
 The proposed last-VIX-maturity deferral is examined in
-[VIX_SCOPE_DECISION.md](../../model_comparison/option_pricing/VIX_SCOPE_DECISION.md).
+`VIX_SCOPE_DECISION.md`.
 Dropping the 153-day options and forward from the fixed-candidate comparison
 does not eliminate its fitting/checking reversal; the 118-day block also
 matters. That checkpoint retained four expiries; the user's subsequent explicit
@@ -274,7 +276,7 @@ exploratory VIX scope was 27/55 days, while SPX scope stays unchanged.
 `active_scope.json` now records the subsequent restoration of all four maturities and forwards.
 
 The historical near-only refit is in
-[VIX_NEAR_RESULTS.md](../../model_comparison/option_pricing/VIX_NEAR_RESULTS.md).
+`VIX_NEAR_RESULTS.md`.
 Only one variance level is identifiable from the retained windows in the
 declared curve family. Fresh 8x128-state checks show consistent point rankings
 but only a 0.0352 loss-unit gain, smaller than its descriptive uncertainty.
@@ -287,7 +289,7 @@ forwards** for new analyses (175 options); no expiry is currently deferred.
 Historical near-only evidence is preserved. Numerical gates remain open.
 
 The first full-scope defensive-mixture importance-sampling pilot is in
-[VIX_IMPORTANCE_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_IMPORTANCE_SAMPLING_RESULTS.md).
+`VIX_IMPORTANCE_SAMPLING_RESULTS.md`.
 At 8x64 states per expiry it removes 17 zero-hit option estimates, but precision
 changes are mixed: many 55/118-day estimates improve, while 27-day and 153-day
 forward uncertainty worsens. Single-observation tail concentration persists;
@@ -295,7 +297,7 @@ no accuracy gate is cleared and no refit is performed. Current checks pass:
 87 package tests and 11 legacy/driver tests (98 total).
 
 The pilot-designed full-scope follow-up is in
-[VIX_PILOT_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_PILOT_SAMPLING_RESULTS.md).
+`VIX_PILOT_SAMPLING_RESULTS.md`.
 Fresh 8x128-point checks lower median option SE at all four maturities and remove
 15 ordinary-Sobol zero-hit option estimates. Raw forward SE increases at every
 expiry; simple independent-pilot mass centering gives mixed results and ten
@@ -307,7 +309,7 @@ uncertainty. No refit, final ranking, or held-out claim follows. All 101 tests
 pass; source/weight/summary correspondence checks pass separately.
 
 The frozen-proposal allocation follow-up is in
-[VIX_STRATIFIED_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_STRATIFIED_SAMPLING_RESULTS.md).
+`VIX_STRATIFIED_SAMPLING_RESULTS.md`.
 All four maturities remain included. Fixed allocation lowers forward SE at
 55/153 days but worsens it at 118 days; option precision is mixed. Both methods
 have no zero-hit option estimates, but no full accuracy gate passes. The fresh
@@ -321,7 +323,7 @@ proof of a normalization bug. Current validation: 106 tests and independent
 artifact correspondence checks pass; statistical/numerical gates remain open.
 
 The follow-up identity attribution is in
-[VIX_MOMENT_DIAGNOSIS.md](../../model_comparison/option_pricing/VIX_MOMENT_DIAGNOSIS.md).
+`VIX_MOMENT_DIAGNOSIS.md`.
 The independent, variance-inflated direct Gaussian calculation agrees with all
 four moment targets (27d: 542.49136 ± 0.09509 versus 542.49611). Gaussian-law
 composition agrees to floating-point precision. On all 1024 original 27d
@@ -337,7 +339,7 @@ validation: 113 tests plus source/statistics replay checks pass. Full price,
 quadrature and calibration gates remain open.
 
 The deterministic score-subspace sampling follow-up is in
-[VIX_SCORE_SAMPLING_RESULTS.md](../../model_comparison/option_pricing/VIX_SCORE_SAMPLING_RESULTS.md).
+`VIX_SCORE_SAMPLING_RESULTS.md`.
 The new `score_sampling.py` retains the full terminal state and uses exact
 bounded defensive-mixture weights. On fresh R16 x 64 equal-budget checking
 samples at all four maturities, the proposed rank-four covariance inflation
@@ -352,7 +354,7 @@ full states/weights plus 732 summary rows pass. Next use independent design
 pilots and fresh count refinements; no joint-fit ranking is accepted.
 
 The payoff-targeted independent-pilot follow-up is in
-[VIX_TARGETED_PILOT_RESULTS.md](../../model_comparison/option_pricing/VIX_TARGETED_PILOT_RESULTS.md).
+`VIX_TARGETED_PILOT_RESULTS.md`.
 Four disjoint pilot fits favor mean shifts in score-sensitive directions on
 historical design screening. Fresh R8 x 64 checks improve median option SE at
 55/153 days but worsen 27/118 days and all four forward SEs. Only 24/175
@@ -365,7 +367,7 @@ and full-state/weight/statistics replay checks pass. Next isolate component
 allocation effects and refine the offending moment on identical states.
 
 The saved-state attribution and fresh allocation checkpoint is in
-[VIX_ALLOCATION_REFINEMENT_RESULTS.md](../../model_comparison/option_pricing/VIX_ALLOCATION_REFINEMENT_RESULTS.md).
+`VIX_ALLOCATION_REFINEMENT_RESULTS.md`.
 All 512 offending 118-day states retain their original weights. Raising
 conditional GH32/M48 to GH48/M64 changes their moment by only -0.00603 ± 0.02206,
 leaving -11.81094; tested refinements do not explain that sample's warning.
@@ -378,7 +380,7 @@ replay, and 12288-state/weight/allocation replay pass. Next test known-mean
 Gaussian controls with independent pilot coefficients, preserving all bias gates.
 
 The Gaussian-control checkpoint is in
-[VIX_GAUSSIAN_CONTROL_RESULTS.md](../../model_comparison/option_pricing/VIX_GAUSSIAN_CONTROL_RESULTS.md).
+`VIX_GAUSSIAN_CONTROL_RESULTS.md`.
 `gaussian_controls.py` supplies exact-mean Gaussian linear/quadratic controls
 and replication-level ridge fitting. Independent pilot coefficients are frozen
 before fresh R16 x 128 checks; raw and controlled estimates share paths. Primary
@@ -392,7 +394,7 @@ Validation: 124 tests and replay of pilot fits, 8192 states/control rows and
 prioritizing long forwards and tails while keeping the full scope.
 
 The larger-pilot and 128/256 outer-count checkpoint is in
-[VIX_GAUSSIAN_STABILITY_RESULTS.md](../../model_comparison/option_pricing/VIX_GAUSSIAN_STABILITY_RESULTS.md).
+`VIX_GAUSSIAN_STABILITY_RESULTS.md`.
 The same nine controls/ridge use 28 compatible pilot replications, with two
 disjoint balanced 14-pilot fits and the original 12-pilot matrix retained.
 Fresh R12 x 256 pooled forward SEs pass the observed screen at all four
@@ -406,7 +408,7 @@ Gaussian tail controls on independent design pilots, preserving the full scope.
 
 The user has asked to record the VIX tail-control extension and move forward
 for now, retaining all maturities. The pending extension and next SPX diagnostic
-work are recorded in [NEXT_STEPS.md](../../model_comparison/option_pricing/NEXT_STEPS.md).
+work are recorded in `NEXT_STEPS.md`.
 All four VIX maturities, 175 training options and four forwards remain active;
 `active_scope.json` is unchanged. The tail-control pilot is pending, not launched,
 and the working interpretation is to resume SPX numerical diagnostics. No VIX
@@ -439,7 +441,7 @@ The 22 October linear-only SPX follow-up reports about 1.14x central measured
 variance-cost efficiency in two fresh direct512 trials. It remains experimental:
 0/24 quote-relative sampling screens pass, a negative far-put estimate is driven
 by a single high-leverage path, and pilot sensitivity remains severe (30.52x SE).
-See `matteo/model_comparison/option_pricing/SPX_LINEAR_INNOVATION_RESULTS.md`.
+See `matteo/model_comparison/option_pricing/reports/spx_and_protection/SPX_LINEAR_INNOVATION_RESULTS.md`.
 No model refit or continuous-time clearance follows; all VIX maturities remain.
 
 The cutoff-3 SPX representative panel now checks 24 contracts across 29/57/211/
@@ -449,7 +451,7 @@ primary quote-relative sampling screens fail and linear-control full-panel
 variance-cost gains are below 1 in all eight checks. Sparse long outer-call
 pilots/checks and up to 99.6% residual concentration remain. This does not clear
 stock/normalizer bias or market refitting. See
-`matteo/model_comparison/option_pricing/SPX_CENTRAL_PANEL_RESULTS.md`.
+`matteo/model_comparison/option_pricing/reports/spx_and_protection/SPX_CENTRAL_PANEL_RESULTS.md`.
 All four VIX maturities remain active.
 
 On 23 October, the fixed +3 upward-equity sampling comparison increases outer-call
@@ -457,7 +459,7 @@ coverage at all four SPX training maturities but does not show a robust general
 variance-cost win. All 480 estimates are nonnegative; all primary precision
 screens still fail. Original vol7/ridge5 remains reference, cutoff 3 remains
 selected and all VIX maturities stay active. See
-`matteo/model_comparison/option_pricing/SPX_CALL_TILT_RESULTS.md` for fixed-beta,
+`matteo/model_comparison/option_pricing/reports/spx_and_protection/SPX_CALL_TILT_RESULTS.md` for fixed-beta,
 pilot-learning, likelihood/martingale checks and all warnings. A conditional-SPX
 Gaussian integration route is recorded as a pending structural investigation;
 it has not yet been implemented or validated.
@@ -469,6 +471,6 @@ clearance or replacement of original vol7/ridge5. Conditional raw payoffs are
 nonnegative, but six zero-hit cases demonstrate persistent rare-volatility-path
 sampling uncertainty. Gaussian/source/covariance and Black oracles pass; an
 endpoint-rounding oracle failure was corrected and recorded. All 159 tests pass.
-See `matteo/model_comparison/option_pricing/SPX_CONDITIONAL_PRICING_RESULTS.md`.
+See `matteo/model_comparison/option_pricing/reports/spx_and_protection/SPX_CONDITIONAL_PRICING_RESULTS.md`.
 A conditional-control/retained-shock proposal extension remains pending. All
 SPX priority quotes and VIX maturities stay included; bias gates stay separate.

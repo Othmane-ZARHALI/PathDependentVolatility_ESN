@@ -1,7 +1,0 @@
-.Convolution table/fallback/max-knots counters: [1, 0, 1394]
-.Convolution correspondence max value-relative / derivative-scaled errors: 4.832967359647e-10 2.150456850782232e-07
-.
-----------------------------------------------------------------------
-Ran 3 tests in 3.763s
-
-OK

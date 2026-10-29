@@ -1,9 +1,0 @@
-{
-  "scalar_target_statistics_max_error": 6.938893903907228e-18,
-  "scalar_reference_statistics_max_error": 2.4424906541753444e-15,
-  "maximum_standardized_stress_increment_covariance_error": 1.8620435157169154e-16,
-  "rotation_minimum_covariance_eigenvalue": 0.0,
-  "positive_spike_shift": 0.36972997251720613,
-  "all_checks_passed": true,
-  "scope": "Independent scalar numerical oracles and analytic finite-step covariance checks; not a proof of continuous-time martingality or sampling convergence"
-}

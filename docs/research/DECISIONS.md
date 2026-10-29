@@ -1,17 +1,19 @@
 # Research decisions and open questions
 
+Detailed historical sources named without links are retained in the local archive.
+
 Snapshot: 29 October 2026. This is a synthesis of recorded decisions and outcomes, with source links. It adds no modelling authorization or candidate adoption.
 
 ## Constraints and evidence standards to retain
 
 | Decision | Consequence | Source |
 |---|---|---|
-| Retain the exogenous M2 structure as far as possible | A new readout is different from feedback into OU dynamics; establish the version before comparing models | [Ledger](../../matteo/model_comparison/option_pricing/RESEARCH_LEDGER.md) |
+| Retain the exogenous M2 structure as far as possible | A new readout is different from feedback into OU dynamics; establish the version before comparing models | `Ledger` |
 | Strictly positive spike shift and q_J | Historical zero-shift runs remain historical references | [Calibration plan](../../matteo/exogenous_reservoir_eq_m2/documentation/CALIBRATION_PLAN.md) |
 | All retained maturities, cutoff 3, native quotes and signed estimates | No hidden quote exclusions, clipped negatives or smoothed smiles | [Current scope](../../matteo/model_comparison/option_pricing/active_scope.json) |
-| Current feasibility work is in sample | Fresh random draws do not create market holdout evidence | [All-maturity result](../../matteo/model_comparison/option_pricing/ALL_MATURITY_FIT_RESULTS.md) |
+| Current feasibility work is in sample | Fresh random draws do not create market holdout evidence | `All-maturity result` |
 | Preserve the experimental record | Keep unsuccessful tests, learnings, pictures and raw-source links | User direction in the consolidation conversation |
-| Quintic and jumps remain deferred | Their mention in literature or brainstorming is not a completed M2 remedy | [Ledger](../../matteo/model_comparison/option_pricing/RESEARCH_LEDGER.md) |
+| Quintic and jumps remain deferred | Their mention in literature or brainstorming is not a completed M2 remedy | `Ledger` |
 | Keep mathematical, numerical and implementation evidence distinct | Scoped Lean checks and finite probes retain their original assumptions | Formal correspondence is retained in the local `option_pricing/formalization/` folder |
 
 ## Tested approaches and reasons to avoid repeating them unchanged

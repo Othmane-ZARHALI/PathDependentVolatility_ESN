@@ -1,7 +1,0 @@
-{
-  "status": "completed",
-  "scope": "Three representative outer states per expiry (first, largestVIX, largest weighted highest-strike payoff), all four dates, three fixed-curve profiles; no full-surface/global convergence claim",
-  "maximum_conditional_GH_change": 2.2615240595769137e-06,
-  "maximum_time_change": 3.391539848962566e-08,
-  "source_sha256": "b5248e01e1c01362c7c68643b1fef1309eb4f4354a95a4c223b700c81fcf879f"
-}

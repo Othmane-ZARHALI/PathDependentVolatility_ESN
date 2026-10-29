@@ -2,6 +2,8 @@
 
 Snapshot: 29 October 2026. This brief supersedes the long continuation instructions for navigation; original reports retain their historical findings and limitations.
 
+The option-pricing package now groups reports in `reports/`, implementation and C++ kernels in `code/`, and tests in `code/tests/`. Original module names remain available in the complete local workspace; the public subset retains the original M2 diagnostics and the extracted current-reference components. See [the reorganization and PR review](REORGANIZATION.md).
+
 ## Objective and present conclusion
 
 Seek an interpretable common SPX/VIX model, retaining as much of exogenous M2 as possible. Two stress speeds gave the strongest partial VIX fit. Correlating stock with stress improved SPX while protecting that VIX law. Subsequent curve, asymmetric readout, slow-signal, linear-filter and protected-generator tests have left substantial SPX downside-IV errors. No satisfactory joint calibration or adoption of the latest candidates is established. See [the history](EXPERIMENT_HISTORY.md) and [figures](VISUAL_EVIDENCE.md).
@@ -24,7 +26,7 @@ v_t=f+(\xi(t)-f)H_t,\qquad
 H_t=(1-w)R_t+w[(1-r)A_t^s+rA_t^f],
 \]
 
-where each independent Gaussian-OU exponential stress response A has mean one. The VIX-only fitted reference has stress weight about 0.922838, half-lives 365 and 71.3905 days, and volatility floor 12%, so f=0.0144. Its artifact is [experimental_model_two_speed.json](../../matteo/model_comparison/option_pricing/runs/m2_two_speed_001/experimental_model_two_speed.json). This is an experimental reference, not a newly adopted production model. Later SPX tests generally freeze this variance law and use stock/stress rotation theta=0.8; read the individual report for its precise baseline and reused auxiliary reference.
+where each independent Gaussian-OU exponential stress response A has mean one. The VIX-only fitted reference has stress weight about 0.922838, half-lives 365 and 71.3905 days, and volatility floor 12%, so f=0.0144. Its artifact is [experimental_model_two_speed.json](../../matteo/model_comparison/option_pricing/model/experimental_model_two_speed.json). This is an experimental reference, not a newly adopted production model. Later SPX tests generally freeze this variance law and use stock/stress rotation theta=0.8; read the individual report for its precise baseline and reused auxiliary reference.
 
 The earlier physical-measure Stage-3 baseline, original pricing anchor, VIX-only two-speed reference, joint-refit candidate and later SPX experiment baselines have different roles. Do not select one by recency or compare their losses across different estimators and scopes.
 

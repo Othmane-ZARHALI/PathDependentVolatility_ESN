@@ -1,6 +1,0 @@
-{
-  "status": "preflight stopped before price experiment",
-  "reason": "Identical-model test fixture combined fine target stress and held reference stress; corrected by using identical fine reference grid in that limit.",
-  "successor": "m2_two_speed_precision_002",
-  "model_changed": false
-}

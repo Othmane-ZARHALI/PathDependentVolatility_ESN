@@ -1,12 +1,16 @@
 # Research checkpoint and local artifact policy
 
+
+The checkpoint policy below records the earlier publication. The current branch is being curated according to [the reorganization record](REORGANIZATION.md); detailed run artifacts and experiment sources described below are now local-only. Earlier commits retain their previously published content.
+Detailed historical sources named without links are retained in the local archive.
+
 29 October 2026. The checkpoint preserves accumulated code, experiment reports, compact results, input/provenance records, source snapshots, figures and the consolidated research record on the existing research branch. The 35 earlier local commits remain in its ancestry. No model adoption or market-fit certification follows from publication.
 
 ## What belongs in Git
 
 Research source and tests, small run metadata, fitted candidate JSON files, CSV diagnostics, selected audit logs, figures and final report artifacts are versioned. The evidence manifest records original hashes for 148 research documents. The duplicate snapshot ZIP, raw test transcripts and internal Git-status dump remain local and are excluded from the branch. Existing tracked deletions are recorded; their committed historical bytes remain accessible through the ancestor and recovery manifest.
 
-New generated NPY/NPZ simulation arrays remain local and ignored, following the user's explicit retention choice. Small fixtures already tracked by earlier commits retain their existing Git status. [LOCAL_ARRAY_INVENTORY.json](LOCAL_ARRAY_INVENTORY.json) records local array paths, sizes, modification times and symlink targets. The approximately 54 GB total counts symlink references; regular array files account for about 47 GB. This inventory is not a remote backup of arrays.
+New generated NPY/NPZ simulation arrays remain local and ignored, following the user's explicit retention choice. Small fixtures already tracked by earlier commits retain their existing Git status. `LOCAL_ARRAY_INVENTORY.json` records local array paths, sizes, modification times and symlink targets. The approximately 54 GB total counts symlink references; regular array files account for about 47 GB. This inventory is not a remote backup of arrays.
 
 Raw email material, the prepared derivative package for the supplied October PDFs, temporary PDF review renders, compiled Python/C++/Lean caches and the redundant local recovery ZIP are excluded from Git. The original supplied PDFs and scientific result figures are retained. The recovery ZIP's contents can be verified from the recorded ancestor commit without uploading a duplicate 99 MB archive.
 
@@ -30,4 +34,4 @@ Keep final PDFs, report source, figures, price tables, fitted parameters, run so
 
 ## Cleanup completion
 
-The research checkpoint `2aa44db` was pushed and verified on the approved public research branch before cleanup. The [cleanup receipt](CLEANUP_RECEIPT.json) records 595 removed temporary or compiled files, totalling 20,945,437 bytes. No tracked file or simulation array was deleted. All 2379 inventoried array files and symlink references retained their paths, sizes, modification times and symlink targets. Research evidence preservation was checked again after cleanup.
+The research checkpoint `2aa44db` was pushed and verified on the approved public research branch before cleanup. The `cleanup receipt` records 595 removed temporary or compiled files, totalling 20,945,437 bytes. No tracked file or simulation array was deleted. All 2379 inventoried array files and symlink references retained their paths, sizes, modification times and symlink targets. Research evidence preservation was checked again after cleanup.

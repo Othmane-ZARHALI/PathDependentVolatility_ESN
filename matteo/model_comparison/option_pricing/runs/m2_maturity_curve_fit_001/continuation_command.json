@@ -1,9 +1,0 @@
-{
-  "date": "2026-10-25",
-  "command": "OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 /private/tmp/pdv-options-venv/bin/python -u -m matteo.model_comparison.option_pricing.resume_maturity_curve --output matteo/model_comparison/option_pricing/runs/m2_maturity_curve_fit_001",
-  "log": "/private/tmp/m2-maturity-curve-resume-001.log",
-  "baseline_reused": true,
-  "original_pause_record": "paused.json",
-  "tests": "python -m unittest matteo.model_comparison.option_pricing.test_maturity_curve matteo.model_comparison.option_pricing.test_forward_variance_constraints",
-  "tests_passed": 10
-}

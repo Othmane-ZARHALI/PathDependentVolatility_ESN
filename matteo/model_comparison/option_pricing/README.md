@@ -1,21 +1,23 @@
 <!-- Research consolidation 2026-10-29 -->
-**Current research entry point:** [continuation brief](../../../docs/research/CURRENT_STATE.md), [experiment history](../../../docs/research/EXPERIMENT_HISTORY.md), and [preserved figures](../../../docs/research/VISUAL_EVIDENCE.md). The content below retains historical stages and decisions; current scope comes from the brief and `active_scope.json`. Dated proposals may have been completed by later experiments.
+
+Detailed historical sources named without links are retained in the local archive.
+**Current research entry point:** [continuation brief](../../../docs/research/CURRENT_STATE.md), [experiment history](../../../docs/research/EXPERIMENT_HISTORY.md), and [preserved figures](../../../docs/research/VISUAL_EVIDENCE.md). The content below retains historical stages and decisions; current scope comes from the brief and `active_scope.json`. Dated proposals may have been completed by later experiments. Reports are grouped by topic in `reports/`, implementation and kernels are in `code/`, and tests are in `code/tests/`. Existing Python module names remain available.
 
 # ESN/M2 option-pricing benchmark
 
-**Start here for the accumulated research:** [RESEARCH_LEDGER.md](RESEARCH_LEDGER.md)
+**Start here for the accumulated research:** `RESEARCH_LEDGER.md`
 groups the fitting attempts, VIX/SPX numerical experiments, decisions and current
-queue. [CONTINUE_FITTING_PROMPT.md](CONTINUE_FITTING_PROMPT.md) contains the
+queue. `CONTINUE_FITTING_PROMPT.md` contains the
 copy-and-paste prompt for continuing in a new conversation.
 
 First milestone: review and diagnose the preserved ESN engine before building
-M2 option pricing. See [AUDIT.md](AUDIT.md) for code/report inconsistencies.
-See [RESULTS.md](RESULTS.md) for the three initial diagnostic runs and their limits.
+M2 option pricing. See `AUDIT.md` for code/report inconsistencies.
+See `RESULTS.md` for the three initial diagnostic runs and their limits.
 No original ESN sources or historical experiment records are changed.
 
 The dated M2 SPX prototype, common price targets, conditional VIX engines and
 SPX independent-pilot controls are now implemented. See
-[M2_SPX_RESULTS.md](M2_SPX_RESULTS.md) and [M2_VIX_RESULTS.md](M2_VIX_RESULTS.md)
+`M2_SPX_RESULTS.md` and `M2_VIX_RESULTS.md`
 for unfitted diagnostics. Numerical accuracy gates and joint fitting remain open.
 
 ```sh
@@ -42,7 +44,7 @@ New M2 runs capture executable sources before calculation, reject mid-run
 source changes, and save the snapshot under each run's `source/` directory.
 
 The 64/128-step-per-day checks are recorded in
-[FINE_GRID_RESULTS.md](FINE_GRID_RESULTS.md). Use the bounded-memory driver:
+`FINE_GRID_RESULTS.md`. Use the bounded-memory driver:
 
 ```sh
 python -m matteo.model_comparison.option_pricing.fine_grid --mode spx \
@@ -81,51 +83,51 @@ conditional M2 VIX pricer; joint fitting; physical-fit and held-out evaluation.
 
 The shared price loss, synthetic optimizer check, Gaussian VIX time rule and
 first restricted joint anchor score are recorded in
-[CALIBRATION_PROGRESS.md](CALIBRATION_PROGRESS.md). Reproduce with fresh output
+`CALIBRATION_PROGRESS.md`. Reproduce with fresh output
 directories using `vix_time_rule` and `joint_diagnostic` as described there.
 Neither diagnostic performs market calibration or establishes price accuracy.
 
-The next sampling/profile checkpoint is [SAMPLING_PROGRESS.md](SAMPLING_PROGRESS.md).
+The next sampling/profile checkpoint is `SAMPLING_PROGRESS.md`.
 It records the matched-cost iid/Sobol experiment and a constrained nuisance-curve
 starting point, with commands for `vix_outer_sampling` and `curve_initializer`.
 
 Cached exposures, the exploratory VIX curve fit and fresh-scramble checking are
-recorded in [CURVE_PROFILE_RESULTS.md](CURVE_PROFILE_RESULTS.md). Commands are
+recorded in `CURVE_PROFILE_RESULTS.md`. Commands are
 `vix_curve_fit` and `curve_spx_check`. The fixed-sample fit improvement reverses
 on checking scrambles; it must not be promoted as a reliable market fit.
 
-[NUMERICAL_STABILITY_RESULTS.md](NUMERICAL_STABILITY_RESULTS.md) investigates
+`NUMERICAL_STABILITY_RESULTS.md` investigates
 that reversal and the SPX sampling bottleneck. It includes the paired audit,
 matched-state quadrature check, independent pilot coverage audit and a
 three-grid SPX hedging-control experiment. No full-surface convergence is claimed.
 
-[VIX_SCOPE_DECISION.md](VIX_SCOPE_DECISION.md) records the scope history.
+`VIX_SCOPE_DECISION.md` records the scope history.
 **The active analysis scope is again all four VIX maturities: 27/55/118/153
 days, 175 training options and four forwards**, following the user's latest
 instruction. SPX scope is unchanged. `active_scope.json` is authoritative.
-The earlier near-only refit in [VIX_NEAR_RESULTS.md](VIX_NEAR_RESULTS.md) is
+The earlier near-only refit in `VIX_NEAR_RESULTS.md` is
 historical; its gain was smaller than numerical uncertainty. Reproducing it
 requires `vix_near_fit --scope .../near_scope_historical.json` explicitly.
 New full-scope sampling diagnostics use `vix_importance_sampling`.
 
-[VIX_PILOT_SAMPLING_RESULTS.md](VIX_PILOT_SAMPLING_RESULTS.md) follows up with
+`VIX_PILOT_SAMPLING_RESULTS.md` follows up with
 pilot-learned defensive proposals, frozen before larger fresh all-four-maturity
 checks (`vix_pilot_sampling`). `vix_sampling_rank_audit` then evaluates the two
 original frozen curves on the same weighted observations, without refitting.
 
-[VIX_STRATIFIED_SAMPLING_RESULTS.md](VIX_STRATIFIED_SAMPLING_RESULTS.md) compares
+`VIX_STRATIFIED_SAMPLING_RESULTS.md` compares
 fresh random and fixed component allocations under the identical frozen
 proposal (`vix_stratified_sampling`). The exact allocation correction and
 component-wise prefix handling are recorded and checked by
 `verify_vix_stratified_sampling`; all four maturities remain included.
 
-[VIX_MOMENT_DIAGNOSIS.md](VIX_MOMENT_DIAGNOSIS.md) attributes the new consistency
+`VIX_MOMENT_DIAGNOSIS.md` attributes the new consistency
 warning using direct Gaussian expectations, exact old-state refinements and
 multiplier-tail diagnostics. It favors outer sampling sensitivity at the frozen
 model; it does not patch normalization or certify prices. All four maturities
 remain included. `verify_vix_moment_diagnostics` replays artifact checks.
 
-[VIX_SCORE_SAMPLING_RESULTS.md](VIX_SCORE_SAMPLING_RESULTS.md) tests a deterministic
+`VIX_SCORE_SAMPLING_RESULTS.md` tests a deterministic
 model-score subspace proposal against the frozen pilot-learned mean mixture on
 fresh matched-budget R16 x 64 draws, with all four maturities retained. The
 proposal broadens four directions while retaining the full 36-dimensional state
@@ -133,7 +135,7 @@ and exact weights. `verify_vix_score_sampling` replays full states, weights and
 statistics; `audit_vix_score_sampling` produces descriptive method comparisons.
 This experiment does not refit the model or impose the moment identity.
 
-[VIX_TARGETED_PILOT_RESULTS.md](VIX_TARGETED_PILOT_RESULTS.md) compares four
+`VIX_TARGETED_PILOT_RESULTS.md` compares four
 independent payoff-learning pilots, explicitly repurposing old checks as design
 data, then checks one frozen mean-shift proposal on fresh equal-budget draws.
 The new proposal helps some option families but worsens every forward SE and
@@ -141,7 +143,7 @@ has a new 118-day moment warning. It remains experimental. Reproduction uses
 `vix_targeted_pilots`, `vix_targeted_check` and their corresponding verifier
 modules; all four maturities and forwards are retained.
 
-[VIX_ALLOCATION_REFINEMENT_RESULTS.md](VIX_ALLOCATION_REFINEMENT_RESULTS.md)
+`VIX_ALLOCATION_REFINEMENT_RESULTS.md`
 replays the exact 118-day warning states at higher conditional and normalizer
 orders, then compares random and fixed allocations under the identical frozen
 17-component density on fresh R12 x 128 draws. The density weights and allocation
@@ -149,7 +151,7 @@ corrections are recorded separately; all four maturities remain active.
 Reproduce with `vix_targeted_refinement`, `vix_targeted_allocation` and their
 corresponding verifiers; the same-density comparator is random targeted sampling.
 
-[VIX_GAUSSIAN_CONTROL_RESULTS.md](VIX_GAUSSIAN_CONTROL_RESULTS.md) trains nine
+`VIX_GAUSSIAN_CONTROL_RESULTS.md` trains nine
 Gaussian controls on independent complete pilot replications, then compares
 raw/mass/pooled/half-pilot estimates on identical fresh R16 x 128 paths at all
 four maturities. Primary forward SE decreases everywhere; 27/55-day forward
@@ -157,26 +159,26 @@ SE screens pass, but longer maturities, pilot stability and most option quotes
 remain unresolved. Commands: `vix_gaussian_controls`,
 `verify_vix_gaussian_controls`, `audit_vix_gaussian_controls`.
 
-[VIX_GAUSSIAN_STABILITY_RESULTS.md](VIX_GAUSSIAN_STABILITY_RESULTS.md) increases
+`VIX_GAUSSIAN_STABILITY_RESULTS.md` increases
 compatible independent pilot replications from 12 to 28, retains the old fit,
 and checks pooled/balanced pilot fits on fresh nested 128/256-point nets at
 all four maturities. Reproduce with `vix_gaussian_stability`,
 `verify_vix_gaussian_stability` and `audit_vix_gaussian_stability`. Historical
 observations used for the larger pilot are explicitly design data.
 
-[NEXT_STEPS.md](NEXT_STEPS.md) records the user's direction to leave the VIX
+`NEXT_STEPS.md` records the user's direction to leave the VIX
 tail-control extension pending, retain all four maturities/forwards, and move
 forward. It records SPX numerical diagnostics as the working next focus, with
 all existing scope and accuracy limitations preserved.
 
-[SPX_PATH_IMPORTANCE_RESULTS.md](SPX_PATH_IMPORTANCE_RESULTS.md) records the
+`SPX_PATH_IMPORTANCE_RESULTS.md` records the
 SPX full-path Gaussian shift pilot, exact likelihood weights and independent
 hedging-control pilots, with coupled 64/128/256 grids and separate GH48/64
 normalizer changes. Reproduce with `spx_path_importance`; replay checking draws
 and source integrity with `verify_spx_path_importance`. The diagnostic preserves
 all maturity/split scopes and does not authorize market refitting.
 
-[SPX_VOLATILITY_SAMPLING_RESULTS.md](SPX_VOLATILITY_SAMPLING_RESULTS.md) extends
+`SPX_VOLATILITY_SAMPLING_RESULTS.md` extends
 the full-path proposal to orthonormal Gaussian directions targeting OU
 volatility excursions. Independent training/selection/checking streams retain
 all candidates and full/half-pilot control fits. Commands:
@@ -187,20 +189,20 @@ path-moment controls before completed checking data; replay its coefficients
 and all estimates with `verify_spx_path_score_controls`. The additional gain
 is modest and all accuracy limitations remain.
 
-[SPX_MLMC_RESULTS.md](SPX_MLMC_RESULTS.md) records the independent-level
+`SPX_MLMC_RESULTS.md` records the independent-level
 64/128/256/512-step multilevel prototype, correction-specific pilot controls,
 standalone level costs and frozen variance/cost allocation. Fresh direct
 512-step comparisons target the same discretized price. Reproduction and
 artifact checks use `spx_mlmc`, `verify_spx_mlmc` and `audit_spx_mlmc`.
 
-[SPX_BRIDGE_COUPLING_RESULTS.md](SPX_BRIDGE_COUPLING_RESULTS.md) tests
+`SPX_BRIDGE_COUPLING_RESULTS.md` tests
 endpoint-preserving Gaussian reflection with transported importance weights.
 Ordinary/reflected corrections use independent pilot fits and shared fresh
 pairs; actual standalone ordinary costs are measured. The reflection is valid
 but its tested variance savings do not cover runtime. Reproduce/replay with
 `spx_bridge_coupling`, `verify_spx_bridge_coupling` and `audit_spx_bridge_coupling`.
 
-[SPX_INNOVATION_CONTROL_RESULTS.md](SPX_INNOVATION_CONTROL_RESULTS.md) tests
+`SPX_INNOVATION_CONTROL_RESULTS.md` tests
 full-state-centered OU innovation controls for direct prices and coupled
 128/256/512 corrections. It retains baseline/augmented ridge, legacy OLS and
 half-pilot variants on fresh shared paths. Reproduce/replay with
@@ -213,7 +215,7 @@ for future fresh checking, not a rewrite of the completed experiment.
 
 ## Linear-only direct512 check (22 October 2026)
 
-[SPX_LINEAR_INNOVATION_RESULTS.md](SPX_LINEAR_INNOVATION_RESULTS.md) records the
+`SPX_LINEAR_INNOVATION_RESULTS.md` records the
 implemented three-control branch and a fresh 512-path pilot plus two 1024-path
 checks. Central variance gains 1.7953/1.7105 outweigh measured standalone pipeline
 cost multipliers 1.5718/1.5030 by only 1.1422/1.1381. It remains experimental:
@@ -226,7 +228,7 @@ replay. Baseline remains reference; all four VIX maturities stay active.
 
 ## Moneyness and positivity follow-up (22 October 2026)
 
-[SPX_MONEYNESS_POSITIVITY_AUDIT.md](SPX_MONEYNESS_POSITIVITY_AUDIT.md) checks saved
+`SPX_MONEYNESS_POSITIVITY_AUDIT.md` checks saved
 linear-control results. All 12 representatives are technically OTM; the four
 about 2% from the forward are positive, with only 0.993–1.026x half-pilot SE
 ratios. All eight negative estimates across pooled/half-pilot methods are puts
@@ -240,7 +242,7 @@ in `runs/m2_spx_moneyness_audit_001`.
 
 ## Maturity-scaled SPX central band
 
-[SPX_SCALED_MONEYNESS_COVERAGE.md](SPX_SCALED_MONEYNESS_COVERAGE.md) implements
+`SPX_SCALED_MONEYNESS_COVERAGE.md` implements
 training-only market-IV-scaled log-moneyness. The z<=2 priority band includes
 566/980 SPX training quotes (57.8%), over half at each of 29/57/211/302 days.
 The 648 count used for short-maturity studies refers only to 29/57 days, not
@@ -258,7 +260,7 @@ wing warnings remain recorded; no new pricing accuracy claim follows.
 
 ## Cutoff-3 representative sampling panel completed
 
-[SPX_CENTRAL_PANEL_RESULTS.md](SPX_CENTRAL_PANEL_RESULTS.md) freezes 24 contracts
+`SPX_CENTRAL_PANEL_RESULTS.md` freezes 24 contracts
 (put/call at z near .5/1.5/2.5 at all 29/57/211/302-day maturities), then runs
 128-path independent pilots and two fresh 256-path checks per expiry at 512 steps/day.
 All 384 estimates are nonnegative; 46/48 primary variance comparisons improve,
@@ -276,7 +278,7 @@ maturities remain active; all 707 cutoff-3 quotes remain the priority population
 
 ## Upward-equity sampling and pilot-size follow-up (23 October 2026)
 
-[SPX_CALL_TILT_RESULTS.md](SPX_CALL_TILT_RESULTS.md) records a pilot-only component
+`SPX_CALL_TILT_RESULTS.md` records a pilot-only component
 analysis, then fresh original/+3 equity-tilt comparisons on the same 24 contracts.
 Each proposal gets 256-path pilots and two 256-path checks at 512 steps/day. All 480 estimates
 are nonnegative and all eight outer-call checking hit counts increase. However,
@@ -294,7 +296,7 @@ recorded as pending, not an implemented positivity or pricing fix.
 
 ## Partial conditional SPX investigation (23 October 2026)
 
-[SPX_CONDITIONAL_PRICING_RESULTS.md](SPX_CONDITIONAL_PRICING_RESULTS.md) derives
+`SPX_CONDITIONAL_PRICING_RESULTS.md` derives
 and prototypes Gaussian integration of the primitive equity noise independent
 of all OU drivers. The frozen correlations leave only 0.636685% independent
 equity variance. Conditional raw payoff averages are nonnegative by construction;

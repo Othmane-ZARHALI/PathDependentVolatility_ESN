@@ -1,7 +1,0 @@
-test_anchor_criteria_order (matteo.model_comparison.option_pricing.test_parity_parameter_constraints.ConstrainedMeritTests.test_anchor_criteria_order) ... ok
-test_both_conventions_criteria_and_merit_derivatives (matteo.model_comparison.option_pricing.test_parity_parameter_constraints.ConstrainedMeritTests.test_both_conventions_criteria_and_merit_derivatives) ... ok
-
-----------------------------------------------------------------------
-Ran 2 tests in 0.043s
-
-OK

@@ -1,5 +1,7 @@
 # One-date P/Q calibration plan for the exogenous-reservoir model
 
+Detailed historical sources named without links are retained in the local archive.
+
 Status: implementation plan, revised 30 September 2026 after consistency review and the SPX stability study. Follow [the option preprocessing plan](OPTION_PREPROCESSING_PLAN.md) first. This is a handoff specification, not a claim of an achieved fit. The primary pilot is tempered Gaussian-reservoir M2, with no echo or orthogonal loading. The model PDFs in this directory define the equations; their suggested calibration sequence is treated as research guidance rather than an instruction that overrides the observed data.
 
 Implementation update, 21 October 2026: the common target loader, dated M2
@@ -15,7 +17,7 @@ and all four forwards for new analyses. This supersedes the earlier same-day
 near-only decision. SPX scope is unchanged. Historical near-only results and
 all numerical/input conflicts remain preserved. Restoration does not certify
 convergence or feasibility. See `../../model_comparison/option_pricing/active_scope.json`
-and [VIX_SCOPE_DECISION.md](../../model_comparison/option_pricing/VIX_SCOPE_DECISION.md).
+and `VIX_SCOPE_DECISION.md`.
 
 ## Objective, information boundary, and claims
 
@@ -49,11 +51,11 @@ This supersedes the zero endpoint of the illustrative $\beta_J\in[0,0.5]$
 search bounds above. The first raw-estimator eleven-parameter attempt selected
 $\beta_J=0.01$ at its declared positive lower bound, without establishing a
 reliable joint fit; see
-[FULL_READOUT_FIT_RESULTS.md](../../model_comparison/option_pricing/FULL_READOUT_FIT_RESULTS.md).
+`FULL_READOUT_FIT_RESULTS.md`.
 The later restored-precision exploration selected $\beta_J=0.29972997$ and
 substantially improves the estimated joint objective on separate numerical
 checking streams, with remaining signed/shape failures and boundary limitations;
-see [CONTROLLED_READOUT_EXPLORATION_RESULTS.md](../../model_comparison/option_pricing/CONTROLLED_READOUT_EXPLORATION_RESULTS.md).
+see `CONTROLLED_READOUT_EXPLORATION_RESULTS.md`.
 For subsequent runs, explicitly declare a positive fixed value or a search interval with
 a strictly positive lower bound before a new fit, and reject nonpositive
 candidate shifts. The existing Stage-3 loader and historical zero-shift runs use

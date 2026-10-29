@@ -68,3 +68,36 @@ matteo/web_claude/*.json
 # Keep small scientific execution/audit logs alongside their run records.
 !/matteo/model_comparison/option_pricing/runs/**/*.log
 /matteo/model_comparison/option_pricing/runs/**/execution_live.log
+
+# Optional local-only resources used by research compatibility paths.
+/matteo/model_comparison/option_pricing/code/formalization
+/matteo/model_comparison/option_pricing/code/literature
+
+# Detailed experiment runs stay in the local research archive.
+/matteo/model_comparison/option_pricing/runs/
+
+# Archived experiment implementations and detailed reports remain local.
+/matteo/model_comparison/option_pricing/code/
+!/matteo/model_comparison/option_pricing/code/
+/matteo/model_comparison/option_pricing/code/*
+!/matteo/model_comparison/option_pricing/code/m2_spx.py
+!/matteo/model_comparison/option_pricing/code/m2_vix.py
+!/matteo/model_comparison/option_pricing/code/provenance.py
+/matteo/model_comparison/option_pricing/reports/
+/matteo/model_comparison/option_pricing/visualizations/
+/matteo/model_comparison/option_pricing/RESEARCH_LEDGER.md
+/matteo/model_comparison/option_pricing/NEXT_STEPS.md
+/matteo/model_comparison/option_pricing/CONTINUE_FITTING_PROMPT.md
+/matteo/model_comparison/option_pricing/code/__pycache__/
+/docs/research/archive/
+/docs/research/EVIDENCE_MANIFEST.json
+/docs/research/FIGURE_PROVENANCE.json
+/docs/research/LOCAL_ARRAY_INVENTORY.json
+/docs/research/CLEANUP_RECEIPT.json
+/docs/research/REPORT_CATALOG.md
+/docs/research/VALIDATION.md
+/docs/research/validation.json
+/docs/research/verify_consolidation.py
+/docs/research/REORGANIZATION_MANIFEST.json
+/output/pdf/concise/spx_vix_visual_summary_source.zip
+/output/pdf/spx_vix_calibration_latex_source.zip

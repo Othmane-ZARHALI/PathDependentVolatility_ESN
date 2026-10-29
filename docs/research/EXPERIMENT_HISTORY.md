@@ -1,6 +1,8 @@
 # ESN and M2 experiment history and learnings
 
-Research through 29 October 2026, ordered by the progression of questions. Early physical-measure stages are ordered by experiment stage rather than inferred calendar dates. This record retains both progress and failed or partial results. The [complete catalogue](REPORT_CATALOG.md) links the individual numerical studies and plans, including studies grouped together here.
+Detailed historical sources named without links are retained in the local archive.
+
+Research through 29 October 2026, ordered by the progression of questions. Early physical-measure stages are ordered by experiment stage rather than inferred calendar dates. This record retains both progress and failed or partial results. The `complete catalogue` links the individual numerical studies and plans, including studies grouped together here.
 
 Price losses below are comparable within their declared experiment, not automatically across sections. Different scopes, price estimators, numerical grids, auxiliary anchors and fitted parameters can change their scale. Fresh simulation checks generally reuse the same market snapshot; some also reuse auxiliary samples. Source reports specify those dependencies.
 
@@ -12,7 +14,7 @@ Price losses below are comparable within their declared experiment, not automati
 
 **Consequence.** Keep architecture, implementation provenance and calibration status separate. The later externally described October model is another version, with endogenous feedback; do not infer its implementation or full path reuse from legacy A2 or M2.
 
-Sources: [historical comparison](../../matteo/model_comparison/othmane_replication/RESULTS.md), [code issues](../../matteo/model_comparison/othmane_replication/OTHMANE_APPROACH_ISSUES.md), [legacy ESN pricing audit](../../matteo/model_comparison/option_pricing/AUDIT.md). The historical comparison includes offline interactive figures.
+Sources: [historical comparison](../../matteo/model_comparison/othmane_replication/RESULTS.md), [code issues](../../matteo/model_comparison/othmane_replication/OTHMANE_APPROACH_ISSUES.md), `legacy ESN pricing audit`. The historical comparison includes offline interactive figures.
 
 ## 2 Physical capacity from pilot through Stage 3
 
@@ -52,7 +54,7 @@ Source: [physical stability study](../../matteo/exogenous_reservoir_eq_m2/experi
 
 **Consequence.** Preserve the failed fit, matched-state refinements and independent pilot design. Keep a candidate's model change separate from estimator changes.
 
-Sources: [initial SPX](../../matteo/model_comparison/option_pricing/M2_SPX_RESULTS.md), [initial VIX](../../matteo/model_comparison/option_pricing/M2_VIX_RESULTS.md), [curve profile](../../matteo/model_comparison/option_pricing/CURVE_PROFILE_RESULTS.md), [reversal and numerical diagnosis](../../matteo/model_comparison/option_pricing/NUMERICAL_STABILITY_RESULTS.md).
+Sources: `initial SPX`, `initial VIX`, `curve profile`, `reversal and numerical diagnosis`.
 
 ## 6 VIX tails and second-moment diagnostics
 
@@ -62,7 +64,7 @@ Sources: [initial SPX](../../matteo/model_comparison/option_pricing/M2_SPX_RESUL
 
 **Consequence.** Retain weighted payoff concentration, ESS, likelihood mass, pilot stability and per-maturity SEs. A passed forward screen is not a convergence certificate for options or the entire model.
 
-Sources: [moment diagnosis](../../matteo/model_comparison/option_pricing/VIX_MOMENT_DIAGNOSIS.md), [pilot sampling](../../matteo/model_comparison/option_pricing/VIX_PILOT_SAMPLING_RESULTS.md), [targeted pilots](../../matteo/model_comparison/option_pricing/VIX_TARGETED_PILOT_RESULTS.md), [allocation refinement](../../matteo/model_comparison/option_pricing/VIX_ALLOCATION_REFINEMENT_RESULTS.md), [Gaussian-control stability](../../matteo/model_comparison/option_pricing/VIX_GAUSSIAN_STABILITY_RESULTS.md). Additional stages remain in the catalogue.
+Sources: `moment diagnosis`, `pilot sampling`, `targeted pilots`, `allocation refinement`, `Gaussian-control stability`. Additional stages remain in the catalogue.
 
 ## 7 SPX sampling controls and stock integration
 
@@ -72,7 +74,7 @@ Sources: [moment diagnosis](../../matteo/model_comparison/option_pricing/VIX_MOM
 
 **Consequence.** Compare variance per unit cost, freeze pilots before checks, and retain unsuccessful tails and grid corrections. Representative near-ATM diagnostics do not qualify the whole surface.
 
-Sources: [path importance](../../matteo/model_comparison/option_pricing/SPX_PATH_IMPORTANCE_RESULTS.md), [volatility sampling](../../matteo/model_comparison/option_pricing/SPX_VOLATILITY_SAMPLING_RESULTS.md), [MLMC](../../matteo/model_comparison/option_pricing/SPX_MLMC_RESULTS.md), [bridge coupling](../../matteo/model_comparison/option_pricing/SPX_BRIDGE_COUPLING_RESULTS.md), [innovation controls](../../matteo/model_comparison/option_pricing/SPX_INNOVATION_CONTROL_RESULTS.md), [linear-only controls](../../matteo/model_comparison/option_pricing/SPX_LINEAR_INNOVATION_RESULTS.md), [conditional controls](../../matteo/model_comparison/option_pricing/SPX_CONDITIONAL_CONTROL_RESULTS.md).
+Sources: `path importance`, `volatility sampling`, `MLMC`, `bridge coupling`, `innovation controls`, `linear-only controls`, `conditional controls`.
 
 ## 8 Scope expansion and renewed joint fitting
 
@@ -82,7 +84,7 @@ Sources: [path importance](../../matteo/model_comparison/option_pricing/SPX_PATH
 
 **Consequence.** The current seven-SPX/four-VIX scope supersedes older training-only counts. Preserve the old scope with each old result, and do not call new simulations market holdout validation.
 
-Sources: [reentry decision and subsequent override](../../matteo/model_comparison/option_pricing/FITTING_REENTRY_DECISION.md), [state refinement](../../matteo/model_comparison/option_pricing/JOINT_STATE_REFINEMENT_RESULTS.md), [all maturities](../../matteo/model_comparison/option_pricing/ALL_MATURITY_FIT_RESULTS.md), [active scope](../../matteo/model_comparison/option_pricing/active_scope.json).
+Sources: `reentry decision and subsequent override`, `state refinement`, `all maturities`, [active scope](../../matteo/model_comparison/option_pricing/active_scope.json).
 
 ## 9 Original readout fitting and maturity-aligned variance curve
 
@@ -92,7 +94,7 @@ Sources: [reentry decision and subsequent override](../../matteo/model_compariso
 
 **Learning and consequence.** Level improvements do not supply independent smile curvature. Preserve exactly what the accepted proposal changed, rather than treating every searched coordinate as a successful readout refit.
 
-Sources: [eleven-parameter fit](../../matteo/model_comparison/option_pricing/FULL_READOUT_FIT_RESULTS.md), [maturity curve](../../matteo/model_comparison/option_pricing/MATURITY_CURVE_FIT_RESULTS.md). [Visual comparison](VISUAL_EVIDENCE.md#curve-and-cap).
+Sources: `eleven-parameter fit`, `maturity curve`. [Visual comparison](VISUAL_EVIDENCE.md#curve-and-cap).
 
 ## 10 Cap and stochastic response experiments
 
@@ -102,7 +104,7 @@ Sources: [eleven-parameter fit](../../matteo/model_comparison/option_pricing/FUL
 
 **Consequence.** Keep normalized comparisons, weighted tail diagnostics and SPX costs together. Cap influence is established more strongly than a cap-only causal explanation or remedy.
 
-Sources: [cap-tail](../../matteo/model_comparison/option_pricing/CAP_TAIL_RESULTS.md), [controlled cap](../../matteo/model_comparison/option_pricing/CAP_CONTROLLED_RESULTS.md), [inside-score response](../../matteo/model_comparison/option_pricing/STOCHASTIC_VOV_RESULTS.md), [post-cap response](../../matteo/model_comparison/option_pricing/POSTCAP_VOV_RESULTS.md). Figures 1–2 in [the gallery](VISUAL_EVIDENCE.md).
+Sources: `cap-tail`, `controlled cap`, `inside-score response`, `post-cap response`. Figures 1–2 in [the gallery](VISUAL_EVIDENCE.md).
 
 ## 11 Frozen variance budget and mixed-response mechanism
 
@@ -112,7 +114,7 @@ Sources: [cap-tail](../../matteo/model_comparison/option_pricing/CAP_TAIL_RESULT
 
 **Learning and consequence.** Free enough shared variance budget before interpreting a shape failure. The marginal mechanism, scoped Lean statements and implemented pricing experiment have separate evidential roles.
 
-Sources: [wing findings](../../matteo/model_comparison/option_pricing/WING_MECHANISM_FINDINGS.md), [mixed response](../../matteo/model_comparison/option_pricing/MIXED_RESPONSE_RESULTS.md). The detailed formal correspondence is retained locally under `matteo/model_comparison/option_pricing/formalization/CORRESPONDENCE.md`.
+Sources: `wing findings`, `mixed response`. The detailed formal correspondence is retained locally under `matteo/model_comparison/option_pricing/formalization/CORRESPONDENCE.md`.
 
 ## 12 Forward constraints and fitted floor
 
@@ -122,7 +124,7 @@ Sources: [wing findings](../../matteo/model_comparison/option_pricing/WING_MECHA
 
 **Learning and consequence.** The floor materially changes response dispersion and left-tail options. Training forward equalities remain estimator constraints, not exact population identities.
 
-Source: [forward and floor](../../matteo/model_comparison/option_pricing/FORWARD_FLOOR_RESULTS.md).
+Source: `forward and floor`.
 
 ## 13 Continuous mixture and shared two-speed stress
 
@@ -132,7 +134,7 @@ Source: [forward and floor](../../matteo/model_comparison/option_pricing/FORWARD
 
 **Learning and consequence.** This was the strongest partial VIX fit, using one common model across maturities. Checking reused old/slow coordinates with new fast coordinates; it was not wholly fresh. The experiment did not establish SPX fit or production adoption.
 
-Sources: [continuum](../../matteo/model_comparison/option_pricing/CONTINUUM_RESPONSE_RESULTS.md), [two speeds](../../matteo/model_comparison/option_pricing/TWO_SPEED_RESULTS.md). [Preserved figure](VISUAL_EVIDENCE.md#two-stress-speeds).
+Sources: `continuum`, `two speeds`. [Preserved figure](VISUAL_EVIDENCE.md#two-stress-speeds).
 
 ## 14 Four fixed stress speeds
 
@@ -142,7 +144,7 @@ Sources: [continuum](../../matteo/model_comparison/option_pricing/CONTINUUM_RESP
 
 **Learning and consequence.** No demonstrated superiority. Preserve the completed bank experiment separately; improve population-forward precision before interpreting small option-loss rankings or adding branches.
 
-Source: [stress-bank study](../../matteo/model_comparison/option_pricing/STRESS_BANK_RESULTS.md), including full native-IV and forward figures.
+Source: `stress-bank study`, including full native-IV and forward figures.
 
 ## 15 Joint refit and protected curve
 
@@ -152,7 +154,7 @@ Source: [stress-bank study](../../matteo/model_comparison/option_pricing/STRESS_
 
 **Learning and consequence.** Shared variance-budget optimization can destroy a successful VIX distribution. Off-window curve freedom protects VIX in the exogenous construction, but lower price loss is not automatically better smile shape. Neither local search proves impossibility.
 
-Sources: [joint fit](../../matteo/model_comparison/option_pricing/TWO_SPEED_JOINT_RESULTS.md), [protected curve](../../matteo/model_comparison/option_pricing/PROTECTED_CURVE_RESULTS.md). Figures 4–5 in [the gallery](VISUAL_EVIDENCE.md).
+Sources: `joint fit`, `protected curve`. Figures 4–5 in [the gallery](VISUAL_EVIDENCE.md).
 
 ## 16 Stock and stress correlation
 
@@ -162,7 +164,7 @@ Sources: [joint fit](../../matteo/model_comparison/option_pricing/TWO_SPEED_JOIN
 
 **Learning and consequence.** This supplies a useful SPX control with mathematical VIX protection under the fixed-factor/information assumptions. State-dependent exposure opposite instantaneous variance sensitivity or expected next-month variance sensitivity did not produce a convincing further benefit. Maximizing local covariance does not maximize finite-expiry option skew.
 
-Sources: [rotation](../../matteo/model_comparison/option_pricing/LEVERAGE_SCAN_RESULTS.md), [targeted skew](../../matteo/model_comparison/option_pricing/TARGETED_SKEW_RESULTS.md), [forward sensitivity](../../matteo/model_comparison/option_pricing/FORWARD_LEVERAGE_RESULTS.md). [Preserved figure](VISUAL_EVIDENCE.md#stock-and-stress-correlation).
+Sources: `rotation`, `targeted skew`, `forward sensitivity`. [Preserved figure](VISUAL_EVIDENCE.md#stock-and-stress-correlation).
 
 ## 17 Asymmetric readouts and slower existing signals
 
@@ -172,7 +174,7 @@ Sources: [rotation](../../matteo/model_comparison/option_pricing/LEVERAGE_SCAN_R
 
 **Learning and consequence.** Use ablations: some striking changes required both the readout and changed curve. Neither mean-one normalization nor a slower signal guarantees distributional protection or enough SPX downside level. No candidate adopted.
 
-Sources: [asymmetric readout](../../matteo/model_comparison/option_pricing/ASYMMETRIC_READOUT_RESULTS.md), [targeted normalization](../../matteo/model_comparison/option_pricing/TARGETED_SKEW_RESULTS.md), [slow signal](../../matteo/model_comparison/option_pricing/SLOW_READOUT_RESULTS.md). Figures 7–8 in [the gallery](VISUAL_EVIDENCE.md).
+Sources: `asymmetric readout`, `targeted normalization`, `slow signal`. Figures 7–8 in [the gallery](VISUAL_EVIDENCE.md).
 
 ## 18 Linear memory filters
 
@@ -182,7 +184,7 @@ Sources: [asymmetric readout](../../matteo/model_comparison/option_pricing/ASYMM
 
 **Learning and consequence.** A persistent average has no direct Brownian shock; replacing part of an instantaneous signal by history can reduce instantaneous loading. This tested positive linear filtering, not every nonlinear hysteresis model. It is completed, not pending, and no candidate was adopted.
 
-Source: [memory-filter study](../../matteo/model_comparison/option_pricing/MEMORY_FILTER_RESULTS.md). [SPX and VIX figures](VISUAL_EVIDENCE.md#linear-memory-filters).
+Source: `memory-filter study`. [SPX and VIX figures](VISUAL_EVIDENCE.md#linear-memory-filters).
 
 ## 19 First and richer protected-generator corrections
 
@@ -192,7 +194,7 @@ Source: [memory-filter study](../../matteo/model_comparison/option_pricing/MEMOR
 
 **Learning and consequence.** Conditional Dynkin protection can be translated into finite implementation audits, but this useful feasibility result gave only modest empirical progress. It protects the four model VIX values, inheriting baseline errors, not every unquoted date. No new Lean proof or adopted candidate.
 
-Sources: [first correction](../../matteo/model_comparison/option_pricing/PROTECTED_VARIANCE_RESULTS.md), [richer shapes](../../matteo/model_comparison/option_pricing/RICH_PROTECTED_VARIANCE_RESULTS.md). [Figures](VISUAL_EVIDENCE.md#protected-variance-corrections).
+Sources: `first correction`, `richer shapes`. [Figures](VISUAL_EVIDENCE.md#protected-variance-corrections).
 
 ## 20 Existing stress variance as correction budget
 
@@ -202,10 +204,10 @@ Sources: [first correction](../../matteo/model_comparison/option_pricing/PROTECT
 
 **Learning and consequence.** The enlarged budget was exercised in probes, but no improvement was established. The missing downside level persists. Preserve both the endpoint/path insight and these discouraging results; neither mathematical feasibility nor larger amplitude supplies an empirical success. No adoption.
 
-Source: [available-variance study](../../matteo/model_comparison/option_pricing/AVAILABLE_VARIANCE_RESULTS.md). [Full seven-maturity figure](VISUAL_EVIDENCE.md#existing-stress-variance-budget).
+Source: `available-variance study`. [Full seven-maturity figure](VISUAL_EVIDENCE.md#existing-stress-variance-budget).
 
 ## What remains exploratory
 
 The literature-inspired VIX-first inverse construction in the ledger is a design study, not a completed calibrated M2 replacement. Quintic and jump remedies are outside the completed M2 joint-fit tests. Existing scoped Lean results preserve their original premises; the latest filters and protected corrections rely on analytic derivations plus finite numerical correspondence checks. Reassessing the physical fit of promising Q variants and resolving numerical accuracy remain open.
 
-Use [the decision record](DECISIONS.md) before selecting another test. The [catalogue](REPORT_CATALOG.md) retains additional parity, acceleration, conditional-pricing, readout and diagnostic stages that support this sequence.
+Use [the decision record](DECISIONS.md) before selecting another test. The `catalogue` retains additional parity, acceleration, conditional-pricing, readout and diagnostic stages that support this sequence.

@@ -1,9 +1,0 @@
-[
-  {
-    "cycle": 0,
-    "status": "no locally feasible improvement found",
-    "radius": 0.1,
-    "inner_nfev": 20,
-    "message": "Declared inner/optimization evaluation budget"
-  }
-]

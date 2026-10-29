@@ -1,7 +1,0 @@
-{
-  "status": "interrupted before completed optimization/selection",
-  "reason": "Direct tensor GH32 costs roughly 150 seconds per readout candidate. Resume in a new non-overwriting run with verified same-GH32 convolution acceleration; no lowered quadrature order.",
-  "baseline_and_warm_preserved": true,
-  "selected": false,
-  "timestamp_UTC": "2026-10-24T10:59:01.503780+00:00"
-}

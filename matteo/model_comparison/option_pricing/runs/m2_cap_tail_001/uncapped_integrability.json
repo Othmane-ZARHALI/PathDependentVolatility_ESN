@@ -1,7 +1,0 @@
-{
-  "stationary_lambda": 0.8970204882440329,
-  "critical_multiplier_moment_power": 1.1148017387624614,
-  "first_moment_finite_all_dates": true,
-  "second_moment_finite_stationary": false,
-  "qualification": "Analytic Gaussian quadratic criterion, not martingality or a proposal to remove the cap."
-}

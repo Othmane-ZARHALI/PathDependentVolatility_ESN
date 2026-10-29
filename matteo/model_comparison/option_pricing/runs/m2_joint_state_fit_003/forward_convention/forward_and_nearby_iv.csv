@@ -1,9 +1,0 @@
-candidate,expiry_days,model_forward,market_forward,forward_error,nearest_put_strike,nearest_call_strike,nearby_call_minus_put_market_forward,nearby_call_minus_put_own_forward,market_nearby_call_minus_put_iv,native_iv_unavailable,caveat
-baseline,27,21.97994208783537,20.1,1.8799420878353672,19.5,20.5,86.1983983287476,2.2719135659152982,7.349902780032551,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.
-baseline,55,21.553730616171265,20.73,0.8237306161712645,20.5,21.0,25.5439170476739,-0.1937797570366797,2.8219722988946785,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.
-baseline,118,23.666455974954825,21.19,2.476455974954824,21.0,22.0,52.26676227680396,1.5771529898529337,2.7942783930244843,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.
-baseline,153,23.705027632196675,21.72,1.985027632196676,21.0,22.0,36.437825010638484,1.223658822708643,2.525419944585636,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.
-selected,27,21.81153242280733,20.1,1.711532422807327,19.5,20.5,78.48467656200287,2.2572441742249225,7.349902780032551,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.
-selected,55,21.391882096733895,20.73,0.6618820967338941,20.5,21.0,20.446678760729284,-0.20261228856547575,2.8219722988946785,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.
-selected,118,23.45449088853182,21.19,2.2644908885318173,21.0,22.0,47.805745018471164,1.5406208891087516,2.7942783930244843,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.
-selected,153,23.478242866258995,21.72,1.7582428662589962,21.0,22.0,32.358141703515365,1.218525596958841,2.525419944585636,0,Nearby different strikes; not a same-strike parity test or exact discontinuity estimate.

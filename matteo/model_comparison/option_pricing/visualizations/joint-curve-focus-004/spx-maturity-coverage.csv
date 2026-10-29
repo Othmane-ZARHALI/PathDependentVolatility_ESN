@@ -1,8 +1,0 @@
-days,role,eligible_otm_quotes,training_quotes,objective_quotes,model_overlay,display_quotes,display_proxy_volatility,display_proxy_strike,proxy_source
-29,fit,410,328,222,True,,,,
-57,fit,399,320,238,True,,,,
-119,final_maturity_test,314,0,0,False,228.0,0.16391003359268091,6950.0,nearest ATM quote within this market-only slice; visualization only
-211,fit,204,164,113,True,,,,
-302,fit,209,168,134,True,,,,
-666,maturity_diagnostic,133,0,0,False,112.0,0.18212289220274813,7250.0,nearest ATM quote within this market-only slice; visualization only
-1030,extrapolation_diagnostic,82,0,0,False,71.0,0.18437693113808584,7500.0,nearest ATM quote within this market-only slice; visualization only

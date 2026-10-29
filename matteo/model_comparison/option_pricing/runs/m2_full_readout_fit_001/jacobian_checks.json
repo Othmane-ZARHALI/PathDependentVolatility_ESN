@@ -1,7 +1,0 @@
-{
-  "directional_relative_errors": [
-    0.0005346583942941732,
-    0.00047772581831098627
-  ],
-  "warning": "Payoff/interval kinks can affect finite differences."
-}
