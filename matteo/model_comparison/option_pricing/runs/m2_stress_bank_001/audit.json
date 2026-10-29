@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "source_and_input_hashes": true,
+  "all_32_extra_seed_replays": true,
+  "independent_likelihood_reconstruction": true,
+  "positive_spike_shift": true,
+  "mixture_normalization": 1.0,
+  "scalar_checks": [
+    {
+      "day": 27,
+      "probe_count": 33,
+      "scalar_replay_max_abs_VIX_error": 4.2598461732268333e-05,
+      "scalar_replay_max_relative_error": 3.634734414334395e-11,
+      "conditional_GH80_error": 9.516469320666051e-15,
+      "normalization_GH80_error": 7.882583474838611e-15
+    },
+    {
+      "day": 55,
+      "probe_count": 33,
+      "scalar_replay_max_abs_VIX_error": 2.078711986541748e-06,
+      "scalar_replay_max_relative_error": 1.9511690019327204e-13,
+      "conditional_GH80_error": 7.66053886991358e-15,
+      "normalization_GH80_error": 7.549516567451064e-15
+    },
+    {
+      "day": 118,
+      "probe_count": 33,
+      "scalar_replay_max_abs_VIX_error": 2.7529895305633545e-06,
+      "scalar_replay_max_relative_error": 1.4114932855682713e-13,
+      "conditional_GH80_error": 7.993605777301127e-15,
+      "normalization_GH80_error": 5.995204332975845e-15
+    },
+    {
+      "day": 153,
+      "probe_count": 33,
+      "scalar_replay_max_abs_VIX_error": 5.68293035030365e-06,
+      "scalar_replay_max_relative_error": 4.346391228853062e-13,
+      "conditional_GH80_error": 8.43769498715119e-15,
+      "normalization_GH80_error": 7.327471962526033e-15
+    }
+  ],
+  "weighted_tails": [
+    {
+      "day": 27,
+      "mass": 1.0054713827764759,
+      "mass_se": 0.006007522647068835,
+      "last_strike": 100.0,
+      "raw_call": 0.08669965854452422,
+      "payoff_ESS": 1353.0640430389913,
+      "top10_fraction": 0.016878520463122274,
+      "sample_second_moment": 489.654754702344,
+      "exact_second_moment": 488.3134751140023,
+      "second_moment_se": 3.2289715148285283,
+      "minimum_VIX": 13.119099402255452,
+      "maximum_VIX": 4187441.464259416
+    },
+    {
+      "day": 55,
+      "mass": 1.0001422028398288,
+      "mass_se": 0.0045662369597344815,
+      "last_strike": 170.0,
+      "raw_call": 0.1121384296320838,
+      "payoff_ESS": 1742.3460574253752,
+      "top10_fraction": 0.01504599041853152,
+      "sample_second_moment": 659.3079441390862,
+      "exact_second_moment": 658.5822377132232,
+      "second_moment_se": 2.2906870530437695,
+      "minimum_VIX": 12.46400058632419,
+      "maximum_VIX": 61758903.544368
+    },
+    {
+      "day": 118,
+      "mass": 1.0003877167885724,
+      "mass_se": 0.005578047276064018,
+      "last_strike": 200.0,
+      "raw_call": 0.13335289039309187,
+      "payoff_ESS": 2315.33834046373,
+      "top10_fraction": 0.012428184022941824,
+      "sample_second_moment": 748.1075053488955,
+      "exact_second_moment": 745.4318957110135,
+      "second_moment_se": 2.1542759028742964,
+      "minimum_VIX": 12.633130788618896,
+      "maximum_VIX": 31383812.70750285
+    },
+    {
+      "day": 153,
+      "mass": 0.9934453463183632,
+      "mass_se": 0.010959825947828883,
+      "last_strike": 200.0,
+      "raw_call": 0.1634347445532584,
+      "payoff_ESS": 2469.230004471974,
+      "top10_fraction": 0.012241786463995067,
+      "sample_second_moment": 838.67996456588,
+      "exact_second_moment": 837.2824914427629,
+      "second_moment_se": 2.796664906310305,
+      "minimum_VIX": 12.628618644325964,
+      "maximum_VIX": 31184848.554364637
+    }
+  ],
+  "limitations": [
+    "M2 conditional tables reused with their previous audits.",
+    "Checking reuses old/node2/node3 coordinates.",
+    "Scalar probes and eight-block SEs do not certify population-forward equality or uniform error.",
+    "No new Lean theorem."
+  ]
+}

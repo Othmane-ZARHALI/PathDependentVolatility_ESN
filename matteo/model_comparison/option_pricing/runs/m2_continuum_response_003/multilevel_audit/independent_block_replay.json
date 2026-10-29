@@ -1,0 +1,32 @@
+[
+  {
+    "candidate": "continuous",
+    "field": "native",
+    "maximum_block_replay_error": 3.552713678800501e-15
+  },
+  {
+    "candidate": "continuous",
+    "field": "call",
+    "maximum_block_replay_error": 7.105427357601002e-15
+  },
+  {
+    "candidate": "continuous",
+    "field": "forward",
+    "maximum_block_replay_error": 7.105427357601002e-15
+  },
+  {
+    "candidate": "interior",
+    "field": "native",
+    "maximum_block_replay_error": 3.552713678800501e-15
+  },
+  {
+    "candidate": "interior",
+    "field": "call",
+    "maximum_block_replay_error": 8.881784197001252e-15
+  },
+  {
+    "candidate": "interior",
+    "field": "forward",
+    "maximum_block_replay_error": 1.0658141036401503e-14
+  }
+]

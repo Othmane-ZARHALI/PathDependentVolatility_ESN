@@ -1,0 +1,152 @@
+{
+  "fresh_scores": [
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1945.5155697227087,
+      "IV_MAE_pp": 3.208912675553989,
+      "inside": 15,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 1.8014037059874983
+    },
+    {
+      "candidate": 1,
+      "alpha": 1.0,
+      "steps": 256,
+      "loss": 1909.3864981855288,
+      "IV_MAE_pp": 3.1620930192521537,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 1.860931058316221
+    },
+    {
+      "candidate": 2,
+      "alpha": 2.0,
+      "steps": 256,
+      "loss": 1884.3123570478224,
+      "IV_MAE_pp": 3.1366070688206524,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 1.9329495164426385
+    }
+  ],
+  "price_loss_reduction_percent": 3.1458608518671216,
+  "extra_reduction_over_previous_percent": 1.3132040664126432,
+  "paired_intervals": [
+    {
+      "candidate": 1,
+      "reference": 0,
+      "loss_delta": -36.129071537179925,
+      "approximate_CI95": [
+        -51.24398383246118,
+        -17.72257661879344
+      ]
+    },
+    {
+      "candidate": 2,
+      "reference": 0,
+      "loss_delta": -61.203212674886345,
+      "approximate_CI95": [
+        -92.37712209295742,
+        -30.71977521038278
+      ]
+    },
+    {
+      "candidate": 2,
+      "reference": 1,
+      "loss_delta": -25.07414113770642,
+      "approximate_CI95": [
+        -43.77806067549258,
+        -8.514955135781735
+      ]
+    }
+  ],
+  "grid": [
+    {
+      "candidate": 0,
+      "coarse_loss": 1940.4700804422655,
+      "fine_loss": 1945.5155697227087,
+      "median_price_change_quote_scales": 0.08858548394771845,
+      "max_price_change_quote_scales": 1.5646325571567323
+    },
+    {
+      "candidate": 1,
+      "coarse_loss": 1903.7576849011743,
+      "fine_loss": 1909.3864981855288,
+      "median_price_change_quote_scales": 0.08646876052205063,
+      "max_price_change_quote_scales": 1.4711346806390113
+    },
+    {
+      "candidate": 2,
+      "coarse_loss": 1878.589715538676,
+      "fine_loss": 1884.3123570478224,
+      "median_price_change_quote_scales": 0.08241852455457052,
+      "max_price_change_quote_scales": 1.5935213408232591
+    }
+  ],
+  "selection": {
+    "pilot_new_best": 13,
+    "coefficients": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "criterion": "minimum pilot fine-grid primary SPX interval loss among new shapes",
+    "frozen_before_fresh": true,
+    "new_shape": {
+      "mode": 1,
+      "width": 1.0,
+      "kind": 1,
+      "name": "local 9.5d erf width1"
+    }
+  },
+  "adopted": false,
+  "max_discrete_VIX_squared_change": 3.277476241057272e-05,
+  "max_finite_difference_generator_error": 3.2642090364021215e-08
+}

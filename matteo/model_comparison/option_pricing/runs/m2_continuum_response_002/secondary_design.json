@@ -1,0 +1,6 @@
+{
+  "declared_before_fresh_draw_generation": true,
+  "selection_rule": "Among forward-feasible completed continuous optimizer starts with kappa >= 0.1, choose minimum training option loss. Retain as secondary broad-spectrum diagnostic; do not change main selected model or select using fresh prices.",
+  "purpose": "Assess whether a genuinely spread continuous measure gives a competitive fit even if the unrestricted best runs toward the two-atom boundary.",
+  "status": "rule frozen during training, before fresh checking"
+}

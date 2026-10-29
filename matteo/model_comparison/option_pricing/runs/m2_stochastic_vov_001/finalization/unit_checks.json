@@ -1,0 +1,7 @@
+{
+  "status": "PASS before grid launch",
+  "tests": 3,
+  "command": "OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 PYTHONPATH=matteo/exogenous_reservoir_eq_m2/src /private/tmp/pdv-options-venv/bin/python -m unittest matteo.model_comparison.option_pricing.test_stochastic_vov -v",
+  "test_source_sha256": "e171d814e7464b836dd2183e434c1c26bea3e8f52470d0b3fffc3e15a7198109",
+  "note": "Executed successfully before study launch; source unchanged since the passed tests."
+}

@@ -1,0 +1,7 @@
+{
+  "knots": 257,
+  "midpoint_error": 9.807050234883678e-09,
+  "independent_error": 3.497911065785868e-09,
+  "GH": 48,
+  "probe_note": "Declared probes may enter refinement; additional final independent probes checked separately."
+}

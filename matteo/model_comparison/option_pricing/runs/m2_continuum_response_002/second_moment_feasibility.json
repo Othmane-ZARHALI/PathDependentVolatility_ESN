@@ -1,0 +1,70 @@
+{
+  "source": "runs/m2_vix_design_research_001/moment_certificates.json",
+  "claim": "Necessary bound conditional on exact market population forward and all native quote bid/ask intervals; not a full feasibility test.",
+  "records": [
+    {
+      "candidate": "continuous",
+      "day": 27,
+      "model_population_second_moment": 464.363720619512,
+      "necessary_bound_at_exact_market_forward": 468.9993289308283,
+      "slack": -4.635608311316332,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": true
+    },
+    {
+      "candidate": "continuous",
+      "day": 55,
+      "model_population_second_moment": 553.8522584955064,
+      "necessary_bound_at_exact_market_forward": 556.6729854745801,
+      "slack": -2.8207269790736973,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": true
+    },
+    {
+      "candidate": "continuous",
+      "day": 118,
+      "model_population_second_moment": 690.2962635933069,
+      "necessary_bound_at_exact_market_forward": 648.6256916122647,
+      "slack": 41.670571981042144,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": false
+    },
+    {
+      "candidate": "continuous",
+      "day": 153,
+      "model_population_second_moment": 747.2918587730683,
+      "necessary_bound_at_exact_market_forward": 695.2954440843954,
+      "slack": 51.99641468867287,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": false
+    },
+    {
+      "candidate": "interior",
+      "day": 27,
+      "model_population_second_moment": 463.9485115441333,
+      "necessary_bound_at_exact_market_forward": 468.9993289308283,
+      "slack": -5.05081738669503,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": true
+    },
+    {
+      "candidate": "interior",
+      "day": 55,
+      "model_population_second_moment": 556.9342418733005,
+      "necessary_bound_at_exact_market_forward": 556.6729854745801,
+      "slack": 0.26125639872043394,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": false
+    },
+    {
+      "candidate": "interior",
+      "day": 118,
+      "model_population_second_moment": 719.547706995163,
+      "necessary_bound_at_exact_market_forward": 648.6256916122647,
+      "slack": 70.92201538289828,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": false
+    },
+    {
+      "candidate": "interior",
+      "day": 153,
+      "model_population_second_moment": 804.9660937660901,
+      "necessary_bound_at_exact_market_forward": 695.2954440843954,
+      "slack": 109.67064968169473,
+      "excluded_if_population_forward_matches_and_all_options_within_spreads": false
+    }
+  ]
+}

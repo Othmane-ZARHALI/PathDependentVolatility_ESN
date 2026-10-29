@@ -1,0 +1,66 @@
+{
+  "status": "passed saved-price replay, scope, seeds, monotonicity and source checks",
+  "records": [
+    {
+      "role": "search",
+      "candidate": "baseline",
+      "maximum_mean_replay_error": 5.684341886080802e-14,
+      "strike_monotonicity_violations": 0,
+      "total": 2168.612723372678
+    },
+    {
+      "role": "search",
+      "candidate": "selected",
+      "maximum_mean_replay_error": 2.2737367544323206e-13,
+      "strike_monotonicity_violations": 0,
+      "total": 586.9130155888904
+    },
+    {
+      "role": "check",
+      "candidate": "baseline",
+      "maximum_mean_replay_error": 5.684341886080802e-14,
+      "strike_monotonicity_violations": 0,
+      "total": 1044.1042073801118
+    },
+    {
+      "role": "check",
+      "candidate": "selected",
+      "maximum_mean_replay_error": 5.684341886080802e-14,
+      "strike_monotonicity_violations": 0,
+      "total": 906.608467560097
+    },
+    {
+      "role": "check_gh12",
+      "candidate": "baseline",
+      "maximum_mean_replay_error": 5.684341886080802e-14,
+      "strike_monotonicity_violations": 0,
+      "total": 1043.5309300649583
+    },
+    {
+      "role": "check_gh12",
+      "candidate": "selected",
+      "maximum_mean_replay_error": 5.684341886080802e-14,
+      "strike_monotonicity_violations": 0,
+      "total": 902.6194012465292
+    }
+  ],
+  "source_count": 49,
+  "unique_seed_count": 67,
+  "parameters_in_bounds": true,
+  "beta_J_positive": true,
+  "GH24_vs_GH12_selected_max_price_scales": 1.9227270750993226,
+  "GH24_vs_GH12_selected_median_price_scales": 0.0,
+  "GH24_vs_GH12_selected_VIX_median_price_scales": 0.1996106586913772,
+  "paired_eight_block_jackknife_loss_change_SE": 876.6968931447448,
+  "leave_one_block_loss_changes": [
+    -149.89355613017324,
+    201.67754095711894,
+    -547.9933141662743,
+    -182.72624624902346,
+    -591.3264040341253,
+    -58.22617085951174,
+    -886.7467660081554,
+    -94.18676240508739
+  ],
+  "limitations": "Replay does not regenerate paths or establish price convergence. Stock blocks and VIX scramble blocks are paired by index for descriptive joint jackknife, not temporal observations."
+}

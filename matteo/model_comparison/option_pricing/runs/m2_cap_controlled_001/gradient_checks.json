@@ -1,0 +1,38 @@
+[
+  {
+    "candidate": "shape00",
+    "relative_error": 1.4151486839552615e-05
+  },
+  {
+    "candidate": "shape01",
+    "relative_error": 6.895458687225905e-10
+  },
+  {
+    "candidate": "shape02",
+    "relative_error": 5.493996835709567e-10
+  },
+  {
+    "candidate": "shape03",
+    "relative_error": 6.461914196839431e-10
+  },
+  {
+    "candidate": "shape04",
+    "relative_error": 1.9791717331741723e-06
+  },
+  {
+    "candidate": "shape05",
+    "relative_error": 1.872956037882765e-05
+  },
+  {
+    "candidate": "shape06",
+    "relative_error": 6.586689829304825e-10
+  },
+  {
+    "candidate": "shape07",
+    "relative_error": 1.29519998442943e-05
+  },
+  {
+    "candidate": "shape08",
+    "relative_error": 7.982453857136606e-10
+  }
+]

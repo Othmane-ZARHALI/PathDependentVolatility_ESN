@@ -1,0 +1,110 @@
+...................Convolution table/fallback/max-knots counters: [1, 0, 1394]
+.Convolution correspondence max value-relative / derivative-scaled errors: 4.832965139200951e-10 2.150456850782232e-07
+.................................E...E..................SPX START test 29
+SPX START test 29
+....level=1 role=0 trial=0 pairs=8/16
+level=1 role=0 trial=0 pairs=16/16
+level=1 role=1 trial=0 pairs=8/16
+level=1 role=1 trial=0 pairs=16/16
+....EE.role=0 trial=0 paths=8/16
+role=0 trial=0 paths=16/16
+.role=0 trial=0 paths=8/16
+role=0 trial=0 paths=16/16
+.role=2 trial=0 level=0 direct=False paths=20000/20000
+role=2 trial=0 level=1 direct=False paths=128/128
+role=3 trial=0 level=1 direct=True paths=128/128
+.....vol7 role=0 trial=0 paths=8/8
+vol7 role=2 trial=0 paths=8/8
+....SPX START test 29
+SPX START test 29
+SPX START test 29
+SPX START test 29
+...................
+======================================================================
+ERROR: test_full_prediction_assembly_has_24_columns_and_correct_parity (matteo.model_comparison.option_pricing.test_maturity_curve.MaturityCurveTests.test_full_prediction_assembly_has_24_columns_and_correct_parity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/test_maturity_curve.py", line 79, in test_full_prediction_assembly_has_24_columns_and_correct_parity
+    spx=pd.read_csv(cache/'spx_contracts.csv');vix=pd.read_csv(cache/'vix_contracts.csv');f=pd.read_csv(cache/'forward_targets.csv')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 423, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2721, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2988, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/common.py", line 948, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/spx_contracts.csv'
+
+======================================================================
+ERROR: test_three_piece_kernel_correspondence_on_actual_cached_paths (matteo.model_comparison.option_pricing.test_maturity_curve.MaturityCurveTests.test_three_piece_kernel_correspondence_on_actual_cached_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/test_maturity_curve.py", line 53, in test_three_piece_kernel_correspondence_on_actual_cached_paths
+    folder=HERE/'runs/m2_parity_adaptive_cache_001/production/d29/batch000';grid=np.load(folder/'grid.npy')
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py", line 454, in load
+    fid = stack.enter_context(open(os.fspath(file), "rb"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/production/d29/batch000/grid.npy'
+
+======================================================================
+ERROR: test_market_panel_coverage_and_selection_ignores_prices (matteo.model_comparison.option_pricing.test_spx_central_panel.CentralPanelTests.test_market_panel_coverage_and_selection_ignores_prices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/test_spx_central_panel.py", line 12, in test_market_panel_coverage_and_selection_ignores_prices
+    quotes=pd.read_csv(MEMBERSHIP);panel=choose_panel(quotes)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 423, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2721, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2988, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/common.py", line 948, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/spx_scaled_moneyness_003/training_membership.csv'
+
+======================================================================
+ERROR: test_price_bookkeeping_and_negative_estimates_preserved (matteo.model_comparison.option_pricing.test_spx_central_panel.CentralPanelTests.test_price_bookkeeping_and_negative_estimates_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/test_spx_central_panel.py", line 23, in test_price_bookkeeping_and_negative_estimates_preserved
+    quotes=choose_panel(pd.read_csv(MEMBERSHIP)).iloc[:6].copy()
+                        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1866, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 423, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2721, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 2988, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/private/tmp/esn-publication-venv/lib/python3.12/site-packages/pandas/io/common.py", line 948, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/spx_scaled_moneyness_003/training_membership.csv'
+
+----------------------------------------------------------------------
+Ran 117 tests in 25.096s
+
+FAILED (errors=4)

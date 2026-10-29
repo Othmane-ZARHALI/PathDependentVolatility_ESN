@@ -1,0 +1,11 @@
+--- original captured driver
++++ current corrected driver
+@@ -111,7 +111,7 @@
+     # Fresh states are generated only after training-based representative selection.
+     fresh=new_cache(out,dated,initial,design);check=out/'fresh_check';check.mkdir();checks=[];ft=[];fm=[]
+     for row in [dict(name='baseline',parameters=base.tolist(),continuation=0),*selected]:
+-        configure(k,row['continuation']);x=np.array(row['parameters']);e=engine(out,fresh,k,dated,initial,spx,vix,f,vc,None,design);print('FRESH CHECK',row['name'],flush=True)
++        configure(k,row['continuation']);x=np.array(row['parameters']);e=engine(out,cache,k,dated,initial,spx,vix,f,vc,None,design);e.cache=fresh;e.folder=fresh/'production';print('FRESH CHECK',row['name'],flush=True)
+         try:
+             r=e.predict(x,True,False);checks.append(save_result(e,r,x,row['name'],check));t,m=tails(check,row['name'],vix,x,np.array(design['ends_days']));ft+=t;fm+=m
+         finally:e.close()

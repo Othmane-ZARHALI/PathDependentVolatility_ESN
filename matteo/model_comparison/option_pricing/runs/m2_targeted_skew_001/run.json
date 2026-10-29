@@ -1,0 +1,416 @@
+{
+  "status": "completed two targeted experiments; audit and plots follow",
+  "wall_seconds": 138.45639604190364,
+  "regime_selected": 6,
+  "SPX_scores": [
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 64,
+      "loss": 1832.0663373322288,
+      "IV_MAE_pp": 3.1439761897868084,
+      "inside": 18,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.0871948092049992
+    },
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 128,
+      "loss": 1822.746988656078,
+      "IV_MAE_pp": 3.144520839693218,
+      "inside": 17,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.0998378338282433
+    },
+    {
+      "candidate": 1,
+      "alpha": 0.0,
+      "steps": 64,
+      "loss": 1789.484115453826,
+      "IV_MAE_pp": 3.052515258658436,
+      "inside": 34,
+      "invalid_IV": 7,
+      "negative": 7,
+      "median_SE_scales": 7.032278756120014
+    },
+    {
+      "candidate": 1,
+      "alpha": 0.0,
+      "steps": 128,
+      "loss": 1807.8923458111035,
+      "IV_MAE_pp": 3.0731919642907704,
+      "inside": 30,
+      "invalid_IV": 8,
+      "negative": 8,
+      "median_SE_scales": 7.1913606836682895
+    },
+    {
+      "candidate": 2,
+      "alpha": 0.5,
+      "steps": 64,
+      "loss": 1750.4744887104425,
+      "IV_MAE_pp": 3.0556303256535076,
+      "inside": 26,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 3.0722336575522062
+    },
+    {
+      "candidate": 2,
+      "alpha": 0.5,
+      "steps": 128,
+      "loss": 1706.825378343539,
+      "IV_MAE_pp": 3.025280872732067,
+      "inside": 22,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 3.2161794269561477
+    },
+    {
+      "candidate": 3,
+      "alpha": 1.0,
+      "steps": 64,
+      "loss": 1690.520206759924,
+      "IV_MAE_pp": 2.9799112815304873,
+      "inside": 31,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 3.9368170617072664
+    },
+    {
+      "candidate": 3,
+      "alpha": 1.0,
+      "steps": 128,
+      "loss": 1600.990726476788,
+      "IV_MAE_pp": 2.903343972352365,
+      "inside": 29,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 4.214830469849012
+    },
+    {
+      "candidate": 4,
+      "alpha": 1.5,
+      "steps": 64,
+      "loss": 1771.488811774397,
+      "IV_MAE_pp": 2.9991489170979335,
+      "inside": 53,
+      "invalid_IV": 2,
+      "negative": 2,
+      "median_SE_scales": 4.474349377326048
+    },
+    {
+      "candidate": 4,
+      "alpha": 1.5,
+      "steps": 128,
+      "loss": 1629.260838758659,
+      "IV_MAE_pp": 2.8712662595243517,
+      "inside": 49,
+      "invalid_IV": 2,
+      "negative": 2,
+      "median_SE_scales": 4.726685740383928
+    },
+    {
+      "candidate": 5,
+      "alpha": 2.0,
+      "steps": 64,
+      "loss": 2106.175834656187,
+      "IV_MAE_pp": 3.2347154235806146,
+      "inside": 38,
+      "invalid_IV": 2,
+      "negative": 2,
+      "median_SE_scales": 4.662451800943749
+    },
+    {
+      "candidate": 5,
+      "alpha": 2.0,
+      "steps": 128,
+      "loss": 1890.5336679184766,
+      "IV_MAE_pp": 3.040310906530256,
+      "inside": 51,
+      "invalid_IV": 3,
+      "negative": 3,
+      "median_SE_scales": 4.744655077888513
+    },
+    {
+      "candidate": 6,
+      "alpha": 0.0,
+      "steps": 64,
+      "loss": 1834.711301888278,
+      "IV_MAE_pp": 3.145061462732056,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.079951231889395
+    },
+    {
+      "candidate": 6,
+      "alpha": 0.0,
+      "steps": 128,
+      "loss": 1825.3641553477296,
+      "IV_MAE_pp": 3.145590794408214,
+      "inside": 17,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.0873457869695047
+    },
+    {
+      "candidate": 7,
+      "alpha": 0.5,
+      "steps": 64,
+      "loss": 1726.1978298169615,
+      "IV_MAE_pp": 3.039971447795864,
+      "inside": 27,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 3.0667083127760124
+    },
+    {
+      "candidate": 7,
+      "alpha": 0.5,
+      "steps": 128,
+      "loss": 1684.2181805259909,
+      "IV_MAE_pp": 3.0107263326189413,
+      "inside": 21,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 3.1893770923003446
+    },
+    {
+      "candidate": 8,
+      "alpha": 1.0,
+      "steps": 64,
+      "loss": 1618.0412315549254,
+      "IV_MAE_pp": 2.9427611983725823,
+      "inside": 27,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 4.4791417196719525
+    },
+    {
+      "candidate": 8,
+      "alpha": 1.0,
+      "steps": 128,
+      "loss": 1552.3415459677926,
+      "IV_MAE_pp": 2.88398098188283,
+      "inside": 24,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 4.563282056771012
+    },
+    {
+      "candidate": 9,
+      "alpha": 1.5,
+      "steps": 64,
+      "loss": 1581.464461951733,
+      "IV_MAE_pp": 2.879198916796749,
+      "inside": 41,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 5.2613401998039
+    },
+    {
+      "candidate": 9,
+      "alpha": 1.5,
+      "steps": 128,
+      "loss": 1494.812115124074,
+      "IV_MAE_pp": 2.7903593567075258,
+      "inside": 35,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 5.1024515325845705
+    },
+    {
+      "candidate": 10,
+      "alpha": 2.0,
+      "steps": 64,
+      "loss": 1805.8546083078274,
+      "IV_MAE_pp": 3.0334436079764404,
+      "inside": 42,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 5.321169735864281
+    },
+    {
+      "candidate": 10,
+      "alpha": 2.0,
+      "steps": 128,
+      "loss": 1684.0554979958295,
+      "IV_MAE_pp": 2.8987998488722195,
+      "inside": 36,
+      "invalid_IV": 2,
+      "negative": 2,
+      "median_SE_scales": 5.373749741268208
+    }
+  ],
+  "VIX_scores": [
+    {
+      "label": "c0",
+      "option_loss": 0.05008091350064692,
+      "forwards": [
+        20.073162047783377,
+        20.785169590272726,
+        21.17893115207294,
+        21.75592417319109
+      ],
+      "max_forward_gap": 0.055169590272726055,
+      "negative": 1,
+      "inside": 153,
+      "candidate": 0,
+      "name": "original",
+      "alpha": 0.0
+    },
+    {
+      "label": "c2",
+      "option_loss": 0.33105876283161295,
+      "forwards": [
+        20.059706741973038,
+        20.70971443478788,
+        21.089085975174665,
+        21.687100758393488
+      ],
+      "max_forward_gap": 0.10091402482533596,
+      "negative": 0,
+      "inside": 134,
+      "candidate": 2,
+      "name": "regime_0.5_fixed",
+      "alpha": 0.5
+    },
+    {
+      "label": "c3",
+      "option_loss": 2.4926899805850833,
+      "forwards": [
+        20.02661755607085,
+        20.56342396570287,
+        20.957183365365978,
+        21.573143260682002
+      ],
+      "max_forward_gap": 0.23281663463402325,
+      "negative": 0,
+      "inside": 124,
+      "candidate": 3,
+      "name": "regime_1_fixed",
+      "alpha": 1.0
+    },
+    {
+      "label": "c4",
+      "option_loss": 7.6842219053988945,
+      "forwards": [
+        19.9700088513124,
+        20.35701503632984,
+        20.799848747550275,
+        21.423854449644047
+      ],
+      "max_forward_gap": 0.39015125244972637,
+      "negative": 0,
+      "inside": 95,
+      "candidate": 4,
+      "name": "regime_1.5_fixed",
+      "alpha": 1.5
+    },
+    {
+      "label": "c5",
+      "option_loss": 13.890571199115305,
+      "forwards": [
+        19.905727983417282,
+        20.15390254913523,
+        20.654887000210067,
+        21.276169069216483
+      ],
+      "max_forward_gap": 0.576097450864772,
+      "negative": 0,
+      "inside": 72,
+      "candidate": 5,
+      "name": "regime_2_fixed",
+      "alpha": 2.0
+    },
+    {
+      "label": "c6",
+      "option_loss": 0.046917107095219575,
+      "forwards": [
+        20.10063424767804,
+        20.729329460280283,
+        21.189784104416155,
+        21.722357765223382
+      ],
+      "max_forward_gap": 0.002357765223383268,
+      "negative": 1,
+      "inside": 154,
+      "candidate": 6,
+      "name": "regime_0_refit",
+      "alpha": 0.0
+    },
+    {
+      "label": "c7",
+      "option_loss": 0.24785422269768057,
+      "forwards": [
+        20.113836999817135,
+        20.764108933752155,
+        21.172845866607165,
+        21.74979092530794
+      ],
+      "max_forward_gap": 0.03410893375215451,
+      "negative": 0,
+      "inside": 150,
+      "candidate": 7,
+      "name": "regime_0.5_refit",
+      "alpha": 0.5
+    },
+    {
+      "label": "c8",
+      "option_loss": 1.7481823106287988,
+      "forwards": [
+        20.13660456565686,
+        20.78743112468145,
+        21.161354703644193,
+        21.77884931139868
+      ],
+      "max_forward_gap": 0.058849311398681436,
+      "negative": 0,
+      "inside": 116,
+      "candidate": 8,
+      "name": "regime_1_refit",
+      "alpha": 1.0
+    },
+    {
+      "label": "c9",
+      "option_loss": 6.159161231634276,
+      "forwards": [
+        20.166290034747092,
+        20.80843181236259,
+        21.155292052481254,
+        21.797178648207243
+      ],
+      "max_forward_gap": 0.078431812362588,
+      "negative": 0,
+      "inside": 75,
+      "candidate": 9,
+      "name": "regime_1.5_refit",
+      "alpha": 1.5
+    },
+    {
+      "label": "c10",
+      "option_loss": 12.397930472197448,
+      "forwards": [
+        20.185124285305584,
+        20.82786339376676,
+        21.157130221494107,
+        21.792474663615078
+      ],
+      "max_forward_gap": 0.09786339376675812,
+      "negative": 0,
+      "inside": 55,
+      "candidate": 10,
+      "name": "regime_2_refit",
+      "alpha": 2.0
+    }
+  ],
+  "adaptive_VIX_prices_identical_to_original": true,
+  "checking_stock_paths": 1024,
+  "stock_auxiliary_reference_reused": true,
+  "VIX_check_draws_previously_used": true,
+  "baseline_adopted": false
+}

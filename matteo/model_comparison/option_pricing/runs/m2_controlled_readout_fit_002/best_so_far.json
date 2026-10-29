@@ -1,0 +1,115 @@
+{
+  "index": 48,
+  "start": 2,
+  "stage": "all_11",
+  "parameters": [
+    0.1107923029686383,
+    0.06285028058167813,
+    3.115274119854204,
+    0.20534048656144166,
+    0.29972997256971384,
+    5.802414155510417,
+    2.0245534869940127,
+    0.0493015988374198,
+    0.05859462501306453,
+    0.05015265364939394,
+    0.002481115229371034
+  ],
+  "total": 83.52830270841986,
+  "components": {
+    "SPX": 48.12006352204864,
+    "VIX": 34.0738536808362,
+    "midpoint": 0.0,
+    "forwards": 1.301036409480081,
+    "state_penalty": 0.03333333333333333,
+    "curve_penalty": 1.5762721600625247e-05
+  },
+  "negative_count": 8,
+  "shapes": [
+    {
+      "instrument": "SPX",
+      "days": 29,
+      "monotonicity_violations": 0,
+      "convexity_violations": 2,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 57,
+      "monotonicity_violations": 0,
+      "convexity_violations": 2,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 119,
+      "monotonicity_violations": 0,
+      "convexity_violations": 2,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 211,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 302,
+      "monotonicity_violations": 3,
+      "convexity_violations": 2,
+      "negative_estimates": 7
+    },
+    {
+      "instrument": "SPX",
+      "days": 666,
+      "monotonicity_violations": 0,
+      "convexity_violations": 2,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 1030,
+      "monotonicity_violations": 0,
+      "convexity_violations": 1,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 27,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 55,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 118,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 153,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 1
+    }
+  ],
+  "normalizer": {
+    "knots": 257,
+    "midpoint_error": 2.1370382346312552e-08,
+    "independent_error": 4.9836259439379995e-09,
+    "GH": 48,
+    "probe_note": "Declared probes may enter refinement; additional final independent probes checked separately."
+  },
+  "seconds": 54.034001084044576
+}

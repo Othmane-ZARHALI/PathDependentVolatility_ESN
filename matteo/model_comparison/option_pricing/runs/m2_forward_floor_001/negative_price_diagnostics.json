@@ -1,0 +1,112 @@
+[
+  {
+    "role": "training",
+    "candidate": "tight_forwards_free_floor",
+    "day": 118,
+    "strike": 12.5,
+    "controlled_price": -4.989252063650948e-05,
+    "SE": 5.9625571009194856e-05,
+    "negative_magnitude_in_SE": 0.8367638211601455,
+    "raw_put": 0.0
+  },
+  {
+    "role": "training",
+    "candidate": "tight_forwards_free_floor",
+    "day": 118,
+    "strike": 13.0,
+    "controlled_price": -0.0003530691599506,
+    "SE": 0.0006940771735955,
+    "negative_magnitude_in_SE": 0.5086886204910184,
+    "raw_put": 0.0
+  },
+  {
+    "role": "training",
+    "candidate": "tight_forwards_free_floor",
+    "day": 118,
+    "strike": 13.5,
+    "controlled_price": -0.0006293453773481,
+    "SE": 0.0013001776129728,
+    "negative_magnitude_in_SE": 0.484045695810074,
+    "raw_put": 6.466213008537017e-06
+  },
+  {
+    "role": "training",
+    "candidate": "tight_forwards_free_floor",
+    "day": 153,
+    "strike": 12.5,
+    "controlled_price": -4.7296928259036805e-05,
+    "SE": 6.323481155164789e-05,
+    "negative_magnitude_in_SE": 0.7479571314987853,
+    "raw_put": 0.0
+  },
+  {
+    "role": "training",
+    "candidate": "tight_forwards_free_floor",
+    "day": 153,
+    "strike": 13.0,
+    "controlled_price": -7.73777609890636e-05,
+    "SE": 0.0003847282814004,
+    "negative_magnitude_in_SE": 0.201123142565477,
+    "raw_put": 0.0
+  },
+  {
+    "role": "training",
+    "candidate": "tight_forwards_free_floor",
+    "day": 153,
+    "strike": 13.5,
+    "controlled_price": -0.0001167633691424,
+    "SE": 0.0007285615652085,
+    "negative_magnitude_in_SE": 0.16026561751028498,
+    "raw_put": 9.227517378981724e-07
+  },
+  {
+    "role": "fresh_check",
+    "candidate": "tight_forwards_free_floor",
+    "day": 118,
+    "strike": 12.5,
+    "controlled_price": -1.0690510707044276e-05,
+    "SE": 3.400349675293924e-05,
+    "negative_magnitude_in_SE": 0.3143944513918321,
+    "raw_put": 0.0
+  },
+  {
+    "role": "fresh_check",
+    "candidate": "tight_forwards_free_floor",
+    "day": 118,
+    "strike": 13.0,
+    "controlled_price": -0.0002481626591432,
+    "SE": 0.0002375464823283,
+    "negative_magnitude_in_SE": 1.0446909451609052,
+    "raw_put": 0.0
+  },
+  {
+    "role": "fresh_check",
+    "candidate": "tight_forwards_free_floor",
+    "day": 118,
+    "strike": 13.5,
+    "controlled_price": -0.0004507353473473,
+    "SE": 0.0004226955806108,
+    "negative_magnitude_in_SE": 1.0663356042094934,
+    "raw_put": 1.410205451258854e-05
+  },
+  {
+    "role": "fresh_check",
+    "candidate": "tight_forwards_free_floor",
+    "day": 153,
+    "strike": 12.5,
+    "controlled_price": -7.837129819692864e-05,
+    "SE": 3.3413402272081755e-05,
+    "negative_magnitude_in_SE": 2.3455048833028003,
+    "raw_put": 0.0
+  },
+  {
+    "role": "fresh_check",
+    "candidate": "tight_forwards_free_floor",
+    "day": 153,
+    "strike": 13.0,
+    "controlled_price": -2.397913369335249e-05,
+    "SE": 0.000232100373691,
+    "negative_magnitude_in_SE": 0.10331363673406405,
+    "raw_put": 0.0
+  }
+]

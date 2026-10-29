@@ -1,0 +1,71 @@
+{
+  "rows": [
+    {
+      "days": 27,
+      "unavailable": 0,
+      "ATM_quotes": 17,
+      "ATM_available": 17,
+      "ATM_MAE": 0.0,
+      "ATM_IV_level": 101.66020375975882,
+      "ATM_slope": 140.06282188376414,
+      "ATM_curvature": -97.51282113474782,
+      "wing_quotes": 14,
+      "wing_available": 14,
+      "wing_MAE": 0.0,
+      "wing_IV_level": 214.19704920037103,
+      "wing_slope": 52.378599177451754,
+      "wing_curvature": -35.648708481042384
+    },
+    {
+      "days": 55,
+      "unavailable": 0,
+      "ATM_quotes": 17,
+      "ATM_available": 17,
+      "ATM_MAE": 0.0,
+      "ATM_IV_level": 89.85293875602827,
+      "ATM_slope": 97.75597738006269,
+      "ATM_curvature": -84.25946877763242,
+      "wing_quotes": 21,
+      "wing_available": 21,
+      "wing_MAE": 0.0,
+      "wing_IV_level": 181.1510377785076,
+      "wing_slope": 38.31245178772149,
+      "wing_curvature": -17.60516701604331
+    },
+    {
+      "days": 118,
+      "unavailable": 0,
+      "ATM_quotes": 8,
+      "ATM_available": 8,
+      "ATM_MAE": 0.0,
+      "ATM_IV_level": 73.95602173095776,
+      "ATM_slope": 64.95316898982604,
+      "ATM_curvature": -81.32200516292825,
+      "wing_quotes": 24,
+      "wing_available": 24,
+      "wing_MAE": 0.0,
+      "wing_IV_level": 136.57040980910122,
+      "wing_slope": 31.230236523016575,
+      "wing_curvature": -3.9110659772970005
+    },
+    {
+      "days": 153,
+      "unavailable": 0,
+      "ATM_quotes": 9,
+      "ATM_available": 9,
+      "ATM_MAE": 0.0,
+      "ATM_IV_level": 68.09590866079273,
+      "ATM_slope": 54.67098370967971,
+      "ATM_curvature": -60.57350313677596,
+      "wing_quotes": 23,
+      "wing_available": 23,
+      "wing_MAE": 0.0,
+      "wing_IV_level": 121.79506603365726,
+      "wing_slope": 27.3190556474513,
+      "wing_curvature": 0.30314717685315323
+    }
+  ],
+  "ATM_MAE": 0.0,
+  "wing_MAE": 0.0,
+  "wing_complete": true
+}

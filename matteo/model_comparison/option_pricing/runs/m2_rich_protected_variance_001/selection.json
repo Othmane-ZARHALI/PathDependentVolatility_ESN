@@ -1,0 +1,58 @@
+{
+  "pilot_new_best": 13,
+  "coefficients": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "criterion": "minimum pilot fine-grid primary SPX interval loss among new shapes",
+  "frozen_before_fresh": true,
+  "new_shape": {
+    "mode": 1,
+    "width": 1.0,
+    "kind": 1,
+    "name": "local 9.5d erf width1"
+  }
+}

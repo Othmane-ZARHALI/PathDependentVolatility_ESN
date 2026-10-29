@@ -1,0 +1,54 @@
+Appendix B. Technical Proofs
+
+Appendix B.1. Proof of Lemma 2.8
+   Let q be the function at ψTF required by the backward equation when ψTF +Θ = p. We
+construct a time-continuous terminal curve such that
+
+            p,     if                       t ∈[TF + δ, TF + Θ]
+                              ψt =   q,     if                       t = TF                      ,
+             t−TFδ  p + TF +δ−tδ    q,     if    t ∈(TF , TF + δ)
+
+where δ > 0 will be determined later. We then compute:
+
+               "Z TF +Θ             #
+     ∥ΘX2TF −E       ψu(Xu) du  FTF  ∥2
+                     TF
+          "Z TF +δ             #             "Z TF +Θ             #
+     ≤∥E       ψu(Xu) du  FTF  ∥2 + ∥ΘX2TF −E       ψu(Xu) du  FTF  ∥2
+               TF                                        TF +δ
+          "Z TF +δ             #      "Z TF +δ            #
+     = ∥E       ψu(Xu) du  FTF  ∥2 + ∥E       p(Xu) du  FTF  ∥2
+               TF                               TF
+
+Since ψu and p are polynomials and Xt is a polynomial process, there is an M ≥0, such that
+
+       "Z TF +δ             #             "Z TF +δ            #
+     ∥E       ψu(Xu) du  FTF  ∥2 ≤Mδ, and ∥E       p(Xu) du  FTF  ∥2 ≤Mδ.
+           TF                                         TF
+
+Choosing δ < 2Mϵ  then proves the claim.
+
+Appendix B.2. Proof of Lemma 2.6
+Proof. Let (Xt)t≥t0 have a generator LX = µ(t, x)∂x + 12σ2(t, x)∂xx, where µ(t, x) = m0(t) +
+m1(t)x and σ2(t, x) = a0(t) + a1(t)x + a2(t)x2 with locally integrable coefficients. On H2 =
+span{1, x, x2}, the generator Lt has a time-dependent, upper-triangular matrix representation
+M(t) with diagonal entry M3,3(t) = 2b1(t) + a2(t). By the Feynman-Kac backward equation,
+
+                    E[X2s  | Xt = x] = (1, x, x2)Φ(t, s)(0, 0, 1)T ,
+
+where Φ(t, s) is the state-transition matrix satisfying ∂sΦ(t,∂     s) = Φ(t, s)M(s) with Φ(t, t) = I.
+Since M(τ) is upper-triangular for all τ ∈[t, s], Φ(t, s) remains upper-triangular, and its
+(3, 3)-entry is given explicitly by the scalar linear differential equation solution:
+
+                                Z s
+                        Φ(t, s)3,3 = exp      (2b1(τ) + a2(τ)) dτ > 0.
+                                                             t
+
+Thus, the coefficient of x2 is strictly positive, ensuring E[X2s  | Xt = x] is degree 2 and non-
+vanishing for all s > t.                                       ■
+
+
+
+
+
+                                        26

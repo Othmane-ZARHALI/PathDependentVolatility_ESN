@@ -1,0 +1,28 @@
+{
+  "source_sha256": {
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/plot_joint_local_fit.py": "6897dfd5c29b6284544708a097bb42662405329f47d8ea6a8445b9d807bcdac5",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_joint_local_fit_001/run.json": "5a6e39b382cd5c193df19e7a5414f5925937d44b0b77545d37eb5b8bf71adb71",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_joint_local_fit_001/prices_canonical_baseline.csv": "5871871ee0b7eb6992322b9355bc98f2e2064129bd0fd05be26615be85fd11fc",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_joint_local_fit_001/prices_canonical_selected.csv": "1675629af4ef7f7503aa8b698808a64bc3d204dfc694c65bdf2cf43554541f9c",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_joint_local_fit_001/forwards_baseline.csv": "378654962061afc4414b47fb507c58def8fcd9132f076f165870f64205fba912",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_joint_local_fit_001/forwards_selected.csv": "305a98bb621b66e0b4bbccd3d3e71943d8fbe522e304e4bf0abdf8b0d274c794",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_joint_local_fit_001/uniform_budget_prices_selected.csv": "3c1d94df68cef48aaea096b1ceebf0201a15ad5aa1c9bad8fcde8c600b09e9fe"
+  },
+  "output_sha256": {
+    "spx-all-maturity-fit.png": "8d746c780f31ea6745e7ae7eb8fecdd39ba657e27e02bbf6edee91e1e8c4a585",
+    "spx-all-maturity-fit.svg": "77de9dd15f420d0760a4255abe1204873bc6435181bc76297a329c5e6acb32be",
+    "vix-all-maturity-fit.png": "a4169892ea0b2a8e9fc58022169620ee0f91a7d119b9318d296d344c8c247ba7",
+    "vix-all-maturity-fit.svg": "4df4b1af258a92b53127c10beddbd06fb2c9da750855b45fab7a8833e41586e5",
+    "forwards-and-path-budgets.png": "bd630cdedd157bf16ec7450293478c537102cd0713e75d16a0b4b84442e126ad",
+    "forwards-and-path-budgets.svg": "fc0e65195afdcdc5b06103355ff5755415b8db095883681a66f83065cc34ebed",
+    "spx-price-errors.png": "892704e4bc495a7ffc1ec11ff20f5c1d0565c96dc7daa99bff0cf792395d951b",
+    "spx-price-errors.svg": "486350b348f8027491b49208a407e25c88e4ff8d76e95daea360fec482160c25",
+    "vix-price-errors.png": "ecb8cf9a8f141fedb1873ea4055279de76509773874aca33944493b90899dd56",
+    "vix-price-errors.svg": "4ca3d19eba622651f8fd0d002474988760c0889c5a8907fee7e2cd6e1384f69c",
+    "sampling-precision.png": "636a2ee413d94feb03463875040b1d1cf73330b58bf74b07dc820c65fcbd94ad",
+    "sampling-precision.svg": "6cccea3ae3c251614b83c67d0e1aad90517b5f0299a9223b2413d90d247a1a0a"
+  },
+  "convention": "All IVs invert calls with observed market forwards. Sources remain OTM only.",
+  "fitted_in_this_run": true,
+  "uncertainty": "Pointwise sampling only; no bias/pilot/parameter uncertainty."
+}

@@ -1,0 +1,15 @@
+{
+  "original_candidate_indices": [
+    0,
+    1,
+    4,
+    9
+  ],
+  "steps": [
+    128,
+    256
+  ],
+  "fresh_paths": 2048,
+  "selection_not_changed": true,
+  "stage": "extra grid/precision check motivated by64/128 changes; previously frozen illustrative alpha1.5"
+}

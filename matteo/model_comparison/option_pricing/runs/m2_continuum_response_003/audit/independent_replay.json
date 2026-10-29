@@ -1,0 +1,26 @@
+[
+  {
+    "day": 27,
+    "max_VIX_difference": 7.275957614183426e-12,
+    "max_relative_difference": 9.126295774693716e-16,
+    "weighted_mean_difference": 9.203708478043343e-16
+  },
+  {
+    "day": 55,
+    "max_VIX_difference": 5.820766091346741e-11,
+    "max_relative_difference": 1.2102480891682744e-15,
+    "weighted_mean_difference": 1.459206148512328e-15
+  },
+  {
+    "day": 118,
+    "max_VIX_difference": 8.149072527885437e-10,
+    "max_relative_difference": 1.4394925567493142e-15,
+    "weighted_mean_difference": 9.227520270940923e-16
+  },
+  {
+    "day": 153,
+    "max_VIX_difference": 1.0477378964424133e-09,
+    "max_relative_difference": 1.4251144927076428e-15,
+    "weighted_mean_difference": 2.1788049615702141e-16
+  }
+]

@@ -1,0 +1,162 @@
+{
+  "order": [
+    "native_joint",
+    "SPX",
+    "native_VIX_plus_forwards"
+  ],
+  "change": [
+    82.05494393577574,
+    77.36953579342384,
+    4.685408142351896
+  ],
+  "jackknife_SE": [
+    23.433859209650638,
+    21.70405717916682,
+    4.010099946971804
+  ],
+  "leave_one_block_changes": [
+    [
+      67.66490241812843,
+      64.03047034008733,
+      3.6344320780411192
+    ],
+    [
+      96.65942749115193,
+      88.57667391029786,
+      8.082753580854073
+    ],
+    [
+      79.77832224254209,
+      73.847301512098,
+      5.931020730444103
+    ],
+    [
+      91.36456044932535,
+      85.80975734308983,
+      5.554803106235515
+    ],
+    [
+      77.67560839193237,
+      73.38767415617464,
+      4.287934235757761
+    ],
+    [
+      81.46443794567834,
+      77.28000693388935,
+      4.18443101178899
+    ],
+    [
+      92.95963136502517,
+      89.7326211993276,
+      3.2270101656975827
+    ],
+    [
+      82.51821988844,
+      78.85064871760568,
+      3.667571170834327
+    ]
+  ],
+  "raw_stock": [
+    {
+      "days": 29,
+      "maximum_stock_ratio": 4.129870515809952,
+      "weighted_forward_ratio": 1.009752039034198,
+      "raw_forward_SE": 0.007789236700798908,
+      "largest_weighted_stock_share": 0.00044623635029133275
+    },
+    {
+      "days": 57,
+      "maximum_stock_ratio": 3.066198300796252,
+      "weighted_forward_ratio": 0.9924146323727098,
+      "raw_forward_SE": 0.007952264191013093,
+      "largest_weighted_stock_share": 0.0004601437586410199
+    },
+    {
+      "days": 119,
+      "maximum_stock_ratio": 2.197458821617422,
+      "weighted_forward_ratio": 0.9845769316873126,
+      "raw_forward_SE": 0.008046988028901731,
+      "largest_weighted_stock_share": 0.0004965551174763693
+    },
+    {
+      "days": 211,
+      "maximum_stock_ratio": 2.115924491847023,
+      "weighted_forward_ratio": 1.0030147175486284,
+      "raw_forward_SE": 0.008196719863602651,
+      "largest_weighted_stock_share": 0.0004911585380081082
+    },
+    {
+      "days": 302,
+      "maximum_stock_ratio": 2.493667402196837,
+      "weighted_forward_ratio": 1.0037946092487002,
+      "raw_forward_SE": 0.008245123714596056,
+      "largest_weighted_stock_share": 0.0005282594347293751
+    },
+    {
+      "days": 666,
+      "maximum_stock_ratio": 2.1199111740785064,
+      "weighted_forward_ratio": 1.0030326125407458,
+      "raw_forward_SE": 0.008838282126369489,
+      "largest_weighted_stock_share": 0.0006567274625338069
+    },
+    {
+      "days": 1030,
+      "maximum_stock_ratio": 2.3519639460101076,
+      "weighted_forward_ratio": 0.9548737681271646,
+      "raw_forward_SE": 0.00919075136743368,
+      "largest_weighted_stock_share": 0.0007281687992225741
+    }
+  ],
+  "baseline_raw_stock": [
+    {
+      "days": 29,
+      "maximum_stock_ratio": 2.9262358837220495,
+      "weighted_forward_ratio": 1.0100718350078788,
+      "raw_forward_SE": 0.007798787907143536,
+      "largest_weighted_stock_share": 0.0004359255668786257
+    },
+    {
+      "days": 57,
+      "maximum_stock_ratio": 4.0781781496981,
+      "weighted_forward_ratio": 0.9931315679091499,
+      "raw_forward_SE": 0.00796106599870689,
+      "largest_weighted_stock_share": 0.00044581698923455427
+    },
+    {
+      "days": 119,
+      "maximum_stock_ratio": 1.7623026162321822,
+      "weighted_forward_ratio": 0.9849411761943535,
+      "raw_forward_SE": 0.008061548359986398,
+      "largest_weighted_stock_share": 0.00048700995126761573
+    },
+    {
+      "days": 211,
+      "maximum_stock_ratio": 2.005245221437092,
+      "weighted_forward_ratio": 1.0048831221536172,
+      "raw_forward_SE": 0.008235753238334984,
+      "largest_weighted_stock_share": 0.00047065803280638564
+    },
+    {
+      "days": 302,
+      "maximum_stock_ratio": 5.808844600829048,
+      "weighted_forward_ratio": 1.0045897007830273,
+      "raw_forward_SE": 0.008363553916191445,
+      "largest_weighted_stock_share": 0.0012009334737469518
+    },
+    {
+      "days": 666,
+      "maximum_stock_ratio": 2.1373722355658997,
+      "weighted_forward_ratio": 1.0020419559618863,
+      "raw_forward_SE": 0.008821500043396487,
+      "largest_weighted_stock_share": 0.0006309085081806969
+    },
+    {
+      "days": 1030,
+      "maximum_stock_ratio": 2.6150815488007755,
+      "weighted_forward_ratio": 0.9624430751595413,
+      "raw_forward_SE": 0.00926554787854049,
+      "largest_weighted_stock_share": 0.0006280261646872108
+    }
+  ],
+  "limitation": "Descriptive eight-block paired sensitivity, same reused primitives and fixed controls; not a confidence or convergence certificate."
+}

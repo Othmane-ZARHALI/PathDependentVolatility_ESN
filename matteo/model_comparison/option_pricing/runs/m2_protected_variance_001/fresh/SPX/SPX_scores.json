@@ -1,0 +1,46 @@
+[
+  {
+    "candidate": 0,
+    "alpha": 0.0,
+    "steps": 128,
+    "loss": 1859.0699813705974,
+    "IV_MAE_pp": 3.178668719628058,
+    "inside": 23,
+    "invalid_IV": 5,
+    "negative": 5,
+    "median_SE_scales": 2.1210160748847615
+  },
+  {
+    "candidate": 0,
+    "alpha": 0.0,
+    "steps": 256,
+    "loss": 1841.072994314001,
+    "IV_MAE_pp": 3.168732447673984,
+    "inside": 24,
+    "invalid_IV": 5,
+    "negative": 5,
+    "median_SE_scales": 2.1135820768747333
+  },
+  {
+    "candidate": 1,
+    "alpha": 1.0,
+    "steps": 128,
+    "loss": 1819.108579860774,
+    "IV_MAE_pp": 3.1309451220602473,
+    "inside": 29,
+    "invalid_IV": 4,
+    "negative": 4,
+    "median_SE_scales": 2.079339858301119
+  },
+  {
+    "candidate": 1,
+    "alpha": 1.0,
+    "steps": 256,
+    "loss": 1801.1798913208054,
+    "IV_MAE_pp": 3.1209112483034978,
+    "inside": 28,
+    "invalid_IV": 5,
+    "negative": 5,
+    "median_SE_scales": 2.1204646024324
+  }
+]

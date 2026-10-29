@@ -1,0 +1,165 @@
+{
+  "status": "saved numerical replay passed",
+  "distinct_sources_verified": 73,
+  "tails": [
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 29,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 43
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 57,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 38
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 119,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 23
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 211,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 16
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 302,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 10
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 666,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 33
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 1030,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 221
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 27,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 270
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 55,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 136
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 118,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 125
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 153,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 107
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 29,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 84
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 57,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 67
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 119,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 52
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 211,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 35
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 302,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 24
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 666,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 47
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 1030,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 163
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 27,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 368
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 55,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 207
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 118,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 204
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 153,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 191
+    }
+  ],
+  "limitations": [
+    "Sampling SE excludes independent-pilot uncertainty and numerical bias.",
+    "One fresh ensemble; no parameter re-estimation or population-convergence proof.",
+    "Common canonical-call objective changes VIX put residuals when model and market forwards differ."
+  ]
+}

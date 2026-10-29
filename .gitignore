@@ -40,3 +40,27 @@ matteo/web_claude/*.json
 # Locally supplied market datasets
 /data/raw/
 /data/processed/
+
+# Local numerical caches remain on disk; preserve compact run records in Git.
+/matteo/model_comparison/option_pricing/runs/**/*.npy
+/matteo/model_comparison/option_pricing/runs/**/*.npz
+
+# Regenerable compiler, test and PDF-review intermediates.
+*.dylib
+*.olean
+*.ilean
+.pytest_cache/
+.ruff_cache/
+/tmp/
+/matteo/model_comparison/othmane_docs_20261026.prepared/
+
+# Raw correspondence is local reference material, not a research export.
+/matteo/model_comparison/option_pricing/runs/m2_vix_design_research_001/email*
+
+# Committed ancestors and RECOVERY_MANIFEST identify these same historical bytes.
+/docs/research/archive/*/missing_tracked_evidence_HEAD.zip
+
+# Keep small scientific execution/audit logs alongside their run records.
+!/matteo/model_comparison/option_pricing/runs/**/*.log
+!/matteo/model_comparison/option_pricing/formalization/**/*.log
+/matteo/model_comparison/option_pricing/runs/**/execution_live.log

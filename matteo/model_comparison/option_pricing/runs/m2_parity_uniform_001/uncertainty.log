@@ -1,0 +1,15 @@
+{
+  "full": -1843.6313313790554,
+  "leave_one_block_changes": [
+    -2288.580307869647,
+    -2284.765666190625,
+    -370.1247708462735,
+    -2344.108569135855,
+    -2300.1627920890787,
+    -2293.28866607894,
+    -2269.83563614357,
+    -2300.1596238669686
+  ],
+  "jackknife_SE": 1687.0863572848125,
+  "interpretation": "Descriptive sensitivity of nonlinear loss to eight independent path/net blocks, conditional on frozen controls. Not a global price-convergence certificate."
+}

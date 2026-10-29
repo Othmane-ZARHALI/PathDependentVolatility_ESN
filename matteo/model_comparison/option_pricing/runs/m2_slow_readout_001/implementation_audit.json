@@ -1,0 +1,27 @@
+{
+  "scalar_conditional_tensor_GH24_relative_errors": [
+    5.969134038164015e-07,
+    5.651782006843575e-07,
+    3.143547642192601e-07
+  ],
+  "slow_correlations_with_Y_F": [
+    [
+      0.6074700087419102,
+      0.8836747357411966
+    ],
+    [
+      0.46137410922935584,
+      0.9642553897011927
+    ],
+    [
+      0.3632115488249608,
+      0.9193136535037258
+    ]
+  ],
+  "alpha_zero_existing_stock_max_error": 2.220446049250313e-16,
+  "normalization_identity": "E_old[(aR+wA)D*(a+wA)/(a*mRD+wA*mD)]=a+wA",
+  "mathematical_scope": "conditional identity given independent stress states; no full VIX-law invariance",
+  "code_scope": "numerical checks, no Lean certification",
+  "all_quotes_retained": true,
+  "old_fast_readout_retained": true
+}

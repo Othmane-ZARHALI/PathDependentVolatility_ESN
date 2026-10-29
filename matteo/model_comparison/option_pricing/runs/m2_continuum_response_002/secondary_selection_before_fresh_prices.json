@@ -1,0 +1,54 @@
+{
+  "rule": {
+    "declared_before_fresh_draw_generation": true,
+    "selection_rule": "Among forward-feasible completed continuous optimizer starts with kappa >= 0.1, choose minimum training option loss. Retain as secondary broad-spectrum diagnostic; do not change main selected model or select using fresh prices.",
+    "purpose": "Assess whether a genuinely spread continuous measure gives a competitive fit even if the unrestricted best runs toward the two-atom boundary.",
+    "status": "rule frozen during training, before fresh checking"
+  },
+  "selected": {
+    "label": "continuous_start2",
+    "parameters": [
+      8.290649827374711e-17,
+      0.17998159603236097,
+      0.24603002375710906,
+      0.22080441440910992,
+      1.0,
+      0.286311519208065,
+      0.3561239729343158,
+      1.0,
+      0.5649446357362594,
+      0.9100228264200618,
+      0.9999999999999998,
+      0.5802911320065096
+    ],
+    "option_loss": 2.1465641492405663,
+    "maximum_forward_error": 9.673328804638004e-11,
+    "eligible": true,
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "iterations": 20,
+    "nfev": 28,
+    "seconds": 89.24604712496512,
+    "model": {
+      "b": 5.0,
+      "measure_mean": 0.5649446357362594,
+      "kappa": 1.0416999157218998,
+      "alpha": 0.5885027794340009,
+      "beta": 0.453197136287899,
+      "half_life_days": 214.65696993277427,
+      "floor_variance": 0.0144,
+      "floor_volatility": 0.12,
+      "active_levels": [
+        0.014400000000000015,
+        0.0478045842236062,
+        0.06006317240931944,
+        0.055381299314330806,
+        0.2,
+        0.06753941796501688,
+        0.08049660937660902
+      ]
+    }
+  },
+  "selection_used_training_only": true,
+  "frozen_before_fresh_prices": true
+}

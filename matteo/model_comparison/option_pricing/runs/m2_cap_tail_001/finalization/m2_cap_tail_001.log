@@ -1,0 +1,18 @@
+VIX baseline
+DONE baseline {'SPX': 0.0, 'VIX': 26.276301439333274, 'midpoint': 0.0, 'forwards': 0.89056352317695, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 8.232047416968271
+VIX lower_L
+DONE lower_L {'SPX': 0.0, 'VIX': 37.03626786242728, 'midpoint': 0.0, 'forwards': 3.4884717011221458, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 10.593443791847676
+VIX higher_L
+DONE higher_L {'SPX': 0.0, 'VIX': 34.46208304048094, 'midpoint': 0.0, 'forwards': 0.07874494388848022, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 9.83087758300826
+VIX soft_k1
+DONE soft_k1 {'SPX': 0.0, 'VIX': 34.17389936309934, 'midpoint': 0.0, 'forwards': 2.9847178524367433, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 9.327804041095078
+VIX sharp_k4
+DONE sharp_k4 {'SPX': 0.0, 'VIX': 27.915859745848813, 'midpoint': 0.0, 'forwards': 0.3989706215787556, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 9.659856166923419
+VIX algebraic
+DONE algebraic {'SPX': 0.0, 'VIX': 25.93718447902591, 'midpoint': 0.0, 'forwards': 0.8955558203350347, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 9.353923791786656
+VIX logtail025
+DONE logtail025 {'SPX': 0.0, 'VIX': 26.643262705877085, 'midpoint': 0.0, 'forwards': 0.5097520351815038, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 11.13260370795615
+VIX logtail050
+DONE logtail050 {'SPX': 0.0, 'VIX': 28.738745829969723, 'midpoint': 0.0, 'forwards': 0.2024241556306019, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 13.093957375036553
+VIX separate
+DONE separate {'SPX': 0.0, 'VIX': 64.14827216758098, 'midpoint': 0.0, 'forwards': 7.150778420322826, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.466253286074402e-05} 41.42557541583665

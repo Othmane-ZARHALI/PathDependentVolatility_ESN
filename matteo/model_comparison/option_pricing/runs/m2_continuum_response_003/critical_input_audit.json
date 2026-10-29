@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "architecture_matches_frozen_prior": true,
+  "premium_matches_frozen_prior": true,
+  "stage3_provenance": {
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/manifest.json": "b75fdcd43eeaca5759687a57e4ef3cf1bc8549df81abd15bfd9c9eb456f7a031",
+    "matteo/exogenous_reservoir_eq_m2/experiments/stage3_001/top_configurations.csv": "9135dd929cdbc689e71bda95e70926e8adaf81280d2c3ada7755e9e17c8f228c"
+  },
+  "market_proposal_checks": [
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/source/matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/vix_contracts.csv",
+      "sha256": "c0be6c91d5bb0ff789fc2f5ac9380f5133e10bfd2d1d40a3d5bcabf4165805d5",
+      "initial_frozen_hash_matches": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/source/matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/forward_targets.csv",
+      "sha256": "f45063c880a698f7b6cf9a97644361360a5b85d57284bd05c132235cee44fc7b",
+      "initial_frozen_hash_matches": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/source/matteo/model_comparison/option_pricing/runs/m2_vix_targeted_check_001/proposals.json",
+      "sha256": "f6c81251d99c6d95531f4d4411ca5bd3b6409ede984575950d5b5039ff40ea5e",
+      "initial_frozen_hash_matches": true
+    }
+  ]
+}

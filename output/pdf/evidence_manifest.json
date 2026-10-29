@@ -1,0 +1,230 @@
+{
+  "as_of": "2026-10-28",
+  "kind": "Referenced local evidence snapshot; not a rerun of numerical experiments",
+  "records": [
+    {
+      "path": "matteo/model_comparison/option_pricing/RESEARCH_LEDGER.md",
+      "sha256": "51d6387d26ee5c86bf64c21ce51870466f17851bf707d3329e2fc642221f2187"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/active_scope.json",
+      "sha256": "501599bddbd5c3f509e9cc476fb4357faf63a1beb6432b2a02852fef167a2e11"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/experiments/EXPERIMENT_COMPARISON.md",
+      "sha256": "98dcea81c226f0abe5ab0315d0e1ca08152576845ba74d8c7377dd6cf513d5c1"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/documentation/esn_exponential_quadratic_model.tex",
+      "sha256": "1071f91e8c229bda0afcf13698fef77a3385458b1c7dacca2a487bae9b1350ec"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/experiments/asymmetry_001/RESULTS.md",
+      "sha256": "437c53105f967e397670ad98800336b45f2e3217121424509ddf916e80b02c1b"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/JOINT_STATE_REFINEMENT_RESULTS.md",
+      "sha256": "3406c70f6f9814bc9fab5518bc8e20fddf8dc52c7d78140734453c7812892053"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/ALL_MATURITY_FIT_RESULTS.md",
+      "sha256": "6a28caf2534cb6299e8d71c94e64ec7dbe0bbf5b7b7705e3f3368bf07ed22cc3"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/MATURITY_CURVE_FIT_RESULTS.md",
+      "sha256": "ce00f9f6c52c32edf090dca0ae48adc85e99009fedb8120d5808b77d82305cd6"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/FULL_READOUT_FIT_RESULTS.md",
+      "sha256": "8fd20921ed44a62c3758eba46cfa687cebfce721799a36b43aa6df40b4536ef1"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CONTROLLED_READOUT_EXPLORATION_RESULTS.md",
+      "sha256": "d721ebdf3971fcd76e8c6975b4f02223e11560eba6f0ca19f86a6fbbf52029cb"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/PARITY_UNIFORM_RESULTS.md",
+      "sha256": "fd3293487b2c467c8d0297406d2921c1ab05e28b6975aae09a113be37248c6bf"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/PARITY_ADAPTIVE_RESULTS.md",
+      "sha256": "6416e59dd5fe722167001119aa98a574f728ec2317d2e7712bb42d0d5567b510"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/PARITY_PARAMETER_FIT_RESULTS.md",
+      "sha256": "781b86415ee7e5ac7e485656c8e3baa5fadcd7146ee4fb57634e5139c04fac22"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/JOINT_LOCAL_ACCELERATION_RESULTS.md",
+      "sha256": "453588a64cadb5f01b922b07f5af3be69f027a0dfe7a676f10c92bf266805134"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/STOCHASTIC_VOL_OF_VOL_RESEARCH.md",
+      "sha256": "6042c2375667d5197cd171d649e3d20deb754c76e0ff121350797744898f34b5"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/WING_MECHANISM_FINDINGS.md",
+      "sha256": "a9ac51c6bca72f849fd528c4e481c6f47d5e783200695062eed8ad3d55666765"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/VIX_ONLY_CURVE_RESULTS.md",
+      "sha256": "759352dd2f19a71221b30a078f9edcf9f9a606adecf467a3e7b152dde4dd9c98"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CAP_TAIL_RESULTS.md",
+      "sha256": "e8f751904856d4b1b2da895d3b8745982c9bccd81a710699482e413b34c6f08b"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CAP_TAIL_MATHEMATICS.md",
+      "sha256": "ff1bdca2d1d00083d4bdea535841207670570e4f8b11abcbd637081d6de87bea"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CAP_CONTROLLED_RESULTS.md",
+      "sha256": "d995436e96fe67c03e529b85b5c02faac4689098f269d920f66fdf7b2aba7a4a"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/TWO_SPEED_RESULTS.md",
+      "sha256": "a932adb7845172a45d911ee868482c5c60b9904680c70f566652c692aef685c7"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/TWO_SPEED_PLAN.md",
+      "sha256": "73c91f27421ea70c9f4339a40b492b707258f49465b2f941608bce3b876c0d32"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/STOCHASTIC_VOV_RESULTS.md",
+      "sha256": "5bc53af5387168b5e80a978ffebe02611f166f4f82ef72283debebeebeae4209"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/STRESS_BANK_RESULTS.md",
+      "sha256": "114963698eb3b879c7446b586a45d144ad273795453d886bbb74bbabd60276b4"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/TWO_SPEED_JOINT_RESULTS.md",
+      "sha256": "4da3e1e3a90fbd80eba43513ca46b2f91ee01ba94d21ed4ae07aba54e2ceaaaf"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/POSTCAP_VOV_RESULTS.md",
+      "sha256": "a782bea69c70b9fa1914e7846b314e97a73b7a6f339eed3878d59ea098b3cd37"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/TWO_SPEED_PRECISION_RESULTS.md",
+      "sha256": "8552b605d270ebddc8ddfd8c9a4739e21d442e83306492129d764937d8876bc2"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/PROTECTED_CURVE_RESULTS.md",
+      "sha256": "460527aacf137cb38922e45d439df483d4a89759ae2ed261507e986c44400288"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/PROTECTED_CURVE_CONCLUSION.md",
+      "sha256": "a43045b4dd8ed31382e887f58e0139aa9eba6de5cff86b89f9d64cc6305ea61b"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/LEVERAGE_SCAN_RESULTS.md",
+      "sha256": "4e96f177ac1842560738d230999547f65c7978eeeec467f9e91e76713155cbfb"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/SPX_SKEW_RESEARCH_AND_FAST_ABLATIONS.md",
+      "sha256": "ae3364d5cb3f0d468719131e2baab219fe99f808c85889afa130ca4283261c4f"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/MIXED_RESPONSE_RESULTS.md",
+      "sha256": "81dad6fa32239c3eeab6163904f7c45c56aa9af7507dda64d4d46dd3b1e3517b"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/FORWARD_FLOOR_RESULTS.md",
+      "sha256": "704eaacb0aabca386f20d84ff60ec7683755b91bb9325d75753da7ac7e531d6e"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CONTINUUM_RESPONSE_RESULTS.md",
+      "sha256": "cd402308d3372442364f7f24909405259394ee3126893d14a34c1839b2539335"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CONTINUUM_INITIAL_RESULTS.md",
+      "sha256": "02422d9ac5d8232ebbba52262f26a761e43fe89872f62b8ac46f33927a48f09c"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/TARGETED_SKEW_RESULTS.md",
+      "sha256": "39cee3f92f8a74c201aa53efc40958637f44a457686b59ac465334dc0dc2ca95"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/FORWARD_LEVERAGE_RESULTS.md",
+      "sha256": "5fc25b863406b948b051b2b5a46d63d4d528017ee06d4a1e2db4e48487429427"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/JOINT_CURVE_FIT_RESULTS.md",
+      "sha256": "cc463e307ea1c84966426292dd860de8f8dfde9d093d399501884d1eb777feb4"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CALIBRATION_PROGRESS.md",
+      "sha256": "e11a7b35b7a7eaed078a7f762529e2e2a1dda76147075aa9f8e29578ccc55684"
+    },
+    {
+      "path": "SimultanuousAllFeatures/joint_calibration_protocol.tex",
+      "sha256": "ef3d9449e1f46a0fd79686f438e8b9a5af7c78f70b0a01d4d63d745b57bd9957"
+    },
+    {
+      "path": "matteo/model_comparison/othmane_docs_20261026.prepared/cs_doc/original.pdf",
+      "sha256": "c9c09afde1668e574125e9df6bb44fcb80951e8c0ad265d65e1534e13ada9afc"
+    },
+    {
+      "path": "matteo/model_comparison/othmane_replication/RESULTS.md",
+      "sha256": "1259be6c8da7f19fd4c817e8e0869d34e6b43255e5f1191db35a6d4f7efbc228"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/ASYMMETRIC_READOUT_RESULTS.md",
+      "sha256": "2c6eca708966196dc4c36d02027aa77712f06a56e51c437eca0288197aa7d913"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/VIX_MOMENT_DIAGNOSIS.md",
+      "sha256": "adb3f7e988919fe99f55057bd4a539f79c7c29d10262cc38f01ebcc26852ce2f"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/VIX_IMPORTANCE_SAMPLING_RESULTS.md",
+      "sha256": "d8900bd135ec33398d1b689335ff3feb9baead6a3b0c4c610e2d560203704688"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/VIX_GAUSSIAN_STABILITY_RESULTS.md",
+      "sha256": "89a7955268e3db262cc45b60bbfd503ac557e631ca4e2a3d71d50a0bf9d2914b"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/SPX_MLMC_RESULTS.md",
+      "sha256": "cfb34544f5630c33813b27faa4504573bd2c478de31db6f13ad8a83318800438"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/SPX_BRIDGE_COUPLING_RESULTS.md",
+      "sha256": "366d2b8b8345848481adf0a0b0d07870f4b78d42bf64fefab8ab18e6f18c2822"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/SPX_CENTRAL_PANEL_RESULTS.md",
+      "sha256": "e3eeb4144c88ae886c568acff0bde484a8caabf0c6b88abdec4802114456b574"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/SPX_CONDITIONAL_PRICING_RESULTS.md",
+      "sha256": "ca9231acf53889cc33b6b9ec4779737e6459a69acffe5cf87aebe39a91770111"
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/SPX_CONDITIONAL_CONTROL_RESULTS.md",
+      "sha256": "a35aad942b20eb38c79caa392eca0b22d70a03786033ff8afd33c312b43dfd73"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/experiments/timestep_convergence_001/RESULTS.md",
+      "sha256": "eb3db29ce5b44aa36f24c79197cf8b4e7f2a6655df4210dd748bd13dc0bd8a42"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/experiments/stage4_fine_grid_001/RESULTS.md",
+      "sha256": "fb7a22f27ac7e96343a72ab5844e2065f469909d28d82e808723a7afe5b4ca69"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/experiments/zumbach_discrepancy_001/RESULTS.md",
+      "sha256": "f878967157e5060327789f474abafe3c97c9b01be7640400ca86efd2c38aa7ef"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/experiments/pearson_zumbach_001/README.md",
+      "sha256": "6f6965102a2c9f173d4b3825ba495c1d8186fb31ffa970a2ec9433d1490c7926"
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/experiments/physical_stability_001/RESULTS.md",
+      "sha256": "c0325402eb4c950c71b66811e2d46e5898b72f9bee0a6dfa8d7c1c90a08b7a3f"
+    }
+  ]
+}

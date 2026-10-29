@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "exact_fraction_checks": [
+    {
+      "day": 27,
+      "forward_tolerance": 0.0,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": false
+    },
+    {
+      "day": 55,
+      "forward_tolerance": 0.0,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 118,
+      "forward_tolerance": 0.0,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 153,
+      "forward_tolerance": 0.0,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 27,
+      "forward_tolerance": 0.1,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": false
+    },
+    {
+      "day": 55,
+      "forward_tolerance": 0.1,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 118,
+      "forward_tolerance": 0.1,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 153,
+      "forward_tolerance": 0.1,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 27,
+      "forward_tolerance": 0.5,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": false
+    },
+    {
+      "day": 55,
+      "forward_tolerance": 0.5,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 118,
+      "forward_tolerance": 0.5,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    },
+    {
+      "day": 153,
+      "forward_tolerance": 0.5,
+      "global_payoff_dominance": true,
+      "exact_fraction_lower_bound_verified": true,
+      "baseline_excluded": true
+    }
+  ],
+  "quote_source_hash_matches": true
+}

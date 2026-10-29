@@ -1,0 +1,5 @@
+{
+  "status": "stopped after first true proposal was rejected; no checking prices evaluated",
+  "reason": "Joint common-call local search improved its merit but worsened native OTM VIX. Replace inner guidance with explicit VIX-focused constraints in both conventions. Original source, baseline, rejected proposal and all evaluations retained.",
+  "replacement": "m2_parity_parameter_fit_002"
+}

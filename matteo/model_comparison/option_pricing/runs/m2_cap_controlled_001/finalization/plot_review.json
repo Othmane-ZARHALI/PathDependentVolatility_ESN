@@ -1,0 +1,21 @@
+{
+  "status": "All nine PNGs visually inspected;18 PNG/SVG hashes and every plotted source hash verified",
+  "figures": [
+    "bounded-variance-curve.png",
+    "fresh-weighted-tail-calls.png",
+    "nine-shape-tradeoffs.png",
+    "spx-all-maturities-iv.png",
+    "spx-all-maturities-signed-errors.png",
+    "vix-all-maturities-iv.png",
+    "vix-all-maturities-signed-errors.png",
+    "vix-forwards.png",
+    "vix-fresh-checking.png"
+  ],
+  "observations": [
+    "All seven SPX and four VIX maturities use actual model prices",
+    "Both representatives improve VIX wings but remain well below market at high strikes",
+    "SPX IV changes look small, while signed quote-scale price errors expose deterioration",
+    "Bounded curve plot confirms unchanged off-window pieces; new-stream bands and weighted-tail plots present",
+    "Tradeoff scatter annotations were separated before final export; no price smoothing or clipping"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "coarse": 24,
+  "fine": 48,
+  "max_price_difference": 2.395561082835229e-09,
+  "max_forward_difference": 4.1418246610192e-09,
+  "by_day": [
+    {
+      "day": 27,
+      "max_VIX_difference": 1.867460014182143e-06
+    },
+    {
+      "day": 55,
+      "max_VIX_difference": 1.969140430446714e-05
+    },
+    {
+      "day": 118,
+      "max_VIX_difference": 0.00016425305511802435
+    },
+    {
+      "day": 153,
+      "max_VIX_difference": 0.0001810321118682623
+    }
+  ]
+}

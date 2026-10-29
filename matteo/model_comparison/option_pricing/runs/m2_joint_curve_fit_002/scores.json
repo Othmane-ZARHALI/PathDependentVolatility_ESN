@@ -1,0 +1,170 @@
+[
+  {
+    "role": "search",
+    "trial": 0,
+    "candidate": "anchor",
+    "levels": [
+      0.054249611228344374,
+      0.060031898992150605,
+      0.0642080964154938
+    ],
+    "total": 637.315819985813,
+    "components": {
+      "SPX": 571.5789986650111,
+      "VIX": 64.68511504366995,
+      "midpoint": 0.0,
+      "forwards": 1.0517011895841675,
+      "state_penalty": 0.0,
+      "curve_penalty": 5.087547670220159e-06
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  },
+  {
+    "role": "search",
+    "trial": 0,
+    "candidate": "selected",
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 333.67640361081453,
+    "components": {
+      "SPX": 227.102732361282,
+      "VIX": 90.31531048371444,
+      "midpoint": 0.0,
+      "forwards": 16.258205859821665,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  },
+  {
+    "role": "fresh",
+    "trial": 0,
+    "candidate": "anchor",
+    "levels": [
+      0.054249611228344374,
+      0.060031898992150605,
+      0.0642080964154938
+    ],
+    "total": 565.2015803970057,
+    "components": {
+      "SPX": 500.8209776345378,
+      "VIX": 63.61309320193996,
+      "midpoint": 0.0,
+      "forwards": 0.7675044729801581,
+      "state_penalty": 0.0,
+      "curve_penalty": 5.087547670220159e-06
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  },
+  {
+    "role": "fresh",
+    "trial": 0,
+    "candidate": "selected",
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 369.0913532887861,
+    "components": {
+      "SPX": 273.0968850331119,
+      "VIX": 81.79376641402061,
+      "midpoint": 0.0,
+      "forwards": 14.200546935657032,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  },
+  {
+    "role": "fresh",
+    "trial": 1,
+    "candidate": "anchor",
+    "levels": [
+      0.054249611228344374,
+      0.060031898992150605,
+      0.0642080964154938
+    ],
+    "total": 644.1134190877711,
+    "components": {
+      "SPX": 569.6614126417395,
+      "VIX": 73.17199559151153,
+      "midpoint": 0.0,
+      "forwards": 1.2800057669723015,
+      "state_penalty": 0.0,
+      "curve_penalty": 5.087547670220159e-06
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  },
+  {
+    "role": "fresh",
+    "trial": 1,
+    "candidate": "selected",
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 363.7140310573433,
+    "components": {
+      "SPX": 258.05660081455744,
+      "VIX": 91.98351405455244,
+      "midpoint": 0.0,
+      "forwards": 13.673761282236867,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  },
+  {
+    "role": "fresh",
+    "trial": 2,
+    "candidate": "anchor",
+    "levels": [
+      0.054249611228344374,
+      0.060031898992150605,
+      0.0642080964154938
+    ],
+    "total": 662.7354455552486,
+    "components": {
+      "SPX": 594.1584365673123,
+      "VIX": 67.96125088669542,
+      "midpoint": 0.0,
+      "forwards": 0.6157530136932167,
+      "state_penalty": 0.0,
+      "curve_penalty": 5.087547670220159e-06
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  },
+  {
+    "role": "fresh",
+    "trial": 2,
+    "candidate": "selected",
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 416.38271404234365,
+    "components": {
+      "SPX": 322.05562864573346,
+      "VIX": 82.55444106962854,
+      "midpoint": 0.0,
+      "forwards": 11.772489420985167,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0,
+    "invalid_forward_count": 0
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "stock_warning_rows": 2,
+  "pooled_vix_moment_warnings": [],
+  "negative_necessary_margins": [
+    {
+      "days": 118,
+      "candidate": "selected",
+      "model_mean": 22.874868256474823,
+      "forward_se": 0.1158727201558649,
+      "model_second_moment": 692.3411107898394,
+      "market_bid_necessary_bound": 698.3489299030714,
+      "necessary_margin": -6.007819113232017,
+      "jensen_margin": 169.0815130387599
+    },
+    {
+      "days": 153,
+      "candidate": "baseline",
+      "model_mean": 23.478242866258995,
+      "forward_se": 0.0944842769416713,
+      "model_second_moment": 727.9209655820044,
+      "market_bid_necessary_bound": 747.6932012199942,
+      "necessary_margin": -19.772235637989752,
+      "jensen_margin": 176.69307749496306
+    },
+    {
+      "days": 153,
+      "candidate": "selected",
+      "model_mean": 24.014016437915007,
+      "forward_se": 0.0978210531406208,
+      "model_second_moment": 761.3754629822528,
+      "market_bid_necessary_bound": 770.9672051727315,
+      "necessary_margin": -9.591742190478726,
+      "jensen_margin": 184.70247750180056
+    }
+  ],
+  "caveat": "Dependent numerical diagnostics at estimated model means. Necessary market bounds plus moment/forward uncertainty and unresolved numerical bias; no certified infeasibility or price convergence."
+}

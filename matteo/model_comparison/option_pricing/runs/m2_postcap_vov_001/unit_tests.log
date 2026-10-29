@@ -1,0 +1,16 @@
+test_conditional_expectation_and_mean_one (matteo.model_comparison.option_pricing.test_postcap_vov.PostcapTests.test_conditional_expectation_and_mean_one) ... ok
+test_stock_step_and_zero_strength_nesting (matteo.model_comparison.option_pricing.test_postcap_vov.PostcapTests.test_stock_step_and_zero_strength_nesting) ... SPX START test 29
+SPX START test 29
+ok
+test_counter_normals_and_ou_variance (matteo.model_comparison.option_pricing.test_stochastic_vov.LayerTests.test_counter_normals_and_ou_variance) ... ok
+test_integrated_polynomial_has_known_gaussian_mean (matteo.model_comparison.option_pricing.test_stochastic_vov.LayerTests.test_integrated_polynomial_has_known_gaussian_mean) ... ok
+test_streamed_stock_matches_python_and_nests_baseline (matteo.model_comparison.option_pricing.test_stochastic_vov.LayerTests.test_streamed_stock_matches_python_and_nests_baseline) ... SPX START test 29
+SPX START test 29
+SPX START test 29
+SPX START test 29
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 8.220s
+
+OK

@@ -1,0 +1,26 @@
+[
+  {
+    "candidate": 1,
+    "name": "Instantaneous variance",
+    "price_loss_delta_CI95": [
+      -572.5305487200371,
+      981.3045020440446
+    ]
+  },
+  {
+    "candidate": 2,
+    "name": "Future30days,4updates",
+    "price_loss_delta_CI95": [
+      -556.7310013033479,
+      810.089215024906
+    ]
+  },
+  {
+    "candidate": 3,
+    "name": "Future30days,8updates",
+    "price_loss_delta_CI95": [
+      -577.7064309209505,
+      803.3020717036825
+    ]
+  }
+]

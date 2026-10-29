@@ -1,0 +1,98 @@
+{
+  "status": "point1 price/SE/parity/true-acceptance/local-history/source/policy replay passed",
+  "sources_verified": 68,
+  "local_evaluations_replayed": 119,
+  "accepted_steps": 2,
+  "all_strikes_paths": 4096,
+  "full_pricer_calls": 3,
+  "minimum_volatility": 0.05039841267341662,
+  "new_independent_checking": false,
+  "final": {
+    "total": 95.11770230263608,
+    "components": {
+      "SPX": 49.518173071302115,
+      "VIX": 44.72817823784085,
+      "midpoint": 0.0,
+      "forwards": 0.8380057943731175,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 1.1865786642116266e-05
+    },
+    "original_otm_total": 84.98202423871756,
+    "original_otm_components": {
+      "SPX": 49.51817307130213,
+      "VIX": 34.59250017392233,
+      "midpoint": 0.0,
+      "forwards": 0.8380057943731175,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 1.1865786642116266e-05
+    },
+    "tails": [
+      {
+        "instrument": "SPX",
+        "days": 29,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 52
+      },
+      {
+        "instrument": "SPX",
+        "days": 57,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 44
+      },
+      {
+        "instrument": "SPX",
+        "days": 119,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 26
+      },
+      {
+        "instrument": "SPX",
+        "days": 211,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 20
+      },
+      {
+        "instrument": "SPX",
+        "days": 302,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 11
+      },
+      {
+        "instrument": "SPX",
+        "days": 666,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 46
+      },
+      {
+        "instrument": "SPX",
+        "days": 1030,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 268
+      },
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 265
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 131
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 51
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "zero_hit_contracts": 0,
+        "minimum_raw_hits": 70
+      }
+    ]
+  }
+}

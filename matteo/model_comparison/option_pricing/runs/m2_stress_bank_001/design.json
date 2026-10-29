@@ -1,0 +1,83 @@
+{
+  "source_hashes": {
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/stress_bank_study.py": "f3560c1f82244a73c91cfe35068fec62c1ad327ced6881321b6127ddc0bdfe42",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/stress_bank_core.py": "39ab2ab954243f5e19c142bd95fddda4454d1f01c38ebc3830e01a9157580b43",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/stress_bank_multilevel_core.py": "e35508fb7df63320b0bffffaf7da21f55ce975513cab4a54f08737bb47200de3",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/STRESS_BANK_PLAN.md": "2d3a2b00fd0fb140fcd82994cb2eb5a0501c6777011167f6be79e1229f5474c6",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/two_speed_core.py": "5d28dfbc8c0e446cff0f916e35aff6aee9191ad76ed66b71b316d71cc0b569d2",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/two_speed_study.py": "25018e306b1fb91899388295411cf2f8a10cdf5a640d13e8e7280cff81b33402",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/continuum_response_study.py": "0abddabdc9179161afbcbfb89791c43f941027e261f875fb8b0ccc28983b42f1",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/vix_only_curve_fit.py": "2d593f0594a65a8630d0adb961e12b8fd8a2e831b730bfb88ddb604d2da578e0",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/mixed_response_core.py": "6774585c056adce6530ca81b49616b8fb0296898c38f56cdf07fb6020759015b",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_maturity_curve_fit_001/run.json": "c87f495c75f1dc889550d3605eb7049fcdc48a6f45edee31ef60c97b9a3645d3",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_maturity_curve_fit_001/vix_controls.json": "5c0ef01d3bc689dd445175e815c092680a330f22ab6bdf21e492a5a92aeae940",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/selection.json": "9d0db866c17d3a08cd39d71a70f3dbd4691ab3f18f43e6f4b128fce4e6c2e03f",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/source/matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/vix_contracts.csv": "c0be6c91d5bb0ff789fc2f5ac9380f5133e10bfd2d1d40a3d5bcabf4165805d5",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/source/matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/forward_targets.csv": "f45063c880a698f7b6cf9a97644361360a5b85d57284bd05c132235cee44fc7b",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py": "b1e96b7cea1c1c69cf3c5b710fcaf089e24e08afa9463e2c908803769e3d5f54"
+  },
+  "input_hashes": {
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_conditional_nodes.npz": "35f4c209eba6122a6a9f1b55a4b45f40331e81cb53ccc5bd9caa6b52d451c0d5",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_continuum_response_003/fresh_base_nodes.npz": "159a3dfaa956929f8a30b0bb6c8f77cdabfa1cdc4b56ca5849d413de078f8d67",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d27.npz": "03b9e3d090c530f519bbd94fdda0e39b1e3596b1c62fbbc0a0a9c4c65ea277d7",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d55.npz": "a0dcbbcc836da767e71418cfba0c5f54609ff8218b9cb66fe1745c0d73f31614",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d118.npz": "ebcd0c9b25b7026ffbf77d9bdbbf60be38446df6b47d21b157a3f107b69ea3c8",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d153.npz": "a0b4e6d01e109ad9cafe84ecbccdd4a649d0233e1a5e9be9deb14923cf95f5cb",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/training_fast/d27.npz": "93eddb43b6bd7a1712fbe126630d80d16a8d6827d48696425c1b61e9f5e5bf5a",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/training_fast/d55.npz": "a1cf74d4bbb6a15a4db2e80d77e50bd168b021d2e471eae01b26e75a713c85dc",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/training_fast/d118.npz": "7b72b7b5c55a8a6659a78ff268be529f2a952d40e70190d85c0f1f7f50c644b3",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/training_fast/d153.npz": "1eabfcb44b852fbf48beba1417a7f8d45aaba0e2e9f62737d9bf9b0aadb92a38",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_continuum_response_003/fresh_base_cache/production/vix_d27.npz": "9f42276691528e52410496aa47d72fd560a9092b41703d89595eafd217e0be9a",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_continuum_response_003/fresh_base_cache/production/vix_d55.npz": "01e0100d781f3810b2702a8a55ac2d69e2474dff1ed5b1f394fdac0a59f414a1",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_continuum_response_003/fresh_base_cache/production/vix_d118.npz": "f3eb79b2f55f4a88dfd5c11bbcc83faa89258c21f3a672aa689a5a64785874b4",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_continuum_response_003/fresh_base_cache/production/vix_d153.npz": "43380bd111b03f8fef3c78523a55b078181cb421315d26bf622984f25b808aca",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/checking_fast/d27.npz": "03993c90235fdbdfcb6a8223aab6ad254d7f7222defd0820b3ba611b1c82f4df",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/checking_fast/d55.npz": "f9ec48217c504d17dd115149b0fcb9642443e67e521bc6d9801bba0da38518b3",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/checking_fast/d118.npz": "75672c5da5b03115a4776496ffc5e5a763217e7768298e564a151a0f71f92005",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/checking_fast/d153.npz": "0359f3eb4e38cbcd9dbee46978390c9579ec4b2b82b83e40cd2a441b217908a9"
+  },
+  "half_lives_days": [
+    7.0,
+    28.0,
+    112.0,
+    448.0
+  ],
+  "grid_selected_before_fit": true,
+  "training": "32768 reused old/slow/fast normals plus new joint two-dimensional extra nodes",
+  "checking": "65536 reused old/slow/fast normals plus new extra nodes; not wholly fresh",
+  "SPX_priced": false,
+  "baseline_replaced": false,
+  "parameter_order": [
+    "xi_unit1",
+    "xi_unit2",
+    "xi_unit3",
+    "xi_unit4",
+    "xi_unit7",
+    "xi_unit8",
+    "xi_unit10",
+    "floor_vol_unit",
+    "b_unit0",
+    "b_unit1",
+    "b_unit2",
+    "b_unit3",
+    "stick_unit0",
+    "stick_unit1",
+    "stick_unit2",
+    "stick_unit3"
+  ],
+  "native_quote_count": 217,
+  "forward_constraints": "four training-estimator equalities; eligibility max gap<=1e-5",
+  "bounds": {
+    "amplitudes": [
+      0,
+      5
+    ],
+    "floor_volatility": [
+      0.05,
+      0.12
+    ],
+    "active_xi_upper": 0.2
+  },
+  "selection": "minimum training option loss among forward-feasible starts",
+  "two_speed_comparison": "stored selected model and checking blocks; shared old-state streams; not a nested family comparison"
+}

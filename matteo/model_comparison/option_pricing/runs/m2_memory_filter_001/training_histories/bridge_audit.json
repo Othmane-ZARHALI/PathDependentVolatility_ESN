@@ -1,0 +1,54 @@
+[
+  {
+    "day": 27,
+    "steps_per_trading_day": 128,
+    "nt": 2388,
+    "dt": 3.097680181730571e-05,
+    "pseudoinverse_relative_cutoff": 1e-11,
+    "retained_terminal_rank": 21,
+    "discarded_terminal_variance": 4.4209494425877504e-15,
+    "max_projected_bridge_crosscov_error": 9.153246716131491e-09,
+    "terminal_projection_error": 0.0007069755687880118,
+    "innovation_covariance_error": 2.220446049250313e-16,
+    "max_unconditional_projected_history_covariance_error": 5.523081354485981e-07
+  },
+  {
+    "day": 55,
+    "steps_per_trading_day": 128,
+    "nt": 4862,
+    "dt": 3.099237587553462e-05,
+    "pseudoinverse_relative_cutoff": 1e-11,
+    "retained_terminal_rank": 21,
+    "discarded_terminal_variance": 1.9424666301808273e-11,
+    "max_projected_bridge_crosscov_error": 8.05405697995587e-07,
+    "terminal_projection_error": 0.0006883000336856369,
+    "innovation_covariance_error": 4.996003610813204e-16,
+    "max_unconditional_projected_history_covariance_error": 2.3092847634131886e-09
+  },
+  {
+    "day": 118,
+    "steps_per_trading_day": 128,
+    "nt": 10428,
+    "dt": 3.100188638596823e-05,
+    "pseudoinverse_relative_cutoff": 1e-11,
+    "retained_terminal_rank": 22,
+    "discarded_terminal_variance": 6.45755082535828e-13,
+    "max_projected_bridge_crosscov_error": 1.4908459178286648e-07,
+    "terminal_projection_error": 0.0003755697857158978,
+    "innovation_covariance_error": 1.6653345369377348e-16,
+    "max_unconditional_projected_history_covariance_error": 2.0451168936119757e-07
+  },
+  {
+    "day": 153,
+    "steps_per_trading_day": 128,
+    "nt": 13522,
+    "dt": 3.09997102641459e-05,
+    "pseudoinverse_relative_cutoff": 1e-11,
+    "retained_terminal_rank": 22,
+    "discarded_terminal_variance": 1.275666331764098e-11,
+    "max_projected_bridge_crosscov_error": 7.69222381957757e-07,
+    "terminal_projection_error": 0.0003685626892874737,
+    "innovation_covariance_error": 8.001412032943023e-17,
+    "max_unconditional_projected_history_covariance_error": 4.1326497779436977e-10
+  }
+]

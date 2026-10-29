@@ -1,0 +1,48 @@
+a positive bid and positive ask price to ensure only relevant quotes are used for the fit. Put
+option prices are converted to call option prices using the put-call parity. Table 3 summarizes
+the number of quotes and maximum bid-ask (implied volatility) spread Ask−BidMid    .
+
+              Table 3: Summary of Option Quotes and Maximum Relative Spreads
+
+                   VIX Options (Spot 18.02)
+    Maturity  Forward  Min Strike  Max Strike  Quotes  Max % Spread
+    2026-05-19     20.05         17            55.0         37         18.92%
+    2026-06-17     21.09         16            85.0         45         20.80%
+    2026-07-22     21.95         16            95.0         38         16.81%
+    2026-08-19     22.20         16            95.5         38         19.87%
+    2026-09-16     22.57         16            95.5         38         21.90%
+    2026-10-21      23          16            95.0         38         19.18%
+                 SPX Options (Spot 7152.72)
+    Maturity  Forward  Min Strike  Max Strike  Quotes  Max % Spread
+    2026-05-15   7184.96       5250         7640        410         8.82%
+    2026-06-18   7205.15       3400         8200        494         6.82%
+    2026-07-17   7222.97       1800         8700        468         6.33%
+    2026-08-21   7244.04       1200         9200        412         6.24%
+    2026-09-18   7259.87       1400         9800        367         6.19%
+    2026-10-16   7278.60       1400         10200        304         6.06%
+
+   For the VIX futures data, we retrieve the daily settlement prices, as provided by CBOE [1].
+The settlement prices roughly correspond to EOD market prices.  For any expiry date not
+listed, we use a linear interpolation method to determine the corresponding forward price.
+
+4.2. Local Volatility for VIX
+   In the first part of the model calibration, we calibrate the local volatility process (Xt)t≥t0.
+We employ an adaptation of Drimus and Farkas’ method [11], which we outlined in Ap-
+pendix A. The forward curve consists of M = 6 maturities t1, t2, . . . , t6, for which the for-
+ward prices {FX,tm : 0 ≤m ≤M} are listed in Table 3. We construct the forward curve
+FX : [t0, ∞) such that FX(t0) is the spot price and FX,m = FX(tm).  For the parameter k
+we use k = 12. The resulting mean-reversion parameters are then derived as θ1, θ2, . . . , θ5 =
+23.33, 22.28, 22.68, 22.5, 23, 23.37. Figure 6 shows the corresponding curve and parameters for
+θm for k = 12 as well as k ∈{5, 8} as comparison.
+
+
+
+
+
+       Figure 6: Calibrated VIX Future curve and corresponding θt on April 27, 2026. Param-
+       eter k ∈{5, 8, 12}
+
+   The interpolation functions νm(.) (see Appendix A, [11]) are fitted on mid market implied
+volatilities. Contrary to Drimus and Farkas, we do not use a parametric form of νm(.), but a
+
+                                        18

@@ -1,0 +1,84 @@
+{
+  "command": [
+    "/Users/matteogambara/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/audits/attempt_003/CalibrationChecks.olean",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc4",
+  "lean_version": "Lean (version 4.35.0-rc4, arm64-apple-darwin24.6.0, commit c29b6dda4f7c20e3eeaa717c4e565663c5cfa364, Release)",
+  "mathlib_revision": "1f414401f69059aa7eead47b53ee40bd38455eeb",
+  "dependency_project": "/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env",
+  "lean_path": "/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/Qq/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/aesop/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/batteries/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/importGraph/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/mathlib/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/plausible/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/proofwidgets/.lake/build/lib/lean",
+  "exit_code": 0,
+  "source_sha256": "398de7517a87ab5b2bbc90a329c5a23b7e8e67fd5c9ef12fbc6e2d7077208462",
+  "checker_sha256": "b4f56684faf3233b92f81de269bb9c392a2cd72fff51469b84836e66ba3d92fb",
+  "sorryAx_present": false,
+  "theorem_axioms": {
+    "gaussian_exponential_mean_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "gaussian_stock_step_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "gaussian_hedge_step_mean_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "frozen_anchor_control_reuse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "finite_importance_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "integrated_variance_affine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "integrated_variance_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "weighted_residual_norm_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "penalty_residual_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "finite_noise_square_decomposition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "expected_theorems": [
+    "gaussian_exponential_mean_one",
+    "gaussian_stock_step_mean",
+    "gaussian_hedge_step_mean_zero",
+    "frozen_anchor_control_reuse",
+    "finite_importance_identity",
+    "integrated_variance_affine",
+    "integrated_variance_positive",
+    "weighted_residual_norm_identity",
+    "penalty_residual_identity",
+    "finite_noise_square_decomposition"
+  ],
+  "axiom_audit_passes": true,
+  "status": "checked"
+}

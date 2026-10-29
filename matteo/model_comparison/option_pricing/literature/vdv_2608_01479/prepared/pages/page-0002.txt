@@ -1,0 +1,64 @@
+   In this work, we propose a modular framework that reverses the conventional modeling or-
+der. We begin by defining the VIX index dynamics as a separate model that can be calibrated
+to VIX option prices and VIX futures. This yields a one-factor diffusion with transition den-
+sity and drift-volatility coefficients inferred from market data. Leveraging the rolling-window
+definition of VIX [2], we derive a backward equation for the conditional expectation of inte-
+grated variance. The backward equation reduces the specification of a coupling map between
+the VIX index and a volatility process to a single interval, called the terminal interval. We
+show how to derive this coupling map for polynomial processes, and how to approximate it
+for general, non-polynomial processes. The framework generalizes stochastic volatility models
+with a single driver for volatility and VIX. It yields a transparent and tractable framework for
+joint SPX-VIX modeling, grounded in observable market data and realistic VIX and volatility
+processes.
+
+1.1. Definition of a Joint SPX-VIX framework
+  We consider the price process (St)t≥t0 of the discounted and dividend-adjusted SPX on a
+risk-neutral probability space (Ω, F, Q) with filtration F = {Ft, t ≥t0}. Its dynamics are taken
+to be
+                              dSt
+                     = σt dWt,      vt := σ2t ,
+                                St
+where W is a Brownian motion and vt is the instantaneous variance of the process. By Itô’s
+formula, we derive the log-transformation of the process as
+
+                         ST      Z T       Z T
+                             log   = −12    vu du +    σu dWu.
+                                 St0           t0               t0
+
+Taking conditional expectation eliminates the martingale term:
+
+                          ST            "Z T        #
+                 E log       | Ft0 = −12 E     vu du | Ft0   .                      (1.1)
+                                 St0                        t0
+
+The VIX index emerges naturally as the square root of the average expected variance over a
+30-day window. Throughout the paper, we denote the constant Θ = 30/365 as the 30-day time
+horizon in years. The forward average variance over an interval [t, t + Θ] for t ≥t0 is defined
+as
+                                     1 Z t+Θ
+                                                             ¯vt :=         vu du.
+                        Θ   t
+
+Applying (1.1) shows that the conditional expectation of the average variance can be written
+as the log-transformed SPX process:
+
+                                           St+Θ                                     E[¯vt | Ft] = −2 Et log          | Ft   .
+                        Θ         St
+
+We define the VIX process1(Xt)t≥t0 as the Ft-adapted process of the square root of this forward
+expected variance, annualized and scaled:
+
+                    s                                               St+Θ
+                   Xt := p E[¯vt | Ft] =  −2Θ E log          | Ft  .                     (1.2)                                                         St
+
+The VIX index is actively being traded through a futures market.  Furthermore, there is a
+highly liquid market for European options on the VIX index. A European call or put with
+strike K ∈R+ and maturity T ≥t0 has payoff
+
+                         (XT −K)+  or  (K −XT )+,
+
+
+   1Note that in practice, the VIX is scaled by a factor of 100. Without loss of generality, we will assume an
+unscaled VIX process.
+
+                                        2

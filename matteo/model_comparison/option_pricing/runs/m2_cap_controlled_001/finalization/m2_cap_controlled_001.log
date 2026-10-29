@@ -1,0 +1,69 @@
+FIT shape00 L shift 0.0 continuation 0.0
+PROFILE shape00 27.347687371956305 wingMAE 33.60623585141899 ATM 13.12692798487023 feasible True preferred False
+FIT shape01 L shift 0.0 continuation 0.25
+PROFILE shape01 26.438674314501704 wingMAE 30.296653748160306 ATM 14.070807442651875 feasible True preferred True
+FIT shape02 L shift 0.0 continuation 0.5
+PROFILE shape02 26.910389614647933 wingMAE 26.663544297189375 ATM 15.180386404117902 feasible True preferred True
+FIT shape03 L shift 0.375 continuation 0.0
+PROFILE shape03 26.865374438951665 wingMAE 27.716798062683115 ATM 14.921486210496893 feasible True preferred True
+FIT shape04 L shift 0.375 continuation 0.25
+PROFILE shape04 28.099833238223393 wingMAE 24.971897044219737 ATM 15.789397276119713 feasible True preferred False
+FIT shape05 L shift 0.375 continuation 0.5
+PROFILE shape05 31.03073581468799 wingMAE 21.88883601860981 ATM 16.91257745681106 feasible True preferred False
+FIT shape06 L shift 0.75 continuation 0.0
+PROFILE shape06 30.490362445099045 wingMAE 22.71619753947929 ATM 16.673733476167587 feasible True preferred False
+FIT shape07 L shift 0.75 continuation 0.25
+PROFILE shape07 33.52160708184451 wingMAE 20.384455132206377 ATM 17.60184298938963 feasible True preferred False
+FIT shape08 L shift 0.75 continuation 0.5
+PROFILE shape08 38.442693141968 wingMAE 17.73459372018368 ATM 18.642379265733574 feasible True preferred False
+SELECTION FROZEN [('capped', 'shape03'), ('continued', 'shape02')]
+FULL shape03
+SPX START d29
+SPX COMPLETE d29 seconds 4.024282082915306
+SPX START d57
+SPX COMPLETE d57 seconds 7.367533625103533
+SPX START d119
+SPX COMPLETE d119 seconds 14.948099290952086
+SPX START d211
+SPX COMPLETE d211 seconds 26.40627499995753
+SPX START d302
+SPX COMPLETE d302 seconds 36.15069783409126
+SPX START d666
+SPX COMPLETE d666 seconds 91.51431704196148
+SPX START d1030
+SPX COMPLETE d1030 seconds 129.56887195818126
+FULL SCORE shape03 {'SPX': 87.40064096845653, 'VIX': 26.227381393111827, 'midpoint': 0.0, 'forwards': 0.6379930458399313, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.782592405258231e-05}
+FULL shape02
+SPX START d29
+SPX COMPLETE d29 seconds 5.823073084000498
+SPX START d57
+SPX COMPLETE d57 seconds 10.558222125051543
+SPX START d119
+SPX COMPLETE d119 seconds 16.83872270816937
+SPX START d211
+SPX COMPLETE d211 seconds 28.06064366688952
+SPX START d302
+SPX COMPLETE d302 seconds 40.325948916142806
+SPX START d666
+SPX COMPLETE d666 seconds 90.10448558395728
+SPX START d1030
+SPX COMPLETE d1030 seconds 132.18088729097508
+FULL SCORE shape02 {'SPX': 98.79521097657374, 'VIX': 26.281489634522543, 'midpoint': 0.0, 'forwards': 0.6288999801254436, 'state_penalty': 0.03333333333333333, 'curve_penalty': 3.878330674671139e-05}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/cap_controlled_study.py", line 123, in <module>
+    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);run(ap.parse_args().output.resolve())
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/cap_controlled_study.py", line 114, in run
+    configure(k,row['continuation']);x=np.array(row['parameters']);e=engine(out,fresh,k,dated,initial,spx,vix,f,vc,None,design);print('FRESH CHECK',row['name'],flush=True)
+                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/cap_tail_study.py", line 29, in engine
+    e=CurveEngine(cache,k,dated,initial,spx,vix,f,controls=vc,frozen_controls=controls,ends=np.array(design['ends_years']),reference_levels=design['reference_levels'])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/maturity_curve.py", line 78, in __init__
+    super().__init__(*args,**kwargs)
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/parity_adaptive_engine.py", line 45, in __init__
+    self.stock[int(days)]=(batches,np.concatenate([np.load(b/'weights.npy') for b in batches]))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: need at least one array to concatenate

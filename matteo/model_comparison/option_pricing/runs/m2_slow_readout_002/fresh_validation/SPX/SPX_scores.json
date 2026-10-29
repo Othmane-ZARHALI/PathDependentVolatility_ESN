@@ -1,0 +1,112 @@
+[
+  {
+    "candidate": 0,
+    "alpha": 0.0,
+    "steps": 128,
+    "loss": 1874.0084256803452,
+    "IV_MAE_pp": 3.185426349193586,
+    "inside": 18,
+    "invalid_IV": 0,
+    "negative": 0,
+    "median_SE_scales": 1.4426069723589836
+  },
+  {
+    "candidate": 0,
+    "alpha": 0.0,
+    "steps": 256,
+    "loss": 1866.8845839088756,
+    "IV_MAE_pp": 3.175831045572057,
+    "inside": 17,
+    "invalid_IV": 1,
+    "negative": 1,
+    "median_SE_scales": 1.4473132739517482
+  },
+  {
+    "candidate": 1,
+    "alpha": 0.125,
+    "steps": 128,
+    "loss": 1824.0147909802156,
+    "IV_MAE_pp": 3.1405071045378556,
+    "inside": 21,
+    "invalid_IV": 1,
+    "negative": 1,
+    "median_SE_scales": 1.6072022121239524
+  },
+  {
+    "candidate": 1,
+    "alpha": 0.125,
+    "steps": 256,
+    "loss": 1816.3225855448688,
+    "IV_MAE_pp": 3.1299915329925376,
+    "inside": 23,
+    "invalid_IV": 2,
+    "negative": 2,
+    "median_SE_scales": 1.6331435962549876
+  },
+  {
+    "candidate": 2,
+    "alpha": 0.125,
+    "steps": 128,
+    "loss": 1818.7650791649905,
+    "IV_MAE_pp": 3.1365175206447344,
+    "inside": 23,
+    "invalid_IV": 1,
+    "negative": 1,
+    "median_SE_scales": 1.6047530441606115
+  },
+  {
+    "candidate": 2,
+    "alpha": 0.125,
+    "steps": 256,
+    "loss": 1811.148932535943,
+    "IV_MAE_pp": 3.1276856948110647,
+    "inside": 22,
+    "invalid_IV": 1,
+    "negative": 1,
+    "median_SE_scales": 1.6281463830025724
+  },
+  {
+    "candidate": 3,
+    "alpha": 0.0,
+    "steps": 128,
+    "loss": 1869.2058287062644,
+    "IV_MAE_pp": 3.181511933150206,
+    "inside": 17,
+    "invalid_IV": 0,
+    "negative": 0,
+    "median_SE_scales": 1.4305649988897415
+  },
+  {
+    "candidate": 3,
+    "alpha": 0.0,
+    "steps": 256,
+    "loss": 1862.0996926118592,
+    "IV_MAE_pp": 3.1735498207979767,
+    "inside": 18,
+    "invalid_IV": 0,
+    "negative": 0,
+    "median_SE_scales": 1.4371617800998497
+  },
+  {
+    "candidate": 4,
+    "alpha": 0.5,
+    "steps": 128,
+    "loss": 1760.8045336332755,
+    "IV_MAE_pp": 3.043698792203435,
+    "inside": 21,
+    "invalid_IV": 3,
+    "negative": 3,
+    "median_SE_scales": 2.8508457542903134
+  },
+  {
+    "candidate": 4,
+    "alpha": 0.5,
+    "steps": 256,
+    "loss": 1749.7318363683319,
+    "IV_MAE_pp": 3.0298036359031957,
+    "inside": 20,
+    "invalid_IV": 3,
+    "negative": 3,
+    "median_SE_scales": 2.900266268627044
+  }
+]

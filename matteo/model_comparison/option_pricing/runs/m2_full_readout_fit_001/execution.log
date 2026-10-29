@@ -1,0 +1,73 @@
+search stock batch 0 seconds 44.006300874985754
+record {"role": "search", "candidate": "baseline", "conditional_GH": 12, "total": 2168.612723372678, "components": {"SPX": 2110.0086501771466, "VIX": 44.8727784313189, "midpoint": 0.0, "forwards": 13.69793599607393, "state_penalty": 0.03333333333333333, "curve_penalty": 2.543480502155552e-05}, "inside_bidask": 48, "negative_estimates": 0, "nominal_se_passes": 19, "normalizer_probe_error": 4.4632586615150636e-09}
+evaluation 1 loss 2470.5843425415064 seconds 6.063683666987345
+evaluation 2 loss 952.3608325080812 seconds 6.179772000061348
+evaluation 3 loss 808.7037911081179 seconds 6.36911354213953
+evaluation 4 loss 722.0568433417575 seconds 6.740552291972563
+evaluation 5 loss 666.8188891952454 seconds 6.160563042154536
+evaluation 6 loss 660.9749179104117 seconds 6.3405067920684814
+evaluation 7 loss 626.7248148625622 seconds 6.064154916908592
+evaluation 8 loss 625.2992955559964 seconds 5.86468854197301
+evaluation 9 loss 626.0450572591471 seconds 5.9645548751577735
+evaluation 10 loss 621.316694998086 seconds 5.910005124984309
+evaluation 11 loss 620.292973915683 seconds 5.9518194161355495
+evaluation 12 loss 619.460800118823 seconds 5.95740095898509
+evaluation 13 loss 618.1212002032663 seconds 6.160725083900616
+evaluation 14 loss 615.0200518699944 seconds 6.083990791812539
+evaluation 15 loss 610.3560246230485 seconds 6.012860541930422
+evaluation 16 loss 606.211588226735 seconds 5.946387167088687
+evaluation 17 loss 603.7328208525798 seconds 5.880144957918674
+evaluation 18 loss 601.7576974315948 seconds 5.872730790870264
+evaluation 19 loss 598.7385561352371 seconds 6.103056041058153
+evaluation 20 loss 593.2027400514739 seconds 6.011814875062555
+evaluation 21 loss 588.9702303483953 seconds 5.9885877498891205
+evaluation 22 loss 589.521397372573 seconds 5.95334016578272
+evaluation 23 loss 587.381570141061 seconds 6.010618624975905
+evaluation 24 loss 587.1025731777813 seconds 5.988178917206824
+evaluation 25 loss 587.1701435205734 seconds 6.756532416911796
+evaluation 26 loss 586.9966148383228 seconds 5.984811374917626
+evaluation 27 loss 586.9620750321697 seconds 6.017104208935052
+evaluation 28 loss 586.9411055041551 seconds 5.94348204205744
+evaluation 29 loss 586.9292077961363 seconds 5.955401415936649
+evaluation 30 loss 586.9416629474546 seconds 5.948916292050853
+evaluation 31 loss 586.9159950187579 seconds 5.956328250002116
+evaluation 32 loss 586.9130155888904 seconds 6.098676625173539
+evaluation 33 loss 3385.3233433250066 seconds 6.407977708149701
+evaluation 34 loss 1043.205755139343 seconds 6.325827458174899
+evaluation 35 loss 723.218016746586 seconds 6.721410166937858
+evaluation 36 loss 696.4012893401109 seconds 6.561754999915138
+evaluation 37 loss 652.5491982928339 seconds 6.148388792062178
+evaluation 38 loss 638.4492309698978 seconds 6.1431239591911435
+evaluation 39 loss 643.4799466274892 seconds 5.9359619580209255
+evaluation 40 loss 631.4078281384145 seconds 5.980738665908575
+evaluation 41 loss 623.1811581752632 seconds 6.174272916978225
+evaluation 42 loss 619.3350695109898 seconds 7.486467540962622
+evaluation 43 loss 616.7632811037797 seconds 6.302467874949798
+evaluation 44 loss 611.1182702716968 seconds 6.100860541919246
+evaluation 45 loss 606.7836253327143 seconds 6.14236562512815
+evaluation 46 loss 598.9000245767388 seconds 8.382846875116229
+evaluation 47 loss 603.1992208071475 seconds 8.049485584022477
+evaluation 48 loss 595.7494760928585 seconds 6.25281041697599
+evaluation 49 loss 594.1614879709548 seconds 8.678117124829441
+evaluation 50 loss 591.5135454844668 seconds 6.872477707918733
+evaluation 51 loss 590.8250464423978 seconds 6.420356249902397
+evaluation 52 loss 590.0389043532907 seconds 7.750379125121981
+evaluation 53 loss 589.0227085165861 seconds 6.050233667017892
+evaluation 54 loss 587.9031070076851 seconds 6.048004375072196
+evaluation 55 loss 587.2887295052014 seconds 5.980545915896073
+evaluation 56 loss 589.5320346959143 seconds 5.950718666892499
+evaluation 57 loss 587.3141407602105 seconds 5.99478550022468
+evaluation 58 loss 587.1783258796665 seconds 6.0158546671736985
+evaluation 59 loss 587.1077809133735 seconds 5.992287999950349
+evaluation 60 loss 587.1329690144494 seconds 6.105338291963562
+evaluation 61 loss 587.0986214190758 seconds 7.090604417026043
+evaluation 62 loss 587.0839318635685 seconds 8.19473100011237
+evaluation 63 loss 587.0815635777565 seconds 6.140919541940093
+record {"role": "search", "candidate": "selected", "conditional_GH": 12, "total": 586.9130155888904, "components": {"SPX": 465.1002366049495, "VIX": 109.36427931680967, "midpoint": 0.0, "forwards": 12.415145329820604, "state_penalty": 0.03333333333333333, "curve_penalty": 2.1003977376326314e-05}, "inside_bidask": 38, "negative_estimates": 0, "nominal_se_passes": 51, "normalizer_probe_error": 1.2844823415489476e-06}
+check stock batch 0 seconds 43.766187249915674
+check stock batch 1 seconds 46.12527029099874
+record {"role": "check", "candidate": "baseline", "conditional_GH": 24, "total": 1044.1042073801118, "components": {"SPX": 969.3699523327471, "VIX": 64.35710390837623, "midpoint": 0.0, "forwards": 10.343792370850164, "state_penalty": 0.03333333333333333, "curve_penalty": 2.543480502155552e-05}, "inside_bidask": 72, "negative_estimates": 0, "nominal_se_passes": 20, "normalizer_probe_error": 4.4632586615150636e-09}
+record {"role": "check", "candidate": "selected", "conditional_GH": 24, "total": 906.608467560097, "components": {"SPX": 781.9800679296673, "VIX": 102.9396423536702, "midpoint": 0.0, "forwards": 21.655402939448763, "state_penalty": 0.03333333333333333, "curve_penalty": 2.1003977376326314e-05}, "inside_bidask": 61, "negative_estimates": 0, "nominal_se_passes": 49, "normalizer_probe_error": 1.2844823415489476e-06}
+record {"role": "check_gh12", "candidate": "baseline", "conditional_GH": 12, "total": 1043.5309300649583, "components": {"SPX": 969.3699523327471, "VIX": 63.663239018314194, "midpoint": 0.0, "forwards": 10.464379945758735, "state_penalty": 0.03333333333333333, "curve_penalty": 2.543480502155552e-05}, "inside_bidask": 73, "negative_estimates": 0, "nominal_se_passes": 20, "normalizer_probe_error": 4.4632586615150636e-09}
+record {"role": "check_gh12", "candidate": "selected", "conditional_GH": 12, "total": 902.6194012465292, "components": {"SPX": 781.9800679296673, "VIX": 98.66955306650806, "midpoint": 0.0, "forwards": 21.93642591304302, "state_penalty": 0.03333333333333333, "curve_penalty": 2.1003977376326314e-05}, "inside_bidask": 60, "negative_estimates": 0, "nominal_se_passes": 50, "normalizer_probe_error": 1.2844823415489476e-06}
+COMPLETED 745.0451912079006

@@ -1,0 +1,174 @@
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:18:43: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:18:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:25:38: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:25:40: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:26:79: error: unsolved goals
+v : sorry
+stock : ℝ
+⊢ sorry
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:29:43: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:29:45: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:31:32: error: unsolved goals
+v : sorry
+stock delta : ℝ
+hi : Integrable (fun z => Real.exp z) (gaussianReal 0 sorry)
+hshift : Integrable (fun z => Real.exp (z - sorry / 2)) (gaussianReal 0 sorry)
+⊢ delta * ∫ (a : ℝ), stock * Real.exp (a - sorry / 2) - stock ∂gaussianReal 0 sorry = 0
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:57:55: error: unsolved goals
+n : ℕ
+p q H : Fin n → ℝ
+hq : ∀ (i : Fin n), q i ≠ 0
+i : Fin n
+a✝ : i ∈ Finset.univ
+⊢ q i * p i * H i / q i = p i * H i
+/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean:106:42: error: `simp` made no progress
+'M2Calibration.gaussian_exponential_mean_one' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'M2Calibration.gaussian_stock_step_mean' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'M2Calibration.gaussian_hedge_step_mean_zero' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'M2Calibration.frozen_anchor_control_reuse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'M2Calibration.finite_importance_identity' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'M2Calibration.integrated_variance_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'M2Calibration.integrated_variance_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'M2Calibration.weighted_residual_norm_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'M2Calibration.penalty_residual_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'M2Calibration.finite_noise_square_decomposition' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+M2Calibration.frozen_anchor_control_reuse.{u_1, u_2} {Ω : Type u_1} {Θ : Type u_2} [MeasurableSpace Ω]
+  (μ : @Measure Ω inst✝) (n : Nat) (H : Θ → Ω → Real) (C : Fin n → Ω → Real) (beta : Fin n → Real)
+  (hH :
+    ∀ (θ : Θ),
+      @Integrable Real
+        (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+        (@ESeminormedAddMonoid.toContinuousENorm Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@SeminormedAddGroup.toESeminormedAddMonoid Real
+            (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                    (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing)))))))
+        Ω inst✝ (H θ) μ)
+  (hC :
+    ∀ (i : Fin n),
+      @Integrable Real
+        (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+        (@ESeminormedAddMonoid.toContinuousENorm Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@SeminormedAddGroup.toESeminormedAddMonoid Real
+            (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                    (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing)))))))
+        Ω inst✝ (C i) μ)
+  (hzero :
+    ∀ (i : Fin n),
+      @Eq Real
+        (@integral Ω Real Real.normedAddCommGroup
+          (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+            (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+          inst✝ μ fun ω => C i ω)
+        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+  (θ : Θ) :
+  @Eq Real
+    (@integral Ω Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+      inst✝ μ fun ω =>
+      @HSub.hSub Real Real Real (@instHSub Real Real.instSub) (H θ ω)
+        (∑ i, @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (beta i) (C i ω)))
+    (@integral Ω Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+      inst✝ μ fun ω => H θ ω)
+M2Calibration.gaussian_hedge_step_mean_zero.{u_1}
+  (v :
+    sorryAx (Unit → Sort u_1) true
+      (@Function.const Unit Lean.Name Unit.unit
+        `matteo.model_comparison.option_pricing.formalization.CalibrationChecks.29.43.29.46.43.46._sorry._@.matteo.model_comparison.option_pricing.formalization.CalibrationChecks.4027680665._hygCtx._hyg.8))
+  (stock delta : Real) :
+  @Eq Real
+    (@integral Real Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+      Real.measurableSpace
+      (gaussianReal (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+        (sorryAx (Unit → NNReal) true
+          (@Function.const Unit Lean.Name Unit.unit
+            `matteo.model_comparison.option_pricing.formalization.CalibrationChecks.31.22.31.23.22.23._sorry._@.matteo.model_comparison.option_pricing.formalization.CalibrationChecks.4027680665._hygCtx._hyg.23)))
+      fun z =>
+      @HMul.hMul Real Real Real (@instHMul Real Real.instMul) delta
+        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) stock
+            (Real.exp
+              (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) z
+                (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                  (sorryAx (Unit → Real) true
+                    (@Function.const Unit Lean.Name Unit.unit
+                      `matteo.model_comparison.option_pricing.formalization.CalibrationChecks.30.45.30.52.45.52._sorry._@.matteo.model_comparison.option_pricing.formalization.CalibrationChecks.4027680665._hygCtx._hyg.61))
+                  (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))))))
+          stock))
+    (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+M2Calibration.integrated_variance_affine (n : Nat) (floorPart floor t : Real) (A xi eta : Fin n → Real) :
+  @Eq Real
+    (integratedVariance n floorPart floor A fun i =>
+      @HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) t)
+          (xi i))
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) t (eta i)))
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) t)
+        (integratedVariance n floorPart floor A xi))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) t (integratedVariance n floorPart floor A eta)))
+M2Calibration.finite_noise_square_decomposition (n : Nat) (p noise : Fin n → Real) (a : Real)
+  (hmass : @Eq Real (∑ i, p i) (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+  (hmean :
+    @Eq Real (∑ i, @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (p i) (noise i))
+      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) :
+  @Eq Real
+    (∑ i,
+      @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (p i)
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) a (noise i))
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) a
+        (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (∑ i,
+        @HMul.hMul Real Real Real (@instHMul Real Real.instMul) (p i)
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+            (noise i) (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))

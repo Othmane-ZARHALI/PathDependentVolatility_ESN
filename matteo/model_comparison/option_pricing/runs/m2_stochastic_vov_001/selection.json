@@ -1,0 +1,17 @@
+{
+  "training_winners": [
+    "cap0_z2_h90",
+    "cap05_z2_h90"
+  ],
+  "matched_specs": [
+    "z2_h90"
+  ],
+  "full_candidates": [
+    "cap0_ref",
+    "cap05_ref",
+    "cap0_z2_h90",
+    "cap05_z2_h90"
+  ],
+  "frozen_before_SPX_and_fresh_sampling": true,
+  "rule": "Minimum equal-maturity wing IV MAE per cap, complete wing required; no aggregate/ATM/SPX acceptance implied"
+}

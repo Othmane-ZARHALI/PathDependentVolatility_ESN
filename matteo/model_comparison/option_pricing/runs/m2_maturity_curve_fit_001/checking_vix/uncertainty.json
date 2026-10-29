@@ -1,0 +1,95 @@
+{
+  "moments": [
+    {
+      "candidate": "baseline",
+      "days": 27,
+      "target_second_moment": 489.89616233898687,
+      "estimated_second_moment": 489.8200853310804,
+      "net_SE": 1.2538841909944713
+    },
+    {
+      "candidate": "baseline",
+      "days": 55,
+      "target_second_moment": 489.89616233898687,
+      "estimated_second_moment": 489.66014510329285,
+      "net_SE": 1.4649617721666903
+    },
+    {
+      "candidate": "baseline",
+      "days": 118,
+      "target_second_moment": 582.7299306510016,
+      "estimated_second_moment": 583.424324491212,
+      "net_SE": 2.3901698142088224
+    },
+    {
+      "candidate": "baseline",
+      "days": 153,
+      "target_second_moment": 582.7299306510015,
+      "estimated_second_moment": 578.2247423480392,
+      "net_SE": 1.5596199433284024
+    },
+    {
+      "candidate": "selected",
+      "days": 27,
+      "target_second_moment": 477.22948825354126,
+      "estimated_second_moment": 477.2074757323562,
+      "net_SE": 1.2082230893929335
+    },
+    {
+      "candidate": "selected",
+      "days": 55,
+      "target_second_moment": 536.0268666363174,
+      "estimated_second_moment": 535.7781558873269,
+      "net_SE": 1.607727226984231
+    },
+    {
+      "candidate": "selected",
+      "days": 118,
+      "target_second_moment": 580.8042682271083,
+      "estimated_second_moment": 581.4976039741734,
+      "net_SE": 2.376799948359948
+    },
+    {
+      "candidate": "selected",
+      "days": 153,
+      "target_second_moment": 610.93256882101,
+      "estimated_second_moment": 606.2079414658974,
+      "net_SE": 1.6354751215968437
+    }
+  ],
+  "paired": {
+    "canonical": {
+      "before": 46.886106854538305,
+      "after": 46.28504915858694,
+      "change": -0.6010576959513614,
+      "leave_one_net_changes": [
+        -0.43105778573369946,
+        -0.3231022097474181,
+        -0.1892941404178501,
+        -0.6695904630293512,
+        -0.843028055334436,
+        -0.5094745156403135,
+        -0.6402348553110997,
+        -1.1914106094417605
+      ],
+      "jackknife_SE": 0.7811565960307646
+    },
+    "native": {
+      "before": 35.86203564715421,
+      "after": 27.52302701585442,
+      "change": -8.339008631299787,
+      "leave_one_net_changes": [
+        -8.407693399297937,
+        -8.268010011940007,
+        -8.27323446263955,
+        -8.244750695032685,
+        -8.363712164222513,
+        -8.302273137481954,
+        -8.390012321680707,
+        -8.458425552112825
+      ],
+      "jackknife_SE": 0.19122025071487558
+    }
+  },
+  "limitation": "Descriptive paired eight-net sensitivity on previously used separate streams; not market OOS, untouched holdout or convergence certificate."
+}

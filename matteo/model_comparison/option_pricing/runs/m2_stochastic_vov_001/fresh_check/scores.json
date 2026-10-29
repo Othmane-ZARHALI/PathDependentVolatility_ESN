@@ -1,0 +1,600 @@
+[
+  {
+    "candidate": "cap0_ref",
+    "parameters": [
+      0.07579230299061607,
+      0.049951429932541834,
+      3.395274119733554,
+      0.2078592781058975,
+      0.36972997251720613,
+      5.502780056785304,
+      2.0000000000000213,
+      0.048989616233898685,
+      0.0429896162338987,
+      0.04752807691634727,
+      0.05498961623389868,
+      0.05350362026575554,
+      0.048989616233898685,
+      0.058272993065100157,
+      0.06427299306510013,
+      0.05786689005573188,
+      0.058272993065100157,
+      0.061093256882101,
+      0.058272993065100157,
+      0.058272993065100157,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.0026400000000000004
+    ],
+    "canonical_loss": 46.62317305050223,
+    "canonical_components": {
+      "SPX": 0.0,
+      "VIX": 45.67273947221054,
+      "midpoint": 0.0,
+      "forwards": 0.9170655824254994,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "original_otm_loss": 27.63057923074339,
+    "original_otm_components": {
+      "SPX": 0.0,
+      "VIX": 26.680145652451692,
+      "midpoint": 0.0,
+      "forwards": 0.9170655824254994,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "inside_canonical_bidask": 12,
+    "inside_original_otm_bidask": 18,
+    "canonical_negative_prices": 0,
+    "native_otm_negative_prices": 0,
+    "iv_unavailable": 0,
+    "normalizer": {
+      "knots": 257,
+      "midpoint_error": 9.807050234883678e-09,
+      "independent_error": 3.497911065785868e-09,
+      "GH": 48,
+      "probe_note": "Declared probes may enter refinement; additional final independent probes checked separately."
+    },
+    "allocations": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "minimum": 4096,
+        "maximum": 4096
+      }
+    ],
+    "moments": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "market_forward": 20.1,
+        "model_forward": 20.24524397948114,
+        "mass": 1.0017325576842413,
+        "second_moment": 479.2425537784562
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "market_forward": 20.73,
+        "model_forward": 21.08098125013673,
+        "mass": 1.0017230935784445,
+        "second_moment": 536.0766126872618
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "market_forward": 21.19,
+        "model_forward": 21.82512949418084,
+        "mass": 0.9989248740205916,
+        "second_moment": 582.6876419687092
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "market_forward": 21.72,
+        "model_forward": 22.327776650196462,
+        "mass": 0.997823896797444,
+        "second_moment": 606.4095550004315
+      }
+    ],
+    "shapes": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      }
+    ]
+  },
+  {
+    "candidate": "cap0_z2_h90",
+    "parameters": [
+      0.07579230299061607,
+      0.049951429932541834,
+      3.395274119733554,
+      0.2078592781058975,
+      0.36972997251720613,
+      5.502780056785304,
+      2.0000000000000213,
+      0.048989616233898685,
+      0.0429896162338987,
+      0.04752807691634727,
+      0.05498961623389868,
+      0.05350362026575554,
+      0.048989616233898685,
+      0.058272993065100157,
+      0.06427299306510013,
+      0.05786689005573188,
+      0.058272993065100157,
+      0.061093256882101,
+      0.058272993065100157,
+      0.058272993065100157,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.0026400000000000004
+    ],
+    "canonical_loss": 66.380326905782,
+    "canonical_components": {
+      "SPX": 0.0,
+      "VIX": 55.207573371340686,
+      "midpoint": 0.0,
+      "forwards": 11.139385538575123,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "original_otm_loss": 272.7873918496944,
+    "original_otm_components": {
+      "SPX": 0.0,
+      "VIX": 261.6146383152531,
+      "midpoint": 0.0,
+      "forwards": 11.139385538575123,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "inside_canonical_bidask": 30,
+    "inside_original_otm_bidask": 28,
+    "canonical_negative_prices": 0,
+    "native_otm_negative_prices": 0,
+    "iv_unavailable": 13,
+    "normalizer": {
+      "knots": 257,
+      "midpoint_error": 9.802952179695363e-09,
+      "independent_error": 7.738636872390272e-09,
+      "original_GH": 48,
+      "new_Z_GH": 192,
+      "interpolation": "Checked Chebyshev response expansion and cubic log-time normalizer"
+    },
+    "allocations": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "minimum": 4096,
+        "maximum": 4096
+      }
+    ],
+    "moments": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "market_forward": 20.1,
+        "model_forward": 18.8716178442699,
+        "mass": 1.0017325576842413,
+        "second_moment": 478.2397944892906
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "market_forward": 20.73,
+        "model_forward": 19.029974102541445,
+        "mass": 1.0017230935784445,
+        "second_moment": 522.7881650472822
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "market_forward": 21.19,
+        "model_forward": 19.346042323392528,
+        "mass": 0.9989248740205916,
+        "second_moment": 566.9133472132357
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "market_forward": 21.72,
+        "model_forward": 19.892380003143543,
+        "mass": 0.997823896797444,
+        "second_moment": 608.1350160345544
+      }
+    ],
+    "shapes": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      }
+    ]
+  },
+  {
+    "candidate": "cap05_ref",
+    "parameters": [
+      0.07579230299061607,
+      0.049951429932541834,
+      3.395274119733554,
+      0.2078592781058975,
+      0.36972997251720613,
+      5.502780056785304,
+      2.0000000000000213,
+      0.048989616233898685,
+      0.0429896162338987,
+      0.04752807691634727,
+      0.05498961623389868,
+      0.05350362026575554,
+      0.048989616233898685,
+      0.058272993065100157,
+      0.06427299306510013,
+      0.05786689005573188,
+      0.058272993065100157,
+      0.061093256882101,
+      0.058272993065100157,
+      0.058272993065100157,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.0026400000000000004
+    ],
+    "canonical_loss": 32.64795912625704,
+    "canonical_components": {
+      "SPX": 0.0,
+      "VIX": 32.4004355514218,
+      "midpoint": 0.0,
+      "forwards": 0.21415557896905596,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "original_otm_loss": 29.440861935510522,
+    "original_otm_components": {
+      "SPX": 0.0,
+      "VIX": 29.193338360675277,
+      "midpoint": 0.0,
+      "forwards": 0.21415557896905596,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "inside_canonical_bidask": 15,
+    "inside_original_otm_bidask": 24,
+    "canonical_negative_prices": 0,
+    "native_otm_negative_prices": 0,
+    "iv_unavailable": 0,
+    "normalizer": {
+      "knots": 257,
+      "midpoint_error": 9.806937436225483e-09,
+      "independent_error": 3.6092346823816702e-09,
+      "GH": 48,
+      "probe_note": "Declared probes may enter refinement; additional final independent probes checked separately."
+    },
+    "allocations": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "minimum": 4096,
+        "maximum": 4096
+      }
+    ],
+    "moments": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "market_forward": 20.1,
+        "model_forward": 20.042076546309964,
+        "mass": 1.0017325576842413,
+        "second_moment": 479.17843012579715
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "market_forward": 20.73,
+        "model_forward": 20.809766219604995,
+        "mass": 1.0017230935784445,
+        "second_moment": 536.030087814501
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "market_forward": 21.19,
+        "model_forward": 21.528414711324526,
+        "mass": 0.9989248740205916,
+        "second_moment": 582.7892402373736
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "market_forward": 21.72,
+        "model_forward": 22.019855441589343,
+        "mass": 0.997823896797444,
+        "second_moment": 606.3876205234535
+      }
+    ],
+    "shapes": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      }
+    ]
+  },
+  {
+    "candidate": "cap05_z2_h90",
+    "parameters": [
+      0.07579230299061607,
+      0.049951429932541834,
+      3.395274119733554,
+      0.2078592781058975,
+      0.36972997251720613,
+      5.502780056785304,
+      2.0000000000000213,
+      0.048989616233898685,
+      0.0429896162338987,
+      0.04752807691634727,
+      0.05498961623389868,
+      0.05350362026575554,
+      0.048989616233898685,
+      0.058272993065100157,
+      0.06427299306510013,
+      0.05786689005573188,
+      0.058272993065100157,
+      0.061093256882101,
+      0.058272993065100157,
+      0.058272993065100157,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.052574152741747135,
+      0.0026400000000000004
+    ],
+    "canonical_loss": 108.75709701409266,
+    "canonical_components": {
+      "SPX": 0.0,
+      "VIX": 84.50414638263592,
+      "midpoint": 0.0,
+      "forwards": 24.219582635590527,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "original_otm_loss": 482.0806652789358,
+    "original_otm_components": {
+      "SPX": 0.0,
+      "VIX": 457.82771464747907,
+      "midpoint": 0.0,
+      "forwards": 24.219582635590527,
+      "state_penalty": 0.03333333333333333,
+      "curve_penalty": 3.466253286074402e-05
+    },
+    "inside_canonical_bidask": 25,
+    "inside_original_otm_bidask": 22,
+    "canonical_negative_prices": 0,
+    "native_otm_negative_prices": 0,
+    "iv_unavailable": 14,
+    "normalizer": {
+      "knots": 257,
+      "midpoint_error": 1.2614063206915872e-08,
+      "independent_error": 9.98355536562023e-09,
+      "original_GH": 48,
+      "new_Z_GH": 192,
+      "interpolation": "Checked Chebyshev response expansion and cubic log-time normalizer"
+    },
+    "allocations": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "minimum": 4096,
+        "maximum": 4096
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "minimum": 4096,
+        "maximum": 4096
+      }
+    ],
+    "moments": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "market_forward": 20.1,
+        "model_forward": 18.27800651443612,
+        "mass": 1.0017325576842413,
+        "second_moment": 477.9674780872998
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "market_forward": 20.73,
+        "model_forward": 18.249636415613885,
+        "mass": 1.0017230935784445,
+        "second_moment": 520.4455840590211
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "market_forward": 21.19,
+        "model_forward": 18.472095046876753,
+        "mass": 0.9989248740205916,
+        "second_moment": 564.9762467636629
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "market_forward": 21.72,
+        "model_forward": 19.00693687334911,
+        "mass": 0.997823896797444,
+        "second_moment": 608.2599558637392
+      }
+    ],
+    "shapes": [
+      {
+        "instrument": "VIX",
+        "days": 27,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 55,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 118,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      },
+      {
+        "instrument": "VIX",
+        "days": 153,
+        "monotonicity_violations": 0,
+        "convexity_violations": 0,
+        "negative_estimates": 0
+      }
+    ]
+  }
+]

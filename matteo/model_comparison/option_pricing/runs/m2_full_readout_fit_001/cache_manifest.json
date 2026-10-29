@@ -1,0 +1,28 @@
+{
+  "sha256": {
+    "search/stock_batch0/equity.npy": "7da70b8daf55d86e684a8e44080f1dd237cd78f53e3bc975316b375d353d8167",
+    "search/stock_batch0/events.npy": "88c491b3b5437e21a0e706421278fe13fc051388c9a5957a645ec5e76a4b6fbb",
+    "search/stock_batch0/features.npy": "3b0037cb299a68737049e4607d48c6f3b145fa787d892b20c62327a5c17e4241",
+    "search/stock_batch0/grid.npy": "708a9559c943a0e2da6649ee6e5c6c94dda64102b914d63140ab3f3d6a25ba49",
+    "search/stock_batch0/weights.npy": "d6253058f0bfedbdd6538c3fed0e9d8bd3855bf5216322bd549a3d9a2970b042",
+    "check/stock_batch0/equity.npy": "7556147e07497876bcafaf217ae93bcb9735e0154a828426a83c2d5da7dad766",
+    "check/stock_batch0/events.npy": "88c491b3b5437e21a0e706421278fe13fc051388c9a5957a645ec5e76a4b6fbb",
+    "check/stock_batch0/features.npy": "e0812bd7e8ac1970157957100f0ae93d69d711edd76158b9b901b4bae8da3b34",
+    "check/stock_batch0/grid.npy": "708a9559c943a0e2da6649ee6e5c6c94dda64102b914d63140ab3f3d6a25ba49",
+    "check/stock_batch0/weights.npy": "2874f70be344ddedcfac1a7853e0c966c8a1a541c5b7f34f4ef13b70f9a47d0f",
+    "check/stock_batch1/equity.npy": "3ec91c37e3f70162165245b0cc20af8ab55a81ff0b7adabdb718dea6f07e1651",
+    "check/stock_batch1/events.npy": "88c491b3b5437e21a0e706421278fe13fc051388c9a5957a645ec5e76a4b6fbb",
+    "check/stock_batch1/features.npy": "704005ec6b31525745424e1c22445173c57a75b6bcd5e8c361d3511e245ced00",
+    "check/stock_batch1/grid.npy": "708a9559c943a0e2da6649ee6e5c6c94dda64102b914d63140ab3f3d6a25ba49",
+    "check/stock_batch1/weights.npy": "1058dd4e22f884ce49d24879c9a53adeae77eb84197b9818c3c4f50906b24361",
+    "search/vix_d118.npz": "7a3f5bfd0e579ab498dee6800cb04f82d5150e6ac581c6e7bcc17a722dc43c31",
+    "search/vix_d153.npz": "2e0b5bc0a6142b0a06f675eedcee9cf8937f95d5f8eb94726f64e927ef6c3f5e",
+    "search/vix_d27.npz": "37d6d3b5f4c7d6879d10b57fabd6420e231e6d53bf8ac8a801bf44d2326fa01b",
+    "search/vix_d55.npz": "f0fa2bf006c221dea8abb4dd676672d91025caed1732bf7ec1905cdce837cf45",
+    "check/vix_d118.npz": "d684ef4822bfcbb046ac7e50ec10970ae66fd52b2ffe88044409d45b06dc4518",
+    "check/vix_d153.npz": "35dd5b686ff136bc2cebac5d4f34c0b8d43c51404bf7f2f0cf0b25b6241992cd",
+    "check/vix_d27.npz": "3fdba0a66fbd8ece0efb2fd0ebfe35f4d3a380878018a9ed76425026075f204f",
+    "check/vix_d55.npz": "c3c30f4673e4e5f5a34b541d9f3f9439e6a553eac3ee2ab764e950095d045668"
+  },
+  "note": "Post-run integrity capture; fixed cache is read-only in candidate evaluation."
+}

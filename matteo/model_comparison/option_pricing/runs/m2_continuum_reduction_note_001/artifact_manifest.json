@@ -1,0 +1,24 @@
+{
+  "sha256": {
+    "27day_shape_and_prices.png": "969a249817b719fc43404d97c0027c39701f118d1cac72712bdeb825bed28ede",
+    "27day_shape_and_prices.svg": "b41222e5568018f7f17020a022800b60ecba50c608e9696d562c3c34a43b4ba2",
+    "OU_clock_diagnostics.csv": "ad5cbc3969baa5235b9160d999a67451683b69c14066e12fe8480a069c9fea17",
+    "OU_midwindow_tradeoff.png": "b8a7ffae3594bf6f1cf5bc4c67a340edf3e15c471d7dcc8bae7d44ba29039279",
+    "OU_midwindow_tradeoff.svg": "9e510ed446713cbb8e19244ca3dc86402010ca12aa996f33bae3f59aee5194cb",
+    "common_range_wing_slopes.csv": "fc436f66ba538ab9952d0e0131c936b5009d5e4567d6ce8bac134d0496e8a379",
+    "diagnostics.json": "01cb1d78f05fe53318deaa40e29e17d8f65f3852814bf1c0d1a1cecebe5caf16",
+    "documentation_checks.json": "e95610840b8659bcf33d843d6978c26b578c8201f526b674804284da9051833e",
+    "first_window_curve_allocation.csv": "9e410e9df2d16ecb8895a4dfd8a6ae2df920e994fd724f550fc88fa2a694237b",
+    "input_and_source_hashes.json": "88e43f7afd6ec94b662a0873631a66c0068395a521d2519ad6d61632c7e2484d",
+    "maturity_shape_metrics.csv": "8c63308202fab8cf58d8803d52fbfe1fda2253d444089ced4e6dc631fd41c1f1",
+    "payoff_weighted_reference_components.csv": "3b473cad32786f9e5b777775eeaec86d4d33cbca5cda5dcc114ea38fb2fbe725",
+    "quote_diagnostics.csv": "26747df91eb5c56c16b8fc1114cc9316ae71d3c270c2e2df255455681cf74a46",
+    "selected_27day_quotes.csv": "c6b3696412029581a30a0a8c6a016322d9bd2d2bc29b310f4b4effd9e2629195",
+    "source/CONTINUUM_EMPIRICAL_REDUCTION.md": "3d8004a51a8746b9772edd1bb6a4ff89e7a243751453086315002aa2089027bb",
+    "source/VIX_27_DAY_DIAGNOSIS.md": "b98d8235b98d5c2a08982f324d3cdf0a3edc0259cb792326cf08f7237fa7d551",
+    "source/diagnose_vix27_continuum.py": "730070cb044969597dec960fe8a9ba8c7b3bde149e263f18ad48bc179555dc67",
+    "source/finalize_continuum_notes.py": "7fbea3d6ef738acf15d82704c2c3a401c337fad3ddd9d8a89a63fefa6ed795a7"
+  },
+  "count": 18,
+  "scope": "New documentation and read-only diagnostics; archived calibration preserved"
+}

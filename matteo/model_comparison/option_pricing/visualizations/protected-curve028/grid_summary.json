@@ -1,0 +1,14 @@
+[
+  {
+    "model": "baseline",
+    "median_absolute_grid_change_scales": 0.5615542453260329,
+    "max_absolute_grid_change_scales": 3.098592490256163,
+    "median_grid_SE_scales": 0.4981377767131476
+  },
+  {
+    "model": "selected",
+    "median_absolute_grid_change_scales": 0.2202147891945942,
+    "max_absolute_grid_change_scales": 2.4375245674421873,
+    "median_grid_SE_scales": 0.29936531119364673
+  }
+]

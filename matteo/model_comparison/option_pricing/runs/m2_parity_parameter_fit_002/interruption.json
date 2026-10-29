@@ -1,0 +1,5 @@
+{
+  "status": "stopped after near-feasible local solve, no checking prices evaluated",
+  "reason": "Avoid discarding a promising actual-improvement proposal due tiny violation of optional SPX reserve margin. Reuse saved full baseline Jacobian and validate the warm proposal with true prices.",
+  "replacement": "m2_parity_parameter_fit_003"
+}

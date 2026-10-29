@@ -1,0 +1,65 @@
+For this expression to be equal to ΘX2TF , we obtain a system of m + 1 equations, where
+
+                  m       (                                      Θ,     if l = 2,
+         X ak¯b(l, k) =
+                                                   0,   otherwise.
+                          k=0
+
+This is a linear system Ax = b of m + 1 equations and m + 1 unknowns. If the matrix A of the
+linear system is invertible, there is a unique solution. If the matrix is not full-ranked, we have
+to ensure that a solution exists. Lemma 2.6 ensures that the second-order term ¯b(2, 2) is non-
+vanishing. Furthermore ¯b(1, 1) is trivially non-vanishing since (Xt)t≥t0 is a positive process,
+meaning that b = (0, 1, 0 . . . , 0) is in the column-space of A. This concludes the proof.   ■
+
+Remark. Since the solution of Ax = b is unique when A is full-ranked, and since there is
+always a solution p ∈P2, it implies that
+
+                          ak ̸= 0, k > 2 ⇐⇒rank(A) < m + 1.
+
+In other words, coefficients of higher order than 2 are only non-zero if A is degenerate.
+
+   For polynomial processes we can therefore find terminal curves explicitly from the coef-
+ficients of the polynomials, as shown in Theorem 2.7. The corresponding terminal curve is
+constant in time, and fulfills Conditions ii) and iii) of a consistent terminal curve. Since Con-
+dition i) is not guaranteed, the terminal curve ψt = p where t ∈[TF , TF + Θ] is not yet a
+consistent terminal curve.  If (Xt)t≥t0 is time-homogeneous, then the terminal curve remains
+constant under the backward equation, and therefore condition i) is satisfied. If the process is
+time-inhomogeneous, we can reason to apply the following ϵ-approximation:
+
+Lemma 2.8. Let ϵ > 0 be fixed. Consider the conditions of Theorem 2.7 and let p ∈Pm be
+the corresponding polynomial. Then, there exists a terminal curve ψTF fulfilling Conditions i)
+and ii), such that
+                           "Z TF +Θ             #
+                ∥ΘX2TF −E       ψu(Xu) du  FTF  ∥2 < ϵ.                   (2.15)
+                                     TF
+
+Proof. See Appendix B.1                                      ■
+
+   As a concrete illustration, we consider a second-order polynomial process that is time-
+homogeneous:
+
+Example 2.1 (Brennan–Schwartz Dynamics). We consider the following VIX dynamics in a
+VDV model:
+                        dXt = k(θ −Xt) dt + σXt dWt,                          (2.16)
+where k, θ, σ are fixed constants, such that k ̸= σ2, 2k ̸= σ2. This diffusion is a mean-reverting
+lognormal process often referred to as a Brennan-Schwartz-type diffusion [8] in the interest-
+rate literature. The model is time-homogeneous, meaning that the coefficients of the polynomial
+only depend on the difference τ := u −t. We derive the moments using Itô’s lemma:
+
+     E [Xu | Xt = x] = e−kτ x + θ 1 −e−kτ  := b(u; 1, 1) x + b(u; 0, 1),
+                                       2kθ
+     E X2u | Xt = x = e−(2k−σ2)τ x2 +         e−kτ −e−(2k−σ2)τ x                                    k −σ2
+                              2k       2k                2k2
+              + θ2      −       e−kτ +                           2k −σ2   k −σ2        (k −σ2)(2k −σ2)e−(2k−σ2)τ
+                   := b(u; 2, 2) x2 + b(u; 1, 2) x + b(u; 0, 2)
+
+We integrate these coefficients over τ ∈[0, Θ] and write
+
+                             Z Θ
+                                        ¯b(l, k) :=     b(τ; l, k) dτ,       l ≤k ≤2.
+                                         0
+We now find the coefficients a0, a1, a2 ∈R such that
+
+                                ψt(x) := a0 + a1x + a2x2
+
+                                        11

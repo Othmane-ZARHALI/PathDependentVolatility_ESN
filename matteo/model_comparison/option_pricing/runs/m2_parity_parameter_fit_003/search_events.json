@@ -1,0 +1,16 @@
+[
+  {
+    "cycle": 1,
+    "status": "no locally feasible improvement found",
+    "radius": 0.15000000000000002,
+    "inner_nfev": 20,
+    "message": "Declared inner/optimization evaluation budget"
+  },
+  {
+    "cycle": 2,
+    "status": "no locally feasible improvement found",
+    "radius": 0.07500000000000001,
+    "inner_nfev": 20,
+    "message": "Declared inner/optimization evaluation budget"
+  }
+]

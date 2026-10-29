@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-23",
+  "conditional_control_adopted": false,
+  "reference": "original vol7/ridge5",
+  "whole_panel_efficiency_gains": [
+    0.7483010440832616,
+    0.8541208008558361
+  ],
+  "qualified_fit_ready": false,
+  "numerical_quote_clearance": false,
+  "market_parameters_changed": false,
+  "new_feature_search": false,
+  "gates": {
+    "sampling": "unresolved",
+    "spx_stock_timestep": "unresolved",
+    "date_zero_normalizer": "bounded sensitivity only",
+    "vix_conditional_quadrature": "selected-state sensitivity only",
+    "vix_time_quadrature": "limited-state comparison only"
+  },
+  "next_experiment": "nine-point curve-only joint local profile; specified, not launched",
+  "decision_report": "matteo/model_comparison/option_pricing/FITTING_REENTRY_DECISION.md",
+  "next_profile": {
+    "launched": false,
+    "spx_representatives": 24,
+    "vix_options": 175,
+    "vix_forwards": 4,
+    "priority_spx_population": 707,
+    "priority_quotes_unpriced_by_subset": 683,
+    "free_curve_levels": [
+      0,
+      1
+    ],
+    "fixed_third_level": 0.0642080964154938,
+    "state": "zero fixed",
+    "Q_scenario": 0,
+    "relative_grid": [
+      0.95,
+      1.0,
+      1.05
+    ],
+    "spx_pilot_paths": 256,
+    "spx_search_paths": 512,
+    "vix_search_replications": 8,
+    "vix_points_per_replication": 64,
+    "wall_budget_minutes": 60,
+    "fresh_checking_seeds": 3,
+    "status": "below 4096-path screening budget; numerically unresolved local direction diagnostic"
+  }
+}

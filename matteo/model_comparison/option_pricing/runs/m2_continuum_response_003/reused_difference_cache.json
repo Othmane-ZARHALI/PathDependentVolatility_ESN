@@ -1,0 +1,10 @@
+{
+  "role": "checking continuous-minus-boundary difference; explicitly reused after002 investigation",
+  "source_run": "m2_continuum_response_002",
+  "links": [
+    "fresh_cache",
+    "fresh_power_tables"
+  ],
+  "large_base": "fresh_base_cache is newly generated and independent",
+  "warning": "No wholly fresh independent study claim."
+}

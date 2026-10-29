@@ -1,0 +1,7 @@
+{
+  "status": "complete independent paired checking",
+  "stock_paths": 1024,
+  "VIX_states_per_expiry": 2048,
+  "selection_frozen": true,
+  "production_baseline_unchanged": true
+}

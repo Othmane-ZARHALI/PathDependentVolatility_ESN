@@ -1,3 +1,6 @@
+<!-- Research consolidation 2026-10-29 -->
+**Current research entry point:** [continuation brief](../../docs/research/CURRENT_STATE.md), [experiment history](../../docs/research/EXPERIMENT_HISTORY.md), and [preserved figures](../../docs/research/VISUAL_EVIDENCE.md). The content below retains historical stages and decisions; current scope comes from the brief and `active_scope.json`. Dated proposals may have been completed by later experiments.
+
 # Exogenous-reservoir exponential-quadratic volatility: M2 Stage 3
 
 This is the standalone, executable M2 research package. It started as a curated copy of the

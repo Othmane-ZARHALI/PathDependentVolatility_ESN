@@ -1,0 +1,207 @@
+[
+  {
+    "label": "c0",
+    "option_loss": 0.05008091350064692,
+    "forwards": [
+      20.073162047783377,
+      20.785169590272726,
+      21.17893115207294,
+      21.75592417319109
+    ],
+    "max_forward_gap": 0.055169590272726055,
+    "negative": 1,
+    "inside": 153,
+    "candidate": 0,
+    "name": "baseline",
+    "tails": [
+      {
+        "day": 27,
+        "weight_mass": 0.9759243947427705,
+        "right_tail_ESS": 60.657459736990404,
+        "top10_payoff_share": 0.2799539232285359
+      },
+      {
+        "day": 55,
+        "weight_mass": 1.0031084182633667,
+        "right_tail_ESS": 68.73267151780796,
+        "top10_payoff_share": 0.2324514078684446
+      },
+      {
+        "day": 118,
+        "weight_mass": 1.0004300995028768,
+        "right_tail_ESS": 55.545154178393084,
+        "top10_payoff_share": 0.2851440459593799
+      },
+      {
+        "day": 153,
+        "weight_mass": 0.9797232545104064,
+        "right_tail_ESS": 64.90119488886101,
+        "top10_payoff_share": 0.24675872844732355
+      }
+    ]
+  },
+  {
+    "label": "c1",
+    "option_loss": 0.05180530496527014,
+    "forwards": [
+      20.07150207135483,
+      20.77998166774116,
+      21.16679774527951,
+      21.74925309683935
+    ],
+    "max_forward_gap": 0.04998166774116086,
+    "negative": 1,
+    "inside": 150,
+    "candidate": 1,
+    "name": "M2_filter_fixed_curve",
+    "tails": [
+      {
+        "day": 27,
+        "weight_mass": 0.9759243947427705,
+        "right_tail_ESS": 60.66456019603254,
+        "top10_payoff_share": 0.27993743110050645
+      },
+      {
+        "day": 55,
+        "weight_mass": 1.0031084182633667,
+        "right_tail_ESS": 68.73536297252829,
+        "top10_payoff_share": 0.2324445620220819
+      },
+      {
+        "day": 118,
+        "weight_mass": 1.0004300995028768,
+        "right_tail_ESS": 55.5482211424913,
+        "top10_payoff_share": 0.2851343973058816
+      },
+      {
+        "day": 153,
+        "weight_mass": 0.9797232545104064,
+        "right_tail_ESS": 64.90142862336138,
+        "top10_payoff_share": 0.24675798393513934
+      }
+    ]
+  },
+  {
+    "label": "c2",
+    "option_loss": 0.048817505720408064,
+    "forwards": [
+      20.096556564934502,
+      20.722380575410913,
+      21.18374093334366,
+      21.72416126031878
+    ],
+    "max_forward_gap": 0.007619424589087487,
+    "negative": 1,
+    "inside": 151,
+    "candidate": 2,
+    "name": "M2_filter_refit",
+    "tails": [
+      {
+        "day": 27,
+        "weight_mass": 0.9759243947427705,
+        "right_tail_ESS": 60.81893016376918,
+        "top10_payoff_share": 0.2790800767463396
+      },
+      {
+        "day": 55,
+        "weight_mass": 1.0031084182633667,
+        "right_tail_ESS": 68.80143342261606,
+        "top10_payoff_share": 0.23190378207246745
+      },
+      {
+        "day": 118,
+        "weight_mass": 1.0004300995028768,
+        "right_tail_ESS": 55.61095952940819,
+        "top10_payoff_share": 0.2849561335121983
+      },
+      {
+        "day": 153,
+        "weight_mass": 0.9797232545104064,
+        "right_tail_ESS": 64.83391016260231,
+        "top10_payoff_share": 0.2468616661202766
+      }
+    ]
+  },
+  {
+    "label": "c3",
+    "option_loss": 0.045794048046887664,
+    "forwards": [
+      20.098229893367773,
+      20.72751335729727,
+      21.19589554462819,
+      21.730806841312912
+    ],
+    "max_forward_gap": 0.010806841312913207,
+    "negative": 1,
+    "inside": 154,
+    "candidate": 3,
+    "name": "curve_only",
+    "tails": [
+      {
+        "day": 27,
+        "weight_mass": 0.9759243947427705,
+        "right_tail_ESS": 60.81181416453458,
+        "top10_payoff_share": 0.2790964145864751
+      },
+      {
+        "day": 55,
+        "weight_mass": 1.0031084182633667,
+        "right_tail_ESS": 68.79871862837368,
+        "top10_payoff_share": 0.23191067245362545
+      },
+      {
+        "day": 118,
+        "weight_mass": 1.0004300995028768,
+        "right_tail_ESS": 55.60790335406027,
+        "top10_payoff_share": 0.28496574933637
+      },
+      {
+        "day": 153,
+        "weight_mass": 0.9797232545104064,
+        "right_tail_ESS": 64.83368248598978,
+        "top10_payoff_share": 0.24686241213885793
+      }
+    ]
+  },
+  {
+    "label": "c4",
+    "option_loss": 0.05124953926380621,
+    "forwards": [
+      20.09836404417572,
+      20.753798118318844,
+      21.17680253311808,
+      21.713695923955914
+    ],
+    "max_forward_gap": 0.02379811831884382,
+    "negative": 1,
+    "inside": 152,
+    "candidate": 4,
+    "name": "whole_filter_refit",
+    "tails": [
+      {
+        "day": 27,
+        "weight_mass": 0.9759243947427705,
+        "right_tail_ESS": 61.399950808500854,
+        "top10_payoff_share": 0.2761702021679987
+      },
+      {
+        "day": 55,
+        "weight_mass": 1.0031084182633667,
+        "right_tail_ESS": 68.39830440878532,
+        "top10_payoff_share": 0.23337980875218595
+      },
+      {
+        "day": 118,
+        "weight_mass": 1.0004300995028768,
+        "right_tail_ESS": 55.924002687419474,
+        "top10_payoff_share": 0.2835041474970422
+      },
+      {
+        "day": 153,
+        "weight_mass": 0.9797232545104064,
+        "right_tail_ESS": 64.97850852135001,
+        "top10_payoff_share": 0.24702775948839062
+      }
+    ]
+  }
+]

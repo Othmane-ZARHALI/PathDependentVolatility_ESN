@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-pdfprep"
+version = "0.1.0"
+description = "Prepare local PDFs as searchable Markdown, CSV tables and linked images."
+requires-python = ">=3.10"
+dependencies = ["PyMuPDF==1.26.7", "pymupdf4llm==0.0.27"]
+
+[project.scripts]
+pdfprep = "pdfprep:main"
+
+[tool.setuptools]
+py-modules = ["pdfprep"]
+package-dir = {"" = "scripts"}

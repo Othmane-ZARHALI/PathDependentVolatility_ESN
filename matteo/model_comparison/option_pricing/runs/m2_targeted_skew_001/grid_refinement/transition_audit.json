@@ -1,0 +1,67 @@
+{
+  "gaussian": {
+    "retained_modes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "marginalized_modes": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "unique_transition_sizes": 42,
+    "maximum_standardized_covariance_reconstruction_error": 3.4969229209318986e-13,
+    "marginalization_reason": "Discarded bank has zero readout projections, diagonal exogenous OU drift and no return/state feedback. Retained full joint OU/equity marginal covariance is preserved."
+  },
+  "primitive": {
+    "old_primitive_names": [
+      "equity",
+      "feedback:0",
+      "spike:0",
+      "cluster:0",
+      "cluster:1",
+      "cluster:2",
+      "cluster:3",
+      "cluster:4",
+      "cluster:5",
+      "cluster:6",
+      "cluster:7"
+    ],
+    "maximum_standardized_Brownian_OU_cross_error": 4.247276895705953e-13,
+    "minimum_relative_residual_eigenvalue": 7.878738039286972e-14,
+    "OU_stream_unchanged": true,
+    "conditional_inverse_relative_cutoff": 1e-06,
+    "scope": "finite-precision augmentation of existing root; reconstructed covariance checked, not symbolic exact arithmetic"
+  }
+}

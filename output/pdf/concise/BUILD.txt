@@ -1,0 +1,17 @@
+Concise SPX-VIX visual retrospective
+
+Compile the LaTeX document from this directory:
+  tectonic -X compile spx_vix_visual_summary.tex
+The figures/ PDFs are included; no research code or simulation is required.
+
+Contents: LaTeX, vector and raster figures, exact plotted native-IV values,
+panel diagnostics, input SHA256 provenance, and IV/invariance checks.
+build_visual_report.py rebuilds figures from archived price files when placed
+back in output/pdf/concise in the original research repository. It requires
+numpy, scipy, pandas and matplotlib. It does not simulate or calibrate.
+
+Native model IVs use model forwards; market IVs use quoted forwards.
+Figure 8 displays changes relative to the paired baseline, in IV percentage
+points; other figures display absolute IVs. Source prices are never clipped
+or smoothed; failed IVs remain missing. The data cover only the selected
+display maturities; reported study scores retain their full original scope.

@@ -1,0 +1,42 @@
+{
+  "source_sha256": {
+    "data/processed/options/2026-02-19/quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a",
+    "matteo/model_comparison/option_pricing/active_scope.json": "f6e653b34774733ff0ddf35c08362e31f9684bf00b8e1cdd343c4156881c7960",
+    "matteo/model_comparison/option_pricing/visualizations/joint-curve-fit-002/plot-data.json": "2c5293d633ed7f9282b235ca95f6d208edcdeec7b3e907a810e15b082f99732a",
+    "matteo/model_comparison/option_pricing/visualizations/joint-curve-fit-002/joint-fit-template.html": "fe8cde29fe58bcab1e6418c1b0d3e13320057516cccdd252436556e7cf8ee11c",
+    "matteo/model_comparison/option_pricing/plot_joint_curve_focus.py": "6c943ee7e6a4e0bdaf6adebe45b3389822387ad6922f1d715526857064d69316",
+    "matteo/model_comparison/option_pricing/plot_joint_curve_fit.py": "0f0255f89084eeababa8c40c6966a22bf4f7ce66fcce665ae36ba17a2487ed98"
+  },
+  "output_sha256": {
+    "joint-curve-focus.html": "65f345558e68d05373ad4b7fdd286efef16599be2da34f6df39364f0b0356d91",
+    "context-template.html": "37a9df99b287233a45ccf3534818c40070b016efd986648b884012076126178e",
+    "plot-data.json": "f0f5eb64e718938ba884d762815b2323d02724bc916f20ac4baeca598cacee27",
+    "spx-maturity-coverage.csv": "9588ec55023521dcdcde66f35f16c9300f30f93383b9a8c04f6c41d59fc16a90",
+    "spx-focused-maturities.png": "7f12825385b6bb1d5742c9b50c869676e9ad6e24a59764fae1e86de9320be134",
+    "spx-focused-maturities.svg": "5c256213063f339fd75c77fd9b4b41b8a2576246ad2b99e9c1902e5a9ffc4393",
+    "variance-three-levels.png": "d6ef077b1d00206d1ba7026b995b5d79b6e265d057e17864a26a9a1c20a3ad54",
+    "variance-three-levels.svg": "c474c9aaffda79b0a863c553d26131fa3a244254a6bd27d996a1a7024c66387d"
+  },
+  "additional_market_iv_repricing_error_U": 1.004309524432756e-09,
+  "model_overlay_expiries": [
+    29,
+    57,
+    211,
+    302
+  ],
+  "market_only_expiries": [
+    119,
+    666,
+    1030
+  ],
+  "excluded_display_expiries": [
+    1,
+    1401,
+    1765,
+    2129
+  ],
+  "cutoff": 3,
+  "cutoff_diagnostic_policy": "Existing model curves/proxies unchanged. Additional market-only slices use nearest-ATM mid-IV from their own maturity for display only.",
+  "reserved_119_day_status": "Excluded from all fitting; market curve visually exposed at user request. No model repricing or held-out score computed.",
+  "changes": "No model, loss, numerical settings, original run artifacts or fitted membership changed."
+}

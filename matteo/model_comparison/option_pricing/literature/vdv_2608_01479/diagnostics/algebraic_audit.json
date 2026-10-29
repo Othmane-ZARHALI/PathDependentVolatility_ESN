@@ -1,0 +1,95 @@
+{
+  "status": "completed independent algebraic diagnostics; not calibration",
+  "source": {
+    "url": "https://arxiv.org/abs/2608.01479",
+    "version": "v1",
+    "paper_pdf_sha256": "e55fb5dd28d338432de0de4fdc68e0d47e2be8b4766f7b4fccb196664894cfc8",
+    "polynomial_source": "Section4.3, PDFpage19; visually checked; rounded coefficients"
+  },
+  "displayed_terminal_polynomial": {
+    "coefficients_ascending": [
+      -101.37,
+      -4.19,
+      1.16
+    ],
+    "real_roots": [
+      -7.71497867695269,
+      11.327047642469932
+    ],
+    "negative_region_on_positive_axis": [
+      0,
+      11.327047642469932
+    ],
+    "p_at10": -27.27000000000001,
+    "units": "x in the displayed numerical example uses VIX points; positive scaling of variance does not alter its sign",
+    "scope": "sign check of displayed terminal polynomial only; actual support, boundary extrapolation and use of a floor in author code not established"
+  },
+  "illustrative_Brennan_Schwartz": {
+    "parameters": {
+      "kappa": 12.0,
+      "theta": 0.2,
+      "sigma": 1.0,
+      "window": 0.0821917808219178
+    },
+    "generator_on_coefficients": [
+      [
+        0.0,
+        2.4000000000000004,
+        0.0
+      ],
+      [
+        0.0,
+        -12.0,
+        4.800000000000001
+      ],
+      [
+        0.0,
+        0.0,
+        -23.0
+      ]
+    ],
+    "rolling_operator": [
+      [
+        1.0000000000000002,
+        0.07284891642771732,
+        0.0067043209855920235
+      ],
+      [
+        0.0,
+        0.6357554178614135,
+        0.08144809007684446
+      ],
+      [
+        0.0,
+        0.0,
+        0.44910354476864484
+      ]
+    ],
+    "coupling_coefficients_ascending": [
+      0.005852818186678674,
+      -0.28526228187181285,
+      2.2266579982465933
+    ],
+    "negative_interval": [
+      0.02565473063783342,
+      0.10245757133959008
+    ],
+    "minimum": -0.0032835837128039726,
+    "minimizer": 0.06405615098871174,
+    "block_exponential_vs_independent_quadrature_error": 2.220446049250313e-16,
+    "coefficient_residual": 0.0,
+    "grid_rolling_identity_error": 2.7755575615628914e-17,
+    "scope": "a polynomial satisfies the rolling identity algebraically but is not a globally nonnegative variance; no impossibility claim for all time-dependent couplings"
+  },
+  "positive_GBM_control": {
+    "mu": 0.1,
+    "sigma": 1.0,
+    "window": 0.0821917808219178,
+    "coupling_coefficient": 0.9514954587639529,
+    "rolling_identity_error": 2.220446049250313e-16
+  },
+  "floor_identity": "If psi is exactly consistent, flooring to max(psi,0) adds E_t[integral(-psi)_+]/Delta to implied squared VIX. This is positive when occupation of the negative region has positive conditional probability and magnitude.",
+  "no_floor_applied": true,
+  "baseline_changed": false,
+  "no_new_Lean_claim": true
+}

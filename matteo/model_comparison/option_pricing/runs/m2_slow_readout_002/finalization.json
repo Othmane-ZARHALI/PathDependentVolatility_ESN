@@ -1,0 +1,28 @@
+{
+  "status": "completed and reviewed",
+  "adopted": false,
+  "report": "SLOW_READOUT_RESULTS.md",
+  "prior_artifact_hash_counts_verified": {
+    "m2_leverage_scan_001": 168,
+    "m2_asymmetric_readout_001": 168,
+    "m2_targeted_skew_001": 186,
+    "m2_forward_leverage_001": 43
+  },
+  "initial_source_snapshots_hash_verified": true,
+  "final_generalized_script_separately_saved": true,
+  "visual_inspection": "all seven SPX and four VIX panels reviewed",
+  "production_model_sha256": "ded6c7077f9470dd301316eea8aff927066a69544029c9ce8389b84f715cfbaa",
+  "visualization_hashes": {
+    "visualizations/slow-readout028/summary.json": "efdd140d6ac0ade7a57d55b09be16a9fe5bd36a40b0bf3eae6aa129670e38b38",
+    "visualizations/slow-readout028/tradeoff.svg": "99def166f4288db32500cea23d7417a3ae94918447a5c3c2cbad5d34f338d132",
+    "visualizations/slow-readout028/paired_intervals.json": "8a087d2b3f9a41dcea7c1f8876d90c2785b98d7355fd4396addb2154e56b5583",
+    "visualizations/slow-readout028/grid_check.json": "93cc8a0d5ca7c5b7631edc24c606d3bdd5183d5687e3adff2d0c0e5479a10ce8",
+    "visualizations/slow-readout028/tradeoff.png": "a3a591fc0d94a66b273d94210d26e5214dfecaeb6a77dabbd33f6cb808fc5e6c",
+    "visualizations/slow-readout028/pilot_grid.csv": "63dcec368ef2cd19414224125391630baf91e7ada02d0bb5d96a9bb3149d203b",
+    "visualizations/slow-readout028/SPX-slow-readout.png": "495fcdf90bfe09a60b3a95b7470caf00b58dfe613f0ccd541b36434b3e99ca78",
+    "visualizations/slow-readout028/VIX-slow-readout.png": "17cb5b13e543f3b5009063c75c89a1465e25824e88871a1c8d48762381cd6bdb",
+    "visualizations/slow-readout028/maturity_metrics.csv": "4e020597a35fe586df5c26a9137ffbf8847e28fc432dc88c833bc9cedc2cd130",
+    "visualizations/slow-readout028/VIX-slow-readout.svg": "e294853c20dfab425dc4a57abe18dc5a080700982b9039c006edd205675306d0",
+    "visualizations/slow-readout028/SPX-slow-readout.svg": "1a41f36521dc1b9377c433b2e1a4974c614eefb5a623025eb8f68a2b392c75f4"
+  }
+}

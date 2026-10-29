@@ -1,0 +1,240 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,mathtools}
+\input{ot1lmr.fd}
+\DeclareFontShape{OT1}{lmr}{bx}{n}{<-> rm-lmbx10}{}
+\DeclareFontShape{T1}{lmr}{bx}{n}{<-> ec-lmbx10}{}
+\DeclareFontShape{T1}{lmr}{m}{n}{<-> ec-lmr10}{}
+\usepackage[margin=20mm,headheight=14pt]{geometry}
+\usepackage{booktabs,tabularx,array,graphicx,xcolor,fancyhdr,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\definecolor{navy}{HTML}{17324D}\definecolor{teal}{HTML}{168C8C}
+\hypersetup{pdftitle={SPX-VIX calibration: a concise visual retrospective},pdfauthor={Project research synthesis}}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\setlength{\emergencystretch}{2em}
+\setlist{itemsep=2pt,topsep=3pt,leftmargin=1.5em}
+\renewcommand{\arraystretch}{1.15}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small\color{navy}SPX--VIX calibration: the mechanisms in pictures}
+\fancyfoot[C]{\small\thepage}
+\newcommand{\E}{\mathbb E^{\mathbb Q}}\newcommand{\VIX}{\operatorname{VIX}}
+\newcommand{\splus}{\operatorname{softplus}}
+\newcommand{\takeaway}[1]{\par\smallskip\colorbox{teal!9}{\parbox{\dimexpr\linewidth-2\fboxsep}{\textbf{Reading the figure.} #1}}\par\smallskip}
+\newcommand{\plate}[2]{\begin{center}\includegraphics[width=\linewidth]{figures/#1.pdf}\end{center}\vspace{-4pt}{\footnotesize #2\par}}
+\newcommand{\pageheading}[2]{{\Large\bfseries\color{navy}#1\par}\vspace{2pt}{\color{teal}#2\par}\medskip}
+\begin{document}
+\pageheading{What have we learned from joint SPX--VIX calibration?}{Concise visual retrospective \quad $\vert$ \quad 29 October 2026}
+
+\textbf{Main result.} We have useful partial solutions, but no satisfactory double calibration. Two-speed stress fits VIX much better. Negative stock--stress correlation improves SPX skew while leaving VIX unchanged. Stronger downside readouts usually improve SPX at a cost to VIX.
+
+\textbf{Four quantities to keep separate.}
+\begin{center}\begin{tabularx}{\linewidth}{@{}lY@{}}\toprule
+Model ingredient & Its job\\\midrule
+Expected variance $\xi(t)$ & Sets the average variance budget at each future time.\\
+Readout $H_t$ & Allocates that budget across ordinary and stress states.\\
+Shock persistence & Determines whether high variance fades quickly or lasts.\\
+Stock--factor dependence & Determines whether high variance accompanies falling equity.\\\bottomrule
+\end{tabularx}\end{center}
+The common normalization is
+\begin{equation}
+v_t=f+(\xi(t)-f)H_t,\qquad \E[H_t]=1,\qquad \xi(t)\ge f.
+\end{equation}
+Here $v_t$ is variance, $f$ is a variance floor and $\mathbb Q$ is the pricing measure. For example, variance $0.04$ corresponds to volatility $20\%$. Changing $H$ redistributes variance without changing its mean.
+
+SPX options depend on the terminal stock; VIX options depend on the market's future expectation of next-month variance:
+\begin{align}
+d\log S_t&=-\tfrac12v_tdt+\sqrt{v_t}\,dW_t^S,\\
+\VIX_T^2&=\frac{10000}{\Delta}\E\!\left[\int_T^{T+\Delta}v_u\,du\,\middle|\mathcal F_T\right],\quad \Delta=30/365,\\
+\E[\VIX_T^2]&=\frac{10000}{\Delta}\int_T^{T+\Delta}\xi(u)\,du.
+\end{align}
+This last identity fixes a second moment, not the VIX forward $\E[\VIX_T]$ or its smile. A more flexible response cannot repair an insufficient variance budget.
+
+\textbf{How to read the pictures.} SPX uses 29 and 211 days; VIX uses 27 and 153 days. The same dates appear throughout. Fitting still used the full retained scope: seven SPX maturities, 1294 primary SPX quotes, 217 VIX quotes and four VIX forwards. The reduction is display only.
+
+Figures 1--7 show smile levels; Figure 8 shows changes from baseline to make small effects visible. Each figure compares paired candidates from one experiment; absolute losses from different experiments are not directly comparable. Black points and grey shading show market mid and bid--ask. Native option IVs use the quoted forward for market prices and the model's own forward for model prices; the horizontal coordinate always uses the quoted forward. Missing IVs have gaps and colored ticks at the panel foot. No prices were smoothed or clipped. Model uncertainty bands are omitted for legibility; these are exploratory estimates, not precise price certificates.
+
+The figures replot saved prices: no simulation or calibration was rerun. The market snapshot is 19 February 2026; fresh random draws do not create out-of-sample market evidence. Page 10 retains the less central findings and source map.
+
+\newpage
+\pageheading{1. The variance curve and the cap}{Average budget versus extreme-state response}
+The original M2 score is a linear clustering term plus two shifted quadratics:
+\begin{equation}
+\eta=c_CC+q_Y(Y-\beta_Y)^2+q_J(F-\beta_J)^2,\quad
+R=\frac{e^{2h(\eta)}}{\E[e^{2h(\eta)}]},\quad
+h(\eta)=L-\frac{\log(1+e^{k(L-\eta)})}{k}.
+\end{equation}
+Here $C,Y,F$ are latent clustering, feedback and spike factors; this $F$ is not a quoted forward. The cap limits extreme responses; increasing $L$ eases that brake. The slow-growth alternative permits a logarithmic continuation beyond it. Every changed response is renormalized.
+
+\plate{01-curve-cap}{Figure 1. Training simulations, 4096 paths per strike. Blue to orange: maturity-aligned curve/floor refit, with the original M2 readout fixed. Green/purple: subsequent cap changes plus four small VIX-window curve adjustments; the floor and off-window levels are fixed. These latter comparisons do not isolate the cap alone. Sources: S1--S2.}
+
+\takeaway{The aligned curve helps price levels in both markets. Gentler caps raise the VIX wing, but also move the centre and damage the tested SPX fit. A tail improvement is not automatically a joint improvement.}
+
+\begin{center}\begin{tabular}{lrr}\toprule
+Recorded training price loss & SPX & VIX + forwards\\\midrule
+Before aligned curve &49.52&35.43\\
+Aligned 16-piece curve &43.78&27.17\\
+Higher cap + limited refit &87.40&26.87\\
+Slow-growth cap + limited refit &98.80&26.91\\\bottomrule
+\end{tabular}\end{center}
+Fresh VIX aggregate gains from the last two changes were smaller than one reported paired standard error. The cap can influence shape; these tests did not establish it as the sole problem or a joint remedy.
+
+\newpage
+\pageheading{2. Stochastic vol-of-vol: which kind?}{Inside-score modulation and after-cap multiplication behave differently}
+M2 already has state-dependent variance diffusion through its nonlinear readout. The new layers add an independently evolving response strength. We tested
+\begin{align}
+\text{Inside score:}\quad&q_J(F-\beta_J)^2\longrightarrow q_Je^{s\tanh Z}(F-\beta_J)^2,\\
+\text{After cap:}\quad&H=R\exp\!\left(\gamma Z-\tfrac12\gamma^2\operatorname{Var}(Z)\right).
+\end{align}
+The second multiplier is independent and mean one. The first needs a new full normalizer. The curve and floor stay fixed in both experiments.
+
+\plate{02-stochastic-response}{Figure 2. Original full pricing ensembles: 4096 paths per strike. Representative selections: twofold bounded spike sensitivity with 90-day half-life; after-cap log-variance sensitivity $\gamma=1$ with 7-day half-life. These differ in placement, functional form, centering and persistence, so this is not a placement-only causal test. Sources: S3--S4.}
+
+\takeaway{More random response can bring VIX wing \emph{levels} closer while worsening the centre and SPX. The selected inside-cap layer actually flattened the measured VIX right-wing slopes on fresh checks.}
+
+The normalizer is part of the mechanism: increasing a raw response also raises its average, so dividing by that average can lower other states. For the selected inside-cap case, the 153-day normalizer rose by about $2.41\times$.
+
+SPX training loss rose from 43.78 to 561.51 for the inside-cap selection and to 121.15 for the strong after-cap selection. A mild after-cap case gave a small gain smaller than its sampling sensitivity. Neither fixed-curve experiment solved the double fit; this does not exclude recalibrated stochastic-response models.
+
+\newpage
+\pageheading{3. Additive mixtures and two stress speeds}{One common variance model across all expiries}
+The useful extension mixes \emph{variance responses}, before the VIX square root and option payoff:
+\begin{align}
+H_t&=(1-w)R_t+w\{(1-r)A_t^s+rA_t^f\},\\
+A_t^i&=\exp(b_iZ_t^i-\tfrac12b_i^2q_i(t)),\quad
+dZ_t^i=-a_iZ_t^idt+\sqrt{2a_i}\,dB_t^i,\quad q_i(t)=1-e^{-2a_it}.
+\end{align}
+Half-life is $\log 2/a_i$. A slow shock survives more of the next-month averaging window; a fast shock is averaged away more. Speed also changes variance accumulated from the zero initial state, so it is not a pure persistence intervention.
+
+\plate{03-two-speeds}{Figure 3. VIX-only paired checking comparison. Old/slow checking states were reused with newly drawn fast coordinates. This trial did not price SPX; page 5 shows its later joint-fit tradeoff. Source: S5.}
+
+\takeaway{Two shared speeds gave our strongest partial VIX fit. There is no separate short-expiry model. The fit is much closer, but some wing and forward errors remain.}
+
+\begin{center}\begin{tabular}{lrr}\toprule
+All four VIX expiries & One speed & Two speeds\\\midrule
+Checking option loss &1.7256&0.0501\\
+Prices inside bid--ask &83/217&153/217\\\bottomrule
+\end{tabular}\end{center}
+The two-speed fit uses 92.3\% stress weight, half-lives 71.4/365 days and a 12\% volatility floor. Slow half-life and floor hit their ceilings. Training forward equalities do not prove exact population forwards: checking gaps reached 0.055 points.
+
+\textbf{Other mixture findings.} Additive M2/stress worked better than multiplying M2 by a two-response stress mixture. Allowing the floor to fit was a major improvement. A continuous Beta mixture concentrated near its two endpoints and did not beat the simpler boundary. Four fixed geometric speeds also gave no demonstrated gain: checking loss 0.0622 versus 0.0501, with materially noisier forwards. More branches alone are not a guarantee of better fit. Sources: S5, S11.
+
+\newpage
+\pageheading{4. What if we fit SPX and VIX together?}{The optimizer mostly removed the successful stress mechanism}
+Starting from the two-speed VIX model, the first joint trial freed all 16 curve levels, the floor and six stress parameters, while keeping the original M2 readout fixed. This is a bounded local fit, not a global search.
+
+\plate{04-joint-tradeoff}{Figure 4. Paired checking prices at the experiment's original 64 stock steps/day. Sampling and grid error remain material. Later refinements retained the broad compromise; this figure is not a converged continuous-model comparison. Source: S6.}
+
+\takeaway{The sampled SPX fit improves, but the VIX smile fit is largely lost. Matching the four training forwards does not preserve the VIX option distribution.}
+
+\begin{center}\begin{tabular}{lrr}\toprule
+All-maturity checking & VIX-only parameters & Joint parameters\\\midrule
+SPX price loss &5467.10&618.74\\
+VIX option loss &0.0501&37.97\\
+Stress weight &92.3\%&1.94\%\\
+SPX prices inside bid--ask &9/1294&9/1294\\\bottomrule
+\end{tabular}\end{center}
+With independent stress, stress variance does not directly associate its own shocks with equity declines. At high stress weight the old equity-linked response contributes little on average. That motivated the correlation experiment on page 7. It is a working explanation, not proof that independence is the sole cause. The joint search was iteration-limited and retained negative numerical price estimates.
+
+\newpage
+\pageheading{5. Can curve changes rescue SPX while protecting VIX?}{VIX sees only seven of the 16 variance levels}
+Nine curve intervals lie outside the union of the four VIX averaging windows. Changing only those nine levels leaves the entire VIX law fixed in this exogenous model, while changing the stock's accumulated variance. The stress response, floor and seven VIX-sensitive levels are frozen.
+
+\plate{05-protected-curve}{Figure 5. Fresh paired SPX check at 128 stock steps/day; VIX curves are inherited identical prices, not new independent VIX checks. The complete factor/readout law makes VIX invariant to the nine changes. Source: S7.}
+
+\takeaway{Curve-only fitting reduces a price score without repairing the equity smile. The VIX curves overlap exactly, as they should.}
+
+Fresh SPX loss fell 5979.32 to 3895.07, but the recorded all-maturity native-IV error worsened 4.345 to 4.710 percentage points and inside-bid--ask count fell from 11 to 8. Downward skew was still missing.
+
+This is an important distinction: the curve schedules average variance through time; it does not independently control how each equity shock changes future variance. Off-window freedom gives useful level control, but it is not a substitute for a suitable dependence/readout mechanism. VIX protection also preserves the old numerical forward error; it does not remove it.
+
+\newpage
+\pageheading{6. Correlating stock and stress shocks}{A large SPX improvement that preserves VIX}
+Keep the complete variance-factor law fixed and change only the stock Brownian direction:
+\begin{equation}
+dW_t^{S,\theta}=\sqrt{1-\theta^2}\,dW_t^0
+-\theta(c_s\,dB_t^s+c_f\,dB_t^f),\qquad c_s^2+c_f^2=1.
+\end{equation}
+A positive stress shock now tends to lower equity and raise variance. This strengthens downside skew. The stock still has unit Brownian variance; its old-bank correlations shrink by $\sqrt{1-\theta^2}$.
+
+\plate{06-negative-correlation}{Figure 6. Fresh paired SPX factor paths, 128 stock steps/day; selected mixed direction $\theta=0.8$. VIX is the unchanged two-speed law, shown with exactly overlapping model curves. The cheap reference sample is shared with screening; the complete estimator is not wholly fresh. Source: S8.}
+
+\takeaway{The SPX smile tilts in the right direction without sacrificing the VIX fit. It still lacks enough short-expiry skew. VIX invariance applies to this rotation, not arbitrary changes to correlations among variance factors.}
+
+All-maturity SPX price loss fell 50.9\%; IV error fell 4.493 to 3.199 pp. But only 18/1294 prices were inside bid--ask. At 29 days, the quoted right-minus-left IV gap near $K/F=0.9,1.1$ moved from $-1.52$ to $-5.58$ pp, versus market $-14.05$ pp.
+
+State-dependent directions were also tested: opposite instantaneous variance sensitivity, and opposite sensitivity of expected next-30-day integrated variance. Both preserve VIX, but neither produced a convincing further SPX improvement. Maximizing local negative covariance does not maximize finite-maturity option skew. Sources: S8, S10.
+
+\newpage
+\pageheading{7. Stronger downside readout: improvement at a cost}{Global normalization changes the effective stress allocation}
+Using the existing equity-linked factor $X$, define
+\begin{equation}
+D_\alpha(X)=e^{\alpha\splus(-X)},\qquad
+H^\alpha=\frac{H^0D_\alpha}{\E[H^0D_\alpha]}.
+\end{equation}
+Negative $X$ raises the response. Each strength refits seven VIX-window variance levels with four training forward equalities; stock correlation remains $\theta=0.8$.
+
+\plate{07-asymmetric-readout}{Figure 7. Fresh full-model SPX and VIX draws; 128 stock steps/day and shared older auxiliary anchors. Curves compare strength plus curve refit, not the multiplier alone. Source: S9.}
+
+\takeaway{Stronger asymmetry can improve SPX while severely disrupting VIX, even after matching training forwards. Mean-one normalization does not preserve the successful VIX distribution.}
+
+Writing $H^0=(1-w)R+wA$, the mean stress share becomes
+\begin{equation}
+\frac{w\E[D]}{(1-w)\E[RD]+w\E[D]},
+\end{equation}
+not $w$. At 153 days it fell from 92.3\% to 53.2\% for $\alpha=1.5$; fresh VIX loss rose about 0.047 to 25.725. A four-way ablation showed that the striking short-SPX skew gain needed \emph{both} the multiplier and the changed curve; it was not the multiplier's isolated effect.
+
+A conditional stress-regime normalization preserved $\E[H\mid A_s,A_f]$ and reduced the VIX damage to loss 6.159 at the illustrative strong setting, but still failed to protect the smile. Preserving a mean, a conditional mean and the full VIX law are different guarantees. Sources: S9--S10.
+
+\newpage
+\pageheading{8. A slower downside signal from the existing bank}{Modest SPX benefit; strong settings still hurt VIX}
+This experiment was completed after the previous report's evidence cutoff. It retains the fast M2 mechanism and uses an already-existing slower OU mode in $D_\alpha$. No new bank or endogenous return feedback is added. Conditional stress-regime normalization and seven-level curve refits are retained.
+
+\plate{08-slower-signal}{Figure 8. IV changes relative to the paired baseline; zero means unchanged, and market levels are not replotted here. New 1024-path SPX and 2048-state/expiry VIX draws, with previously used reference anchors; 256 stock steps/day. Weak selection: 9.48-day memory and $\alpha=0.125$. Strong contrast: 3.33-day memory and $\alpha=0.5$. Strength and memory both change in the strong contrast. Source: S12.}
+
+\takeaway{A weak slower signal moves SPX a little and avoids most VIX damage. A stronger signal gives more SPX change but a larger VIX price-loss cost. The remaining equity skew gap is still large.}
+
+\begin{center}\begin{tabular}{lrr}\toprule
+All-maturity checking & SPX price loss & VIX option loss\\\midrule
+Baseline &1866.88&0.050\\
+Weak signal, fixed curve &1816.32&0.089\\
+Weak signal + curve refit &1811.15&0.085\\
+Curve refit alone &1862.10&0.041\\
+Stronger signal + refit &1749.73&0.553\\\bottomrule
+\end{tabular}\end{center}
+The weak refit reduced sampled SPX loss by 2.99\%, but the 29-day right-minus-left IV gap moved only $-5.98$ to $-6.17$ pp, versus market $-14.05$. This supports a small mechanism effect, not a finished calibration. The illustrative strong point's paired loss interval included zero; sampling, grid and quadrature errors remain separate.
+
+\newpage
+\pageheading{Other lessons worth retaining}{Compact record of earlier trials and the evidence limits}
+\small
+\begin{tabularx}{\linewidth}{@{}p{.25\linewidth}Y@{}}\toprule
+Test or modification & What it established\\\midrule
+Softplus / EWMA legacy A2 & Adds return persistence; historical scores use distinct raw/used variance conventions. No fair final SPX--VIX ranking versus M2.\\
+Shifted quadratic M2 & Low curvature / high shift balances dispersion and downside response. Positive spike shift strengthens asymmetry but can damage Zumbach gates.\\
+Slower spike lift; orthogonal energy; echo & Slower spike memory improved synthetic P gates. Orthogonal energy gave a small roughness benefit. Echo benefit was negligible; Stage 3 disabled it.\\
+Fine-grid P follow-up & Coarse-grid successes weakened at finer grids. Stage-4 rank-Zumbach validation failed despite strong Pearson asymmetry; those statistics measure different things.\\
+Initial state; 3 to 5 curve pieces & State-plus-curve helped sampled fit. Extra pieces gave small inconsistent gains; not independent control of strike shape.\\
+Original readout refit & Controlled eleven-parameter search improved aggregate SPX/VIX loss, but left poor coverage and long-expiry costs.\\
+Frozen variance budget & Necessary quote/forward moment bounds excluded the old budgets at 55/118/153 VIX days. Freeing the curve was necessary, not sufficient.\\
+Cluster-dependent spike mixtures & Two bounded profiles worsened VIX; no SPX success tested.\\
+Product / additive / continuum & Additive response beat product in the trial; continuous Beta mixing did not beat endpoints. These were VIX-only tests.\\
+Floor / extra stress speeds & Fitting the floor strongly helped VIX, at its 12\% ceiling. Four fixed speeds gave no demonstrated advantage over two.\\
+Estimator / parity refinements & Some large precision gains, but no global convergence clearance. Own-forward parity and signed estimates matter; controls do not change the economic model.\\\bottomrule
+\end{tabularx}
+
+\textbf{Evidence limits.} Lower price loss is not automatically a better IV shape. Finite training-forward equality is not a population identity. Narrow sampling errors exclude stock-grid, normalizer and conditional-VIX integration bias. Preserved negative estimates are numerical failures, not negative theoretical prices. Neither scoped Lean algebra nor bounded optimizer failure proves a complete simulator correct or a model family impossible. Later Q variants have not re-established the original P fit.
+
+\textbf{Readouts outside the completed M2 trials.} Othmane's later externally reported model uses bounded decreasing piecewise-linear responses in $\sigma=\widetilde\sigma(t)e^{\psi(\zeta)}F(P)$, noise-amplitude modulation and endogenous feedback. It differs from legacy A2 and from our exogenous readout layers; its reported VIX-wing/estimator limitations remain. Quintic and jump remedies were not completed M2 joint-fit tests.
+
+\textbf{Sources.} All paths below are relative to \path{matteo/model_comparison/option_pricing/}, except S13. Numbers reproduce recorded results, not new fits. Plot inputs, hashes, native-IV values and panel diagnostics are in the source bundle.
+\footnotesize
+\begin{tabularx}{\linewidth}{@{}lY@{}}
+S1--S2 & \path{MATURITY_CURVE_FIT_RESULTS.md}; \path{CAP_CONTROLLED_RESULTS.md}.\\
+S3--S4 & \path{STOCHASTIC_VOV_RESULTS.md}; \path{POSTCAP_VOV_RESULTS.md}.\\
+S5--S6 & \path{TWO_SPEED_RESULTS.md}; \path{TWO_SPEED_JOINT_RESULTS.md}.\\
+S7--S8 & \path{PROTECTED_CURVE_RESULTS.md}; \path{LEVERAGE_SCAN_RESULTS.md}.\\
+S9--S10 & \path{ASYMMETRIC_READOUT_RESULTS.md}; \path{TARGETED_SKEW_RESULTS.md}; \path{FORWARD_LEVERAGE_RESULTS.md}.\\
+S11 & \path{MIXED_RESPONSE_RESULTS.md}; \path{FORWARD_FLOOR_RESULTS.md}; \path{CONTINUUM_RESPONSE_RESULTS.md}; \path{STRESS_BANK_RESULTS.md}.\\
+S12 & \path{SLOW_READOUT_RESULTS.md}; run \path{runs/m2_slow_readout_002/fresh_validation/}.\\
+S13 & Physical studies: \path{matteo/exogenous_reservoir_eq_m2/experiments/}, from repository root.\\
+S14 & \path{RESEARCH_LEDGER.md}; original retrospective's full evidence register.\\
+\end{tabularx}
+\end{document}

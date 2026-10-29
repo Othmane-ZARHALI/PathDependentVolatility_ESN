@@ -1,0 +1,424 @@
+{
+  "source": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/prices_canonical_baseline.csv",
+  "source_sha256": "c9baa4d612b3d767a2518e8439be97aa5365873a7e5f8be281d3550eeadbff7f",
+  "model_parameters_source": "m2_maturity_curve_fit_001/run.json selected",
+  "records": [
+    {
+      "day": 27,
+      "step": 0.2,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1249,
+      "quotes": 49,
+      "fixed_second_target": 477.22948825354126,
+      "minimum_second_within_spreads_on_this_grid": 469.0060929060402,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.1,
+        "second": 477.134464876105,
+        "minimum_probability": 0.0,
+        "max_price_violation": 6.654724166742054e-14,
+        "active_atoms": 12
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.10000000000001,
+        "second": 477.22948825354126,
+        "minimum_probability": 0.0,
+        "max_price_violation": 6.950673398453504e-14,
+        "active_atoms": 10
+      }
+    },
+    {
+      "day": 55,
+      "step": 0.2,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1258,
+      "quotes": 58,
+      "fixed_second_target": 536.0268666363174,
+      "minimum_second_within_spreads_on_this_grid": 556.6769349517522,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.73000000000006,
+        "second": 569.8653568626887,
+        "minimum_probability": 0.0,
+        "max_price_violation": 2.1995495979563373e-14,
+        "active_atoms": 14
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 1.7136327787919658,
+        "mean": 20.730000000000004,
+        "second": 536.0268666363174,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.7136327787919916,
+        "active_atoms": 33
+      }
+    },
+    {
+      "day": 118,
+      "step": 0.2,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1255,
+      "quotes": 55,
+      "fixed_second_target": 580.8042682271083,
+      "minimum_second_within_spreads_on_this_grid": 649.1807412035984,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.189999999999998,
+        "second": 665.1369421383589,
+        "minimum_probability": 0.0,
+        "max_price_violation": 9.247022063087739e-14,
+        "active_atoms": 15
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.741899029896058,
+        "mean": 21.189999999999717,
+        "second": 580.8042682271011,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.741899029902212,
+        "active_atoms": 21
+      }
+    },
+    {
+      "day": 153,
+      "step": 0.2,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1255,
+      "quotes": 55,
+      "fixed_second_target": 610.93256882101,
+      "minimum_second_within_spreads_on_this_grid": 696.336861775886,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.719999999999995,
+        "second": 711.4673264285008,
+        "minimum_probability": 0.0,
+        "max_price_violation": 9.296351885673741e-15,
+        "active_atoms": 13
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.9523599028599987,
+        "mean": 21.720000000000006,
+        "second": 610.9325688210101,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.952359902860005,
+        "active_atoms": 21
+      }
+    },
+    {
+      "day": 27,
+      "step": 0.2,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1249,
+      "quotes": 49,
+      "fixed_second_target": 477.22948825354126,
+      "minimum_second_within_spreads_on_this_grid": 469.0060929060402,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.1,
+        "second": 485.83937055036483,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.2320299918477369e-14,
+        "active_atoms": 12
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.099999999999966,
+        "second": 477.2294882535406,
+        "minimum_probability": 0.0,
+        "max_price_violation": 2.6303911262233014e-13,
+        "active_atoms": 11
+      }
+    },
+    {
+      "day": 55,
+      "step": 0.2,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1258,
+      "quotes": 58,
+      "fixed_second_target": 536.0268666363174,
+      "minimum_second_within_spreads_on_this_grid": 556.6769349517522,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.729999999999997,
+        "second": 598.8332744354716,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.975417925032199e-14,
+        "active_atoms": 15
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 1.7136327787919619,
+        "mean": 20.729999999999993,
+        "second": 536.0268666363174,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.713632778792949,
+        "active_atoms": 33
+      }
+    },
+    {
+      "day": 118,
+      "step": 0.2,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1255,
+      "quotes": 55,
+      "fixed_second_target": 580.8042682271083,
+      "minimum_second_within_spreads_on_this_grid": 648.6375947239089,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.190000000000005,
+        "second": 713.372363570842,
+        "minimum_probability": 0.0,
+        "max_price_violation": 8.608171254629446e-14,
+        "active_atoms": 13
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.7418990298961123,
+        "mean": 21.189999999999976,
+        "second": 580.8042682271997,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.741899030107435,
+        "active_atoms": 21
+      }
+    },
+    {
+      "day": 153,
+      "step": 0.2,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 1255,
+      "quotes": 55,
+      "fixed_second_target": 610.93256882101,
+      "minimum_second_within_spreads_on_this_grid": 695.3021555756296,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.72,
+        "second": 773.0806245986632,
+        "minimum_probability": 0.0,
+        "max_price_violation": 9.265596267847343e-14,
+        "active_atoms": 15
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.9523599028599983,
+        "mean": 21.719999999999995,
+        "second": 610.93256882101,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.952359902860003,
+        "active_atoms": 21
+      }
+    },
+    {
+      "day": 27,
+      "step": 0.05,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4547,
+      "quotes": 49,
+      "fixed_second_target": 477.22948825354126,
+      "minimum_second_within_spreads_on_this_grid": 469.00127126791705,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.10000000000001,
+        "second": 476.23562467849945,
+        "minimum_probability": 0.0,
+        "max_price_violation": 7.515403217780861e-14,
+        "active_atoms": 13
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.1,
+        "second": 477.22948825354126,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.5973260949527834e-14,
+        "active_atoms": 10
+      }
+    },
+    {
+      "day": 55,
+      "step": 0.05,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4556,
+      "quotes": 58,
+      "fixed_second_target": 536.0268666363174,
+      "minimum_second_within_spreads_on_this_grid": 556.6749073154228,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.73000000000001,
+        "second": 567.1757462210533,
+        "minimum_probability": 0.0,
+        "max_price_violation": 4.7705015100386394e-14,
+        "active_atoms": 14
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 1.7130741820597073,
+        "mean": 20.729999999999997,
+        "second": 536.0268666363174,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.7130741820597328,
+        "active_atoms": 33
+      }
+    },
+    {
+      "day": 118,
+      "step": 0.05,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4553,
+      "quotes": 55,
+      "fixed_second_target": 580.8042682271083,
+      "minimum_second_within_spreads_on_this_grid": 649.1770618507132,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.19,
+        "second": 667.2505410181597,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.4346952091049076e-14,
+        "active_atoms": 14
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.741273591765416,
+        "mean": 21.189999999999998,
+        "second": 580.8042682281468,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.7412735925583958,
+        "active_atoms": 21
+      }
+    },
+    {
+      "day": 153,
+      "step": 0.05,
+      "maximum_support": 250.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4553,
+      "quotes": 55,
+      "fixed_second_target": 610.93256882101,
+      "minimum_second_within_spreads_on_this_grid": 696.333415615854,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.72,
+        "second": 713.0887103843104,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.0749162418585012e-13,
+        "active_atoms": 15
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.9520696647932154,
+        "mean": 21.72,
+        "second": 610.9325688210978,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.9520696649068623,
+        "active_atoms": 21
+      }
+    },
+    {
+      "day": 27,
+      "step": 0.05,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4547,
+      "quotes": 49,
+      "fixed_second_target": 477.22948825354126,
+      "minimum_second_within_spreads_on_this_grid": 469.00127126791705,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.1,
+        "second": 493.60863307026784,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.4278468186293666e-14,
+        "active_atoms": 13
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.1,
+        "second": 477.22948825354126,
+        "minimum_probability": 0.0,
+        "max_price_violation": 5.957338492471187e-15,
+        "active_atoms": 13
+      }
+    },
+    {
+      "day": 55,
+      "step": 0.05,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4556,
+      "quotes": 58,
+      "fixed_second_target": 536.0268666363174,
+      "minimum_second_within_spreads_on_this_grid": 556.6749073154228,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 20.730000000000004,
+        "second": 568.6559038052128,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.600662234668943e-14,
+        "active_atoms": 15
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 1.7130741820597073,
+        "mean": 20.729999999999993,
+        "second": 536.0268666363174,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.713074182059737,
+        "active_atoms": 33
+      }
+    },
+    {
+      "day": 118,
+      "step": 0.05,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4553,
+      "quotes": 55,
+      "fixed_second_target": 580.8042682271083,
+      "minimum_second_within_spreads_on_this_grid": 648.6339076089754,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.190000000000012,
+        "second": 695.2413675126503,
+        "minimum_probability": 0.0,
+        "max_price_violation": 1.6726209652383877e-13,
+        "active_atoms": 15
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.741273591765645,
+        "mean": 21.189999999999998,
+        "second": 580.8042682271084,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.7412735917657254,
+        "active_atoms": 21
+      }
+    },
+    {
+      "day": 153,
+      "step": 0.05,
+      "maximum_support": 1000.0,
+      "minimum_support": 5.138093031466052,
+      "atoms": 4553,
+      "quotes": 55,
+      "fixed_second_target": 610.93256882101,
+      "minimum_second_within_spreads_on_this_grid": 695.2987273536635,
+      "free_second": {
+        "minimum_max_quote_scale_relaxation": 0.0,
+        "mean": 21.719999999999988,
+        "second": 751.0000842484164,
+        "minimum_probability": 0.0,
+        "max_price_violation": 5.374581209292506e-14,
+        "active_atoms": 14
+      },
+      "fixed_second": {
+        "minimum_max_quote_scale_relaxation": 3.9520696647931324,
+        "mean": 21.720000000000006,
+        "second": 610.9325688210101,
+        "minimum_probability": 0.0,
+        "max_price_violation": 3.9520696647931928,
+        "active_atoms": 21
+      }
+    }
+  ],
+  "interpretation": "Finite positive marginal laws only. Does not establish a jointly consistent time process, reservoir representation, SPX compatibility or unique tail law. No extrapolated second-moment upper bound is inferred."
+}

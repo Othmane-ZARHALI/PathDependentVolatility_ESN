@@ -1,0 +1,57 @@
+[
+  {
+    "parameter": 0,
+    "native_price_relative_error": 3.584787083102926e-09,
+    "forward_relative_error": 1.1816082045352893e-09
+  },
+  {
+    "parameter": 1,
+    "native_price_relative_error": 3.0568349539146987e-10,
+    "forward_relative_error": 2.443252023392136e-12
+  },
+  {
+    "parameter": 2,
+    "native_price_relative_error": 4.998734745596109e-09,
+    "forward_relative_error": 9.187763830137272e-10
+  },
+  {
+    "parameter": 3,
+    "native_price_relative_error": 4.544684615714244e-06,
+    "forward_relative_error": 6.776161026419498e-11
+  },
+  {
+    "parameter": 4,
+    "native_price_relative_error": 1.534305298592153e-08,
+    "forward_relative_error": 4.714785228898677e-10
+  },
+  {
+    "parameter": 5,
+    "native_price_relative_error": 2.8944259446243927e-10,
+    "forward_relative_error": 4.652035273849416e-11
+  },
+  {
+    "parameter": 6,
+    "native_price_relative_error": 4.500641381835178e-10,
+    "forward_relative_error": 8.238850352506566e-11
+  },
+  {
+    "parameter": 7,
+    "native_price_relative_error": 2.3399275600444433e-09,
+    "forward_relative_error": 2.6000494138371534e-10
+  },
+  {
+    "parameter": 8,
+    "native_price_relative_error": 2.7368932716021913e-09,
+    "forward_relative_error": 2.697799130636504e-10
+  },
+  {
+    "parameter": 9,
+    "native_price_relative_error": 7.737342844260047e-10,
+    "forward_relative_error": 1.6165411128099623e-10
+  },
+  {
+    "parameter": 10,
+    "native_price_relative_error": 6.080423873664766e-09,
+    "forward_relative_error": 7.098894138321622e-10
+  }
+]

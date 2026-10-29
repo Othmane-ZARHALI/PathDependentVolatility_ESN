@@ -1,0 +1,11 @@
+{
+  "status": "paused_by_user",
+  "date": "2026-10-25",
+  "exit_code": 130,
+  "stage": "full pricing of proposal 0 interrupted",
+  "baseline_complete": true,
+  "proposal_0_fully_validated": false,
+  "new_selected_calibration": false,
+  "log": "/private/tmp/m2-maturity-curve-fit-001.log",
+  "resume_note": "Preserve frozen sources, complete baseline and proposal/local-search artifacts. Resume from saved artifacts using a separately recorded continuation; original launcher refuses an existing output directory. Do not regenerate OU caches."
+}

@@ -1,0 +1,22 @@
+{
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6"
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "compiler_flags": [
+    "-O3",
+    "-std=c++17",
+    "-dynamiclib"
+  ],
+  "helper_sha256": {
+    "matteo/model_comparison/option_pricing/audit_controlled_readout_fit.py": "cfbb2490be23c999e6a1e040fc0de035e2852b4f7660d026bdd0e5f2f852fdc7",
+    "matteo/model_comparison/option_pricing/summarize_controlled_readout_fit.py": "84f5d1d0f225a3bc86e1e71c88258ad429e90e6a986cbb62cfbce70496ec38fe",
+    "matteo/model_comparison/option_pricing/plot_controlled_readout_fit.py": "66b0f7bb06894c51bfc784dc542f94c882d5a108d4a3badeb8edf09c04b13b9b",
+    "matteo/model_comparison/option_pricing/check_selected_readout_quadrature.py": "40724c1b1947965f40f93ad6e6ae0b68421ded12da98cae5c088ab1f7f843be2",
+    "matteo/model_comparison/option_pricing/smooth_strike_controls.py": "a7040059919f59b925ce5a0b0e9c98c4b31c61e1b867100a1fffcbb6e3641c0a"
+  },
+  "note": "Helper versions captured after search launch; not represented as pre-run source capture. Plotting/replay helpers do not select parameters."
+}

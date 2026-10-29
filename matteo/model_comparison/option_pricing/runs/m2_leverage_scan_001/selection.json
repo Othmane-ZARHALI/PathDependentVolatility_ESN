@@ -1,0 +1,19 @@
+{
+  "selected": {
+    "direction": "mixed",
+    "theta": 0.8,
+    "steps": 128,
+    "loss": 1971.9077841543792,
+    "inside": 17,
+    "IV_MAE_pp": 3.3267425893111406,
+    "invalid_IV": 4,
+    "negative": 4,
+    "median_SE_scales": 3.4865278774172888,
+    "paired_loss_delta_CI95": [
+      -1886.080288065259,
+      -1381.5604923486328
+    ]
+  },
+  "selection_frozen_before_fresh": true,
+  "not_adopted": true
+}

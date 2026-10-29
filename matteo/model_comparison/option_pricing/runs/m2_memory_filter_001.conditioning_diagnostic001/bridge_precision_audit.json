@@ -1,0 +1,210 @@
+[
+  {
+    "day": 27,
+    "actual_terminal_projection_max_error": 1.258046999907947e-10,
+    "max_unconditional_projected_bridge_covariance_error": 5.523081354485981e-07,
+    "rank_cutoff_1e13_vs1e14_max_memory_change": 0.0,
+    "rank_cutoff_max_M2_memory_change": 0.0,
+    "rank_cutoff_mean_memory_change": [
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    ],
+    "scope": "8 matched terminal draws per expiry; rank perturbation changes conditioning, not a uniform pricing bound"
+  },
+  {
+    "day": 55,
+    "actual_terminal_projection_max_error": 1.3027090517425677e-10,
+    "max_unconditional_projected_bridge_covariance_error": 6.153853786072805e-05,
+    "rank_cutoff_1e13_vs1e14_max_memory_change": 0.0,
+    "rank_cutoff_max_M2_memory_change": 0.0,
+    "rank_cutoff_mean_memory_change": [
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    ],
+    "scope": "8 matched terminal draws per expiry; rank perturbation changes conditioning, not a uniform pricing bound"
+  },
+  {
+    "day": 118,
+    "actual_terminal_projection_max_error": 1.2430911855432214e-10,
+    "max_unconditional_projected_bridge_covariance_error": 0.021453612367241193,
+    "rank_cutoff_1e13_vs1e14_max_memory_change": 1.142284446294724,
+    "rank_cutoff_max_M2_memory_change": 1.142284446294724,
+    "rank_cutoff_mean_memory_change": [
+      [
+        [
+          -0.07738169421970198,
+          -0.07663298787889704
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          -0.1420793242006354,
+          -0.13582838257825486
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          -0.12383732010470996,
+          -0.120295343499458
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    ],
+    "scope": "8 matched terminal draws per expiry; rank perturbation changes conditioning, not a uniform pricing bound"
+  },
+  {
+    "day": 153,
+    "actual_terminal_projection_max_error": 4.75379735576098e-11,
+    "max_unconditional_projected_bridge_covariance_error": 9.708178692058311e-06,
+    "rank_cutoff_1e13_vs1e14_max_memory_change": 0.0,
+    "rank_cutoff_max_M2_memory_change": 0.0,
+    "rank_cutoff_mean_memory_change": [
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ]
+    ],
+    "scope": "8 matched terminal draws per expiry; rank perturbation changes conditioning, not a uniform pricing bound"
+  }
+]

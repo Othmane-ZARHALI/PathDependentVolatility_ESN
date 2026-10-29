@@ -1,0 +1,35 @@
+step-function approach as described in Appendix A. This yields a twice-differentiable option
+price surface for t ∈[t0, t6] and any desired strike K. From the price surface we can derive
+the implied volatility surface and the derivative of the implied volatility surface to compute
+Equation (A.2), which is equivalent to Equation (3.4). The resulting local volatility model
+after calibration replicates the smoothed VIX options market by design. We simulate Monte
+Carlo paths and price model options to compare to the market quotes. Figure 7 shows that
+the model fit of the options lies largely within the bid-ask spread of the VIX options.
+
+
+
+
+
+                          Figure 7: VIX Options Model to Market Fit.
+
+
+4.3. Instantaneous Variance of the SPX
+   In the final step of the model calibration, we derive the coupling function ψt on the interval
+[t0, TF + Θ] and then fit the final parameter ρ to fit the SPX option skew to the market data.
+Since the calibration uses maturities up to October 2026, we choose [t0, TF + Θ] = [0, 0.5].
+   For the terminal curve, we derive a second-order polynomial p ∈P2 from the numerically
+computed values for M¯ TF1  and M¯ TF2  . We find p(x) = a0 + a1x + a2x2 with
+
+                           a2 ≈1.16, a1 ≈−4.19, a0 ≈−101.37.
+
+We then derive the coupling function ψ on the entire interval [t0, TF + Θ] with the backward
+equation (2.8), repeatedly solving the conditional expectation using a numerical PDE solver.
+To empirically validate the consistency on the entire interval, we analyze the scatter plot for the
+nonparametric consistency analysis of Procedure 1. Figure 8 shows that the coupling function
+produces consistency across two arbitrarily selected times.
+
+
+
+
+
+                                        19

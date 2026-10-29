@@ -1,3 +1,0 @@
-expiry,expiry_date,expiry_days,T_years,forward_vix_points,source_provenance,quote_interval_available,model_forward,error_points,residual,replication_se
-46099,2026-03-18,27,0.073972602739726,20.1,likely_traded_future_user_reported,False,20.766639242305523,0.6666392423055214,1.3332784846110428,0.0919911331300248
-46127,2026-04-15,55,0.1506849315068493,20.73,likely_traded_future_user_reported,False,20.396116152780962,-0.3338838472190382,-0.6677676944380764,0.05201210269910663

@@ -1,0 +1,24 @@
+{
+  "status": "completed readout scan, fresh stock/VIX checks, independent implementation audit and four-way mechanism ablation",
+  "adopted": false,
+  "selected_alpha": 0.0,
+  "authoritative_report": "ASYMMETRIC_READOUT_RESULTS.md",
+  "fresh_VIX_followup": "fresh_VIX/run.json",
+  "all_original_source_fingerprints_unchanged": true,
+  "visualization_hashes": {
+    "visualizations/asymmetric-readout028/SPX-asymmetric-smiles.png": "21455b73f8616cd78ec597727448d3b4ea82eff72b3d1f9a02c3c7e68dedf83f",
+    "visualizations/asymmetric-readout028/paired_loss_intervals.json": "2309aa148e47c5460b070242f42ae451ef5ff4f90ab07afd7f24ec296357bafe",
+    "visualizations/asymmetric-readout028/summary.json": "6a2586e9b61ecc6c78176aa1e765e681353f422941150bcd048f2750fa44ce02",
+    "visualizations/asymmetric-readout028/VIX_native_IV.csv": "052fd6f69b88e3ea3d2669a779fb868a97882b408d0e807141645f17960f94d6",
+    "visualizations/asymmetric-readout028/VIX-asymmetric-smiles.png": "6662f0c78300c2a3cbfebe6ce4421b9c2dff81dc2ce2271e6ef458de6bc04f34",
+    "visualizations/asymmetric-readout028/grid_diagnostics.json": "5c3ebce5f120396a27307b0b00ef089a067dffe7ff57798c62bf344c1193c9f6",
+    "visualizations/asymmetric-readout028/VIX-asymmetric-smiles.svg": "52fb7eccdf68bb2f92e55e2ea6ab028b6596664aace743de5f86618e59c22a89",
+    "visualizations/asymmetric-readout028/SPX-asymmetric-smiles.svg": "cccc97f328dc0ef55eae4ce494bcf552437d810039533f49d2c57c1aabba03eb",
+    "visualizations/asymmetric-readout028/SPX-readout-curve-ablation.png": "9c3e0026e61a83735fd5d9c3508983f61f98b5a28a555e204ce81939b0cd21e4",
+    "visualizations/asymmetric-readout028/readout-tradeoff.svg": "214c44157f9eb27ce3fa68a358da1db0a29344c0fa024f77995523dc609a8acd",
+    "visualizations/asymmetric-readout028/SPX_maturity_metrics.csv": "58aef54dc0b95cb2982ab8c2dc93798d689889fa0994791ff2d51dc5a06444ac",
+    "visualizations/asymmetric-readout028/comparison.csv": "b7ae45386df8669d345a28d0a2969595092d23bfaccb95dcf8c1a61533ba6109",
+    "visualizations/asymmetric-readout028/readout-tradeoff.png": "2d772211cb155ac40db45cbf05ba4ef23846040899c8f19a0c7df525c878c778",
+    "visualizations/asymmetric-readout028/SPX-readout-curve-ablation.svg": "17ed939f6662a67f0f9536b2adbc65ff1840b836a937a516adea4359d1e15968"
+  }
+}

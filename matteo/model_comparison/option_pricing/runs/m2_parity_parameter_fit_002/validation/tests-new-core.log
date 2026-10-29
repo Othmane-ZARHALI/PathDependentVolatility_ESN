@@ -1,0 +1,8 @@
+test_acceptance_requires_true_joint_and_both_VIX_conventions (matteo.model_comparison.option_pricing.test_parity_parameter_core.ParameterFitTests.test_acceptance_requires_true_joint_and_both_VIX_conventions) ... ok
+test_cached_vix_matches_original_value_and_all_derivatives (matteo.model_comparison.option_pricing.test_parity_parameter_core.ParameterFitTests.test_cached_vix_matches_original_value_and_all_derivatives) ... ok
+test_local_objective_jacobian_and_no_hidden_SPX_repricing (matteo.model_comparison.option_pricing.test_parity_parameter_core.ParameterFitTests.test_local_objective_jacobian_and_no_hidden_SPX_repricing) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.667s
+
+OK

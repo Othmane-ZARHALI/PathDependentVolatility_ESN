@@ -1,0 +1,276 @@
+{
+  "candidate": "proposal0",
+  "parameters": [
+    0.08579230299061608,
+    0.052850280587426704,
+    3.315274119733554,
+    0.20696452356680609,
+    0.3497299725172061,
+    5.561182737308034,
+    2.0,
+    0.04895437191069572,
+    0.058213662662637666,
+    0.05261397331874095,
+    0.0024999999999909058
+  ],
+  "canonical_loss": 95.14831047579995,
+  "canonical_components": {
+    "SPX": 49.491691521191925,
+    "VIX": 44.79184924859826,
+    "midpoint": 0.0,
+    "forwards": 0.8314246635778394,
+    "state_penalty": 0.03333333333333333,
+    "curve_penalty": 1.1709098597714815e-05
+  },
+  "original_otm_loss": 85.03863142573462,
+  "original_otm_components": {
+    "SPX": 49.49169152119193,
+    "VIX": 34.68217019853293,
+    "midpoint": 0.0,
+    "forwards": 0.8314246635778394,
+    "state_penalty": 0.03333333333333333,
+    "curve_penalty": 1.1709098597714815e-05
+  },
+  "inside_canonical_bidask": 136,
+  "inside_original_otm_bidask": 135,
+  "canonical_negative_prices": 0,
+  "native_otm_negative_prices": 0,
+  "iv_unavailable": 2,
+  "normalizer": {
+    "knots": 257,
+    "midpoint_error": 1.1935776740124553e-08,
+    "independent_error": 3.7920282397730475e-09,
+    "GH": 48,
+    "probe_note": "Declared probes may enter refinement; additional final independent probes checked separately."
+  },
+  "allocations": [
+    {
+      "instrument": "SPX",
+      "days": 29,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "SPX",
+      "days": 57,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "SPX",
+      "days": 119,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "SPX",
+      "days": 211,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "SPX",
+      "days": 302,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "SPX",
+      "days": 666,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "SPX",
+      "days": 1030,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "VIX",
+      "days": 27,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "VIX",
+      "days": 55,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "VIX",
+      "days": 118,
+      "minimum": 4096,
+      "maximum": 4096
+    },
+    {
+      "instrument": "VIX",
+      "days": 153,
+      "minimum": 4096,
+      "maximum": 4096
+    }
+  ],
+  "moments": [
+    {
+      "instrument": "SPX",
+      "days": 29,
+      "mass": 1.0082492024767178,
+      "raw_forward_ratio": 1.010067848443072,
+      "raw_forward_ratio_se": 0.007799245463021662
+    },
+    {
+      "instrument": "SPX",
+      "days": 57,
+      "mass": 0.992445609776807,
+      "raw_forward_ratio": 0.9931099607548128,
+      "raw_forward_ratio_se": 0.007960935172556666
+    },
+    {
+      "instrument": "SPX",
+      "days": 119,
+      "mass": 0.9861706408508644,
+      "raw_forward_ratio": 0.9849325516237577,
+      "raw_forward_ratio_se": 0.00805599595358784
+    },
+    {
+      "instrument": "SPX",
+      "days": 211,
+      "mass": 1.0026001634136006,
+      "raw_forward_ratio": 1.004862031600257,
+      "raw_forward_ratio_se": 0.008229695335969494
+    },
+    {
+      "instrument": "SPX",
+      "days": 302,
+      "mass": 1.0029569135015244,
+      "raw_forward_ratio": 1.0045571374844755,
+      "raw_forward_ratio_se": 0.00836096226922396
+    },
+    {
+      "instrument": "SPX",
+      "days": 666,
+      "mass": 1.0012578260429656,
+      "raw_forward_ratio": 1.0019971090077138,
+      "raw_forward_ratio_se": 0.008819674894602713
+    },
+    {
+      "instrument": "SPX",
+      "days": 1030,
+      "mass": 0.9717146739875089,
+      "raw_forward_ratio": 0.9625613783644799,
+      "raw_forward_ratio_se": 0.009267222800713352
+    },
+    {
+      "instrument": "VIX",
+      "days": 27,
+      "market_forward": 20.1,
+      "model_forward": 20.450315493542863,
+      "mass": 1.0002368203641652,
+      "second_moment": 487.1014779902523
+    },
+    {
+      "instrument": "VIX",
+      "days": 55,
+      "market_forward": 20.73,
+      "model_forward": 20.177942457526008,
+      "mass": 1.0009069280505396,
+      "second_moment": 492.336539130487
+    },
+    {
+      "instrument": "VIX",
+      "days": 118,
+      "market_forward": 21.19,
+      "model_forward": 21.81763125382767,
+      "mass": 0.9995145417519442,
+      "second_moment": 578.8691124917661
+    },
+    {
+      "instrument": "VIX",
+      "days": 153,
+      "market_forward": 21.72,
+      "model_forward": 21.820075959040842,
+      "mass": 1.0002997963145481,
+      "second_moment": 583.7179896494027
+    }
+  ],
+  "shapes": [
+    {
+      "instrument": "SPX",
+      "days": 29,
+      "monotonicity_violations": 0,
+      "convexity_violations": 22,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 57,
+      "monotonicity_violations": 0,
+      "convexity_violations": 17,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 119,
+      "monotonicity_violations": 0,
+      "convexity_violations": 8,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 211,
+      "monotonicity_violations": 1,
+      "convexity_violations": 8,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 302,
+      "monotonicity_violations": 0,
+      "convexity_violations": 10,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 666,
+      "monotonicity_violations": 0,
+      "convexity_violations": 1,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "SPX",
+      "days": 1030,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 27,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 55,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 118,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "instrument": "VIX",
+      "days": 153,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "all_checks_passed": true,
+  "maximum_direct_tensor_quadrature_scaled_error": 3.684728338163381e-11,
+  "scalar_stock_recursion_max_error": 1.1102230246251565e-16,
+  "forward_derivative_max_absolute_error": 1.3987033753437572e-09,
+  "stress_mean_budget_share": [
+    {
+      "day": 27.0,
+      "alpha": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "mean_stress_share": [
+        0.922838266122963,
+        0.896228342932758,
+        0.8578702110733353,
+        0.7304822880879418,
+        0.5300778248479288,
+        0.3146681851119066
+      ]
+    },
+    {
+      "day": 153.0,
+      "alpha": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "mean_stress_share": [
+        0.9228382662002244,
+        0.8955010761788763,
+        0.8564174733131898,
+        0.7287319134468297,
+        0.5317054667853014,
+        0.32122081856923496
+      ]
+    },
+    {
+      "day": 365.0,
+      "alpha": [
+        0.0,
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "mean_stress_share": [
+        0.9228382661374693,
+        0.8954106368509112,
+        0.8561784392385743,
+        0.7279655561627518,
+        0.5302845857613979,
+        0.3196135996035714
+      ]
+    }
+  ],
+  "scope": "Numerical correspondence checks, not a continuous martingale theorem or finite-wing skew theorem"
+}

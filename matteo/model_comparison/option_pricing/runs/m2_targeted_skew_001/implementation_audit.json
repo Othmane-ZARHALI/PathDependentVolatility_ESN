@@ -1,0 +1,10 @@
+{
+  "all_checks_passed": true,
+  "scalar_stock_recursion_max_error": 0.0,
+  "unit_stock_loading_max_error": 4.440892098500626e-16,
+  "readout_gradient_max_scaled_error": 6.584882080210666e-11,
+  "conditional_stress_mean_max_relative_error": 2.220446049250313e-16,
+  "stress_quadrature_max_scaled_error": 1.8415777826570234e-15,
+  "instantaneous_covariance_not_greater_than_baseline": true,
+  "scope": "Numerical primitive/recursion/gradient/conditional-expectation checks; no finite-wing-skew or continuous-stock-martingale theorem"
+}

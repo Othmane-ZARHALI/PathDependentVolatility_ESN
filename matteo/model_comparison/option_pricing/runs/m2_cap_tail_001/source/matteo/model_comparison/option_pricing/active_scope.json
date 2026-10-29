@@ -1,0 +1,100 @@
+{
+  "scope_id": "2026-10-23-all-retained-maturities-in-sample-feasibility",
+  "status": "active_exploratory_scope",
+  "decision": "User explicitly requests all retained SPX maturities in fitting with cutoff 3 and no out-of-sample market evaluation. Supersedes earlier reserved/diagnostic maturity and quote splits for this new feasibility run.",
+  "vix_fit_expiry_days": [
+    27,
+    55,
+    118,
+    153
+  ],
+  "vix_deferred_expiry_days": [],
+  "forward_treatment": "Include all four associated VIX forwards.",
+  "spx_scope_changed": true,
+  "spx_maturity_scope": {
+    "decision_date": "2026-10-23",
+    "user_direction": "Keep cutoff 3. Avoid 1 day and SPX maturities 1401, 1765 and 2129 days.",
+    "analysis_expiry_days": [
+      29,
+      57,
+      119,
+      211,
+      302,
+      666,
+      1030
+    ],
+    "deferred_expiry_days": [
+      1,
+      1401,
+      1765,
+      2129
+    ],
+    "fit_expiry_days": [
+      29,
+      57,
+      119,
+      211,
+      302,
+      666,
+      1030
+    ],
+    "reserved_maturity_days": [],
+    "diagnostic_expiry_days": [],
+    "treatment": "Use all eligible OTM quotes within cutoff 3 at all seven retained SPX maturities in fitting and model overlays; old source roles retained as metadata only. Exclude only 1/1401/1765/2129 days.",
+    "curve_treatment": "Reprice prior selected-state three-piece reference at all seven maturities, then jointly refit its three variance levels; retain old horizon and fixed readout/state/Q scenario."
+  },
+  "market_split": "all_eligible_in_sample",
+  "historical_baseline": "Near-only results and prior full-scope runs remain historical evidence, without rewriting numerical records.",
+  "limitations": [
+    "All current market observations are calibration inputs; no out-of-sample claims.",
+    "Fresh simulations, if used, check numerical stability on the SAME market targets.",
+    "Sampling, stock timestep, normalizer interpolation/GH and VIX conditional/time quadrature remain separate accuracy questions."
+  ],
+  "supersedes": "2026-10-23 prior four-maturity training-only fit; historical results and raw split labels unchanged",
+  "spx_research_priority": {
+    "decision_date": "2026-10-22",
+    "reaffirmed_date": "2026-10-23",
+    "user_direction": "Let's keep the cutoff 3, for the moment.",
+    "purpose": "Prioritize numerical stability and accuracy near ATM; retain wing diagnostics and full market scope.",
+    "contracts": [
+      {
+        "expiry_days": 29,
+        "strike": 6755,
+        "option_type": "put"
+      },
+      {
+        "expiry_days": 29,
+        "strike": 7030,
+        "option_type": "call"
+      },
+      {
+        "expiry_days": 57,
+        "strike": 6775,
+        "option_type": "put"
+      },
+      {
+        "expiry_days": 57,
+        "strike": 7050,
+        "option_type": "call"
+      }
+    ],
+    "provenance": "All-observation market-only maturity-scaled band under the explicit in-sample feasibility instruction; original split labels preserved as metadata.",
+    "wing_treatment": "Retain as secondary diagnostics; negative controlled estimates remain flagged as unusable prices, without clipping.",
+    "accuracy_gates": "Independent sampling accuracy, coupled stock timestep refinement, and normalizer refinement remain separate requirements; no market refit cleared.",
+    "criterion": {
+      "formula": "abs(log(K/F(T))) / (sigma_ATM_proxy(T)*sqrt(T)) <= 3",
+      "atm_proxy": "Black76 IV of nearest absolute log-moneyness midquote among ALL eligible quotes at each retained expiry; tie by strike then option_type. Frozen before pricing.",
+      "coverage_denominator": "1751 eligible SPX quotes at seven retained maturities; all original splits",
+      "priority_quote_count": 1294,
+      "coverage_fraction": 0.7390062821245003,
+      "membership_artifact": "runs/m2_all_maturity_fit_001/spx_membership.csv",
+      "supersedes": "Previous cutoff 2 priority band; old runs preserved. Four listed contracts remain diagnostic representatives.",
+      "cutoff": 3.0,
+      "status": "user_selected_provisional",
+      "membership_column": "priority_selected"
+    }
+  },
+  "vix_quote_treatment": "All 217 eligible OTM quotes at all four active maturities, with their original splits retained as metadata. No market observations held out in this feasibility run.",
+  "historical_scope_snapshot": "matteo/model_comparison/option_pricing/scope_decisions/2026-10-23-before-all-maturity-fit.json",
+  "historical_scope_sha256": "f6e653b34774733ff0ddf35c08362e31f9684bf00b8e1cdd343c4156881c7960"
+}

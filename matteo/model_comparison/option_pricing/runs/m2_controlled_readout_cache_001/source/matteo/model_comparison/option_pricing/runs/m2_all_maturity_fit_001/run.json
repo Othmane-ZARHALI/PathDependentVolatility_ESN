@@ -1,0 +1,403 @@
+{
+  "scope": "ALL retained market observations in sample; no out-of-sample market evaluation.",
+  "spx_expiry_days": [
+    29,
+    57,
+    119,
+    211,
+    302,
+    666,
+    1030
+  ],
+  "excluded_spx_days": [
+    1,
+    1401,
+    1765,
+    2129
+  ],
+  "cutoff": 3,
+  "spx_quotes": 1294,
+  "vix_quotes": 217,
+  "vix_expiry_days": [
+    27,
+    55,
+    118,
+    153
+  ],
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.979054833837768,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [
+        0.5,
+        0.8093838778200331,
+        1.3102045233499884,
+        2.120916835692723,
+        3.4332717860135396,
+        5.557669663547499,
+        8.996576447849662,
+        14.563367864929878,
+        23.574710313273204,
+        38.161980903681986,
+        61.77538417823236,
+        100.0
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "parameters": {
+    "cluster_loading": 0.2333221411332488,
+    "feedback_curvature": 0.0694007444800809,
+    "feedback_shift": 2.9358963377773764,
+    "spike_curvature": 0.2495993215590715,
+    "spike_shift": 0.0,
+    "orthogonal_curvature": 0.0,
+    "echo_loading": 0.0,
+    "cap_level": 6.073741978500038,
+    "cap_sharpness": 7.956517500802875
+  },
+  "premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "initial_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.4639561379403965,
+    0.42426021990772117,
+    0.3879606701512627,
+    0.35476689663941235,
+    0.32441317028885397,
+    0.2966564976997716,
+    0.27127467589905757,
+    0.24806451351898148,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "state_penalty": 0.033333333333333326,
+  "baseline_levels": [
+    0.05848068253720218,
+    0.0727920965582004,
+    0.03570095455789601
+  ],
+  "ends_years": [
+    0.25,
+    0.75,
+    5.832876712328767
+  ],
+  "control_anchor_levels": [
+    0.054249611228344374,
+    0.060031898992150605,
+    0.0642080964154938
+  ],
+  "implementation_sha256": {
+    "matteo/model_comparison/option_pricing/all_maturity_fit.py": "ec68b8ab34ca60bc88d43d6e8303aa8c9b7fe7675abf36d541b110c6e103de27",
+    "matteo/model_comparison/option_pricing/all_maturity_core.py": "3da6787a675c8689f61e7c689fed1753b27b5f2a9ad9f630aec7966c46bfb4b7",
+    "matteo/model_comparison/option_pricing/joint_state_core.py": "afd9d41e7851935432e240487c82f6725223e30afd8cc4f74b21a36e84832d0f",
+    "matteo/model_comparison/option_pricing/joint_curve_core.py": "2d6064e8640cf349e30375bd0bb89da9f703071ee2141b706a3d49745fdd6e8b",
+    "matteo/model_comparison/option_pricing/joint_curve_fit.py": "b8a53fa2a1ddd41aef0df60f893ae0e72d6453fda892d2dc41c82c4957a47ddf",
+    "matteo/model_comparison/option_pricing/audit_joint_curve_fit.py": "5eaf27eb06ece1be42ba67e91d9c3d587a1cd8b71b0a85d8fd6f2decba5bf41e",
+    "matteo/model_comparison/option_pricing/spx_conditional_control_study.py": "b75ff677b54fc19fa5a3e1f9707e9faa25265ec0fc8c8ea31a09423292b40e32",
+    "matteo/model_comparison/option_pricing/spx_volatility_sampling.py": "99313cc40e6acabc2ce2e524f14e5609e43644d0120768e4eb7e32e99cc56d06",
+    "matteo/model_comparison/option_pricing/active_scope.json": "91656c452c996465ca7a779e94d128c9a1fb6cc71f987157a155761a84530b35",
+    "matteo/model_comparison/option_pricing/ALL_MATURITY_FIT_PLAN.md": "590ff5f71eb0ce5d0b717109801c55b56d01c1b965af026b663eebaa29d4d415",
+    "matteo/model_comparison/option_pricing/scope_decisions/2026-10-23-before-all-maturity-fit.json": "f6e653b34774733ff0ddf35c08362e31f9684bf00b8e1cdd343c4156881c7960",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/run.json": "416798a88ef1a307aea90dcdc65e727adbd6844a274afb5551e19f4ca519e69f",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_curve_fit_002/run.json": "eb7e32c73df53f67f1966a373965e6af1321fdc48c460712f49a02feb8aa9304",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_curve_fit_002/spx_contracts.csv": "5d8a70290b2f895ed4e3583aa7c877cec9eec50fb663de270f16466211a5c3a6",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_curve_fit_002/vix_contracts.csv": "02112e18029c431f1e158d2ccdbe6243ffe43b9a3926280c3d19c6fbd2f0fafc",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py": "95749bd7a7c6d0702b5d69c08562e654082f15209f587be26bbcdbf524573e79",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py": "6b5190ccb0b37a1777f49d855fada72c12fb8841eb33eb0af3c6ed4ee97fa72e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/bridge_coupling.py": "6ef398edba6d870a589a51de70ff8ff99cee9f584cff3f48cfc50bbc76a5c913",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py": "f6b90b81033e270ac156314934ca1f282a8836b7d427b323591c2465ece0543c",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration_loss.py": "1ece088d9d9ea3f34fb1340a5c445b70bf8157e1674670a3315584893b4f76d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py": "03221fccc504da82e4643c2270b85a5852561ed1905968adc0e97e1309e941d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/conditional_controls.py": "fc1877d4dd2b475942cddc42375531121d6f2c48afd44705770bf2009cc96034",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/conditional_spx.py": "26ae80e0f91f25fd0247b11b2c119e54e790686e355f08e7c9c5ad4707f008da",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py": "7a9df36e1843d47613b4e00485ee1e9b6e85834be755be9fe602164c7d346e5a",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py": "c828d30236930de548af7de141ff1e8782986959878a1a9a851e80383d971fb5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py": "953e29ea14f9cb2d11802760c6ffaaecc95ddd70a89d4c07d66dabba1f30bbd0",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py": "aa5b46689ed706ae2be044663ac49fc9ed59b9d505d722fe70361b17caeb53d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py": "11c0ebc10f5b832b66c38d68262b80fab3df2f39f5777fef3e961a4570e579e8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py": "3e7b4a4c341cacde47977b16c1caf01e1575ff569e6292a1e7b1635fe4404e6f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/gaussian_controls.py": "ebbfcadd9fd044127e9df5e70198fa0baacfd92a45acd7fae3492898044ad680",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/hedging_controls.py": "f5dca9142f8b7aaa7237ac7cf5978d3c53244840c2d773b8f28648181b1aaf35",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py": "b1e96b7cea1c1c69cf3c5b710fcaf089e24e08afa9463e2c908803769e3d5f54",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/innovation_controls.py": "20427566c924b69f7b41cc646dc67f3d4dc2a982c49e353c896ccb94b1aedbd2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_calibration.py": "1249d124dbfe5d43bdef9cac7760021d1a096086142fd53ff77cc27b2174e433",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py": "1d1bd109022c02a3bd4050b947f97dde8deaf00f9ef00626277be510a58f4c29",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/mlmc.py": "4b00404276bf20fe831cf91345105b617dc8f4f98262bdb3cd72980eefdb92de",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py": "0f6efb4cefdae4fd6f4a0b3e91ef0ae4bb1430ac63e1e41f6e82f2033ef5dc4e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/outer_sampling.py": "6ee3199180650eb06270b542fb0236a8b4d8c41349ddb0cf07c3e369d8e03b53",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/path_importance.py": "72d334b090dcacce9cf75aacd86110dd454810a0a7185aec0fb2512736661d58",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pilot_proposal.py": "3594b4e3c5511b1c9cb7c13f501a7ca7a74a63c55da6b2a30440ac01fc7e40a2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py": "8d68533cd18f2010778d22ee639d26a8bd5fa948005d2da0b4677d84cd67b15e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py": "35a897e3cc5c7c681b5478e8957d7b9249dd2c278c00ef4503f47ee0d65f9519",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py": "876436ff903aaf160f36f728962c77db7f706ca916ec2b93bc09f9ddd6bc987f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py": "3c532c9d57542f87279743f96102cc4346a06bd7d064bf5417ae55d881e1dd5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/score_sampling.py": "44c80e5f068ef263e7a6b3ce1e7a224a36849e52d6499c95df9eec0d4b2b8b14",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py": "5a86e27407122ff0d1ad216377856756fa31164b6e95e4bd1b311d8d93c46660",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py": "8db6dc562e411a9ecb0adf8a0bbe1f1ed88575c9dc2057e24b15faa01437ea78",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py": "41a662990c7db2f2e1ebf7608b0ef0945c810a53dc7b61cccc53f37f3dc0f721",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stratified_sampling.py": "a0153a47ae4396a8f7262a90b686c9060f617da88c323247b19c77d94a64ac41",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/variance_reduction.py": "e4d65defcbeea79ffa890c3a1e6827c96e920660360de3a712be117ad4330ca7",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_curve_profile.py": "3d03b7c7ec18494083d5019b6b04be54e08508ecd99a39a4cb636108344fd693",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_pricing.py": "bf9b3a744e6cb4c6468870dec8d60943656d7ae3868f3dc4f5ec003baa712a72",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/volatility_path_importance.py": "9114fc4310ba0056805d104b8c6f9724c7692a463b93dea7939049e16a7d7492",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_search_t0_d29.npz": "d6818245ba16714cf364f631c383594fb0af6bc9cf270bffbdb5662b5d387efd",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_search_t0_d57.npz": "dc7b62e9dd5b4e9307fe51a39edd9e5a7aabd6f54d3ccc6ddfcdcd37b25e5a12",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_search_t0_d211.npz": "c2c28c4608fb874ce31bc803a65a1c34aca197a4ab8b623fabfd7f8f6eb289ce",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_search_t0_d302.npz": "3e2945b02021d175e1374a923b6280bad61eddbe072ec9806570ee7caf6a43ab",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_search_t0_d27.npz": "df2944e012c6f9540eb59531de582a8da5663d9f395f4ccf0db2b52239e2bd65",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_search_t0_d55.npz": "30793f9b703c943edb4e92a5e9182615cf1784cd7d83eec887bc830f6b6c3c5a",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_search_t0_d118.npz": "729ce459669675d9e59bfa1d7d46069d4fa92333a023eca9c8ac93787645b237",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_search_t0_d153.npz": "94dbf96386593bd3350073d3631620d757a42786e7e6cd594272ad669428486b",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_fresh_t0_d29.npz": "99fdff41de77ac37b076f7cb60fa1212960f992315804cb48905d207de9ea114",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_fresh_t0_d57.npz": "4af120f88d05133a8ba89e93cadcfee021f7e08dc779dfb109c3d58465cd652e",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_fresh_t0_d211.npz": "47479d959a84fee7525ab1d19dd829019e6cc6cc7b110cead8532819575f305d",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/controls_fresh_t0_d302.npz": "da8d7f8f44fca41f699e62d3e477c597f25d4a5a909c74aca5d5250fa1c362cc",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_fresh_t0_d27.npz": "de631c05db34d12ac70109ae0814c139a62f75106f77b43927a547bb54337d95",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_fresh_t0_d55.npz": "ef613b3cddefb48aa6e251fa423c87791213c7844b02867c0d86ce0bb7794235",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_fresh_t0_d118.npz": "ce858d9e4bb92a2037717f045f59290907b2832ee30a631d6ece9608fff53cfc",
+    "matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003/vix_state2_fresh_t0_d153.npz": "7d64e3bb74e0226bb5029a4a76e9c34e08a34281eb2eb159505ab6ae24a8fd0a",
+    "matteo/model_comparison/option_pricing/provenance.py": "2f105738f7f5db071eb9b8a1e5cc6826ce4e346eb499d000fa40771790e4cce8"
+  },
+  "target_sha256": {
+    "quotes_calibration.csv": "0c2735377dcf2c0bcbaa8e4a3483624b770a1a13a2debcd0ec00ebf029974c9a",
+    "vix_forwards.csv": "03d0b9323680b20d3dcc22c6b75abb50314be51d1fb9ea80e589be50a462af4a",
+    "forward_variance.csv": "15c31744cf781afa719e139fee34cc45028e7f78e8d1744351183bae4a949a5b",
+    "audit.json": "ebd6f545c679f178a28cb53657d99f17bfb0ea996af76bd15805b5bf222c8e11",
+    "manifest.json": "30e7a991625e40e90dd4522d33f4de3615c01f528e2027f754f82b95baff1ea6"
+  },
+  "seed": 2026102307,
+  "paths": 512,
+  "batch_size": 128,
+  "scratch": "/private/tmp/m2-all-maturity-nclam83e",
+  "old_scratch": "/private/tmp/m2-joint-state-24et9ob3",
+  "parent_run": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_joint_state_fit_003",
+  "old_master_steps": 106792,
+  "budget": {
+    "curve_starts": 3,
+    "max_nfev_per_start": 30,
+    "optimization_seconds": 1800,
+    "new_maturity_workers": 2,
+    "stock_steps_per_trading_day": 512,
+    "normalizer_GH": 48,
+    "normalizer_interpolation_screen": 2e-07,
+    "vix_conditional_GH": 32,
+    "vix_time_order": 8,
+    "vix_nets": 8,
+    "vix_points": 64,
+    "numerical_checks": 1
+  },
+  "check": "Same in-sample market quotes. Reused prior numerical search/fresh-t0 streams at four old SPX and all VIX dates; new independent search/check streams at added SPX dates. Not new independent complete validation or market out-of-sample results.",
+  "controls": "Existing fixed controls/beta at original dates, nearest same-side market-key transfer for added strikes. New maturities use original five-control family and frozen nearest-302-day beta scaled by market forward ratio; valid known-zero controls, extrapolated efficiency unqualified.",
+  "limitations": [
+    "Exploratory path budgets, not price convergence.",
+    "Initial state/readout/Q fixed; only three curve levels fitted.",
+    "All seven SPX expiry weights balanced within family; VIX/forward family weights and price scales unchanged.",
+    "Do not compare absolute loss with older four-maturity objectives."
+  ],
+  "status": "completed in-sample all-maturity curve fit and separate numerical ensemble check",
+  "selected_levels": [
+    0.057620550549099724,
+    0.07134085119966904,
+    0.06321057443478936
+  ],
+  "scores": [
+    {
+      "role": "search",
+      "candidate": "baseline",
+      "total": 300.9411677408423,
+      "components": {
+        "SPX": 216.70245782454123,
+        "VIX": 70.81639686947962,
+        "forwards": 13.388821656549469,
+        "curve_penalty": 0.00015805693861671696,
+        "state_penalty": 0.033333333333333326
+      },
+      "inside_bidask": 63,
+      "negatives": 0,
+      "nominal_se_passes": 21
+    },
+    {
+      "role": "search",
+      "candidate": "selected",
+      "total": 253.44468117965482,
+      "components": {
+        "SPX": 177.9226118940584,
+        "VIX": 64.7872054793755,
+        "forwards": 10.70150503808255,
+        "curve_penalty": 2.543480502155553e-05,
+        "state_penalty": 0.033333333333333326
+      },
+      "inside_bidask": 106,
+      "negatives": 0,
+      "nominal_se_passes": 23
+    },
+    {
+      "role": "check",
+      "candidate": "baseline",
+      "total": 351.35868172079756,
+      "components": {
+        "SPX": 269.49617109425213,
+        "VIX": 70.48383369171934,
+        "forwards": 11.345185544554091,
+        "curve_penalty": 0.00015805693861671696,
+        "state_penalty": 0.033333333333333326
+      },
+      "inside_bidask": 66,
+      "negatives": 0,
+      "nominal_se_passes": 25
+    },
+    {
+      "role": "check",
+      "candidate": "selected",
+      "total": 308.6355563394719,
+      "components": {
+        "SPX": 235.28587267618673,
+        "VIX": 64.44659723449645,
+        "forwards": 8.869727660650371,
+        "curve_penalty": 2.543480502155553e-05,
+        "state_penalty": 0.033333333333333326
+      },
+      "inside_bidask": 103,
+      "negatives": 0,
+      "nominal_se_passes": 26
+    }
+  ],
+  "optimizer_ledger": [
+    {
+      "start": [
+        0.05848068253720218,
+        0.0727920965582004,
+        0.03570095455789601
+      ],
+      "levels": [
+        0.05762055015213202,
+        0.07134085383109462,
+        0.06321058038598962
+      ],
+      "nfev": 5,
+      "success": true,
+      "message": "`ftol` termination condition is satisfied."
+    },
+    {
+      "start": [
+        0.054249611228344374,
+        0.060031898992150605,
+        0.0642080964154938
+      ],
+      "levels": [
+        0.0576206294965927,
+        0.07134046020330206,
+        0.06321090665206577
+      ],
+      "nfev": 5,
+      "success": true,
+      "message": "`ftol` termination condition is satisfied."
+    },
+    {
+      "start": [
+        0.06,
+        0.06,
+        0.06
+      ],
+      "levels": [
+        0.057620550549099724,
+        0.07134085119966904,
+        0.06321057443478936
+      ],
+      "nfev": 5,
+      "success": true,
+      "message": "`ftol` termination condition is satisfied."
+    }
+  ],
+  "seconds": 1131.6179569999222
+}

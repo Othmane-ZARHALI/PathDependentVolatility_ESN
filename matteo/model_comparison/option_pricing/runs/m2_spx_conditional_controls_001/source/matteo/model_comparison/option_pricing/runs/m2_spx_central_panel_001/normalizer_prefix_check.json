@@ -1,0 +1,9 @@
+{
+  "comparison": "Exact previous short-horizon GH48 prefix; not quadrature refinement",
+  "matching_points": 20168,
+  "old_path": "matteo/model_comparison/option_pricing/runs/m2_spx_linear_innovation_001/normalizers.npz",
+  "old_sha256": "5f028c8d1030cae7225fd0bde6ddf0e99b36e70ceca6d75788f6c5de18f7a6b5",
+  "new_sha256": "ed73be02923176c1bd290cfc86e30f9fc9fbfd3682c00daabd4486df0f5967c0",
+  "times_equal": true,
+  "values_equal": true
+}

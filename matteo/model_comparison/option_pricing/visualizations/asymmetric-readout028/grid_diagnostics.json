@@ -1,0 +1,22 @@
+[
+  {
+    "candidate": 1,
+    "median_change_scales": 0.14297872662721883,
+    "maximum_change_scales": 1.973900571528506
+  },
+  {
+    "candidate": 3,
+    "median_change_scales": 0.40054871787415414,
+    "maximum_change_scales": 3.5731916174564975
+  },
+  {
+    "candidate": 5,
+    "median_change_scales": 1.49508249588212,
+    "maximum_change_scales": 11.228094340606697
+  },
+  {
+    "candidate": 6,
+    "median_change_scales": 1.9538644162463772,
+    "maximum_change_scales": 14.96124004922127
+  }
+]

@@ -1,0 +1,421 @@
+{
+  "status": "completed pricing, audits, reviewed figures and durable conclusion",
+  "pilot_paths": 512,
+  "fresh_paths": 1024,
+  "selection": 12,
+  "pilot_scores": [
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 128,
+      "loss": 1993.6650085467916,
+      "IV_MAE_pp": 3.3109031403621207,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.148481264794908
+    },
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1983.389781616126,
+      "IV_MAE_pp": 3.303607911337418,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.2110161931889643
+    },
+    {
+      "candidate": 1,
+      "alpha": 1.0,
+      "steps": 128,
+      "loss": 2013.9741616441904,
+      "IV_MAE_pp": 3.335857716126057,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1644611994054994
+    },
+    {
+      "candidate": 1,
+      "alpha": 1.0,
+      "steps": 256,
+      "loss": 2003.2526791122486,
+      "IV_MAE_pp": 3.3280302170705425,
+      "inside": 21,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.293833669541197
+    },
+    {
+      "candidate": 2,
+      "alpha": 2.0,
+      "steps": 128,
+      "loss": 1974.3756557284082,
+      "IV_MAE_pp": 3.287219059511169,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1461137058164566
+    },
+    {
+      "candidate": 2,
+      "alpha": 2.0,
+      "steps": 256,
+      "loss": 1964.513492748427,
+      "IV_MAE_pp": 3.2805034212459665,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1508069015358102
+    },
+    {
+      "candidate": 3,
+      "alpha": 3.0,
+      "steps": 128,
+      "loss": 2035.0627106270308,
+      "IV_MAE_pp": 3.361165889056012,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.2234461665505885
+    },
+    {
+      "candidate": 3,
+      "alpha": 3.0,
+      "steps": 256,
+      "loss": 2023.8494719280075,
+      "IV_MAE_pp": 3.3528008790712467,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.351346651051962
+    },
+    {
+      "candidate": 4,
+      "alpha": 4.0,
+      "steps": 128,
+      "loss": 1956.288524756596,
+      "IV_MAE_pp": 3.2648709670543314,
+      "inside": 22,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1835677180549884
+    },
+    {
+      "candidate": 4,
+      "alpha": 4.0,
+      "steps": 256,
+      "loss": 1946.9156372219702,
+      "IV_MAE_pp": 3.2588429355409607,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1841644493651455
+    },
+    {
+      "candidate": 5,
+      "alpha": 5.0,
+      "steps": 128,
+      "loss": 2013.6124273131845,
+      "IV_MAE_pp": 3.337275430261525,
+      "inside": 18,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1429622031700215
+    },
+    {
+      "candidate": 5,
+      "alpha": 5.0,
+      "steps": 256,
+      "loss": 2003.3018008685801,
+      "IV_MAE_pp": 3.32994054392453,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.2819949755025406
+    },
+    {
+      "candidate": 6,
+      "alpha": 6.0,
+      "steps": 128,
+      "loss": 1974.6329189720404,
+      "IV_MAE_pp": 3.2854547811533936,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1809574978086093
+    },
+    {
+      "candidate": 6,
+      "alpha": 6.0,
+      "steps": 256,
+      "loss": 1964.3971353833147,
+      "IV_MAE_pp": 3.2781958260266855,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.191932638029276
+    },
+    {
+      "candidate": 7,
+      "alpha": 7.0,
+      "steps": 128,
+      "loss": 2034.3420728843178,
+      "IV_MAE_pp": 3.364010543177509,
+      "inside": 17,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.178833197983825
+    },
+    {
+      "candidate": 7,
+      "alpha": 7.0,
+      "steps": 256,
+      "loss": 2023.9621911304632,
+      "IV_MAE_pp": 3.3566506696154135,
+      "inside": 18,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.3306037570104543
+    },
+    {
+      "candidate": 8,
+      "alpha": 8.0,
+      "steps": 128,
+      "loss": 1956.7214052729305,
+      "IV_MAE_pp": 3.261179153935833,
+      "inside": 21,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.2191385895279794
+    },
+    {
+      "candidate": 8,
+      "alpha": 8.0,
+      "steps": 256,
+      "loss": 1946.5816804494948,
+      "IV_MAE_pp": 3.2539620487038974,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.2662671527336182
+    },
+    {
+      "candidate": 9,
+      "alpha": 9.0,
+      "steps": 128,
+      "loss": 2014.9055418026326,
+      "IV_MAE_pp": 3.3348520798257604,
+      "inside": 17,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.1205874604660098
+    },
+    {
+      "candidate": 9,
+      "alpha": 9.0,
+      "steps": 256,
+      "loss": 2004.7077831952604,
+      "IV_MAE_pp": 3.3276362066049066,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.2587600732589093
+    },
+    {
+      "candidate": 10,
+      "alpha": 10.0,
+      "steps": 128,
+      "loss": 1973.392534724626,
+      "IV_MAE_pp": 3.287608987544691,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.18715806673983
+    },
+    {
+      "candidate": 10,
+      "alpha": 10.0,
+      "steps": 256,
+      "loss": 1963.0621100348073,
+      "IV_MAE_pp": 3.280187772250474,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.208730343497266
+    },
+    {
+      "candidate": 11,
+      "alpha": 11.0,
+      "steps": 128,
+      "loss": 2037.100418112701,
+      "IV_MAE_pp": 3.359098112931347,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.131343550882294
+    },
+    {
+      "candidate": 11,
+      "alpha": 11.0,
+      "steps": 256,
+      "loss": 2026.977323482631,
+      "IV_MAE_pp": 3.3519546882473072,
+      "inside": 19,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.305527105224047
+    },
+    {
+      "candidate": 12,
+      "alpha": 12.0,
+      "steps": 128,
+      "loss": 1954.1702062658678,
+      "IV_MAE_pp": 3.2649952242118734,
+      "inside": 21,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.2133095977798103
+    },
+    {
+      "candidate": 12,
+      "alpha": 12.0,
+      "steps": 256,
+      "loss": 1943.7760034218368,
+      "IV_MAE_pp": 3.257473301819968,
+      "inside": 20,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 2.264583164775827
+    }
+  ],
+  "fresh_scores": [
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 128,
+      "loss": 1859.0699813705974,
+      "IV_MAE_pp": 3.178668719628058,
+      "inside": 23,
+      "invalid_IV": 5,
+      "negative": 5,
+      "median_SE_scales": 2.1210160748847615
+    },
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1841.072994314001,
+      "IV_MAE_pp": 3.168732447673984,
+      "inside": 24,
+      "invalid_IV": 5,
+      "negative": 5,
+      "median_SE_scales": 2.1135820768747333
+    },
+    {
+      "candidate": 1,
+      "alpha": 1.0,
+      "steps": 128,
+      "loss": 1819.108579860774,
+      "IV_MAE_pp": 3.1309451220602473,
+      "inside": 29,
+      "invalid_IV": 4,
+      "negative": 4,
+      "median_SE_scales": 2.079339858301119
+    },
+    {
+      "candidate": 1,
+      "alpha": 1.0,
+      "steps": 256,
+      "loss": 1801.1798913208054,
+      "IV_MAE_pp": 3.1209112483034978,
+      "inside": 28,
+      "invalid_IV": 5,
+      "negative": 5,
+      "median_SE_scales": 2.1204646024324
+    }
+  ],
+  "production_baseline_unchanged": true,
+  "adopted": false,
+  "summary": {
+    "fresh_scores": [
+      {
+        "candidate": 0,
+        "alpha": 0.0,
+        "steps": 256,
+        "loss": 1841.072994314001,
+        "IV_MAE_pp": 3.168732447673984,
+        "inside": 24,
+        "invalid_IV": 5,
+        "negative": 5,
+        "median_SE_scales": 2.1135820768747333
+      },
+      {
+        "candidate": 1,
+        "alpha": 1.0,
+        "steps": 256,
+        "loss": 1801.1798913208054,
+        "IV_MAE_pp": 3.1209112483034978,
+        "inside": 28,
+        "invalid_IV": 5,
+        "negative": 5,
+        "median_SE_scales": 2.1204646024324
+      }
+    ],
+    "price_loss_reduction_percent": 2.1668398328801852,
+    "paired_loss_delta_CI95": [
+      -51.17149633486475,
+      -28.62865804575951
+    ],
+    "grid": [
+      {
+        "candidate": 0,
+        "coarse_loss": 1859.0699813705976,
+        "fine_loss": 1841.072994314001,
+        "median_price_change_quote_scales": 0.14230697864552241,
+        "max_price_change_quote_scales": 1.0095196588633384
+      },
+      {
+        "candidate": 1,
+        "coarse_loss": 1819.108579860774,
+        "fine_loss": 1801.1798913208054,
+        "median_price_change_quote_scales": 0.13441826231898324,
+        "max_price_change_quote_scales": 0.8872954466616915
+      }
+    ],
+    "selection": {
+      "pilot_best": 12,
+      "coefficients": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "criterion": "minimum all-primary SPX interval loss on pilot fine grid",
+      "selection_frozen_before_fresh": true
+    },
+    "adopted": false,
+    "VIX_prices": "inherited unchanged at four quoted expiries by conditional Dynkin identity; independently audited compiled correction, not recomputed unchanged baseline estimates",
+    "max_discrete_VIX_squared_change": 3.170537513848932e-05
+  },
+  "prior_artifact_hash_counts_verified": {
+    "m2_leverage_scan_001": 168,
+    "m2_asymmetric_readout_001": 168,
+    "m2_targeted_skew_001": 186,
+    "m2_forward_leverage_001": 43,
+    "m2_slow_readout_001": 138,
+    "m2_slow_readout_002": 196,
+    "m2_memory_filter_001": 238,
+    "m2_protected_variance_design_001": 2
+  },
+  "visual_review": "all seven SPX maturity panels and common-envelope correction figure reviewed",
+  "production_model_sha256": "ded6c7077f9470dd301316eea8aff927066a69544029c9ce8389b84f715cfbaa",
+  "visualization_hashes": {
+    "visualizations/protected-variance029/summary.json": "dd93ba4767965e33c778235d145970bc89da55a152e5f067fc6c9a8cdbd156e2",
+    "visualizations/protected-variance029/SPX-protected-variance.svg": "9c8584870150e50f4e9c5635e94103d0d5d3a4b4f41042b4f2c7fa90cb05d2bf",
+    "visualizations/protected-variance029/SPX-protected-variance.png": "f36410a0ef7ec6ee403f218dec979f6eb0188f5ae34e43b00a502afec42161fa",
+    "visualizations/protected-variance029/maturity_metrics.csv": "d8ae40750b934efd59d72b5f99c1a55128d606d2c56efaadd485c5c3a4f5c088",
+    "visualizations/protected-variance029/correction-envelope.png": "c76d3b4d823f51de6db56825789179f8aa66d2b7cd6507abe46996bb5fd1d3a9"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "candidate": 14,
+  "name": "M2_3d_share0.25_refit",
+  "selected_before_fresh_stock_and_VIX": true,
+  "criterion": "four training equalities; VIX training loss within alpha0-refit+.1; smallest pilot fine-grid IV MAE among refits",
+  "adopted": false
+}

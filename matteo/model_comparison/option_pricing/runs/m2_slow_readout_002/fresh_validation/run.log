@@ -1,0 +1,23 @@
+FROZEN SELECTION 9 slow_9.48d_alpha0.125_refit
+NEW STOCK 0 10.1
+NEW STOCK 1 12.88
+NEW STOCK 2 10.69
+NEW STOCK 3 9.87
+NEW STOCK 4 9.27
+NEW STOCK 5 7.48
+NEW STOCK 6 6.32
+NEW STOCK 7 6.69
+SPX SPX {'candidate': 0, 'alpha': 0.0, 'steps': 128, 'loss': 1866.8845839088756, 'IV_MAE_pp': 3.175831045572057, 'inside': 17, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 1.4473132739517482}
+SPX SPX {'candidate': 1, 'alpha': 0.125, 'steps': 128, 'loss': 1816.3225855448688, 'IV_MAE_pp': 3.1299915329925376, 'inside': 23, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 1.6331435962549876}
+SPX SPX {'candidate': 2, 'alpha': 0.125, 'steps': 128, 'loss': 1811.148932535943, 'IV_MAE_pp': 3.1276856948110647, 'inside': 22, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 1.6281463830025724}
+SPX SPX {'candidate': 3, 'alpha': 0.0, 'steps': 128, 'loss': 1862.0996926118592, 'IV_MAE_pp': 3.1735498207979767, 'inside': 18, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.4371617800998497}
+SPX SPX {'candidate': 4, 'alpha': 0.5, 'steps': 128, 'loss': 1749.7318363683319, 'IV_MAE_pp': 3.0298036359031957, 'inside': 20, 'invalid_IV': 3, 'negative': 3, 'median_SE_scales': 2.900266268627044}
+SLOW VIX VIX_exposures 27 seconds 10.69
+SLOW VIX VIX_exposures 55 seconds 9.23
+SLOW VIX VIX_exposures 118 seconds 9.84
+SLOW VIX VIX_exposures 153 seconds 12.32
+SLOW VIX quadrature_probe 27 seconds 9.78
+SLOW VIX quadrature_probe 55 seconds 8.94
+SLOW VIX quadrature_probe 118 seconds 8.92
+SLOW VIX quadrature_probe 153 seconds 8.03
+FRESH VALIDATION COMPLETE

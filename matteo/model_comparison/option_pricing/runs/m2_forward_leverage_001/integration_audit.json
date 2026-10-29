@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "day": 0,
+      "max_direction_distance_GH12_vs32": 8.547869425637703e-06,
+      "max_direction_distance_GH24_vs32": 4.2525629561438535e-08,
+      "max_direction_distance_22_vs44_lag_knots": 0.00033292731212152216
+    },
+    {
+      "day": 29,
+      "max_direction_distance_GH12_vs32": 0.0002115376860217701,
+      "max_direction_distance_GH24_vs32": 1.8416871033690878e-06,
+      "max_direction_distance_22_vs44_lag_knots": 0.012687748258160741
+    },
+    {
+      "day": 119,
+      "max_direction_distance_GH12_vs32": 8.355373474289659e-05,
+      "max_direction_distance_GH24_vs32": 1.1344085186950325e-06,
+      "max_direction_distance_22_vs44_lag_knots": 0.009175243910812387
+    },
+    {
+      "day": 666,
+      "max_direction_distance_GH12_vs32": 0.0001230725202537908,
+      "max_direction_distance_GH24_vs32": 2.57995629414532e-06,
+      "max_direction_distance_22_vs44_lag_knots": 0.004665218004352036
+    },
+    {
+      "day": 1030,
+      "max_direction_distance_GH12_vs32": 0.0005139529932362435,
+      "max_direction_distance_GH24_vs32": 2.0516848781596142e-06,
+      "max_direction_distance_22_vs44_lag_knots": 0.008210091629078532
+    }
+  ],
+  "finite_difference_primitive_sensitivity_max_scaled_error": 9.344536326685005e-12,
+  "hat_curve_integral_max_error": 4.336808689942018e-18,
+  "GH12_vs32_max_direction_distance": 0.0005139529932362435,
+  "lag22_vs44_max_direction_distance": 0.012687748258160741,
+  "production_rule_approved": true,
+  "scope": "60representative Q/stress states including amplified tails; not uniform integration bounds. Stock direction is valid unit predictable loading even when numerically approximated."
+}

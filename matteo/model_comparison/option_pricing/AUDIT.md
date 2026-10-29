@@ -1,4 +1,132 @@
+## 27 October 2026 — continuous measure, forward constraints and multilevel repair
+
+Completed VIX-only continuous M2/stress Beta-measure experiment003, after rejecting002's noisy55-day forward calibration. The model is unchanged: normalized G^(1-u) times the normalized OU stress exponential of strength b*u, integrated against one Beta measure. Four forward equalities use32768-path boundary plus8192-path paired difference; checking uses65536 NEW boundary paths plus16384 reused difference paths. Do not claim wholly fresh validation or exact population equality.
+
+Best bounded fit remains near kappa=.01; a broader measure is retained as a training-selected diagnostic, with b=5 at its bound. No clear improvement established over the two-atom reference. All217 quotes, four maturities, seven free active xi levels and fitted floor preserved. SPX paused; original baseline and previous working VIX candidate unchanged. See CONTINUUM_RESPONSE_RESULTS.md, runs/m2_continuum_response_003 and visualizations/continuum-response023.
+
 # ESN option pricing: code and report correspondence
+
+**27 October: tighter VIX forwards plus fitted-floor experiment completed.**
+See [FORWARD_FLOOR_RESULTS.md](FORWARD_FLOOR_RESULTS.md),
+[FORWARD_FLOOR_PLAN.md](FORWARD_FLOOR_PLAN.md), run `runs/m2_forward_floor_001`,
+plots `visualizations/forward-floor021`. All16xi intervals retained, seven active
+levels independently fitted in both comparisons; SPX remains paused. Four training
+forward equality constraints hold within1.9e-10VIXpoint. Fresh32768-point/expiry
+comparison: previous mixture loss10.2653; tight forwards/fixed floor12.7780;
+tight forwards/free floor1.7830. Largest fresh forward gap falls0.9001->0.02694,
+with sampling SEs reported. Releasing the floor chooses12%volatility, at the
+search ceiling, b3.1710,w0.66150,half-life104.215days. Best tested, not a global
+optimum or settled floor estimate.55-day lowest put is close to market,27-day
+left end improves; lowest long-dated puts become too cheap. Wing IV MAE8.605->8.445
+on average;27-day far-right level worsens.84/217quotes within bid–ask.
+Five small negative fresh native estimates and missing IVs remain, unaltered;
+raw nonnegative put-payoff diagnostics are saved separately. No clipping/smoothing.
+Six independent price replays,11Jacobian directions,32fresh seed regenerations,
+exact budgets,floor support,291source/fiveinput hashes pass. This is numerical
+verification, not population-forward equality or complete calibration. Current
+working VIX candidate is the free-floor experimental model in this run; original
+selected model unchanged. No SPX computation, new component or Lean theorem.
+Historical checkpoints below keep their original context.
+
+**26 October: point 2, two-response VIX-only comparison completed.**
+See [MIXED_RESPONSE_RESULTS.md](MIXED_RESPONSE_RESULTS.md),
+[MIXED_RESPONSE_PLAN.md](MIXED_RESPONSE_PLAN.md), run `runs/m2_mixed_response_001`,
+figures `visualizations/mixed-response020`. Both product and additive mean-one
+mixtures fitted seven independent VIX-sensitive levels of the original16-piece
+curve. The nine off-window entries remain unchanged; all217quotes/four forwards
+remain, SPX paused, no clipping/smoothing. Native-price winners and descriptive
+shape selections were frozen before new16384-point/expiry numerical checking.
+The additive M2/stress price fit improves fresh native loss20.0052->10.2960 versus
+the prior fitted single factor (paired change-9.7093, jackknife SE0.2195), wing
+IV MAE30.81->8.51points. Long-dated slopes now have enough steepness; short-dated
+slopes overshoot.49/217quotes inside bid–ask, residual forward/ATM errors remain.
+The additive fit gives99.57% weight to the new component, b at5bound, half-life
+6.588days; it largely replaces the old response in this exploratory readout.
+Two short variance pieces reach0.20. No acceptable full-smile/joint fit or model
+adoption is claimed.72implementation checks and independent14price replays,
+32fresh scramble regenerations, exact budgets,285source/fiveinput hashes pass.
+Sampled GH/time VIX refinement max0.000118point for additive winner,0.0332 across
+all candidates' extreme probes. Same market targets; no market OOS or Lean claim.
+Preserve baseline, scope and historical records. Further timescale/readout changes
+remain proposals; no second response timescale has been implemented in this run.
+
+**26 October: VIX-only free-curve comparison completed.**
+See [VIX_ONLY_CURVE_RESULTS.md](VIX_ONLY_CURVE_RESULTS.md),
+[VIX_ONLY_CURVE_PLAN.md](VIX_ONLY_CURVE_PLAN.md),
+`runs/m2_vix_only_curve_fit_002`, figures `visualizations/vix-only-curve019`.
+The original curve has **16 levels**, already fitted in the earlier maturity-curve
+study; recent factor trials had frozen them. Seven pieces affect the four VIX
+averaging windows and now vary independently. The nine off-window pieces retain
+their old values because these VIX targets have zero sensitivity to them.
+No reversion to three levels or four broad scalers. SPX remains paused.
+Fresh native VIX+forward losses: baseline27.3491, curve-only20.5245,
+fixed strong factor+curve20.9500, fitted factor+curve19.8086. Additional fitted-factor
+gain versus curve-only is -0.7159 with paired jackknife SE0.5476. Wings remain too
+flat; one short curve piece hits its0.20 bound and fitted half-life hits365days.
+All217native quotes and four forwards retained; no smoothing/clipping. Only21quotes
+inside bid–ask for the joint fit; no acceptable full-smile calibration or model
+adoption claimed. Baseline preserved. Eight candidate/stream price replays,
+nine Jacobian directions, exact budgets,282source/fiveinput hashes pass; sampled
+GH/time refinement differs by less than4.6e-6VIXpoints. Numerical checks use the
+same market quotes. No SPX pricing, new bank/readout or new Lean theorem.
+Historical checkpoints below retain their original context.
+
+**26 October: current phase is VIX-only research and calibration planning.**
+SPX fitting/repricing is temporarily deferred by explicit user direction.
+Read the new section at the top of `STOCHASTIC_VOL_OF_VOL_RESEARCH.md` and
+`runs/m2_vix_design_research_001`. All three Othmane prepared PDFs and the14October
+email figures are readable; no original-PDF request is needed. The later cs_doc
+still reports too-flat2–5month VIX wings, fits a narrower strike range and uses
+an approximate VIX estimator with a nested check pending. Its Gamma modulates
+bank noise, unlike our final readout multiplier; no matching-code repricing is claimed.
+
+New model-independent finding: exact-rational static-payoff certificates show
+that the frozen xi curve's E[VIX²] budget is too low to fit all native VIX
+bid–ask quotes and forwards at55/118/153days. This persists with forward tolerance
+plus/minus0.5points. `moment_certificate_audit.json` passes12 global payoff/price
+checks; it is exact computation for archived decimal data, not Lean or a market
+arbitrage claim. Necessary exact-forward lower bounds are556.673/648.626/695.295,
+versus old budgets536.027/580.804/610.933. The27day bound does not exclude baseline.
+
+Next comparison should allow VIX-window xi levels and shape parameters to move
+together. First re-evaluate the current after-cap layer fairly; then prefer a
+mixed-response readout/independent mixed-standard-Bergomi benchmark. A continuous
+Gamma-driven new bank is the more direct Othmane analogue but needs a new
+conditional pricer. No new reservoir calibration, SPX run, jump adoption or
+selected-model replacement has been performed in this research turn.
+All217VIX quotes and four forwards remain; old SPX membership/cutoff3 are retained
+for the later return. Earlier checkpoints below remain historical.
+
+**26 October checkpoint: independent amplitude AFTER the original cap completed.**
+See [POSTCAP_VOV_RESULTS.md](POSTCAP_VOV_RESULTS.md),
+[POSTCAP_VOV_PLAN.md](POSTCAP_VOV_PLAN.md), run `runs/m2_postcap_vov_001`,
+and figures `visualizations/postcap-vov017`. This is the authorized first
+alternative; no mixture was implemented. One independent Q OU exponential
+L=exp(gamma*Z-gamma^2*Var(Z)/2) multiplies G_base/M_base after the old cap.
+The old normalizer, reservoir, coefficients, all16 xi levels and floor remain fixed.
+Nine nonzero strength/persistence cases plus baseline have full VIX diagnostics.
+Price selection gamma=.25/7d and shape selection gamma=1/7d were frozen before
+full SPX repricing (all seven dates) and32 fresh joint37D VIX scrambles.
+The strong case improves fresh measured wing slope at all four dates and lowers
+the descriptive slope/curvature error0.44495->0.30875, but remains too flat.
+Fresh native VIX+forward loss26.8525->29.7000; SPX loss43.7775->121.1470.
+The mild case's training joint-loss reduction70.9777->69.8756 is smaller than
+its paired jackknife sensitivity (change -1.1021, SE3.9335); fresh VIX price loss
+does not improve. No accepted joint fit or new model adoption follows.
+Five unit checks and the saved-price/source/seed/independent-integral audit pass.
+Signed estimates and missing IVs are retained. No population convergence,
+market OOS, new P calibration or Lean certificate is claimed.
+Keep `m2_maturity_curve_fit_001/selected_model.json`; no experiment remains running.
+The earlier checkpoints below are historical, not an instruction to rerun them.
+
+**25 October: dedicated stochastic sensitivity audit completed.**
+`runs/m2_stochastic_vov_001/audit.json` replays22 price/parity/SE/loss records,
+270 frozen sources, all32 new joint VIX scrambles, exact selection ordering and
+the unchanged baseline file. Three focused tests pass; eight independent4D
+oracles, new-state/original Gaussian and time refinements are recorded. No
+population price-convergence or new Lean/P certificate follows. Eleven figures
+(22 PNG/SVG exports) retain signed price and unavailable-IV flags. See
+`STOCHASTIC_VOV_RESULTS.md` for the negative joint-fit/wing-slope outcome.
 
 Audit started 21 October 2026. Scope: `CrossSectionalData/`, relative to the
 repository root. The original files are preserved. This is a source review
@@ -746,3 +874,266 @@ All 707 priority quotes and all four VIX maturities remain active. Next derive
 conditional existing controls and a proposal on retained shocks before any
 weighted extension; this extension is pending and may reintroduce negative
 controlled estimates. Time-step and GH refinement gates remain open.
+
+## Conditional existing controls completed; audit-label correction (23 October 2026)
+
+[SPX_CONDITIONAL_CONTROL_RESULTS.md](SPX_CONDITIONAL_CONTROL_RESULTS.md) completes
+that pending extension. The Gaussian identities condition stock, reference
+payoff and both adapted gains; the gains generally are nonzero given U.
+The new retained-coordinate proposal has its own likelihood. It is analogous
+to vol7, not its marginalized density, so this is a whole-estimator comparison,
+not isolated conditioning benefit. No old full-path weight is reused.
+
+`m2_spx_conditional_controls_001` uses 256-path pilots and two fresh 256-path
+checks for both methods at every expiry. Conditional variance improves in
+34/48 primary comparisons but its runtime is about 2.1x reference. Whole-panel
+variance-cost gains are 0.7483/0.8541; only 1/8 expiry/trial panels wins.
+Retain original vol7/ridge5 and the unsuccessful result; stop this feature search.
+
+**New code/report discrepancy found and corrected:** the first new audit
+called `positive conditional values >= 2` plus the SE threshold a
+`sampling_screen`, copying a raw-hit proxy into a conditional estimator.
+This label is misleading: many probabilities above underflow can all be tiny.
+At the 302-day 10400 call, 201 positive pilot targets have maximum weighted
+payoff 3.08e-27 SPX points; fitted coefficients are effectively zero. Both fresh
+results nominally pass the SE threshold, but >99% of residual variation comes
+from one retained path. Neither is tail clearance. Corrected outputs use
+`nominal_se_screen`, explicitly distinguish raw exercise hits, and do not
+declare numerical quote clearance. The preliminary JSON/CSV remain as
+`audit_preliminary_positive_count.json` and
+`screens_preliminary_positive_count.csv`; no pricing path, coefficient or
+negative result was altered. This correction is diagnostic, not a new
+checking-selected estimator or a retrospective successful gate.
+
+Reference trial-0 211-day 9600 call is negative with the full pilot
+(-0.000516 +/- 0.001140) and half A (-0.001531 +/- 0.002699). Preserve both.
+The old central-panel report's positive estimates describe its own draws;
+they never establish structural positivity of controlled pricing. The new
+conditional controlled estimates happen to be nonnegative, while severe
+pilot/tail concentration persists. There are 25 correlated control-mean flags
+(11 conditional/14 reference); all 48 bare monitor diagnostics stay within
+two observed SEs. No centering bug is established by those flags or cleared
+by the bare passes.
+
+All 288 saved estimates, 52 source/input hashes, 48 unique batch seeds,
+likelihoods, coefficients and known-mean diagnostics replay. Maximum
+standardized transition covariance error remains 6.37e-11. All 124 package
+and 42 study-driver tests pass. Bare unittest discovery of the study folder
+fails because its tests use relative imports in a namespace package; invoke
+the fully qualified test module names, as recorded in `validation.json`.
+The failed discovery invocation was an execution issue, not a test pass.
+
+**Queue/report consistency:** old reports' “next” paragraphs are historical.
+The conditional-control extension is no longer pending. Older “no refit”
+wording records readiness, not a need for additional user authorization:
+CALIBRATION_PLAN.md permits coarse exploration with unresolved numerical status.
+[FITTING_REENTRY_DECISION.md](FITTING_REENTRY_DECISION.md) separates existing
+sampling, stock-grid, normalizer and VIX conditional/time evidence and specifies
+an unlaunched joint curve-only profile. It explicitly reports 24-SPX subset
+membership and the other 683 cutoff-3 quotes unpriced by that subset objective.
+All four VIX maturities and all original market splits remain in force.
+
+## User-directed actual joint optimization and Lean scope (23 October 2026)
+
+The user subsequently asked to proceed with a joint fit instead of requiring
+more standalone numerical experiments, and explicitly requested Lean checks.
+The unlaunched nine-point/two-level/24-SPX proposal is therefore historical.
+The actual `m2_joint_curve_fit_002` optimizes all three curve levels with all
+707 cutoff-3 SPX training quotes, all 175 VIX options and four forwards.
+The other 273 SPX training quotes are secondary diagnostics; held-out market
+rows remain unopened. Readout/state/Q stay frozen. This is a declared priority
+objective, not a silent full-980-SPX score or a certified constrained P/Q fit.
+
+Two implementation choices are explicit:
+
+- The fit reuses **anchor** control values/coefficients under the same
+  primitive-path law, sharing each representative's two hedge gains across
+  nearest same-side target strikes. The candidate stock is always repriced.
+  The earlier reentry text's instruction to recompute controls applies to a
+  candidate-specific dictionary; it is not necessary for a separately declared
+  frozen known-zero anchor dictionary. `frozen_anchor_control_reuse` proves
+  the fixed-measure algebra with explicit integrability/zero-mean premises.
+  It does not prove all Gaussian/Black control means or floating-point accuracy.
+- Production `JointPriceObjective` remains strict about negative prices. The
+  exploratory signed loss evaluates the same interval-distance formula on
+  signed MC estimates, without clipping. Python tests verify component equality
+  for nonnegative inputs and continued strict production rejection of negatives.
+  Negative searching points are retained, not reported as admissible quotes.
+
+Startup run 001 is retained as interrupted before optimization. A new test
+found that the exploratory component dictionary omitted the **zero** midpoint
+component. The scalar objective was unchanged. The missing component was
+added, all four new tests passed, and the complete run uses directory 002.
+No incomplete pilot draws from 001 become fresh validation evidence.
+
+Ten mathematical checks compile with warnings treated as errors under pinned
+Lean 4.35.0-rc4 / Mathlib 1f414401f69059aa7eead47b53ee40bd38455eeb. The final
+audit has no `sorryAx` or custom axioms. Earlier failed compiler attempts are
+retained and do not count as proof. The detailed
+[correspondence record](formalization/CORRESPONDENCE.md) distinguishes Gaussian
+one-step means, fixed-measure control algebra, finite importance identity,
+cached-variance/weighted-loss algebra, and noise-square decomposition from
+unproved simulator/continuum-IS/finite-precision/accuracy representation bridges.
+The proof sources do not assert that the numerical fit or all M2 pricing is
+certified. All 170 Python tests pass (124 package +46 driver).
+
+The searching selected prices replay on the saved shocks. Analytical selected
+stock derivatives agree with finite differences to max absolute 1.36e-9 on
+128 paths per expiry. Poor starts with 4 and 7 negative objective estimates
+are retained in `search_signed_evaluation_013.csv` and
+`search_signed_evaluation_090.csv`. Source/seed replay, numerical identities and
+fresh fit results are recorded in [JOINT_CURVE_FIT_RESULTS.md](JOINT_CURVE_FIT_RESULTS.md).
+
+All three fresh comparisons favor the selected curve; pooled loss is
+597.9019→347.0984, with 50/882 options inside intervals. This is not uniform
+improvement: SPX family loss falls 529.20→249.04, VIX option loss rises
+67.88→84.91, and forward loss rises 0.82→13.14. All 707 SPX sampling SE
+screens still fail. The selected 153-day necessary moment margin remains
+-4.8424 at its estimated mean, with mean uncertainty and bias unresolved.
+Secondary-wing selected negatives number 10/7/13 across fresh trials and
+remain signed. Four correlated stock/mass warning rows come from one shared
+211-day trial-2 sample; no law bug or bias clearance follows.
+
+Independent score reconstruction covers 7056 primary quote estimates; 58
+captured source/input hashes match. All 200 pilot/search/check seed records
+are distinct and disjoint from the reused VIX pilots. This seed check is not
+an independent regeneration of every RNG stream. Optional disk repricing
+caches have separate post-run hashes; same-path cache/derivative replay is
+distinct from fresh numerical checking. The Lean source and final guarded
+audit hashes match the successful proof artifact. The next fitting hypothesis
+is restricted state under fixed readout/Q, with updated normalization, rather
+than declaring the curve-only compromise a fit or model infeasibility.
+
+## Restricted-state and five-piece continuation, 23 October 2026
+
+See [JOINT_STATE_REFINEMENT_RESULTS.md](JOINT_STATE_REFINEMENT_RESULTS.md).
+Thirteen scoped Lean identities pass compiler/axiom audit 005. The corrected
+drivers pass 124 package and 55 driver tests; validation manifests are associated
+with their source versions, not retroactively substituted for earlier artifacts.
+
+Retained failures: state startup 001 was interrupted before optimization to
+prime the exact zero-state normalization cache; five-piece startup 001 rejected
+relative provenance paths before pricing. State run 002 completed all seven
+profiles but failed before a checking score because a short terminal stock chunk
+used a longer global normalizer slice. It now uses the expiry-local slice.
+Five-piece run 002 completed its search, then stopped waiting for that parent's
+checking prices. Runs 003 reuse both frozen selections and archived searching
+artifacts, without repeating optimization; state 003 uses a new checking seed.
+
+Earlier live-status paragraphs naming runs 002 as running have been superseded
+by these failure/resume records. Do not interpret searching score reductions as
+freshly checked improvements. The nested five-piece comparison reuses the state
+run's checking draws; the comparisons are paired, not independent replications.
+An attempted unittest directory-discovery rerun failed before test execution on
+the namespace package; explicit module loading subsequently passed all 55.
+
+The VIX native-forward picture changes only Black inversion, using model
+E_Q[VIX_T] at the same option expiry. It changes neither option prices nor the
+forward residual. Current source premiums were reconstructed from raw IVs and
+the supplied market forward; put/call parity cannot recover an independent
+market forward from these reconstructed premiums. Nearby put/call IV differences
+use different strikes and are not exact same-strike discontinuity measurements.
+
+The adaptive dated-normalizer spline adds a separate deterministic approximation.
+Its same-GH-order sampled interpolation error is not a GH convergence bound,
+nor part of Monte Carlo SE. New VIX time-quadrature splitting is separately
+measured by embedding the old curve before optimization. A piecewise input's
+square-root variance scale is not option IV or mean volatility.
+
+Forward diagnostic scope correction: historical `m2_vix_forward_convention_001`
+used all raw valid VIX quotes for conditional put/call parity intervals: 176
+matched strike keys, 35 outside the current training-strike population. These
+include 18 validation and 17 final-test keys, listed without model prices in
+`m2_vix_forward_convention_002/historical_parity_exposure.csv`. These market
+quotes were exposed to this consistency calculation. Future evaluation on them
+must be described as quote-exposed/conditional, not wholly blind. No held-out model
+performance score, price optimization or selection used them; blanket claims
+that all non-training VIX observations remained unseen are too strong. The
+historical file is retained. Diagnostic 002 and current run diagnostics filter
+raw rows to exact training option keys; the OTM-only population has no matched
+call/put pairs. The price-to-IV transformation itself uses the same 175 training
+model estimates and changes no price/forward target. Native-IV CSV endpoint
+columns freeze the estimated forward and are only price-SE transformations,
+not full uncertainty bands; the plots omit such bands and metadata says why.
+
+Completed runs 003 independently replay 16 score records, current and archived
+input/source hashes, training membership and archived mean estimates. The
+state/three-piece refit improves pooled loss 355.4644→316.9334 with all three
+fresh comparisons favorable; SPX/VIX-option/forward components all improve.
+Only 41/882 prices lie inside bid/ask and all 707 SPX nominal precision screens
+fail. The 153-day necessary moment margin is -19.7722 at the estimated mean;
+uncertainty and unresolved bias prevent certified infeasibility. All pooled
+VIX squared-moment screens pass nominally; no GH/time/tail clearance follows.
+
+Five pieces give only 316.9334→314.9040 (0.64%), descriptive paired-loss SE
+3.1815 versus gain 2.0294, one fresh reversal and fewer interval hits (41→38).
+Forward loss worsens 11.5868→11.9618. Retain the selected-state three-piece
+working reference; preserve five-piece evidence without adopting it. The two
+comparisons use the same checking primitives. Secondary-wing negatives are
+0/8/3 in each comparison, retained signed; primary estimates are nonnegative.
+Two mass warnings repeat the same 211-day trial-2 sample for both candidates;
+no raw stock-forward warning occurs. The embedded-old-curve time-split change
+is at most 6.75054e-5 per-state VIX points across checks, with weighted forward
+change at most 1.22221e-11 points; this is not a general quadrature bound.
+Next hypothesis is the already declared Q-risk-price scenarios one at a time,
+with fresh candidate normalization/repricing and P diagnostics. Not launched.
+
+## All-maturity in-sample scope supersedes earlier split exclusions
+
+The latest user request explicitly includes every SPX maturity except days
+1/1401/1765/2129, with cutoff 3, and no out-of-sample market results. The user
+also confirms recalibration is required. New `active_scope.json` therefore
+includes all seven retained SPX maturities and all eligible original quote
+splits as in-sample inputs. Counts are 1294/1751 SPX options and 217 VIX options,
+1511 total option targets plus four forwards. Old reserved/diagnostic roles and
+707/175 counts remain historical; do not apply them to the new run or figures.
+The prior scope bytes/hash are retained in `scope_decisions/`. Old strict
+current-source replay scripts will see this intentional scope-version change;
+old captured source files and audits are not rewritten or silently refreshed.
+
+`all_maturity_core.py` explicitly promotes copied quotes to `in_sample_fit`,
+preserves source labels in `original_split`/`original_maturity_role`, and passes
+that label to the existing production objective validator. The raw data and
+default training-only APIs remain unchanged. All 182 Python tests pass; an
+initial new fixture dictionary-access error is retained as failed test output.
+Pinned Lean audit 006 passes the same thirteen identities with no admitted
+proof/custom axioms. Neither test count nor finite identity certifies pricing.
+
+New maturity/strike controls retain known-zero expectations but transfer old
+independent coefficients; new-maturity efficiency is not assumed established.
+The old working parameters were priced across all seven dates before actual
+three-level curve recalibration. All seven dates entered the optimizer. A separate
+numerical ensemble uses the SAME market targets; it is not market out-of-sample
+evidence. Source checks, exact old-contract replay and independent price/loss
+audits are required. `m2_all_maturity_fit_001` is now COMPLETE: selected levels
+[0.05762055,0.07134085,0.06321057], with all three starts converging in five
+reported evaluations. Searching loss 300.94→253.44; separate numerical ensemble
+on the SAME in-sample quotes 351.36→308.64, all family components improve.
+Interval hits increase 66→103 out of 1511, but all 1294 SPX precision screens
+fail and remaining smile-shape/forward errors prevent fit qualification.
+The last square-root variance input increases 18.89%→25.14%, explaining much
+of the 666/1030-day improvement. Four shorter SPX expiry losses worsen in this
+compromise; preserve those results. New working reference is this all-maturity
+curve, not the old four-date calibration. No out-of-sample market score exists.
+
+The new independent reader first assumed archived VIX data were a controlled
+price matrix; they are raw simulated VIX values. The retained failure log is
+`runs/m2_all_maturity_fit_001/validation/failed-audit-reader.log`. The correction
+reconstructs forward/option payoffs, likelihood placement and frozen controls,
+then verifies mean/SE; no simulation or optimization was repeated or changed.
+All four score records, source hashes, expanded membership and sample means/SEs
+now replay. The 882 old common contracts match to 2.8422e-13. All 24 new seeds
+are distinct/disjoint from recorded parent seeds; this is metadata auditing,
+not independent recreation of all RNG paths. Final SPX/VIX/forward-variance PNGs
+were inspected, including reduced-size QA renders for the tall seven-panel
+figure; full-resolution PNGs/SVGs and input/output hashes are retained.
+
+Source-coverage review: the runner's explicit pre-run source list did not include
+every imported preprocessing/loader/plot helper. Validation archives additionally
+save `preprocessing/options.py`, `m2_spx.py`, `fine_grid.py`,
+`spx_hedging_study.py` and the shared IV plotting helper after completion.
+The four tracked helpers match HEAD and had no edits in the initial/current
+working tree; the shared plot helper was already untracked and was not changed
+in this task. Membership and all 882 common prices replay exactly. This is a
+documented post-run dependency capture, not a claim that their hashes were in
+the original runner manifest. Historical run hashes are not silently changed.

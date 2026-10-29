@@ -1,0 +1,1335 @@
+{
+  "status": "PASS",
+  "source_checks": [
+    {
+      "path": "matteo/model_comparison/option_pricing/all_maturity_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/all_maturity_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_all_maturity_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_cap_controlled.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_cap_tail.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_continuous_strike_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_continuum_response.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_continuum_response_fast.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_controlled_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_forward_floor.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_full_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_hedge_pilots.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_joint_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_joint_fit_identities.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_joint_local_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_joint_state_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_maturity_curve.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_mixed_response.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_parity_adaptive.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_parity_parameter_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_postcap_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_bridge_coupling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_call_tilt.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_central_panel.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_conditional.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_conditional_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_innovation_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_mlmc.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_path_importance.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_spx_volatility_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_state_moments.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_stochastic_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_tail_samples.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_vix_gaussian_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_vix_gaussian_stability.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_vix_only_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_vix_score_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_vix_targeted_allocation.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/audit_vix_targeted_check.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/benchmark.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/calibration_policy.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cap_controlled_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cap_controlled_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cap_tail_diagnostics.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cap_tail_followup.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cap_tail_refinement.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cap_tail_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/check_continuum_interior.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/check_maturity_vix.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/check_parity_fit_uncertainty.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/check_parity_uniform_uncertainty.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/check_selected_readout_quadrature.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cluster_vov_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/continuous_strike_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/continuum_multilevel_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/continuum_multilevel_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/continuum_response_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/continuum_response_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/controlled_readout_cache.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/controlled_readout_fast_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/controlled_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/curve_initializer.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/curve_refinement_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/curve_refinement_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/curve_spx_check.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/diagnose_mixed_left_end.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/export_parity_prefixes.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/fine_grid.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/fit_joint_local.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/fit_maturity_curve.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/fit_parity_parameters.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/fit_parity_parameters_v2.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/fit_parity_parameters_v3.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/fit_reversal_audit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/forward_floor_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/forward_floor_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/forward_variance_constraints.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/freeze_parity_inputs.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/full_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/gaussian_allocation_oracle.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/innovation_design_audit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/joint_curve_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/joint_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/joint_diagnostic.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/joint_local_search.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/joint_price_local.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/joint_state_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/joint_state_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/linear_parameter_constraint_diagnostic.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/m2_spx.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/m2_vix.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/maturity_curve.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/maturity_curve_local.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/maturity_curve_predict.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/maturity_curve_search.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/mixed_response_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/mixed_response_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_adaptive.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_adaptive_cache.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_adaptive_engine.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_checkpoint.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_hedge_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_parameter_constraints.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_parameter_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/parity_stock.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_all_maturity_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_cap_controlled.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_cap_tail.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_continuum_comparison.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_continuum_response.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_controlled_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_forward_floor.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_full_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_joint_curve_context.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_joint_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_joint_curve_focus.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_joint_local_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_maturity_curve.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_maturity_curve_extra.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_mixed_response.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_parity_adaptive.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_parity_parameter_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_postcap_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_state_refinement_results.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_stochastic_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_variance_piece_explanation.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_vix_forward_conventions.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/plot_vix_only_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/postcap_vov_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/postcap_vov_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/prepare_parity_check_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/prepare_parity_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/probe_parameter_vix_quadrature.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/provenance.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/replay_joint_curve_cache.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/resume_cap_controlled.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/resume_maturity_curve.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/resume_parity_adaptive_cache.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/reusable_ou_initial.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/run_parity_adaptive.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/smooth_strike_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_bridge_coupling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_call_tilt_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_central_panel.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_conditional_control_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_conditional_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_hedging_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_innovation_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_mlmc.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_moneyness_audit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_path_importance.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_path_score_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_sampling_design.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_scaled_moneyness.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/spx_volatility_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/stochastic_vov_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/stochastic_vov_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_cap_controlled.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_cap_tail.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_controlled_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_full_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_joint_local_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_maturity_curve.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_parity_parameter_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_parity_uniform.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_postcap_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/summarize_stochastic_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_all_maturity_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_benchmark.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_cap_controlled.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_cap_tail.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_continuous_strike_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_controlled_convolution.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_controlled_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_curve_refinement.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_fine_grid.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_forward_variance_constraints.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_full_readout_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_joint_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_joint_price_local.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_joint_state_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_maturity_curve.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_parity_adaptive.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_parity_adaptive_engine.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_parity_hedge_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_parity_parameter_constraints.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_parity_parameter_core.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_postcap_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_reusable_ou_initial.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_bridge_coupling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_call_tilt_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_central_panel.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_hedging_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_innovation_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_mlmc.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_path_importance.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_path_score_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_scaled_moneyness.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_spx_volatility_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_stochastic_vov.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_vix_collapsed_moment.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_vix_composed_moment.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_vix_gaussian_stability.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_vix_near_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_vix_stratified_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_vix_targeted_allocation.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/test_vix_targeted_pilots.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_parity_fit_inputs.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_spx_bridge_coupling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_spx_innovation_study.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_spx_mlmc.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_spx_path_importance.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_spx_path_score_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_spx_volatility_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_gaussian_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_gaussian_stability.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_moment_diagnostics.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_pilot_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_score_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_stratified_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_targeted_allocation.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_targeted_check.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_targeted_pilots.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/verify_vix_targeted_refinement.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_collapsed_moment.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_composed_moment.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_fit_smile_diagnostics.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_forward_diagnostic.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_gaussian_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_gaussian_stability.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_importance_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_mass_control.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_matched_moment_refinement.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_maturity_scope.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_moment_identity_audit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_multiplier_tail_audit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_near_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_only_curve_fit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_outer_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_pilot_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_reversal_quadrature.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_sampling_rank_audit.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_score_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_stratified_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_targeted_allocation.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_targeted_check.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_targeted_pilots.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_targeted_refinement.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/vix_time_rule.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/CONTINUUM_MULTILEVEL_PLAN.md",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/continuum_power_kernel.cpp",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/postcap_vov_kernel.cpp",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/stochastic_vov_kernel.cpp",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/cap_tail_kernel.cpp",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_maturity_curve_fit_001/run.json",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_maturity_curve_fit_001/vix_controls.json",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/selection.json",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/optimizer_ledger.json",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/selection.json",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/bridge_coupling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration_loss.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/conditional_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/conditional_spx.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/gaussian_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/hedging_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/innovation_controls.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_calibration.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/mlmc.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/outer_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/path_importance.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pilot_proposal.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/score_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stratified_sampling.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/variance_reduction.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_curve_profile.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_pricing.py",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/exogenous_reservoir_eq_m2/src/esn_eq/volatility_path_importance.py",
+      "pass_hash": true
+    }
+  ],
+  "input_checks": [
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_conditional_nodes.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d27.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d55.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d118.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_forward_floor_001/fresh_cache/production/vix_d153.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/training_power_tables/d27.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/training_power_tables/d55.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/training_power_tables/d118.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/training_power_tables/d153.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_power_tables/d27.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_power_tables/d55.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_power_tables/d118.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_power_tables/d153.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_cache/production/vix_d27.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_cache/production/vix_d55.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_cache/production/vix_d118.npz",
+      "pass_hash": true
+    },
+    {
+      "path": "matteo/model_comparison/option_pricing/runs/m2_continuum_response_002/fresh_cache/production/vix_d153.npz",
+      "pass_hash": true
+    }
+  ],
+  "original_readout_unchanged": true,
+  "beta_J": 0.36972997251720613,
+  "floor_support": true,
+  "inactive_nine_unchanged": true,
+  "negative_price_count": 1,
+  "powered_numpy_max_error": 2.0095036745715333e-14,
+  "power_interpolation_max_relative_error": 2.3505898971709627e-06,
+  "refinements": [
+    {
+      "day": 27,
+      "probe_count": 3,
+      "max_VIX_difference": 1.8128710053133545e-06,
+      "ids": [
+        6527,
+        13407,
+        13747
+      ],
+      "coarse": "u33/measure24/GH32/time8",
+      "fine": "u65/measure48/GH48/time16"
+    },
+    {
+      "day": 55,
+      "probe_count": 3,
+      "max_VIX_difference": 3.565720589904231e-06,
+      "ids": [
+        6605,
+        7535,
+        15528
+      ],
+      "coarse": "u33/measure24/GH32/time8",
+      "fine": "u65/measure48/GH48/time16"
+    },
+    {
+      "day": 118,
+      "probe_count": 3,
+      "max_VIX_difference": 3.464787027951388e-06,
+      "ids": [
+        6378,
+        12464,
+        13844
+      ],
+      "coarse": "u33/measure24/GH32/time8",
+      "fine": "u65/measure48/GH48/time16"
+    },
+    {
+      "day": 153,
+      "probe_count": 3,
+      "max_VIX_difference": 2.6254806471115444e-06,
+      "ids": [
+        3028,
+        5406,
+        11100
+      ],
+      "coarse": "u33/measure24/GH32/time8",
+      "fine": "u65/measure48/GH48/time16"
+    }
+  ],
+  "limitations": [
+    "Sampled deterministic refinements, no uniform certificate.",
+    "No new Lean theorem or exact population forward certificate."
+  ],
+  "replay_tolerance": "absolute1e-9 OR relative1e-11; report both and weighted mean error, including extremely large tiny-weight proposal VIX values",
+  "backend": "NumPy exact finite-GH power recurrence, with scalar crosschecks",
+  "postprocessing_source_hashes": {
+    "audit_continuum_scaled_fast.py": "d86ea61932fe71c3cc8a7d8ec5f6565a5a43556e1625f3e416af021c3ed8f3d1",
+    "audit_continuum_response_v2.py": "a05d56fc40407c6a38bc4daeeaa97bdc567ecee5ae39479fbc9c1c447c6a5a2f",
+    "audit_continuum_response_fast.py": "3104914fb305c16c234f1dddaea3a0b888352d2ec5941824db7217df6cb8be0d"
+  }
+}

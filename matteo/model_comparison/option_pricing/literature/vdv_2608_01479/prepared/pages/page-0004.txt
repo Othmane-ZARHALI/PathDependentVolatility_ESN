@@ -1,0 +1,60 @@
+    Lastly, a similar method to our proposed framework was introduced by Papanicolaou [22].
+The model derives a stochastic volatility process from a factor model, that is simultaneously
+used to calibrate to the VIX futures market.  Similarly, Papanicolaou shows how to derive
+a coupling function between the processes. The approach, however, focuses on VIX futures
+market models and not VIX options, and is restricted to time-homogeneous factors.
+
+1.3. Proposed Framework
+
+  We propose an intuitive approach to joint SPX-VIX modeling, called the VIX-derived
+volatility (VDV) framework. The model is a stochastic volatility model: the instantaneous
+variance of the SPX, (vt)t≥t0, is an adapted stochastic process.  Unlike classical stochastic
+volatility models, however, (vt)t≥t0 is not modeled explicitly but instead emerges as a latent
+process derived from the dynamics of the VIX. The VIX process itself is modeled explicitly,
+allowing seamless calibration to both the VIX futures and options markets. We then derive
+the corresponding instantaneous volatility dynamics by defining a smooth coupling map ψ  :
+[t0, ∞) × R+ →R+ such that vt = ψt(Xt). This map depends on the specification of (Xt)t≥t0
+and can be derived explicitly for polynomial processes, a specific process class. In the general,
+non-polynomial case, we derive a numerical approximation of the map based on the same
+principles.
+    Utilizing the mean-reverting local volatility framework following the work of Drimus and
+Farkas [11], we introduce the Local Volatility VIX model, an implementation of the VDV
+model. The explicit dynamics of the VIX process (Xt)t≥t0 allow us to fit VIX options and
+futures with distinct parameters for each component. We then derive the SPX dynamics that
+are calibrated to the SPX option market. The numerical results show that the model generates
+realistic mean-reverting dynamics for the VIX, and is flexible enough to reprice the SPX options
+market.
+   The remainder of the paper is organized as follows. Having introduced the VIX and the
+joint VIX–SPX calibration problem above, we describe in Section 2 the general framework
+of the VDV model for capturing the joint Q-dynamics of the SPX and the VIX. We then
+introduce the properties of the coupling function linking the two processes and derive the
+backward equation for a consistent VDV framework, given by Equation (2.8). A first example
+of a VDV model is provided in Section 2.3, illustrating the framework on a simple diffusion
+process. In Section 2.4 we introduce polynomial processes and show how they are used to derive
+the coupling function for general processes. An algorithmic description of the full process to
+derive the coupling function is included in Appendix C. In Section 3 we introduce the LV-VIX
+model, a local-volatility-based VDV model that produces realistic volatility dynamics, and in
+Section 4 we apply this implementation to market data from April 27th, 2026. We conclude the
+paper in Section 5, followed by Appendix A, which contains accompanying theoretical results.
+
+
+2. A VIX-first Stochastic Volatility Model
+
+2.1. General Model Dynamics
+
+   The VDV model is a joint SPX/VIX framework emerging from an explicit stochastic model
+for the VIX process. Let (Ω, F, Q) be a probability space with filtration Ft, t ≥t0. We define
+the discounted SPX process (St)t≥t0 and the VIX process (Xt)t≥t0 through a system of two
+differential equations linked through a function ψt(x).  The dynamics of (Xt)t≥t0 follow a
+general Itô process with drift term µ(t, x) and diffusion term σ(t, x). We consider the following
+dynamics on [t0, ∞):
+
+                          dSt             (S)                   = √vt dW t    ,                                            (2.1)
+                             St
+                                   vt = ψt(Xt),                                                (2.2)
+                       dXt = µ(t, Xt) dt + σ(t, Xt)dWt(X) .                          (2.3)
+
+The expressions W t(X) , Wt(S) are Brownian motions with a correlation coefficient given by
+dW t(X) dW t(S) = ρdt. Since the VIX is a strictly positive quantity, we require µ(t, x), σ(t, x) to
+
+                                        4

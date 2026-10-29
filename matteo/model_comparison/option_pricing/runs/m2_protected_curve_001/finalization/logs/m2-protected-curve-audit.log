@@ -1,0 +1,37 @@
+{
+  "status": "implementation_checks_PASS; fit_accuracy_separate",
+  "verified_source_hashes": 17,
+  "all9_price_derivative_checks": true,
+  "independent_fresh_kernel_numpy_replay_error": 1.1102230246251565e-16,
+  "retained_OU_covariance_semigroup_max_error": 2.69473332537018e-12,
+  "Q_projection_mean_max_error": 5.551115123125783e-17,
+  "all8_fresh_batch_seed_replays": [
+    2229248124143160148,
+    15901216639103404309,
+    13015845855917335923,
+    18057565096821699267,
+    5794319703369306015,
+    18299751397969753079,
+    15734103230134982199,
+    13276125909711898565
+  ],
+  "exact_VIX_map_and_fixed_parameter_invariance": true,
+  "positive_spike_shift": 0.36972997251720613,
+  "free_indices": [
+    0,
+    5,
+    6,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "limitations": [
+    "Independent fresh simulation checking at one market snapshot, not market OOS.",
+    "Eight-batch bootstrap is approximate; fitting variability and numerical biases excluded.",
+    "Two stock grids do not prove time-grid convergence.",
+    "No final bid-ask calibration, model-family infeasibility or Lean theorem."
+  ]
+}

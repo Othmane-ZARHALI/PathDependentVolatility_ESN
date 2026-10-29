@@ -1,0 +1,380 @@
+[
+  {
+    "candidate": 0,
+    "day": 29,
+    "side": "put",
+    "K_over_F": 0.873351081941185,
+    "raw_payoff_mean": 0.0002531116721035773,
+    "payoff_ESS": 1.8658233645889597,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 0,
+    "day": 29,
+    "side": "call",
+    "K_over_F": 1.1424650781207362,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 0,
+    "day": 57,
+    "side": "put",
+    "K_over_F": 0.8276572915902035,
+    "raw_payoff_mean": 0.0023636521638484,
+    "payoff_ESS": 6.600485145798096,
+    "top10_share": 0.9181011442787025
+  },
+  {
+    "candidate": 0,
+    "day": 57,
+    "side": "call",
+    "K_over_F": 1.2009712447899807,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 0,
+    "day": 119,
+    "side": "put",
+    "K_over_F": 0.7558135019302756,
+    "raw_payoff_mean": 0.002410476481271272,
+    "payoff_ESS": 6.362440990142257,
+    "top10_share": 0.9640588277211867
+  },
+  {
+    "candidate": 0,
+    "day": 119,
+    "side": "call",
+    "K_over_F": 1.2956802890233297,
+    "raw_payoff_mean": 4.793791496688314e-05,
+    "payoff_ESS": 1.0,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 0,
+    "day": 211,
+    "side": "put",
+    "K_over_F": 0.678948249349509,
+    "raw_payoff_mean": 0.0027356057531003463,
+    "payoff_ESS": 9.331025891432123,
+    "top10_share": 0.841774410636625
+  },
+  {
+    "candidate": 0,
+    "day": 211,
+    "side": "call",
+    "K_over_F": 1.4007774407631977,
+    "raw_payoff_mean": 0.00020129155010667889,
+    "payoff_ESS": 2.390584608058446,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 0,
+    "day": 302,
+    "side": "put",
+    "K_over_F": 0.621046455542934,
+    "raw_payoff_mean": 0.0029961040231036044,
+    "payoff_ESS": 11.761110794425067,
+    "top10_share": 0.8127484777107774
+  },
+  {
+    "candidate": 0,
+    "day": 302,
+    "side": "call",
+    "K_over_F": 1.5898789261899111,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 0,
+    "day": 666,
+    "side": "put",
+    "K_over_F": 0.4833555446598021,
+    "raw_payoff_mean": 0.0035070368649766782,
+    "payoff_ESS": 17.056942534562484,
+    "top10_share": 0.6432028560554143
+  },
+  {
+    "candidate": 0,
+    "day": 666,
+    "side": "call",
+    "K_over_F": 1.6572190102621789,
+    "raw_payoff_mean": 0.000135920663992235,
+    "payoff_ESS": 1.2251502722135783,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 0,
+    "day": 1030,
+    "side": "put",
+    "K_over_F": 0.4022886336323477,
+    "raw_payoff_mean": 0.004687412399272239,
+    "payoff_ESS": 21.580230297309242,
+    "top10_share": 0.5884775112594264
+  },
+  {
+    "candidate": 0,
+    "day": 1030,
+    "side": "call",
+    "K_over_F": 1.6091545345293907,
+    "raw_payoff_mean": 0.003764787715543203,
+    "payoff_ESS": 15.94540585411515,
+    "top10_share": 0.7016867199506224
+  },
+  {
+    "candidate": 1,
+    "day": 29,
+    "side": "put",
+    "K_over_F": 0.873351081941185,
+    "raw_payoff_mean": 0.00025526136511650583,
+    "payoff_ESS": 1.9067951458902195,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 1,
+    "day": 29,
+    "side": "call",
+    "K_over_F": 1.1424650781207362,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 1,
+    "day": 57,
+    "side": "put",
+    "K_over_F": 0.8276572915902035,
+    "raw_payoff_mean": 0.0023619569979755916,
+    "payoff_ESS": 6.603851130568198,
+    "top10_share": 0.9164679062297393
+  },
+  {
+    "candidate": 1,
+    "day": 57,
+    "side": "call",
+    "K_over_F": 1.2009712447899807,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 1,
+    "day": 119,
+    "side": "put",
+    "K_over_F": 0.7558135019302756,
+    "raw_payoff_mean": 0.0024079724466914594,
+    "payoff_ESS": 6.361189747224539,
+    "top10_share": 0.9610097329605074
+  },
+  {
+    "candidate": 1,
+    "day": 119,
+    "side": "call",
+    "K_over_F": 1.2956802890233297,
+    "raw_payoff_mean": 4.347503525903816e-05,
+    "payoff_ESS": 1.0,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 1,
+    "day": 211,
+    "side": "put",
+    "K_over_F": 0.678948249349509,
+    "raw_payoff_mean": 0.0027377883276065136,
+    "payoff_ESS": 9.33442954414792,
+    "top10_share": 0.843388511928858
+  },
+  {
+    "candidate": 1,
+    "day": 211,
+    "side": "call",
+    "K_over_F": 1.4007774407631977,
+    "raw_payoff_mean": 0.0002038449387793699,
+    "payoff_ESS": 2.2329078757692704,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 1,
+    "day": 302,
+    "side": "put",
+    "K_over_F": 0.621046455542934,
+    "raw_payoff_mean": 0.003005539081277274,
+    "payoff_ESS": 11.812806113597711,
+    "top10_share": 0.8095479232197406
+  },
+  {
+    "candidate": 1,
+    "day": 302,
+    "side": "call",
+    "K_over_F": 1.5898789261899111,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 1,
+    "day": 666,
+    "side": "put",
+    "K_over_F": 0.4833555446598021,
+    "raw_payoff_mean": 0.0035142006404266938,
+    "payoff_ESS": 17.154111556865413,
+    "top10_share": 0.6421335500859414
+  },
+  {
+    "candidate": 1,
+    "day": 666,
+    "side": "call",
+    "K_over_F": 1.6572190102621789,
+    "raw_payoff_mean": 0.00011097267404434007,
+    "payoff_ESS": 1.24814634590792,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 1,
+    "day": 1030,
+    "side": "put",
+    "K_over_F": 0.4022886336323477,
+    "raw_payoff_mean": 0.004675862007528686,
+    "payoff_ESS": 21.53376337392392,
+    "top10_share": 0.5900333985239935
+  },
+  {
+    "candidate": 1,
+    "day": 1030,
+    "side": "call",
+    "K_over_F": 1.6091545345293907,
+    "raw_payoff_mean": 0.003741313038676189,
+    "payoff_ESS": 15.730103434308912,
+    "top10_share": 0.714505628053884
+  },
+  {
+    "candidate": 2,
+    "day": 29,
+    "side": "put",
+    "K_over_F": 0.873351081941185,
+    "raw_payoff_mean": 0.0002576120606332808,
+    "payoff_ESS": 1.9476395498804864,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 2,
+    "day": 29,
+    "side": "call",
+    "K_over_F": 1.1424650781207362,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 2,
+    "day": 57,
+    "side": "put",
+    "K_over_F": 0.8276572915902035,
+    "raw_payoff_mean": 0.002360334333386661,
+    "payoff_ESS": 6.602072305842651,
+    "top10_share": 0.9150323397247914
+  },
+  {
+    "candidate": 2,
+    "day": 57,
+    "side": "call",
+    "K_over_F": 1.2009712447899807,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 2,
+    "day": 119,
+    "side": "put",
+    "K_over_F": 0.7558135019302756,
+    "raw_payoff_mean": 0.002404576292266691,
+    "payoff_ESS": 6.350776128930675,
+    "top10_share": 0.9608598874859392
+  },
+  {
+    "candidate": 2,
+    "day": 119,
+    "side": "call",
+    "K_over_F": 1.2956802890233297,
+    "raw_payoff_mean": 4.412643052730718e-05,
+    "payoff_ESS": 1.0,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 2,
+    "day": 211,
+    "side": "put",
+    "K_over_F": 0.678948249349509,
+    "raw_payoff_mean": 0.002735281130663017,
+    "payoff_ESS": 9.329641814429163,
+    "top10_share": 0.8451569243178544
+  },
+  {
+    "candidate": 2,
+    "day": 211,
+    "side": "call",
+    "K_over_F": 1.4007774407631977,
+    "raw_payoff_mean": 0.0002065622287317592,
+    "payoff_ESS": 2.3095526358007006,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 2,
+    "day": 302,
+    "side": "put",
+    "K_over_F": 0.621046455542934,
+    "raw_payoff_mean": 0.003003572690327869,
+    "payoff_ESS": 11.84380594927702,
+    "top10_share": 0.8083475274480691
+  },
+  {
+    "candidate": 2,
+    "day": 302,
+    "side": "call",
+    "K_over_F": 1.5898789261899111,
+    "raw_payoff_mean": 0.0,
+    "payoff_ESS": 0.0,
+    "top10_share": 0.0
+  },
+  {
+    "candidate": 2,
+    "day": 666,
+    "side": "put",
+    "K_over_F": 0.4833555446598021,
+    "raw_payoff_mean": 0.003509056389765299,
+    "payoff_ESS": 17.155345163227636,
+    "top10_share": 0.642429133924771
+  },
+  {
+    "candidate": 2,
+    "day": 666,
+    "side": "call",
+    "K_over_F": 1.6572190102621789,
+    "raw_payoff_mean": 0.00014659426524157187,
+    "payoff_ESS": 1.4193296197108214,
+    "top10_share": 1.0
+  },
+  {
+    "candidate": 2,
+    "day": 1030,
+    "side": "put",
+    "K_over_F": 0.4022886336323477,
+    "raw_payoff_mean": 0.004690229930334948,
+    "payoff_ESS": 21.625790261448625,
+    "top10_share": 0.5880250149405074
+  },
+  {
+    "candidate": 2,
+    "day": 1030,
+    "side": "call",
+    "K_over_F": 1.6091545345293907,
+    "raw_payoff_mean": 0.0037221649813226985,
+    "payoff_ESS": 16.03794791551094,
+    "top10_share": 0.7069263860486503
+  }
+]

@@ -1,0 +1,4 @@
+{
+  "status": "diagnostic only; excluded from conclusions",
+  "reason": "Terminal cutoff1e-14 produced up to .02146 projected history covariance error, despite small endpoint errors. Replaced by covariance-gated cutoff1e-11; numerical issue isolated to bridge history, not stock recurrence."
+}

@@ -1,0 +1,11 @@
+{
+  "role": "check",
+  "days": 1030,
+  "seeds": [
+    61693264,
+    2112215607,
+    1793204748,
+    2716596277
+  ],
+  "exact_equity_and_weight_replay": true
+}

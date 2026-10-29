@@ -1,0 +1,849 @@
+{
+  "status": "complete independent numerical checking",
+  "source_sha256": {
+    "matteo/model_comparison/option_pricing/fit_parity_parameters_v3.py": "cea7d08b89606fb68cf1bc65d14e0ce9f8a758c00809f95d1a060d94468d8d02",
+    "matteo/model_comparison/option_pricing/fit_parity_parameters_v2.py": "7c998c9eee277877708ff6291992971f4c552580022021045c627a8cce00cef1",
+    "matteo/model_comparison/option_pricing/parity_checkpoint.py": "9baf3a9affb1096323a6f44c86239bf7255501be93fd8b0b87634a175338705c",
+    "matteo/model_comparison/option_pricing/fit_parity_parameters.py": "4145bfc3c821bc59130e125e39ae3ee8a168b62191441a49d4025376b403d6b7",
+    "matteo/model_comparison/option_pricing/parity_parameter_constraints.py": "9dccd04f7e228aad0d625c2ae8095b00d30977d921c38dc541a0685e8ce4402e",
+    "matteo/model_comparison/option_pricing/test_parity_parameter_constraints.py": "2fb5f58c7baffd85290658fc3f2895c914a1ee77bdd7f6bba0ee7e35aae38238",
+    "matteo/model_comparison/option_pricing/parity_parameter_core.py": "fb4c1e3ff9bb75b5a030915e6b805c7b5507c89abc8c5bb143c34b7f3f7a755f",
+    "matteo/model_comparison/option_pricing/test_parity_parameter_core.py": "5edfef547f8a56ed720a4efea63f622b10d18c398d85c6498eed2eb3837bf4ef",
+    "matteo/model_comparison/option_pricing/parity_adaptive_engine.py": "5dd24ccce45e29d1506e8fd1c39ed4f42def84e2a858b596a49b8087927497ac",
+    "matteo/model_comparison/option_pricing/parity_adaptive.py": "efe13df880d6359584b7c930f8c26572acf0eb237ba2bc8b8b8ba5323883ba50",
+    "matteo/model_comparison/option_pricing/parity_stock.py": "d652b5db05e9f7e8c1afd50e4a79340e8e3e52f178faa3991a641f59b4a2ead3",
+    "matteo/model_comparison/option_pricing/parity_stock_kernel.cpp": "1fe0e0b8056afb5240d50405f44f108a20eaf5be45a8c92a9f5fd19cce45c6ac",
+    "matteo/model_comparison/option_pricing/parity_hedge_controls.py": "848636425453174106674b74263e695d81cce1e81ef7c934c342789a8da7d932",
+    "matteo/model_comparison/option_pricing/controlled_readout_kernel.cpp": "30c470bcd7ed654e39e52b167a4423c825eee4c91c5847d37d4bc2aae23d2573",
+    "matteo/model_comparison/option_pricing/controlled_readout_convolution_kernel.cpp": "d75f010fc280ed6274e5cedeef77f2ac7a3bc20f2c739c9280e0e6f9884fd0dd",
+    "matteo/model_comparison/option_pricing/controlled_readout_fast_fit.py": "b64b6d4b47c27e425ed13ebaa16d26197d6f1e30b64a9ce20b17d901de6582aa",
+    "matteo/model_comparison/option_pricing/full_readout_fit.py": "07b16c963b0430a44cf6578635416510746e57dcbf356dd12fb9e105804a5c0c",
+    "matteo/model_comparison/option_pricing/all_maturity_core.py": "3da6787a675c8689f61e7c689fed1753b27b5f2a9ad9f630aec7966c46bfb4b7",
+    "matteo/model_comparison/option_pricing/joint_curve_core.py": "2d6064e8640cf349e30375bd0bb89da9f703071ee2141b706a3d49745fdd6e8b",
+    "matteo/model_comparison/option_pricing/m2_spx.py": "a9de830afba0a208ef648c4aadc9ebf0d543ec488062cf8a0eed00d7de711127",
+    "matteo/model_comparison/option_pricing/PARITY_PARAMETER_FIT_PLAN.md": "2030b48449e1b380a6c46ac7cb932d1aaf425933f85411ecaad493e246665652",
+    "matteo/model_comparison/option_pricing/PARITY_PARAMETER_FIT_PLAN_V2.md": "0c99b725a846ec99699aea4d9c4d04564c4ec9f6b7e50d8f040b8a1cba8ad727",
+    "matteo/model_comparison/option_pricing/PARITY_PARAMETER_FIT_PLAN_V3.md": "6b749bfe739d56bc79499815fa34001de4b33d0ba6665ef364200163d6f0204e",
+    "matteo/model_comparison/option_pricing/run_parity_adaptive.py": "60fe51e85228cf10fd41ff6141df67543eb10a21346289a498cab0e47dc90c6d",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_001/jacobian_check.json": "45c88f2a3d05378e922d78e9c2043dfb0a11b7c2e27c0dac4658fe51c2dadbd8",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_001/design.json": "ef4781a28e4e428e471b7ccc68f89df6ec809ef744b4139c6ec3636435618767",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_uniform_001/run.json": "211cbaa04125ba0098b532cd3772bb091bf6f5f54ae33f81a90b409e5af0b14c",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_uniform_001/prices_canonical_selected.csv": "a2e35e42e36abab77b1fb331dc4e667b3f5506e988629ffed8abd72245fbccbd",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_uniform_001/vix_controls.json": "5c0ef01d3bc689dd445175e815c092680a330f22ab6bdf21e492a5a92aeae940",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/design.json": "0ca81f3c03bb9e45c179be027a1d04321dd4ae588fc5d9d7b022af8d8b872400",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_controls_001/coefficients.json": "8528dd8a719b4fac08a993588212e54bc9d2d94340af3c8941676858e3fee5a7",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_check_cache_001/design.json": "6033179c57c3e540f3ef1277d6bc59b7c90f1de86a8f1c83cfc384d1a8d20e74",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/__init__.py": "95749bd7a7c6d0702b5d69c08562e654082f15209f587be26bbcdbf524573e79",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/asymmetry_cli.py": "6b5190ccb0b37a1777f49d855fada72c12fb8841eb33eb0af3c6ed4ee97fa72e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/bridge_coupling.py": "6ef398edba6d870a589a51de70ff8ff99cee9f584cff3f48cfc50bbc76a5c913",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration.py": "f6b90b81033e270ac156314934ca1f282a8836b7d427b323591c2465ece0543c",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/calibration_loss.py": "1ece088d9d9ea3f34fb1340a5c445b70bf8157e1674670a3315584893b4f76d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/cli.py": "03221fccc504da82e4643c2270b85a5852561ed1905968adc0e97e1309e941d9",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/conditional_controls.py": "fc1877d4dd2b475942cddc42375531121d6f2c48afd44705770bf2009cc96034",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/conditional_spx.py": "26ae80e0f91f25fd0247b11b2c119e54e790686e355f08e7c9c5ad4707f008da",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/config.py": "7a9df36e1843d47613b4e00485ee1e9b6e85834be755be9fe602164c7d346e5a",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/diagnostics.py": "c828d30236930de548af7de141ff1e8782986959878a1a9a851e80383d971fb5",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/experiment.py": "953e29ea14f9cb2d11802760c6ffaaecc95ddd70a89d4c07d66dabba1f30bbd0",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial.py": "aa5b46689ed706ae2be044663ac49fc9ed59b9d505d722fe70361b17caeb53d3",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/factorial_cli.py": "11c0ebc10f5b832b66c38d68262b80fab3df2f39f5777fef3e961a4570e579e8",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/features.py": "3e7b4a4c341cacde47977b16c1caf01e1575ff569e6292a1e7b1635fe4404e6f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/gaussian_controls.py": "ebbfcadd9fd044127e9df5e70198fa0baacfd92a45acd7fae3492898044ad680",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/hedging_controls.py": "f5dca9142f8b7aaa7237ac7cf5978d3c53244840c2d773b8f28648181b1aaf35",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/importance_sampling.py": "b1e96b7cea1c1c69cf3c5b710fcaf089e24e08afa9463e2c908803769e3d5f54",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/innovation_controls.py": "20427566c924b69f7b41cc646dc67f3d4dc2a982c49e353c896ccb94b1aedbd2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_calibration.py": "1249d124dbfe5d43bdef9cac7760021d1a096086142fd53ff77cc27b2174e433",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/market_targets.py": "1d1bd109022c02a3bd4050b947f97dde8deaf00f9ef00626277be510a58f4c29",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/mlmc.py": "4b00404276bf20fe831cf91345105b617dc8f4f98262bdb3cd72980eefdb92de",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/model.py": "0f6efb4cefdae4fd6f4a0b3e91ef0ae4bb1430ac63e1e41f6e82f2033ef5dc4e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/outer_sampling.py": "6ee3199180650eb06270b542fb0236a8b4d8c41349ddb0cf07c3e369d8e03b53",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/path_importance.py": "72d334b090dcacce9cf75aacd86110dd454810a0a7185aec0fb2512736661d58",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pilot_proposal.py": "3594b4e3c5511b1c9cb7c13f501a7ca7a74a63c55da6b2a30440ac01fc7e40a2",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/pricing.py": "8d68533cd18f2010778d22ee639d26a8bd5fa948005d2da0b4677d84cd67b15e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/readout.py": "35a897e3cc5c7c681b5478e8957d7b9249dd2c278c00ef4503f47ee0d65f9519",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/reporting.py": "876436ff903aaf160f36f728962c77db7f706ca916ec2b93bc09f9ddd6bc987f",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/sampling.py": "3c532c9d57542f87279743f96102cc4346a06bd7d064bf5417ae55d881e1dd5e",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/score_sampling.py": "44c80e5f068ef263e7a6b3ce1e7a224a36849e52d6499c95df9eec0d4b2b8b14",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage2_cli.py": "5a86e27407122ff0d1ad216377856756fa31164b6e95e4bd1b311d8d93c46660",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stage3_cli.py": "8db6dc562e411a9ecb0adf8a0bbe1f1ed88575c9dc2057e24b15faa01437ea78",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/states.py": "41a662990c7db2f2e1ebf7608b0ef0945c810a53dc7b61cccc53f37f3dc0f721",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/stratified_sampling.py": "a0153a47ae4396a8f7262a90b686c9060f617da88c323247b19c77d94a64ac41",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/variance_reduction.py": "e4d65defcbeea79ffa890c3a1e6827c96e920660360de3a712be117ad4330ca7",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_curve_profile.py": "3d03b7c7ec18494083d5019b6b04be54e08508ecd99a39a4cb636108344fd693",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/vix_pricing.py": "bf9b3a744e6cb4c6468870dec8d60943656d7ae3868f3dc4f5ec003baa712a72",
+    "matteo/exogenous_reservoir_eq_m2/src/esn_eq/volatility_path_importance.py": "9114fc4310ba0056805d104b8c6f9724c7692a463b93dea7939049e16a7d7492",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/design.json": "725b358772037ab6f7513674a84b42843efe371e2a52c659372f0d739aef29dc",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/warm_proposal.json": "5f7ad8d17a8cf0d685426ae11d8e5ae64d4f5c4a50cb460495d85577631412e0",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/inner_evaluations.json": "20cc6f4513e3e9a52b3be050fba5f978bf59ee15d696413c19ee89b43ad603e7",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/jacobian_check.json": "c1ea02a7cff06071d6adad4add73d8014ec1be6a71e720bd3558d018720047c3",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/score_baseline.json": "95006d9d4651d87489702c57789935221025625b6a72bf98189c2956f4242bb5",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/prices_canonical_baseline.csv": "19af0261116076bfe18d1a4659fbde1e32b13161acd684b538ed6af1aa1d2816",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/prices_otm_baseline.csv": "9a43b7f507ae5af28323702dc3842f1b33ef83941d7f0c99672890bf8cdbc37e",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/forwards_baseline.csv": "2d720497e1188d4a688d8f5e087cc86bf6b1100884670a5ebdb6f16563a0a54d",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/paths_baseline.npz": "1bf577749f06741041f6c1169ece86a4786694083fac794399dc80ae331b6b45",
+    "matteo/model_comparison/option_pricing/runs/m2_parity_parameter_fit_002/jacobian_baseline.npz": "102224e4b89eb31a33c6fd39d3a1e36f3c67de200ea336d47776a0431243656d",
+    "matteo/model_comparison/option_pricing/provenance.py": "2f105738f7f5db071eb9b8a1e5cc6826ce4e346eb499d000fa40771790e4cce8"
+  },
+  "cache": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_parity_check_cache_001",
+  "controls": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_parity_check_controls_001",
+  "check_cache": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_parity_check_cache_001",
+  "check_controls": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_parity_check_controls_001",
+  "baseline": [
+    0.1107923029686383,
+    0.06285028058167813,
+    3.115274119854204,
+    0.20534048656144166,
+    0.29972997256971384,
+    5.802414155510417,
+    2.0245534869940127,
+    0.0493015988374198,
+    0.05859462501306453,
+    0.05015265364939394,
+    0.002481115229371034
+  ],
+  "parameter_names": [
+    "cluster_loading",
+    "feedback_curvature",
+    "feedback_shift",
+    "spike_curvature",
+    "spike_shift",
+    "cap_level",
+    "cap_sharpness",
+    "xi_1",
+    "xi_2",
+    "xi_3",
+    "variance_floor"
+  ],
+  "bounds_lower": [
+    0.05,
+    0.005,
+    0.05,
+    0.002,
+    0.0001,
+    2.0,
+    2.0,
+    0.005,
+    0.005,
+    0.005,
+    1e-08
+  ],
+  "bounds_upper": [
+    0.8,
+    0.4,
+    5.0,
+    0.6,
+    2.0,
+    8.0,
+    30.0,
+    0.2,
+    0.2,
+    0.2,
+    0.0025
+  ],
+  "architecture": {
+    "feedback": {
+      "rates": [
+        0.05000000000000001,
+        0.14240179342179016,
+        0.40556541539484364,
+        1.15506485004158,
+        3.289666123287841,
+        9.369087114301918,
+        26.683496156031545,
+        75.99555414764669,
+        216.43806405415305,
+        616.4233697210328,
+        1755.5958671075634,
+        5000.000000000004
+      ],
+      "asset_correlation": 0.996259961884662,
+      "shared_driver": true
+    },
+    "spike": {
+      "rates": [
+        10.0,
+        36.84031498640386,
+        135.7208808297453,
+        500.0
+      ],
+      "asset_correlation": 0.979054833837768,
+      "shared_driver": true
+    },
+    "cluster": {
+      "rates": [
+        0.5,
+        0.8511393400729673,
+        1.4488763524396926,
+        2.4663913249256955,
+        4.198485369317896,
+        7.1469921330944866,
+        12.166172335337455,
+        20.710215785426232
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "orthogonal": {
+      "rates": [
+        0.5,
+        0.8093838778200331,
+        1.3102045233499884,
+        2.120916835692723,
+        3.4332717860135396,
+        5.557669663547499,
+        8.996576447849662,
+        14.563367864929878,
+        23.574710313273204,
+        38.161980903681986,
+        61.77538417823236,
+        100.0
+      ],
+      "asset_correlation": 0.0,
+      "shared_driver": false
+    },
+    "feedback_weight_power": 0.39745892673012545,
+    "spike_weight_power": -0.5,
+    "cluster_weight_power": -0.16813617681334975,
+    "echo": {
+      "enabled": false,
+      "units": 12,
+      "leak": 0.35,
+      "recurrent_norm": 0.75,
+      "input_scale": 0.2,
+      "bias_scale": 0.05,
+      "seed": 20260901,
+      "input_banks": [
+        "feedback",
+        "spike",
+        "cluster"
+      ]
+    },
+    "orthogonal_energy_mode": "standardized_centered"
+  },
+  "premium": {
+    "equity": 0.35,
+    "feedback_idiosyncratic": 0.0,
+    "spike_idiosyncratic": 0.0,
+    "cluster_idiosyncratic": [],
+    "orthogonal_idiosyncratic": []
+  },
+  "initial_state": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.4639561379403965,
+    0.42426021990772117,
+    0.3879606701512627,
+    0.35476689663941235,
+    0.32441317028885397,
+    0.2966564976997716,
+    0.27127467589905757,
+    0.24806451351898148,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "paths_per_strike": 4096,
+  "allocation": "uniform",
+  "market_otm_inputs": 1511,
+  "market_out_of_sample": false,
+  "fitted_in_this_run": true,
+  "budget": {
+    "outer_proposals": 3,
+    "inner_iterations": 12,
+    "inner_nfev": 20,
+    "optimization_seconds": 4500,
+    "initial_radius": 0.1,
+    "maximum_radius": 0.3
+  },
+  "method": "Original-OTM VIX-priority SLSQP with both-convention VIX/joint constraints, warm near-feasible proposal and full true4096 acceptance.",
+  "checking": "New independent4096-path/8x512 numerical streams; no check prices used for selection.",
+  "selected": [
+    0.08579230299061608,
+    0.052850280587426704,
+    3.315274119733554,
+    0.20696452356680609,
+    0.3497299725172061,
+    5.561182737308034,
+    2.0,
+    0.04895437191069572,
+    0.058213662662637666,
+    0.05261397331874095,
+    0.0024999999999909058
+  ],
+  "scores": [
+    {
+      "candidate": "baseline",
+      "parameters": [
+        0.1107923029686383,
+        0.06285028058167813,
+        3.115274119854204,
+        0.20534048656144166,
+        0.29972997256971384,
+        5.802414155510417,
+        2.0245534869940127,
+        0.0493015988374198,
+        0.05859462501306453,
+        0.05015265364939394,
+        0.002481115229371034
+      ],
+      "canonical_loss": 96.46900883671091,
+      "canonical_components": {
+        "SPX": 46.6910418956932,
+        "VIX": 48.85683491874195,
+        "midpoint": 0.0,
+        "forwards": 0.8877829262208247,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.5762721600625247e-05
+      },
+      "original_otm_loss": 82.82864985554326,
+      "original_otm_components": {
+        "SPX": 46.691041895693175,
+        "VIX": 35.21647593757433,
+        "midpoint": 0.0,
+        "forwards": 0.8877829262208247,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.5762721600625247e-05
+      },
+      "inside_canonical_bidask": 82,
+      "inside_original_otm_bidask": 93,
+      "canonical_negative_prices": 16,
+      "native_otm_negative_prices": 16,
+      "iv_unavailable": 18,
+      "normalizer": {
+        "knots": 257,
+        "midpoint_error": 2.1370382346312552e-08,
+        "independent_error": 4.9836259439379995e-09,
+        "GH": 48,
+        "probe_note": "Declared probes may enter refinement; additional final independent probes checked separately."
+      },
+      "allocations": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "minimum": 4096,
+          "maximum": 4096
+        }
+      ],
+      "moments": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "mass": 1.01329398664272,
+          "raw_forward_ratio": 1.013611436830152,
+          "raw_forward_ratio_se": 0.00782494777973571
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "mass": 0.9978921599485591,
+          "raw_forward_ratio": 0.996632215464162,
+          "raw_forward_ratio_se": 0.00798481144378165
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "mass": 0.9792638528289452,
+          "raw_forward_ratio": 0.9834702353195064,
+          "raw_forward_ratio_se": 0.008190579074482769
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "mass": 1.0038800710886862,
+          "raw_forward_ratio": 1.0060608948083727,
+          "raw_forward_ratio_se": 0.008213933613511084
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "mass": 1.000003426706492,
+          "raw_forward_ratio": 0.9999165621059811,
+          "raw_forward_ratio_se": 0.008351111465753376
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "mass": 1.0041754711174975,
+          "raw_forward_ratio": 1.001894573768998,
+          "raw_forward_ratio_se": 0.008745592197825922
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "mass": 0.9922969233066579,
+          "raw_forward_ratio": 0.9880141721621292,
+          "raw_forward_ratio_se": 0.009248610106049372
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "market_forward": 20.1,
+          "model_forward": 20.506898163773194,
+          "mass": 1.0023252665661828,
+          "second_moment": 492.92870573995583
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "market_forward": 20.73,
+          "model_forward": 20.2254804424021,
+          "mass": 0.9972299595435423,
+          "second_moment": 492.7264220430281
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "market_forward": 21.19,
+          "model_forward": 21.866976768770492,
+          "mass": 0.9989511104664908,
+          "second_moment": 586.8741763280048
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "market_forward": 21.72,
+          "model_forward": 21.8168466885604,
+          "mass": 0.9981061135417624,
+          "second_moment": 581.4277270825164
+        }
+      ],
+      "shapes": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "monotonicity_violations": 0,
+          "convexity_violations": 20,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "monotonicity_violations": 6,
+          "convexity_violations": 20,
+          "negative_estimates": 13
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "monotonicity_violations": 0,
+          "convexity_violations": 9,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "monotonicity_violations": 1,
+          "convexity_violations": 5,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "monotonicity_violations": 4,
+          "convexity_violations": 6,
+          "negative_estimates": 3
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "monotonicity_violations": 0,
+          "convexity_violations": 1,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        }
+      ]
+    },
+    {
+      "candidate": "selected",
+      "parameters": [
+        0.08579230299061608,
+        0.052850280587426704,
+        3.315274119733554,
+        0.20696452356680609,
+        0.3497299725172061,
+        5.561182737308034,
+        2.0,
+        0.04895437191069572,
+        0.058213662662637666,
+        0.05261397331874095,
+        0.0024999999999909058
+      ],
+      "canonical_loss": 92.24023664333373,
+      "canonical_components": {
+        "SPX": 45.27316284329129,
+        "VIX": 46.0817846042968,
+        "midpoint": 0.0,
+        "forwards": 0.8519441533136994,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.1709098597714815e-05
+      },
+      "original_otm_loss": 81.2318783341244,
+      "original_otm_components": {
+        "SPX": 45.27316284329126,
+        "VIX": 35.073426295087515,
+        "midpoint": 0.0,
+        "forwards": 0.8519441533136994,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.1709098597714815e-05
+      },
+      "inside_canonical_bidask": 118,
+      "inside_original_otm_bidask": 118,
+      "canonical_negative_prices": 8,
+      "native_otm_negative_prices": 8,
+      "iv_unavailable": 10,
+      "normalizer": {
+        "knots": 257,
+        "midpoint_error": 1.1935776740124553e-08,
+        "independent_error": 3.7920282397730475e-09,
+        "GH": 48,
+        "probe_note": "Declared probes may enter refinement; additional final independent probes checked separately."
+      },
+      "allocations": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "minimum": 4096,
+          "maximum": 4096
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "minimum": 4096,
+          "maximum": 4096
+        }
+      ],
+      "moments": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "mass": 1.01329398664272,
+          "raw_forward_ratio": 1.0136462051434145,
+          "raw_forward_ratio_se": 0.007827388186525284
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "mass": 0.9978921599485591,
+          "raw_forward_ratio": 0.9965061883171639,
+          "raw_forward_ratio_se": 0.007987930373564581
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "mass": 0.9792638528289452,
+          "raw_forward_ratio": 0.9832686875284435,
+          "raw_forward_ratio_se": 0.00819397158219722
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "mass": 1.0038800710886862,
+          "raw_forward_ratio": 1.0063411087419927,
+          "raw_forward_ratio_se": 0.008215087985593993
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "mass": 1.000003426706492,
+          "raw_forward_ratio": 1.0001227466600482,
+          "raw_forward_ratio_se": 0.008354387380037142
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "mass": 1.0041754711174975,
+          "raw_forward_ratio": 1.0013346447797338,
+          "raw_forward_ratio_se": 0.008754220005622615
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "mass": 0.9922969233066579,
+          "raw_forward_ratio": 0.9873238759000584,
+          "raw_forward_ratio_se": 0.009271873427153559
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "market_forward": 20.1,
+          "model_forward": 20.464411073227282,
+          "mass": 1.0023252665661828,
+          "second_moment": 489.4711672827176
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "market_forward": 20.73,
+          "model_forward": 20.190003472008037,
+          "mass": 0.9972299595435423,
+          "second_moment": 489.28825929613146
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "market_forward": 21.19,
+          "model_forward": 21.839515641853275,
+          "mass": 0.9989511104664908,
+          "second_moment": 582.8974797960104
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "market_forward": 21.72,
+          "model_forward": 21.795378403854123,
+          "mass": 0.9981061135417624,
+          "second_moment": 577.6502670302162
+        }
+      ],
+      "shapes": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "monotonicity_violations": 0,
+          "convexity_violations": 14,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "monotonicity_violations": 4,
+          "convexity_violations": 22,
+          "negative_estimates": 6
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "monotonicity_violations": 0,
+          "convexity_violations": 8,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "monotonicity_violations": 1,
+          "convexity_violations": 3,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "monotonicity_violations": 4,
+          "convexity_violations": 8,
+          "negative_estimates": 2
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "monotonicity_violations": 0,
+          "convexity_violations": 1,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "monotonicity_violations": 0,
+          "convexity_violations": 0,
+          "negative_estimates": 0
+        }
+      ]
+    }
+  ]
+}

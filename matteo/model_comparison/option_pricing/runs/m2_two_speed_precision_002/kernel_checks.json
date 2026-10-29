@@ -1,0 +1,36 @@
+{
+  "target_replay_max_error": 2.220446049250313e-16,
+  "reference_replay_max_error": 1.1102230246251565e-15,
+  "integral_replay_max_error": 6.591949208711867e-17,
+  "curve_derivative_errors": [
+    1.257723492977604e-10,
+    7.733696087990295e-11,
+    2.572939453116911e-10,
+    8.908672500681906e-11,
+    2.1644596897160165e-10,
+    1.4648487526434024e-10,
+    4.2570746247674825e-10,
+    4.627058978467468e-11,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "identical_model_residuals_exact_zero": true,
+  "VIX_parameter_map_unchanged": true,
+  "free_indices": [
+    0,
+    5,
+    6,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15
+  ]
+}

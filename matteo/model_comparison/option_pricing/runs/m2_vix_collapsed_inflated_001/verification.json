@@ -1,8 +1,0 @@
-{
-  "status": "source snapshots and summary statistics verified",
-  "source_hashes": 34,
-  "summary_rows": 48,
-  "all_four_maturities": true,
-  "verifier_sha256": "efde784afb0bd276b8bb0818efebc38dc6be77236fc6272738bee54106b68553",
-  "limitation": "Artifact correspondence only; does not certify numerical accuracy or population inference."
-}

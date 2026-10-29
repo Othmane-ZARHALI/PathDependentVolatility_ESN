@@ -1,0 +1,63 @@
+2.7. Heston Model in VDV Framework
+   The VDV model is in essence a stochastic volatility model, although the process (vt)t≥t0 is
+not modeled explicitly. To illustrate this fact, we express a well-established stochastic volatility
+model in the setting of the VDV framework. The Heston model has the following Q-dynamics
+for the instantaneous variance process:
+                                 dvt = κ(θ −vt) + ξ√vtdW.                            (2.20)
+
+Its first conditional moment is given analytically by
+
+                             E[vs|vt] = θ + (vt −θ)e−κ(s−t),   t < s.
+
+For that reason, the VIX process (Xt)t≥t0 can be derived explicitly as a function of vt.  In-
+tegrating the right-hand side of the consistency equation (2.6), and setting it equal to the
+left-hand side, we find:
+
+                        "Z t+Θ        #
+              ΘX2t = E       vu du  Ft = Θ2(1 −B) + ΘBvt,
+                                                 t
+
+          1−e−Θκ
+with B =  Θκ    . Solving for vt, we get an explicit expression for a coupling function.
+
+                                              x2                              + Θ(1 −1 )                              vt = ψt(Xt),  ψt(x) =
+                              B      B
+
+Using Itôs lemma on the inverse map of ψt, we can then derive the explicit dynamics for
+(Xt)t≥t0 that lead to the Heston model under the VDV framework. We find
+
+                         dXt = µ(Xt) dt + σ(Xt) dWt,
+
+where the drift µ(Xt) and diffusion σ(Xt) are given by:
+
+                                                                t −θ(1 −B)                                                                        ξ q       Bκθ −κ X2t + θ(1 −B) −ξ2 X2 µ(Xt) =                                                                                            ,  σ(Xt) =                                                    X2t −θ(1 −B).
+                 2Xt                8X3t                 2Xt
+
+In the VDV model, we normally do not know the coupling function ψt a prior, since we first
+specify the dynamics of the VIX process. In the Heston case, we have the coupling function
+explicitly. Since the Heston-implied VIX process is not polynomial, we can apply the projection
+scheme to replicate the coupling function and to assess the numerical accuracy of the method.
+We compute the conditional first and second moments of (Xt)t≥t0 by solving the Feynman-Kac
+backward equation of Equation (2.17), and fit the corresponding polynomials. Then, we find
+the coupling function ψt as p ∈P2 with p = a2x2 +a1x+a0. For an example of κ = 2, θ = 0.04
+and ξ = 0.5, we find the following values:
+
+                                       a2           a1            a0
+             Approximation   1.085647  −4.11 × 10−8  −0.003426
+              Exact Values     1.085647     0.000000    −0.007137
+
+      Table 1: Comparison of polynomial coefficients in Heston VDV for κ = 2, θ = 0.04 and
+       ξ = 0.5.
+
+   The example shows that the polynomial approximation method is able to approximate the
+true coupling function well.
+
+
+3. Local-Volatility-VIX
+
+   In this section we present the Local-Volatility-VIX (LV-VIX) model, an implementation
+of the VDV model.  In this model, the VIX process follows a mean-reverting local volatility
+
+
+
+                                        14

@@ -1,0 +1,367 @@
+{
+  "status": "fit/independent-check replay passed",
+  "sources_verified": 91,
+  "distinct_training_seeds": 224,
+  "distinct_checking_seeds": 224,
+  "seed_overlap": 0,
+  "controls_fitted_on_checking": false,
+  "all_accepted_steps_replayed": true,
+  "accepted_steps": 1,
+  "training": {
+    "baseline": {
+      "total": 98.11920494274162,
+      "components": {
+        "SPX": 49.80299504369847,
+        "VIX": 47.423156536378414,
+        "midpoint": 0.0,
+        "forwards": 0.8597042666097838,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.5762721600625247e-05
+      },
+      "original_otm_total": 85.52806566098722,
+      "original_otm_components": {
+        "SPX": 49.80299504369848,
+        "VIX": 34.83201725462403,
+        "midpoint": 0.0,
+        "forwards": 0.8597042666097838,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.5762721600625247e-05
+      },
+      "tails": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 43
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 38
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 23
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 16
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 10
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 33
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 221
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 270
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 136
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 125
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 107
+        }
+      ]
+    },
+    "selected": {
+      "total": 95.14831047579995,
+      "components": {
+        "SPX": 49.49169152119192,
+        "VIX": 44.79184924859826,
+        "midpoint": 0.0,
+        "forwards": 0.8314246635778387,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.1709098597714815e-05
+      },
+      "original_otm_total": 85.03863142573462,
+      "original_otm_components": {
+        "SPX": 49.49169152119193,
+        "VIX": 34.68217019853293,
+        "midpoint": 0.0,
+        "forwards": 0.8314246635778387,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.1709098597714815e-05
+      },
+      "tails": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 52
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 45
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 26
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 20
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 11
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 46
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 263
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 267
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 131
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 63
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 84
+        }
+      ]
+    }
+  },
+  "checking": {
+    "baseline": {
+      "total": 96.46900883671091,
+      "components": {
+        "SPX": 46.69104189569322,
+        "VIX": 48.85683491874195,
+        "midpoint": 0.0,
+        "forwards": 0.8877829262208247,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.5762721600625247e-05
+      },
+      "original_otm_total": 82.82864985554326,
+      "original_otm_components": {
+        "SPX": 46.691041895693175,
+        "VIX": 35.21647593757433,
+        "midpoint": 0.0,
+        "forwards": 0.8877829262208247,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.5762721600625247e-05
+      },
+      "tails": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 42
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 33
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 36
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 23
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 5
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 39
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 187
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 248
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 128
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 132
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 108
+        }
+      ]
+    },
+    "selected": {
+      "total": 92.24023664333373,
+      "components": {
+        "SPX": 45.27316284329129,
+        "VIX": 46.0817846042968,
+        "midpoint": 0.0,
+        "forwards": 0.8519441533136969,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.1709098597714815e-05
+      },
+      "original_otm_total": 81.23187833412442,
+      "original_otm_components": {
+        "SPX": 45.273162843291274,
+        "VIX": 35.073426295087515,
+        "midpoint": 0.0,
+        "forwards": 0.8519441533136969,
+        "state_penalty": 0.03333333333333333,
+        "curve_penalty": 1.1709098597714815e-05
+      },
+      "tails": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 48
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 36
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 45
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 28
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 6
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 52
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 216
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 248
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 121
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 79
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "zero_hit_contracts": 0,
+          "minimum_raw_hits": 86
+        }
+      ]
+    }
+  },
+  "limitation": "Finite signed Monte Carlo prices and pointwise SEs; no deterministic error/market-OOS/global optimality certificate."
+}

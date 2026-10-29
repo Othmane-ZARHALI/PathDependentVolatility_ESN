@@ -1,0 +1,115 @@
+{
+  "scope_id": "2026-10-26-vix-only-wing-investigation",
+  "status": "active_exploratory_scope",
+  "decision": "User explicitly requests VIX-only next iterations until the right-wing steepness problem is resolved; SPX fitting is temporarily deferred. Current turn: deep literature search, brainstorming and review of Othmane email plus prepared documents.",
+  "vix_fit_expiry_days": [
+    27,
+    55,
+    118,
+    153
+  ],
+  "vix_deferred_expiry_days": [],
+  "forward_treatment": "Include all four associated VIX forwards.",
+  "spx_scope_changed": true,
+  "spx_maturity_scope": {
+    "decision_date": "2026-10-23",
+    "user_direction": "Keep cutoff 3. Avoid 1 day and SPX maturities 1401, 1765 and 2129 days.",
+    "analysis_expiry_days": [
+      29,
+      57,
+      119,
+      211,
+      302,
+      666,
+      1030
+    ],
+    "deferred_expiry_days": [
+      1,
+      1401,
+      1765,
+      2129
+    ],
+    "fit_expiry_days": [],
+    "reserved_maturity_days": [],
+    "diagnostic_expiry_days": [],
+    "treatment": "Temporarily defer SPX fitting and repricing while resolving VIX wings. Retain seven-maturity membership and cutoff3 for later return.",
+    "curve_treatment": "Reprice prior selected-state three-piece reference at all seven maturities, then jointly refit its three variance levels; retain old horizon and fixed readout/state/Q scenario.",
+    "temporarily_paused_expiry_days": [
+      29,
+      57,
+      119,
+      211,
+      302,
+      666,
+      1030
+    ]
+  },
+  "market_split": "all_eligible_in_sample",
+  "historical_baseline": "Near-only results and prior full-scope runs remain historical evidence, without rewriting numerical records.",
+  "limitations": [
+    "All current market observations are calibration inputs; no out-of-sample claims.",
+    "Fresh simulations, if used, check numerical stability on the SAME market targets.",
+    "Sampling, stock timestep, normalizer interpolation/GH and VIX conditional/time quadrature remain separate accuracy questions."
+  ],
+  "supersedes": "2026-10-23 joint SPX/VIX feasibility scope, for the next VIX-only phase; all historical results retained",
+  "spx_research_priority": {
+    "decision_date": "2026-10-22",
+    "reaffirmed_date": "2026-10-23",
+    "user_direction": "Let's keep the cutoff 3, for the moment.",
+    "purpose": "Prioritize numerical stability and accuracy near ATM; retain wing diagnostics and full market scope.",
+    "contracts": [
+      {
+        "expiry_days": 29,
+        "strike": 6755,
+        "option_type": "put"
+      },
+      {
+        "expiry_days": 29,
+        "strike": 7030,
+        "option_type": "call"
+      },
+      {
+        "expiry_days": 57,
+        "strike": 6775,
+        "option_type": "put"
+      },
+      {
+        "expiry_days": 57,
+        "strike": 7050,
+        "option_type": "call"
+      }
+    ],
+    "provenance": "All-observation market-only maturity-scaled band under the explicit in-sample feasibility instruction; original split labels preserved as metadata.",
+    "wing_treatment": "Retain as secondary diagnostics; negative controlled estimates remain flagged as unusable prices, without clipping.",
+    "accuracy_gates": "Independent sampling accuracy, coupled stock timestep refinement, and normalizer refinement remain separate requirements; no market refit cleared.",
+    "criterion": {
+      "formula": "abs(log(K/F(T))) / (sigma_ATM_proxy(T)*sqrt(T)) <= 3",
+      "atm_proxy": "Black76 IV of nearest absolute log-moneyness midquote among ALL eligible quotes at each retained expiry; tie by strike then option_type. Frozen before pricing.",
+      "coverage_denominator": "1751 eligible SPX quotes at seven retained maturities; all original splits",
+      "priority_quote_count": 1294,
+      "coverage_fraction": 0.7390062821245003,
+      "membership_artifact": "runs/m2_all_maturity_fit_001/spx_membership.csv",
+      "supersedes": "Previous cutoff 2 priority band; old runs preserved. Four listed contracts remain diagnostic representatives.",
+      "cutoff": 3.0,
+      "status": "user_selected_provisional",
+      "membership_column": "priority_selected"
+    },
+    "status": "temporarily_paused_until_VIX_wing_problem_resolved"
+  },
+  "vix_quote_treatment": "All 217 eligible OTM quotes at all four active maturities, with their original splits retained as metadata. No market observations held out in this feasibility run.",
+  "historical_scope_snapshot": "matteo/model_comparison/option_pricing/scope_decisions/2026-10-26-before-vix-only-research.json",
+  "historical_scope_sha256": "91656c452c996465ca7a779e94d128c9a1fb6cc71f987157a155761a84530b35",
+  "current_research_focus": {
+    "decision_date": "2026-10-26",
+    "instruments": [
+      "VIX options",
+      "four associated VIX forwards"
+    ],
+    "original_VIX_quotes": 217,
+    "SPX_fit_weight": 0,
+    "research_run": "runs/m2_vix_design_research_001",
+    "baseline_replaced": false,
+    "variance_curve": "Unchanged in this research turn. Releasing VIX-window levels is recommended by the moment-budget certificates; no new model calibration has been launched.",
+    "model_constraints": "Existing original reservoir/rate/readout/no-jump constraints are not silently changed by brainstorming alternatives."
+  }
+}

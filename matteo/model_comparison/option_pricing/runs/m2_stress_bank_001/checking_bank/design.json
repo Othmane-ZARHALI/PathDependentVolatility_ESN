@@ -1,0 +1,276 @@
+{
+  "seeds": [
+    {
+      "day": 27,
+      "net": 0,
+      "count": 8192,
+      "seed": 13676095230936536568,
+      "permutation_seed": 13676095230936548913
+    },
+    {
+      "day": 27,
+      "net": 1,
+      "count": 8192,
+      "seed": 4607542545366673288,
+      "permutation_seed": 4607542545366685633
+    },
+    {
+      "day": 27,
+      "net": 2,
+      "count": 8192,
+      "seed": 1939546886677706030,
+      "permutation_seed": 1939546886677718375
+    },
+    {
+      "day": 27,
+      "net": 3,
+      "count": 8192,
+      "seed": 8097759197902615194,
+      "permutation_seed": 8097759197902627539
+    },
+    {
+      "day": 27,
+      "net": 4,
+      "count": 8192,
+      "seed": 9725809038007277250,
+      "permutation_seed": 9725809038007289595
+    },
+    {
+      "day": 27,
+      "net": 5,
+      "count": 8192,
+      "seed": 15552517766736572998,
+      "permutation_seed": 15552517766736585343
+    },
+    {
+      "day": 27,
+      "net": 6,
+      "count": 8192,
+      "seed": 5109715037647664761,
+      "permutation_seed": 5109715037647677106
+    },
+    {
+      "day": 27,
+      "net": 7,
+      "count": 8192,
+      "seed": 9158444978943252940,
+      "permutation_seed": 9158444978943265285
+    },
+    {
+      "day": 55,
+      "net": 0,
+      "count": 8192,
+      "seed": 16224337944829032833,
+      "permutation_seed": 16224337944829045178
+    },
+    {
+      "day": 55,
+      "net": 1,
+      "count": 8192,
+      "seed": 8866273386021873382,
+      "permutation_seed": 8866273386021885727
+    },
+    {
+      "day": 55,
+      "net": 2,
+      "count": 8192,
+      "seed": 10578567226217359614,
+      "permutation_seed": 10578567226217371959
+    },
+    {
+      "day": 55,
+      "net": 3,
+      "count": 8192,
+      "seed": 15565395684609143409,
+      "permutation_seed": 15565395684609155754
+    },
+    {
+      "day": 55,
+      "net": 4,
+      "count": 8192,
+      "seed": 9629586148671735126,
+      "permutation_seed": 9629586148671747471
+    },
+    {
+      "day": 55,
+      "net": 5,
+      "count": 8192,
+      "seed": 9749534581451497925,
+      "permutation_seed": 9749534581451510270
+    },
+    {
+      "day": 55,
+      "net": 6,
+      "count": 8192,
+      "seed": 594259671656932751,
+      "permutation_seed": 594259671656945096
+    },
+    {
+      "day": 55,
+      "net": 7,
+      "count": 8192,
+      "seed": 5830571909898186216,
+      "permutation_seed": 5830571909898198561
+    },
+    {
+      "day": 118,
+      "net": 0,
+      "count": 8192,
+      "seed": 6445745622008385894,
+      "permutation_seed": 6445745622008398239
+    },
+    {
+      "day": 118,
+      "net": 1,
+      "count": 8192,
+      "seed": 14834407098312430953,
+      "permutation_seed": 14834407098312443298
+    },
+    {
+      "day": 118,
+      "net": 2,
+      "count": 8192,
+      "seed": 5759634676410087154,
+      "permutation_seed": 5759634676410099499
+    },
+    {
+      "day": 118,
+      "net": 3,
+      "count": 8192,
+      "seed": 1027170784579776313,
+      "permutation_seed": 1027170784579788658
+    },
+    {
+      "day": 118,
+      "net": 4,
+      "count": 8192,
+      "seed": 2953595977391374404,
+      "permutation_seed": 2953595977391386749
+    },
+    {
+      "day": 118,
+      "net": 5,
+      "count": 8192,
+      "seed": 6311777088882634416,
+      "permutation_seed": 6311777088882646761
+    },
+    {
+      "day": 118,
+      "net": 6,
+      "count": 8192,
+      "seed": 13275995697911775211,
+      "permutation_seed": 13275995697911787556
+    },
+    {
+      "day": 118,
+      "net": 7,
+      "count": 8192,
+      "seed": 13735110705766331704,
+      "permutation_seed": 13735110705766344049
+    },
+    {
+      "day": 153,
+      "net": 0,
+      "count": 8192,
+      "seed": 4967495040204760876,
+      "permutation_seed": 4967495040204773221
+    },
+    {
+      "day": 153,
+      "net": 1,
+      "count": 8192,
+      "seed": 1656260541755803977,
+      "permutation_seed": 1656260541755816322
+    },
+    {
+      "day": 153,
+      "net": 2,
+      "count": 8192,
+      "seed": 1586531333582954617,
+      "permutation_seed": 1586531333582966962
+    },
+    {
+      "day": 153,
+      "net": 3,
+      "count": 8192,
+      "seed": 14462499207155806461,
+      "permutation_seed": 14462499207155818806
+    },
+    {
+      "day": 153,
+      "net": 4,
+      "count": 8192,
+      "seed": 12541309952418158015,
+      "permutation_seed": 12541309952418170360
+    },
+    {
+      "day": 153,
+      "net": 5,
+      "count": 8192,
+      "seed": 11619774637694394192,
+      "permutation_seed": 11619774637694406537
+    },
+    {
+      "day": 153,
+      "net": 6,
+      "count": 8192,
+      "seed": 9294851405106551722,
+      "permutation_seed": 9294851405106564067
+    },
+    {
+      "day": 153,
+      "net": 7,
+      "count": 8192,
+      "seed": 17467583701052580767,
+      "permutation_seed": 17467583701052593112
+    }
+  ],
+  "extra_shifts": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      2.0,
+      0.0
+    ],
+    [
+      4.0,
+      0.0
+    ],
+    [
+      6.0,
+      0.0
+    ],
+    [
+      0.0,
+      2.0
+    ],
+    [
+      0.0,
+      4.0
+    ],
+    [
+      0.0,
+      6.0
+    ]
+  ],
+  "extra_probabilities": [
+    0.5,
+    0.1,
+    0.1,
+    0.05,
+    0.1,
+    0.1,
+    0.05
+  ],
+  "previous_fast_folder": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_two_speed_001/checking_fast",
+  "coordinate_order": [
+    "7d",
+    "28d",
+    "112d",
+    "448d"
+  ],
+  "target_independent": true,
+  "within_net_permutation": true
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "candidate": "baseline",
+    "role": "search",
+    "trial": 0,
+    "state_index": 0,
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 333.67640361081453,
+    "components": {
+      "SPX": 227.102732361282,
+      "VIX": 90.31531048371444,
+      "midpoint": 0.0,
+      "forwards": 16.258205859821665,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0
+  },
+  {
+    "candidate": "selected",
+    "role": "search",
+    "trial": 0,
+    "state_index": 2,
+    "levels": [
+      0.05848068253720218,
+      0.0727920965582004,
+      0.03570095455789601
+    ],
+    "total": 288.8212800224037,
+    "components": {
+      "SPX": 203.40746983236164,
+      "VIX": 71.9914971432206,
+      "midpoint": 0.0,
+      "forwards": 13.388821656549469,
+      "state_penalty": 0.033333333333333326,
+      "curve_penalty": 0.00015805693861671696
+    },
+    "negative_count": 0
+  },
+  {
+    "candidate": "baseline",
+    "role": "fresh",
+    "trial": 0,
+    "state_index": 0,
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 418.1567081455171,
+    "components": {
+      "SPX": 314.18526116192845,
+      "VIX": 89.95561374523194,
+      "midpoint": 0.0,
+      "forwards": 14.015678332360187,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0
+  },
+  {
+    "candidate": "selected",
+    "role": "fresh",
+    "trial": 0,
+    "state_index": 2,
+    "levels": [
+      0.05848068253720218,
+      0.0727920965582004,
+      0.03570095455789601
+    ],
+    "total": 370.0608151182929,
+    "components": {
+      "SPX": 287.39796832497444,
+      "VIX": 71.28416985849236,
+      "midpoint": 0.0,
+      "forwards": 11.345185544554091,
+      "state_penalty": 0.033333333333333326,
+      "curve_penalty": 0.00015805693861671696
+    },
+    "negative_count": 0
+  },
+  {
+    "candidate": "baseline",
+    "role": "fresh",
+    "trial": 1,
+    "state_index": 0,
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 465.9733454574849,
+    "components": {
+      "SPX": 350.99286550239026,
+      "VIX": 99.91301223517817,
+      "midpoint": 0.0,
+      "forwards": 15.067312813919894,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0
+  },
+  {
+    "candidate": "selected",
+    "role": "fresh",
+    "trial": 1,
+    "state_index": 2,
+    "levels": [
+      0.05848068253720218,
+      0.0727920965582004,
+      0.03570095455789601
+    ],
+    "total": 424.9126590984677,
+    "components": {
+      "SPX": 332.97679085625805,
+      "VIX": 79.6155074903394,
+      "midpoint": 0.0,
+      "forwards": 12.286869361598333,
+      "state_penalty": 0.033333333333333326,
+      "curve_penalty": 0.00015805693861671696
+    },
+    "negative_count": 0
+  },
+  {
+    "candidate": "baseline",
+    "role": "fresh",
+    "trial": 2,
+    "state_index": 0,
+    "levels": [
+      0.060094155368671145,
+      0.07485057191352656,
+      0.03836347644670185
+    ],
+    "total": 316.98004345401273,
+    "components": {
+      "SPX": 222.17881832803442,
+      "VIX": 80.69560691982961,
+      "midpoint": 0.0,
+      "forwards": 14.105463300152241,
+      "state_penalty": 0.0,
+      "curve_penalty": 0.00015490599648504636
+    },
+    "negative_count": 0
+  },
+  {
+    "candidate": "selected",
+    "role": "fresh",
+    "trial": 2,
+    "state_index": 2,
+    "levels": [
+      0.05848068253720218,
+      0.0727920965582004,
+      0.03570095455789601
+    ],
+    "total": 288.3993569271452,
+    "components": {
+      "SPX": 213.84096115592672,
+      "VIX": 63.08388039732679,
+      "midpoint": 0.0,
+      "forwards": 11.441023983619715,
+      "state_penalty": 0.033333333333333326,
+      "curve_penalty": 0.00015805693861671696
+    },
+    "negative_count": 0
+  }
+]

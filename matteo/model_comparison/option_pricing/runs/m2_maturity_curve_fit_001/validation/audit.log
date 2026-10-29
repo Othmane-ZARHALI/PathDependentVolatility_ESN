@@ -1,0 +1,9 @@
+{
+  "status": "maturity-curve price/SE/parity/loss/local/acceptance/source/policy/checking replay passed",
+  "accepted_steps": 1,
+  "local_trials_replayed": 70,
+  "sources_verified": 74,
+  "VIX_seed_overlap": 0,
+  "controls_refitted": false,
+  "selected_before_checking": true
+}

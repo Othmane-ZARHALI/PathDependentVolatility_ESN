@@ -1,0 +1,46 @@
+Appendix C. Algorithm
+
+  We present a brief algorithmic description to construct the coupling function for general
+processes using the polynomial approximation method.
+
+Algorithm 1 Construction of the Coupling Function
+
+Require: Order of projection m
+Require: Terminal time TF
+Require: Drift and diffusion functions µ(t, x), σ(t, x)
+Require: Time step Θ
+Ensure: Sequence of coupling functions {ψn}Nn=0
+  1: function GetTerminalCurve(TF , m)
+  2:   P ←[ ]                                         ▷Storage for fitted polynomials
+  3:    for k ←0 to m −1 do
+  4:    M¯ TFk (x) ←ComputeConditionalMoment(TF , k)  ▷Solve 2.17 / integrate in τ
+  5:        pk ←FitPolynomial( M¯ TFk (x), m)                              ▷Solve 2.18
+  6:      P.Append(pk)
+  7:   end for
+  8:    ψTF ←GetTerminalPsiFromLinearSystem(P)       ▷Solve as in Theorem 2.7
+  9:    return ψTF
+10: end function
+
+11: function ApplyBackwardEquation(ψ, µ, σ, t)
+12:   ϕ ←SolveFeynmanKacBackward(ψ)                 ▷Using Equation (2.19)
+13:    ψprev(x) ←ϕ(x) −Θ 2xµ(t, x) + σ2(t, x)              ▷Backward equation (2.8)
+14:    return ψprev
+15: end function
+
+16: function GetCouplingFunction(m, TF , µ, σ)
+17:    ψTF ←GetTerminalCurve(TF , m)                      ▷Initialize at terminal time
+18:   Ψ ←[ψTF ]
+19:      t ←TF
+20:    while t > 0 do
+21:          t ←t −Θ
+22:       ψt ←ApplyBackwardEquation(Ψ[−1], µ, σ, t)       ▷Step backward in time
+23:      Ψ.Append(ψt)
+24:   end while
+25:    return Ψ                                   ▷Full sequence of coupling functions
+26: end function
+
+
+
+
+
+                                        27

@@ -1,0 +1,103 @@
+{
+  "scores": [
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1909.1896275042104,
+      "IV_MAE_pp": 3.201144437695266,
+      "inside": 22,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 2.074576272706905
+    },
+    {
+      "candidate": 1,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1978.793661561546,
+      "IV_MAE_pp": 3.1630329332301033,
+      "inside": 34,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 6.039470304769542
+    },
+    {
+      "candidate": 2,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1969.777970637119,
+      "IV_MAE_pp": 3.1749693343691665,
+      "inside": 35,
+      "invalid_IV": 2,
+      "negative": 2,
+      "median_SE_scales": 6.122347036890983
+    },
+    {
+      "candidate": 3,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1941.3078698112995,
+      "IV_MAE_pp": 3.1567639992028016,
+      "inside": 39,
+      "invalid_IV": 3,
+      "negative": 3,
+      "median_SE_scales": 6.099312075474735
+    }
+  ],
+  "price_loss_reduction_percent": -1.6822971298600553,
+  "paired_intervals": [
+    {
+      "candidate": 1,
+      "name": "Instantaneous variance",
+      "price_loss_delta_CI95": [
+        -572.5305487200371,
+        981.3045020440446
+      ]
+    },
+    {
+      "candidate": 2,
+      "name": "Future30days,4updates",
+      "price_loss_delta_CI95": [
+        -556.7310013033479,
+        810.089215024906
+      ]
+    },
+    {
+      "candidate": 3,
+      "name": "Future30days,8updates",
+      "price_loss_delta_CI95": [
+        -577.7064309209505,
+        803.3020717036825
+      ]
+    }
+  ],
+  "grid": [
+    {
+      "candidate": 0,
+      "median_grid_change_scales": 0.1493100061200234,
+      "max_grid_change_scales": 1.1570308381595023
+    },
+    {
+      "candidate": 1,
+      "median_grid_change_scales": 0.3968655236160672,
+      "max_grid_change_scales": 3.8755657872563862
+    },
+    {
+      "candidate": 2,
+      "median_grid_change_scales": 0.15724673526070293,
+      "max_grid_change_scales": 1.1575141378736822
+    },
+    {
+      "candidate": 3,
+      "median_grid_change_scales": 0.14413141535652146,
+      "max_grid_change_scales": 1.1931255907434202
+    }
+  ],
+  "update": {
+    "median_price_change_scales": 0.25311663355614106,
+    "maximum_price_change_scales": 1.9939134192258594,
+    "median_paired_SE_scales": 0.49918084444716404
+  },
+  "adopted": false
+}

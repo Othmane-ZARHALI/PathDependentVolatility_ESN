@@ -1,0 +1,29 @@
+// Linear filtering of fixed normalized nonlinear signals, not OU feedback.
+#include "asymmetric_readout.cpp"
+extern "C" void memory_stock(int nt,int pairs,int nd,int ne,int na,const int*tr,const double*dec,const double*root,const double*cross,const double*mean,const double*proj,const double*time,const double*dt,const int*seg,const int*coarse,const int*reference,const int*expiry,const double*norm,const double*p,const double*models,const double*share,const int*kind,const int*index,const double*rates,uint64_t seed,double*out){
+ Model m(models);std::vector<double>ds(nt),df(nt),ns(nt),nf(nt),cs(nt),cf(nt),rs(nt),rf(nt),qs(nt),qf(nt);for(int t=0;t<nt;++t){double h=dt[t];ds[t]=std::exp(-m.as*h);df[t]=std::exp(-m.af*h);ns[t]=std::sqrt(-std::expm1(-2*m.as*h));nf[t]=std::sqrt(-std::expm1(-2*m.af*h));rs[t]=std::sqrt(residual(m.as,h));rf[t]=std::sqrt(residual(m.af,h));cs[t]=std::sqrt(h-rs[t]*rs[t]);cf[t]=std::sqrt(h-rf[t]*rf[t]);qs[t]=-std::expm1(-2*m.as*time[t]);qf[t]=-std::expm1(-2*m.af*time[t]);}
+ auto worker=[&](int begin,int end){for(int i=begin;i<end;++i){std::vector<double>s(nd,0),next(nd),z(nd+1),logs(4*na,0),hold(2*na,0),memory(2*2*3*3,1),heldinput(2*3,0);double zs=0,zf=0,refv[2]={},reflog[2]={};
+ for(int t=0;t<nt;++t){uint64_t k=(uint64_t(t)*pairs+i)*(nd+3);for(int j=0;j<nd+1;++j)z[j]=gaussian(seed,k+j);double dw=std::sqrt(dt[t])*z[0],es=gaussian(seed,k+nd+1),ef=gaussian(seed,k+nd+2),bs=cs[t]*es+rs[t]*gaussian(seed^UINT64_C(0x2ad82d187dccb289),2*(uint64_t(t)*pairs+i)),bf=cf[t]*ef+rf[t]*gaussian(seed^UINT64_C(0x2ad82d187dccb289),2*(uint64_t(t)*pairs+i)+1),shock=.6*dw-.8*(std::sqrt(1-m.r)*bs+std::sqrt(m.r)*bf),pr[3]={};for(int j=0;j<nd;++j)for(int c=0;c<3;++c)pr[c]+=proj[c*nd+j]*s[j];
+ for(int anti=0;anti<2;++anti){double sign=anti?-1:1,C=mean[3*t]+sign*pr[0],Y=mean[3*t+1]+sign*pr[1],F=mean[3*t+2]+sign*pr[2],old=G(p[0]*C+p[1]*std::pow(Y-p[2],2)+p[3]*std::pow(F-p[4],2),p)*std::exp(-norm[t]);double AS=std::exp(sign*m.bs*zs-.5*m.bs*m.bs*qs[t]),AF=std::exp(sign*m.bf*zf-.5*m.bf*m.bf*qf[t]),stress=(1-m.r)*AS+m.r*AF,H=(1-m.w)*old+m.w*stress;double input[3]={old,AS,AF};if(coarse[t])for(int c=0;c<3;++c)heldinput[3*anti+c]=input[c];
+ for(int a=0;a<na;++a){const double*x=models+23*a;for(int grid=0;grid<2;++grid){const double*mm=memory.data()+((anti*2+grid)*3+index[a])*3;double filtered=kind[a]==1?(1-m.w)*mm[0]+m.w*stress:(1-m.w)*mm[0]+m.w*((1-m.r)*mm[1]+m.r*mm[2]);double q=(1-share[a])*H+share[a]*filtered;double v=m.f+(.2-m.f)*x[seg[t]]*q;if(grid==0&&coarse[t])hold[anti*na+a]=v;double vv=grid?v:hold[anti*na+a];logs[(anti*na+a)*2+grid]+=-.5*vv*dt[t]+std::sqrt(vv)*sign*shock;}}
+ for(int grid=0;grid<2;++grid)for(int j=0;j<3;++j){double e=std::exp(-rates[j]*dt[t]),u=-std::expm1(-rates[j]*dt[t]);for(int c=0;c<3;++c){double&v=memory[((anti*2+grid)*3+j)*3+c];v=e*v+u*(grid?input[c]:heldinput[3*anti+c]);}}
+ if(reference[t])refv[anti]=m.f+(.2-m.f)*models[seg[t]]*((1-m.w)+m.w*stress);reflog[anti]+=-.5*refv[anti]*dt[t]+std::sqrt(refv[anti])*sign*shock;
+ if(expiry[t]>=0){double*o=out+((uint64_t(anti*pairs+i)*ne+expiry[t])*(na+1)*2);for(int a=0;a<na;++a)for(int grid=0;grid<2;++grid)o[2*a+grid]=std::exp(logs[(anti*na+a)*2+grid]);o[2*na]=o[2*na+1]=std::exp(reflog[anti]);}
+ }
+ const double*r=root+uint64_t(tr[t])*nd*nd;for(int j=0;j<nd;++j){double v=cross[tr[t]*nd+j]*dw;for(int l=0;l<nd;++l)v+=r[j*nd+l]*z[l+1];next[j]=dec[tr[t]*nd+j]*s[j]+v;}s.swap(next);zs=ds[t]*zs+ns[t]*es;zf=df[t]*zf+nf[t]*ef;
+ }}};std::vector<std::thread>threads;for(int j=0;j<4;++j)threads.emplace_back(worker,pairs*j/4,pairs*(j+1)/4);for(auto&t:threads)t.join();
+}
+// Conditional Gaussian bridge history. Current-state conditioning alone cannot replace these histories.
+extern "C" void memory_history(int nt,int n,int nd,int nh,double dt,const double*dec,const double*root,const double*P,const double*mean,const double*bridge,const double*terminal,const double*lognorm,const double*stressbridge,const double*stress_terminal,const double*stress_q,const double*p,const double*model,const double*rate,uint64_t seed,double*out){
+ Model m(model);double ds=std::exp(-m.as*dt),df=std::exp(-m.af*dt),ns=std::sqrt(-std::expm1(-2*m.as*dt)),nf=std::sqrt(-std::expm1(-2*m.af*dt));
+ auto worker=[&](int begin,int end){for(int i=begin;i<end;++i){std::vector<double>s(nd,0),next(nd),z(nd),endstate(nd),delta(nd),mem(nh*3*2,1);double zs=0,zf=0,esend=0,efend=0,held[3]={};
+ for(int pass=0;pass<2;++pass){std::fill(s.begin(),s.end(),0);zs=zf=0;
+ for(int t=0;t<nt;++t){uint64_t counter=(uint64_t(t)*n+i)*(nd+2);for(int j=0;j<nd;++j)z[j]=gaussian(seed,counter+j);double es=gaussian(seed,counter+nd),ef=gaussian(seed,counter+nd+1);
+ if(pass==1){double pr[3]={mean[3*t],mean[3*t+1],mean[3*t+2]};for(int c=0;c<3;++c)for(int j=0;j<nd;++j)pr[c]+=P[c*nd+j]*s[j]+bridge[(uint64_t(t)*3+c)*nd+j]*delta[j];double R=G(p[0]*pr[0]+p[1]*std::pow(pr[1]-p[2],2)+p[3]*std::pow(pr[2]-p[4],2),p)*std::exp(-lognorm[t]);double ZS=zs+stressbridge[2*t]*(stress_terminal[2*i]-esend),ZF=zf+stressbridge[2*t+1]*(stress_terminal[2*i+1]-efend),AS=std::exp(m.bs*ZS-.5*m.bs*m.bs*stress_q[2*t]),AF=std::exp(m.bf*ZF-.5*m.bf*m.bf*stress_q[2*t+1]),input[3]={R,AS,AF};if(t%2==0)for(int c=0;c<3;++c)held[c]=input[c];
+ for(int j=0;j<nh;++j){double e=std::exp(-rate[j]*dt),u=-std::expm1(-rate[j]*dt);for(int c=0;c<3;++c)for(int grid=0;grid<2;++grid){double&v=mem[(j*3+c)*2+grid];v=e*v+u*(grid?input[c]:held[c]);}}}
+ for(int j=0;j<nd;++j){double v=0;for(int l=0;l<nd;++l)v+=root[j*nd+l]*z[l];next[j]=dec[j]*s[j]+v;}s.swap(next);zs=ds*zs+ns*es;zf=df*zf+nf*ef;
+ }
+ if(pass==0){for(int j=0;j<nd;++j)delta[j]=terminal[i*nd+j]-s[j];esend=zs;efend=zf;}}
+ for(int j=0;j<nh*3*2;++j)out[uint64_t(i)*nh*3*2+j]=mem[j];
+ }};std::vector<std::thread>threads;for(int j=0;j<4;++j)threads.emplace_back(worker,n*j/4,n*(j+1)/4);for(auto&t:threads)t.join();
+}

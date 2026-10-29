@@ -1,0 +1,20 @@
+FULL NESTED BASELINE 24 parameters
+BASELINE 95.11770223072617 84.98202424127558 341.46298262500204 {'maximum_SPX_quote_scale_difference': 9.082166969135681e-13, 'maximum_VIX_panel_refinement_change': 2.0380408471964984e-09}
+LOCAL 0 0.06410983321256936 17 [89.3059062116601, 70.83627255413535, 45.54340103715489, 27.07376737963014]
+EXACT VIX SCREEN 0 [45.50960228438444, 27.166864953930375] True
+FULL PROPOSAL 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/fit_maturity_curve.py", line 140, in <module>
+    try:run(args.output.resolve())
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/fit_maturity_curve.py", line 107, in run
+    print('FULL PROPOSAL',cycle,flush=True);tick=time.perf_counter();trial=e.predict(candidate,True,True);full_calls+=1;seconds=time.perf_counter()-tick
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/maturity_curve_predict.py", line 23, in predict
+    value=self.k.stock(folder,ng,p,derivatives=derivatives)[0]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/maturity_curve.py", line 70, in stock
+    self.curve_lib.stock_curve(len(dw),x.shape[1],len(self.ends),int(derivatives),x,dw,dt,segment,arr(norm),arr(p),out)
+KeyboardInterrupt

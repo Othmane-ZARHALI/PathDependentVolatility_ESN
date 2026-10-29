@@ -1,0 +1,4 @@
+{
+  "superseded_by": "matteo/model_comparison/option_pricing/runs/m2_vix_only_curve_fit_002",
+  "reason": "Sparse probe moment diagnostic warned about empty nets; VIX values and calibration unaffected. Run002 fixes probe diagnostics and freshly compiles pricing library."
+}

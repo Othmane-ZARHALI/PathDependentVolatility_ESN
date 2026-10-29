@@ -1,0 +1,889 @@
+{
+  "status": "saved numerical replay passed",
+  "distinct_sources_verified": 73,
+  "records": [
+    {
+      "candidate": "selected",
+      "prices_and_SE_replay": true,
+      "parity_and_forward_replay": true,
+      "market_conversion_replay": true,
+      "both_objectives_replay": true,
+      "uniform_precision": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 512,
+          "median_se_in_quote_scales": 6.239353501816644,
+          "negative_calls": 9,
+          "iv_unavailable": 9
+        },
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 1024,
+          "median_se_in_quote_scales": 4.424584446818821,
+          "negative_calls": 11,
+          "iv_unavailable": 11
+        },
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 2048,
+          "median_se_in_quote_scales": 3.3301796029279593,
+          "negative_calls": 4,
+          "iv_unavailable": 4
+        },
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 4096,
+          "median_se_in_quote_scales": 2.4244980115229664,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 512,
+          "median_se_in_quote_scales": 7.884736952252579,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 1024,
+          "median_se_in_quote_scales": 5.792301945888214,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 2048,
+          "median_se_in_quote_scales": 4.010930871493118,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 4096,
+          "median_se_in_quote_scales": 2.8743720818064835,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 512,
+          "median_se_in_quote_scales": 9.23436960176144,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 1024,
+          "median_se_in_quote_scales": 6.880543090617315,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 2048,
+          "median_se_in_quote_scales": 4.865785516834595,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 4096,
+          "median_se_in_quote_scales": 3.3850790916285733,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 512,
+          "median_se_in_quote_scales": 11.150371817709702,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 1024,
+          "median_se_in_quote_scales": 7.867874559466921,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 2048,
+          "median_se_in_quote_scales": 5.647034919236732,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 4096,
+          "median_se_in_quote_scales": 3.9919566649011307,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 512,
+          "median_se_in_quote_scales": 11.9093456250646,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 1024,
+          "median_se_in_quote_scales": 8.896442216063116,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 2048,
+          "median_se_in_quote_scales": 6.564860655061755,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 4096,
+          "median_se_in_quote_scales": 4.42221041577559,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 512,
+          "median_se_in_quote_scales": 4.8077538761501595,
+          "negative_calls": 2,
+          "iv_unavailable": 2
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 1024,
+          "median_se_in_quote_scales": 3.3160744662698285,
+          "negative_calls": 1,
+          "iv_unavailable": 1
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 2048,
+          "median_se_in_quote_scales": 2.37763935592287,
+          "negative_calls": 1,
+          "iv_unavailable": 1
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 4096,
+          "median_se_in_quote_scales": 1.6677173670638668,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 512,
+          "median_se_in_quote_scales": 2.5158312964736997,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 1024,
+          "median_se_in_quote_scales": 1.8487161596577324,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 2048,
+          "median_se_in_quote_scales": 1.3063352632763114,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.9308932586360056,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 512,
+          "median_se_in_quote_scales": 0.4865394843271224,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 1024,
+          "median_se_in_quote_scales": 0.547269749655415,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.52778826745708,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.2748302183144269,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 512,
+          "median_se_in_quote_scales": 0.7353586841211271,
+          "negative_calls": 0,
+          "iv_unavailable": 2
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 1024,
+          "median_se_in_quote_scales": 0.45164424789337476,
+          "negative_calls": 0,
+          "iv_unavailable": 2
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.4940021000310616,
+          "negative_calls": 0,
+          "iv_unavailable": 1
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.18973151581424977,
+          "negative_calls": 0,
+          "iv_unavailable": 2
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 512,
+          "median_se_in_quote_scales": 0.44998184651550743,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 1024,
+          "median_se_in_quote_scales": 0.4506740052417519,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.35970168187130536,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.23809744549627712,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 512,
+          "median_se_in_quote_scales": 0.7656921082603318,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 1024,
+          "median_se_in_quote_scales": 0.6245617344364198,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.2928726398946193,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.1617816268456962,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        }
+      ]
+    },
+    {
+      "candidate": "baseline",
+      "prices_and_SE_replay": true,
+      "parity_and_forward_replay": true,
+      "market_conversion_replay": true,
+      "both_objectives_replay": true,
+      "uniform_precision": [
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 512,
+          "median_se_in_quote_scales": 7.769742088071439,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 1024,
+          "median_se_in_quote_scales": 5.522078144029021,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 2048,
+          "median_se_in_quote_scales": 4.117291112683086,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 29,
+          "paths": 4096,
+          "median_se_in_quote_scales": 3.2006946850360896,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 512,
+          "median_se_in_quote_scales": 9.907106104103676,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 1024,
+          "median_se_in_quote_scales": 7.296961509213388,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 2048,
+          "median_se_in_quote_scales": 5.038047795333219,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 57,
+          "paths": 4096,
+          "median_se_in_quote_scales": 3.6596977258591923,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 512,
+          "median_se_in_quote_scales": 13.242804328953557,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 1024,
+          "median_se_in_quote_scales": 9.53236390751997,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 2048,
+          "median_se_in_quote_scales": 6.524459393023726,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 119,
+          "paths": 4096,
+          "median_se_in_quote_scales": 4.495674786510304,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 512,
+          "median_se_in_quote_scales": 14.236423711135364,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 1024,
+          "median_se_in_quote_scales": 10.087023509406682,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 2048,
+          "median_se_in_quote_scales": 7.313116022372119,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 211,
+          "paths": 4096,
+          "median_se_in_quote_scales": 5.2474906196001045,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 512,
+          "median_se_in_quote_scales": 15.467777504445088,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 1024,
+          "median_se_in_quote_scales": 11.304048454069651,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 2048,
+          "median_se_in_quote_scales": 46.030223716092124,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 302,
+          "paths": 4096,
+          "median_se_in_quote_scales": 23.279432205438447,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 512,
+          "median_se_in_quote_scales": 6.208735810837313,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 1024,
+          "median_se_in_quote_scales": 4.385157225797484,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 2048,
+          "median_se_in_quote_scales": 3.0630107438290786,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 666,
+          "paths": 4096,
+          "median_se_in_quote_scales": 2.205443878521921,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 512,
+          "median_se_in_quote_scales": 3.869497813981045,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 1024,
+          "median_se_in_quote_scales": 2.638766964981359,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 2048,
+          "median_se_in_quote_scales": 1.8190998726926686,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "SPX",
+          "days": 1030,
+          "paths": 4096,
+          "median_se_in_quote_scales": 1.2546172324691809,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 512,
+          "median_se_in_quote_scales": 1.0539264172347849,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 1024,
+          "median_se_in_quote_scales": 1.0424472647275929,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.7668668590569089,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 27,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.42364816137303435,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 512,
+          "median_se_in_quote_scales": 1.1202794314459354,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 1024,
+          "median_se_in_quote_scales": 0.8487542296639574,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.8312212378143227,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 55,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.31543348577562447,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 512,
+          "median_se_in_quote_scales": 1.1835870016941425,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 1024,
+          "median_se_in_quote_scales": 0.8444631279908933,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.6353682606183015,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 118,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.38309634012126037,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 512,
+          "median_se_in_quote_scales": 1.3126172432096967,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 1024,
+          "median_se_in_quote_scales": 1.0298464929025355,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 2048,
+          "median_se_in_quote_scales": 0.5248429556751875,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        },
+        {
+          "instrument": "VIX",
+          "days": 153,
+          "paths": 4096,
+          "median_se_in_quote_scales": 0.21715707869646883,
+          "negative_calls": 0,
+          "iv_unavailable": 0
+        }
+      ]
+    }
+  ],
+  "tails": [
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 29,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 43
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 57,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 38
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 119,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 23
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 211,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 16
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 302,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 10
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 666,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 33
+    },
+    {
+      "candidate": "selected",
+      "instrument": "SPX",
+      "days": 1030,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 221
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 27,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 270
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 55,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 136
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 118,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 125
+    },
+    {
+      "candidate": "selected",
+      "instrument": "VIX",
+      "days": 153,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 107
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 29,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 84
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 57,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 67
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 119,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 52
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 211,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 35
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 302,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 24
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 666,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 47
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "SPX",
+      "days": 1030,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 163
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 27,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 368
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 55,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 207
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 118,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 204
+    },
+    {
+      "candidate": "baseline",
+      "instrument": "VIX",
+      "days": 153,
+      "zero_hit_contracts": 0,
+      "minimum_hits": 191
+    }
+  ],
+  "limitations": [
+    "Sampling SE excludes independent-pilot uncertainty and numerical bias.",
+    "One fresh ensemble; no parameter re-estimation or population-convergence proof.",
+    "Common canonical-call objective changes VIX put residuals when model and market forwards differ."
+  ]
+}

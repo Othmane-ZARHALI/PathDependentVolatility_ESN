@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "parent": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_mixed_response_001",
+  "input_sha256": {
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_mixed_response_001/fresh_check/prices_otm_additive_price.csv": "02bbd551b52ed39ec7081980ec08b66ae5a535eec77df776fa399c8d7eebdf27",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_mixed_response_001/fresh_check/prices_canonical_additive_price.csv": "a73a7b40b55e4993fdeaf516f8c8f3fca5e2cc7aa6617c448e90b5f43ab0119d",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_mixed_response_001/fresh_check/forwards_additive_price.csv": "df4f8529ff83bd060ecc6bc9412e73aa9cc12abdd409f5620fe311575f8719dc",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/diagnose_mixed_left_end.py": "e534327e0a0fd5106d6366245543f8c5bdced31a9463d5399d2ed20f255a71ca"
+  },
+  "identity": "C_model-C_market = P_model-P_market + F_model-F_market, undiscounted prices",
+  "all_put_quotes": 47,
+  "maximum_parity_decomposition_error": 6.394884621840902e-14,
+  "lowest_strikes": [
+    {
+      "day": 27,
+      "strike": 15.5,
+      "K_over_F": 0.7711442786069651,
+      "market_put": 0.0911958410682875,
+      "model_put": 0.2628212978114694,
+      "put_SE": 0.004578135388198,
+      "native_put_error": 0.17162545674318191,
+      "forward_error": 0.2888876173183803,
+      "canonical_call_error": 0.4605130740615708,
+      "parity_decomposition_error": 8.604228440844963e-15,
+      "market_native_put_IV": 63.99275052588759,
+      "model_native_put_IV_model_forward": 87.73860006392746,
+      "model_canonical_call_IV_market_forward": 109.53613201322045
+    },
+    {
+      "day": 55,
+      "strike": 14.5,
+      "K_over_F": 0.6994693680656053,
+      "market_put": 0.0494958350685777,
+      "model_put": 0.2844802993259215,
+      "put_SE": 0.0031215816630314,
+      "native_put_error": 0.23498446425734382,
+      "forward_error": 0.17637080542807837,
+      "canonical_call_error": 0.41135526968543434,
+      "parity_decomposition_error": 1.2156942119645464e-14,
+      "market_native_put_IV": 51.25544278016412,
+      "model_native_put_IV_model_forward": 77.69314018537588,
+      "model_canonical_call_IV_market_forward": 88.88881001119634
+    },
+    {
+      "day": 118,
+      "strike": 12.5,
+      "K_over_F": 0.5899008966493628,
+      "market_put": 0.0430155132807416,
+      "model_put": 0.0290835218150948,
+      "put_SE": 0.0007860576142895,
+      "native_put_error": -0.013931991465646804,
+      "forward_error": 0.4675351636576117,
+      "canonical_call_error": 0.45360317219190094,
+      "parity_decomposition_error": -6.394884621840902e-14,
+      "market_native_put_IV": 47.7128972664332,
+      "model_native_put_IV_model_forward": 46.37324342428007,
+      "model_canonical_call_IV_market_forward": 82.87991115701661
+    },
+    {
+      "day": 153,
+      "strike": 12.5,
+      "K_over_F": 0.5755064456721914,
+      "market_put": 0.0450126949292537,
+      "model_put": 0.0162835793524201,
+      "put_SE": 0.0006829650785776,
+      "native_put_error": -0.0287291155768336,
+      "forward_error": 0.8855074106286303,
+      "canonical_call_error": 0.8567782950518161,
+      "parity_decomposition_error": 1.942890293094024e-14,
+      "market_native_put_IV": 43.77680043538107,
+      "model_native_put_IV_model_forward": 39.95961614687974,
+      "model_canonical_call_IV_market_forward": 91.63161571301536
+    }
+  ],
+  "interpretation": "Long-dated lowest-strike puts are underpriced despite a high plotted call IV; shorter lowest puts are overpriced. Enforce forward targets before diagnosing all displayed left ends as excessive lower tails.",
+  "limitations": [
+    "Same archived market targets and saved finite-sample prices.",
+    "Diagnostic identities and IV conventions do not produce new consistent model prices.",
+    "Lowest-strike conclusions do not characterize every low-strike quote.",
+    "No new calibration, floor change, model adoption or SPX computation."
+  ]
+}

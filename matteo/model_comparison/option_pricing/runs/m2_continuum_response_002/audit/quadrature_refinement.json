@@ -1,0 +1,50 @@
+[
+  {
+    "day": 27,
+    "probe_count": 3,
+    "max_VIX_difference": 1.7728220029766817e-06,
+    "ids": [
+      6527,
+      13407,
+      13747
+    ],
+    "coarse": "u33/measure24/GH32/time8",
+    "fine": "u65/measure48/GH48/time16"
+  },
+  {
+    "day": 55,
+    "probe_count": 3,
+    "max_VIX_difference": 3.456615445429634e-06,
+    "ids": [
+      7535,
+      10926,
+      15528
+    ],
+    "coarse": "u33/measure24/GH32/time8",
+    "fine": "u65/measure48/GH48/time16"
+  },
+  {
+    "day": 118,
+    "probe_count": 3,
+    "max_VIX_difference": 3.3984466085712484e-06,
+    "ids": [
+      6378,
+      12464,
+      13844
+    ],
+    "coarse": "u33/measure24/GH32/time8",
+    "fine": "u65/measure48/GH48/time16"
+  },
+  {
+    "day": 153,
+    "probe_count": 3,
+    "max_VIX_difference": 2.398836841166485e-06,
+    "ids": [
+      3028,
+      5406,
+      11100
+    ],
+    "coarse": "u33/measure24/GH32/time8",
+    "fine": "u65/measure48/GH48/time16"
+  }
+]

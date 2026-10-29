@@ -1,0 +1,10 @@
+{
+  "from_run": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_continuum_response_001",
+  "sha256": {
+    "matteo/model_comparison/option_pricing/runs/m2_continuum_response_001/training_power_tables/d27.npz": "14ea25e615406dd422063b965e05c8ad031f00d45334580554ce2e50ce9df54e",
+    "matteo/model_comparison/option_pricing/runs/m2_continuum_response_001/training_power_tables/d55.npz": "11f8729dfaaafd4a61615ae494d5a911bb07896c676215328d36741b155c3833",
+    "matteo/model_comparison/option_pricing/runs/m2_continuum_response_001/training_power_tables/d118.npz": "4c237f4b48d1c254c23a9d63af8f2f6c49d4275e9ae7609f5c3c569dda7a620f",
+    "matteo/model_comparison/option_pricing/runs/m2_continuum_response_001/training_power_tables/d153.npz": "4d404f40e332378c3bd4a89401578d1d130d904f53a38bf453bf63eafb1b3631"
+  },
+  "note": "Same powers, frozen readout, time/Gaussian rules and exact training draws; prior run stopped at overly strict 1e-11 Beta-moment assertion. Observed error 1.18e-11; tolerance now1e-9. No model or integrator change."
+}

@@ -1,0 +1,10 @@
+{
+  "source_sha256": {
+    "audit_parity_adaptive.py": "f5840b9572fefcc388758e7a194882f6e843cec5b58df8036df16a375ec78130",
+    "plot_parity_adaptive.py": "f075ce481cf7b3347e59442ac7e810c494c7b3f7f23f77a101e6cd6b19a61016",
+    "summarize_parity_uniform.py": "dc1c089efaa4a02f4d1eb1ed11958cfaac376f9fdab216fafdaa4ab8a32be07c",
+    "check_parity_uniform_uncertainty.py": "35d7c2f220d8661e30a5dbcbd4f6ac86c4b7630e8759611b08f92600a0e3e98e",
+    "resume_parity_adaptive_cache.py": "961db5706857fd205f77c04eeaa4639ab8106503460c2896ec885133722d3d89"
+  },
+  "note": "Postprocessing and resume helpers; price-generation sources retain their original run snapshots."
+}

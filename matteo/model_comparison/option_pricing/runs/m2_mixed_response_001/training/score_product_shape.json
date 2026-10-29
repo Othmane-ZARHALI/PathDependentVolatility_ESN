@@ -1,0 +1,148 @@
+{
+  "name": "product_shape",
+  "family": "product",
+  "parameters": [
+    0.002640019568838754,
+    0.04577418984919105,
+    0.12247477611043965,
+    0.051406816410183485,
+    0.19999999999999998,
+    0.057050558649135635,
+    0.06562009218325585,
+    6.071868187547398e-17,
+    0.875830260138435,
+    0.11875083315201268,
+    5.899897323625576
+  ],
+  "response": {
+    "b1": 6.071868187547398e-17,
+    "b2": 4.379151300692175,
+    "weight": 0.11875083315201268,
+    "half_life_days": 364.9999890657261
+  },
+  "loss": 17.555461359782868,
+  "inside_bidask": 21,
+  "negative_prices": 0,
+  "shape": {
+    "rows": [
+      {
+        "days": 27,
+        "unavailable": 0,
+        "ATM_quotes": 17,
+        "ATM_available": 17,
+        "ATM_MAE": 27.02880004238612,
+        "ATM_IV_level": 128.68900380214492,
+        "ATM_slope": 35.8326173102894,
+        "ATM_curvature": 80.04750888438052,
+        "wing_quotes": 14,
+        "wing_available": 14,
+        "wing_MAE": 45.84433760986968,
+        "wing_IV_level": 168.35271159050126,
+        "wing_slope": 24.004138314909316,
+        "wing_curvature": -20.23148099386228
+      },
+      {
+        "days": 55,
+        "unavailable": 0,
+        "ATM_quotes": 17,
+        "ATM_available": 17,
+        "ATM_MAE": 21.292364320048776,
+        "ATM_IV_level": 111.14530307607704,
+        "ATM_slope": 44.9177947041313,
+        "ATM_curvature": -18.693213963283803,
+        "wing_quotes": 21,
+        "wing_available": 21,
+        "wing_MAE": 22.92696796901025,
+        "wing_IV_level": 158.22406980949737,
+        "wing_slope": 25.127007375441693,
+        "wing_curvature": -14.606466706792197
+      },
+      {
+        "days": 118,
+        "unavailable": 0,
+        "ATM_quotes": 8,
+        "ATM_available": 8,
+        "ATM_MAE": 7.034837103704843,
+        "ATM_IV_level": 80.9908588346626,
+        "ATM_slope": 22.7984435571868,
+        "ATM_curvature": -6.3493088432498785,
+        "wing_quotes": 24,
+        "wing_available": 24,
+        "wing_MAE": 19.683742835425505,
+        "wing_IV_level": 116.8866669736757,
+        "wing_slope": 21.9508818953322,
+        "wing_curvature": -6.237436682985631
+      },
+      {
+        "days": 153,
+        "unavailable": 0,
+        "ATM_quotes": 9,
+        "ATM_available": 9,
+        "ATM_MAE": 5.055675334608911,
+        "ATM_IV_level": 72.3183132323827,
+        "ATM_slope": 10.60207381315253,
+        "ATM_curvature": 66.1295199615986,
+        "wing_quotes": 23,
+        "wing_available": 23,
+        "wing_MAE": 21.355450662723822,
+        "wing_IV_level": 100.43961537093347,
+        "wing_slope": 20.630153893940903,
+        "wing_curvature": 1.1919462602913224
+      }
+    ],
+    "ATM_MAE": 15.102919200187165,
+    "wing_MAE": 27.452624769257316,
+    "wing_complete": true
+  },
+  "shape_score": 0.10477541069688158,
+  "moments": [
+    {
+      "day": 27,
+      "exact_second_moment": 480.1195091458414,
+      "sample_second_moment": 481.02313299263693,
+      "second_moment_se": 4.252268696961834,
+      "mass": 0.9702097336052764,
+      "max_VIX": 4049.9788166553676,
+      "last_strike": 100.0,
+      "last_strike_raw_call": 0.0036393475840852474,
+      "last_strike_payoff_ESS": 283.62202147154665,
+      "last_strike_top10_fraction": 0.07601514206819986
+    },
+    {
+      "day": 55,
+      "exact_second_moment": 561.4468039020056,
+      "sample_second_moment": 553.6523265044202,
+      "second_moment_se": 5.414370009427514,
+      "mass": 1.0378725298173697,
+      "max_VIX": 142330.73546005727,
+      "last_strike": 170.0,
+      "last_strike_raw_call": 0.00937263915279279,
+      "last_strike_payoff_ESS": 348.4254960208215,
+      "last_strike_top10_fraction": 0.07720303084141966
+    },
+    {
+      "day": 118,
+      "exact_second_moment": 618.1554002749776,
+      "sample_second_moment": 613.9428558831492,
+      "second_moment_se": 4.61145647363795,
+      "mass": 1.031593513703693,
+      "max_VIX": 290611.22489585856,
+      "last_strike": 200.0,
+      "last_strike_raw_call": 0.018645205890404932,
+      "last_strike_payoff_ESS": 633.35101977822,
+      "last_strike_top10_fraction": 0.03889270201262802
+    },
+    {
+      "day": 153,
+      "exact_second_moment": 656.2009218325588,
+      "sample_second_moment": 663.1267042520085,
+      "second_moment_se": 4.992396322611935,
+      "mass": 0.9921247651868086,
+      "max_VIX": 2838755.789602839,
+      "last_strike": 200.0,
+      "last_strike_raw_call": 0.019990245134367875,
+      "last_strike_payoff_ESS": 589.4646143135752,
+      "last_strike_top10_fraction": 0.043289910385804105
+    }
+  ]
+}

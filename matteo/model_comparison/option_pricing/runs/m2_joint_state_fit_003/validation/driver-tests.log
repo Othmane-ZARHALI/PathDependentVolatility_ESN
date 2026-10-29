@@ -1,0 +1,18 @@
+.....................level=1 role=0 trial=0 pairs=8/16
+level=1 role=0 trial=0 pairs=16/16
+level=1 role=1 trial=0 pairs=8/16
+level=1 role=1 trial=0 pairs=16/16
+.......role=0 trial=0 paths=8/16
+role=0 trial=0 paths=16/16
+.role=0 trial=0 paths=8/16
+role=0 trial=0 paths=16/16
+.role=2 trial=0 level=0 direct=False paths=20000/20000
+role=2 trial=0 level=1 direct=False paths=128/128
+role=3 trial=0 level=1 direct=True paths=128/128
+.....vol7 role=0 trial=0 paths=8/8
+vol7 role=2 trial=0 paths=8/8
+....................
+----------------------------------------------------------------------
+Ran 55 tests in 5.306s
+
+OK

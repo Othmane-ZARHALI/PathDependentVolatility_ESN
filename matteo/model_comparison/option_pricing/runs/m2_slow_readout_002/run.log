@@ -1,0 +1,38 @@
+DESIGN [7 6 5] [ 3.32912529  9.48146822 27.00356159]
+SLOW VIX training_exposures 27 seconds 3.18
+SLOW VIX training_exposures 55 seconds 2.87
+SLOW VIX training_exposures 118 seconds 2.78
+SLOW VIX training_exposures 153 seconds 2.71
+SLOW FIT 0 0.048733781005611175 3.552713678800501e-15
+SLOW FIT 1 0.07334365330984495 3.552713678800501e-15
+SLOW FIT 2 0.1746369186934992 1.6342482922482304e-13
+SLOW FIT 3 0.11132794306687337 3.632649736573512e-11
+SLOW FIT 4 0.3579007368994973 2.1678658868040657e-11
+SLOW FIT 5 0.14795951608463176 1.787547887488472e-10
+SLOW FIT 6 0.5409320841761562 1.545430450278218e-12
+SLOW STOCK 0 seconds 6.11
+SLOW STOCK 1 seconds 5.9
+SLOW STOCK 2 seconds 5.87
+SLOW STOCK 3 seconds 5.83
+SLOW STOCK 4 seconds 5.85
+SLOW STOCK 5 seconds 6.46
+SLOW STOCK 6 seconds 5.16
+SLOW STOCK 7 seconds 5.06
+SPX SPX {'candidate': 0, 'alpha': 0.0, 'steps': 128, 'loss': 1781.879602865875, 'IV_MAE_pp': 3.102248909405545, 'inside': 22, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 1.9972967877343142}
+SPX SPX {'candidate': 1, 'alpha': 0.125, 'steps': 128, 'loss': 1744.090349255695, 'IV_MAE_pp': 3.0632895965971794, 'inside': 24, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.1228032813427475}
+SPX SPX {'candidate': 2, 'alpha': 0.25, 'steps': 128, 'loss': 1711.0387701536686, 'IV_MAE_pp': 3.0274639904131506, 'inside': 25, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.2504008297447626}
+SPX SPX {'candidate': 3, 'alpha': 0.125, 'steps': 128, 'loss': 1730.0122356096258, 'IV_MAE_pp': 3.05511358964386, 'inside': 25, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.1141622976553243}
+SPX SPX {'candidate': 4, 'alpha': 0.25, 'steps': 128, 'loss': 1684.502404973047, 'IV_MAE_pp': 3.0109579478905806, 'inside': 28, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.2324606185069444}
+SPX SPX {'candidate': 5, 'alpha': 0.125, 'steps': 128, 'loss': 1726.413759333147, 'IV_MAE_pp': 3.0582019806860976, 'inside': 25, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.1012987029508543}
+SPX SPX {'candidate': 6, 'alpha': 0.25, 'steps': 128, 'loss': 1678.7594982692258, 'IV_MAE_pp': 3.0153078605089094, 'inside': 28, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.231698737801998}
+SPX SPX {'candidate': 7, 'alpha': 0.125, 'steps': 128, 'loss': 1743.541528016164, 'IV_MAE_pp': 3.062481252735162, 'inside': 24, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.1112988159816375}
+SPX SPX {'candidate': 8, 'alpha': 0.25, 'steps': 128, 'loss': 1682.4192021086358, 'IV_MAE_pp': 3.0089965716694222, 'inside': 23, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.2584254219970092}
+SPX SPX {'candidate': 9, 'alpha': 0.125, 'steps': 128, 'loss': 1722.7221901014098, 'IV_MAE_pp': 3.0501366119202875, 'inside': 25, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.095834316583891}
+SPX SPX {'candidate': 10, 'alpha': 0.25, 'steps': 128, 'loss': 1650.2993285906948, 'IV_MAE_pp': 2.986663619883567, 'inside': 27, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.2264742774132316}
+SPX SPX {'candidate': 11, 'alpha': 0.125, 'steps': 128, 'loss': 1725.087016295191, 'IV_MAE_pp': 3.0570307137955544, 'inside': 25, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.0916124730747914}
+SPX SPX {'candidate': 12, 'alpha': 0.25, 'steps': 128, 'loss': 1674.4138537239837, 'IV_MAE_pp': 3.008814404777913, 'inside': 28, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.2205971792283865}
+SLOW VIX checking_exposures 27 seconds 19.43
+SLOW VIX checking_exposures 55 seconds 17.09
+SLOW VIX checking_exposures 118 seconds 31.36
+SLOW VIX checking_exposures 153 seconds 31.38
+SLOW COMPLETE

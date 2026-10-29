@@ -1,0 +1,593 @@
+[
+  {
+    "name": "previous_mixture",
+    "parameters": [
+      0.0011255028083235275,
+      0.20649767549872913,
+      0.9999999898223167,
+      0.2981204351008781,
+      0.9999999999999077,
+      0.32434964051045684,
+      0.3580306027238734,
+      0.9999999594472092,
+      0.9957388791524378,
+      0.31953903551536816,
+      0.019727575923721645
+    ],
+    "model": {
+      "b": 4.999999797236046,
+      "weight": 0.9957388791524378,
+      "half_life_days": 6.587984832386192,
+      "floor_variance": 0.0026400000000000004,
+      "floor_volatility": 0.05138093031466052,
+      "active_levels": [
+        0.002862129234250732,
+        0.043394381236429184,
+        0.19999999799133245,
+        0.061477049071509304,
+        0.1999999999999818,
+        0.06665364505114377,
+        0.07330091975358366
+      ]
+    },
+    "loss": 10.265338462305202,
+    "option_loss": 9.146246141382262,
+    "inside_bidask": 49,
+    "negative_native_prices": 0,
+    "maximum_forward_error": 0.9001191240511304,
+    "forward_errors": [
+      0.2565252289778357,
+      0.15252370415838712,
+      0.4688381490536351,
+      0.9001191240511304
+    ],
+    "forward_SEs": [
+      0.01373950139210427,
+      0.017355966378604995,
+      0.019416814092280087,
+      0.014862050392240119
+    ],
+    "shape": {
+      "rows": [
+        {
+          "days": 27,
+          "unavailable": 0,
+          "ATM_quotes": 17,
+          "ATM_available": 17,
+          "ATM_MAE": 17.311128712282944,
+          "ATM_IV_level": 118.97133247204174,
+          "ATM_slope": 68.79299956590297,
+          "ATM_curvature": 157.53045584632585,
+          "wing_quotes": 14,
+          "wing_available": 14,
+          "wing_MAE": 6.366015454048246,
+          "wing_IV_level": 217.1412850637643,
+          "wing_slope": 76.04601305894667,
+          "wing_curvature": -18.936780394332192
+        },
+        {
+          "days": 55,
+          "unavailable": 0,
+          "ATM_quotes": 17,
+          "ATM_available": 17,
+          "ATM_MAE": 11.903918140649296,
+          "ATM_IV_level": 101.75685689667756,
+          "ATM_slope": 54.97718852121633,
+          "ATM_curvature": 53.73311708007367,
+          "wing_quotes": 21,
+          "wing_available": 21,
+          "wing_MAE": 7.215444448456721,
+          "wing_IV_level": 185.0042929694055,
+          "wing_slope": 56.283433243094045,
+          "wing_curvature": -10.153469373216968
+        },
+        {
+          "days": 118,
+          "unavailable": 0,
+          "ATM_quotes": 8,
+          "ATM_available": 8,
+          "ATM_MAE": 3.8344518586350365,
+          "ATM_IV_level": 72.42964723464867,
+          "ATM_slope": 27.735453644747796,
+          "ATM_curvature": 69.3870538349099,
+          "wing_quotes": 24,
+          "wing_available": 24,
+          "wing_MAE": 9.866853406823228,
+          "wing_IV_level": 126.70355640227798,
+          "wing_slope": 35.51815488053955,
+          "wing_curvature": -5.647049798649316
+        },
+        {
+          "days": 153,
+          "unavailable": 0,
+          "ATM_quotes": 9,
+          "ATM_available": 9,
+          "ATM_MAE": 4.427630003222538,
+          "ATM_IV_level": 67.98604928594249,
+          "ATM_slope": 11.331702455528092,
+          "ATM_curvature": 107.27227344184007,
+          "wing_quotes": 23,
+          "wing_available": 23,
+          "wing_MAE": 10.973466378704694,
+          "wing_IV_level": 110.82159965495259,
+          "wing_slope": 29.30087163808397,
+          "wing_curvature": -4.880419988929387
+        }
+      ],
+      "ATM_MAE": 9.369282178697453,
+      "wing_MAE": 8.605444922008223,
+      "wing_complete": true
+    },
+    "native_IV_unavailable": 0,
+    "put_diagnostics": [
+      {
+        "day": 27,
+        "put_price_MAE": 0.19314863368061017,
+        "put_IV_MAE": 16.842197272560927,
+        "lowest_strike": 15.5
+      },
+      {
+        "day": 55,
+        "put_price_MAE": 0.3095398548998093,
+        "put_IV_MAE": 16.768291723392583,
+        "lowest_strike": 14.5
+      },
+      {
+        "day": 118,
+        "put_price_MAE": 0.15363843161580706,
+        "put_IV_MAE": 3.7054350347503937,
+        "lowest_strike": 12.5
+      },
+      {
+        "day": 153,
+        "put_price_MAE": 0.26512871788745446,
+        "put_IV_MAE": 4.093281929363013,
+        "lowest_strike": 12.5
+      }
+    ],
+    "moments": [
+      {
+        "day": 27,
+        "exact_second_moment": 511.3260555327752,
+        "sample_second_moment": 510.59416364801234,
+        "second_moment_se": 0.5481558943180448,
+        "mass": 1.0009545811724632,
+        "max_VIX": 18636426.783982217,
+        "last_strike": 100.0,
+        "last_strike_raw_call": 0.08301786239874501,
+        "last_strike_payoff_ESS": 3595.4748475320985,
+        "last_strike_top10_fraction": 0.004612411866155345
+      },
+      {
+        "day": 55,
+        "exact_second_moment": 707.1191233283085,
+        "sample_second_moment": 707.0873185596924,
+        "second_moment_se": 0.6547754784596037,
+        "mass": 0.999414383886564,
+        "max_VIX": 126630209.24179348,
+        "last_strike": 170.0,
+        "last_strike_raw_call": 0.11670440622241439,
+        "last_strike_payoff_ESS": 3700.233703052816,
+        "last_strike_top10_fraction": 0.004465695731822884
+      },
+      {
+        "day": 118,
+        "exact_second_moment": 710.9852354943835,
+        "sample_second_moment": 711.0028814268467,
+        "second_moment_se": 0.6755861967545174,
+        "mass": 0.9993729485455649,
+        "max_VIX": 69674709.01769833,
+        "last_strike": 200.0,
+        "last_strike_raw_call": 0.07996364055262074,
+        "last_strike_payoff_ESS": 3444.0962088195233,
+        "last_strike_top10_fraction": 0.004920559743546633
+      },
+      {
+        "day": 153,
+        "exact_second_moment": 733.0091975358371,
+        "sample_second_moment": 732.4374173434876,
+        "second_moment_se": 0.5279310369903386,
+        "mass": 0.9997055057962403,
+        "max_VIX": 76964066.07089613,
+        "last_strike": 200.0,
+        "last_strike_raw_call": 0.07311105527007578,
+        "last_strike_payoff_ESS": 3352.362594364317,
+        "last_strike_top10_fraction": 0.005067665533117998
+      }
+    ]
+  },
+  {
+    "name": "tight_forwards",
+    "parameters": [
+      3.3665432329155177e-19,
+      0.19863027928092822,
+      1.0,
+      0.2941358107140271,
+      0.9999999999999999,
+      0.3112844489344195,
+      0.3309948778577429,
+      1.0,
+      0.9881457477010075,
+      0.32297299964200676,
+      0.019727575923721645
+    ],
+    "model": {
+      "b": 5.0,
+      "weight": 0.9881457477010075,
+      "half_life_days": 6.722818900817085,
+      "floor_variance": 0.0026400000000000004,
+      "floor_volatility": 0.05138093031466052,
+      "active_levels": [
+        0.0026400000000000004,
+        0.041841671918884,
+        0.2,
+        0.0606906436025204,
+        0.19999999999999998,
+        0.06407509884169703,
+        0.06796514909400414
+      ]
+    },
+    "loss": 12.778013253549172,
+    "option_loss": 12.776209513433466,
+    "inside_bidask": 42,
+    "negative_native_prices": 0,
+    "maximum_forward_error": 0.03217910711028793,
+    "forward_errors": [
+      -0.03217910711028793,
+      -0.023506869451342283,
+      0.0018996525359717964,
+      0.014562403308890026
+    ],
+    "forward_SEs": [
+      0.013728516406982095,
+      0.017592616166227544,
+      0.01922707341415414,
+      0.014619975864017013
+    ],
+    "shape": {
+      "rows": [
+        {
+          "days": 27,
+          "unavailable": 0,
+          "ATM_quotes": 17,
+          "ATM_available": 17,
+          "ATM_MAE": 10.778270946150588,
+          "ATM_IV_level": 112.43847470590939,
+          "ATM_slope": 93.19691242502138,
+          "ATM_curvature": 13.35120435695813,
+          "wing_quotes": 14,
+          "wing_available": 14,
+          "wing_MAE": 6.533178632255889,
+          "wing_IV_level": 215.9822856642884,
+          "wing_slope": 76.73019662730472,
+          "wing_curvature": -19.784979215529866
+        },
+        {
+          "days": 55,
+          "unavailable": 0,
+          "ATM_quotes": 17,
+          "ATM_available": 17,
+          "ATM_MAE": 9.854806468585881,
+          "ATM_IV_level": 99.70774522461414,
+          "ATM_slope": 62.80320480840473,
+          "ATM_curvature": 15.368018902272713,
+          "wing_quotes": 21,
+          "wing_available": 21,
+          "wing_MAE": 7.221967891054161,
+          "wing_IV_level": 184.84835657549496,
+          "wing_slope": 56.400982789666266,
+          "wing_curvature": -10.380883260602243
+        },
+        {
+          "days": 118,
+          "unavailable": 0,
+          "ATM_quotes": 8,
+          "ATM_available": 8,
+          "ATM_MAE": 6.110534782380624,
+          "ATM_IV_level": 67.84548694857713,
+          "ATM_slope": 41.56395479876467,
+          "ATM_curvature": 5.543375324850195,
+          "wing_quotes": 24,
+          "wing_available": 24,
+          "wing_MAE": 10.56177679915959,
+          "wing_IV_level": 126.00863300994162,
+          "wing_slope": 35.95616253133812,
+          "wing_curvature": -6.214453445321147
+        },
+        {
+          "days": 153,
+          "unavailable": 0,
+          "ATM_quotes": 9,
+          "ATM_available": 9,
+          "ATM_MAE": 8.477631951172487,
+          "ATM_IV_level": 59.61827670962023,
+          "ATM_slope": 34.82682710401732,
+          "ATM_curvature": 7.525235117014067,
+          "wing_quotes": 23,
+          "wing_available": 23,
+          "wing_MAE": 12.502970076983829,
+          "wing_IV_level": 109.29209595667346,
+          "wing_slope": 30.007008583426977,
+          "wing_curvature": -5.935668980700708
+        }
+      ],
+      "ATM_MAE": 8.805311037072396,
+      "wing_MAE": 9.204973349863367,
+      "wing_complete": true
+    },
+    "native_IV_unavailable": 0,
+    "put_diagnostics": [
+      {
+        "day": 27,
+        "put_price_MAE": 0.30163339563999775,
+        "put_IV_MAE": 18.619571190352094,
+        "lowest_strike": 15.5
+      },
+      {
+        "day": 55,
+        "put_price_MAE": 0.3878356621454283,
+        "put_IV_MAE": 18.183936837052034,
+        "lowest_strike": 14.5
+      },
+      {
+        "day": 118,
+        "put_price_MAE": 0.09900733309037323,
+        "put_IV_MAE": 3.806165484155684,
+        "lowest_strike": 12.5
+      },
+      {
+        "day": 153,
+        "put_price_MAE": 0.13438238737990954,
+        "put_IV_MAE": 3.6855376953402312,
+        "lowest_strike": 12.5
+      }
+    ],
+    "moments": [
+      {
+        "day": 27,
+        "exact_second_moment": 497.7211566303281,
+        "sample_second_moment": 497.000878797406,
+        "second_moment_se": 0.5317253008251241,
+        "mass": 1.0009545811724632,
+        "max_VIX": 14647942.248010196,
+        "last_strike": 100.0,
+        "last_strike_raw_call": 0.08056590951140799,
+        "last_strike_payoff_ESS": 3585.776852721122,
+        "last_strike_top10_fraction": 0.004620649541557459
+      },
+      {
+        "day": 55,
+        "exact_second_moment": 699.7793402901905,
+        "sample_second_moment": 699.7598161398109,
+        "second_moment_se": 0.6626069717888297,
+        "mass": 0.999414383886564,
+        "max_VIX": 127379515.40294625,
+        "last_strike": 170.0,
+        "last_strike_raw_call": 0.11627842263990483,
+        "last_strike_payoff_ESS": 3699.861998820847,
+        "last_strike_top10_fraction": 0.00446521331849065
+      },
+      {
+        "day": 118,
+        "exact_second_moment": 686.059288803071,
+        "sample_second_moment": 686.072595999916,
+        "second_moment_se": 0.6386682654337004,
+        "mass": 0.9993729485455649,
+        "max_VIX": 69922866.69238654,
+        "last_strike": 200.0,
+        "last_strike_raw_call": 0.07788527215465003,
+        "last_strike_payoff_ESS": 3434.4838204185485,
+        "last_strike_top10_fraction": 0.004933562487263302
+      },
+      {
+        "day": 153,
+        "exact_second_moment": 679.6514909400419,
+        "sample_second_moment": 679.1270609494063,
+        "second_moment_se": 0.48969088170965186,
+        "mass": 0.9997055057962403,
+        "max_VIX": 74469071.12134449,
+        "last_strike": 200.0,
+        "last_strike_raw_call": 0.06733775940476586,
+        "last_strike_payoff_ESS": 3318.671644685907,
+        "last_strike_top10_fraction": 0.0051144451972992624
+      }
+    ]
+  },
+  {
+    "name": "tight_forwards_free_floor",
+    "parameters": [
+      2.3639488798024473e-18,
+      0.17855703269646714,
+      0.28345509884355363,
+      0.22203239042879414,
+      1.0,
+      0.2706922032972089,
+      0.3243810069808798,
+      0.6342097204708091,
+      0.6615015927020864,
+      0.7875484944416508,
+      0.9999999999999998
+    ],
+    "model": {
+      "b": 3.1710486023540456,
+      "weight": 0.6615015927020864,
+      "half_life_days": 104.21491717834401,
+      "floor_variance": 0.0144,
+      "floor_volatility": 0.12,
+      "active_levels": [
+        0.0144,
+        0.047540185268464305,
+        0.06700926634536356,
+        0.05560921166358419,
+        0.2,
+        0.06464047293196197,
+        0.07460511489565129
+      ]
+    },
+    "loss": 1.7829622437158068,
+    "option_loss": 1.7814890578622142,
+    "inside_bidask": 84,
+    "negative_native_prices": 5,
+    "maximum_forward_error": 0.02694163805679395,
+    "forward_errors": [
+      -0.02445189140798476,
+      -0.008447340118717506,
+      0.02694163805679395,
+      -0.008836370516227987
+    ],
+    "forward_SEs": [
+      0.013306943975790311,
+      0.017451794776309308,
+      0.021169395229891246,
+      0.013959456149274924
+    ],
+    "shape": {
+      "rows": [
+        {
+          "days": 27,
+          "unavailable": 0,
+          "ATM_quotes": 17,
+          "ATM_available": 17,
+          "ATM_MAE": 8.72588835030657,
+          "ATM_IV_level": 110.38609211006536,
+          "ATM_slope": 112.2111484538184,
+          "ATM_curvature": -134.34178282999272,
+          "wing_quotes": 14,
+          "wing_available": 14,
+          "wing_MAE": 22.763617750036136,
+          "wing_IV_level": 191.4334314503349,
+          "wing_slope": 43.6149524096289,
+          "wing_curvature": -29.014272321401695
+        },
+        {
+          "days": 55,
+          "unavailable": 0,
+          "ATM_quotes": 17,
+          "ATM_available": 17,
+          "ATM_MAE": 5.239789108983044,
+          "ATM_IV_level": 95.09272786501133,
+          "ATM_slope": 93.50532518917649,
+          "ATM_curvature": -93.14968141171914,
+          "wing_quotes": 21,
+          "wing_available": 21,
+          "wing_MAE": 8.465057961153336,
+          "wing_IV_level": 172.68597981735428,
+          "wing_slope": 35.91860393560102,
+          "wing_curvature": -20.95211509632917
+        },
+        {
+          "days": 118,
+          "unavailable": 0,
+          "ATM_quotes": 8,
+          "ATM_available": 8,
+          "ATM_MAE": 2.523305925297942,
+          "ATM_IV_level": 71.43271580565981,
+          "ATM_slope": 69.72040766767596,
+          "ATM_curvature": -63.07318318254339,
+          "wing_quotes": 24,
+          "wing_available": 24,
+          "wing_MAE": 1.2551147172562207,
+          "wing_IV_level": 136.06323133251593,
+          "wing_slope": 29.613157234496445,
+          "wing_curvature": -15.150313974165373
+        },
+        {
+          "days": 153,
+          "unavailable": 4,
+          "ATM_quotes": 9,
+          "ATM_available": 9,
+          "ATM_MAE": 5.973954982660052,
+          "ATM_IV_level": 62.12195367813266,
+          "ATM_slope": 61.92035196511409,
+          "ATM_curvature": -49.25973459696456,
+          "wing_quotes": 23,
+          "wing_available": 23,
+          "wing_MAE": 1.2968533269251674,
+          "wing_IV_level": 121.69121191906858,
+          "wing_slope": 27.733634762659047,
+          "wing_curvature": -14.148259938745738
+        }
+      ],
+      "ATM_MAE": 5.615734591811902,
+      "wing_MAE": 8.445160938842715,
+      "wing_complete": true
+    },
+    "native_IV_unavailable": 5,
+    "put_diagnostics": [
+      {
+        "day": 27,
+        "put_price_MAE": 0.21245216926453542,
+        "put_IV_MAE": 12.706054727917886,
+        "lowest_strike": 15.5
+      },
+      {
+        "day": 55,
+        "put_price_MAE": 0.1281133308199471,
+        "put_IV_MAE": 5.278620284557233,
+        "lowest_strike": 14.5
+      },
+      {
+        "day": 118,
+        "put_price_MAE": 0.11839593863371538,
+        "put_IV_MAE": 6.6216627207619165,
+        "lowest_strike": 12.5
+      },
+      {
+        "day": 153,
+        "put_price_MAE": 0.19306311361756057,
+        "put_IV_MAE": 10.472215588202893,
+        "lowest_strike": 12.5
+      }
+    ],
+    "moments": [
+      {
+        "day": 27,
+        "exact_second_moment": 466.28778322359966,
+        "sample_second_moment": 465.3786139158037,
+        "second_moment_se": 0.5129881839690578,
+        "mass": 1.0009545811724632,
+        "max_VIX": 18016.319391845074,
+        "last_strike": 100.0,
+        "last_strike_raw_call": 0.016474324345222214,
+        "last_strike_payoff_ESS": 2905.429768915996,
+        "last_strike_top10_fraction": 0.005747166578131613
+      },
+      {
+        "day": 55,
+        "exact_second_moment": 563.6921530903614,
+        "sample_second_moment": 563.7134530286728,
+        "second_moment_se": 0.8431243761148702,
+        "mass": 0.999414383886564,
+        "max_VIX": 103761.77312822794,
+        "last_strike": 170.0,
+        "last_strike_raw_call": 0.034103033447017476,
+        "last_strike_payoff_ESS": 2957.6542444917136,
+        "last_strike_top10_fraction": 0.005613032475205104
+      },
+      {
+        "day": 118,
+        "exact_second_moment": 691.5245716756322,
+        "sample_second_moment": 691.7149970365754,
+        "second_moment_se": 0.7342983037728582,
+        "mass": 0.9993729485455649,
+        "max_VIX": 534899.689922233,
+        "last_strike": 200.0,
+        "last_strike_raw_call": 0.0974570657201983,
+        "last_strike_payoff_ESS": 3206.8123157172095,
+        "last_strike_top10_fraction": 0.005330670225838697
+      },
+      {
+        "day": 153,
+        "exact_second_moment": 746.0511489565134,
+        "sample_second_moment": 746.3887900501516,
+        "second_moment_se": 0.8379291957143608,
+        "mass": 0.9997055057962403,
+        "max_VIX": 1077792.1745313143,
+        "last_strike": 200.0,
+        "last_strike_raw_call": 0.12625691160164523,
+        "last_strike_payoff_ESS": 3276.080099621809,
+        "last_strike_top10_fraction": 0.005155814468484459
+      }
+    ]
+  }
+]

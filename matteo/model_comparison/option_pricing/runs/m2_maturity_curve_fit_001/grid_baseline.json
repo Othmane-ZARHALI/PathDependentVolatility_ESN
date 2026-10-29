@@ -1,0 +1,58 @@
+[
+  {
+    "days": 29,
+    "maximum_step_days": 0.002827140549273889,
+    "left_integrated_variance": 0.0038923256733782493,
+    "exact_integrated_variance": 0.0038923256733782493,
+    "difference": 0.0,
+    "note": "Deterministic curve integration only; not a full stock timestep error bound."
+  },
+  {
+    "days": 57,
+    "maximum_step_days": 0.002827140549281487,
+    "left_integrated_variance": 0.007650433220088287,
+    "exact_integrated_variance": 0.007650433220088286,
+    "difference": 2.6469779601696886e-23,
+    "note": "Deterministic curve integration only; not a full stock timestep error bound."
+  },
+  {
+    "days": 119,
+    "maximum_step_days": 0.0028280998389755563,
+    "left_integrated_variance": 0.01667774805178023,
+    "exact_integrated_variance": 0.016677748051780225,
+    "difference": 0.0,
+    "note": "Deterministic curve integration only; not a full stock timestep error bound."
+  },
+  {
+    "days": 211,
+    "maximum_step_days": 0.002828561980358635,
+    "left_integrated_variance": 0.031365735344901356,
+    "exact_integrated_variance": 0.031365735344901356,
+    "difference": 4.632211430296955e-23,
+    "note": "Deterministic curve integration only; not a full stock timestep error bound."
+  },
+  {
+    "days": 302,
+    "maximum_step_days": 0.0028286152182016577,
+    "left_integrated_variance": 0.04545299597446134,
+    "exact_integrated_variance": 0.04545299597446134,
+    "difference": 0.0,
+    "note": "Deterministic curve integration only; not a full stock timestep error bound."
+  },
+  {
+    "days": 666,
+    "maximum_step_days": 0.0028289310516271815,
+    "left_integrated_variance": 0.09788310994157354,
+    "exact_integrated_variance": 0.09788310994157355,
+    "difference": 5.293955920339377e-23,
+    "note": "Deterministic curve integration only; not a full stock timestep error bound."
+  },
+  {
+    "days": 1030,
+    "maximum_step_days": 0.0028289310516271815,
+    "left_integrated_variance": 0.1503132239086858,
+    "exact_integrated_variance": 0.15031322390868576,
+    "difference": 0.0,
+    "note": "Deterministic curve integration only; not a full stock timestep error bound."
+  }
+]

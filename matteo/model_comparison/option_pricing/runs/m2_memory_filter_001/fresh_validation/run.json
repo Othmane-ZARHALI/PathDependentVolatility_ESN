@@ -1,0 +1,7 @@
+{
+  "status": "complete fresh checking",
+  "stock_paths": 1024,
+  "VIX_terminal_states_per_expiry": 1024,
+  "new_conditional_history_per_terminal": true,
+  "adopted": false
+}

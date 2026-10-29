@@ -1,0 +1,108 @@
+{
+  "status": "implementation_checks_PASS; pricing_precision_separate",
+  "verified_hashes": 121,
+  "independent_Python_conditional_correction_error": 3.920475055707584e-16,
+  "OU_bridge_covariance_errors": [
+    1.0061396160665481e-16,
+    1.1102230246251565e-16
+  ],
+  "OU_bridge_integral_replay_error": 3.469446951953614e-18,
+  "full_horizon_curve_derivative_errors": [
+    2.644104641678092e-10,
+    7.227646255804889e-11,
+    1.6709677420657844e-10,
+    8.497446507993162e-11,
+    8.304808089167825e-11,
+    1.5651059873740454e-10,
+    1.588653823748592e-10,
+    1.0256275681969951e-10,
+    2.7781412912492676e-10,
+    1.9803849193179883e-10,
+    3.1979577967957736e-10,
+    3.657900596251465e-10,
+    3.155636255894502e-10,
+    2.3252748367174298e-10,
+    7.077456092820866e-10,
+    1.9540547322840757e-09
+  ],
+  "stored_scramble_replays": [
+    {
+      "role": "search",
+      "day": 29
+    },
+    {
+      "role": "search",
+      "day": 57
+    },
+    {
+      "role": "search",
+      "day": 119
+    },
+    {
+      "role": "search",
+      "day": 211
+    },
+    {
+      "role": "search",
+      "day": 302
+    },
+    {
+      "role": "search",
+      "day": 666
+    },
+    {
+      "role": "search",
+      "day": 1030
+    },
+    {
+      "role": "check",
+      "day": 29
+    },
+    {
+      "role": "check",
+      "day": 57
+    },
+    {
+      "role": "check",
+      "day": 119
+    },
+    {
+      "role": "check",
+      "day": 211
+    },
+    {
+      "role": "check",
+      "day": 302
+    },
+    {
+      "role": "check",
+      "day": 666
+    },
+    {
+      "role": "check",
+      "day": 1030
+    }
+  ],
+  "finite_law_weighted_control_test": {
+    "mean": [
+      0.00015579448192210517,
+      0.00037862187033596095,
+      -2.59157453134229e-06
+    ],
+    "SE": [
+      0.00030503850151431086,
+      0.0002345697589510972,
+      0.00011266382904749742
+    ],
+    "z_scores": [
+      0.5107371074427995,
+      1.6141120322969489,
+      -0.023002720156526196
+    ]
+  },
+  "limitations": [
+    "Finite-law checks are not universal formal proofs.",
+    "Existing512 expensive paths per expiry remain the limiting expensive sample.",
+    "No optimizer, correlation change or model adoption."
+  ]
+}

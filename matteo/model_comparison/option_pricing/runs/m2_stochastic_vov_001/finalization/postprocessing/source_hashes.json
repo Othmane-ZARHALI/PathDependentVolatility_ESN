@@ -1,0 +1,12 @@
+{
+  "matteo/model_comparison/option_pricing/audit_stochastic_vov.py": "43f0bf17eca6097a0db4f3dd21876ec9939d0fdd1eb21b2d8a3e7f3fc964bc71",
+  "matteo/model_comparison/option_pricing/plot_stochastic_vov.py": "619183754597f7a3de03b83cb04846f6cfdd2347d0843e07c579ae62192ecb23",
+  "matteo/model_comparison/option_pricing/summarize_stochastic_vov.py": "85440b01d6e24535e199684bd80c4f03b4b1646c28f9175f4d2577ad7a18ece0",
+  "matteo/model_comparison/option_pricing/STOCHASTIC_VOV_RESULTS.md": "5bc53af5387168b5e80a978ffebe02611f166f4f82ef72283debebeebeae4209",
+  "matteo/model_comparison/option_pricing/RESEARCH_LEDGER.md": "296f4514cbd8171891038306a0ab0813894437f05627a918bbdbb5a04b987ac0",
+  "matteo/model_comparison/option_pricing/CONTINUE_FITTING_PROMPT.md": "ee8fe26db7300ba72df0c3348e2262ead3124f1a58384b9545707aaa7cc543d7",
+  "matteo/model_comparison/option_pricing/NEXT_STEPS.md": "077223e139982277e30063f7c212294174ec365ce3fd16932ebaaff4f4645953",
+  "matteo/model_comparison/option_pricing/AUDIT.md": "e6b31d84e4aff6dbef95b884d732c5ddef5a0779261c6f750542c3a866682b54",
+  "matteo/model_comparison/option_pricing/STOCHASTIC_VOL_OF_VOL_RESEARCH.md": "2d8a8775ee92bd1b40c104c750dc5b88a2ce889989afab0f2bc6eb4b8a09b596",
+  "matteo/model_comparison/option_pricing/provenance.py": "2f105738f7f5db071eb9b8a1e5cc6826ce4e346eb499d000fa40771790e4cce8"
+}

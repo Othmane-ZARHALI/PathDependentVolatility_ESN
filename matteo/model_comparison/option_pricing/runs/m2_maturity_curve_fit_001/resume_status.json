@@ -1,0 +1,10 @@
+{
+  "status": "completed after user-authorized resumption",
+  "date": "2026-10-25",
+  "exit_code": 0,
+  "baseline_reused": true,
+  "accepted_steps": 1,
+  "proposals_fully_checked": 3,
+  "report": "../../MATURITY_CURVE_FIT_RESULTS.md",
+  "paused_record_preserved": "paused.json"
+}

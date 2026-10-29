@@ -1,0 +1,146 @@
+[
+  {
+    "candidate": "cluster050",
+    "day": 27,
+    "node": 0,
+    "error": 3.946525550801994e-09
+  },
+  {
+    "candidate": "cluster050",
+    "day": 27,
+    "node": 48,
+    "error": 9.84065950948576e-09
+  },
+  {
+    "candidate": "cluster050",
+    "day": 27,
+    "node": 95,
+    "error": 1.0118499260691749e-08
+  },
+  {
+    "candidate": "cluster050",
+    "day": 55,
+    "node": 0,
+    "error": 6.408443331551439e-09
+  },
+  {
+    "candidate": "cluster050",
+    "day": 55,
+    "node": 44,
+    "error": 3.5998355407684812e-09
+  },
+  {
+    "candidate": "cluster050",
+    "day": 55,
+    "node": 87,
+    "error": 1.137004568274591e-08
+  },
+  {
+    "candidate": "cluster050",
+    "day": 118,
+    "node": 0,
+    "error": 1.2100995760988553e-08
+  },
+  {
+    "candidate": "cluster050",
+    "day": 118,
+    "node": 44,
+    "error": 1.2475386390597976e-08
+  },
+  {
+    "candidate": "cluster050",
+    "day": 118,
+    "node": 87,
+    "error": 9.090155517199605e-09
+  },
+  {
+    "candidate": "cluster050",
+    "day": 153,
+    "node": 0,
+    "error": 3.634745282532492e-09
+  },
+  {
+    "candidate": "cluster050",
+    "day": 153,
+    "node": 40,
+    "error": 3.971543316438897e-09
+  },
+  {
+    "candidate": "cluster050",
+    "day": 153,
+    "node": 79,
+    "error": 8.014866881289606e-09
+  },
+  {
+    "candidate": "cluster100",
+    "day": 27,
+    "node": 0,
+    "error": 4.324620217488473e-09
+  },
+  {
+    "candidate": "cluster100",
+    "day": 27,
+    "node": 48,
+    "error": 1.4192998998296957e-08
+  },
+  {
+    "candidate": "cluster100",
+    "day": 27,
+    "node": 95,
+    "error": 1.2852417241582259e-08
+  },
+  {
+    "candidate": "cluster100",
+    "day": 55,
+    "node": 0,
+    "error": 6.530634810708591e-09
+  },
+  {
+    "candidate": "cluster100",
+    "day": 55,
+    "node": 44,
+    "error": 4.401302211576308e-09
+  },
+  {
+    "candidate": "cluster100",
+    "day": 55,
+    "node": 87,
+    "error": 1.4123998859361109e-08
+  },
+  {
+    "candidate": "cluster100",
+    "day": 118,
+    "node": 0,
+    "error": 1.845956565382778e-08
+  },
+  {
+    "candidate": "cluster100",
+    "day": 118,
+    "node": 44,
+    "error": 1.640184688067592e-08
+  },
+  {
+    "candidate": "cluster100",
+    "day": 118,
+    "node": 87,
+    "error": 1.0973438935302227e-08
+  },
+  {
+    "candidate": "cluster100",
+    "day": 153,
+    "node": 0,
+    "error": 3.7181033807343056e-09
+  },
+  {
+    "candidate": "cluster100",
+    "day": 153,
+    "node": 40,
+    "error": 4.793164198879651e-09
+  },
+  {
+    "candidate": "cluster100",
+    "day": 153,
+    "node": 79,
+    "error": 9.943888934493827e-09
+  }
+]

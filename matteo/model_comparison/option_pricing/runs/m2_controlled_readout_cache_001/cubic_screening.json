@@ -1,0 +1,105 @@
+{
+  "status": "rejected comparator, not used in calibration",
+  "rows": [
+    {
+      "role": "search",
+      "days": 29,
+      "monotonicity_violations": 0,
+      "convexity_violations": 41,
+      "negative_estimates": 0
+    },
+    {
+      "role": "search",
+      "days": 57,
+      "monotonicity_violations": 3,
+      "convexity_violations": 33,
+      "negative_estimates": 0
+    },
+    {
+      "role": "search",
+      "days": 119,
+      "monotonicity_violations": 0,
+      "convexity_violations": 28,
+      "negative_estimates": 0
+    },
+    {
+      "role": "search",
+      "days": 211,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "role": "search",
+      "days": 302,
+      "monotonicity_violations": 0,
+      "convexity_violations": 8,
+      "negative_estimates": 0
+    },
+    {
+      "role": "search",
+      "days": 666,
+      "monotonicity_violations": 0,
+      "convexity_violations": 9,
+      "negative_estimates": 0
+    },
+    {
+      "role": "search",
+      "days": 1030,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "role": "check",
+      "days": 29,
+      "monotonicity_violations": 2,
+      "convexity_violations": 24,
+      "negative_estimates": 0
+    },
+    {
+      "role": "check",
+      "days": 57,
+      "monotonicity_violations": 0,
+      "convexity_violations": 28,
+      "negative_estimates": 0
+    },
+    {
+      "role": "check",
+      "days": 119,
+      "monotonicity_violations": 1,
+      "convexity_violations": 26,
+      "negative_estimates": 0
+    },
+    {
+      "role": "check",
+      "days": 211,
+      "monotonicity_violations": 0,
+      "convexity_violations": 2,
+      "negative_estimates": 0
+    },
+    {
+      "role": "check",
+      "days": 302,
+      "monotonicity_violations": 2,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    },
+    {
+      "role": "check",
+      "days": 666,
+      "monotonicity_violations": 0,
+      "convexity_violations": 13,
+      "negative_estimates": 0
+    },
+    {
+      "role": "check",
+      "days": 1030,
+      "monotonicity_violations": 0,
+      "convexity_violations": 0,
+      "negative_estimates": 0
+    }
+  ],
+  "source_sha256": "a7040059919f59b925ce5a0b0e9c98c4b31c61e1b867100a1fffcbb6e3641c0a",
+  "note": "Post-launch replay of the already screened C2 control construction; no new simulation or selection."
+}

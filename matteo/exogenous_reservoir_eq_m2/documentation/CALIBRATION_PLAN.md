@@ -43,6 +43,25 @@ Illustrative *search bounds*, not empirical priors: $c_C\in[0.05,0.80]$, $q_Z\in
 
 ## Parameter hierarchy for this pilot
 
+**24 October 2026 user constraint:** future M2 fitting requires
+$\beta_J=\texttt{spike_shift}>0$, with an active spike curvature $q_J>0$.
+This supersedes the zero endpoint of the illustrative $\beta_J\in[0,0.5]$
+search bounds above. The first raw-estimator eleven-parameter attempt selected
+$\beta_J=0.01$ at its declared positive lower bound, without establishing a
+reliable joint fit; see
+[FULL_READOUT_FIT_RESULTS.md](../../model_comparison/option_pricing/FULL_READOUT_FIT_RESULTS.md).
+The later restored-precision exploration selected $\beta_J=0.29972997$ and
+substantially improves the estimated joint objective on separate numerical
+checking streams, with remaining signed/shape failures and boundary limitations;
+see [CONTROLLED_READOUT_EXPLORATION_RESULTS.md](../../model_comparison/option_pricing/CONTROLLED_READOUT_EXPLORATION_RESULTS.md).
+For subsequent runs, explicitly declare a positive fixed value or a search interval with
+a strictly positive lower bound before a new fit, and reject nonpositive
+candidate shifts. The existing Stage-3 loader and historical zero-shift runs use
+$\beta_J=0$ and remain historical baselines, not compliant new candidates.
+Changing this shift requires recomputing the readout-dependent Q normalizer,
+stock paths and conditional VIX exposures. Do not rewrite archived runs or
+silently describe the new constraint as an already calibrated parameter.
+
 | Class | Primary treatment | Sensitivity / later panel study |
 | --- | --- | --- |
 | Model cell | M2: `echo_loading=orthogonal_curvature=0` | M2+O, M3 and M4 only after a material model-selection validation residual and paired ablation. |

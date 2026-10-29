@@ -1,0 +1,38 @@
+[
+  {
+    "parameter": 0,
+    "relative_error": 3.1803711346702845e-10
+  },
+  {
+    "parameter": 1,
+    "relative_error": 4.796402272135879e-05
+  },
+  {
+    "parameter": 2,
+    "relative_error": 3.3586749495930603e-10
+  },
+  {
+    "parameter": 3,
+    "relative_error": 5.124642695430469e-11
+  },
+  {
+    "parameter": 4,
+    "relative_error": 6.290015236355055e-10
+  },
+  {
+    "parameter": 5,
+    "relative_error": 8.95851740392392e-05
+  },
+  {
+    "parameter": 6,
+    "relative_error": 7.654535717908293e-05
+  },
+  {
+    "parameter": 7,
+    "relative_error": 8.703379286384832e-06
+  },
+  {
+    "parameter": 8,
+    "relative_error": 1.0353127564119123e-05
+  }
+]

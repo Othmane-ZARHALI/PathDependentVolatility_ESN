@@ -1,0 +1,61 @@
+class of polynomial processes, as in the examples above. When no analytical expression is
+available, the conditional expectation must be solved numerically.  Although Least-Squares
+Monte Carlo (LSMC) [20] can estimate this expectation from simulated paths,  it is often
+difficult to implement effectively. Selecting suitable basis functions to capture the nonlinear
+state dependence is challenging, particularly in high local-volatility regimes, and poor choices
+introduce projection errors that compound during backward stepping.
+   Consequently, solving the Feynman-Kac backward PDE directly is the preferred method-
+ology. We find ϕs(x) = E [ψt+Θ(Xt+Θ) | Xs = x] on s ∈[t, t + Θ] as a solution to the backward
+problem
+                        (∂s + LX)ϕs(x) = 0,    ϕt+Θ(x) = ψt+Θ(x),                   (2.19)
+with LXϕs(x) = µ(s, x)∂xϕs(x) + 2σ2(s,1     x)∂xxϕs(x). In practice, the backward propagation is
+evaluated over a discrete time grid
+
+                           T = {t0, t1, . . . , tN = TF },
+
+yielding a sequence of time-slice functions {ψtn : tn ∈T }. To extend the coupling function
+continuously across the entire interval [t0, TF ], we perform linear interpolation between adjacent
+grid points. Specifically, for any t ∈[tn, tn+1], the coupling function is defined as
+
+                              tn+1 −t               t −tn
+                      ψt(x) =          ψtn(x) +           ψtn+1(x).
+                              tn+1 −tn          tn+1 −tn
+
+To verify the numerical accuracy of this continuous-time representation and assess consis-
+tency ex post, we study and compare the final samples of ΘX2t with numerical estimates of
+    t+Θ                      iE hR                        over the relevant times and states using the following procedure:       ψu(Xu) du Xt      t
+
+Procedure 1 (Non-parametric Consistency Analysis). The nonparametric consistency anal-
+ysis analyzes the consistency in a pair of samples of (Xt, vt)t≥t0. The procedure estimates
+conditional means of realized volatility vt and compares the values to the current VIX Xt. For
+this procedure, we generate samples of (Xt)t≥t0 on [t0, TF +Θ] and apply the coupling function
+to obtain, along each path, the corresponding samples of the instantaneous variance (vt)t≥t0.
+For a fixed evaluation time t ∈[t0, TF ], we then record along each path the realized time-average
+
+                                     1 Z t+Θ
+                                                             ¯vt :=         vu du,
+                        Θ   t
+
+approximated by trapezoidal quadrature on a uniform discretization of [t, t + Θ], together with
+the level x := Xt observed at time t. We then partition the VIX paths into equally-spaced
+bins in log-space. Within each bin, we compute the empirical mean of the observed realized
+time-averaged variance
+                                          1
+                                    bm(xb) := |Ib| X yi,
+                                                        i∈Ib
+where Ib denotes the set of path indices falling in bin b and xb  is the bin midpoint, as a
+nonparametric estimator of
+
+                                "Z t+Θ           #                 ≈1         vu du Xt = xb   .                            bm(xb)  ΘE    t
+
+Under the consistency relation
+
+                                     t+Θ           #                                1  "Z
+                           x2 = ΘE    t    vu du Xt = x   ,
+
+                              b across bins should then produce a scatter plot centered at the 45-degreeplotting bm(xb) against x2line.
+
+   This concludes the construction of the coupling functions for general processes. We sum-
+marize the process in algorithmic form in Appendix C.
+
+                                        13

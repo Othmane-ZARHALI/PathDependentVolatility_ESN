@@ -1,0 +1,11 @@
+{
+  "source_sha256": {
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/plot_vix_forward_conventions.py": "4068a1ee42ab1930ccb9c6d9e651b4ce1dc36c1963fdfcf880d29911ec4feac3",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_curve_refinement_003/forward_convention/iv_conventions.csv": "164be3c7a07826b4f2b09bddbe1fa0c745138fa5d4149996e7b379f949b11c11"
+  },
+  "output_sha256": {
+    "vix-forward-conventions.png": "f0f33247f2aa3db7bbbb0088bab41a6e050d40c4f383cecad0e94bb38e534a13",
+    "vix-forward-conventions.svg": "984e352b79841a65ab2634a3246338c5477f65b7934d05b193e857e5d7050fd7"
+  },
+  "uncertainty": "Only market bid/ask shading shown. No model-IV uncertainty band claimed: native IV also depends on estimated model forward and its covariance with price."
+}

@@ -1,0 +1,129 @@
+{
+  "replayed_prices": 288,
+  "captured_sources": 52,
+  "unique_pilot_check_batch_seeds": 48,
+  "primary": [
+    {
+      "method": "conditional",
+      "prices": 48,
+      "negative": 0,
+      "screens": 2,
+      "median_se_scale": 6.512213905314404
+    },
+    {
+      "method": "reference",
+      "prices": 48,
+      "negative": 1,
+      "screens": 0,
+      "median_se_scale": 7.616731977004745
+    }
+  ],
+  "max_standardized_covariance_error": 6.36656639775737e-11,
+  "known_mean_warning_count": 25,
+  "all_expiry_efficiency": [
+    {
+      "expiry_days": 29,
+      "trial": 0,
+      "band": "all",
+      "reference_scaled_variance": 4422.843838910276,
+      "conditional_scaled_variance": 3551.3202396412285,
+      "variance_gain": 1.245408338437283,
+      "reference_seconds": 5.0869126240722835,
+      "conditional_seconds": 11.58622416597791,
+      "efficiency_gain": 0.5467944783534046
+    },
+    {
+      "expiry_days": 29,
+      "trial": 1,
+      "band": "all",
+      "reference_scaled_variance": 5026.400395823631,
+      "conditional_scaled_variance": 4893.663734081547,
+      "variance_gain": 1.0271241893507415,
+      "reference_seconds": 4.5639257079456,
+      "conditional_seconds": 9.73522958275862,
+      "efficiency_gain": 0.4815211036556057
+    },
+    {
+      "expiry_days": 57,
+      "trial": 0,
+      "band": "all",
+      "reference_scaled_variance": 25909.31766098212,
+      "conditional_scaled_variance": 12469.61995738205,
+      "variance_gain": 2.077795293644353,
+      "reference_seconds": 8.948838457930833,
+      "conditional_seconds": 18.956842832965776,
+      "efficiency_gain": 0.9808518536186696
+    },
+    {
+      "expiry_days": 57,
+      "trial": 1,
+      "band": "all",
+      "reference_scaled_variance": 17403.834681288445,
+      "conditional_scaled_variance": 14608.763571394671,
+      "variance_gain": 1.1913283828733312,
+      "reference_seconds": 8.958322250051424,
+      "conditional_seconds": 18.976695290999487,
+      "efficiency_gain": 0.5623899944514441
+    },
+    {
+      "expiry_days": 211,
+      "trial": 0,
+      "band": "all",
+      "reference_scaled_variance": 26525.296401050848,
+      "conditional_scaled_variance": 16107.733123581658,
+      "variance_gain": 1.6467429772733146,
+      "reference_seconds": 34.66266333195381,
+      "conditional_seconds": 72.18727575079538,
+      "efficiency_gain": 0.7907279617052904
+    },
+    {
+      "expiry_days": 211,
+      "trial": 1,
+      "band": "all",
+      "reference_scaled_variance": 86085.34824299971,
+      "conditional_scaled_variance": 26621.56245117936,
+      "variance_gain": 3.233670014705919,
+      "reference_seconds": 33.38269587489776,
+      "conditional_seconds": 70.84783787513152,
+      "efficiency_gain": 1.523668553597388
+    },
+    {
+      "expiry_days": 302,
+      "trial": 0,
+      "band": "all",
+      "reference_scaled_variance": 31461.21567856357,
+      "conditional_scaled_variance": 24075.840643525025,
+      "variance_gain": 1.3067546070099436,
+      "reference_seconds": 48.31500095804222,
+      "conditional_seconds": 100.99111937405542,
+      "efficiency_gain": 0.6251623952772136
+    },
+    {
+      "expiry_days": 302,
+      "trial": 1,
+      "band": "all",
+      "reference_scaled_variance": 20687.382903417136,
+      "conditional_scaled_variance": 25699.848864531497,
+      "variance_gain": 0.8049612669889241,
+      "reference_seconds": 48.09574854094535,
+      "conditional_seconds": 100.52376862498932,
+      "efficiency_gain": 0.38513493089111867
+    }
+  ],
+  "global_efficiency": [
+    {
+      "trial": 0,
+      "efficiency_gain": 0.7483010440832616,
+      "reference_seconds": 97.01341537199914,
+      "conditional_seconds": 203.72146212379448
+    },
+    {
+      "trial": 1,
+      "efficiency_gain": 0.8541208008558361,
+      "reference_seconds": 95.00069237384014,
+      "conditional_seconds": 200.08353137387894
+    }
+  ],
+  "wall_seconds": 904.9863277501427,
+  "conclusion": "Saved-artifact and covariance correspondence only; not a population error certificate."
+}

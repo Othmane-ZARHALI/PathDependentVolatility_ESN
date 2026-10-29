@@ -1,0 +1,63 @@
+Suppose that for all t the function ψt(x) is smooth and ψt(Xt) is integrable. Then, for any
+t ≥t0, the expression It(x) satisfies:
+
+               ∂tIt(x) + µ(t, x)∂xIt(x) + 12σ2(t, x)∂xxIt(x) + ψt(x) −ϕt(x) = 0.           (2.7)
+
+Proof. Fix s ≥t0 and consider the auxiliary function:
+                                 Z s
+                     W(s, t, x) := E    ψu(Xu) du Xt = x  .
+                                                               t
+
+Note that W(t, t, x) = 0 and our target function is It(x) = W(t + Θ, t, x). Since ϕ is bounded
+and measurable, the function (t, x) 7→W(s, t, x) is of the class C1,2. By the Feynman-Kac
+backward relation for a running cost with a terminal condition of zero at t = s, we obtain
+
+                      (∂t + LX)W(s, t, x) + ψt(x) = 0,    W(s, s, x) = 0,
+
+where LXf(t, x) := µ(t, x)∂xf(t, x) + 12σ2(t, x)∂xxf(t, x).
+  By the integrability of ψ, we can differentiate the function W(s, t, x) with respect to its
+first argument, and we obtain, using the Leibniz rule,
+
+                       ∂sW(s, t, x)|s=s = E [ψs(Xs) | Xt = x] .
+
+Now, we apply the operator (∂t + LX) to the function It(x) = W(t + Θ, t, x), using the chain
+rule for the moving horizon s(t) = t + Θ:
+            (∂t + LX)It(x) = [(∂t + LX)W(s, t, x)]s=t+Θ + ∂sW(s, t, x)ds            .
+                                                                    dt s=t+Θ
+
+Since dsdt = 1, substituting our previous identities yields:
+                      (∂t + LX)It(x) = −ψt(x) + E [ψt+Θ(Xt+Θ) | Xt = x] .
+
+Recalling the definition ϕt(x) := E[ψt+Θ(Xt+Θ)|Xt = x], we arrive at:
+
+               ∂tIt(x) + µ(t, x)∂xIt(x) + 12σ2(t, x)∂xxIt(x) + ψt(x) −ϕt(x) = 0.
+This proves the claim.                                       ■
+
+   The differential equation Equation (2.7) describes the time dynamics of It(x).  Since we
+defined vt in our model to be σ(Xt)-measurable, we can derive that under a consistent model,
+It(x) describes the (scaled) squared VIX process. From the definition of a consistent model,
+we apply the tower property and find
+
+                  ΘX2t = ΘE X2t  Xt
+                             " "Z t+Θ        #   #
+                   = E E       vu du  Ft  Xt
+                                                               t
+                             "Z t+Θ        #
+                   = E       vu du  Xt
+                                                          t
+
+                   = It(Xt).
+
+In a consistent model, It(Xt) is explicitly given by ΘX2t , and we can apply the newly derived
+backward equation to this formula. This yields an explicit temporal dependency of ψt.
+
+Corollary 2.1 (Consistency relation). In a consistent model we have It(x) = Θx2 and there-
+fore we find
+                         ψt(x) = ϕt(x) −Θ 2x µ(t, x) + σ2(t, x)  .                       (2.8)
+
+Proof. With It(x) = Θx2 we have ∂tI = 0, ∂xI = 2Θx, and ∂xxI = 2Θ.  Plugging into
+Lemma 2.2 yields
+                      0 = Θ 2x µ(t, x) + σ2(t, x) + ψt(x) −ϕt(x),
+which rearranges to the stated identity.                              ■
+
+                                        6

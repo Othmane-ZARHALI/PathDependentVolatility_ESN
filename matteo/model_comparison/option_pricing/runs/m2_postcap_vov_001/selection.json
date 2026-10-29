@@ -1,0 +1,11 @@
+{
+  "price_winner": "g0.25_h7",
+  "shape_winner": "g1_h7",
+  "full_candidates": [
+    "baseline",
+    "g0.25_h7",
+    "g1_h7"
+  ],
+  "frozen_before_SPX_and_checking": true,
+  "automatic_adoption": false
+}

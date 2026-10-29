@@ -1,0 +1,16 @@
+test_added_personal_files_refused (test_pdfprep.PreparationTests.test_added_personal_files_refused) ... ok
+test_cache_and_corrupt_output_recovery (test_pdfprep.PreparationTests.test_cache_and_corrupt_output_recovery) ... ok
+test_extract_preserves_values_images_and_column_order (test_pdfprep.PreparationTests.test_extract_preserves_values_images_and_column_order) ... ok
+test_failure_leaves_existing_package (test_pdfprep.PreparationTests.test_failure_leaves_existing_package) ... ok
+test_missing_or_failed_ocr_is_flagged (test_pdfprep.PreparationTests.test_missing_or_failed_ocr_is_flagged) ... ok
+test_nested_batch_does_not_ingest_own_outputs (test_pdfprep.PreparationTests.test_nested_batch_does_not_ingest_own_outputs) ... ok
+test_ocr_success_recorded_without_invented_tables (test_pdfprep.PreparationTests.test_ocr_success_recorded_without_invented_tables) ... ok
+test_real_tesseract_reads_scan (test_pdfprep.PreparationTests.test_real_tesseract_reads_scan) ... ok
+test_rotated_page_and_linked_images (test_pdfprep.PreparationTests.test_rotated_page_and_linked_images) ... ok
+test_source_change_rebuilds (test_pdfprep.PreparationTests.test_source_change_rebuilds) ... ok
+test_unrelated_output_refused_even_with_force (test_pdfprep.PreparationTests.test_unrelated_output_refused_even_with_force) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 5.109s
+
+OK

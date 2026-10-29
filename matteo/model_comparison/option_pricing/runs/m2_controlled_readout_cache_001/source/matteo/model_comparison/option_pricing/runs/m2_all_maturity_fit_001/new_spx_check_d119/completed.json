@@ -1,0 +1,31 @@
+{
+  "days": 119,
+  "role": "check",
+  "seeds": [
+    991129631,
+    4009528496,
+    2198073547,
+    4257610155
+  ],
+  "grid_steps": 42088,
+  "normalizer_zero": {
+    "order": 48,
+    "tolerance": 2e-07,
+    "knots": 128,
+    "direct_evaluations": 765,
+    "midpoint_max_relative_error": 8.904201157436943e-08,
+    "independent_max_relative_error": 8.928655904593108e-08,
+    "note": "Sampled same-GH-order interpolation error; not GH bias or a uniform bound."
+  },
+  "normalizer_selected": {
+    "order": 48,
+    "tolerance": 2e-07,
+    "knots": 125,
+    "direct_evaluations": 759,
+    "midpoint_max_relative_error": 7.720001628622231e-08,
+    "independent_max_relative_error": 7.545306228265599e-08,
+    "note": "Sampled same-GH-order interpolation error; not GH bias or a uniform bound."
+  },
+  "seconds": 52.176571666961536,
+  "controls": "New maturity zero-state anchor stock/reference/representative adapted hedges; old independent frozen beta transferred with forward scaling, not refitted on searching/checking paths."
+}

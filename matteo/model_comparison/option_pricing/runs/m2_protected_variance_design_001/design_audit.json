@@ -1,0 +1,319 @@
+{
+  "status": "completed algebraic design audit, no option fit or model adoption",
+  "source_sha256": "0735724e3a96d811a561d9ff2d269efe638140dd6c1526851157cdb777b0ca5c",
+  "baseline": "unchanged protected two-speed M2",
+  "factor_mode_index": 6,
+  "half_life_days": 9.48146822384038,
+  "kappa": 26.683496156031545,
+  "quoted_VIX_days": [
+    27.0,
+    55.0,
+    118.0,
+    153.0
+  ],
+  "window_endpoints_days": [
+    27.0,
+    55.0,
+    57.0,
+    85.0,
+    118.0,
+    148.0,
+    153.0,
+    183.00000000000003
+  ],
+  "envelope_width_days": 10,
+  "analytic_global_absolute_h_bound": 1.0,
+  "normalization_K": 70.38271299615599,
+  "observed_grid_max_abs_h": 0.48965933856813054,
+  "max_conditional_window_integral_error": 3.198009326972617e-11,
+  "max_unconditional_mean_h_error": 1.5612511283791264e-17,
+  "off_quote_window_integral_at_day40_state_minus1": 0.005278062456705779,
+  "records": [
+    {
+      "GH": 64,
+      "day": 27.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": 2.5756306809565643e-13,
+      "estimated_quad_error": 2.2598559058709512e-12
+    },
+    {
+      "GH": 64,
+      "day": 27.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 2.891471849279792e-11,
+      "estimated_quad_error": 8.956261805148212e-12
+    },
+    {
+      "GH": 64,
+      "day": 27.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": 1.8767889130783357e-20,
+      "estimated_quad_error": 1.6326557160799608e-19
+    },
+    {
+      "GH": 64,
+      "day": 27.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -2.8914718275957485e-11,
+      "estimated_quad_error": 8.956261676935217e-12
+    },
+    {
+      "GH": 64,
+      "day": 27.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": -2.5756306809565643e-13,
+      "estimated_quad_error": 2.2598559058709512e-12
+    },
+    {
+      "GH": 64,
+      "day": 55.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": 3.009627269623394e-12,
+      "estimated_quad_error": 2.216176835576272e-13
+    },
+    {
+      "GH": 64,
+      "day": 55.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 2.052007717391613e-11,
+      "estimated_quad_error": 1.0314899244996737e-14
+    },
+    {
+      "GH": 64,
+      "day": 55.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": 2.4419092606666523e-20,
+      "estimated_quad_error": 1.9296260141063299e-19
+    },
+    {
+      "GH": 64,
+      "day": 55.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -2.0520076957075695e-11,
+      "estimated_quad_error": 1.0314896566585914e-14
+    },
+    {
+      "GH": 64,
+      "day": 55.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": -3.009627269623394e-12,
+      "estimated_quad_error": 2.216176835576272e-13
+    },
+    {
+      "GH": 64,
+      "day": 118.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": 2.6800870550625078e-12,
+      "estimated_quad_error": 1.0695092826226159e-12
+    },
+    {
+      "GH": 64,
+      "day": 118.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 3.198009326972617e-11,
+      "estimated_quad_error": 3.1759132816601637e-12
+    },
+    {
+      "GH": 64,
+      "day": 118.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": -3.2452100377544564e-20,
+      "estimated_quad_error": 1.6250724874026779e-19
+    },
+    {
+      "GH": 64,
+      "day": 118.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -3.198009326972617e-11,
+      "estimated_quad_error": 3.1759133683619268e-12
+    },
+    {
+      "GH": 64,
+      "day": 118.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": -2.6800887897859837e-12,
+      "estimated_quad_error": 1.0695093183568184e-12
+    },
+    {
+      "GH": 64,
+      "day": 153.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": 3.1071005143767927e-12,
+      "estimated_quad_error": 9.157823361735427e-12
+    },
+    {
+      "GH": 64,
+      "day": 153.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 2.602900360526572e-11,
+      "estimated_quad_error": 4.796191569793184e-12
+    },
+    {
+      "GH": 64,
+      "day": 153.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": -7.086700798826799e-20,
+      "estimated_quad_error": 1.2053535013240693e-19
+    },
+    {
+      "GH": 64,
+      "day": 153.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -2.602900360526572e-11,
+      "estimated_quad_error": 4.796191569793184e-12
+    },
+    {
+      "GH": 64,
+      "day": 153.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": -3.1070979122915787e-12,
+      "estimated_quad_error": 9.157823343153642e-12
+    },
+    {
+      "GH": 96,
+      "day": 27.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": -2.3245294578089215e-15,
+      "estimated_quad_error": 2.3353050390833396e-12
+    },
+    {
+      "GH": 96,
+      "day": 27.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 1.1163292512605949e-13,
+      "estimated_quad_error": 8.956682984227803e-12
+    },
+    {
+      "GH": 96,
+      "day": 27.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": -3.795957402204929e-21,
+      "estimated_quad_error": 1.0478802143197563e-19
+    },
+    {
+      "GH": 96,
+      "day": 27.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -1.1163292512605949e-13,
+      "estimated_quad_error": 8.956682984227803e-12
+    },
+    {
+      "GH": 96,
+      "day": 27.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": 2.3245294578089215e-15,
+      "estimated_quad_error": 2.3353050390833396e-12
+    },
+    {
+      "GH": 96,
+      "day": 55.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": 9.510621457042845e-15,
+      "estimated_quad_error": 2.630764498432021e-13
+    },
+    {
+      "GH": 96,
+      "day": 55.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 2.1900320099077497e-13,
+      "estimated_quad_error": 1.0322742842880206e-14
+    },
+    {
+      "GH": 96,
+      "day": 55.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": 4.5607759825235123e-20,
+      "estimated_quad_error": 1.8412005843631866e-19
+    },
+    {
+      "GH": 96,
+      "day": 55.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -2.1900320099077497e-13,
+      "estimated_quad_error": 1.0322742842880206e-14
+    },
+    {
+      "GH": 96,
+      "day": 55.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": -9.511488818780833e-15,
+      "estimated_quad_error": 2.6307646104984505e-13
+    },
+    {
+      "GH": 96,
+      "day": 118.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": 5.551115123125783e-16,
+      "estimated_quad_error": 1.006462468815383e-12
+    },
+    {
+      "GH": 96,
+      "day": 118.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 2.0426368929626904e-13,
+      "estimated_quad_error": 3.1755890661941354e-12
+    },
+    {
+      "GH": 96,
+      "day": 118.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": 5.800151890968289e-21,
+      "estimated_quad_error": 2.568966222852988e-19
+    },
+    {
+      "GH": 96,
+      "day": 118.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -2.0426368929626904e-13,
+      "estimated_quad_error": 3.1755891686454173e-12
+    },
+    {
+      "GH": 96,
+      "day": 118.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": -5.559788740505667e-16,
+      "estimated_quad_error": 1.00646207764498e-12
+    },
+    {
+      "GH": 96,
+      "day": 153.0,
+      "centered_factor": -4.0,
+      "conditional_window_integral": 9.541846479610427e-15,
+      "estimated_quad_error": 9.047756979708434e-12
+    },
+    {
+      "GH": 96,
+      "day": 153.0,
+      "centered_factor": -1.0,
+      "conditional_window_integral": 2.3556352181375306e-13,
+      "estimated_quad_error": 4.7962524603050796e-12
+    },
+    {
+      "GH": 96,
+      "day": 153.0,
+      "centered_factor": 0.0,
+      "conditional_window_integral": -3.0820353681500666e-20,
+      "estimated_quad_error": 1.9447048834841517e-19
+    },
+    {
+      "GH": 96,
+      "day": 153.0,
+      "centered_factor": 1.0,
+      "conditional_window_integral": -2.3556352181375306e-13,
+      "estimated_quad_error": 4.796252337806662e-12
+    },
+    {
+      "GH": 96,
+      "day": 153.0,
+      "centered_factor": 4.0,
+      "conditional_window_integral": -9.540979117872439e-15,
+      "estimated_quad_error": 9.047757419159715e-12
+    }
+  ],
+  "positivity": "v_new=v_base+epsilon*h, |h|<=1 and v_base>=f>0. If |epsilon|<=f/2 then v_new>=f/2. The original exact hard floor f is not automatically retained.",
+  "forward_variance": "centered Gaussian mode plus odd tanh and odd OU-generator term gives E[h_t]=0, preserving E[v_t]=xi(t) in the ideal normalized baseline.",
+  "protection_scope": "model-derived VIX value at four quoted expiries for the same full Gaussian filtration, hence all strikes and futures at those expiries; not unquoted expiries or full VIX process law",
+  "calendar_constraint": "endpoint zeros are calibration-grid constraints, not a special rule for one maturity; broader expiry coverage needs new constraints or a more general marginal-preserving calibration",
+  "evidence_scope": "Dynkin argument plus finite Gaussian/quadrature checks; no new Lean proof, compiled pricing correspondence, population-forward certificate or SPX improvement claimed",
+  "adopted": false
+}

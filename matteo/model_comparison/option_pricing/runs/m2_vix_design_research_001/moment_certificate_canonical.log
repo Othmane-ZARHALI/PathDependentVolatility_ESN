@@ -1,0 +1,12 @@
+27 forward tolerance 0.0 certified min E[VIX2] 468.9993289308283 baseline 477.22948825354126 excluded False
+55 forward tolerance 0.0 certified min E[VIX2] 556.6729854745801 baseline 536.0268666363175 excluded True
+118 forward tolerance 0.0 certified min E[VIX2] 648.6256916122647 baseline 580.8042682271082 excluded True
+153 forward tolerance 0.0 certified min E[VIX2] 695.2954440843954 baseline 610.93256882101 excluded True
+27 forward tolerance 0.1 certified min E[VIX2] 465.10216614335366 baseline 477.22948825354126 excluded False
+55 forward tolerance 0.1 certified min E[VIX2] 552.6922724834718 baseline 536.0268666363175 excluded True
+118 forward tolerance 0.1 certified min E[VIX2] 644.4036460317476 baseline 580.8042682271082 excluded True
+153 forward tolerance 0.1 certified min E[VIX2] 691.0766492510601 baseline 610.93256882101 excluded True
+27 forward tolerance 0.5 certified min E[VIX2] 462.80043046732476 baseline 477.22948825354126 excluded False
+55 forward tolerance 0.5 certified min E[VIX2] 551.3278409438109 baseline 536.0268666363175 excluded True
+118 forward tolerance 0.5 certified min E[VIX2] 636.8529836870998 baseline 580.8042682271082 excluded True
+153 forward tolerance 0.5 certified min E[VIX2] 682.3169909986138 baseline 610.93256882101 excluded True

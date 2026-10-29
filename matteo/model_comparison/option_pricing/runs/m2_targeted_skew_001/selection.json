@@ -1,0 +1,8 @@
+{
+  "regime_candidate": 6,
+  "name": "regime_0_refit",
+  "selected_before_fresh_stock": true,
+  "adaptive_candidate": 1,
+  "adopted": false,
+  "criterion": "VIX forward feasibility and loss <= alpha0-refit+.1; minimize replay native-IV MAE among regime-refit candidates"
+}

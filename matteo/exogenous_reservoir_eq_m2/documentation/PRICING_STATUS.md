@@ -1,7 +1,71 @@
-# Dated pricing implementation status — 22 October 2026
+# Dated pricing implementation status — 23 October 2026
 
 This is an implementation update to [CALIBRATION_PLAN.md](CALIBRATION_PLAN.md),
 not a change to the model or its historical research claims.
+
+Current user-authorized expansion is COMPLETE:
+[ALL_MATURITY_FIT_RESULTS.md](../../model_comparison/option_pricing/ALL_MATURITY_FIT_RESULTS.md).
+All seven retained SPX maturities (29/57/119/211/302/666/1030 days) enter actual
+recalibration, cutoff 3; exclude only 1/1401/1765/2129. The entire retained
+market population is now in sample: 1294 SPX options, 217 VIX options and all
+four VIX forwards. Original split labels remain metadata; no market out-of-sample
+evaluation is requested or reported. Refit the three variance levels at fixed
+selected state/readout/Q and show model curves at all dates. Selected levels
+are [0.05762055,0.07134085,0.06321057]; separate numerical loss on the same
+market observations improves 351.36→308.64. Long SPX improves substantially,
+but only 103/1511 prices lie inside bid/ask and short-SPX/VIX errors persist.
+This expanded curve is the current working reference for the next Q-scenario
+fit on the full in-sample scope. Source/membership/score/sample-mean/SE audits
+pass; an audit-reader raw-VIX shape mistake was corrected without changing
+prices or parameters, retaining failed evidence. No jobs remain running.
+All 182 Python tests and the thirteen scoped
+Lean identities (audit 006) pass; numerical accuracy remains unqualified.
+
+Latest completed checkpoint:
+[JOINT_STATE_REFINEMENT_RESULTS.md](../../model_comparison/option_pricing/JOINT_STATE_REFINEMENT_RESULTS.md)
+records seven restricted-state profiles and a nested five-piece curve test.
+State plus three-piece refitting selects C0=1/Y0=F0=0 and improves pooled loss
+355.46→316.93 on three new paired checks, with only 41/882 interval hits.
+Five pieces add a small inconsistent 0.64% gain, worsening forwards and interval
+coverage; keep the three-piece state-adjusted working reference. Failed runs
+and frozen selections are retained; resumed runs 003 do not repeat optimization.
+All source/score/membership audits complete, 179 Python tests pass and thirteen
+scoped Lean identities pass audit 005. Sampling, stock-grid, normalizer/GH/time
+errors remain separate and no qualified market/P fit or ranking is established.
+Next bounded fitting hypothesis: declared Q-risk-price scenarios one at a time,
+with updated normalization/state mapping/prices and P diagnostics; not launched.
+The model-own same-expiry forward improves IV display consistency but changes
+no price or forward error. AUDIT.md records and corrects a broader raw-parity
+diagnostic's exposure of 35 reserved VIX strike keys; no held-out model scoring
+or parameter selection used them. Future evaluation on those keys is quote-exposed.
+
+Preceding curve-only fitting addition:
+[JOINT_CURVE_FIT_RESULTS.md](../../model_comparison/option_pricing/JOINT_CURVE_FIT_RESULTS.md)
+records actual three-level curve optimization on all 707 cutoff-3 SPX options,
+all 175 VIX options and four forwards. All three fresh numerical comparisons
+improve; pooled loss 597.90→347.10, but VIX fit worsens in aggregate and only
+50/882 objective options lie inside bid/ask. No qualified fit or model ranking.
+Fast fixed-shock stock repricing and analytical derivatives are checked against
+the existing scheme. An explicit signed exploratory loss retains negatives;
+production validation stays strict. There are 170 passing Python tests and
+ten checked Lean identities with clean compiler/axiom audits. See the
+[formal scope](../../model_comparison/option_pricing/formalization/CORRESPONDENCE.md).
+Next test restricted state while updating dated normalization; current curve-only
+exposures must not be reused unchanged. Numerical accuracy remains unresolved.
+
+Preceding bounded addition: `conditional_controls.py` analytically conditions the
+existing stock, deterministic-reference payoff and two adapted stock-increment
+controls, with valid importance sampling on retained Gaussian coordinates.
+Seven new Gaussian/Black/forward/control tests pass (124 package tests total;
+42 study-driver tests also pass). The fresh market comparison loses whole-panel
+variance-cost efficiency in both trials, 0.7483/0.8541. Retain original
+vol7/ridge5. Tiny conditional positive values are not raw exercise hits, and
+the two nominal SE passes remain tail-unresolved. No pricing or fit clearance.
+See [conditional-control results](../../model_comparison/option_pricing/SPX_CONDITIONAL_CONTROL_RESULTS.md)
+and [fitting reentry decision](../../model_comparison/option_pricing/FITTING_REENTRY_DECISION.md)
+for the derivation, retained failures and separate accuracy gates. The previously
+specified local profile was superseded by the actual joint fit above. Older
+numerical test counts below are historical.
 
 ## Implemented
 

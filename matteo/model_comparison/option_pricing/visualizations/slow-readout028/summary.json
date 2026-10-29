@@ -1,0 +1,329 @@
+{
+  "scores": [
+    {
+      "candidate": 0,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1866.8845839088756,
+      "IV_MAE_pp": 3.175831045572057,
+      "inside": 17,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 1.4473132739517482
+    },
+    {
+      "candidate": 1,
+      "alpha": 0.125,
+      "steps": 256,
+      "loss": 1816.3225855448688,
+      "IV_MAE_pp": 3.1299915329925376,
+      "inside": 23,
+      "invalid_IV": 2,
+      "negative": 2,
+      "median_SE_scales": 1.6331435962549876
+    },
+    {
+      "candidate": 2,
+      "alpha": 0.125,
+      "steps": 256,
+      "loss": 1811.148932535943,
+      "IV_MAE_pp": 3.1276856948110647,
+      "inside": 22,
+      "invalid_IV": 1,
+      "negative": 1,
+      "median_SE_scales": 1.6281463830025724
+    },
+    {
+      "candidate": 3,
+      "alpha": 0.0,
+      "steps": 256,
+      "loss": 1862.0996926118592,
+      "IV_MAE_pp": 3.1735498207979767,
+      "inside": 18,
+      "invalid_IV": 0,
+      "negative": 0,
+      "median_SE_scales": 1.4371617800998495
+    },
+    {
+      "candidate": 4,
+      "alpha": 0.5,
+      "steps": 256,
+      "loss": 1749.731836368332,
+      "IV_MAE_pp": 3.0298036359031957,
+      "inside": 20,
+      "invalid_IV": 3,
+      "negative": 3,
+      "median_SE_scales": 2.900266268627044
+    }
+  ],
+  "VIX_scores": [
+    {
+      "label": "c0",
+      "option_loss": 0.05008091350064692,
+      "forwards": [
+        20.073162047783377,
+        20.785169590272726,
+        21.17893115207294,
+        21.75592417319109
+      ],
+      "max_forward_gap": 0.055169590272726055,
+      "negative": 1,
+      "inside": 153,
+      "candidate": 0,
+      "name": "baseline",
+      "tails": [
+        {
+          "day": 27,
+          "weight_mass": 0.9959029540056358,
+          "right_tail_ESS": 125.80063173718254,
+          "top10_payoff_share": 0.13388450744890715
+        },
+        {
+          "day": 55,
+          "weight_mass": 1.0008294334986672,
+          "right_tail_ESS": 121.10076863536874,
+          "top10_payoff_share": 0.14342821628773447
+        },
+        {
+          "day": 118,
+          "weight_mass": 0.9989828229795857,
+          "right_tail_ESS": 120.97037263789137,
+          "top10_payoff_share": 0.1381968899039716
+        },
+        {
+          "day": 153,
+          "weight_mass": 0.9852822287525339,
+          "right_tail_ESS": 113.4224749532164,
+          "top10_payoff_share": 0.15615717060238693
+        }
+      ]
+    },
+    {
+      "label": "c1",
+      "option_loss": 0.08881810409174698,
+      "forwards": [
+        20.065018696658164,
+        20.755798050140612,
+        21.14666326128619,
+        21.72330691382543
+      ],
+      "max_forward_gap": 0.04333673871381194,
+      "negative": 1,
+      "inside": 146,
+      "candidate": 1,
+      "name": "weak_fixed_curve",
+      "tails": [
+        {
+          "day": 27,
+          "weight_mass": 0.9959029540056358,
+          "right_tail_ESS": 126.86100594257903,
+          "top10_payoff_share": 0.13241666952494144
+        },
+        {
+          "day": 55,
+          "weight_mass": 1.0008294334986672,
+          "right_tail_ESS": 121.71790722156453,
+          "top10_payoff_share": 0.14283160251229504
+        },
+        {
+          "day": 118,
+          "weight_mass": 0.9989828229795857,
+          "right_tail_ESS": 121.9266378560981,
+          "top10_payoff_share": 0.13728912230946108
+        },
+        {
+          "day": 153,
+          "weight_mass": 0.9852822287525339,
+          "right_tail_ESS": 114.8078911718809,
+          "top10_payoff_share": 0.15364463130995398
+        }
+      ]
+    },
+    {
+      "label": "c2",
+      "option_loss": 0.08453557750973159,
+      "forwards": [
+        20.088745069853452,
+        20.731428182829607,
+        21.172587857677986,
+        21.737402242053918
+      ],
+      "max_forward_gap": 0.01741214232201571,
+      "negative": 1,
+      "inside": 151,
+      "candidate": 2,
+      "name": "weak_refit",
+      "tails": [
+        {
+          "day": 27,
+          "weight_mass": 0.9959029540056358,
+          "right_tail_ESS": 126.94348617461628,
+          "top10_payoff_share": 0.1324016738708373
+        },
+        {
+          "day": 55,
+          "weight_mass": 1.0008294334986672,
+          "right_tail_ESS": 121.58387390049192,
+          "top10_payoff_share": 0.1430456391337786
+        },
+        {
+          "day": 118,
+          "weight_mass": 0.9989828229795857,
+          "right_tail_ESS": 121.98802427978013,
+          "top10_payoff_share": 0.13721335067290966
+        },
+        {
+          "day": 153,
+          "weight_mass": 0.9852822287525339,
+          "right_tail_ESS": 114.89811091676135,
+          "top10_payoff_share": 0.15355991237574526
+        }
+      ]
+    },
+    {
+      "label": "c3",
+      "option_loss": 0.040634408614367,
+      "forwards": [
+        20.097092718517825,
+        20.760155764560327,
+        21.20494150359039,
+        21.770080243861802
+      ],
+      "max_forward_gap": 0.0500802438618031,
+      "negative": 1,
+      "inside": 157,
+      "candidate": 3,
+      "name": "curve_only",
+      "tails": [
+        {
+          "day": 27,
+          "weight_mass": 0.9959029540056358,
+          "right_tail_ESS": 125.82227557585296,
+          "top10_payoff_share": 0.13394311785641028
+        },
+        {
+          "day": 55,
+          "weight_mass": 1.0008294334986672,
+          "right_tail_ESS": 120.97775422907206,
+          "top10_payoff_share": 0.1436453904461443
+        },
+        {
+          "day": 118,
+          "weight_mass": 0.9989828229795857,
+          "right_tail_ESS": 121.03685589744195,
+          "top10_payoff_share": 0.13810464641470108
+        },
+        {
+          "day": 153,
+          "weight_mass": 0.9852822287525339,
+          "right_tail_ESS": 113.50695588308395,
+          "top10_payoff_share": 0.15607268602901073
+        }
+      ]
+    },
+    {
+      "label": "c4",
+      "option_loss": 0.5531044708047945,
+      "forwards": [
+        20.070851756819458,
+        20.720420906535733,
+        21.14341744942796,
+        21.781611278896815
+      ],
+      "max_forward_gap": 0.061611278896815946,
+      "negative": 0,
+      "inside": 127,
+      "candidate": 4,
+      "name": "strong_refit_contrast",
+      "tails": [
+        {
+          "day": 27,
+          "weight_mass": 0.9959029540056358,
+          "right_tail_ESS": 127.21141103700926,
+          "top10_payoff_share": 0.13226390843499533
+        },
+        {
+          "day": 55,
+          "weight_mass": 1.0008294334986672,
+          "right_tail_ESS": 120.34846929624747,
+          "top10_payoff_share": 0.14497926326008734
+        },
+        {
+          "day": 118,
+          "weight_mass": 0.9989828229795857,
+          "right_tail_ESS": 121.32181310735238,
+          "top10_payoff_share": 0.1384037441365211
+        },
+        {
+          "day": 153,
+          "weight_mass": 0.9852822287525339,
+          "right_tail_ESS": 116.18137566027825,
+          "top10_payoff_share": 0.15243361248331763
+        }
+      ]
+    }
+  ],
+  "price_loss_reduction_percent": 2.985489936192709,
+  "paired_intervals": [
+    {
+      "candidate": 1,
+      "loss_delta": -50.56199836400674,
+      "approximate_batch_bootstrap_CI95": [
+        -85.63739866719007,
+        -5.20013727585913
+      ]
+    },
+    {
+      "candidate": 2,
+      "loss_delta": -55.73565137293258,
+      "approximate_batch_bootstrap_CI95": [
+        -95.70683002007192,
+        -7.822502998978674
+      ]
+    },
+    {
+      "candidate": 3,
+      "loss_delta": -4.784891297016429,
+      "approximate_batch_bootstrap_CI95": [
+        -9.1857322818127,
+        -0.3899292965022488
+      ]
+    },
+    {
+      "candidate": 4,
+      "loss_delta": -117.15274754054349,
+      "approximate_batch_bootstrap_CI95": [
+        -341.2378229603223,
+        162.7598610977011
+      ]
+    }
+  ],
+  "grid": [
+    {
+      "candidate": 0,
+      "median_change_quote_scales": 0.11697690553045698,
+      "max_change_quote_scales": 1.008831957750104
+    },
+    {
+      "candidate": 1,
+      "median_change_quote_scales": 0.13527928753474702,
+      "max_change_quote_scales": 1.13992764142717
+    },
+    {
+      "candidate": 2,
+      "median_change_quote_scales": 0.1278898314767812,
+      "max_change_quote_scales": 1.1536557109531689
+    },
+    {
+      "candidate": 3,
+      "median_change_quote_scales": 0.11821239126333757,
+      "max_change_quote_scales": 1.015786524055738
+    },
+    {
+      "candidate": 4,
+      "median_change_quote_scales": 0.18265491198234396,
+      "max_change_quote_scales": 1.352741268477766
+    }
+  ],
+  "adopted": false
+}

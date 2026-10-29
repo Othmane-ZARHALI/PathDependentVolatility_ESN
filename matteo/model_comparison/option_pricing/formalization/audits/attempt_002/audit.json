@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/Users/matteogambara/.elan/toolchains/leanprover--lean4---v4.35.0-rc4/bin/lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/audits/attempt_002/CalibrationChecks.olean",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/formalization/CalibrationChecks.lean"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc4",
+  "lean_version": "Lean (version 4.35.0-rc4, arm64-apple-darwin24.6.0, commit c29b6dda4f7c20e3eeaa717c4e565663c5cfa364, Release)",
+  "mathlib_revision": "1f414401f69059aa7eead47b53ee40bd38455eeb",
+  "dependency_project": "/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env",
+  "lean_path": "/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/Qq/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/aesop/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/batteries/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/importGraph/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/mathlib/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/plausible/.lake/build/lib/lean:/Users/matteogambara/Desktop/code/LLM handoff/HandoffResearch/Lean env/.lake/packages/proofwidgets/.lake/build/lib/lean",
+  "exit_code": 1,
+  "source_sha256": "ccd63f1cfd0e4e247ad952e20a92508ef51da9124ebd8e943ce5eb2a6c55fbec",
+  "checker_sha256": "aec0a15980642d8ad75210f035b03f37cb38b1e8a9d494abf9fb04dded3d1ed0",
+  "sorryAx_present": true,
+  "status": "failed"
+}

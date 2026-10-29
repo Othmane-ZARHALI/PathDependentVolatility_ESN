@@ -1,0 +1,562 @@
+[
+  {
+    "candidate": 0,
+    "day": 29,
+    "side": "put",
+    "K_over_F": 0.873351081941185,
+    "raw_payoff_mean": 0.0004419864258224707,
+    "payoff_concentration_ESS": 6.3775243410595825,
+    "top10_share": 0.9698510594527829,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 29,
+    "side": "call",
+    "K_over_F": 1.1424650781207362,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 57,
+    "side": "put",
+    "K_over_F": 0.8276572915902035,
+    "raw_payoff_mean": 0.001385427343740989,
+    "payoff_concentration_ESS": 11.72311987154708,
+    "top10_share": 0.7916994711399439,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 57,
+    "side": "call",
+    "K_over_F": 1.2009712447899807,
+    "raw_payoff_mean": 6.753471823584944e-06,
+    "payoff_concentration_ESS": 1.5827592571945623,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 119,
+    "side": "put",
+    "K_over_F": 0.7558135019302756,
+    "raw_payoff_mean": 0.0025909985660316527,
+    "payoff_concentration_ESS": 9.289696921750146,
+    "top10_share": 0.8331524761796101,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 119,
+    "side": "call",
+    "K_over_F": 1.2956802890233297,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 211,
+    "side": "put",
+    "K_over_F": 0.678948249349509,
+    "raw_payoff_mean": 0.003435988319014265,
+    "payoff_concentration_ESS": 12.892604505241883,
+    "top10_share": 0.7691996669592631,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 211,
+    "side": "call",
+    "K_over_F": 1.4007774407631977,
+    "raw_payoff_mean": 1.1869901965131996e-05,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 302,
+    "side": "put",
+    "K_over_F": 0.621046455542934,
+    "raw_payoff_mean": 0.003408273662434011,
+    "payoff_concentration_ESS": 15.07588413548551,
+    "top10_share": 0.7141414805948032,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 302,
+    "side": "call",
+    "K_over_F": 1.5898789261899111,
+    "raw_payoff_mean": 6.805164140367449e-06,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 666,
+    "side": "put",
+    "K_over_F": 0.4833555446598021,
+    "raw_payoff_mean": 0.0031001165903905953,
+    "payoff_concentration_ESS": 14.400968829655643,
+    "top10_share": 0.756424408413624,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 666,
+    "side": "call",
+    "K_over_F": 1.6572190102621789,
+    "raw_payoff_mean": 0.0002731461848405354,
+    "payoff_concentration_ESS": 1.3953316983935193,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 1030,
+    "side": "put",
+    "K_over_F": 0.4022886336323477,
+    "raw_payoff_mean": 0.003161760924841326,
+    "payoff_concentration_ESS": 15.327846712017688,
+    "top10_share": 0.7036417568511977,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 0,
+    "day": 1030,
+    "side": "call",
+    "K_over_F": 1.6091545345293907,
+    "raw_payoff_mean": 0.004266681415692543,
+    "payoff_concentration_ESS": 7.53024770687624,
+    "top10_share": 0.8778256746356043,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 29,
+    "side": "put",
+    "K_over_F": 0.873351081941185,
+    "raw_payoff_mean": 0.00036622812923391384,
+    "payoff_concentration_ESS": 5.98891421215857,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 29,
+    "side": "call",
+    "K_over_F": 1.1424650781207362,
+    "raw_payoff_mean": 1.8607710707432053e-05,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 57,
+    "side": "put",
+    "K_over_F": 0.8276572915902035,
+    "raw_payoff_mean": 0.0020736742638131894,
+    "payoff_concentration_ESS": 9.109020039674,
+    "top10_share": 0.8824231995970598,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 57,
+    "side": "call",
+    "K_over_F": 1.2009712447899807,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 119,
+    "side": "put",
+    "K_over_F": 0.7558135019302756,
+    "raw_payoff_mean": 0.0037626565248750662,
+    "payoff_concentration_ESS": 10.955506002688395,
+    "top10_share": 0.8318612359925689,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 119,
+    "side": "call",
+    "K_over_F": 1.2956802890233297,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 211,
+    "side": "put",
+    "K_over_F": 0.678948249349509,
+    "raw_payoff_mean": 0.0037257153049963946,
+    "payoff_concentration_ESS": 9.988915364510632,
+    "top10_share": 0.8737740886719121,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 211,
+    "side": "call",
+    "K_over_F": 1.4007774407631977,
+    "raw_payoff_mean": 3.5651765604949055e-05,
+    "payoff_concentration_ESS": 1.9426045018863947,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 302,
+    "side": "put",
+    "K_over_F": 0.621046455542934,
+    "raw_payoff_mean": 0.0034071615746611135,
+    "payoff_concentration_ESS": 9.487807973881333,
+    "top10_share": 0.8970094092280353,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 302,
+    "side": "call",
+    "K_over_F": 1.5898789261899111,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 666,
+    "side": "put",
+    "K_over_F": 0.4833555446598021,
+    "raw_payoff_mean": 0.004201019443482432,
+    "payoff_concentration_ESS": 16.277908554177326,
+    "top10_share": 0.7057644036344076,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 666,
+    "side": "call",
+    "K_over_F": 1.6572190102621789,
+    "raw_payoff_mean": 0.0005228400398041078,
+    "payoff_concentration_ESS": 2.255873209997212,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 1030,
+    "side": "put",
+    "K_over_F": 0.4022886336323477,
+    "raw_payoff_mean": 0.004201626704089049,
+    "payoff_concentration_ESS": 19.315117692783147,
+    "top10_share": 0.6319562567491268,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 1,
+    "day": 1030,
+    "side": "call",
+    "K_over_F": 1.6091545345293907,
+    "raw_payoff_mean": 0.0024563872734500777,
+    "payoff_concentration_ESS": 9.649643011382896,
+    "top10_share": 0.8869537805848879,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 29,
+    "side": "put",
+    "K_over_F": 0.873351081941185,
+    "raw_payoff_mean": 0.0003828062729306813,
+    "payoff_concentration_ESS": 5.899410346954065,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 29,
+    "side": "call",
+    "K_over_F": 1.1424650781207362,
+    "raw_payoff_mean": 2.7490671493145182e-05,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 57,
+    "side": "put",
+    "K_over_F": 0.8276572915902035,
+    "raw_payoff_mean": 0.0021912813743409348,
+    "payoff_concentration_ESS": 9.992432728623854,
+    "top10_share": 0.8352939028976161,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 57,
+    "side": "call",
+    "K_over_F": 1.2009712447899807,
+    "raw_payoff_mean": 5.095956978421953e-06,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 119,
+    "side": "put",
+    "K_over_F": 0.7558135019302756,
+    "raw_payoff_mean": 0.0038794353645331386,
+    "payoff_concentration_ESS": 11.22796948597573,
+    "top10_share": 0.8267561424106687,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 119,
+    "side": "call",
+    "K_over_F": 1.2956802890233297,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 211,
+    "side": "put",
+    "K_over_F": 0.678948249349509,
+    "raw_payoff_mean": 0.0037984821482143195,
+    "payoff_concentration_ESS": 10.454963056992117,
+    "top10_share": 0.8399213849613387,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 211,
+    "side": "call",
+    "K_over_F": 1.4007774407631977,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 302,
+    "side": "put",
+    "K_over_F": 0.621046455542934,
+    "raw_payoff_mean": 0.003464838781832998,
+    "payoff_concentration_ESS": 9.759352519202503,
+    "top10_share": 0.874802073708559,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 302,
+    "side": "call",
+    "K_over_F": 1.5898789261899111,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 666,
+    "side": "put",
+    "K_over_F": 0.4833555446598021,
+    "raw_payoff_mean": 0.004535424398832914,
+    "payoff_concentration_ESS": 17.371937307557765,
+    "top10_share": 0.6828719151822494,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 666,
+    "side": "call",
+    "K_over_F": 1.6572190102621789,
+    "raw_payoff_mean": 0.00017922650820169687,
+    "payoff_concentration_ESS": 1.0618531375775357,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 1030,
+    "side": "put",
+    "K_over_F": 0.4022886336323477,
+    "raw_payoff_mean": 0.004562169824174107,
+    "payoff_concentration_ESS": 20.573564553836743,
+    "top10_share": 0.5989911593167031,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 2,
+    "day": 1030,
+    "side": "call",
+    "K_over_F": 1.6091545345293907,
+    "raw_payoff_mean": 0.0023326100178597113,
+    "payoff_concentration_ESS": 9.74324010785913,
+    "top10_share": 0.8880201211129236,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 29,
+    "side": "put",
+    "K_over_F": 0.873351081941185,
+    "raw_payoff_mean": 0.00038259239212392324,
+    "payoff_concentration_ESS": 5.911189827519039,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 29,
+    "side": "call",
+    "K_over_F": 1.1424650781207362,
+    "raw_payoff_mean": 2.7139475786843326e-05,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 57,
+    "side": "put",
+    "K_over_F": 0.8276572915902035,
+    "raw_payoff_mean": 0.0021959236612415093,
+    "payoff_concentration_ESS": 10.040463472699011,
+    "top10_share": 0.8334109325085666,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 57,
+    "side": "call",
+    "K_over_F": 1.2009712447899807,
+    "raw_payoff_mean": 1.4102241465468925e-06,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 119,
+    "side": "put",
+    "K_over_F": 0.7558135019302756,
+    "raw_payoff_mean": 0.0038899763148428817,
+    "payoff_concentration_ESS": 11.303281835939629,
+    "top10_share": 0.8243836202326158,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 119,
+    "side": "call",
+    "K_over_F": 1.2956802890233297,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 211,
+    "side": "put",
+    "K_over_F": 0.678948249349509,
+    "raw_payoff_mean": 0.00379821633665377,
+    "payoff_concentration_ESS": 10.467642465672546,
+    "top10_share": 0.839767814893494,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 211,
+    "side": "call",
+    "K_over_F": 1.4007774407631977,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 302,
+    "side": "put",
+    "K_over_F": 0.621046455542934,
+    "raw_payoff_mean": 0.0034838695220679376,
+    "payoff_concentration_ESS": 9.840810008785438,
+    "top10_share": 0.8702991285868854,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 302,
+    "side": "call",
+    "K_over_F": 1.5898789261899111,
+    "raw_payoff_mean": 0.0,
+    "payoff_concentration_ESS": 0.0,
+    "top10_share": 0.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 666,
+    "side": "put",
+    "K_over_F": 0.4833555446598021,
+    "raw_payoff_mean": 0.00453409403955263,
+    "payoff_concentration_ESS": 17.371525992946644,
+    "top10_share": 0.6833844723421418,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 666,
+    "side": "call",
+    "K_over_F": 1.6572190102621789,
+    "raw_payoff_mean": 0.00015248834227027624,
+    "payoff_concentration_ESS": 1.0,
+    "top10_share": 1.0,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 1030,
+    "side": "put",
+    "K_over_F": 0.4022886336323477,
+    "raw_payoff_mean": 0.004557228417217619,
+    "payoff_concentration_ESS": 20.623667380767134,
+    "top10_share": 0.5983981246416109,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  },
+  {
+    "candidate": 3,
+    "day": 1030,
+    "side": "call",
+    "K_over_F": 1.6091545345293907,
+    "raw_payoff_mean": 0.002156316518460632,
+    "payoff_concentration_ESS": 9.759824483830071,
+    "top10_share": 0.8883800193102638,
+    "note": "raw target-Q payoffs; concentration statistic not independent sample count; antithetic pairs determine uncertainty"
+  }
+]

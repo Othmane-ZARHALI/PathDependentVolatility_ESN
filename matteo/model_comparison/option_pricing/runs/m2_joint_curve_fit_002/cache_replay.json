@@ -1,0 +1,96 @@
+{
+  "selected_prices_replayed": 882,
+  "negative_search_points_retained": [
+    {
+      "evaluation": 13,
+      "levels": [
+        0.03,
+        0.04,
+        0.06
+      ],
+      "negative_count": 4
+    },
+    {
+      "evaluation": 90,
+      "levels": [
+        0.1,
+        0.02,
+        0.1
+      ],
+      "negative_count": 7
+    }
+  ],
+  "selected_residual_jacobian_singular_values": [
+    1406.429846562159,
+    782.5178265694693,
+    47.805026646411605
+  ],
+  "relative_parameter_jacobian_singular_values": [
+    88.48510355398452,
+    55.89298158320561,
+    1.8357086394937245
+  ],
+  "stock_derivative_checks": [
+    {
+      "days": 29,
+      "coordinate": 0,
+      "max_absolute_stock_derivative_error": 6.799685259295529e-10
+    },
+    {
+      "days": 29,
+      "coordinate": 1,
+      "max_absolute_stock_derivative_error": 0.0
+    },
+    {
+      "days": 29,
+      "coordinate": 2,
+      "max_absolute_stock_derivative_error": 0.0
+    },
+    {
+      "days": 57,
+      "coordinate": 0,
+      "max_absolute_stock_derivative_error": 6.874434355097492e-10
+    },
+    {
+      "days": 57,
+      "coordinate": 1,
+      "max_absolute_stock_derivative_error": 0.0
+    },
+    {
+      "days": 57,
+      "coordinate": 2,
+      "max_absolute_stock_derivative_error": 0.0
+    },
+    {
+      "days": 211,
+      "coordinate": 0,
+      "max_absolute_stock_derivative_error": 3.7194958224517904e-10
+    },
+    {
+      "days": 211,
+      "coordinate": 1,
+      "max_absolute_stock_derivative_error": 6.719487188888706e-10
+    },
+    {
+      "days": 211,
+      "coordinate": 2,
+      "max_absolute_stock_derivative_error": 0.0
+    },
+    {
+      "days": 302,
+      "coordinate": 0,
+      "max_absolute_stock_derivative_error": 3.4969671602880226e-10
+    },
+    {
+      "days": 302,
+      "coordinate": 1,
+      "max_absolute_stock_derivative_error": 1.3555379041463311e-09
+    },
+    {
+      "days": 302,
+      "coordinate": 2,
+      "max_absolute_stock_derivative_error": 3.7222447346607623e-10
+    }
+  ],
+  "scope": "Same frozen searching paths, 128 paths per expiry for derivative checks. Singular values describe this numerical curve-only problem, not population or full-model identification."
+}

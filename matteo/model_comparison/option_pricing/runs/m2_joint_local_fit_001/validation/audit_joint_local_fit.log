@@ -1,0 +1,10 @@
+{
+  "status": "point1 price/SE/parity/true-acceptance/local-history/source/policy replay passed",
+  "sources_verified": 68,
+  "local_evaluations_replayed": 119,
+  "accepted_steps": 2,
+  "all_strikes_paths": 4096,
+  "full_pricer_calls": 3,
+  "minimum_volatility": 0.05039841267341662,
+  "new_independent_checking": false
+}

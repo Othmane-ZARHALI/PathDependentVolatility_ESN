@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "source_files": 285,
+  "input_files": 5,
+  "price_replays": [
+    {
+      "role": "training",
+      "candidate": "baseline",
+      "maximum_price_error": 8.881784197001252e-16
+    },
+    {
+      "role": "training",
+      "candidate": "curve_only",
+      "maximum_price_error": 8.881784197001252e-16
+    },
+    {
+      "role": "training",
+      "candidate": "previous_single_factor",
+      "maximum_price_error": 1.3322676295501878e-15
+    },
+    {
+      "role": "training",
+      "candidate": "product_price",
+      "maximum_price_error": 1.7763568394002505e-15
+    },
+    {
+      "role": "training",
+      "candidate": "product_shape",
+      "maximum_price_error": 2.220446049250313e-15
+    },
+    {
+      "role": "training",
+      "candidate": "additive_price",
+      "maximum_price_error": 1.3322676295501878e-15
+    },
+    {
+      "role": "training",
+      "candidate": "additive_shape",
+      "maximum_price_error": 8.881784197001252e-16
+    },
+    {
+      "role": "fresh_check",
+      "candidate": "baseline",
+      "maximum_price_error": 1.3322676295501878e-15
+    },
+    {
+      "role": "fresh_check",
+      "candidate": "curve_only",
+      "maximum_price_error": 1.7763568394002505e-15
+    },
+    {
+      "role": "fresh_check",
+      "candidate": "previous_single_factor",
+      "maximum_price_error": 1.3322676295501878e-15
+    },
+    {
+      "role": "fresh_check",
+      "candidate": "product_price",
+      "maximum_price_error": 8.881784197001252e-16
+    },
+    {
+      "role": "fresh_check",
+      "candidate": "product_shape",
+      "maximum_price_error": 1.3322676295501878e-15
+    },
+    {
+      "role": "fresh_check",
+      "candidate": "additive_price",
+      "maximum_price_error": 8.881784197001252e-16
+    },
+    {
+      "role": "fresh_check",
+      "candidate": "additive_shape",
+      "maximum_price_error": 1.7763568394002505e-15
+    }
+  ],
+  "fresh_scramble_regenerations": 32,
+  "proposal_weights_factorization_checked": true,
+  "all_16_curve_pieces_preserved": true,
+  "off_window_levels_unchanged": true,
+  "positive_beta_J": true,
+  "SPX_priced": false,
+  "baseline_replaced": false,
+  "limitations": "Independent implementation/numerical checks; not a population-convergence, global-optimum or Lean certificate."
+}

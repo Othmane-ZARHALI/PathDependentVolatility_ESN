@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-23",
+  "joint_curve_fit_performed": true,
+  "free_parameters": "three declared nuisance-curve levels",
+  "selected_levels": [
+    0.060094155368671145,
+    0.07485057191352656,
+    0.03836347644670185
+  ],
+  "qualified_fit": false,
+  "model_ranking": false,
+  "physical_compatibility": "not newly qualified",
+  "primary_scope": {
+    "SPX": 707,
+    "VIX": 175,
+    "VIX_forwards": 4
+  },
+  "secondary_SPX_wings": 273,
+  "fresh_comparisons_favor_selected": 3,
+  "pooled_fresh_loss": {
+    "anchor": 597.901909611669,
+    "selected": 347.09838291664965
+  },
+  "interpretation": "Persistent sampled total-loss improvement, but poor absolute fit and SPX/VIX compromise; numerical accuracy remains unresolved.",
+  "next_fitting_stage": "restricted C/Y/F state with prior penalty, fixed readout/architecture/Q scenario0; update dated normalization and state paths; preserve scope and fresh checking",
+  "no_standalone_variance_feature_search": true,
+  "formal_status": "10 scoped Lean theorems checked; no sorryAx/custom axioms; representation gaps documented",
+  "python_tests_passed": 170
+}

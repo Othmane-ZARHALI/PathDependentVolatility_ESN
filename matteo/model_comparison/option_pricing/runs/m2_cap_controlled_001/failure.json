@@ -1,0 +1,8 @@
+{
+  "stage": "fresh VIX engine construction, before any fresh model price",
+  "error": "ValueError: need at least one array to concatenate",
+  "cause": "VIX-only cache passed to constructor that first builds stock batch metadata",
+  "fits_and_full_SPX_complete": true,
+  "fresh_draws_already_frozen": true,
+  "recovery": "Initialize unchanged stock metadata from original cache, then attach fresh VIX cache; no search, SPX repricing or new draw generation repeated"
+}

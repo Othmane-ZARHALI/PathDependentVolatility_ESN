@@ -1,0 +1,13 @@
+{
+  "maximum_scalar_stock_error": 0.0,
+  "steps": 97,
+  "candidates": 5,
+  "antithetic_partners": 2,
+  "grids": [
+    128,
+    256
+  ],
+  "minimum_probe_variance": 0.012250236706161953,
+  "synthetic_clock": true,
+  "scope": "finite formula and update-order correspondence; not a continuous-time martingale theorem"
+}

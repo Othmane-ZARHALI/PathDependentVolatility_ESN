@@ -1,0 +1,419 @@
+{
+  "scope": "Mechanism benchmark only: one marginal, no M2 reservoir, floor, 30-day conditional window, market fitting or time-consistent process.",
+  "equation": "R(z)=sqrt(.9 exp(.18 z-.18^2/2)+.1 exp(1.8 z-1.8^2/2)); X=R/E[R]. Single Y=exp(s z-s^2/2), s^2=log(E[X^2]).",
+  "formal_correspondence": "Lean proves the algebraic log-response curvature numerator and a generic moment obstruction. It does not prove numerical prices, derivatives, Gaussian integrals, implied-volatility slopes or the M2 adaptation.",
+  "mean_response": 0.984445884579356,
+  "mean_quad_reported_error": 2.756850795574472e-14,
+  "mean_omitted_tail_upper_bound": 1.3234621263703593e-29,
+  "common_forward": 1.0,
+  "common_second_moment": 1.031849372636027,
+  "illustrative_expiry_days": 153,
+  "numerical_note": "QUADPACK errors are diagnostics, not rigorous bounds; omitted-tail expression is an analytic bound evaluated in floating point. Exact Gaussian second moment and forward equalities use exact normalization; implementation uses quadrature mean.",
+  "mixture_weights": [
+    0.4,
+    0.2,
+    0.2,
+    0.2
+  ],
+  "mixture_shifts": [
+    0.0,
+    2.0,
+    4.0,
+    6.0
+  ],
+  "points_per_scramble": 8192,
+  "results": [
+    {
+      "K_over_F": 1.0,
+      "mixed_call": 0.05456696733756868,
+      "quad_reported_error": 7.31289610552329e-16,
+      "omitted_tail_upper_bound": 1.3443726537958576e-29,
+      "mixed_annual_IV": 0.21142650646526537,
+      "single_call": 0.07054731466461478,
+      "single_annual_IV": 0.2734879449780623,
+      "mixed_simulation_call": 0.05456490175496101,
+      "mixed_simulation_SE": 1.0748872692525403e-05,
+      "mixed_simulation_minus_oracle_in_SE": -0.19216737110574358,
+      "mixed_simulation_note": "Scramble SE is a numerical diagnostic.",
+      "single_simulation_call": 0.0705439808680137,
+      "single_simulation_SE": 1.4023019179870419e-05,
+      "single_simulation_minus_oracle_in_SE": -0.2377374343087585,
+      "single_simulation_note": "Scramble SE is a numerical diagnostic."
+    },
+    {
+      "K_over_F": 2.0,
+      "mixed_call": 0.001958412482666567,
+      "quad_reported_error": 2.4888477624962997e-16,
+      "omitted_tail_upper_bound": 1.3443726537958576e-29,
+      "mixed_annual_IV": 0.48028304717089904,
+      "single_call": 2.5945423262124036e-06,
+      "single_annual_IV": 0.2734879449780623,
+      "mixed_simulation_call": 0.001957201780038646,
+      "mixed_simulation_SE": 8.893481766275509e-07,
+      "mixed_simulation_minus_oracle_in_SE": -1.361337055316081,
+      "mixed_simulation_note": "Scramble SE is a numerical diagnostic.",
+      "single_simulation_call": 2.5931045487358927e-06,
+      "single_simulation_SE": 1.5536720856652416e-09,
+      "single_simulation_minus_oracle_in_SE": -0.9254060041217045,
+      "single_simulation_note": "Scramble SE is a numerical diagnostic."
+    },
+    {
+      "K_over_F": 4.0,
+      "mixed_call": 0.00013924915279650132,
+      "quad_reported_error": 8.315065420599539e-18,
+      "omitted_tail_upper_bound": 1.3443726537958576e-29,
+      "mixed_annual_IV": 0.662866540166517,
+      "single_call": 1.0726531407005361e-16,
+      "single_annual_IV": 0.2734879449780623,
+      "mixed_simulation_call": 0.0001392694439486059,
+      "mixed_simulation_SE": 8.421378586720231e-08,
+      "mixed_simulation_minus_oracle_in_SE": 0.24094810482196774,
+      "mixed_simulation_note": "Scramble SE is a numerical diagnostic.",
+      "single_simulation_call": 1.0684215782758234e-16,
+      "single_simulation_SE": 5.264946462108575e-19,
+      "single_simulation_minus_oracle_in_SE": -0.8037237330269104,
+      "single_simulation_note": "Scramble SE is a numerical diagnostic."
+    },
+    {
+      "K_over_F": 8.0,
+      "mixed_call": 7.4027660927244214e-06,
+      "quad_reported_error": 2.701786006919709e-19,
+      "omitted_tail_upper_bound": 1.3443726537958576e-29,
+      "mixed_annual_IV": 0.7895284807484042,
+      "single_call": 1.5912346670324583e-33,
+      "single_annual_IV": 0.2734879449780623,
+      "mixed_simulation_call": 7.399943364009814e-06,
+      "mixed_simulation_SE": 2.5655497978611054e-09,
+      "mixed_simulation_minus_oracle_in_SE": -1.100243198148314,
+      "mixed_simulation_note": "Scramble SE is a numerical diagnostic.",
+      "single_simulation_call": 0.0,
+      "single_simulation_SE": 0.0,
+      "single_simulation_minus_oracle_in_SE": null,
+      "single_simulation_note": "Zero observed dispersion cannot certify the rare-tail price."
+    }
+  ],
+  "simulation_blocks": [
+    {
+      "seed": 2026102600,
+      "mass": 1.000108674264866,
+      "mixed_forward": 1.0000112206509213,
+      "mixed_second": 1.0317495033704438,
+      "single_forward": 0.9999925684220323,
+      "single_second": 1.03172652238806,
+      "mixed_calls": [
+        0.05450971864140166,
+        0.001955084017074731,
+        0.00014003841000591636,
+        7.389887713054825e-06
+      ],
+      "single_calls": [
+        0.07048196111023754,
+        2.600416897634514e-06,
+        1.0515138724919583e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102601,
+      "mass": 0.9999915878841569,
+      "mixed_forward": 1.0000291352437911,
+      "mixed_second": 1.031907291971283,
+      "single_forward": 1.000049006034367,
+      "single_second": 1.0319708755025854,
+      "mixed_calls": [
+        0.05458578104236625,
+        0.0019571172659968252,
+        0.00013934632235743387,
+        7.414012374342516e-06
+      ],
+      "single_calls": [
+        0.07058762053514289,
+        2.602809725863481e-06,
+        1.0312115220316085e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102602,
+      "mass": 1.000106979196655,
+      "mixed_forward": 1.0000574346541649,
+      "mixed_second": 1.0318587508065358,
+      "single_forward": 1.0000612065960048,
+      "single_second": 1.031837938174952,
+      "mixed_calls": [
+        0.054507412426468234,
+        0.0019613001380926025,
+        0.0001391262410248673,
+        7.387500789173306e-06
+      ],
+      "single_calls": [
+        0.07048084088978332,
+        2.596585660155625e-06,
+        1.1017406587582974e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102603,
+      "mass": 1.0000062913931158,
+      "mixed_forward": 1.000096118104552,
+      "mixed_second": 1.0320210735528585,
+      "single_forward": 1.0001230425050944,
+      "single_second": 1.0321119358728175,
+      "mixed_calls": [
+        0.05463908178633097,
+        0.0019523015389935655,
+        0.00013944762338791847,
+        7.395009691211638e-06
+      ],
+      "single_calls": [
+        0.07066167553648522,
+        2.5974893256517404e-06,
+        1.0738068223444956e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102604,
+      "mass": 1.0001650266122875,
+      "mixed_forward": 1.0001381189483944,
+      "mixed_second": 1.0319256068689644,
+      "single_forward": 1.0001585249878358,
+      "single_second": 1.0320175225347312,
+      "mixed_calls": [
+        0.05456254533705599,
+        0.0019509593543842714,
+        0.0001396879491820496,
+        7.401353251346684e-06
+      ],
+      "single_calls": [
+        0.07059324127900506,
+        2.600850232022819e-06,
+        1.0774858610283332e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102605,
+      "mass": 1.000469475460319,
+      "mixed_forward": 1.0004236293000774,
+      "mixed_second": 1.0321823571131556,
+      "single_forward": 1.0004713984444766,
+      "single_second": 1.0322639668906455,
+      "mixed_calls": [
+        0.05448600940928093,
+        0.001954454981934217,
+        0.00013946974549186846,
+        7.4029315358608316e-06
+      ],
+      "single_calls": [
+        0.07047831027366369,
+        2.5925868649149957e-06,
+        1.057091508239874e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102606,
+      "mass": 0.9999340153900671,
+      "mixed_forward": 0.9999288723008456,
+      "mixed_second": 1.0317846029212685,
+      "single_forward": 0.9999119462660462,
+      "single_second": 1.0317607551165457,
+      "mixed_calls": [
+        0.05457629066734012,
+        0.001955963612749698,
+        0.0001389258116259468,
+        7.3927458730250944e-06
+      ],
+      "single_calls": [
+        0.07054860206479849,
+        2.6009957749742017e-06,
+        1.0336830714788055e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102607,
+      "mass": 1.0000016192646424,
+      "mixed_forward": 0.999981023890201,
+      "mixed_second": 1.0318165167851983,
+      "single_forward": 0.999965146419582,
+      "single_second": 1.0317557882621,
+      "mixed_calls": [
+        0.05454315490692143,
+        0.001958774354775036,
+        0.00013897485563148427,
+        7.401210686064411e-06
+      ],
+      "single_calls": [
+        0.07048513673682609,
+        2.5898183216915237e-06,
+        1.1071677285112917e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102608,
+      "mass": 0.9999509330235289,
+      "mixed_forward": 0.9999342101456362,
+      "mixed_second": 1.031771480852225,
+      "single_forward": 0.9999097710017274,
+      "single_second": 1.0317339389648614,
+      "mixed_calls": [
+        0.05457710873032803,
+        0.0019569014566411264,
+        0.00013966869789514398,
+        7.406546839722123e-06
+      ],
+      "single_calls": [
+        0.07057135100605574,
+        2.5914621071009294e-06,
+        1.0582463550628674e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102609,
+      "mass": 0.9997605568178891,
+      "mixed_forward": 0.9998095370957599,
+      "mixed_second": 1.0317268538892572,
+      "single_forward": 0.999808539042933,
+      "single_second": 1.03169251449209,
+      "mixed_calls": [
+        0.05458901267488634,
+        0.001962136562792866,
+        0.00013926956678901465,
+        7.377235440215255e-06
+      ],
+      "single_calls": [
+        0.07054627360413929,
+        2.5893619217611578e-06,
+        1.0544802838029562e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102610,
+      "mass": 1.0001577746569752,
+      "mixed_forward": 1.0000839796042773,
+      "mixed_second": 1.0318666292735363,
+      "single_forward": 1.000068231433675,
+      "single_second": 1.0318278320996523,
+      "mixed_calls": [
+        0.05451639508216903,
+        0.0019603309390527277,
+        0.000138807922291133,
+        7.4129008617351605e-06
+      ],
+      "single_calls": [
+        0.07047828937816268,
+        2.5833797356387683e-06,
+        1.0815655038160271e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102611,
+      "mass": 0.999780987565033,
+      "mixed_forward": 0.9998340263418173,
+      "mixed_second": 1.0317654725602756,
+      "single_forward": 0.9998049410585785,
+      "single_second": 1.031692693168466,
+      "mixed_calls": [
+        0.0546181556732853,
+        0.0019588690532726873,
+        0.00013907937373750371,
+        7.413952246845851e-06
+      ],
+      "single_calls": [
+        0.07057375342118037,
+        2.5888274589242014e-06,
+        1.073748591506105e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102612,
+      "mass": 0.9997923660828567,
+      "mixed_forward": 0.9997747544287441,
+      "mixed_second": 1.031643816524518,
+      "single_forward": 0.9997414329769088,
+      "single_second": 1.0315422211445944,
+      "mixed_calls": [
+        0.054552606829543805,
+        0.0019614206107391187,
+        0.00013896728351288568,
+        7.399408890379961e-06
+      ],
+      "single_calls": [
+        0.07048931873958768,
+        2.5825863184320632e-06,
+        1.0886851501671023e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102613,
+      "mass": 0.9997723488170944,
+      "mixed_forward": 0.9997895678260784,
+      "mixed_second": 1.031678510134251,
+      "single_forward": 0.9997647157101893,
+      "single_second": 1.0316127552230814,
+      "mixed_calls": [
+        0.05457879350666019,
+        0.0019615621378001645,
+        0.00013894092307392269,
+        7.393130809009148e-06
+      ],
+      "single_calls": [
+        0.0705457296912784,
+        2.588739140128605e-06,
+        1.0651159845749639e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102614,
+      "mass": 1.0001050112979055,
+      "mixed_forward": 1.0001274933641637,
+      "mixed_second": 1.031999837389212,
+      "single_forward": 1.0001333701175592,
+      "single_second": 1.0320264738973628,
+      "mixed_calls": [
+        0.05459012365755031,
+        0.001953946764118512,
+        0.00013916956872503164,
+        7.406706026041037e-06
+      ],
+      "single_calls": [
+        0.07058570580288558,
+        2.5934218280888538e-06,
+        1.0688326229962423e-16,
+        0.0
+      ]
+    },
+    {
+      "seed": 2026102615,
+      "mass": 1.0000322279437253,
+      "mixed_forward": 1.000061448591956,
+      "mixed_second": 1.0319336372216081,
+      "single_forward": 1.0000594960271167,
+      "single_second": 1.03194679681478,
+      "mixed_calls": [
+        0.05460623770778764,
+        0.001954105692200194,
+        0.00013939080844557403,
+        7.404560796129181e-06
+      ],
+      "single_calls": [
+        0.07059588381898714,
+        2.5903414667908046e-06,
+        1.0703697156022459e-16,
+        0.0
+      ]
+    }
+  ],
+  "development_note": "development_probe.py is exploratory and has an unmatched hard-coded comparator; excluded from final results. A preliminary large-sensitivity trial was rejected because its finite-window calculation did not qualify far-tail contributions.",
+  "source_sha256": "07ba83ce7008a6e3361a5bc6ad6f669ceb61a9b7f4c4e067030dcc5f4c9b10d9"
+}

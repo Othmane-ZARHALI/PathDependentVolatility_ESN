@@ -1,0 +1,47 @@
+RICH AUDIT PASS 5.302796032632956e-15 5.161285691098871e-10 0.9792040466706589 0.0
+pilot batch 0 seconds 4.33
+pilot batch 1 seconds 6.53
+pilot batch 2 seconds 5.0
+pilot batch 3 seconds 4.78
+pilot batch 4 seconds 4.95
+pilot batch 5 seconds 5.58
+pilot batch 6 seconds 4.98
+pilot batch 7 seconds 4.98
+SPX SPX {'candidate': 0, 'alpha': 0.0, 'steps': 128, 'loss': 1879.9697435335481, 'IV_MAE_pp': 3.235193428213769, 'inside': 18, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.5514818635530796}
+SPX SPX {'candidate': 1, 'alpha': 1.0, 'steps': 128, 'loss': 1833.3531140146679, 'IV_MAE_pp': 3.182025362275511, 'inside': 21, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.678813437087845}
+SPX SPX {'candidate': 2, 'alpha': 2.0, 'steps': 128, 'loss': 1922.4899548235214, 'IV_MAE_pp': 3.3016057057933748, 'inside': 19, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.511184339416678}
+SPX SPX {'candidate': 3, 'alpha': 3.0, 'steps': 128, 'loss': 1850.558500375398, 'IV_MAE_pp': 3.180239527950685, 'inside': 20, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 3.012940540655385}
+SPX SPX {'candidate': 4, 'alpha': 4.0, 'steps': 128, 'loss': 1937.2798911993887, 'IV_MAE_pp': 3.313544065919563, 'inside': 18, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.594790506946166}
+SPX SPX {'candidate': 5, 'alpha': 5.0, 'steps': 128, 'loss': 1834.9429315395737, 'IV_MAE_pp': 3.1694986637064524, 'inside': 19, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 3.080666416764767}
+SPX SPX {'candidate': 6, 'alpha': 6.0, 'steps': 128, 'loss': 1939.871674824331, 'IV_MAE_pp': 3.3086341151885046, 'inside': 19, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.612863127401365}
+SPX SPX {'candidate': 7, 'alpha': 7.0, 'steps': 128, 'loss': 1828.8213202336685, 'IV_MAE_pp': 3.171543378376108, 'inside': 20, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.9956172147734312}
+SPX SPX {'candidate': 8, 'alpha': 8.0, 'steps': 128, 'loss': 1938.8999451502643, 'IV_MAE_pp': 3.3045483308546446, 'inside': 19, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.601179861811929}
+SPX SPX {'candidate': 9, 'alpha': 9.0, 'steps': 128, 'loss': 1828.4840903228087, 'IV_MAE_pp': 3.1743546805520912, 'inside': 22, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.937838380061603}
+SPX SPX {'candidate': 10, 'alpha': 10.0, 'steps': 128, 'loss': 1955.8453234646147, 'IV_MAE_pp': 3.3219085319825443, 'inside': 17, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.651828600441803}
+SPX SPX {'candidate': 11, 'alpha': 11.0, 'steps': 128, 'loss': 1816.4690391995352, 'IV_MAE_pp': 3.1617465429497247, 'inside': 23, 'invalid_IV': 4, 'negative': 4, 'median_SE_scales': 2.988990129967209}
+SPX SPX {'candidate': 12, 'alpha': 12.0, 'steps': 128, 'loss': 1964.5150787817402, 'IV_MAE_pp': 3.326101172343304, 'inside': 20, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.661202535413926}
+SPX SPX {'candidate': 13, 'alpha': 13.0, 'steps': 128, 'loss': 1807.5122621481285, 'IV_MAE_pp': 3.157953497100286, 'inside': 21, 'invalid_IV': 4, 'negative': 4, 'median_SE_scales': 2.969535800445626}
+SPX SPX {'candidate': 14, 'alpha': 14.0, 'steps': 128, 'loss': 1948.8108803488444, 'IV_MAE_pp': 3.3080042774384046, 'inside': 18, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.6335013478927753}
+SPX SPX {'candidate': 15, 'alpha': 15.0, 'steps': 128, 'loss': 1818.5494161024392, 'IV_MAE_pp': 3.171550390353256, 'inside': 20, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.807735710960043}
+SPX SPX {'candidate': 16, 'alpha': 16.0, 'steps': 128, 'loss': 1940.8858879270003, 'IV_MAE_pp': 3.299266360649306, 'inside': 19, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.5930696904135466}
+SPX SPX {'candidate': 17, 'alpha': 17.0, 'steps': 128, 'loss': 1824.805702266294, 'IV_MAE_pp': 3.1781400898376253, 'inside': 22, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.7577364944117813}
+SPX SPX {'candidate': 18, 'alpha': 18.0, 'steps': 128, 'loss': 1953.3320802666362, 'IV_MAE_pp': 3.314703555383853, 'inside': 17, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.625672805105019}
+SPX SPX {'candidate': 19, 'alpha': 19.0, 'steps': 128, 'loss': 1818.4945134242334, 'IV_MAE_pp': 3.1684140454152128, 'inside': 20, 'invalid_IV': 3, 'negative': 3, 'median_SE_scales': 2.794730525220611}
+SPX SPX {'candidate': 20, 'alpha': 20.0, 'steps': 128, 'loss': 1948.432951513412, 'IV_MAE_pp': 3.3084044406307203, 'inside': 16, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.6023540718313}
+SPX SPX {'candidate': 21, 'alpha': 21.0, 'steps': 128, 'loss': 1821.5584469917708, 'IV_MAE_pp': 3.173665398087006, 'inside': 21, 'invalid_IV': 2, 'negative': 2, 'median_SE_scales': 2.7459755812069515}
+SPX SPX {'candidate': 22, 'alpha': 22.0, 'steps': 128, 'loss': 1927.9185630476984, 'IV_MAE_pp': 3.286494117392389, 'inside': 19, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.5646652949941426}
+SPX SPX {'candidate': 23, 'alpha': 23.0, 'steps': 128, 'loss': 1837.231707129749, 'IV_MAE_pp': 3.189468340380184, 'inside': 21, 'invalid_IV': 1, 'negative': 1, 'median_SE_scales': 2.684469620962239}
+SPX SPX {'candidate': 24, 'alpha': 24.0, 'steps': 128, 'loss': 1920.029336231538, 'IV_MAE_pp': 3.2780087886527767, 'inside': 19, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.5602508413486857}
+SPX SPX {'candidate': 25, 'alpha': 25.0, 'steps': 128, 'loss': 1843.7159090370708, 'IV_MAE_pp': 3.1973573295087827, 'inside': 22, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 2.6658596731330446}
+fresh batch 0 seconds 5.55
+fresh batch 1 seconds 8.13
+fresh batch 2 seconds 7.91
+fresh batch 3 seconds 8.22
+fresh batch 4 seconds 7.84
+fresh batch 5 seconds 7.9
+fresh batch 6 seconds 7.73
+fresh batch 7 seconds 7.74
+SPX SPX {'candidate': 0, 'alpha': 0.0, 'steps': 128, 'loss': 1945.5155697227087, 'IV_MAE_pp': 3.208912675553989, 'inside': 15, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.8014037059874983}
+SPX SPX {'candidate': 1, 'alpha': 1.0, 'steps': 128, 'loss': 1909.3864981855288, 'IV_MAE_pp': 3.1620930192521537, 'inside': 20, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.860931058316221}
+SPX SPX {'candidate': 2, 'alpha': 2.0, 'steps': 128, 'loss': 1884.3123570478226, 'IV_MAE_pp': 3.1366070688206524, 'inside': 20, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.9329495164426382}
+RICH PRICING COMPLETE

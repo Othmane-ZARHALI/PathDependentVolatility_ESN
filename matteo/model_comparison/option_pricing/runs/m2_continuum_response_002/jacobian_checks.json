@@ -1,0 +1,62 @@
+[
+  {
+    "parameter": 0,
+    "price_error": 2.92029229528994e-09,
+    "forward_error": 1.7821104300528267e-10
+  },
+  {
+    "parameter": 1,
+    "price_error": 1.796495721844567e-05,
+    "forward_error": 2.3719583052657266e-11
+  },
+  {
+    "parameter": 2,
+    "price_error": 5.13501800273443e-06,
+    "forward_error": 3.81045348230426e-10
+  },
+  {
+    "parameter": 3,
+    "price_error": 2.0639715458930095e-06,
+    "forward_error": 8.76786606149414e-12
+  },
+  {
+    "parameter": 4,
+    "price_error": 5.37598218928075e-09,
+    "forward_error": 2.0783130771917513e-10
+  },
+  {
+    "parameter": 5,
+    "price_error": 4.580122702792335e-06,
+    "forward_error": 2.922978246334276e-11
+  },
+  {
+    "parameter": 6,
+    "price_error": 2.439134919749512e-10,
+    "forward_error": 2.6815322411933998e-11
+  },
+  {
+    "parameter": 7,
+    "price_error": 8.6302953713693e-07,
+    "forward_error": 2.005997105616546e-10
+  },
+  {
+    "parameter": 8,
+    "price_error": 1.41229810996349e-05,
+    "forward_error": 2.5458627277117354e-08
+  },
+  {
+    "parameter": 9,
+    "price_error": 4.524286130671971e-07,
+    "forward_error": 5.7768716015750385e-11
+  },
+  {
+    "parameter": 10,
+    "price_error": 2.865634990044846e-09,
+    "forward_error": 3.305531475624384e-10
+  },
+  {
+    "parameter": 11,
+    "price_error": 6.966742161055706e-05,
+    "forward_error": 6.002726019253644e-08
+  }
+]

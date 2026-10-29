@@ -1,0 +1,98 @@
+[
+  {
+    "role": "training",
+    "day": 27,
+    "controlled": 20.100000000026476,
+    "controlled_SE": 0.0720248474007531,
+    "raw": 20.04158416391972,
+    "raw_SE": 0.059862451078178044,
+    "floor_controlled": 20.01986049563074,
+    "floor_controlled_SE": 0.04059760891810708,
+    "legacy_control_mean": -0.05841583610675606,
+    "mass": 1.0018103056907481
+  },
+  {
+    "role": "training",
+    "day": 55,
+    "controlled": 20.730000000051,
+    "controlled_SE": 0.03808965613429251,
+    "raw": 20.53494099579344,
+    "raw_SE": 0.059080654622470564,
+    "floor_controlled": 20.573850166395175,
+    "floor_controlled_SE": 0.044206100552106026,
+    "legacy_control_mean": -0.1950590042575597,
+    "mass": 0.9967575691165219
+  },
+  {
+    "role": "training",
+    "day": 118,
+    "controlled": 21.190000000084417,
+    "controlled_SE": 0.060168351087138326,
+    "raw": 21.14222904202007,
+    "raw_SE": 0.04549714902451341,
+    "floor_controlled": 21.132395625588845,
+    "floor_controlled_SE": 0.026071161736927462,
+    "legacy_control_mean": -0.047770958064351984,
+    "mass": 1.0008194513692685
+  },
+  {
+    "role": "training",
+    "day": 153,
+    "controlled": 21.72000000009716,
+    "controlled_SE": 0.0979409362834648,
+    "raw": 21.7253733693207,
+    "raw_SE": 0.041143030448120274,
+    "floor_controlled": 21.73015686495023,
+    "floor_controlled_SE": 0.048096205381629044,
+    "legacy_control_mean": 0.0053733692235415215,
+    "mass": 0.9996013753642059
+  },
+  {
+    "role": "fresh_check",
+    "day": 27,
+    "controlled": 20.085577262673873,
+    "controlled_SE": 0.022091223896223026,
+    "raw": 20.102616843835143,
+    "raw_SE": 0.03096348755824518,
+    "floor_controlled": 20.092934172209954,
+    "floor_controlled_SE": 0.019673744396120924,
+    "legacy_control_mean": 0.01703958116127508,
+    "mass": 1.0008068893020992
+  },
+  {
+    "role": "fresh_check",
+    "day": 55,
+    "controlled": 20.564392497597545,
+    "controlled_SE": 0.024804762642694884,
+    "raw": 20.624709426676745,
+    "raw_SE": 0.02671528172671155,
+    "floor_controlled": 20.591329210764982,
+    "floor_controlled_SE": 0.018412980028653495,
+    "legacy_control_mean": 0.06031692907920044,
+    "mass": 1.0027816846593136
+  },
+  {
+    "role": "fresh_check",
+    "day": 118,
+    "controlled": 21.13026535362176,
+    "controlled_SE": 0.027712861066405154,
+    "raw": 21.176917249226335,
+    "raw_SE": 0.024922542562556885,
+    "floor_controlled": 21.17185340275777,
+    "floor_controlled_SE": 0.025243073195334496,
+    "legacy_control_mean": 0.046651895604575756,
+    "mass": 1.0004219872057138
+  },
+  {
+    "role": "fresh_check",
+    "day": 153,
+    "controlled": 21.710932232520687,
+    "controlled_SE": 0.029319523658029655,
+    "raw": 21.653359779426122,
+    "raw_SE": 0.022872821965868227,
+    "floor_controlled": 21.695270720081048,
+    "floor_controlled_SE": 0.017623432403171928,
+    "legacy_control_mean": -0.05757245309456305,
+    "mass": 0.9965074216120894
+  }
+]

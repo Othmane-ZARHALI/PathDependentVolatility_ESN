@@ -1,0 +1,64 @@
+{
+  "expiry_days": 211,
+  "grid_intervals": 74616,
+  "basis_seconds": {
+    "reference": 0.6009575419593602,
+    "conditional": 0.6900608751457185
+  },
+  "seed_records": [
+    {
+      "method": "reference",
+      "role": 0,
+      "trial": 0,
+      "seeds": [
+        2834477262,
+        2637507163
+      ]
+    },
+    {
+      "method": "conditional",
+      "role": 0,
+      "trial": 0,
+      "seeds": [
+        3486708618,
+        3962258373
+      ]
+    },
+    {
+      "method": "reference",
+      "role": 1,
+      "trial": 0,
+      "seeds": [
+        408471798,
+        1806679735
+      ]
+    },
+    {
+      "method": "conditional",
+      "role": 1,
+      "trial": 0,
+      "seeds": [
+        3050085098,
+        374376884
+      ]
+    },
+    {
+      "method": "conditional",
+      "role": 1,
+      "trial": 1,
+      "seeds": [
+        192566494,
+        2583825620
+      ]
+    },
+    {
+      "method": "reference",
+      "role": 1,
+      "trial": 1,
+      "seeds": [
+        199286988,
+        1102376966
+      ]
+    }
+  ]
+}

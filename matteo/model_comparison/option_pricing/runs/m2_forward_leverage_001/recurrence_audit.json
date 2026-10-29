@@ -1,0 +1,7 @@
+{
+  "all_checks_passed": true,
+  "scalar_stock_recursion_max_absolute_error": 2.220446049250313e-16,
+  "unit_forward_stock_loading_max_error": 2.220446049250313e-16,
+  "future_covariance_not_greater_than_baseline_at_update_times": true,
+  "scope": "97fine steps, both antithetic paths, coarse/fine variance and4/8update schedules; future-loading function independently checked by finite differences in integration_audit.json"
+}

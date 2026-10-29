@@ -1,0 +1,142 @@
+{
+  "status": "fresh paired Q check completed; final accuracy gates separate",
+  "stock_seeds": [
+    2229248124143160148,
+    15901216639103404309,
+    13015845855917335923,
+    18057565096821699267,
+    5794319703369306015,
+    18299751397969753079,
+    15734103230134982199,
+    13276125909711898565
+  ],
+  "reference_seeds": {
+    "29": [
+      3942533334,
+      1732477874,
+      709850310,
+      840007151,
+      603485514,
+      182066646,
+      292272522,
+      83062655
+    ],
+    "57": [
+      339024116,
+      803669778,
+      173459996,
+      3374580988,
+      4068701463,
+      2552914407,
+      3638942707,
+      1469905157
+    ],
+    "119": [
+      105539259,
+      3512974802,
+      233289230,
+      216951111,
+      3239647951,
+      2176725541,
+      1874455642,
+      550703980
+    ],
+    "211": [
+      4059446988,
+      1717993008,
+      1151702427,
+      1232784782,
+      835144560,
+      3675243469,
+      3548830610,
+      158946491
+    ],
+    "302": [
+      1656850538,
+      1405738019,
+      374605584,
+      651570700,
+      933879458,
+      2615133411,
+      2949281186,
+      2697559015
+    ],
+    "666": [
+      1889174386,
+      2407719420,
+      3836906429,
+      2023226136,
+      4165176142,
+      3531047738,
+      3968916139,
+      3691757841
+    ],
+    "1030": [
+      3141660753,
+      1813503709,
+      438552126,
+      592439507,
+      2448497950,
+      4211107633,
+      2065086585,
+      39712227
+    ]
+  },
+  "summaries": [
+    {
+      "model": "baseline",
+      "steps": 64,
+      "loss": 5964.130544735658,
+      "inside": 10,
+      "negative": 0,
+      "median_SE_scales": 3.4716504702423587
+    },
+    {
+      "model": "baseline",
+      "steps": 128,
+      "loss": 5979.322666723897,
+      "inside": 11,
+      "negative": 0,
+      "median_SE_scales": 3.34670462484394
+    },
+    {
+      "model": "selected",
+      "steps": 64,
+      "loss": 3895.3932950925205,
+      "inside": 7,
+      "negative": 0,
+      "median_SE_scales": 2.1723734736595466
+    },
+    {
+      "model": "selected",
+      "steps": 128,
+      "loss": 3895.0712910422635,
+      "inside": 8,
+      "negative": 0,
+      "median_SE_scales": 2.141578404720386
+    }
+  ],
+  "paired": [
+    {
+      "steps": 64,
+      "loss_delta_selected_minus_baseline": -2068.7372496431376,
+      "paired_batch_bootstrap_loss_delta_interval": [
+        -2518.6785117491127,
+        -1689.7094912892899
+      ],
+      "note": "1024paired bootstrap resamples of8expensive and8cheap batches; approximate fixed-candidate sampling interval, not a convergence bound."
+    },
+    {
+      "steps": 128,
+      "loss_delta_selected_minus_baseline": -2084.2513756816334,
+      "paired_batch_bootstrap_loss_delta_interval": [
+        -2495.422990227215,
+        -1690.923390883356
+      ],
+      "note": "1024paired bootstrap resamples of8expensive and8cheap batches; approximate fixed-candidate sampling interval, not a convergence bound."
+    }
+  ],
+  "wall_seconds": 66.66390391602181,
+  "market_OOS": false,
+  "VIX_parameters_changed": false
+}

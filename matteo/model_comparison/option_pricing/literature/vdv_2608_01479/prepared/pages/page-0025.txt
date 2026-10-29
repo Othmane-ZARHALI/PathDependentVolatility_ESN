@@ -1,0 +1,39 @@
+C(Ti−1, K) and K 7→C(Ti, K), by fitting a slice-wise implied volatility parametrization such
+as SVI or randomized SABR [25]. We then introduce an equally spaced strike grid K1 < K2 <
+· · · < KL, with corresponding values ˜K1, . . . , ˜KL, and collect the (unknown) values of νi on
+this grid into a vector −→νi = (νi,1, νi,2, . . . , νi,L)⊤.
+   Evaluating Equation (A.3) at T = Ti and discretizing the derivative on the grid yields the
+linear system
+
+           A cTi = ˜cTi−1,                                                    (A.4)
+                        cTi =  C(Ti, K1), C(Ti, K2), . . . , C(Ti, KL) ⊤,
+                         ˜cTi−1 =  C(Ti−1, ˜K1), C(Ti−1, ˜K2), . . . , C(Ti−1, ˜KL) ⊤,
+
+where
+                                                   1 −τ ˜K21 ν2i,1       0             · · ·       0                           2
+                                     
+                                          0       1 −τ                                                             ˜K22 ν2i,2    · · ·       0                                            2       A = e−(r+k)τ                          D2,                                     
+                                                                                             ...                              ...                                          ...                                      
+                                     
+                                                                  0            0             · · ·  1 −τ ˜K2L ν2i,L                                                          2
+τ := Ti −Ti−1, and D2 denotes the finite-difference operator for the second derivative in K.
+   Solving this linear system for −→ν i, we recover νi as the piecewise-constant function
+
+                                  L−1
+                            νi(K) := X νi,l 1K∈[Kl,Kl+1).
+                                           l=1
+
+This defines the interpolation between the two sets of quotes, and the same procedure can be
+repeated for every i ≤N to recover the interpolation function across the entire expiry grid.
+With the linear system above and the interpolation function, we can then recover option prices
+on a fine grid of times T and strikes K, allowing us to compute the derivatives necessary to
+derive Equation (A.2). This enables us to construct the local volatility function. Figure A.10
+shows an example of a local vol function for the VIX.
+
+
+
+
+
+        Figure A.10: Calibrated VIX Local Vol Surface: k = 5. Data from April 27th, 2026
+
+                                        25

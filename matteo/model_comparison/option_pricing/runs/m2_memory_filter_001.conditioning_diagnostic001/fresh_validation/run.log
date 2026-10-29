@@ -1,0 +1,27 @@
+FILTER FROZEN CHECK M2_3d_share0.25_refit whole_3d_share0.25_refit
+FILTER NEW STOCK 0 6.77
+FILTER NEW STOCK 1 7.36
+FILTER NEW STOCK 2 7.86
+FILTER NEW STOCK 3 7.88
+FILTER NEW STOCK 4 6.97
+FILTER NEW STOCK 5 8.47
+FILTER NEW STOCK 6 6.9
+FILTER NEW STOCK 7 7.0
+SPX SPX {'candidate': 0, 'alpha': 0.0, 'steps': 128, 'loss': 1952.664590752986, 'IV_MAE_pp': 3.218153251097188, 'inside': 17, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.5454874713580247}
+SPX SPX {'candidate': 1, 'alpha': 0.25, 'steps': 128, 'loss': 1923.1534457844375, 'IV_MAE_pp': 3.2004576895606496, 'inside': 16, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.5378905270612937}
+SPX SPX {'candidate': 2, 'alpha': 0.25, 'steps': 128, 'loss': 1925.8568523956194, 'IV_MAE_pp': 3.2016334274155747, 'inside': 16, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.5369164414708647}
+SPX SPX {'candidate': 3, 'alpha': 0.0, 'steps': 128, 'loss': 1955.3591618207422, 'IV_MAE_pp': 3.219318790516436, 'inside': 16, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.5495634288888995}
+SPX SPX {'candidate': 4, 'alpha': 0.25, 'steps': 128, 'loss': 1914.669009177786, 'IV_MAE_pp': 3.1970452632383948, 'inside': 16, 'invalid_IV': 0, 'negative': 0, 'median_SE_scales': 1.522359113044105}
+FILTER HISTORY histories 27 1.44
+FILTER HISTORY histories 55 4.04
+FILTER HISTORY histories 118 9.39
+FILTER HISTORY histories 153 10.56
+FILTER EXPOSURE exposures 27 2.08
+FILTER EXPOSURE exposures 55 2.03
+FILTER EXPOSURE exposures 118 1.77
+FILTER EXPOSURE exposures 153 2.61
+FILTER EXPOSURE quadrature_probe 27 4.72
+FILTER EXPOSURE quadrature_probe 55 1.78
+FILTER EXPOSURE quadrature_probe 118 1.52
+FILTER EXPOSURE quadrature_probe 153 1.42
+MEMORY FRESH CHECK COMPLETE

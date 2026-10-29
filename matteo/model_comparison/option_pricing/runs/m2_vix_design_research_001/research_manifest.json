@@ -1,0 +1,238 @@
+{
+  "date": "2026-10-26",
+  "scope": "VIX-only deep research, Othmane document review and static moment-budget diagnostics",
+  "source_sha256": {
+    "/Users/matteogambara/Downloads/ESN.eml": "c9fd2a12573cf8e8bd9aaffb716b7f7d2642dee3ccfc006b00d586f79eb17b57",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/active_scope.json": "4da6113c1ad9fc6939629c6b0b669a64ae37240998f6ae999be67e15894294c8",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/scope_decisions/2026-10-26-before-vix-only-research.json": "91656c452c996465ca7a779e94d128c9a1fb6cc71f987157a155761a84530b35",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/STOCHASTIC_VOL_OF_VOL_RESEARCH.md": "714c180bd9bee6b064308e0cddbc47cfa26884f0109e7d754278297f39aa3806",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/NEXT_STEPS.md": "9ed26d2d8df7ce98cfee451158711bf737357baf98492dc691dab16fe67d89b5",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/CONTINUE_FITTING_PROMPT.md": "b6aca5573f86e287b9effe961e9bab0b6eb55f4302c368b3795759408c85c0c4",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/RESEARCH_LEDGER.md": "ac1479d58715b1b57368c85f9a315890aabc44fa128c80c9fdcbe919b370495e",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/AUDIT.md": "3d321e9c134ce6b3420533bfd31fbf327852c6f3f963187fae279a0b144424d8",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_maturity_curve_fit_001/run.json": "c87f495c75f1dc889550d3605eb7049fcdc48a6f45edee31ef60c97b9a3645d3",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_maturity_curve_fit_001/selected_model.json": "ded6c7077f9470dd301316eea8aff927066a69544029c9ce8389b84f715cfbaa",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/prices_canonical_baseline.csv": "c9baa4d612b3d767a2518e8439be97aa5365873a7e5f8be281d3550eeadbff7f",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/fresh_check/prices_canonical_baseline.csv": "45001d8ee25ad22ceff493d457b430b4b065daeca778eb519bb58874841a131a",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/fresh_check/prices_canonical_g1_h7.csv": "d157824b7ce2eb547c354001b1268aed768e8c4fa4ae38f0a7a1f7b759657d8e",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/gs_doc/original.pdf": "9a13af8798345bdee842449b1a57db31d0867f6ba9d3dbc335accf0384fc4a21",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/gs_doc/report.md": "d965322207012f5d362a723ee7e742cd7ee477da7fa6efdaf72cc92686aa591b",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/gs_doc/document.md": "f1df1ff1a6b84a14a4351c23abc1cd430abd09ea1d91c38ffbf1225aa600e3a9",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/gs_doc/extraction.json": "38f3181440e00275f1f4acea164e4ffc811454b31deac1c7dac9c00defc293d7",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/jc_doc/original.pdf": "d0a1e2d866f756da73b6413b7007a01adeb60187bb6f3d8c5aea68c3b4e4aff7",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/jc_doc/report.md": "6eeaf58556ba207eca2767911bd05e1aef6a2d144a87d2f60a90353040a5f5bb",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/jc_doc/document.md": "46ef84dcf4e7d9a43dc38facba4ddcd9c68aedc7a72ca3b201dc68a6dbf91f35",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/jc_doc/extraction.json": "145462fb8287642baace001e50d2d39db3768277e83795400e38dd92e3db3fdf",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/cs_doc/original.pdf": "c9c09afde1668e574125e9df6bb44fcb80951e8c0ad265d65e1534e13ada9afc",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/cs_doc/report.md": "6fadfef793b61d8727a7b4771cc03aafdfb085d553275be6a22138cbf57f9a17",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/cs_doc/document.md": "043f485dfdd72e8ad95e88e010746a5f33a418c4f97d11290ae2caae172f7a5d",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/othmane_docs_20261026.prepared/cs_doc/extraction.json": "a3412b67afd698bd89a156f62d84f7413e133d030f2b120291359673d16a3187",
+    "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/source/matteo/model_comparison/option_pricing/runs/m2_parity_adaptive_cache_001/vix_contracts.csv": "c0be6c91d5bb0ff789fc2f5ac9380f5133e10bfd2d1d40a3d5bcabf4165805d5"
+  },
+  "literature": [
+    {
+      "authors": "Horvath-Jacquier-Tankov",
+      "url": "https://arxiv.org/html/1802.01641",
+      "scope": "Noise-scale modulation; affine Gamma and VIX calibration; no full joint fit shown."
+    },
+    {
+      "authors": "Fouque-Saporito",
+      "url": "https://arxiv.org/html/1706.00873v1",
+      "scope": "Continuous fast/slow stochastic variance diffusion amplitude; perturbative joint pricing."
+    },
+    {
+      "authors": "Bourgey-De Marco-Gobet",
+      "url": "https://arxiv.org/html/2202.10413",
+      "scope": "Mixed exponential responses, standard and rough VIX-only calibrations, section3.3."
+    },
+    {
+      "authors": "Jacquier-Muguruza-Pannier",
+      "url": "https://arxiv.org/html/2112.14310v2",
+      "scope": "Multifactor level/skew/curvature asymptotics."
+    },
+    {
+      "authors": "Romer",
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/14697688.2022.2081592",
+      "scope": "Primary publisher search excerpts on hyperbolic transforms and joint calibration; direct opening intermittently403."
+    },
+    {
+      "authors": "Gazzani-Guyon",
+      "url": "https://arxiv.org/html/2406.02319",
+      "scope": "Endogenous PDV upside response and joint calibration."
+    },
+    {
+      "authors": "Baschetti-Bormetti-Rossi",
+      "url": "https://arxiv.org/html/2507.09412",
+      "scope": "Neural pricing acceleration for PDV; not new model flexibility."
+    },
+    {
+      "authors": "Forde-Smith",
+      "url": "https://martinforde.github.io/SPX-VIX-Calibration-Stochastic-Correlation-New.pdf",
+      "scope": "Short-time nonlinear volatility/correlation and one-slice Bass construction."
+    },
+    {
+      "authors": "Zaugg-Grzelak",
+      "url": "https://arxiv.org/html/2608.01479v1",
+      "scope": "VIX-first architecture; general positive coupling not guaranteed."
+    },
+    {
+      "authors": "Guyon-Menegaux-Nutz",
+      "url": "https://arxiv.org/abs/1609.05832",
+      "scope": "Model-free joint bounds; distinct from this elementary one-marginal certificate."
+    }
+  ],
+  "visual_checks": {
+    "email": "Six-image contact sheet, plus VIX email-image-07 at full size",
+    "prepared": [
+      "cs_doc pages2,3,5,8,9,13 visually inspected; other relevant native text sections read",
+      "gs_doc native equations and ablation/assessment read",
+      "jc_doc native model, targets, results/limitations read; OCR page14 not used for a quantitative claim"
+    ],
+    "research_figures": "variance-budget and strike-range-comparison inspected at full size"
+  },
+  "certificate_audit": {
+    "status": "PASS",
+    "arithmetic": "fractions.Fraction exact rational arithmetic",
+    "records": [
+      {
+        "day": 27,
+        "forward_tolerance": 0.0,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": false
+      },
+      {
+        "day": 55,
+        "forward_tolerance": 0.0,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 118,
+        "forward_tolerance": 0.0,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 153,
+        "forward_tolerance": 0.0,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 27,
+        "forward_tolerance": 0.1,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": false
+      },
+      {
+        "day": 55,
+        "forward_tolerance": 0.1,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 118,
+        "forward_tolerance": 0.1,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 153,
+        "forward_tolerance": 0.1,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 27,
+        "forward_tolerance": 0.5,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": false
+      },
+      {
+        "day": 55,
+        "forward_tolerance": 0.5,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 118,
+        "forward_tolerance": 0.5,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      },
+      {
+        "day": 153,
+        "forward_tolerance": 0.5,
+        "global_payoff_dominance": true,
+        "exact_fraction_lower_bound_verified": true,
+        "baseline_excluded": true
+      }
+    ]
+  },
+  "new_reservoir_calibration": false,
+  "new_SPX_pricing": false,
+  "baseline_replaced": false,
+  "limitations": [
+    "Exact computation applies to archived decimal price inputs and stated moment/forward assumptions, not a global market-arbitrage claim.",
+    "Prepared documents/email are reported evidence; Othmane code and actual pricing outputs not independently reproduced.",
+    "Marginal LP fits do not imply a coherent multi-maturity reservoir/stock model."
+  ],
+  "artifact_sha256": {
+    "email-image-06.png": "4c67aa24d90d1ba2ecd69c0d378e23c8ee402a1733e1e4dcc285de5f18ba2a24",
+    "email-image-07.png": "636ba6577d942b000b2a4029ee31ead440a6032287f9f11e0f55ebfa1a68f29e",
+    "marginal_prices_d55_fixed.csv": "ffb8d1b43991dd3f506153813447a094711a339db873f75c4dd83dda01e8aaa2",
+    "variance-budget.png": "e1001d4211a794683dbd95a89478398fd32780704dc5cbf0e4b2212893ad6c0a",
+    "email-image-05.png": "fbce3a3884d4ec9fd1606e191330c0864f2770dd592d72ccc8e7639246b94f9b",
+    "moment_certificate_attempt_001.py": "ed60635863ca32b074f3ad9fdef940f9466a7c3311d5ce1a39230ac1fdbbdec2",
+    "email-image-04.png": "ecd63ad2fce031050176d89fe3fb7492b12d767f1918fda3b4f85237aa275613",
+    "marginal_prices_d153_fixed.csv": "6c210795e662467e621921487fef2c7b228c9b0c15793e6f1f09522e7fe8aab4",
+    "distribution_feasibility.log": "2f8558ecd3e61d58cbb8245bf08c7defbf3721de8662df352cde0efd59b49780",
+    "email_images.json": "f654645c33e246b0cb8304ba4259e7c0ade2c21087ca157bf58194182537268a",
+    "moment_certificate_audit_canonical.json": "eb48ff1d399b9b26b8c2f010359a62c17a111acf3b03eafb7f8825184a0570a5",
+    "marginal_d118_fixed.csv": "c50be0cc569eea826209d133cd1f412ec76cfa07ec65bff48c357e893f28ee6f",
+    "moment_certificate_attempt_001.log": "9ce1fe67eb3b57c4962aa2fd633dc7ea0ce68aac944ec0ec1179fbd601e85ada",
+    "moment_certificate_canonical.log": "3f92b82e4235bc599c4931eb39538c0bf2103d869ca0076671ab25c5596f9d28",
+    "distribution_feasibility.py": "077d887509ebe3888fd964d050b46751c383875fae8ad4800d62dca0673e0c28",
+    "marginal_prices_d118_free.csv": "5ca094b656b4abe2dcd9cc01f1e978a5fbfe05e8ff3fc5441dde953ec4a30421",
+    "marginal_prices_d55_free.csv": "5bd8b718aa18fc07019cc93a5e8e741bb99fc0908c68428069acbcd92a410e91",
+    "marginal_d153_free.csv": "c96589436a3db7a40aa706671ee8e996fdbb03dd37e866c742385a8466907bb7",
+    "marginal_d27_free.csv": "9a414859863246243253a39e110e32f1585658dcd317a962f8b69f1f5e3e1228",
+    "moment_certificate_audit.json": "eb48ff1d399b9b26b8c2f010359a62c17a111acf3b03eafb7f8825184a0570a5",
+    "variance-budget.svg": "2b782102fffdb31c571c275f2c13e2f69397ba75c926937f168dc2903a76f0d1",
+    "marginal_d27_fixed.csv": "94d128958464bdf1ef31e994f1fcfda67c8e5f5743959ce2979d73f2c25953f6",
+    "marginal_d55_fixed.csv": "5eed5339e072454991effbf17eb387574d97de9973cd77e0269852bb0728f0be",
+    "strike-range-comparison.svg": "9155f09694764c9628ba74f26267eecba36194f74650b03521e745b13e293c3b",
+    "moment_certificates.json": "e99c8a58fc14e2f91e1248fe6dd2dc5a4517e4a1cebd0b11d85696354bb84266",
+    "marginal_d55_free.csv": "1e922f62576453422f217c1892170f326e24711e1a77229b825e8b8302ae1ab1",
+    "marginal_prices_d118_fixed.csv": "8d9fcfdc4904e305c0dace733fae7315a80599fd9375c89f763f6872f932fa04",
+    "email_body.txt": "45eab9b208f4c8ac26504d35049334db0032913fd814d4089323c40811c9c1d6",
+    "plot_research.py": "b25d89123085773571c77e9f60b78ac967fc06165452af3b4e2303b23eec3e11",
+    "marginal_prices_d27_free.csv": "2cd26ff790486d654ad8d90d5ae2a750516471e098b2741edc08cc4376a82756",
+    "moment_certificates_canonical.json": "9ff7c594aeb7d7cd39e9f582fb232c72d45c643ee5af317406890631c37b5257",
+    "moment_certificate.py": "030248eb7770ec90757091ca6bf71eae2a4c7bbd13bb84a89a00fe1caadaf375",
+    "email-contact.png": "181f18125a0aa663dd38d590056e3c069d4a9fbd80f1fb8f2699763761726518",
+    "plot_research.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "marginal_d118_free.csv": "2d67f2bb7ba74920409a7e16247e5da4a93ecf6fe5b5d8537baf4797eb0b63ca",
+    "distribution_feasibility.json": "8cef8bb54f570fafe18e3f072199c1338371132ecb5957a2cc2e1ca3009a71ad",
+    "strike-range-comparison.png": "7412ed503703f911569479054e22b46ac8b09b72f02b80081fa954fa1f004ab7",
+    "email-image-09.png": "dd96db7509e1cad35b20baafaf69a50166adea94b9a629503458191e6ab898bf",
+    "environment.json": "c481f30d92c6b095d6028cae7048a91e75212fc3e89c2ce6bd69f8610e2b1366",
+    "email-image-08.png": "2d3f98cb47c2a75db2ae019665f49398a434abca46fa4337d2736838cd590ebf",
+    "marginal_prices_d153_free.csv": "5de35540f2af860648d3f61c54f95568e24df7a8b31d2eb884e25af9eb60bc38",
+    "marginal_d153_fixed.csv": "69d40ff3f1ca27077de9a07c070dde82fe1bdaea825344d005c25710ea19b8e9",
+    "moment_certificate_native.log": "3f92b82e4235bc599c4931eb39538c0bf2103d869ca0076671ab25c5596f9d28",
+    "marginal_prices_d27_fixed.csv": "15d191d09b285092964122d650e0449da4d0516b912ebd43b523a009d91b1ff0"
+  },
+  "independent_input_mapping_check": "All12 certificates independently matched to original native strikes/sides/bid/ask data; serialized exact payoff checks repeated; elementary quadratic boundary test passed."
+}

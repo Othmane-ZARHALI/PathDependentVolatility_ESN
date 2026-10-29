@@ -1,0 +1,188 @@
+{
+  "source_hashes_replayed": 58,
+  "unique_pilot_search_check_seeds": 200,
+  "searching_and_fresh_quote_scores_replayed": 7056,
+  "paired_fresh_loss": {
+    "selected_minus_anchor": -250.80352669501934,
+    "descriptive_block_jackknife_se": 40.500081040172816,
+    "leave_one_block_range": [
+      -263.2386176770881,
+      -232.26689654117075
+    ],
+    "blocks": 24,
+    "caveat": "Nonlinear loss jackknife with few blocks and unresolved tails; not a calibrated confidence certificate."
+  },
+  "scope": {
+    "spx_priority": 707,
+    "spx_wing_diagnostics": 273,
+    "vix_options": 175,
+    "vix_maturities": [
+      27,
+      55,
+      118,
+      153
+    ],
+    "vix_forwards": 4
+  },
+  "score_audit": [
+    {
+      "role": "search",
+      "trial": 0,
+      "candidate": "anchor",
+      "total": 637.3158199858135,
+      "components": {
+        "SPX": 571.5789986650117,
+        "VIX": 64.68511504367002,
+        "forwards": 1.0517011895841268,
+        "curve_penalty": 5.0875476702201594e-06
+      },
+      "negatives": 0,
+      "nominal_se_passes": 19,
+      "inside_count": 38,
+      "median_se_over_scale": 3.6172896648488555
+    },
+    {
+      "role": "search",
+      "trial": 0,
+      "candidate": "selected",
+      "total": 333.67640361081453,
+      "components": {
+        "SPX": 227.10273236128208,
+        "VIX": 90.31531048371444,
+        "forwards": 16.258205859821548,
+        "curve_penalty": 0.00015490599648504636
+      },
+      "negatives": 0,
+      "nominal_se_passes": 15,
+      "inside_count": 44,
+      "median_se_over_scale": 3.9672209492054566
+    },
+    {
+      "role": "fresh",
+      "trial": 0,
+      "candidate": "anchor",
+      "total": 565.2015803970056,
+      "components": {
+        "SPX": 500.8209776345378,
+        "VIX": 63.61309320193995,
+        "forwards": 0.7675044729801292,
+        "curve_penalty": 5.0875476702201594e-06
+      },
+      "negatives": 0,
+      "nominal_se_passes": 23,
+      "inside_count": 48,
+      "median_se_over_scale": 3.3911868231995643
+    },
+    {
+      "role": "fresh",
+      "trial": 0,
+      "candidate": "selected",
+      "total": 369.0913532887861,
+      "components": {
+        "SPX": 273.0968850331119,
+        "VIX": 81.7937664140206,
+        "forwards": 14.200546935657108,
+        "curve_penalty": 0.00015490599648504636
+      },
+      "negatives": 0,
+      "nominal_se_passes": 18,
+      "inside_count": 51,
+      "median_se_over_scale": 3.6921027312435193
+    },
+    {
+      "role": "fresh",
+      "trial": 1,
+      "candidate": "anchor",
+      "total": 644.1134190877707,
+      "components": {
+        "SPX": 569.6614126417392,
+        "VIX": 73.17199559151155,
+        "forwards": 1.280005766972284,
+        "curve_penalty": 5.0875476702201594e-06
+      },
+      "negatives": 0,
+      "nominal_se_passes": 20,
+      "inside_count": 32,
+      "median_se_over_scale": 4.111457444625778
+    },
+    {
+      "role": "fresh",
+      "trial": 1,
+      "candidate": "selected",
+      "total": 363.71403105734305,
+      "components": {
+        "SPX": 258.05660081455727,
+        "VIX": 91.98351405455244,
+        "forwards": 13.673761282236873,
+        "curve_penalty": 0.00015490599648504636
+      },
+      "negatives": 0,
+      "nominal_se_passes": 15,
+      "inside_count": 31,
+      "median_se_over_scale": 4.483264792843855
+    },
+    {
+      "role": "fresh",
+      "trial": 2,
+      "candidate": "anchor",
+      "total": 662.7354455552486,
+      "components": {
+        "SPX": 594.1584365673123,
+        "VIX": 67.9612508866955,
+        "forwards": 0.6157530136932052,
+        "curve_penalty": 5.0875476702201594e-06
+      },
+      "negatives": 0,
+      "nominal_se_passes": 21,
+      "inside_count": 56,
+      "median_se_over_scale": 3.5897963054391777
+    },
+    {
+      "role": "fresh",
+      "trial": 2,
+      "candidate": "selected",
+      "total": 416.38271404234354,
+      "components": {
+        "SPX": 322.05562864573346,
+        "VIX": 82.55444106962848,
+        "forwards": 11.77248942098508,
+        "curve_penalty": 0.00015490599648504636
+      },
+      "negatives": 0,
+      "nominal_se_passes": 19,
+      "inside_count": 43,
+      "median_se_over_scale": 3.9400396567712326
+    },
+    {
+      "role": "fresh_pooled",
+      "candidate": "anchor",
+      "total": 597.901909611669,
+      "components": {
+        "SPX": 529.1980325368494,
+        "VIX": 67.87919795567547,
+        "forwards": 0.8246740315964827,
+        "curve_penalty": 5.0875476702201594e-06
+      },
+      "negatives": 0,
+      "nominal_se_passes": 33,
+      "inside_count": 41,
+      "median_se_over_scale": 2.1913037372323885
+    },
+    {
+      "role": "fresh_pooled",
+      "candidate": "selected",
+      "total": 347.09838291664965,
+      "components": {
+        "SPX": 249.0437188123998,
+        "VIX": 84.91464155108858,
+        "forwards": 13.13986764716482,
+        "curve_penalty": 0.00015490599648504636
+      },
+      "negatives": 0,
+      "nominal_se_passes": 27,
+      "inside_count": 50,
+      "median_se_over_scale": 2.385262076340913
+    }
+  ],
+  "final_status": "Exploratory fit only; stock-grid, normalizer, conditional/time quadrature and rare-tail accuracy unresolved."
+}

@@ -1,0 +1,11 @@
+{
+  "maximum_scalar_stock_error": 0.0,
+  "steps": 97,
+  "candidates": 5,
+  "antithetic_partners": 2,
+  "grids": [
+    128,
+    256
+  ],
+  "scope": "finite scalar numerical recurrence audit, no continuous-time martingale theorem"
+}

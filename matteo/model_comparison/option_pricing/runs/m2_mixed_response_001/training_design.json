@@ -1,0 +1,406 @@
+{
+  "seeds": [
+    {
+      "day": 27,
+      "net": 0,
+      "replica": 0,
+      "seed": 2125464139375528812
+    },
+    {
+      "day": 27,
+      "net": 0,
+      "replica": 1,
+      "seed": 5573235231011237268
+    },
+    {
+      "day": 27,
+      "net": 1,
+      "replica": 0,
+      "seed": 13383065246214489458
+    },
+    {
+      "day": 27,
+      "net": 1,
+      "replica": 1,
+      "seed": 8860054108250903188
+    },
+    {
+      "day": 27,
+      "net": 2,
+      "replica": 0,
+      "seed": 9642121630961344227
+    },
+    {
+      "day": 27,
+      "net": 2,
+      "replica": 1,
+      "seed": 6941631189489786188
+    },
+    {
+      "day": 27,
+      "net": 3,
+      "replica": 0,
+      "seed": 789466198077731417
+    },
+    {
+      "day": 27,
+      "net": 3,
+      "replica": 1,
+      "seed": 8510270875295100999
+    },
+    {
+      "day": 27,
+      "net": 4,
+      "replica": 0,
+      "seed": 9613622492074092528
+    },
+    {
+      "day": 27,
+      "net": 4,
+      "replica": 1,
+      "seed": 16019439976136926780
+    },
+    {
+      "day": 27,
+      "net": 5,
+      "replica": 0,
+      "seed": 8765629091980925604
+    },
+    {
+      "day": 27,
+      "net": 5,
+      "replica": 1,
+      "seed": 13682303925834477858
+    },
+    {
+      "day": 27,
+      "net": 6,
+      "replica": 0,
+      "seed": 16458093166762600739
+    },
+    {
+      "day": 27,
+      "net": 6,
+      "replica": 1,
+      "seed": 13732518820865532817
+    },
+    {
+      "day": 27,
+      "net": 7,
+      "replica": 0,
+      "seed": 10085890586523314689
+    },
+    {
+      "day": 27,
+      "net": 7,
+      "replica": 1,
+      "seed": 15406615648701291418
+    },
+    {
+      "day": 55,
+      "net": 0,
+      "replica": 0,
+      "seed": 504747521051241780
+    },
+    {
+      "day": 55,
+      "net": 0,
+      "replica": 1,
+      "seed": 850834249638729696
+    },
+    {
+      "day": 55,
+      "net": 1,
+      "replica": 0,
+      "seed": 6345934322619226168
+    },
+    {
+      "day": 55,
+      "net": 1,
+      "replica": 1,
+      "seed": 17128427801253184492
+    },
+    {
+      "day": 55,
+      "net": 2,
+      "replica": 0,
+      "seed": 16775258354831041808
+    },
+    {
+      "day": 55,
+      "net": 2,
+      "replica": 1,
+      "seed": 8129407002313633970
+    },
+    {
+      "day": 55,
+      "net": 3,
+      "replica": 0,
+      "seed": 15862348554502418966
+    },
+    {
+      "day": 55,
+      "net": 3,
+      "replica": 1,
+      "seed": 12687795623762616969
+    },
+    {
+      "day": 55,
+      "net": 4,
+      "replica": 0,
+      "seed": 3529948407290191317
+    },
+    {
+      "day": 55,
+      "net": 4,
+      "replica": 1,
+      "seed": 17385416741065282512
+    },
+    {
+      "day": 55,
+      "net": 5,
+      "replica": 0,
+      "seed": 8100333852826954843
+    },
+    {
+      "day": 55,
+      "net": 5,
+      "replica": 1,
+      "seed": 14925859712121188603
+    },
+    {
+      "day": 55,
+      "net": 6,
+      "replica": 0,
+      "seed": 13177039484789365978
+    },
+    {
+      "day": 55,
+      "net": 6,
+      "replica": 1,
+      "seed": 15395519298042654369
+    },
+    {
+      "day": 55,
+      "net": 7,
+      "replica": 0,
+      "seed": 1485025694385600795
+    },
+    {
+      "day": 55,
+      "net": 7,
+      "replica": 1,
+      "seed": 14324458093730412287
+    },
+    {
+      "day": 118,
+      "net": 0,
+      "replica": 0,
+      "seed": 4715624921569224020
+    },
+    {
+      "day": 118,
+      "net": 0,
+      "replica": 1,
+      "seed": 2810748245373005396
+    },
+    {
+      "day": 118,
+      "net": 1,
+      "replica": 0,
+      "seed": 11946986459940528687
+    },
+    {
+      "day": 118,
+      "net": 1,
+      "replica": 1,
+      "seed": 12371618281026308129
+    },
+    {
+      "day": 118,
+      "net": 2,
+      "replica": 0,
+      "seed": 9041313029699912417
+    },
+    {
+      "day": 118,
+      "net": 2,
+      "replica": 1,
+      "seed": 14895936323317032499
+    },
+    {
+      "day": 118,
+      "net": 3,
+      "replica": 0,
+      "seed": 11775474063975382936
+    },
+    {
+      "day": 118,
+      "net": 3,
+      "replica": 1,
+      "seed": 7304543743759043822
+    },
+    {
+      "day": 118,
+      "net": 4,
+      "replica": 0,
+      "seed": 17712027265399464302
+    },
+    {
+      "day": 118,
+      "net": 4,
+      "replica": 1,
+      "seed": 4324930668872697765
+    },
+    {
+      "day": 118,
+      "net": 5,
+      "replica": 0,
+      "seed": 1181922494870988663
+    },
+    {
+      "day": 118,
+      "net": 5,
+      "replica": 1,
+      "seed": 6154422751983451399
+    },
+    {
+      "day": 118,
+      "net": 6,
+      "replica": 0,
+      "seed": 7333666063290456660
+    },
+    {
+      "day": 118,
+      "net": 6,
+      "replica": 1,
+      "seed": 6829007339413696124
+    },
+    {
+      "day": 118,
+      "net": 7,
+      "replica": 0,
+      "seed": 1832735371593357797
+    },
+    {
+      "day": 118,
+      "net": 7,
+      "replica": 1,
+      "seed": 11405633990400217658
+    },
+    {
+      "day": 153,
+      "net": 0,
+      "replica": 0,
+      "seed": 1187097570942962865
+    },
+    {
+      "day": 153,
+      "net": 0,
+      "replica": 1,
+      "seed": 13130829491566295952
+    },
+    {
+      "day": 153,
+      "net": 1,
+      "replica": 0,
+      "seed": 1395671542785580662
+    },
+    {
+      "day": 153,
+      "net": 1,
+      "replica": 1,
+      "seed": 15318903297691695149
+    },
+    {
+      "day": 153,
+      "net": 2,
+      "replica": 0,
+      "seed": 16755255281152618921
+    },
+    {
+      "day": 153,
+      "net": 2,
+      "replica": 1,
+      "seed": 11857590047980556608
+    },
+    {
+      "day": 153,
+      "net": 3,
+      "replica": 0,
+      "seed": 16771817223173459415
+    },
+    {
+      "day": 153,
+      "net": 3,
+      "replica": 1,
+      "seed": 18036478225936123077
+    },
+    {
+      "day": 153,
+      "net": 4,
+      "replica": 0,
+      "seed": 2329362022853887151
+    },
+    {
+      "day": 153,
+      "net": 4,
+      "replica": 1,
+      "seed": 4131631945499905118
+    },
+    {
+      "day": 153,
+      "net": 5,
+      "replica": 0,
+      "seed": 13032195650824866240
+    },
+    {
+      "day": 153,
+      "net": 5,
+      "replica": 1,
+      "seed": 12310036521211060086
+    },
+    {
+      "day": 153,
+      "net": 6,
+      "replica": 0,
+      "seed": 16249452305943274271
+    },
+    {
+      "day": 153,
+      "net": 6,
+      "replica": 1,
+      "seed": 11685016319572792607
+    },
+    {
+      "day": 153,
+      "net": 7,
+      "replica": 0,
+      "seed": 4380932390293142331
+    },
+    {
+      "day": 153,
+      "net": 7,
+      "replica": 1,
+      "seed": 13440136664045762810
+    }
+  ],
+  "old_cache": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/fresh_cache",
+  "old_nodes": "/Users/matteogambara/Desktop/code/PathDependentVolatility_ESN/matteo/model_comparison/option_pricing/runs/m2_postcap_vov_001/fresh_check/base_conditional_nodes.npz",
+  "replicas_per_old_state": 2,
+  "points_per_expiry": 8192,
+  "Z_shifts": [
+    0.0,
+    2.0,
+    4.0,
+    6.0
+  ],
+  "Z_probabilities": [
+    0.5,
+    0.25,
+    0.2,
+    0.05
+  ],
+  "weights": "w_old times exact independent Z target/proposal weight; no self normalization",
+  "independent_uncertainty_units": 8
+}
